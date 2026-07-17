@@ -26,133 +26,133 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Identity the access item is requested for.
  * @export
- * @interface Accessitemrequestedfor
+ * @interface AccessItemRequestedFor
  */
-export interface Accessitemrequestedfor {
+export interface AccessItemRequestedFor {
     /**
      * DTO type of identity the access item is requested for.
      * @type {string}
-     * @memberof Accessitemrequestedfor
+     * @memberof AccessItemRequestedFor
      */
-    'type'?: AccessitemrequestedforTypeEnum;
+    'type'?: AccessItemRequestedForTypeEnum;
     /**
      * ID of identity the access item is requested for.
      * @type {string}
-     * @memberof Accessitemrequestedfor
+     * @memberof AccessItemRequestedFor
      */
     'id'?: string;
     /**
      * Human-readable display name of identity the access item is requested for.
      * @type {string}
-     * @memberof Accessitemrequestedfor
+     * @memberof AccessItemRequestedFor
      */
     'name'?: string;
 }
 
-export const AccessitemrequestedforTypeEnum = {
+export const AccessItemRequestedForTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemrequestedforTypeEnum = typeof AccessitemrequestedforTypeEnum[keyof typeof AccessitemrequestedforTypeEnum];
+export type AccessItemRequestedForTypeEnum = typeof AccessItemRequestedForTypeEnum[keyof typeof AccessItemRequestedForTypeEnum];
 
 /**
  * Access item requester\'s identity.
  * @export
- * @interface Accessitemrequester
+ * @interface AccessItemRequester
  */
-export interface Accessitemrequester {
+export interface AccessItemRequester {
     /**
      * Access item requester\'s DTO type.
      * @type {string}
-     * @memberof Accessitemrequester
+     * @memberof AccessItemRequester
      */
-    'type'?: AccessitemrequesterTypeEnum;
+    'type'?: AccessItemRequesterTypeEnum;
     /**
      * Access item requester\'s identity ID.
      * @type {string}
-     * @memberof Accessitemrequester
+     * @memberof AccessItemRequester
      */
     'id'?: string;
     /**
      * Access item owner\'s human-readable display name.
      * @type {string}
-     * @memberof Accessitemrequester
+     * @memberof AccessItemRequester
      */
     'name'?: string;
 }
 
-export const AccessitemrequesterTypeEnum = {
+export const AccessItemRequesterTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemrequesterTypeEnum = typeof AccessitemrequesterTypeEnum[keyof typeof AccessitemrequesterTypeEnum];
+export type AccessItemRequesterTypeEnum = typeof AccessItemRequesterTypeEnum[keyof typeof AccessItemRequesterTypeEnum];
 
 /**
  * Identity who reviewed the access item request.
  * @export
- * @interface Accessitemreviewedby
+ * @interface AccessItemReviewedBy
  */
-export interface Accessitemreviewedby {
+export interface AccessItemReviewedBy {
     /**
      * DTO type of identity who reviewed the access item request.
      * @type {string}
-     * @memberof Accessitemreviewedby
+     * @memberof AccessItemReviewedBy
      */
-    'type'?: AccessitemreviewedbyTypeEnum;
+    'type'?: AccessItemReviewedByTypeEnum;
     /**
      * ID of identity who reviewed the access item request.
      * @type {string}
-     * @memberof Accessitemreviewedby
+     * @memberof AccessItemReviewedBy
      */
     'id'?: string;
     /**
      * Human-readable display name of identity who reviewed the access item request.
      * @type {string}
-     * @memberof Accessitemreviewedby
+     * @memberof AccessItemReviewedBy
      */
     'name'?: string;
 }
 
-export const AccessitemreviewedbyTypeEnum = {
+export const AccessItemReviewedByTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemreviewedbyTypeEnum = typeof AccessitemreviewedbyTypeEnum[keyof typeof AccessitemreviewedbyTypeEnum];
+export type AccessItemReviewedByTypeEnum = typeof AccessItemReviewedByTypeEnum[keyof typeof AccessItemReviewedByTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestapproverslistresponse
+ * @interface AccessRequestApproversListResponse
  */
-export interface Accessrequestapproverslistresponse {
+export interface AccessRequestApproversListResponse {
     /**
      * Approver id.
      * @type {string}
-     * @memberof Accessrequestapproverslistresponse
+     * @memberof AccessRequestApproversListResponse
      */
     'id'?: string;
     /**
      * Email of the approver.
      * @type {string}
-     * @memberof Accessrequestapproverslistresponse
+     * @memberof AccessRequestApproversListResponse
      */
     'email'?: string;
     /**
      * Name of the approver.
      * @type {string}
-     * @memberof Accessrequestapproverslistresponse
+     * @memberof AccessRequestApproversListResponse
      */
     'name'?: string;
     /**
      * Id of the approval item.
      * @type {string}
-     * @memberof Accessrequestapproverslistresponse
+     * @memberof AccessRequestApproversListResponse
      */
     'approvalId'?: string;
     /**
      * Type of the object returned. In this case, the value for this field will always Identity.
      * @type {string}
-     * @memberof Accessrequestapproverslistresponse
+     * @memberof AccessRequestApproversListResponse
      */
     'type'?: string;
 }
@@ -162,359 +162,359 @@ export interface Accessrequestapproverslistresponse {
  * @enum {string}
  */
 
-export const Accessrequesttype = {
+export const AccessRequestType = {
     GrantAccess: 'GRANT_ACCESS',
     RevokeAccess: 'REVOKE_ACCESS',
     ModifyAccess: 'MODIFY_ACCESS'
 } as const;
 
-export type Accessrequesttype = typeof Accessrequesttype[keyof typeof Accessrequesttype];
+export type AccessRequestType = typeof AccessRequestType[keyof typeof AccessRequestType];
 
 
 /**
  * 
  * @export
- * @interface Approvalforwardhistory
+ * @interface ApprovalForwardHistory
  */
-export interface Approvalforwardhistory {
+export interface ApprovalForwardHistory {
     /**
      * Display name of approver from whom the approval was forwarded.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'oldApproverName'?: string;
     /**
      * Display name of approver to whom the approval was forwarded.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'newApproverName'?: string;
     /**
      * Comment made while forwarding.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'comment'?: string | null;
     /**
      * Time at which approval was forwarded.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'modified'?: string;
     /**
      * Display name of forwarder who forwarded the approval.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'forwarderName'?: string | null;
     /**
      * 
-     * @type {Reassignmenttype}
-     * @memberof Approvalforwardhistory
+     * @type {ReassignmentType}
+     * @memberof ApprovalForwardHistory
      */
-    'reassignmentType'?: Reassignmenttype;
+    'reassignmentType'?: ReassignmentType;
 }
 
 
 /**
  * 
  * @export
- * @interface Approvalsummary
+ * @interface ApprovalSummary
  */
-export interface Approvalsummary {
+export interface ApprovalSummary {
     /**
      * The number of pending access requests approvals.
      * @type {number}
-     * @memberof Approvalsummary
+     * @memberof ApprovalSummary
      */
     'pending'?: number;
     /**
      * The number of approved access requests approvals.
      * @type {number}
-     * @memberof Approvalsummary
+     * @memberof ApprovalSummary
      */
     'approved'?: number;
     /**
      * The number of rejected access requests approvals.
      * @type {number}
-     * @memberof Approvalsummary
+     * @memberof ApprovalSummary
      */
     'rejected'?: number;
 }
 /**
  * 
  * @export
- * @interface Commentdto
+ * @interface CommentDto
  */
-export interface Commentdto {
+export interface CommentDto {
     /**
      * Comment content.
      * @type {string}
-     * @memberof Commentdto
+     * @memberof CommentDto
      */
     'comment'?: string | null;
     /**
      * Date and time comment was created.
      * @type {string}
-     * @memberof Commentdto
+     * @memberof CommentDto
      */
     'created'?: string;
     /**
      * 
-     * @type {CommentdtoAuthor}
-     * @memberof Commentdto
+     * @type {CommentDtoAuthor}
+     * @memberof CommentDto
      */
-    'author'?: CommentdtoAuthor;
+    'author'?: CommentDtoAuthor;
 }
 /**
  * Author of the comment
  * @export
- * @interface CommentdtoAuthor
+ * @interface CommentDtoAuthor
  */
-export interface CommentdtoAuthor {
+export interface CommentDtoAuthor {
     /**
      * The type of object
      * @type {string}
-     * @memberof CommentdtoAuthor
+     * @memberof CommentDtoAuthor
      */
-    'type'?: CommentdtoAuthorTypeEnum;
+    'type'?: CommentDtoAuthorTypeEnum;
     /**
      * The unique ID of the object
      * @type {string}
-     * @memberof CommentdtoAuthor
+     * @memberof CommentDtoAuthor
      */
     'id'?: string;
     /**
      * The display name of the object
      * @type {string}
-     * @memberof CommentdtoAuthor
+     * @memberof CommentDtoAuthor
      */
     'name'?: string;
 }
 
-export const CommentdtoAuthorTypeEnum = {
+export const CommentDtoAuthorTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type CommentdtoAuthorTypeEnum = typeof CommentdtoAuthorTypeEnum[keyof typeof CommentdtoAuthorTypeEnum];
+export type CommentDtoAuthorTypeEnum = typeof CommentDtoAuthorTypeEnum[keyof typeof CommentDtoAuthorTypeEnum];
 
 /**
  * 
  * @export
- * @interface Completedapproval
+ * @interface CompletedApproval
  */
-export interface Completedapproval {
+export interface CompletedApproval {
     /**
      * The approval id.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'id'?: string;
     /**
      * The name of the approval.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'name'?: string;
     /**
      * When the approval was created.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'created'?: string;
     /**
      * When the approval was modified last time.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'modified'?: string;
     /**
      * When the access-request was created.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'requestCreated'?: string;
     /**
      * 
-     * @type {Accessrequesttype}
-     * @memberof Completedapproval
+     * @type {AccessRequestType}
+     * @memberof CompletedApproval
      */
-    'requestType'?: Accessrequesttype | null;
+    'requestType'?: AccessRequestType | null;
     /**
      * 
-     * @type {Accessitemrequester}
-     * @memberof Completedapproval
+     * @type {AccessItemRequester}
+     * @memberof CompletedApproval
      */
-    'requester'?: Accessitemrequester;
+    'requester'?: AccessItemRequester;
     /**
      * 
-     * @type {CompletedapprovalRequestedFor}
-     * @memberof Completedapproval
+     * @type {CompletedApprovalRequestedFor}
+     * @memberof CompletedApproval
      */
-    'requestedFor'?: CompletedapprovalRequestedFor;
+    'requestedFor'?: CompletedApprovalRequestedFor;
     /**
      * 
-     * @type {Accessitemreviewedby}
-     * @memberof Completedapproval
+     * @type {AccessItemReviewedBy}
+     * @memberof CompletedApproval
      */
-    'reviewedBy'?: Accessitemreviewedby;
+    'reviewedBy'?: AccessItemReviewedBy;
     /**
      * 
-     * @type {Ownerdto}
-     * @memberof Completedapproval
+     * @type {OwnerDto}
+     * @memberof CompletedApproval
      */
-    'owner'?: Ownerdto;
+    'owner'?: OwnerDto;
     /**
      * 
-     * @type {Requestableobjectreference}
-     * @memberof Completedapproval
+     * @type {RequestableObjectReference}
+     * @memberof CompletedApproval
      */
-    'requestedObject'?: Requestableobjectreference;
+    'requestedObject'?: RequestableObjectReference;
     /**
      * 
-     * @type {CompletedapprovalRequesterComment}
-     * @memberof Completedapproval
+     * @type {CompletedApprovalRequesterComment}
+     * @memberof CompletedApproval
      */
-    'requesterComment'?: CompletedapprovalRequesterComment;
+    'requesterComment'?: CompletedApprovalRequesterComment;
     /**
      * 
-     * @type {CompletedapprovalReviewerComment}
-     * @memberof Completedapproval
+     * @type {CompletedApprovalReviewerComment}
+     * @memberof CompletedApproval
      */
-    'reviewerComment'?: CompletedapprovalReviewerComment;
+    'reviewerComment'?: CompletedApprovalReviewerComment;
     /**
      * The history of the previous reviewers comments.
-     * @type {Array<Commentdto>}
-     * @memberof Completedapproval
+     * @type {Array<CommentDto>}
+     * @memberof CompletedApproval
      */
-    'previousReviewersComments'?: Array<Commentdto>;
+    'previousReviewersComments'?: Array<CommentDto>;
     /**
      * The history of approval forward action.
-     * @type {Array<Approvalforwardhistory>}
-     * @memberof Completedapproval
+     * @type {Array<ApprovalForwardHistory>}
+     * @memberof CompletedApproval
      */
-    'forwardHistory'?: Array<Approvalforwardhistory>;
+    'forwardHistory'?: Array<ApprovalForwardHistory>;
     /**
      * When true the rejector has to provide comments when rejecting
      * @type {boolean}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'commentRequiredWhenRejected'?: boolean;
     /**
      * 
-     * @type {Completedapprovalstate}
-     * @memberof Completedapproval
+     * @type {CompletedApprovalState}
+     * @memberof CompletedApproval
      */
-    'state'?: Completedapprovalstate;
+    'state'?: CompletedApprovalState;
     /**
      * The date the role or access profile or entitlement is no longer assigned to the specified identity.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'removeDate'?: string | null;
     /**
      * If true, then the request was to change the remove date or sunset date.
      * @type {boolean}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'removeDateUpdateRequested'?: boolean;
     /**
      * The remove date or sunset date that was assigned at the time of the request.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'currentRemoveDate'?: string | null;
     /**
      * The date the role or access profile or entitlement is/will assigned to the specified identity.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'startDate'?: string;
     /**
      * If true, then the request is to change the start date or sunrise date.
      * @type {boolean}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'startUpdateRequested'?: boolean;
     /**
      * The start date or sunrise date that was assigned at the time of the request.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'currentStartDate'?: string;
     /**
      * 
-     * @type {Sodviolationcontextcheckcompleted}
-     * @memberof Completedapproval
+     * @type {SodViolationContextCheckCompleted}
+     * @memberof CompletedApproval
      */
-    'sodViolationContext'?: Sodviolationcontextcheckcompleted | null;
+    'sodViolationContext'?: SodViolationContextCheckCompleted | null;
     /**
      * 
-     * @type {CompletedapprovalPreApprovalTriggerResult}
-     * @memberof Completedapproval
+     * @type {CompletedApprovalPreApprovalTriggerResult}
+     * @memberof CompletedApproval
      */
-    'preApprovalTriggerResult'?: CompletedapprovalPreApprovalTriggerResult | null;
+    'preApprovalTriggerResult'?: CompletedApprovalPreApprovalTriggerResult | null;
     /**
      * Arbitrary key-value pairs provided during the request.
      * @type {{ [key: string]: string; }}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'clientMetadata'?: { [key: string]: string; };
     /**
      * The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
-     * @type {Array<Requestedaccountref>}
-     * @memberof Completedapproval
+     * @type {Array<RequestedAccountRef>}
+     * @memberof CompletedApproval
      */
-    'requestedAccounts'?: Array<Requestedaccountref> | null;
+    'requestedAccounts'?: Array<RequestedAccountRef> | null;
     /**
      * The privilege level of the requested access item, if applicable.
      * @type {string}
-     * @memberof Completedapproval
+     * @memberof CompletedApproval
      */
     'privilegeLevel'?: string | null;
     /**
      * 
-     * @type {PendingapprovalMaxPermittedAccessDuration}
-     * @memberof Completedapproval
+     * @type {PendingApprovalMaxPermittedAccessDuration}
+     * @memberof CompletedApproval
      */
-    'maxPermittedAccessDuration'?: PendingapprovalMaxPermittedAccessDuration | null;
+    'maxPermittedAccessDuration'?: PendingApprovalMaxPermittedAccessDuration | null;
     /**
      * JIT (Just-In-Time) details for the requested access item, if applicable.
-     * @type {Array<Entitlementstatesnapshotjitdetail>}
-     * @memberof Completedapproval
+     * @type {Array<EntitlementStateSnapshotJitDetail>}
+     * @memberof CompletedApproval
      */
-    'jitDetails'?: Array<Entitlementstatesnapshotjitdetail> | null;
+    'jitDetails'?: Array<EntitlementStateSnapshotJitDetail> | null;
 }
 
 
 /**
  * If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger\'s decision to either approve or deny the request.
  * @export
- * @interface CompletedapprovalPreApprovalTriggerResult
+ * @interface CompletedApprovalPreApprovalTriggerResult
  */
-export interface CompletedapprovalPreApprovalTriggerResult {
+export interface CompletedApprovalPreApprovalTriggerResult {
     /**
      * The comment from the trigger
      * @type {string}
-     * @memberof CompletedapprovalPreApprovalTriggerResult
+     * @memberof CompletedApprovalPreApprovalTriggerResult
      */
     'comment'?: string;
     /**
      * 
-     * @type {Completedapprovalstate}
-     * @memberof CompletedapprovalPreApprovalTriggerResult
+     * @type {CompletedApprovalState}
+     * @memberof CompletedApprovalPreApprovalTriggerResult
      */
-    'decision'?: Completedapprovalstate;
+    'decision'?: CompletedApprovalState;
     /**
      * The name of the approver
      * @type {string}
-     * @memberof CompletedapprovalPreApprovalTriggerResult
+     * @memberof CompletedApprovalPreApprovalTriggerResult
      */
     'reviewer'?: string;
     /**
      * The date and time the trigger decided on the request
      * @type {string}
-     * @memberof CompletedapprovalPreApprovalTriggerResult
+     * @memberof CompletedApprovalPreApprovalTriggerResult
      */
     'date'?: string;
 }
@@ -523,84 +523,84 @@ export interface CompletedapprovalPreApprovalTriggerResult {
 /**
  * Identity access was requested for.
  * @export
- * @interface CompletedapprovalRequestedFor
+ * @interface CompletedApprovalRequestedFor
  */
-export interface CompletedapprovalRequestedFor {
+export interface CompletedApprovalRequestedFor {
     /**
      * Type of the object to which this reference applies
      * @type {string}
-     * @memberof CompletedapprovalRequestedFor
+     * @memberof CompletedApprovalRequestedFor
      */
-    'type'?: CompletedapprovalRequestedForTypeEnum;
+    'type'?: CompletedApprovalRequestedForTypeEnum;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof CompletedapprovalRequestedFor
+     * @memberof CompletedApprovalRequestedFor
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof CompletedapprovalRequestedFor
+     * @memberof CompletedApprovalRequestedFor
      */
     'name'?: string;
 }
 
-export const CompletedapprovalRequestedForTypeEnum = {
+export const CompletedApprovalRequestedForTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type CompletedapprovalRequestedForTypeEnum = typeof CompletedapprovalRequestedForTypeEnum[keyof typeof CompletedapprovalRequestedForTypeEnum];
+export type CompletedApprovalRequestedForTypeEnum = typeof CompletedApprovalRequestedForTypeEnum[keyof typeof CompletedApprovalRequestedForTypeEnum];
 
 /**
  * 
  * @export
- * @interface CompletedapprovalRequesterComment
+ * @interface CompletedApprovalRequesterComment
  */
-export interface CompletedapprovalRequesterComment {
+export interface CompletedApprovalRequesterComment {
     /**
      * Comment content.
      * @type {string}
-     * @memberof CompletedapprovalRequesterComment
+     * @memberof CompletedApprovalRequesterComment
      */
     'comment'?: string | null;
     /**
      * Date and time comment was created.
      * @type {string}
-     * @memberof CompletedapprovalRequesterComment
+     * @memberof CompletedApprovalRequesterComment
      */
     'created'?: string;
     /**
      * 
-     * @type {CommentdtoAuthor}
-     * @memberof CompletedapprovalRequesterComment
+     * @type {CommentDtoAuthor}
+     * @memberof CompletedApprovalRequesterComment
      */
-    'author'?: CommentdtoAuthor;
+    'author'?: CommentDtoAuthor;
 }
 /**
  * 
  * @export
- * @interface CompletedapprovalReviewerComment
+ * @interface CompletedApprovalReviewerComment
  */
-export interface CompletedapprovalReviewerComment {
+export interface CompletedApprovalReviewerComment {
     /**
      * Comment content.
      * @type {string}
-     * @memberof CompletedapprovalReviewerComment
+     * @memberof CompletedApprovalReviewerComment
      */
     'comment'?: string | null;
     /**
      * Date and time comment was created.
      * @type {string}
-     * @memberof CompletedapprovalReviewerComment
+     * @memberof CompletedApprovalReviewerComment
      */
     'created'?: string;
     /**
      * 
-     * @type {CommentdtoAuthor}
-     * @memberof CompletedapprovalReviewerComment
+     * @type {CommentDtoAuthor}
+     * @memberof CompletedApprovalReviewerComment
      */
-    'author'?: CommentdtoAuthor;
+    'author'?: CommentDtoAuthor;
 }
 /**
  * Enum represents completed approval object\'s state.
@@ -608,12 +608,12 @@ export interface CompletedapprovalReviewerComment {
  * @enum {string}
  */
 
-export const Completedapprovalstate = {
+export const CompletedApprovalState = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type Completedapprovalstate = typeof Completedapprovalstate[keyof typeof Completedapprovalstate];
+export type CompletedApprovalState = typeof CompletedApprovalState[keyof typeof CompletedApprovalState];
 
 
 /**
@@ -622,7 +622,7 @@ export type Completedapprovalstate = typeof Completedapprovalstate[keyof typeof 
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -654,58 +654,58 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * A single JIT entitlement snapshot entry from the provisioning plan.
  * @export
- * @interface Entitlementstatesnapshotjitdetail
+ * @interface EntitlementStateSnapshotJitDetail
  */
-export interface Entitlementstatesnapshotjitdetail {
+export interface EntitlementStateSnapshotJitDetail {
     [key: string]: any;
 
     /**
      * Application id for the entitlement attribute (same as EntitlementStateSnapshot.applicationId).
      * @type {string}
-     * @memberof Entitlementstatesnapshotjitdetail
+     * @memberof EntitlementStateSnapshotJitDetail
      */
     'applicationId'?: string;
     /**
      * Account attribute name for the entitlement (EntitlementStateSnapshot.attributeName).
      * @type {string}
-     * @memberof Entitlementstatesnapshotjitdetail
+     * @memberof EntitlementStateSnapshotJitDetail
      */
     'attributeName'?: string;
     /**
      * Entitlement values for that attribute (EntitlementStateSnapshot.attributeValues).
      * @type {Array<string>}
-     * @memberof Entitlementstatesnapshotjitdetail
+     * @memberof EntitlementStateSnapshotJitDetail
      */
     'attributeValues'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -714,50 +714,50 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
  * @export
- * @interface Forwardapprovaldto
+ * @interface ForwardApprovalDto
  */
-export interface Forwardapprovaldto {
+export interface ForwardApprovalDto {
     /**
      * The Id of the new owner
      * @type {string}
-     * @memberof Forwardapprovaldto
+     * @memberof ForwardApprovalDto
      */
     'newOwnerId': string;
     /**
      * The comment provided by the forwarder
      * @type {string}
-     * @memberof Forwardapprovaldto
+     * @memberof ForwardApprovalDto
      */
     'comment': string;
 }
@@ -793,283 +793,222 @@ export interface ListPendingApprovalsV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Owner\'s identity.
  * @export
- * @interface Ownerdto
+ * @interface OwnerDto
  */
-export interface Ownerdto {
+export interface OwnerDto {
     /**
      * Owner\'s DTO type.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
-    'type'?: OwnerdtoTypeEnum;
+    'type'?: OwnerDtoTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
     'id'?: string;
     /**
      * Owner\'s name.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
     'name'?: string;
 }
 
-export const OwnerdtoTypeEnum = {
+export const OwnerDtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerdtoTypeEnum = typeof OwnerdtoTypeEnum[keyof typeof OwnerdtoTypeEnum];
+export type OwnerDtoTypeEnum = typeof OwnerDtoTypeEnum[keyof typeof OwnerDtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface Pendingapproval
+ * @interface PendingApproval
  */
-export interface Pendingapproval {
+export interface PendingApproval {
     /**
      * The approval id.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'id'?: string;
     /**
      * This is the access request id.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'accessRequestId'?: string;
     /**
      * The name of the approval.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'name'?: string;
     /**
      * When the approval was created.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'created'?: string;
     /**
      * When the approval was modified last time.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'modified'?: string;
     /**
      * When the access-request was created.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'requestCreated'?: string;
     /**
      * 
-     * @type {Accessrequesttype}
-     * @memberof Pendingapproval
+     * @type {AccessRequestType}
+     * @memberof PendingApproval
      */
-    'requestType'?: Accessrequesttype | null;
+    'requestType'?: AccessRequestType | null;
     /**
      * 
-     * @type {Accessitemrequester}
-     * @memberof Pendingapproval
+     * @type {AccessItemRequester}
+     * @memberof PendingApproval
      */
-    'requester'?: Accessitemrequester;
+    'requester'?: AccessItemRequester;
     /**
      * 
-     * @type {Accessitemrequestedfor}
-     * @memberof Pendingapproval
+     * @type {AccessItemRequestedFor}
+     * @memberof PendingApproval
      */
-    'requestedFor'?: Accessitemrequestedfor;
+    'requestedFor'?: AccessItemRequestedFor;
     /**
      * 
-     * @type {PendingapprovalOwner}
-     * @memberof Pendingapproval
+     * @type {PendingApprovalOwner}
+     * @memberof PendingApproval
      */
-    'owner'?: PendingapprovalOwner;
+    'owner'?: PendingApprovalOwner;
     /**
      * 
-     * @type {Requestableobjectreference}
-     * @memberof Pendingapproval
+     * @type {RequestableObjectReference}
+     * @memberof PendingApproval
      */
-    'requestedObject'?: Requestableobjectreference;
+    'requestedObject'?: RequestableObjectReference;
     /**
      * 
-     * @type {Commentdto}
-     * @memberof Pendingapproval
+     * @type {CommentDto}
+     * @memberof PendingApproval
      */
-    'requesterComment'?: Commentdto;
+    'requesterComment'?: CommentDto;
     /**
      * The history of the previous reviewers comments.
-     * @type {Array<Commentdto>}
-     * @memberof Pendingapproval
+     * @type {Array<CommentDto>}
+     * @memberof PendingApproval
      */
-    'previousReviewersComments'?: Array<Commentdto>;
+    'previousReviewersComments'?: Array<CommentDto>;
     /**
      * The history of approval forward action.
-     * @type {Array<Approvalforwardhistory>}
-     * @memberof Pendingapproval
+     * @type {Array<ApprovalForwardHistory>}
+     * @memberof PendingApproval
      */
-    'forwardHistory'?: Array<Approvalforwardhistory>;
+    'forwardHistory'?: Array<ApprovalForwardHistory>;
     /**
      * When true the rejector has to provide comments when rejecting
      * @type {boolean}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'commentRequiredWhenRejected'?: boolean;
     /**
      * 
-     * @type {Pendingapprovalaction}
-     * @memberof Pendingapproval
+     * @type {PendingApprovalAction}
+     * @memberof PendingApproval
      */
-    'actionInProcess'?: Pendingapprovalaction;
+    'actionInProcess'?: PendingApprovalAction;
     /**
      * The date the role or access profile or entitlement is no longer assigned to the specified identity.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'removeDate'?: string;
     /**
      * If true, then the request is to change the remove date or sunset date.
      * @type {boolean}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'removeDateUpdateRequested'?: boolean;
     /**
      * The remove date or sunset date that was assigned at the time of the request.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'currentRemoveDate'?: string;
     /**
      * The date the role or access profile or entitlement is/will assigned to the specified identity.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'startDate'?: string;
     /**
      * If true, then the request is to change the start date or sunrise date.
      * @type {boolean}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'startUpdateRequested'?: boolean;
     /**
      * The start date or sunrise date that was assigned at the time of the request.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'currentStartDate'?: string;
     /**
      * 
-     * @type {Sodviolationcontextcheckcompleted}
-     * @memberof Pendingapproval
+     * @type {SodViolationContextCheckCompleted}
+     * @memberof PendingApproval
      */
-    'sodViolationContext'?: Sodviolationcontextcheckcompleted | null;
+    'sodViolationContext'?: SodViolationContextCheckCompleted | null;
     /**
      * Arbitrary key-value pairs, if any were included in the corresponding access request item
      * @type {{ [key: string]: string; }}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
-     * @type {Array<Requestedaccountref>}
-     * @memberof Pendingapproval
+     * @type {Array<RequestedAccountRef>}
+     * @memberof PendingApproval
      */
-    'requestedAccounts'?: Array<Requestedaccountref> | null;
+    'requestedAccounts'?: Array<RequestedAccountRef> | null;
     /**
      * The privilege level of the requested access item, if applicable.
      * @type {string}
-     * @memberof Pendingapproval
+     * @memberof PendingApproval
      */
     'privilegeLevel'?: string | null;
     /**
      * 
-     * @type {PendingapprovalMaxPermittedAccessDuration}
-     * @memberof Pendingapproval
+     * @type {PendingApprovalMaxPermittedAccessDuration}
+     * @memberof PendingApproval
      */
-    'maxPermittedAccessDuration'?: PendingapprovalMaxPermittedAccessDuration | null;
+    'maxPermittedAccessDuration'?: PendingApprovalMaxPermittedAccessDuration | null;
     /**
      * JIT (Just-In-Time) details for the requested access item, if applicable.
-     * @type {Array<Entitlementstatesnapshotjitdetail>}
-     * @memberof Pendingapproval
+     * @type {Array<EntitlementStateSnapshotJitDetail>}
+     * @memberof PendingApproval
      */
-    'jitDetails'?: Array<Entitlementstatesnapshotjitdetail> | null;
+    'jitDetails'?: Array<EntitlementStateSnapshotJitDetail> | null;
 }
 
-
-/**
- * The maximum duration for which the access is permitted.
- * @export
- * @interface PendingapprovalMaxPermittedAccessDuration
- */
-export interface PendingapprovalMaxPermittedAccessDuration {
-    /**
-     * The numeric value of the duration.
-     * @type {number}
-     * @memberof PendingapprovalMaxPermittedAccessDuration
-     */
-    'value'?: number;
-    /**
-     * The time unit for the duration.
-     * @type {string}
-     * @memberof PendingapprovalMaxPermittedAccessDuration
-     */
-    'timeUnit'?: PendingapprovalMaxPermittedAccessDurationTimeUnitEnum;
-}
-
-export const PendingapprovalMaxPermittedAccessDurationTimeUnitEnum = {
-    Hours: 'HOURS',
-    Days: 'DAYS',
-    Weeks: 'WEEKS',
-    Months: 'MONTHS'
-} as const;
-
-export type PendingapprovalMaxPermittedAccessDurationTimeUnitEnum = typeof PendingapprovalMaxPermittedAccessDurationTimeUnitEnum[keyof typeof PendingapprovalMaxPermittedAccessDurationTimeUnitEnum];
-
-/**
- * Access item owner\'s identity.
- * @export
- * @interface PendingapprovalOwner
- */
-export interface PendingapprovalOwner {
-    /**
-     * Access item owner\'s DTO type.
-     * @type {string}
-     * @memberof PendingapprovalOwner
-     */
-    'type'?: PendingapprovalOwnerTypeEnum;
-    /**
-     * Access item owner\'s identity ID.
-     * @type {string}
-     * @memberof PendingapprovalOwner
-     */
-    'id'?: string;
-    /**
-     * Access item owner\'s human-readable display name.
-     * @type {string}
-     * @memberof PendingapprovalOwner
-     */
-    'name'?: string;
-}
-
-export const PendingapprovalOwnerTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type PendingapprovalOwnerTypeEnum = typeof PendingapprovalOwnerTypeEnum[keyof typeof PendingapprovalOwnerTypeEnum];
 
 /**
  * Enum represents action that is being processed on an approval.
@@ -1077,14 +1016,75 @@ export type PendingapprovalOwnerTypeEnum = typeof PendingapprovalOwnerTypeEnum[k
  * @enum {string}
  */
 
-export const Pendingapprovalaction = {
+export const PendingApprovalAction = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED',
     Forwarded: 'FORWARDED'
 } as const;
 
-export type Pendingapprovalaction = typeof Pendingapprovalaction[keyof typeof Pendingapprovalaction];
+export type PendingApprovalAction = typeof PendingApprovalAction[keyof typeof PendingApprovalAction];
 
+
+/**
+ * The maximum duration for which the access is permitted.
+ * @export
+ * @interface PendingApprovalMaxPermittedAccessDuration
+ */
+export interface PendingApprovalMaxPermittedAccessDuration {
+    /**
+     * The numeric value of the duration.
+     * @type {number}
+     * @memberof PendingApprovalMaxPermittedAccessDuration
+     */
+    'value'?: number;
+    /**
+     * The time unit for the duration.
+     * @type {string}
+     * @memberof PendingApprovalMaxPermittedAccessDuration
+     */
+    'timeUnit'?: PendingApprovalMaxPermittedAccessDurationTimeUnitEnum;
+}
+
+export const PendingApprovalMaxPermittedAccessDurationTimeUnitEnum = {
+    Hours: 'HOURS',
+    Days: 'DAYS',
+    Weeks: 'WEEKS',
+    Months: 'MONTHS'
+} as const;
+
+export type PendingApprovalMaxPermittedAccessDurationTimeUnitEnum = typeof PendingApprovalMaxPermittedAccessDurationTimeUnitEnum[keyof typeof PendingApprovalMaxPermittedAccessDurationTimeUnitEnum];
+
+/**
+ * Access item owner\'s identity.
+ * @export
+ * @interface PendingApprovalOwner
+ */
+export interface PendingApprovalOwner {
+    /**
+     * Access item owner\'s DTO type.
+     * @type {string}
+     * @memberof PendingApprovalOwner
+     */
+    'type'?: PendingApprovalOwnerTypeEnum;
+    /**
+     * Access item owner\'s identity ID.
+     * @type {string}
+     * @memberof PendingApprovalOwner
+     */
+    'id'?: string;
+    /**
+     * Access item owner\'s human-readable display name.
+     * @type {string}
+     * @memberof PendingApprovalOwner
+     */
+    'name'?: string;
+}
+
+export const PendingApprovalOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type PendingApprovalOwnerTypeEnum = typeof PendingApprovalOwnerTypeEnum[keyof typeof PendingApprovalOwnerTypeEnum];
 
 /**
  * The approval reassignment type.  * MANUAL_REASSIGNMENT: An approval with this reassignment type has been specifically reassigned by the approval task\'s owner, from their queue to someone else\'s.  * AUTOMATIC_REASSIGNMENT: An approval with this reassignment type has been automatically reassigned from another approver\'s queue, according to that approver\'s reassignment configuration. The approver\'s reassignment configuration may be set up to automatically reassign approval tasks for a defined (or possibly open-ended) period of time. * AUTO_ESCALATION: An approval with this reassignment type has been automatically reassigned from another approver\'s queue, according to the request\'s escalation configuration. For more information about escalation configuration, refer to [Setting Global Reminders and Escalation Policies](https://documentation.sailpoint.com/saas/help/requests/config_emails.html). * SELF_REVIEW_DELEGATION: An approval with this reassignment type has been automatically reassigned by the system to prevent self-review. This helps prevent situations like a requester being tasked with approving their own request. For more information about preventing self-review, refer to [Self-review Prevention](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html#self-review-prevention) and [Preventing Self-approval](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html#preventing-self-approval).
@@ -1092,90 +1092,90 @@ export type Pendingapprovalaction = typeof Pendingapprovalaction[keyof typeof Pe
  * @enum {string}
  */
 
-export const Reassignmenttype = {
+export const ReassignmentType = {
     ManualReassignment: 'MANUAL_REASSIGNMENT',
     AutomaticReassignment: 'AUTOMATIC_REASSIGNMENT',
     AutoEscalation: 'AUTO_ESCALATION',
     SelfReviewDelegation: 'SELF_REVIEW_DELEGATION'
 } as const;
 
-export type Reassignmenttype = typeof Reassignmenttype[keyof typeof Reassignmenttype];
+export type ReassignmentType = typeof ReassignmentType[keyof typeof ReassignmentType];
 
 
 /**
  * 
  * @export
- * @interface Requestableobjectreference
+ * @interface RequestableObjectReference
  */
-export interface Requestableobjectreference {
+export interface RequestableObjectReference {
     /**
      * Id of the object.
      * @type {string}
-     * @memberof Requestableobjectreference
+     * @memberof RequestableObjectReference
      */
     'id'?: string;
     /**
      * Name of the object.
      * @type {string}
-     * @memberof Requestableobjectreference
+     * @memberof RequestableObjectReference
      */
     'name'?: string;
     /**
      * Description of the object.
      * @type {string}
-     * @memberof Requestableobjectreference
+     * @memberof RequestableObjectReference
      */
     'description'?: string;
     /**
      * Type of the object.
      * @type {string}
-     * @memberof Requestableobjectreference
+     * @memberof RequestableObjectReference
      */
-    'type'?: RequestableobjectreferenceTypeEnum;
+    'type'?: RequestableObjectReferenceTypeEnum;
 }
 
-export const RequestableobjectreferenceTypeEnum = {
+export const RequestableObjectReferenceTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type RequestableobjectreferenceTypeEnum = typeof RequestableobjectreferenceTypeEnum[keyof typeof RequestableobjectreferenceTypeEnum];
+export type RequestableObjectReferenceTypeEnum = typeof RequestableObjectReferenceTypeEnum[keyof typeof RequestableObjectReferenceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Requestedaccountref
+ * @interface RequestedAccountRef
  */
-export interface Requestedaccountref {
+export interface RequestedAccountRef {
     /**
      * Display name of the account for the user
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'name'?: string;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Requestedaccountref
+     * @type {DtoType}
+     * @memberof RequestedAccountRef
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The uuid for the account
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'accountUuid'?: string | null;
     /**
      * The native identity for the account
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'accountId'?: string | null;
     /**
      * Display name of the source for the account
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'sourceName'?: string;
 }
@@ -1184,31 +1184,31 @@ export interface Requestedaccountref {
 /**
  * Details of the Entitlement criteria
  * @export
- * @interface Sodexemptcriteria
+ * @interface SodExemptCriteria
  */
-export interface Sodexemptcriteria {
+export interface SodExemptCriteria {
     /**
      * If the entitlement already belonged to the user or not.
      * @type {boolean}
-     * @memberof Sodexemptcriteria
+     * @memberof SodExemptCriteria
      */
     'existing'?: boolean;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Sodexemptcriteria
+     * @type {DtoType}
+     * @memberof SodExemptCriteria
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * Entitlement ID
      * @type {string}
-     * @memberof Sodexemptcriteria
+     * @memberof SodExemptCriteria
      */
     'id'?: string;
     /**
      * Entitlement name
      * @type {string}
-     * @memberof Sodexemptcriteria
+     * @memberof SodExemptCriteria
      */
     'name'?: string;
 }
@@ -1217,150 +1217,150 @@ export interface Sodexemptcriteria {
 /**
  * SOD policy.
  * @export
- * @interface Sodpolicydto
+ * @interface SodPolicyDto
  */
-export interface Sodpolicydto {
+export interface SodPolicyDto {
     /**
      * SOD policy DTO type.
      * @type {string}
-     * @memberof Sodpolicydto
+     * @memberof SodPolicyDto
      */
-    'type'?: SodpolicydtoTypeEnum;
+    'type'?: SodPolicyDtoTypeEnum;
     /**
      * SOD policy ID.
      * @type {string}
-     * @memberof Sodpolicydto
+     * @memberof SodPolicyDto
      */
     'id'?: string;
     /**
      * SOD policy display name.
      * @type {string}
-     * @memberof Sodpolicydto
+     * @memberof SodPolicyDto
      */
     'name'?: string;
 }
 
-export const SodpolicydtoTypeEnum = {
+export const SodPolicyDtoTypeEnum = {
     SodPolicy: 'SOD_POLICY'
 } as const;
 
-export type SodpolicydtoTypeEnum = typeof SodpolicydtoTypeEnum[keyof typeof SodpolicydtoTypeEnum];
+export type SodPolicyDtoTypeEnum = typeof SodPolicyDtoTypeEnum[keyof typeof SodPolicyDtoTypeEnum];
 
 /**
  * The inner object representing the completed SOD Violation check
  * @export
- * @interface Sodviolationcheckresult
+ * @interface SodViolationCheckResult
  */
-export interface Sodviolationcheckresult {
+export interface SodViolationCheckResult {
     /**
      * 
-     * @type {Errormessagedto}
-     * @memberof Sodviolationcheckresult
+     * @type {ErrorMessageDto}
+     * @memberof SodViolationCheckResult
      */
-    'message'?: Errormessagedto;
+    'message'?: ErrorMessageDto;
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check.
      * @type {{ [key: string]: string; }}
-     * @memberof Sodviolationcheckresult
+     * @memberof SodViolationCheckResult
      */
     'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * 
-     * @type {Array<Sodviolationcontext>}
-     * @memberof Sodviolationcheckresult
+     * @type {Array<SodViolationContext>}
+     * @memberof SodViolationCheckResult
      */
-    'violationContexts'?: Array<Sodviolationcontext> | null;
+    'violationContexts'?: Array<SodViolationContext> | null;
     /**
      * A list of the SOD policies that were violated.
-     * @type {Array<Sodpolicydto>}
-     * @memberof Sodviolationcheckresult
+     * @type {Array<SodPolicyDto>}
+     * @memberof SodViolationCheckResult
      */
-    'violatedPolicies'?: Array<Sodpolicydto> | null;
+    'violatedPolicies'?: Array<SodPolicyDto> | null;
 }
 /**
  * The contextual information of the violated criteria
  * @export
- * @interface Sodviolationcontext
+ * @interface SodViolationContext
  */
-export interface Sodviolationcontext {
+export interface SodViolationContext {
     /**
      * 
-     * @type {Sodpolicydto}
-     * @memberof Sodviolationcontext
+     * @type {SodPolicyDto}
+     * @memberof SodViolationContext
      */
-    'policy'?: Sodpolicydto;
+    'policy'?: SodPolicyDto;
     /**
      * 
-     * @type {SodviolationcontextConflictingAccessCriteria}
-     * @memberof Sodviolationcontext
+     * @type {SodViolationContextConflictingAccessCriteria}
+     * @memberof SodViolationContext
      */
-    'conflictingAccessCriteria'?: SodviolationcontextConflictingAccessCriteria;
-}
-/**
- * The object which contains the left and right hand side of the entitlements that got violated according to the policy.
- * @export
- * @interface SodviolationcontextConflictingAccessCriteria
- */
-export interface SodviolationcontextConflictingAccessCriteria {
-    /**
-     * 
-     * @type {SodviolationcontextConflictingAccessCriteriaLeftCriteria}
-     * @memberof SodviolationcontextConflictingAccessCriteria
-     */
-    'leftCriteria'?: SodviolationcontextConflictingAccessCriteriaLeftCriteria;
-    /**
-     * 
-     * @type {SodviolationcontextConflictingAccessCriteriaLeftCriteria}
-     * @memberof SodviolationcontextConflictingAccessCriteria
-     */
-    'rightCriteria'?: SodviolationcontextConflictingAccessCriteriaLeftCriteria;
-}
-/**
- * 
- * @export
- * @interface SodviolationcontextConflictingAccessCriteriaLeftCriteria
- */
-export interface SodviolationcontextConflictingAccessCriteriaLeftCriteria {
-    /**
-     * 
-     * @type {Array<Sodexemptcriteria>}
-     * @memberof SodviolationcontextConflictingAccessCriteriaLeftCriteria
-     */
-    'criteriaList'?: Array<Sodexemptcriteria>;
+    'conflictingAccessCriteria'?: SodViolationContextConflictingAccessCriteria;
 }
 /**
  * An object referencing a completed SOD violation check
  * @export
- * @interface Sodviolationcontextcheckcompleted
+ * @interface SodViolationContextCheckCompleted
  */
-export interface Sodviolationcontextcheckcompleted {
+export interface SodViolationContextCheckCompleted {
     /**
      * The status of SOD violation check
      * @type {string}
-     * @memberof Sodviolationcontextcheckcompleted
+     * @memberof SodViolationContextCheckCompleted
      */
-    'state'?: SodviolationcontextcheckcompletedStateEnum | null;
+    'state'?: SodViolationContextCheckCompletedStateEnum | null;
     /**
      * The id of the Violation check event
      * @type {string}
-     * @memberof Sodviolationcontextcheckcompleted
+     * @memberof SodViolationContextCheckCompleted
      */
     'uuid'?: string | null;
     /**
      * 
-     * @type {Sodviolationcheckresult}
-     * @memberof Sodviolationcontextcheckcompleted
+     * @type {SodViolationCheckResult}
+     * @memberof SodViolationContextCheckCompleted
      */
-    'violationCheckResult'?: Sodviolationcheckresult;
+    'violationCheckResult'?: SodViolationCheckResult;
 }
 
-export const SodviolationcontextcheckcompletedStateEnum = {
+export const SodViolationContextCheckCompletedStateEnum = {
     Success: 'SUCCESS',
     Error: 'ERROR'
 } as const;
 
-export type SodviolationcontextcheckcompletedStateEnum = typeof SodviolationcontextcheckcompletedStateEnum[keyof typeof SodviolationcontextcheckcompletedStateEnum];
+export type SodViolationContextCheckCompletedStateEnum = typeof SodViolationContextCheckCompletedStateEnum[keyof typeof SodViolationContextCheckCompletedStateEnum];
 
+/**
+ * The object which contains the left and right hand side of the entitlements that got violated according to the policy.
+ * @export
+ * @interface SodViolationContextConflictingAccessCriteria
+ */
+export interface SodViolationContextConflictingAccessCriteria {
+    /**
+     * 
+     * @type {SodViolationContextConflictingAccessCriteriaLeftCriteria}
+     * @memberof SodViolationContextConflictingAccessCriteria
+     */
+    'leftCriteria'?: SodViolationContextConflictingAccessCriteriaLeftCriteria;
+    /**
+     * 
+     * @type {SodViolationContextConflictingAccessCriteriaLeftCriteria}
+     * @memberof SodViolationContextConflictingAccessCriteria
+     */
+    'rightCriteria'?: SodViolationContextConflictingAccessCriteriaLeftCriteria;
+}
+/**
+ * 
+ * @export
+ * @interface SodViolationContextConflictingAccessCriteriaLeftCriteria
+ */
+export interface SodViolationContextConflictingAccessCriteriaLeftCriteria {
+    /**
+     * 
+     * @type {Array<SodExemptCriteria>}
+     * @memberof SodViolationContextConflictingAccessCriteriaLeftCriteria
+     */
+    'criteriaList'?: Array<SodExemptCriteria>;
+}
 
 /**
  * AccessRequestApprovalsApi - axios parameter creator
@@ -1372,11 +1372,11 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
          * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approve access request approval
          * @param {string} approvalId Approval ID.
-         * @param {Commentdto} [commentdto] Reviewer\&#39;s comment.
+         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveAccessRequestV1: async (approvalId: string, commentdto?: Commentdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveAccessRequestV1: async (approvalId: string, commentDto?: CommentDto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
             assertParamExists('approveAccessRequestV1', 'approvalId', approvalId)
             const localVarPath = `/access-request-approvals/v1/{approvalId}/approve`
@@ -1399,7 +1399,7 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(commentdto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(commentDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1410,15 +1410,15 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
          * Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Forward access request approval
          * @param {string} approvalId Approval ID.
-         * @param {Forwardapprovaldto} forwardapprovaldto Information about the forwarded approval.
+         * @param {ForwardApprovalDto} forwardApprovalDto Information about the forwarded approval.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        forwardAccessRequestV1: async (approvalId: string, forwardapprovaldto: Forwardapprovaldto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        forwardAccessRequestV1: async (approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
             assertParamExists('forwardAccessRequestV1', 'approvalId', approvalId)
-            // verify required parameter 'forwardapprovaldto' is not null or undefined
-            assertParamExists('forwardAccessRequestV1', 'forwardapprovaldto', forwardapprovaldto)
+            // verify required parameter 'forwardApprovalDto' is not null or undefined
+            assertParamExists('forwardAccessRequestV1', 'forwardApprovalDto', forwardApprovalDto)
             const localVarPath = `/access-request-approvals/v1/{approvalId}/forward`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1439,7 +1439,7 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(forwardapprovaldto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(forwardApprovalDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1659,15 +1659,15 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
          * Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
          * @summary Reject access request approval
          * @param {string} approvalId Approval ID.
-         * @param {Commentdto} commentdto Reviewer\&#39;s comment.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectAccessRequestV1: async (approvalId: string, commentdto: Commentdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rejectAccessRequestV1: async (approvalId: string, commentDto: CommentDto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
             assertParamExists('rejectAccessRequestV1', 'approvalId', approvalId)
-            // verify required parameter 'commentdto' is not null or undefined
-            assertParamExists('rejectAccessRequestV1', 'commentdto', commentdto)
+            // verify required parameter 'commentDto' is not null or undefined
+            assertParamExists('rejectAccessRequestV1', 'commentDto', commentDto)
             const localVarPath = `/access-request-approvals/v1/{approvalId}/reject`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1688,7 +1688,7 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(commentdto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(commentDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1709,12 +1709,12 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approve access request approval
          * @param {string} approvalId Approval ID.
-         * @param {Commentdto} [commentdto] Reviewer\&#39;s comment.
+         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveAccessRequestV1(approvalId: string, commentdto?: Commentdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequestV1(approvalId, commentdto, axiosOptions);
+        async approveAccessRequestV1(approvalId: string, commentDto?: CommentDto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequestV1(approvalId, commentDto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestApprovalsApi.approveAccessRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1723,12 +1723,12 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Forward access request approval
          * @param {string} approvalId Approval ID.
-         * @param {Forwardapprovaldto} forwardapprovaldto Information about the forwarded approval.
+         * @param {ForwardApprovalDto} forwardApprovalDto Information about the forwarded approval.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async forwardAccessRequestV1(approvalId: string, forwardapprovaldto: Forwardapprovaldto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequestV1(approvalId, forwardapprovaldto, axiosOptions);
+        async forwardAccessRequestV1(approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequestV1(approvalId, forwardApprovalDto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestApprovalsApi.forwardAccessRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1741,7 +1741,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestApprovalSummaryV1(ownerId?: string, fromDate?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Approvalsummary>> {
+        async getAccessRequestApprovalSummaryV1(ownerId?: string, fromDate?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestApprovalSummaryV1(ownerId, fromDate, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestApprovalsApi.getAccessRequestApprovalSummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -1757,7 +1757,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessRequestApproversV1(accessRequestId: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessrequestapproverslistresponse>>> {
+        async listAccessRequestApproversV1(accessRequestId: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestApproversListResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestApproversV1(accessRequestId, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestApprovalsApi.listAccessRequestApproversV1']?.[localVarOperationServerIndex]?.url;
@@ -1775,7 +1775,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCompletedApprovalsV1(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Completedapproval>>> {
+        async listCompletedApprovalsV1(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CompletedApproval>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCompletedApprovalsV1(ownerId, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestApprovalsApi.listCompletedApprovalsV1']?.[localVarOperationServerIndex]?.url;
@@ -1793,7 +1793,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPendingApprovalsV1(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Pendingapproval>>> {
+        async listPendingApprovalsV1(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PendingApproval>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingApprovalsV1(ownerId, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestApprovalsApi.listPendingApprovalsV1']?.[localVarOperationServerIndex]?.url;
@@ -1803,12 +1803,12 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
          * @summary Reject access request approval
          * @param {string} approvalId Approval ID.
-         * @param {Commentdto} commentdto Reviewer\&#39;s comment.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectAccessRequestV1(approvalId: string, commentdto: Commentdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequestV1(approvalId, commentdto, axiosOptions);
+        async rejectAccessRequestV1(approvalId: string, commentDto: CommentDto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequestV1(approvalId, commentDto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestApprovalsApi.rejectAccessRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1831,7 +1831,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         approveAccessRequestV1(requestParameters: AccessRequestApprovalsApiApproveAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.approveAccessRequestV1(requestParameters.approvalId, requestParameters.commentdto, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.approveAccessRequestV1(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
@@ -1841,7 +1841,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         forwardAccessRequestV1(requestParameters: AccessRequestApprovalsApiForwardAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.forwardAccessRequestV1(requestParameters.approvalId, requestParameters.forwardapprovaldto, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.forwardAccessRequestV1(requestParameters.approvalId, requestParameters.forwardApprovalDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to return the number of pending, approved and rejected access requests approvals. See the \"owner-id\" query parameter for authorization information. info.
@@ -1850,7 +1850,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestApprovalSummaryV1(requestParameters: AccessRequestApprovalsApiGetAccessRequestApprovalSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Approvalsummary> {
+        getAccessRequestApprovalSummaryV1(requestParameters: AccessRequestApprovalsApiGetAccessRequestApprovalSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ApprovalSummary> {
             return localVarFp.getAccessRequestApprovalSummaryV1(requestParameters.ownerId, requestParameters.fromDate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1860,7 +1860,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessRequestApproversV1(requestParameters: AccessRequestApprovalsApiListAccessRequestApproversV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessrequestapproverslistresponse>> {
+        listAccessRequestApproversV1(requestParameters: AccessRequestApprovalsApiListAccessRequestApproversV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessRequestApproversListResponse>> {
             return localVarFp.listAccessRequestApproversV1(requestParameters.accessRequestId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1870,7 +1870,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listCompletedApprovalsV1(requestParameters: AccessRequestApprovalsApiListCompletedApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Completedapproval>> {
+        listCompletedApprovalsV1(requestParameters: AccessRequestApprovalsApiListCompletedApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CompletedApproval>> {
             return localVarFp.listCompletedApprovalsV1(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1880,7 +1880,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPendingApprovalsV1(requestParameters: AccessRequestApprovalsApiListPendingApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Pendingapproval>> {
+        listPendingApprovalsV1(requestParameters: AccessRequestApprovalsApiListPendingApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PendingApproval>> {
             return localVarFp.listPendingApprovalsV1(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1891,7 +1891,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         rejectAccessRequestV1(requestParameters: AccessRequestApprovalsApiRejectAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.rejectAccessRequestV1(requestParameters.approvalId, requestParameters.commentdto, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.rejectAccessRequestV1(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1911,10 +1911,10 @@ export interface AccessRequestApprovalsApiApproveAccessRequestV1Request {
 
     /**
      * Reviewer\&#39;s comment.
-     * @type {Commentdto}
+     * @type {CommentDto}
      * @memberof AccessRequestApprovalsApiApproveAccessRequestV1
      */
-    readonly commentdto?: Commentdto
+    readonly commentDto?: CommentDto
 }
 
 /**
@@ -1932,10 +1932,10 @@ export interface AccessRequestApprovalsApiForwardAccessRequestV1Request {
 
     /**
      * Information about the forwarded approval.
-     * @type {Forwardapprovaldto}
+     * @type {ForwardApprovalDto}
      * @memberof AccessRequestApprovalsApiForwardAccessRequestV1
      */
-    readonly forwardapprovaldto: Forwardapprovaldto
+    readonly forwardApprovalDto: ForwardApprovalDto
 }
 
 /**
@@ -2107,10 +2107,10 @@ export interface AccessRequestApprovalsApiRejectAccessRequestV1Request {
 
     /**
      * Reviewer\&#39;s comment.
-     * @type {Commentdto}
+     * @type {CommentDto}
      * @memberof AccessRequestApprovalsApiRejectAccessRequestV1
      */
-    readonly commentdto: Commentdto
+    readonly commentDto: CommentDto
 }
 
 /**
@@ -2129,7 +2129,7 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @memberof AccessRequestApprovalsApi
      */
     public approveAccessRequestV1(requestParameters: AccessRequestApprovalsApiApproveAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).approveAccessRequestV1(requestParameters.approvalId, requestParameters.commentdto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestApprovalsApiFp(this.configuration).approveAccessRequestV1(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2141,7 +2141,7 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @memberof AccessRequestApprovalsApi
      */
     public forwardAccessRequestV1(requestParameters: AccessRequestApprovalsApiForwardAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).forwardAccessRequestV1(requestParameters.approvalId, requestParameters.forwardapprovaldto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestApprovalsApiFp(this.configuration).forwardAccessRequestV1(requestParameters.approvalId, requestParameters.forwardApprovalDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2201,7 +2201,7 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @memberof AccessRequestApprovalsApi
      */
     public rejectAccessRequestV1(requestParameters: AccessRequestApprovalsApiRejectAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).rejectAccessRequestV1(requestParameters.approvalId, requestParameters.commentdto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestApprovalsApiFp(this.configuration).rejectAccessRequestV1(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -46,11 +46,11 @@ Approve multiple entitlement recommendations in a single request. Each item in t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**bulkapproveentitlementrecommendationrequest** | `Bulkapproveentitlementrecommendationrequest` | The list of recommendation items to approve. | 
+**bulkApproveEntitlementRecommendationRequest** | `BulkApproveEntitlementRecommendationRequest` | The list of recommendation items to approve. | 
 
 ### Return type
 
-`Array<Bulkapproveentitlementrecommendationresult>`
+`Array<BulkApproveEntitlementRecommendationResult>`
 
 ### HTTP request headers
 
@@ -62,12 +62,22 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Bulkapproveentitlementrecommendationrequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { BulkApproveEntitlementRecommendationRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const bulkapproveentitlementrecommendationrequest: Bulkapproveentitlementrecommendationrequest = ; // The list of recommendation items to approve.
-const result = await apiInstance.approveBulkEntitlementRecommendationsV1({ bulkapproveentitlementrecommendationrequest: bulkapproveentitlementrecommendationrequest });
+const bulkApproveEntitlementRecommendationRequest: BulkApproveEntitlementRecommendationRequest = {
+  "items" : [ {
+    "id" : "79db50d4-723c-4aa0-a824-83c2205d82d1",
+    "recordType" : "SED",
+    "description" : "Provides access and permissions related to the Delinea Secret Server Cloud system."
+  }, {
+    "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "recordType" : "privilege",
+    "privilegeLevel" : "high"
+  } ]
+}; // The list of recommendation items to approve.
+const result = await apiInstance.approveBulkEntitlementRecommendationsV1({ bulkApproveEntitlementRecommendationRequest: bulkApproveEntitlementRecommendationRequest });
 console.log(result);
 ```
 
@@ -84,11 +94,11 @@ Create the initial auto-write settings for a tenant. Returns 409 Conflict if set
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**autowritesetting** | `Autowritesetting` | Auto-write settings to create | 
+**autoWriteSetting** | `AutoWriteSetting` | Auto-write settings to create | 
 
 ### Return type
 
-`Autowritesettingresponse`
+`AutoWriteSettingResponse`
 
 ### HTTP request headers
 
@@ -100,12 +110,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Autowritesetting } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { AutoWriteSetting } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const autowritesetting: Autowritesetting = ; // Auto-write settings to create
-const result = await apiInstance.createAutoWriteSettingsV1({ autowritesetting: autowritesetting });
+const autoWriteSetting: AutoWriteSetting = {
+  "excludedSourceIds" : [ "2c91808a7813090a017814552e526350" ],
+  "includedSourceIds" : [ "2c91808a7813090a017814552e526349", "2c91808a7813090a017814552e52634a" ],
+  "enabled" : true
+}; // Auto-write settings to create
+const result = await apiInstance.createAutoWriteSettingsV1({ autoWriteSetting: autoWriteSetting });
 console.log(result);
 ```
 
@@ -123,7 +137,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Autowritesettingresponse`
+`AutoWriteSettingResponse`
 
 ### HTTP request headers
 
@@ -163,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sedbatchstats`
+`SedBatchStats`
 
 ### HTTP request headers
 
@@ -205,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sedbatchrecord>`
+`Array<SedBatchRecord>`
 
 ### HTTP request headers
 
@@ -247,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Entitlementrecommendationrecord>`
+`Array<EntitlementRecommendationRecord>`
 
 ### HTTP request headers
 
@@ -286,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Privilegedrecommendationgroup>`
+`Array<PrivilegedRecommendationGroup>`
 
 ### HTTP request headers
 
@@ -386,11 +400,11 @@ Partially update a single entitlement recommendation record by its ID. Use this 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The unique identifier of the entitlement recommendation to update. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The patch operations to apply to the entitlement recommendation record. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The patch operations to apply to the entitlement recommendation record. | 
 
 ### Return type
 
-`Entitlementrecommendationrecord`
+`EntitlementRecommendationRecord`
 
 ### HTTP request headers
 
@@ -402,13 +416,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
 const id: string = 79db50d4-723c-4aa0-a824-83c2205d82d1; // The unique identifier of the entitlement recommendation to update.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // The patch operations to apply to the entitlement recommendation record.
-const result = await apiInstance.patchEntitlementRecommendationV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The patch operations to apply to the entitlement recommendation record.
+const result = await apiInstance.patchEntitlementRecommendationV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -426,7 +444,7 @@ Patch Suggested Entitlement Description
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | id is sed id |  [default to undefined]
-**sedpatch** | `Array<Sedpatch>` | Sed Patch Request | 
+**sedPatch** | `Array<SedPatch>` | Sed Patch Request | 
 
 ### Return type
 
@@ -442,13 +460,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sedpatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SedPatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
 const id: string = ebab396f-0af1-4050-89b7-dafc63ec70e7; // id is sed id
-const sedpatch: Array<Sedpatch> = ; // Sed Patch Request
-const result = await apiInstance.patchSedV1({ id: id, sedpatch: sedpatch });
+const sedPatch: Array<SedPatch> = {
+  "op" : "replace",
+  "path" : "status",
+  "value" : "approved"
+}; // Sed Patch Request
+const result = await apiInstance.patchSedV1({ id: id, sedPatch: sedPatch });
 console.log(result);
 ```
 
@@ -465,11 +487,11 @@ Assign a set of entitlement recommendation records to a reviewer. The assignee c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**entitlementrecommendationassignrequest** | `Entitlementrecommendationassignrequest` | The recommendation IDs and the target assignee. | 
+**entitlementRecommendationAssignRequest** | `EntitlementRecommendationAssignRequest` | The recommendation IDs and the target assignee. | 
 
 ### Return type
 
-`Entitlementrecommendationassignresult`
+`EntitlementRecommendationAssignResult`
 
 ### HTTP request headers
 
@@ -481,12 +503,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Entitlementrecommendationassignrequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { EntitlementRecommendationAssignRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const entitlementrecommendationassignrequest: Entitlementrecommendationassignrequest = ; // The recommendation IDs and the target assignee.
-const result = await apiInstance.submitEntitlementRecommendationsAssignmentV1({ entitlementrecommendationassignrequest: entitlementrecommendationassignrequest });
+const entitlementRecommendationAssignRequest: EntitlementRecommendationAssignRequest = {
+  "assignee" : {
+    "type" : "IDENTITY",
+    "value" : "2c91808a7f3b2e8a017f3c3e5f6d0099"
+  },
+  "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
+}; // The recommendation IDs and the target assignee.
+const result = await apiInstance.submitEntitlementRecommendationsAssignmentV1({ entitlementRecommendationAssignRequest: entitlementRecommendationAssignRequest });
 console.log(result);
 ```
 
@@ -504,11 +532,11 @@ Request body takes list of SED Ids. API responses with list of SED Approval Stat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**sedapproval** | `Array<Sedapproval>` | Sed Approval | 
+**sedApproval** | `Array<SedApproval>` | Sed Approval | 
 
 ### Return type
 
-`Array<Sedapprovalstatus>`
+`Array<SedApprovalStatus>`
 
 ### HTTP request headers
 
@@ -520,12 +548,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sedapproval } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SedApproval } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const sedapproval: Array<Sedapproval> = ; // Sed Approval
-const result = await apiInstance.submitSedApprovalV1({ sedapproval: sedapproval });
+const sedApproval: Array<SedApproval> = {
+  "items" : "016629d1-1d25-463f-97f3-c6686846650"
+}; // Sed Approval
+const result = await apiInstance.submitSedApprovalV1({ sedApproval: sedApproval });
 console.log(result);
 ```
 
@@ -543,11 +573,11 @@ Request body has an assignee, and list of SED Ids that are assigned to that assi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**sedassignment** | `Sedassignment` | Sed Assignment Request | 
+**sedAssignment** | `SedAssignment` | Sed Assignment Request | 
 
 ### Return type
 
-`Sedassignmentresponse`
+`SedAssignmentResponse`
 
 ### HTTP request headers
 
@@ -559,12 +589,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sedassignment } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SedAssignment } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const sedassignment: Sedassignment = ; // Sed Assignment Request
-const result = await apiInstance.submitSedAssignmentV1({ sedassignment: sedassignment });
+const sedAssignment: SedAssignment = {
+  "assignee" : {
+    "type" : "SOURCE_OWNER",
+    "value" : "016629d1-1d25-463f-97f3-c6686846650"
+  },
+  "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
+}; // Sed Assignment Request
+const result = await apiInstance.submitSedAssignmentV1({ sedAssignment: sedAssignment });
 console.log(result);
 ```
 
@@ -582,11 +618,11 @@ Request body has one of the following: - a list of entitlement Ids - a list of S
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**sedbatchrequest** | `Sedbatchrequest` | Sed Batch Request | [optional]
+**sedBatchRequest** | `SedBatchRequest` | Sed Batch Request | [optional]
 
 ### Return type
 
-`Sedbatchresponse`
+`SedBatchResponse`
 
 ### HTTP request headers
 
@@ -598,11 +634,37 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sedbatchrequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SedBatchRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const sedbatchrequest: Sedbatchrequest = ; // Sed Batch Request (optional)
+const sedBatchRequest: SedBatchRequest = {
+  "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+  "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+  "searchCriteria" : {
+    "key" : {
+      "indices" : [ "entitlements" ],
+      "query" : {
+        "query" : "status:active"
+      },
+      "textQuery" : {
+        "terms" : [ "admin", "user" ],
+        "matchAny" : true,
+        "fields" : [ "role", "name" ]
+      },
+      "searchAfter" : [ "12345", "67890" ],
+      "filters" : {
+        "status" : {
+          "type" : "TERMS",
+          "terms" : [ "active", "inactive" ]
+        }
+      },
+      "sort" : [ "name:asc", "createdAt:desc" ],
+      "queryType" : "TEXT",
+      "includeNested" : true
+    }
+  }
+}; // Sed Batch Request (optional)
 const result = await apiInstance.submitSedBatchRequestV1({  });
 console.log(result);
 ```
@@ -620,11 +682,11 @@ Partially update the auto-write settings for a tenant using JSON Patch operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**autowritesettingpatch** | `Array<Autowritesettingpatch>` | Patch operations for auto-write settings | 
+**autoWriteSettingPatch** | `Array<AutoWriteSettingPatch>` | Patch operations for auto-write settings | 
 
 ### Return type
 
-`Autowritesettingresponse`
+`AutoWriteSettingResponse`
 
 ### HTTP request headers
 
@@ -636,12 +698,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Autowritesettingpatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { AutoWriteSettingPatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
-const autowritesettingpatch: Array<Autowritesettingpatch> = ; // Patch operations for auto-write settings
-const result = await apiInstance.updateAutoWriteSettingsV1({ autowritesettingpatch: autowritesettingpatch });
+const autoWriteSettingPatch: Array<AutoWriteSettingPatch> = {
+  "op" : "replace",
+  "path" : "/enabled",
+  "value" : true
+}; // Patch operations for auto-write settings
+const result = await apiInstance.updateAutoWriteSettingsV1({ autoWriteSettingPatch: autoWriteSettingPatch });
 console.log(result);
 ```
 

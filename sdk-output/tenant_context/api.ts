@@ -33,25 +33,25 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -60,33 +60,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -136,30 +136,30 @@ export interface GetTenantContextV1429Response {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -168,14 +168,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -183,12 +183,12 @@ export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | obj
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -231,13 +231,13 @@ export const TenantContextApiAxiosParamCreator = function (configuration?: Confi
         /**
          * Allows the user to make incremental updates to tenant context records using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  This endpoint is specifically designed to modify the `/Key/_*` field, supporting operations such as `add`, `remove`, or `replace` to manage key-value pairs.   Note that each tenant is limited to a maximum of 100 key-value pairs. 
          * @summary Update tenant context
-         * @param {Jsonpatchoperation} jsonpatchoperation 
+         * @param {JsonPatchOperation} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchTenantContextV1: async (jsonpatchoperation: Jsonpatchoperation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchTenantContextV1', 'jsonpatchoperation', jsonpatchoperation)
+        patchTenantContextV1: async (jsonPatchOperation: JsonPatchOperation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchTenantContextV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/tenant-context/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -257,7 +257,7 @@ export const TenantContextApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -289,12 +289,12 @@ export const TenantContextApiFp = function(configuration?: Configuration) {
         /**
          * Allows the user to make incremental updates to tenant context records using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  This endpoint is specifically designed to modify the `/Key/_*` field, supporting operations such as `add`, `remove`, or `replace` to manage key-value pairs.   Note that each tenant is limited to a maximum of 100 key-value pairs. 
          * @summary Update tenant context
-         * @param {Jsonpatchoperation} jsonpatchoperation 
+         * @param {JsonPatchOperation} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchTenantContextV1(jsonpatchoperation: Jsonpatchoperation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchTenantContextV1(jsonpatchoperation, axiosOptions);
+        async patchTenantContextV1(jsonPatchOperation: JsonPatchOperation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchTenantContextV1(jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TenantContextApi.patchTenantContextV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -326,7 +326,7 @@ export const TenantContextApiFactory = function (configuration?: Configuration, 
          * @throws {RequiredError}
          */
         patchTenantContextV1(requestParameters: TenantContextApiPatchTenantContextV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.patchTenantContextV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchTenantContextV1(requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -339,10 +339,10 @@ export const TenantContextApiFactory = function (configuration?: Configuration, 
 export interface TenantContextApiPatchTenantContextV1Request {
     /**
      * 
-     * @type {Jsonpatchoperation}
+     * @type {JsonPatchOperation}
      * @memberof TenantContextApiPatchTenantContextV1
      */
-    readonly jsonpatchoperation: Jsonpatchoperation
+    readonly jsonPatchOperation: JsonPatchOperation
 }
 
 /**
@@ -372,7 +372,7 @@ export class TenantContextApi extends BaseAPI {
      * @memberof TenantContextApi
      */
     public patchTenantContextV1(requestParameters: TenantContextApiPatchTenantContextV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TenantContextApiFp(this.configuration).patchTenantContextV1(requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TenantContextApiFp(this.configuration).patchTenantContextV1(requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

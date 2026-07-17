@@ -26,2134 +26,2134 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Identity who approved the access item request.
  * @export
- * @interface Accessitemapproverdto
+ * @interface AccessItemApproverDto
  */
-export interface Accessitemapproverdto {
+export interface AccessItemApproverDto {
     /**
      * DTO type of identity who approved the access item request.
      * @type {string}
-     * @memberof Accessitemapproverdto
+     * @memberof AccessItemApproverDto
      */
-    'type'?: AccessitemapproverdtoTypeEnum;
+    'type'?: AccessItemApproverDtoTypeEnum;
     /**
      * ID of identity who approved the access item request.
      * @type {string}
-     * @memberof Accessitemapproverdto
+     * @memberof AccessItemApproverDto
      */
     'id'?: string;
     /**
      * Human-readable display name of identity who approved the access item request.
      * @type {string}
-     * @memberof Accessitemapproverdto
+     * @memberof AccessItemApproverDto
      */
     'name'?: string;
 }
 
-export const AccessitemapproverdtoTypeEnum = {
+export const AccessItemApproverDtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemapproverdtoTypeEnum = typeof AccessitemapproverdtoTypeEnum[keyof typeof AccessitemapproverdtoTypeEnum];
+export type AccessItemApproverDtoTypeEnum = typeof AccessItemApproverDtoTypeEnum[keyof typeof AccessItemApproverDtoTypeEnum];
 
 /**
  * Identity the access item is requested for.
  * @export
- * @interface Accessitemrequestedfordto
+ * @interface AccessItemRequestedForDto
  */
-export interface Accessitemrequestedfordto {
+export interface AccessItemRequestedForDto {
     /**
      * DTO type of identity the access item is requested for.
      * @type {string}
-     * @memberof Accessitemrequestedfordto
+     * @memberof AccessItemRequestedForDto
      */
-    'type'?: AccessitemrequestedfordtoTypeEnum;
+    'type'?: AccessItemRequestedForDtoTypeEnum;
     /**
      * ID of identity the access item is requested for.
      * @type {string}
-     * @memberof Accessitemrequestedfordto
+     * @memberof AccessItemRequestedForDto
      */
     'id'?: string;
     /**
      * Human-readable display name of identity the access item is requested for.
      * @type {string}
-     * @memberof Accessitemrequestedfordto
+     * @memberof AccessItemRequestedForDto
      */
     'name'?: string;
 }
 
-export const AccessitemrequestedfordtoTypeEnum = {
+export const AccessItemRequestedForDtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemrequestedfordtoTypeEnum = typeof AccessitemrequestedfordtoTypeEnum[keyof typeof AccessitemrequestedfordtoTypeEnum];
+export type AccessItemRequestedForDtoTypeEnum = typeof AccessItemRequestedForDtoTypeEnum[keyof typeof AccessItemRequestedForDtoTypeEnum];
 
 /**
  * Access item requester\'s identity.
  * @export
- * @interface Accessitemrequesterdto
+ * @interface AccessItemRequesterDto
  */
-export interface Accessitemrequesterdto {
+export interface AccessItemRequesterDto {
     /**
      * Access item requester\'s DTO type.
      * @type {string}
-     * @memberof Accessitemrequesterdto
+     * @memberof AccessItemRequesterDto
      */
-    'type'?: AccessitemrequesterdtoTypeEnum;
+    'type'?: AccessItemRequesterDtoTypeEnum;
     /**
      * Access item requester\'s identity ID.
      * @type {string}
-     * @memberof Accessitemrequesterdto
+     * @memberof AccessItemRequesterDto
      */
     'id'?: string;
     /**
      * Access item owner\'s human-readable display name.
      * @type {string}
-     * @memberof Accessitemrequesterdto
+     * @memberof AccessItemRequesterDto
      */
     'name'?: string;
 }
 
-export const AccessitemrequesterdtoTypeEnum = {
+export const AccessItemRequesterDtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemrequesterdtoTypeEnum = typeof AccessitemrequesterdtoTypeEnum[keyof typeof AccessitemrequesterdtoTypeEnum];
+export type AccessItemRequesterDtoTypeEnum = typeof AccessItemRequesterDtoTypeEnum[keyof typeof AccessItemRequesterDtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestdynamicapprover
+ * @interface AccessRequestDynamicApprover
  */
-export interface Accessrequestdynamicapprover {
+export interface AccessRequestDynamicApprover {
     /**
      * The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request. 
      * @type {string}
-     * @memberof Accessrequestdynamicapprover
+     * @memberof AccessRequestDynamicApprover
      */
     'accessRequestId': string;
     /**
      * Identities access was requested for.
-     * @type {Array<Accessitemrequestedfordto>}
-     * @memberof Accessrequestdynamicapprover
+     * @type {Array<AccessItemRequestedForDto>}
+     * @memberof AccessRequestDynamicApprover
      */
-    'requestedFor': Array<Accessitemrequestedfordto>;
+    'requestedFor': Array<AccessItemRequestedForDto>;
     /**
      * The access items that are being requested.
-     * @type {Array<AccessrequestdynamicapproverRequestedItemsInner>}
-     * @memberof Accessrequestdynamicapprover
+     * @type {Array<AccessRequestDynamicApproverRequestedItemsInner>}
+     * @memberof AccessRequestDynamicApprover
      */
-    'requestedItems': Array<AccessrequestdynamicapproverRequestedItemsInner>;
+    'requestedItems': Array<AccessRequestDynamicApproverRequestedItemsInner>;
     /**
      * 
-     * @type {Accessitemrequesterdto}
-     * @memberof Accessrequestdynamicapprover
+     * @type {AccessItemRequesterDto}
+     * @memberof AccessRequestDynamicApprover
      */
-    'requestedBy': Accessitemrequesterdto;
+    'requestedBy': AccessItemRequesterDto;
 }
 /**
  * 
  * @export
- * @interface Accessrequestdynamicapprover2
+ * @interface AccessRequestDynamicApprover2
  */
-export interface Accessrequestdynamicapprover2 {
+export interface AccessRequestDynamicApprover2 {
     /**
      * The unique ID of the identity to add to the approver list for the access request.
      * @type {string}
-     * @memberof Accessrequestdynamicapprover2
+     * @memberof AccessRequestDynamicApprover2
      */
     'id': string;
     /**
      * The name of the identity to add to the approver list for the access request.
      * @type {string}
-     * @memberof Accessrequestdynamicapprover2
+     * @memberof AccessRequestDynamicApprover2
      */
     'name': string;
     /**
      * The type of object being referenced.
      * @type {string}
-     * @memberof Accessrequestdynamicapprover2
+     * @memberof AccessRequestDynamicApprover2
      */
-    'type': Accessrequestdynamicapprover2TypeEnum;
+    'type': AccessRequestDynamicApprover2TypeEnum;
 }
 
-export const Accessrequestdynamicapprover2TypeEnum = {
+export const AccessRequestDynamicApprover2TypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type Accessrequestdynamicapprover2TypeEnum = typeof Accessrequestdynamicapprover2TypeEnum[keyof typeof Accessrequestdynamicapprover2TypeEnum];
+export type AccessRequestDynamicApprover2TypeEnum = typeof AccessRequestDynamicApprover2TypeEnum[keyof typeof AccessRequestDynamicApprover2TypeEnum];
 
 /**
  * 
  * @export
- * @interface AccessrequestdynamicapproverRequestedItemsInner
+ * @interface AccessRequestDynamicApproverRequestedItemsInner
  */
-export interface AccessrequestdynamicapproverRequestedItemsInner {
+export interface AccessRequestDynamicApproverRequestedItemsInner {
     /**
      * The unique ID of the access item.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInner
+     * @memberof AccessRequestDynamicApproverRequestedItemsInner
      */
     'id': string;
     /**
      * Human friendly name of the access item.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInner
+     * @memberof AccessRequestDynamicApproverRequestedItemsInner
      */
     'name': string;
     /**
      * Extended description of the access item.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInner
+     * @memberof AccessRequestDynamicApproverRequestedItemsInner
      */
     'description'?: string | null;
     /**
      * The type of access item being requested.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInner
+     * @memberof AccessRequestDynamicApproverRequestedItemsInner
      */
-    'type': AccessrequestdynamicapproverRequestedItemsInnerTypeEnum;
+    'type': AccessRequestDynamicApproverRequestedItemsInnerTypeEnum;
     /**
      * Grant or revoke the access item
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInner
+     * @memberof AccessRequestDynamicApproverRequestedItemsInner
      */
-    'operation': AccessrequestdynamicapproverRequestedItemsInnerOperationEnum;
+    'operation': AccessRequestDynamicApproverRequestedItemsInnerOperationEnum;
     /**
      * A comment from the requestor on why the access is needed.
      * @type {string}
-     * @memberof AccessrequestdynamicapproverRequestedItemsInner
+     * @memberof AccessRequestDynamicApproverRequestedItemsInner
      */
     'comment'?: string | null;
 }
 
-export const AccessrequestdynamicapproverRequestedItemsInnerTypeEnum = {
+export const AccessRequestDynamicApproverRequestedItemsInnerTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestdynamicapproverRequestedItemsInnerTypeEnum = typeof AccessrequestdynamicapproverRequestedItemsInnerTypeEnum[keyof typeof AccessrequestdynamicapproverRequestedItemsInnerTypeEnum];
-export const AccessrequestdynamicapproverRequestedItemsInnerOperationEnum = {
+export type AccessRequestDynamicApproverRequestedItemsInnerTypeEnum = typeof AccessRequestDynamicApproverRequestedItemsInnerTypeEnum[keyof typeof AccessRequestDynamicApproverRequestedItemsInnerTypeEnum];
+export const AccessRequestDynamicApproverRequestedItemsInnerOperationEnum = {
     Add: 'Add',
     Remove: 'Remove'
 } as const;
 
-export type AccessrequestdynamicapproverRequestedItemsInnerOperationEnum = typeof AccessrequestdynamicapproverRequestedItemsInnerOperationEnum[keyof typeof AccessrequestdynamicapproverRequestedItemsInnerOperationEnum];
+export type AccessRequestDynamicApproverRequestedItemsInnerOperationEnum = typeof AccessRequestDynamicApproverRequestedItemsInnerOperationEnum[keyof typeof AccessRequestDynamicApproverRequestedItemsInnerOperationEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestpostapproval
+ * @interface AccessRequestPostApproval
  */
-export interface Accessrequestpostapproval {
+export interface AccessRequestPostApproval {
     /**
      * The unique ID of the access request.
      * @type {string}
-     * @memberof Accessrequestpostapproval
+     * @memberof AccessRequestPostApproval
      */
     'accessRequestId': string;
     /**
      * Identities access was requested for.
-     * @type {Array<Accessitemrequestedfordto>}
-     * @memberof Accessrequestpostapproval
+     * @type {Array<AccessItemRequestedForDto>}
+     * @memberof AccessRequestPostApproval
      */
-    'requestedFor': Array<Accessitemrequestedfordto>;
+    'requestedFor': Array<AccessItemRequestedForDto>;
     /**
      * Details on the outcome of each access item.
-     * @type {Array<AccessrequestpostapprovalRequestedItemsStatusInner>}
-     * @memberof Accessrequestpostapproval
+     * @type {Array<AccessRequestPostApprovalRequestedItemsStatusInner>}
+     * @memberof AccessRequestPostApproval
      */
-    'requestedItemsStatus': Array<AccessrequestpostapprovalRequestedItemsStatusInner>;
+    'requestedItemsStatus': Array<AccessRequestPostApprovalRequestedItemsStatusInner>;
     /**
      * 
-     * @type {Accessitemrequesterdto}
-     * @memberof Accessrequestpostapproval
+     * @type {AccessItemRequesterDto}
+     * @memberof AccessRequestPostApproval
      */
-    'requestedBy': Accessitemrequesterdto;
+    'requestedBy': AccessItemRequesterDto;
 }
 /**
  * 
  * @export
- * @interface AccessrequestpostapprovalRequestedItemsStatusInner
+ * @interface AccessRequestPostApprovalRequestedItemsStatusInner
  */
-export interface AccessrequestpostapprovalRequestedItemsStatusInner {
+export interface AccessRequestPostApprovalRequestedItemsStatusInner {
     /**
      * The unique ID of the access item being requested.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
     'id': string;
     /**
      * The human friendly name of the access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
     'name': string;
     /**
      * Detailed description of the access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
     'description'?: string | null;
     /**
      * The type of access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
-    'type': AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum;
+    'type': AccessRequestPostApprovalRequestedItemsStatusInnerTypeEnum;
     /**
      * The action to perform on the access item.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
-    'operation': AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum;
+    'operation': AccessRequestPostApprovalRequestedItemsStatusInnerOperationEnum;
     /**
      * A comment from the identity requesting the access.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
     'comment'?: string | null;
     /**
      * Additional customer defined metadata about the access item.
      * @type {{ [key: string]: any; }}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
     'clientMetadata'?: { [key: string]: any; } | null;
     /**
      * A list of one or more approvers for the access request.
-     * @type {Array<AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner>}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInner
+     * @type {Array<AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner>}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
-    'approvalInfo': Array<AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner>;
+    'approvalInfo': Array<AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner>;
 }
 
-export const AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum = {
+export const AccessRequestPostApprovalRequestedItemsStatusInnerTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerTypeEnum];
-export const AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum = {
+export type AccessRequestPostApprovalRequestedItemsStatusInnerTypeEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerTypeEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerTypeEnum];
+export const AccessRequestPostApprovalRequestedItemsStatusInnerOperationEnum = {
     Add: 'Add',
     Remove: 'Remove'
 } as const;
 
-export type AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerOperationEnum];
+export type AccessRequestPostApprovalRequestedItemsStatusInnerOperationEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerOperationEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerOperationEnum];
 
 /**
  * 
  * @export
- * @interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+ * @interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
  */
-export interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner {
+export interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner {
     /**
      * A comment left by the approver.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
      */
     'approvalComment'?: string | null;
     /**
      * The final decision of the approver.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
      */
-    'approvalDecision': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum;
+    'approvalDecision': AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum;
     /**
      * The name of the approver
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
      */
     'approverName': string;
     /**
      * 
-     * @type {AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInner
+     * @type {AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner
      */
-    'approver': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover;
+    'approver': AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover;
 }
 
-export const AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum = {
+export const AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum = {
     Approved: 'APPROVED',
     Denied: 'DENIED'
 } as const;
 
-export type AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum];
+export type AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprovalDecisionEnum];
 
 /**
  * The identity of the approver.
  * @export
- * @interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+ * @interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
  */
-export interface AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover {
+export interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover {
     /**
      * The type of object that is referenced
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
      */
-    'type': AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum;
+    'type': AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum;
     /**
      * ID of identity who approved the access item request.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
      */
     'id': string;
     /**
      * Human-readable display name of identity who approved the access item request.
      * @type {string}
-     * @memberof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
      */
     'name': string;
 }
 
-export const AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum = {
+export const AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum = typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum[keyof typeof AccessrequestpostapprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum];
+export type AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestpreapproval
+ * @interface AccessRequestPreApproval
  */
-export interface Accessrequestpreapproval {
+export interface AccessRequestPreApproval {
     /**
      * The unique ID of the access request.
      * @type {string}
-     * @memberof Accessrequestpreapproval
+     * @memberof AccessRequestPreApproval
      */
     'accessRequestId': string;
     /**
      * Identities access was requested for.
-     * @type {Array<Accessitemrequestedfordto>}
-     * @memberof Accessrequestpreapproval
+     * @type {Array<AccessItemRequestedForDto>}
+     * @memberof AccessRequestPreApproval
      */
-    'requestedFor': Array<Accessitemrequestedfordto>;
+    'requestedFor': Array<AccessItemRequestedForDto>;
     /**
      * Details of the access items being requested.
-     * @type {Array<AccessrequestpreapprovalRequestedItemsInner>}
-     * @memberof Accessrequestpreapproval
+     * @type {Array<AccessRequestPreApprovalRequestedItemsInner>}
+     * @memberof AccessRequestPreApproval
      */
-    'requestedItems': Array<AccessrequestpreapprovalRequestedItemsInner>;
+    'requestedItems': Array<AccessRequestPreApprovalRequestedItemsInner>;
     /**
      * 
-     * @type {Accessitemrequesterdto}
-     * @memberof Accessrequestpreapproval
+     * @type {AccessItemRequesterDto}
+     * @memberof AccessRequestPreApproval
      */
-    'requestedBy': Accessitemrequesterdto;
+    'requestedBy': AccessItemRequesterDto;
 }
 /**
  * 
  * @export
- * @interface Accessrequestpreapproval2
+ * @interface AccessRequestPreApproval2
  */
-export interface Accessrequestpreapproval2 {
+export interface AccessRequestPreApproval2 {
     /**
      * Whether or not to approve the access request.
      * @type {boolean}
-     * @memberof Accessrequestpreapproval2
+     * @memberof AccessRequestPreApproval2
      */
     'approved': boolean;
     /**
      * A comment about the decision to approve or deny the request.
      * @type {string}
-     * @memberof Accessrequestpreapproval2
+     * @memberof AccessRequestPreApproval2
      */
     'comment': string;
     /**
      * The name of the entity that approved or denied the request.
      * @type {string}
-     * @memberof Accessrequestpreapproval2
+     * @memberof AccessRequestPreApproval2
      */
     'approver': string;
 }
 /**
  * 
  * @export
- * @interface AccessrequestpreapprovalRequestedItemsInner
+ * @interface AccessRequestPreApprovalRequestedItemsInner
  */
-export interface AccessrequestpreapprovalRequestedItemsInner {
+export interface AccessRequestPreApprovalRequestedItemsInner {
     /**
      * The unique ID of the access item being requested.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInner
+     * @memberof AccessRequestPreApprovalRequestedItemsInner
      */
     'id': string;
     /**
      * The human friendly name of the access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInner
+     * @memberof AccessRequestPreApprovalRequestedItemsInner
      */
     'name': string;
     /**
      * Detailed description of the access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInner
+     * @memberof AccessRequestPreApprovalRequestedItemsInner
      */
     'description'?: string | null;
     /**
      * The type of access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInner
+     * @memberof AccessRequestPreApprovalRequestedItemsInner
      */
-    'type': AccessrequestpreapprovalRequestedItemsInnerTypeEnum;
+    'type': AccessRequestPreApprovalRequestedItemsInnerTypeEnum;
     /**
      * The action to perform on the access item.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInner
+     * @memberof AccessRequestPreApprovalRequestedItemsInner
      */
-    'operation': AccessrequestpreapprovalRequestedItemsInnerOperationEnum;
+    'operation': AccessRequestPreApprovalRequestedItemsInnerOperationEnum;
     /**
      * A comment from the identity requesting the access.
      * @type {string}
-     * @memberof AccessrequestpreapprovalRequestedItemsInner
+     * @memberof AccessRequestPreApprovalRequestedItemsInner
      */
     'comment'?: string | null;
 }
 
-export const AccessrequestpreapprovalRequestedItemsInnerTypeEnum = {
+export const AccessRequestPreApprovalRequestedItemsInnerTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestpreapprovalRequestedItemsInnerTypeEnum = typeof AccessrequestpreapprovalRequestedItemsInnerTypeEnum[keyof typeof AccessrequestpreapprovalRequestedItemsInnerTypeEnum];
-export const AccessrequestpreapprovalRequestedItemsInnerOperationEnum = {
+export type AccessRequestPreApprovalRequestedItemsInnerTypeEnum = typeof AccessRequestPreApprovalRequestedItemsInnerTypeEnum[keyof typeof AccessRequestPreApprovalRequestedItemsInnerTypeEnum];
+export const AccessRequestPreApprovalRequestedItemsInnerOperationEnum = {
     Add: 'Add',
     Remove: 'Remove'
 } as const;
 
-export type AccessrequestpreapprovalRequestedItemsInnerOperationEnum = typeof AccessrequestpreapprovalRequestedItemsInnerOperationEnum[keyof typeof AccessrequestpreapprovalRequestedItemsInnerOperationEnum];
+export type AccessRequestPreApprovalRequestedItemsInnerOperationEnum = typeof AccessRequestPreApprovalRequestedItemsInnerOperationEnum[keyof typeof AccessRequestPreApprovalRequestedItemsInnerOperationEnum];
 
 /**
  * 
  * @export
- * @interface Accountaggregationcompleted
+ * @interface AccountAggregationCompleted
  */
-export interface Accountaggregationcompleted {
+export interface AccountAggregationCompleted {
     /**
      * 
-     * @type {AccountaggregationcompletedSource}
-     * @memberof Accountaggregationcompleted
+     * @type {AccountAggregationCompletedSource}
+     * @memberof AccountAggregationCompleted
      */
-    'source': AccountaggregationcompletedSource;
+    'source': AccountAggregationCompletedSource;
     /**
      * The overall status of the aggregation.
      * @type {string}
-     * @memberof Accountaggregationcompleted
+     * @memberof AccountAggregationCompleted
      */
-    'status': AccountaggregationcompletedStatusEnum;
+    'status': AccountAggregationCompletedStatusEnum;
     /**
      * The date and time when the account aggregation started.
      * @type {string}
-     * @memberof Accountaggregationcompleted
+     * @memberof AccountAggregationCompleted
      */
     'started': string;
     /**
      * The date and time when the account aggregation finished.
      * @type {string}
-     * @memberof Accountaggregationcompleted
+     * @memberof AccountAggregationCompleted
      */
     'completed': string;
     /**
      * A list of errors that occurred during the aggregation.
      * @type {Array<string>}
-     * @memberof Accountaggregationcompleted
+     * @memberof AccountAggregationCompleted
      */
     'errors': Array<string> | null;
     /**
      * A list of warnings that occurred during the aggregation.
      * @type {Array<string>}
-     * @memberof Accountaggregationcompleted
+     * @memberof AccountAggregationCompleted
      */
     'warnings': Array<string> | null;
     /**
      * 
-     * @type {AccountaggregationcompletedStats}
-     * @memberof Accountaggregationcompleted
+     * @type {AccountAggregationCompletedStats}
+     * @memberof AccountAggregationCompleted
      */
-    'stats': AccountaggregationcompletedStats;
+    'stats': AccountAggregationCompletedStats;
 }
 
-export const AccountaggregationcompletedStatusEnum = {
+export const AccountAggregationCompletedStatusEnum = {
     Success: 'Success',
     Failed: 'Failed',
     Terminated: 'Terminated'
 } as const;
 
-export type AccountaggregationcompletedStatusEnum = typeof AccountaggregationcompletedStatusEnum[keyof typeof AccountaggregationcompletedStatusEnum];
+export type AccountAggregationCompletedStatusEnum = typeof AccountAggregationCompletedStatusEnum[keyof typeof AccountAggregationCompletedStatusEnum];
 
 /**
  * The source the accounts are being aggregated from.
  * @export
- * @interface AccountaggregationcompletedSource
+ * @interface AccountAggregationCompletedSource
  */
-export interface AccountaggregationcompletedSource {
+export interface AccountAggregationCompletedSource {
     /**
      * The DTO type of the source the accounts are being aggregated from.
      * @type {string}
-     * @memberof AccountaggregationcompletedSource
+     * @memberof AccountAggregationCompletedSource
      */
-    'type': AccountaggregationcompletedSourceTypeEnum;
+    'type': AccountAggregationCompletedSourceTypeEnum;
     /**
      * The ID of the source the accounts are being aggregated from.
      * @type {string}
-     * @memberof AccountaggregationcompletedSource
+     * @memberof AccountAggregationCompletedSource
      */
     'id': string;
     /**
      * Display name of the source the accounts are being aggregated from.
      * @type {string}
-     * @memberof AccountaggregationcompletedSource
+     * @memberof AccountAggregationCompletedSource
      */
     'name': string;
 }
 
-export const AccountaggregationcompletedSourceTypeEnum = {
+export const AccountAggregationCompletedSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccountaggregationcompletedSourceTypeEnum = typeof AccountaggregationcompletedSourceTypeEnum[keyof typeof AccountaggregationcompletedSourceTypeEnum];
+export type AccountAggregationCompletedSourceTypeEnum = typeof AccountAggregationCompletedSourceTypeEnum[keyof typeof AccountAggregationCompletedSourceTypeEnum];
 
 /**
  * Overall statistics about the account aggregation.
  * @export
- * @interface AccountaggregationcompletedStats
+ * @interface AccountAggregationCompletedStats
  */
-export interface AccountaggregationcompletedStats {
+export interface AccountAggregationCompletedStats {
     /**
      * The number of accounts which were scanned / iterated over.
      * @type {number}
-     * @memberof AccountaggregationcompletedStats
+     * @memberof AccountAggregationCompletedStats
      */
     'scanned': number;
     /**
      * The number of accounts which existed before, but had no changes.
      * @type {number}
-     * @memberof AccountaggregationcompletedStats
+     * @memberof AccountAggregationCompletedStats
      */
     'unchanged': number;
     /**
      * The number of accounts which existed before, but had changes.
      * @type {number}
-     * @memberof AccountaggregationcompletedStats
+     * @memberof AccountAggregationCompletedStats
      */
     'changed': number;
     /**
      * The number of accounts which are new - have not existed before.
      * @type {number}
-     * @memberof AccountaggregationcompletedStats
+     * @memberof AccountAggregationCompletedStats
      */
     'added': number;
     /**
      * The number accounts which existed before, but no longer exist (thus getting removed).
      * @type {number}
-     * @memberof AccountaggregationcompletedStats
+     * @memberof AccountAggregationCompletedStats
      */
     'removed': number;
 }
 /**
  * 
  * @export
- * @interface Accountattributeschanged
+ * @interface AccountAttributesChanged
  */
-export interface Accountattributeschanged {
+export interface AccountAttributesChanged {
     /**
      * 
-     * @type {AccountattributeschangedIdentity}
-     * @memberof Accountattributeschanged
+     * @type {AccountAttributesChangedIdentity}
+     * @memberof AccountAttributesChanged
      */
-    'identity': AccountattributeschangedIdentity;
+    'identity': AccountAttributesChangedIdentity;
     /**
      * 
-     * @type {AccountattributeschangedSource}
-     * @memberof Accountattributeschanged
+     * @type {AccountAttributesChangedSource}
+     * @memberof AccountAttributesChanged
      */
-    'source': AccountattributeschangedSource;
+    'source': AccountAttributesChangedSource;
     /**
      * 
-     * @type {AccountattributeschangedAccount}
-     * @memberof Accountattributeschanged
+     * @type {AccountAttributesChangedAccount}
+     * @memberof AccountAttributesChanged
      */
-    'account': AccountattributeschangedAccount;
+    'account': AccountAttributesChangedAccount;
     /**
      * A list of attributes that changed.
-     * @type {Array<AccountattributeschangedChangesInner>}
-     * @memberof Accountattributeschanged
+     * @type {Array<AccountAttributesChangedChangesInner>}
+     * @memberof AccountAttributesChanged
      */
-    'changes': Array<AccountattributeschangedChangesInner>;
+    'changes': Array<AccountAttributesChangedChangesInner>;
 }
 /**
  * Details of the account where the attributes changed.
  * @export
- * @interface AccountattributeschangedAccount
+ * @interface AccountAttributesChangedAccount
  */
-export interface AccountattributeschangedAccount {
+export interface AccountAttributesChangedAccount {
     /**
      * SailPoint generated unique identifier.
      * @type {string}
-     * @memberof AccountattributeschangedAccount
+     * @memberof AccountAttributesChangedAccount
      */
     'id': string;
     /**
      * The source\'s unique identifier for the account. UUID is generated by the source system.
      * @type {string}
-     * @memberof AccountattributeschangedAccount
+     * @memberof AccountAttributesChangedAccount
      */
     'uuid': string | null;
     /**
      * Name of the account.
      * @type {string}
-     * @memberof AccountattributeschangedAccount
+     * @memberof AccountAttributesChangedAccount
      */
     'name': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof AccountattributeschangedAccount
+     * @memberof AccountAttributesChangedAccount
      */
     'nativeIdentity': string;
     /**
      * The type of the account
      * @type {string}
-     * @memberof AccountattributeschangedAccount
+     * @memberof AccountAttributesChangedAccount
      */
-    'type': AccountattributeschangedAccountTypeEnum;
+    'type': AccountAttributesChangedAccountTypeEnum;
 }
 
-export const AccountattributeschangedAccountTypeEnum = {
+export const AccountAttributesChangedAccountTypeEnum = {
     Account: 'ACCOUNT'
 } as const;
 
-export type AccountattributeschangedAccountTypeEnum = typeof AccountattributeschangedAccountTypeEnum[keyof typeof AccountattributeschangedAccountTypeEnum];
+export type AccountAttributesChangedAccountTypeEnum = typeof AccountAttributesChangedAccountTypeEnum[keyof typeof AccountAttributesChangedAccountTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccountattributeschangedChangesInner
+ * @interface AccountAttributesChangedChangesInner
  */
-export interface AccountattributeschangedChangesInner {
+export interface AccountAttributesChangedChangesInner {
     /**
      * The name of the attribute.
      * @type {string}
-     * @memberof AccountattributeschangedChangesInner
+     * @memberof AccountAttributesChangedChangesInner
      */
     'attribute': string;
     /**
      * 
-     * @type {AccountattributeschangedChangesInnerOldValue}
-     * @memberof AccountattributeschangedChangesInner
+     * @type {AccountAttributesChangedChangesInnerOldValue}
+     * @memberof AccountAttributesChangedChangesInner
      */
-    'oldValue': AccountattributeschangedChangesInnerOldValue | null;
+    'oldValue': AccountAttributesChangedChangesInnerOldValue | null;
     /**
      * 
-     * @type {AccountattributeschangedChangesInnerNewValue}
-     * @memberof AccountattributeschangedChangesInner
+     * @type {AccountAttributesChangedChangesInnerNewValue}
+     * @memberof AccountAttributesChangedChangesInner
      */
-    'newValue': AccountattributeschangedChangesInnerNewValue | null;
+    'newValue': AccountAttributesChangedChangesInnerNewValue | null;
 }
 /**
- * @type AccountattributeschangedChangesInnerNewValue
+ * @type AccountAttributesChangedChangesInnerNewValue
  * The new value of the attribute.
  * @export
  */
-export type AccountattributeschangedChangesInnerNewValue = Array<string | null> | boolean | string;
+export type AccountAttributesChangedChangesInnerNewValue = Array<string | null> | boolean | string;
 
 /**
- * @type AccountattributeschangedChangesInnerOldValue
+ * @type AccountAttributesChangedChangesInnerOldValue
  * The previous value of the attribute.
  * @export
  */
-export type AccountattributeschangedChangesInnerOldValue = Array<string | null> | boolean | string;
+export type AccountAttributesChangedChangesInnerOldValue = Array<string | null> | boolean | string;
 
 /**
  * The identity whose account attributes were updated.
  * @export
- * @interface AccountattributeschangedIdentity
+ * @interface AccountAttributesChangedIdentity
  */
-export interface AccountattributeschangedIdentity {
+export interface AccountAttributesChangedIdentity {
     /**
      * DTO type of the identity whose account attributes were updated.
      * @type {string}
-     * @memberof AccountattributeschangedIdentity
+     * @memberof AccountAttributesChangedIdentity
      */
-    'type': AccountattributeschangedIdentityTypeEnum;
+    'type': AccountAttributesChangedIdentityTypeEnum;
     /**
      * ID of the identity whose account attributes were updated.
      * @type {string}
-     * @memberof AccountattributeschangedIdentity
+     * @memberof AccountAttributesChangedIdentity
      */
     'id': string;
     /**
      * Display name of the identity whose account attributes were updated.
      * @type {string}
-     * @memberof AccountattributeschangedIdentity
+     * @memberof AccountAttributesChangedIdentity
      */
     'name': string;
 }
 
-export const AccountattributeschangedIdentityTypeEnum = {
+export const AccountAttributesChangedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccountattributeschangedIdentityTypeEnum = typeof AccountattributeschangedIdentityTypeEnum[keyof typeof AccountattributeschangedIdentityTypeEnum];
+export type AccountAttributesChangedIdentityTypeEnum = typeof AccountAttributesChangedIdentityTypeEnum[keyof typeof AccountAttributesChangedIdentityTypeEnum];
 
 /**
  * The source that contains the account.
  * @export
- * @interface AccountattributeschangedSource
+ * @interface AccountAttributesChangedSource
  */
-export interface AccountattributeschangedSource {
+export interface AccountAttributesChangedSource {
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof AccountattributeschangedSource
+     * @memberof AccountAttributesChangedSource
      */
     'id': string;
     /**
      * The type of object that is referenced
      * @type {string}
-     * @memberof AccountattributeschangedSource
+     * @memberof AccountAttributesChangedSource
      */
-    'type': AccountattributeschangedSourceTypeEnum;
+    'type': AccountAttributesChangedSourceTypeEnum;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof AccountattributeschangedSource
+     * @memberof AccountAttributesChangedSource
      */
     'name': string;
 }
 
-export const AccountattributeschangedSourceTypeEnum = {
+export const AccountAttributesChangedSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccountattributeschangedSourceTypeEnum = typeof AccountattributeschangedSourceTypeEnum[keyof typeof AccountattributeschangedSourceTypeEnum];
+export type AccountAttributesChangedSourceTypeEnum = typeof AccountAttributesChangedSourceTypeEnum[keyof typeof AccountAttributesChangedSourceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accountcorrelated
+ * @interface AccountCorrelated
  */
-export interface Accountcorrelated {
+export interface AccountCorrelated {
     /**
      * 
-     * @type {AccountcorrelatedIdentity}
-     * @memberof Accountcorrelated
+     * @type {AccountCorrelatedIdentity}
+     * @memberof AccountCorrelated
      */
-    'identity': AccountcorrelatedIdentity;
+    'identity': AccountCorrelatedIdentity;
     /**
      * 
-     * @type {AccountcorrelatedSource}
-     * @memberof Accountcorrelated
+     * @type {AccountCorrelatedSource}
+     * @memberof AccountCorrelated
      */
-    'source': AccountcorrelatedSource;
+    'source': AccountCorrelatedSource;
     /**
      * 
-     * @type {AccountcorrelatedAccount}
-     * @memberof Accountcorrelated
+     * @type {AccountCorrelatedAccount}
+     * @memberof AccountCorrelated
      */
-    'account': AccountcorrelatedAccount;
+    'account': AccountCorrelatedAccount;
     /**
      * The attributes associated with the account.  Attributes are unique per source.
      * @type {{ [key: string]: any; }}
-     * @memberof Accountcorrelated
+     * @memberof AccountCorrelated
      */
     'attributes': { [key: string]: any; };
     /**
      * The number of entitlements associated with this account.
      * @type {number}
-     * @memberof Accountcorrelated
+     * @memberof AccountCorrelated
      */
     'entitlementCount'?: number;
 }
 /**
  * The correlated account.
  * @export
- * @interface AccountcorrelatedAccount
+ * @interface AccountCorrelatedAccount
  */
-export interface AccountcorrelatedAccount {
+export interface AccountCorrelatedAccount {
     /**
      * The correlated account\'s DTO type.
      * @type {string}
-     * @memberof AccountcorrelatedAccount
+     * @memberof AccountCorrelatedAccount
      */
-    'type': AccountcorrelatedAccountTypeEnum;
+    'type': AccountCorrelatedAccountTypeEnum;
     /**
      * The correlated account\'s ID.
      * @type {string}
-     * @memberof AccountcorrelatedAccount
+     * @memberof AccountCorrelatedAccount
      */
     'id': string;
     /**
      * The correlated account\'s display name.
      * @type {string}
-     * @memberof AccountcorrelatedAccount
+     * @memberof AccountCorrelatedAccount
      */
     'name': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof AccountcorrelatedAccount
+     * @memberof AccountCorrelatedAccount
      */
     'nativeIdentity': string;
     /**
      * The source\'s unique identifier for the account. UUID is generated by the source system.
      * @type {string}
-     * @memberof AccountcorrelatedAccount
+     * @memberof AccountCorrelatedAccount
      */
     'uuid'?: string | null;
 }
 
-export const AccountcorrelatedAccountTypeEnum = {
+export const AccountCorrelatedAccountTypeEnum = {
     Account: 'ACCOUNT'
 } as const;
 
-export type AccountcorrelatedAccountTypeEnum = typeof AccountcorrelatedAccountTypeEnum[keyof typeof AccountcorrelatedAccountTypeEnum];
+export type AccountCorrelatedAccountTypeEnum = typeof AccountCorrelatedAccountTypeEnum[keyof typeof AccountCorrelatedAccountTypeEnum];
 
 /**
  * Identity the account is correlated with.
  * @export
- * @interface AccountcorrelatedIdentity
+ * @interface AccountCorrelatedIdentity
  */
-export interface AccountcorrelatedIdentity {
+export interface AccountCorrelatedIdentity {
     /**
      * DTO type of the identity the account is correlated with.
      * @type {string}
-     * @memberof AccountcorrelatedIdentity
+     * @memberof AccountCorrelatedIdentity
      */
-    'type': AccountcorrelatedIdentityTypeEnum;
+    'type': AccountCorrelatedIdentityTypeEnum;
     /**
      * ID of the identity the account is correlated with.
      * @type {string}
-     * @memberof AccountcorrelatedIdentity
+     * @memberof AccountCorrelatedIdentity
      */
     'id': string;
     /**
      * Display name of the identity the account is correlated with.
      * @type {string}
-     * @memberof AccountcorrelatedIdentity
+     * @memberof AccountCorrelatedIdentity
      */
     'name': string;
 }
 
-export const AccountcorrelatedIdentityTypeEnum = {
+export const AccountCorrelatedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccountcorrelatedIdentityTypeEnum = typeof AccountcorrelatedIdentityTypeEnum[keyof typeof AccountcorrelatedIdentityTypeEnum];
+export type AccountCorrelatedIdentityTypeEnum = typeof AccountCorrelatedIdentityTypeEnum[keyof typeof AccountCorrelatedIdentityTypeEnum];
 
 /**
  * The source the accounts are being correlated from.
  * @export
- * @interface AccountcorrelatedSource
+ * @interface AccountCorrelatedSource
  */
-export interface AccountcorrelatedSource {
+export interface AccountCorrelatedSource {
     /**
      * The DTO type of the source the accounts are being correlated from.
      * @type {string}
-     * @memberof AccountcorrelatedSource
+     * @memberof AccountCorrelatedSource
      */
-    'type': AccountcorrelatedSourceTypeEnum;
+    'type': AccountCorrelatedSourceTypeEnum;
     /**
      * The ID of the source the accounts are being correlated from.
      * @type {string}
-     * @memberof AccountcorrelatedSource
+     * @memberof AccountCorrelatedSource
      */
     'id': string;
     /**
      * Display name of the source the accounts are being correlated from.
      * @type {string}
-     * @memberof AccountcorrelatedSource
+     * @memberof AccountCorrelatedSource
      */
     'name': string;
 }
 
-export const AccountcorrelatedSourceTypeEnum = {
+export const AccountCorrelatedSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccountcorrelatedSourceTypeEnum = typeof AccountcorrelatedSourceTypeEnum[keyof typeof AccountcorrelatedSourceTypeEnum];
+export type AccountCorrelatedSourceTypeEnum = typeof AccountCorrelatedSourceTypeEnum[keyof typeof AccountCorrelatedSourceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accountcreated
+ * @interface AccountCreated
  */
-export interface Accountcreated {
+export interface AccountCreated {
     /**
      * 
-     * @type {AccountcreatedEvent}
-     * @memberof Accountcreated
+     * @type {AccountCreatedEvent}
+     * @memberof AccountCreated
      */
-    'event': AccountcreatedEvent;
+    'event': AccountCreatedEvent;
     /**
      * 
-     * @type {Accountsourcereference}
-     * @memberof Accountcreated
+     * @type {AccountSourceReference}
+     * @memberof AccountCreated
      */
-    'source': Accountsourcereference;
+    'source': AccountSourceReference;
     /**
      * 
-     * @type {Accountv2}
-     * @memberof Accountcreated
+     * @type {AccountV2}
+     * @memberof AccountCreated
      */
-    'account': Accountv2;
+    'account': AccountV2;
     /**
      * 
-     * @type {Identityreference2}
-     * @memberof Accountcreated
+     * @type {IdentityReference2}
+     * @memberof AccountCreated
      */
-    'identity': Identityreference2;
+    'identity': IdentityReference2;
 }
 /**
  * Details about the event.
  * @export
- * @interface AccountcreatedEvent
+ * @interface AccountCreatedEvent
  */
-export interface AccountcreatedEvent {
+export interface AccountCreatedEvent {
     /**
      * The type of event.
      * @type {string}
-     * @memberof AccountcreatedEvent
+     * @memberof AccountCreatedEvent
      */
-    'type': AccountcreatedEventTypeEnum;
+    'type': AccountCreatedEventTypeEnum;
     /**
      * The cause of the event.
      * @type {string}
-     * @memberof AccountcreatedEvent
+     * @memberof AccountCreatedEvent
      */
-    'cause': AccountcreatedEventCauseEnum;
+    'cause': AccountCreatedEventCauseEnum;
 }
 
-export const AccountcreatedEventTypeEnum = {
+export const AccountCreatedEventTypeEnum = {
     AccountCreatedV2: 'ACCOUNT_CREATED_V2'
 } as const;
 
-export type AccountcreatedEventTypeEnum = typeof AccountcreatedEventTypeEnum[keyof typeof AccountcreatedEventTypeEnum];
-export const AccountcreatedEventCauseEnum = {
+export type AccountCreatedEventTypeEnum = typeof AccountCreatedEventTypeEnum[keyof typeof AccountCreatedEventTypeEnum];
+export const AccountCreatedEventCauseEnum = {
     Aggregation: 'AGGREGATION',
     Provisioning: 'PROVISIONING'
 } as const;
 
-export type AccountcreatedEventCauseEnum = typeof AccountcreatedEventCauseEnum[keyof typeof AccountcreatedEventCauseEnum];
+export type AccountCreatedEventCauseEnum = typeof AccountCreatedEventCauseEnum[keyof typeof AccountCreatedEventCauseEnum];
 
 /**
  * 
  * @export
- * @interface Accountdeleted
+ * @interface AccountDeleted
  */
-export interface Accountdeleted {
+export interface AccountDeleted {
     /**
      * 
-     * @type {AccountdeletedEvent}
-     * @memberof Accountdeleted
+     * @type {AccountDeletedEvent}
+     * @memberof AccountDeleted
      */
-    'event': AccountdeletedEvent;
+    'event': AccountDeletedEvent;
     /**
      * 
-     * @type {Accountsourcereference}
-     * @memberof Accountdeleted
+     * @type {AccountSourceReference}
+     * @memberof AccountDeleted
      */
-    'source': Accountsourcereference;
+    'source': AccountSourceReference;
     /**
      * 
-     * @type {Accountv2}
-     * @memberof Accountdeleted
+     * @type {AccountV2}
+     * @memberof AccountDeleted
      */
-    'account': Accountv2;
+    'account': AccountV2;
     /**
      * 
-     * @type {Identityreference2}
-     * @memberof Accountdeleted
+     * @type {IdentityReference2}
+     * @memberof AccountDeleted
      */
-    'identity': Identityreference2;
+    'identity': IdentityReference2;
 }
 /**
  * Details about the event.
  * @export
- * @interface AccountdeletedEvent
+ * @interface AccountDeletedEvent
  */
-export interface AccountdeletedEvent {
+export interface AccountDeletedEvent {
     /**
      * The type of event.
      * @type {string}
-     * @memberof AccountdeletedEvent
+     * @memberof AccountDeletedEvent
      */
-    'type': AccountdeletedEventTypeEnum;
+    'type': AccountDeletedEventTypeEnum;
     /**
      * The cause of the event.
      * @type {string}
-     * @memberof AccountdeletedEvent
+     * @memberof AccountDeletedEvent
      */
-    'cause': AccountdeletedEventCauseEnum;
+    'cause': AccountDeletedEventCauseEnum;
 }
 
-export const AccountdeletedEventTypeEnum = {
+export const AccountDeletedEventTypeEnum = {
     AccountDeletedV2: 'ACCOUNT_DELETED_V2'
 } as const;
 
-export type AccountdeletedEventTypeEnum = typeof AccountdeletedEventTypeEnum[keyof typeof AccountdeletedEventTypeEnum];
-export const AccountdeletedEventCauseEnum = {
+export type AccountDeletedEventTypeEnum = typeof AccountDeletedEventTypeEnum[keyof typeof AccountDeletedEventTypeEnum];
+export const AccountDeletedEventCauseEnum = {
     Aggregation: 'AGGREGATION',
     Provisioning: 'PROVISIONING'
 } as const;
 
-export type AccountdeletedEventCauseEnum = typeof AccountdeletedEventCauseEnum[keyof typeof AccountdeletedEventCauseEnum];
+export type AccountDeletedEventCauseEnum = typeof AccountDeletedEventCauseEnum[keyof typeof AccountDeletedEventCauseEnum];
 
-/**
- * 
- * @export
- * @interface Accountscollectedforaggregation
- */
-export interface Accountscollectedforaggregation {
-    /**
-     * 
-     * @type {AccountscollectedforaggregationSource}
-     * @memberof Accountscollectedforaggregation
-     */
-    'source': AccountscollectedforaggregationSource;
-    /**
-     * The overall status of the collection.
-     * @type {string}
-     * @memberof Accountscollectedforaggregation
-     */
-    'status': AccountscollectedforaggregationStatusEnum;
-    /**
-     * The date and time when the account collection started.
-     * @type {string}
-     * @memberof Accountscollectedforaggregation
-     */
-    'started': string;
-    /**
-     * The date and time when the account collection finished.
-     * @type {string}
-     * @memberof Accountscollectedforaggregation
-     */
-    'completed': string;
-    /**
-     * A list of errors that occurred during the collection.
-     * @type {Array<string>}
-     * @memberof Accountscollectedforaggregation
-     */
-    'errors': Array<string> | null;
-    /**
-     * A list of warnings that occurred during the collection.
-     * @type {Array<string>}
-     * @memberof Accountscollectedforaggregation
-     */
-    'warnings': Array<string> | null;
-    /**
-     * 
-     * @type {AccountscollectedforaggregationStats}
-     * @memberof Accountscollectedforaggregation
-     */
-    'stats': AccountscollectedforaggregationStats;
-}
-
-export const AccountscollectedforaggregationStatusEnum = {
-    Success: 'Success',
-    Failed: 'Failed',
-    Terminated: 'Terminated'
-} as const;
-
-export type AccountscollectedforaggregationStatusEnum = typeof AccountscollectedforaggregationStatusEnum[keyof typeof AccountscollectedforaggregationStatusEnum];
-
-/**
- * Reference to the source that has been aggregated.
- * @export
- * @interface AccountscollectedforaggregationSource
- */
-export interface AccountscollectedforaggregationSource {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountscollectedforaggregationSource
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof AccountscollectedforaggregationSource
-     */
-    'type': AccountscollectedforaggregationSourceTypeEnum;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountscollectedforaggregationSource
-     */
-    'name': string;
-}
-
-export const AccountscollectedforaggregationSourceTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type AccountscollectedforaggregationSourceTypeEnum = typeof AccountscollectedforaggregationSourceTypeEnum[keyof typeof AccountscollectedforaggregationSourceTypeEnum];
-
-/**
- * Overall statistics about the account collection.
- * @export
- * @interface AccountscollectedforaggregationStats
- */
-export interface AccountscollectedforaggregationStats {
-    /**
-     * The number of accounts which were scanned / iterated over.
-     * @type {number}
-     * @memberof AccountscollectedforaggregationStats
-     */
-    'scanned': number;
-    /**
-     * The number of accounts which existed before, but had no changes.
-     * @type {number}
-     * @memberof AccountscollectedforaggregationStats
-     */
-    'unchanged': number;
-    /**
-     * The number of accounts which existed before, but had changes.
-     * @type {number}
-     * @memberof AccountscollectedforaggregationStats
-     */
-    'changed': number;
-    /**
-     * The number of accounts which are new - have not existed before.
-     * @type {number}
-     * @memberof AccountscollectedforaggregationStats
-     */
-    'added': number;
-    /**
-     * The number accounts which existed before, but no longer exist (thus getting removed).
-     * @type {number}
-     * @memberof AccountscollectedforaggregationStats
-     */
-    'removed': number;
-}
 /**
  * Details about the account source.
  * @export
- * @interface Accountsourcereference
+ * @interface AccountSourceReference
  */
-export interface Accountsourcereference {
+export interface AccountSourceReference {
     /**
      * The unique ID of the source.
      * @type {string}
-     * @memberof Accountsourcereference
+     * @memberof AccountSourceReference
      */
     'id': string;
     /**
      * The name of the source.
      * @type {string}
-     * @memberof Accountsourcereference
+     * @memberof AccountSourceReference
      */
     'name': string;
     /**
      * The alias of the source.
      * @type {string}
-     * @memberof Accountsourcereference
+     * @memberof AccountSourceReference
      */
     'alias': string;
     /**
      * 
-     * @type {AccountsourcereferenceOwner}
-     * @memberof Accountsourcereference
+     * @type {AccountSourceReferenceOwner}
+     * @memberof AccountSourceReference
      */
-    'owner': AccountsourcereferenceOwner;
+    'owner': AccountSourceReferenceOwner;
     /**
      * 
-     * @type {AccountsourcereferenceGovernanceGroup}
-     * @memberof Accountsourcereference
+     * @type {AccountSourceReferenceGovernanceGroup}
+     * @memberof AccountSourceReference
      */
-    'governanceGroup': AccountsourcereferenceGovernanceGroup;
+    'governanceGroup': AccountSourceReferenceGovernanceGroup;
 }
 /**
  * Details about the governance group of the source.
  * @export
- * @interface AccountsourcereferenceGovernanceGroup
+ * @interface AccountSourceReferenceGovernanceGroup
  */
-export interface AccountsourcereferenceGovernanceGroup {
+export interface AccountSourceReferenceGovernanceGroup {
     /**
      * ID of the governance group.
      * @type {string}
-     * @memberof AccountsourcereferenceGovernanceGroup
+     * @memberof AccountSourceReferenceGovernanceGroup
      */
     'id': string;
     /**
      * Name of the governance group.
      * @type {string}
-     * @memberof AccountsourcereferenceGovernanceGroup
+     * @memberof AccountSourceReferenceGovernanceGroup
      */
     'name': string;
 }
 /**
  * Details about the owner of the source.
  * @export
- * @interface AccountsourcereferenceOwner
+ * @interface AccountSourceReferenceOwner
  */
-export interface AccountsourcereferenceOwner {
+export interface AccountSourceReferenceOwner {
     /**
      * ID of the source owner.
      * @type {string}
-     * @memberof AccountsourcereferenceOwner
+     * @memberof AccountSourceReferenceOwner
      */
     'id': string;
     /**
      * Name of the source owner.
      * @type {string}
-     * @memberof AccountsourcereferenceOwner
+     * @memberof AccountSourceReferenceOwner
      */
     'name': string;
 }
 /**
  * 
  * @export
- * @interface Accountuncorrelated
+ * @interface AccountUncorrelated
  */
-export interface Accountuncorrelated {
+export interface AccountUncorrelated {
     /**
      * 
-     * @type {AccountuncorrelatedIdentity}
-     * @memberof Accountuncorrelated
+     * @type {AccountUncorrelatedIdentity}
+     * @memberof AccountUncorrelated
      */
-    'identity': AccountuncorrelatedIdentity;
+    'identity': AccountUncorrelatedIdentity;
     /**
      * 
-     * @type {AccountuncorrelatedSource}
-     * @memberof Accountuncorrelated
+     * @type {AccountUncorrelatedSource}
+     * @memberof AccountUncorrelated
      */
-    'source': AccountuncorrelatedSource;
+    'source': AccountUncorrelatedSource;
     /**
      * 
-     * @type {AccountuncorrelatedAccount}
-     * @memberof Accountuncorrelated
+     * @type {AccountUncorrelatedAccount}
+     * @memberof AccountUncorrelated
      */
-    'account': AccountuncorrelatedAccount;
+    'account': AccountUncorrelatedAccount;
     /**
      * The number of entitlements associated with this account.
      * @type {number}
-     * @memberof Accountuncorrelated
+     * @memberof AccountUncorrelated
      */
     'entitlementCount'?: number;
 }
 /**
  * Uncorrelated account.
  * @export
- * @interface AccountuncorrelatedAccount
+ * @interface AccountUncorrelatedAccount
  */
-export interface AccountuncorrelatedAccount {
+export interface AccountUncorrelatedAccount {
     /**
      * Uncorrelated account\'s DTO type.
      * @type {string}
-     * @memberof AccountuncorrelatedAccount
+     * @memberof AccountUncorrelatedAccount
      */
-    'type': AccountuncorrelatedAccountTypeEnum;
+    'type': AccountUncorrelatedAccountTypeEnum;
     /**
      * Uncorrelated account\'s ID.
      * @type {string}
-     * @memberof AccountuncorrelatedAccount
+     * @memberof AccountUncorrelatedAccount
      */
     'id': string;
     /**
      * Uncorrelated account\'s display name.
      * @type {string}
-     * @memberof AccountuncorrelatedAccount
+     * @memberof AccountUncorrelatedAccount
      */
     'name': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof AccountuncorrelatedAccount
+     * @memberof AccountUncorrelatedAccount
      */
     'nativeIdentity': string;
     /**
      * The source\'s unique identifier for the account. UUID is generated by the source system.
      * @type {string}
-     * @memberof AccountuncorrelatedAccount
+     * @memberof AccountUncorrelatedAccount
      */
     'uuid'?: string | null;
 }
 
-export const AccountuncorrelatedAccountTypeEnum = {
+export const AccountUncorrelatedAccountTypeEnum = {
     Account: 'ACCOUNT'
 } as const;
 
-export type AccountuncorrelatedAccountTypeEnum = typeof AccountuncorrelatedAccountTypeEnum[keyof typeof AccountuncorrelatedAccountTypeEnum];
+export type AccountUncorrelatedAccountTypeEnum = typeof AccountUncorrelatedAccountTypeEnum[keyof typeof AccountUncorrelatedAccountTypeEnum];
 
 /**
  * Identity the account is uncorrelated with.
  * @export
- * @interface AccountuncorrelatedIdentity
+ * @interface AccountUncorrelatedIdentity
  */
-export interface AccountuncorrelatedIdentity {
+export interface AccountUncorrelatedIdentity {
     /**
      * DTO type of the identity the account is uncorrelated with.
      * @type {string}
-     * @memberof AccountuncorrelatedIdentity
+     * @memberof AccountUncorrelatedIdentity
      */
-    'type': AccountuncorrelatedIdentityTypeEnum;
+    'type': AccountUncorrelatedIdentityTypeEnum;
     /**
      * ID of the identity the account is uncorrelated with.
      * @type {string}
-     * @memberof AccountuncorrelatedIdentity
+     * @memberof AccountUncorrelatedIdentity
      */
     'id': string;
     /**
      * Display name of the identity the account is uncorrelated with.
      * @type {string}
-     * @memberof AccountuncorrelatedIdentity
+     * @memberof AccountUncorrelatedIdentity
      */
     'name': string;
 }
 
-export const AccountuncorrelatedIdentityTypeEnum = {
+export const AccountUncorrelatedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccountuncorrelatedIdentityTypeEnum = typeof AccountuncorrelatedIdentityTypeEnum[keyof typeof AccountuncorrelatedIdentityTypeEnum];
+export type AccountUncorrelatedIdentityTypeEnum = typeof AccountUncorrelatedIdentityTypeEnum[keyof typeof AccountUncorrelatedIdentityTypeEnum];
 
 /**
  * The source the accounts are uncorrelated from.
  * @export
- * @interface AccountuncorrelatedSource
+ * @interface AccountUncorrelatedSource
  */
-export interface AccountuncorrelatedSource {
+export interface AccountUncorrelatedSource {
     /**
      * The DTO type of the source the accounts are uncorrelated from.
      * @type {string}
-     * @memberof AccountuncorrelatedSource
+     * @memberof AccountUncorrelatedSource
      */
-    'type': AccountuncorrelatedSourceTypeEnum;
+    'type': AccountUncorrelatedSourceTypeEnum;
     /**
      * The ID of the source the accounts are uncorrelated from.
      * @type {string}
-     * @memberof AccountuncorrelatedSource
+     * @memberof AccountUncorrelatedSource
      */
     'id': string;
     /**
      * Display name of the source the accounts are uncorrelated from.
      * @type {string}
-     * @memberof AccountuncorrelatedSource
+     * @memberof AccountUncorrelatedSource
      */
     'name': string;
 }
 
-export const AccountuncorrelatedSourceTypeEnum = {
+export const AccountUncorrelatedSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccountuncorrelatedSourceTypeEnum = typeof AccountuncorrelatedSourceTypeEnum[keyof typeof AccountuncorrelatedSourceTypeEnum];
+export type AccountUncorrelatedSourceTypeEnum = typeof AccountUncorrelatedSourceTypeEnum[keyof typeof AccountUncorrelatedSourceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accountupdated
+ * @interface AccountUpdated
  */
-export interface Accountupdated {
+export interface AccountUpdated {
     /**
      * 
-     * @type {AccountupdatedEvent}
-     * @memberof Accountupdated
+     * @type {AccountUpdatedEvent}
+     * @memberof AccountUpdated
      */
-    'event': AccountupdatedEvent;
+    'event': AccountUpdatedEvent;
     /**
      * 
-     * @type {Accountsourcereference}
-     * @memberof Accountupdated
+     * @type {AccountSourceReference}
+     * @memberof AccountUpdated
      */
-    'source': Accountsourcereference;
+    'source': AccountSourceReference;
     /**
      * 
-     * @type {Accountv2}
-     * @memberof Accountupdated
+     * @type {AccountV2}
+     * @memberof AccountUpdated
      */
-    'account': Accountv2;
+    'account': AccountV2;
     /**
      * 
-     * @type {Identityreference2}
-     * @memberof Accountupdated
+     * @type {IdentityReference2}
+     * @memberof AccountUpdated
      */
-    'identity': Identityreference2;
+    'identity': IdentityReference2;
     /**
      * The types of changes that occurred to the account.
      * @type {Array<string>}
-     * @memberof Accountupdated
+     * @memberof AccountUpdated
      */
-    'accountChangeTypes': Array<AccountupdatedAccountChangeTypesEnum>;
+    'accountChangeTypes': Array<AccountUpdatedAccountChangeTypesEnum>;
     /**
      * Details about the single-value attribute changes that occurred to the account.
-     * @type {Array<AccountupdatedSingleValueAttributeChangesInner>}
-     * @memberof Accountupdated
+     * @type {Array<AccountUpdatedSingleValueAttributeChangesInner>}
+     * @memberof AccountUpdated
      */
-    'singleValueAttributeChanges': Array<AccountupdatedSingleValueAttributeChangesInner> | null;
+    'singleValueAttributeChanges': Array<AccountUpdatedSingleValueAttributeChangesInner> | null;
     /**
      * Details about the multi-value attribute changes that occurred to the account.
-     * @type {Array<AccountupdatedMultiValueAttributeChangesInner>}
-     * @memberof Accountupdated
+     * @type {Array<AccountUpdatedMultiValueAttributeChangesInner>}
+     * @memberof AccountUpdated
      */
-    'multiValueAttributeChanges': Array<AccountupdatedMultiValueAttributeChangesInner> | null;
+    'multiValueAttributeChanges': Array<AccountUpdatedMultiValueAttributeChangesInner> | null;
     /**
      * Details about the entitlement changes that occurred to the account.
-     * @type {Array<AccountupdatedEntitlementChangesInner>}
-     * @memberof Accountupdated
+     * @type {Array<AccountUpdatedEntitlementChangesInner>}
+     * @memberof AccountUpdated
      */
-    'entitlementChanges': Array<AccountupdatedEntitlementChangesInner> | null;
+    'entitlementChanges': Array<AccountUpdatedEntitlementChangesInner> | null;
 }
 
-export const AccountupdatedAccountChangeTypesEnum = {
+export const AccountUpdatedAccountChangeTypesEnum = {
     AttributesChanged: 'ATTRIBUTES_CHANGED',
     EntitlementsAdded: 'ENTITLEMENTS_ADDED',
     EntitlementsRemoved: 'ENTITLEMENTS_REMOVED'
 } as const;
 
-export type AccountupdatedAccountChangeTypesEnum = typeof AccountupdatedAccountChangeTypesEnum[keyof typeof AccountupdatedAccountChangeTypesEnum];
+export type AccountUpdatedAccountChangeTypesEnum = typeof AccountUpdatedAccountChangeTypesEnum[keyof typeof AccountUpdatedAccountChangeTypesEnum];
 
 /**
  * 
  * @export
- * @interface AccountupdatedEntitlementChangesInner
+ * @interface AccountUpdatedEntitlementChangesInner
  */
-export interface AccountupdatedEntitlementChangesInner {
+export interface AccountUpdatedEntitlementChangesInner {
     /**
      * The name of the entitlement attribute that was changed.
      * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInner
+     * @memberof AccountUpdatedEntitlementChangesInner
      */
     'attributeName': string;
     /**
      * The entitlements that were added.
-     * @type {Array<AccountupdatedEntitlementChangesInnerAddedInner>}
-     * @memberof AccountupdatedEntitlementChangesInner
+     * @type {Array<AccountUpdatedEntitlementChangesInnerAddedInner>}
+     * @memberof AccountUpdatedEntitlementChangesInner
      */
-    'added': Array<AccountupdatedEntitlementChangesInnerAddedInner> | null;
+    'added': Array<AccountUpdatedEntitlementChangesInnerAddedInner> | null;
     /**
      * The entitlements that were removed.
-     * @type {Array<AccountupdatedEntitlementChangesInnerAddedInner>}
-     * @memberof AccountupdatedEntitlementChangesInner
+     * @type {Array<AccountUpdatedEntitlementChangesInnerAddedInner>}
+     * @memberof AccountUpdatedEntitlementChangesInner
      */
-    'removed': Array<AccountupdatedEntitlementChangesInnerAddedInner> | null;
+    'removed': Array<AccountUpdatedEntitlementChangesInnerAddedInner> | null;
 }
 /**
  * 
  * @export
- * @interface AccountupdatedEntitlementChangesInnerAddedInner
+ * @interface AccountUpdatedEntitlementChangesInnerAddedInner
  */
-export interface AccountupdatedEntitlementChangesInnerAddedInner {
+export interface AccountUpdatedEntitlementChangesInnerAddedInner {
     /**
      * The unique identifier of the entitlement.
      * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     * @memberof AccountUpdatedEntitlementChangesInnerAddedInner
      */
     'id'?: string | null;
     /**
      * The name of the entitlement.
      * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     * @memberof AccountUpdatedEntitlementChangesInnerAddedInner
      */
     'name'?: string | null;
     /**
      * 
-     * @type {AccountupdatedEntitlementChangesInnerAddedInnerOwner}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     * @type {AccountUpdatedEntitlementChangesInnerAddedInnerOwner}
+     * @memberof AccountUpdatedEntitlementChangesInnerAddedInner
      */
-    'owner'?: AccountupdatedEntitlementChangesInnerAddedInnerOwner;
+    'owner'?: AccountUpdatedEntitlementChangesInnerAddedInnerOwner;
     /**
      * The value of the entitlement.
      * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInner
+     * @memberof AccountUpdatedEntitlementChangesInnerAddedInner
      */
     'value'?: string;
 }
 /**
  * The type of the entitlement.
  * @export
- * @interface AccountupdatedEntitlementChangesInnerAddedInnerOwner
+ * @interface AccountUpdatedEntitlementChangesInnerAddedInnerOwner
  */
-export interface AccountupdatedEntitlementChangesInnerAddedInnerOwner {
+export interface AccountUpdatedEntitlementChangesInnerAddedInnerOwner {
     /**
      * The unique identifier of the owner.
      * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwner
+     * @memberof AccountUpdatedEntitlementChangesInnerAddedInnerOwner
      */
     'id'?: string;
     /**
      * The name of the owner.
      * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwner
+     * @memberof AccountUpdatedEntitlementChangesInnerAddedInnerOwner
      */
     'name'?: string | null;
     /**
      * The type of the owner.
      * @type {string}
-     * @memberof AccountupdatedEntitlementChangesInnerAddedInnerOwner
+     * @memberof AccountUpdatedEntitlementChangesInnerAddedInnerOwner
      */
     'type'?: string;
 }
 /**
  * Details about the event.
  * @export
- * @interface AccountupdatedEvent
+ * @interface AccountUpdatedEvent
  */
-export interface AccountupdatedEvent {
+export interface AccountUpdatedEvent {
     /**
      * The type of event.
      * @type {string}
-     * @memberof AccountupdatedEvent
+     * @memberof AccountUpdatedEvent
      */
-    'type': AccountupdatedEventTypeEnum;
+    'type': AccountUpdatedEventTypeEnum;
     /**
      * The cause of the event.
      * @type {string}
-     * @memberof AccountupdatedEvent
+     * @memberof AccountUpdatedEvent
      */
-    'cause': AccountupdatedEventCauseEnum;
+    'cause': AccountUpdatedEventCauseEnum;
 }
 
-export const AccountupdatedEventTypeEnum = {
+export const AccountUpdatedEventTypeEnum = {
     AccountUpdatedV2: 'ACCOUNT_UPDATED_V2'
 } as const;
 
-export type AccountupdatedEventTypeEnum = typeof AccountupdatedEventTypeEnum[keyof typeof AccountupdatedEventTypeEnum];
-export const AccountupdatedEventCauseEnum = {
+export type AccountUpdatedEventTypeEnum = typeof AccountUpdatedEventTypeEnum[keyof typeof AccountUpdatedEventTypeEnum];
+export const AccountUpdatedEventCauseEnum = {
     Aggregation: 'AGGREGATION',
     Provisioning: 'PROVISIONING',
     PasswordChange: 'PASSWORD_CHANGE'
 } as const;
 
-export type AccountupdatedEventCauseEnum = typeof AccountupdatedEventCauseEnum[keyof typeof AccountupdatedEventCauseEnum];
+export type AccountUpdatedEventCauseEnum = typeof AccountUpdatedEventCauseEnum[keyof typeof AccountUpdatedEventCauseEnum];
 
 /**
  * 
  * @export
- * @interface AccountupdatedMultiValueAttributeChangesInner
+ * @interface AccountUpdatedMultiValueAttributeChangesInner
  */
-export interface AccountupdatedMultiValueAttributeChangesInner {
+export interface AccountUpdatedMultiValueAttributeChangesInner {
     /**
      * The name of the attribute that was changed.
      * @type {string}
-     * @memberof AccountupdatedMultiValueAttributeChangesInner
+     * @memberof AccountUpdatedMultiValueAttributeChangesInner
      */
     'name': string;
     /**
      * The values that were added to the attribute.
-     * @type {Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>}
-     * @memberof AccountupdatedMultiValueAttributeChangesInner
+     * @type {Array<AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner>}
+     * @memberof AccountUpdatedMultiValueAttributeChangesInner
      */
-    'addedValues': Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>;
+    'addedValues': Array<AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner>;
     /**
      * The values that were removed from the attribute.
-     * @type {Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>}
-     * @memberof AccountupdatedMultiValueAttributeChangesInner
+     * @type {Array<AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner>}
+     * @memberof AccountUpdatedMultiValueAttributeChangesInner
      */
-    'removedValues': Array<AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner>;
+    'removedValues': Array<AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner>;
 }
 /**
- * @type AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner
+ * @type AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner
  * @export
  */
-export type AccountupdatedMultiValueAttributeChangesInnerAddedValuesInner = Array<string> | boolean | number | string;
+export type AccountUpdatedMultiValueAttributeChangesInnerAddedValuesInner = Array<string> | boolean | number | string;
 
 /**
  * 
  * @export
- * @interface AccountupdatedSingleValueAttributeChangesInner
+ * @interface AccountUpdatedSingleValueAttributeChangesInner
  */
-export interface AccountupdatedSingleValueAttributeChangesInner {
+export interface AccountUpdatedSingleValueAttributeChangesInner {
     /**
      * The name of the attribute that was changed.
      * @type {string}
-     * @memberof AccountupdatedSingleValueAttributeChangesInner
+     * @memberof AccountUpdatedSingleValueAttributeChangesInner
      */
     'name': string;
     /**
      * 
-     * @type {AccountupdatedSingleValueAttributeChangesInnerOldValue}
-     * @memberof AccountupdatedSingleValueAttributeChangesInner
+     * @type {AccountUpdatedSingleValueAttributeChangesInnerOldValue}
+     * @memberof AccountUpdatedSingleValueAttributeChangesInner
      */
-    'oldValue': AccountupdatedSingleValueAttributeChangesInnerOldValue | null;
+    'oldValue': AccountUpdatedSingleValueAttributeChangesInnerOldValue | null;
     /**
      * 
-     * @type {AccountupdatedSingleValueAttributeChangesInnerNewValue}
-     * @memberof AccountupdatedSingleValueAttributeChangesInner
+     * @type {AccountUpdatedSingleValueAttributeChangesInnerNewValue}
+     * @memberof AccountUpdatedSingleValueAttributeChangesInner
      */
-    'newValue': AccountupdatedSingleValueAttributeChangesInnerNewValue | null;
+    'newValue': AccountUpdatedSingleValueAttributeChangesInnerNewValue | null;
 }
 /**
- * @type AccountupdatedSingleValueAttributeChangesInnerNewValue
+ * @type AccountUpdatedSingleValueAttributeChangesInnerNewValue
  * The new value of the attribute after the change.
  * @export
  */
-export type AccountupdatedSingleValueAttributeChangesInnerNewValue = Array<string> | boolean | number | string;
+export type AccountUpdatedSingleValueAttributeChangesInnerNewValue = Array<string> | boolean | number | string;
 
 /**
- * @type AccountupdatedSingleValueAttributeChangesInnerOldValue
+ * @type AccountUpdatedSingleValueAttributeChangesInnerOldValue
  * The old value of the attribute before the change.
  * @export
  */
-export type AccountupdatedSingleValueAttributeChangesInnerOldValue = Array<string> | boolean | number | string;
+export type AccountUpdatedSingleValueAttributeChangesInnerOldValue = Array<string> | boolean | number | string;
 
 /**
  * Details about the account.
  * @export
- * @interface Accountv2
+ * @interface AccountV2
  */
-export interface Accountv2 {
+export interface AccountV2 {
     /**
      * The unique identifier of the account.
      * @type {string}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'id': string;
     /**
      * The name of the account.
      * @type {string}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'name': string;
     /**
      * The unique ID of the account generated by the source system.
      * @type {string}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'nativeIdentity': string;
     /**
      * The unique ID associated with this account.
      * @type {string}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'uuid': string | null;
     /**
      * Indicates if the account is correlated to an identity.
      * @type {boolean}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'correlated': boolean;
     /**
      * Indicates if the account is a machine account.
      * @type {boolean}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'isMachine': boolean;
     /**
      * The origin of the account.
      * @type {string}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'origin': string | null;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof Accountv2
+     * @memberof AccountV2
      */
     'attributes': { [key: string]: any; } | null;
 }
 /**
+ * 
+ * @export
+ * @interface AccountsCollectedForAggregation
+ */
+export interface AccountsCollectedForAggregation {
+    /**
+     * 
+     * @type {AccountsCollectedForAggregationSource}
+     * @memberof AccountsCollectedForAggregation
+     */
+    'source': AccountsCollectedForAggregationSource;
+    /**
+     * The overall status of the collection.
+     * @type {string}
+     * @memberof AccountsCollectedForAggregation
+     */
+    'status': AccountsCollectedForAggregationStatusEnum;
+    /**
+     * The date and time when the account collection started.
+     * @type {string}
+     * @memberof AccountsCollectedForAggregation
+     */
+    'started': string;
+    /**
+     * The date and time when the account collection finished.
+     * @type {string}
+     * @memberof AccountsCollectedForAggregation
+     */
+    'completed': string;
+    /**
+     * A list of errors that occurred during the collection.
+     * @type {Array<string>}
+     * @memberof AccountsCollectedForAggregation
+     */
+    'errors': Array<string> | null;
+    /**
+     * A list of warnings that occurred during the collection.
+     * @type {Array<string>}
+     * @memberof AccountsCollectedForAggregation
+     */
+    'warnings': Array<string> | null;
+    /**
+     * 
+     * @type {AccountsCollectedForAggregationStats}
+     * @memberof AccountsCollectedForAggregation
+     */
+    'stats': AccountsCollectedForAggregationStats;
+}
+
+export const AccountsCollectedForAggregationStatusEnum = {
+    Success: 'Success',
+    Failed: 'Failed',
+    Terminated: 'Terminated'
+} as const;
+
+export type AccountsCollectedForAggregationStatusEnum = typeof AccountsCollectedForAggregationStatusEnum[keyof typeof AccountsCollectedForAggregationStatusEnum];
+
+/**
+ * Reference to the source that has been aggregated.
+ * @export
+ * @interface AccountsCollectedForAggregationSource
+ */
+export interface AccountsCollectedForAggregationSource {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountsCollectedForAggregationSource
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof AccountsCollectedForAggregationSource
+     */
+    'type': AccountsCollectedForAggregationSourceTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountsCollectedForAggregationSource
+     */
+    'name': string;
+}
+
+export const AccountsCollectedForAggregationSourceTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountsCollectedForAggregationSourceTypeEnum = typeof AccountsCollectedForAggregationSourceTypeEnum[keyof typeof AccountsCollectedForAggregationSourceTypeEnum];
+
+/**
+ * Overall statistics about the account collection.
+ * @export
+ * @interface AccountsCollectedForAggregationStats
+ */
+export interface AccountsCollectedForAggregationStats {
+    /**
+     * The number of accounts which were scanned / iterated over.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStats
+     */
+    'scanned': number;
+    /**
+     * The number of accounts which existed before, but had no changes.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStats
+     */
+    'unchanged': number;
+    /**
+     * The number of accounts which existed before, but had changes.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStats
+     */
+    'changed': number;
+    /**
+     * The number of accounts which are new - have not existed before.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStats
+     */
+    'added': number;
+    /**
+     * The number accounts which existed before, but no longer exist (thus getting removed).
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStats
+     */
+    'removed': number;
+}
+/**
  * Config required if BASIC_AUTH is used.
  * @export
- * @interface Basicauthconfig
+ * @interface BasicAuthConfig
  */
-export interface Basicauthconfig {
+export interface BasicAuthConfig {
     /**
      * The username to authenticate.
      * @type {string}
-     * @memberof Basicauthconfig
+     * @memberof BasicAuthConfig
      */
     'userName'?: string;
     /**
      * The password to authenticate. On response, this field is set to null as to not return secrets.
      * @type {string}
-     * @memberof Basicauthconfig
+     * @memberof BasicAuthConfig
      */
     'password'?: string | null;
 }
 /**
  * Config required if BEARER_TOKEN authentication is used. On response, this field is set to null as to not return secrets.
  * @export
- * @interface Bearertokenauthconfig
+ * @interface BearerTokenAuthConfig
  */
-export interface Bearertokenauthconfig {
+export interface BearerTokenAuthConfig {
     /**
      * Bearer token
      * @type {string}
-     * @memberof Bearertokenauthconfig
+     * @memberof BearerTokenAuthConfig
      */
     'bearerToken'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Campaignactivated
+ * @interface CampaignActivated
  */
-export interface Campaignactivated {
+export interface CampaignActivated {
     /**
      * 
-     * @type {CampaignactivatedCampaign}
-     * @memberof Campaignactivated
+     * @type {CampaignActivatedCampaign}
+     * @memberof CampaignActivated
      */
-    'campaign': CampaignactivatedCampaign;
+    'campaign': CampaignActivatedCampaign;
 }
 /**
  * Details about the certification campaign that was activated.
  * @export
- * @interface CampaignactivatedCampaign
+ * @interface CampaignActivatedCampaign
  */
-export interface CampaignactivatedCampaign {
+export interface CampaignActivatedCampaign {
     /**
      * Unique ID for the campaign.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
     'id': string;
     /**
      * The human friendly name of the campaign.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
     'name': string;
     /**
      * Extended description of the campaign.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
     'description': string;
     /**
      * The date and time the campaign was created.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
     'created': string;
     /**
      * The date and time the campaign was last modified.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
     'modified'?: string | null;
     /**
      * The date and time the campaign is due.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
     'deadline': string;
     /**
      * The type of campaign.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
-    'type': CampaignactivatedCampaignTypeEnum;
+    'type': CampaignActivatedCampaignTypeEnum;
     /**
      * 
-     * @type {CampaignactivatedCampaignCampaignOwner}
-     * @memberof CampaignactivatedCampaign
+     * @type {CampaignActivatedCampaignCampaignOwner}
+     * @memberof CampaignActivatedCampaign
      */
-    'campaignOwner': CampaignactivatedCampaignCampaignOwner;
+    'campaignOwner': CampaignActivatedCampaignCampaignOwner;
     /**
      * The current status of the campaign.
      * @type {string}
-     * @memberof CampaignactivatedCampaign
+     * @memberof CampaignActivatedCampaign
      */
-    'status': CampaignactivatedCampaignStatusEnum;
+    'status': CampaignActivatedCampaignStatusEnum;
 }
 
-export const CampaignactivatedCampaignTypeEnum = {
+export const CampaignActivatedCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
     RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
-export type CampaignactivatedCampaignTypeEnum = typeof CampaignactivatedCampaignTypeEnum[keyof typeof CampaignactivatedCampaignTypeEnum];
-export const CampaignactivatedCampaignStatusEnum = {
+export type CampaignActivatedCampaignTypeEnum = typeof CampaignActivatedCampaignTypeEnum[keyof typeof CampaignActivatedCampaignTypeEnum];
+export const CampaignActivatedCampaignStatusEnum = {
     Active: 'ACTIVE'
 } as const;
 
-export type CampaignactivatedCampaignStatusEnum = typeof CampaignactivatedCampaignStatusEnum[keyof typeof CampaignactivatedCampaignStatusEnum];
+export type CampaignActivatedCampaignStatusEnum = typeof CampaignActivatedCampaignStatusEnum[keyof typeof CampaignActivatedCampaignStatusEnum];
 
 /**
  * Details of the identity that owns the campaign.
  * @export
- * @interface CampaignactivatedCampaignCampaignOwner
+ * @interface CampaignActivatedCampaignCampaignOwner
  */
-export interface CampaignactivatedCampaignCampaignOwner {
+export interface CampaignActivatedCampaignCampaignOwner {
     /**
      * The unique ID of the identity.
      * @type {string}
-     * @memberof CampaignactivatedCampaignCampaignOwner
+     * @memberof CampaignActivatedCampaignCampaignOwner
      */
     'id': string;
     /**
      * The human friendly name of the identity.
      * @type {string}
-     * @memberof CampaignactivatedCampaignCampaignOwner
+     * @memberof CampaignActivatedCampaignCampaignOwner
      */
     'displayName': string;
     /**
      * The primary email address of the identity.
      * @type {string}
-     * @memberof CampaignactivatedCampaignCampaignOwner
+     * @memberof CampaignActivatedCampaignCampaignOwner
      */
     'email': string;
 }
 /**
  * 
  * @export
- * @interface Campaignended
+ * @interface CampaignEnded
  */
-export interface Campaignended {
+export interface CampaignEnded {
     /**
      * 
-     * @type {CampaignendedCampaign}
-     * @memberof Campaignended
+     * @type {CampaignEndedCampaign}
+     * @memberof CampaignEnded
      */
-    'campaign': CampaignendedCampaign;
+    'campaign': CampaignEndedCampaign;
 }
 /**
  * Details about the certification campaign that ended.
  * @export
- * @interface CampaignendedCampaign
+ * @interface CampaignEndedCampaign
  */
-export interface CampaignendedCampaign {
+export interface CampaignEndedCampaign {
     /**
      * Unique ID for the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
     'id': string;
     /**
      * The human friendly name of the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
     'name': string;
     /**
      * Extended description of the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
     'description': string;
     /**
      * The date and time the campaign was created.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
     'created': string;
     /**
      * The date and time the campaign was last modified.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
     'modified'?: string | null;
     /**
      * The date and time the campaign is due.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
     'deadline': string;
     /**
      * The type of campaign.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
-    'type': CampaignendedCampaignTypeEnum;
+    'type': CampaignEndedCampaignTypeEnum;
     /**
      * 
-     * @type {CampaignactivatedCampaignCampaignOwner}
-     * @memberof CampaignendedCampaign
+     * @type {CampaignActivatedCampaignCampaignOwner}
+     * @memberof CampaignEndedCampaign
      */
-    'campaignOwner': CampaignactivatedCampaignCampaignOwner;
+    'campaignOwner': CampaignActivatedCampaignCampaignOwner;
     /**
      * The current status of the campaign.
      * @type {string}
-     * @memberof CampaignendedCampaign
+     * @memberof CampaignEndedCampaign
      */
-    'status': CampaignendedCampaignStatusEnum;
+    'status': CampaignEndedCampaignStatusEnum;
 }
 
-export const CampaignendedCampaignTypeEnum = {
+export const CampaignEndedCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
     RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
-export type CampaignendedCampaignTypeEnum = typeof CampaignendedCampaignTypeEnum[keyof typeof CampaignendedCampaignTypeEnum];
-export const CampaignendedCampaignStatusEnum = {
+export type CampaignEndedCampaignTypeEnum = typeof CampaignEndedCampaignTypeEnum[keyof typeof CampaignEndedCampaignTypeEnum];
+export const CampaignEndedCampaignStatusEnum = {
     Completed: 'COMPLETED'
 } as const;
 
-export type CampaignendedCampaignStatusEnum = typeof CampaignendedCampaignStatusEnum[keyof typeof CampaignendedCampaignStatusEnum];
+export type CampaignEndedCampaignStatusEnum = typeof CampaignEndedCampaignStatusEnum[keyof typeof CampaignEndedCampaignStatusEnum];
 
 /**
  * 
  * @export
- * @interface Campaigngenerated
+ * @interface CampaignGenerated
  */
-export interface Campaigngenerated {
+export interface CampaignGenerated {
     /**
      * 
-     * @type {CampaigngeneratedCampaign}
-     * @memberof Campaigngenerated
+     * @type {CampaignGeneratedCampaign}
+     * @memberof CampaignGenerated
      */
-    'campaign': CampaigngeneratedCampaign;
+    'campaign': CampaignGeneratedCampaign;
 }
 /**
  * Details about the campaign that was generated.
  * @export
- * @interface CampaigngeneratedCampaign
+ * @interface CampaignGeneratedCampaign
  */
-export interface CampaigngeneratedCampaign {
+export interface CampaignGeneratedCampaign {
     /**
      * The unique ID of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
     'id': string;
     /**
      * Human friendly name of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
     'name': string;
     /**
      * Extended description of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
     'description': string;
     /**
      * The date and time the campaign was created.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
     'created': string;
     /**
      * The date and time the campaign was last modified.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
     'modified'?: string | null;
     /**
      * The date and time when the campaign must be finished by.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
     'deadline'?: string | null;
     /**
      * The type of campaign that was generated.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
-    'type': CampaigngeneratedCampaignTypeEnum;
+    'type': CampaignGeneratedCampaignTypeEnum;
     /**
      * 
-     * @type {CampaigngeneratedCampaignCampaignOwner}
-     * @memberof CampaigngeneratedCampaign
+     * @type {CampaignGeneratedCampaignCampaignOwner}
+     * @memberof CampaignGeneratedCampaign
      */
-    'campaignOwner': CampaigngeneratedCampaignCampaignOwner;
+    'campaignOwner': CampaignGeneratedCampaignCampaignOwner;
     /**
      * The current status of the campaign.
      * @type {string}
-     * @memberof CampaigngeneratedCampaign
+     * @memberof CampaignGeneratedCampaign
      */
-    'status': CampaigngeneratedCampaignStatusEnum;
+    'status': CampaignGeneratedCampaignStatusEnum;
 }
 
-export const CampaigngeneratedCampaignTypeEnum = {
+export const CampaignGeneratedCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
     RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
-export type CampaigngeneratedCampaignTypeEnum = typeof CampaigngeneratedCampaignTypeEnum[keyof typeof CampaigngeneratedCampaignTypeEnum];
-export const CampaigngeneratedCampaignStatusEnum = {
+export type CampaignGeneratedCampaignTypeEnum = typeof CampaignGeneratedCampaignTypeEnum[keyof typeof CampaignGeneratedCampaignTypeEnum];
+export const CampaignGeneratedCampaignStatusEnum = {
     Staged: 'STAGED',
     Activating: 'ACTIVATING',
     Active: 'ACTIVE'
 } as const;
 
-export type CampaigngeneratedCampaignStatusEnum = typeof CampaigngeneratedCampaignStatusEnum[keyof typeof CampaigngeneratedCampaignStatusEnum];
+export type CampaignGeneratedCampaignStatusEnum = typeof CampaignGeneratedCampaignStatusEnum[keyof typeof CampaignGeneratedCampaignStatusEnum];
 
 /**
  * The identity that owns the campaign.
  * @export
- * @interface CampaigngeneratedCampaignCampaignOwner
+ * @interface CampaignGeneratedCampaignCampaignOwner
  */
-export interface CampaigngeneratedCampaignCampaignOwner {
+export interface CampaignGeneratedCampaignCampaignOwner {
     /**
      * The unique ID of the identity.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignCampaignOwner
+     * @memberof CampaignGeneratedCampaignCampaignOwner
      */
     'id': string;
     /**
      * The display name of the identity.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignCampaignOwner
+     * @memberof CampaignGeneratedCampaignCampaignOwner
      */
     'displayName': string;
     /**
      * The primary email address of the identity.
      * @type {string}
-     * @memberof CampaigngeneratedCampaignCampaignOwner
+     * @memberof CampaignGeneratedCampaignCampaignOwner
      */
     'email': string;
 }
 /**
  * 
  * @export
- * @interface Campaignreference
+ * @interface CampaignReference
  */
-export interface Campaignreference {
+export interface CampaignReference {
     /**
      * The unique ID of the campaign.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
     'id': string;
     /**
      * The name of the campaign.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
     'name': string;
     /**
      * The type of object that is being referenced.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'type': CampaignreferenceTypeEnum;
+    'type': CampaignReferenceTypeEnum;
     /**
      * The type of the campaign.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'campaignType': CampaignreferenceCampaignTypeEnum;
+    'campaignType': CampaignReferenceCampaignTypeEnum;
     /**
      * The description of the campaign set by the admin who created it.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
     'description': string | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'correlatedStatus': CampaignreferenceCorrelatedStatusEnum;
+    'correlatedStatus': CampaignReferenceCorrelatedStatusEnum;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'mandatoryCommentRequirement': CampaignreferenceMandatoryCommentRequirementEnum;
+    'mandatoryCommentRequirement': CampaignReferenceMandatoryCommentRequirementEnum;
 }
 
-export const CampaignreferenceTypeEnum = {
+export const CampaignReferenceTypeEnum = {
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CampaignreferenceTypeEnum = typeof CampaignreferenceTypeEnum[keyof typeof CampaignreferenceTypeEnum];
-export const CampaignreferenceCampaignTypeEnum = {
+export type CampaignReferenceTypeEnum = typeof CampaignReferenceTypeEnum[keyof typeof CampaignReferenceTypeEnum];
+export const CampaignReferenceCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -2161,103 +2161,103 @@ export const CampaignreferenceCampaignTypeEnum = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type CampaignreferenceCampaignTypeEnum = typeof CampaignreferenceCampaignTypeEnum[keyof typeof CampaignreferenceCampaignTypeEnum];
-export const CampaignreferenceCorrelatedStatusEnum = {
+export type CampaignReferenceCampaignTypeEnum = typeof CampaignReferenceCampaignTypeEnum[keyof typeof CampaignReferenceCampaignTypeEnum];
+export const CampaignReferenceCorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type CampaignreferenceCorrelatedStatusEnum = typeof CampaignreferenceCorrelatedStatusEnum[keyof typeof CampaignreferenceCorrelatedStatusEnum];
-export const CampaignreferenceMandatoryCommentRequirementEnum = {
+export type CampaignReferenceCorrelatedStatusEnum = typeof CampaignReferenceCorrelatedStatusEnum[keyof typeof CampaignReferenceCorrelatedStatusEnum];
+export const CampaignReferenceMandatoryCommentRequirementEnum = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type CampaignreferenceMandatoryCommentRequirementEnum = typeof CampaignreferenceMandatoryCommentRequirementEnum[keyof typeof CampaignreferenceMandatoryCommentRequirementEnum];
+export type CampaignReferenceMandatoryCommentRequirementEnum = typeof CampaignReferenceMandatoryCommentRequirementEnum[keyof typeof CampaignReferenceMandatoryCommentRequirementEnum];
 
 /**
  * 
  * @export
- * @interface Certificationdto
+ * @interface CertificationDto
  */
-export interface Certificationdto {
+export interface CertificationDto {
     /**
      * 
-     * @type {Campaignreference}
-     * @memberof Certificationdto
+     * @type {CampaignReference}
+     * @memberof CertificationDto
      */
-    'campaignRef': Campaignreference;
+    'campaignRef': CampaignReference;
     /**
      * 
-     * @type {Certificationphase}
-     * @memberof Certificationdto
+     * @type {CertificationPhase}
+     * @memberof CertificationDto
      */
-    'phase': Certificationphase;
+    'phase': CertificationPhase;
     /**
      * The due date of the certification.
      * @type {string}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'due': string;
     /**
      * The date the reviewer signed off on the certification.
      * @type {string}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'signed': string;
     /**
      * 
      * @type {Reviewer}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'reviewer': Reviewer;
     /**
      * 
      * @type {Reassignment}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'reassignment'?: Reassignment | null;
     /**
      * Indicates it the certification has any errors.
      * @type {boolean}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'hasErrors': boolean;
     /**
      * A message indicating what the error is.
      * @type {string}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'errorMessage'?: string | null;
     /**
      * Indicates if all certification decisions have been made.
      * @type {boolean}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'completed': boolean;
     /**
      * The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
      * @type {number}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'decisionsMade': number;
     /**
      * The total number of approve/revoke/acknowledge decisions for the certification.
      * @type {number}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'decisionsTotal': number;
     /**
      * The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
      * @type {number}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'entitiesCompleted': number;
     /**
      * The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
      * @type {number}
-     * @memberof Certificationdto
+     * @memberof CertificationDto
      */
     'entitiesTotal': number;
 }
@@ -2269,172 +2269,172 @@ export interface Certificationdto {
  * @enum {string}
  */
 
-export const Certificationphase = {
+export const CertificationPhase = {
     Staged: 'STAGED',
     Active: 'ACTIVE',
     Signed: 'SIGNED'
 } as const;
 
-export type Certificationphase = typeof Certificationphase[keyof typeof Certificationphase];
+export type CertificationPhase = typeof CertificationPhase[keyof typeof CertificationPhase];
 
 
 /**
  * 
  * @export
- * @interface Certificationreference
+ * @interface CertificationReference
  */
-export interface Certificationreference {
+export interface CertificationReference {
     /**
      * The id of the certification.
      * @type {string}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
     'id'?: string;
     /**
      * The name of the certification.
      * @type {string}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
-    'type'?: CertificationreferenceTypeEnum;
+    'type'?: CertificationReferenceTypeEnum;
     /**
      * 
      * @type {Reviewer}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
     'reviewer'?: Reviewer;
 }
 
-export const CertificationreferenceTypeEnum = {
+export const CertificationReferenceTypeEnum = {
     Certification: 'CERTIFICATION'
 } as const;
 
-export type CertificationreferenceTypeEnum = typeof CertificationreferenceTypeEnum[keyof typeof CertificationreferenceTypeEnum];
+export type CertificationReferenceTypeEnum = typeof CertificationReferenceTypeEnum[keyof typeof CertificationReferenceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Certificationsignedoff
+ * @interface CertificationSignedOff
  */
-export interface Certificationsignedoff {
+export interface CertificationSignedOff {
     /**
      * 
-     * @type {CertificationsignedoffCertification}
-     * @memberof Certificationsignedoff
+     * @type {CertificationSignedOffCertification}
+     * @memberof CertificationSignedOff
      */
-    'certification': CertificationsignedoffCertification;
+    'certification': CertificationSignedOffCertification;
 }
 /**
  * The certification campaign that was signed off on.
  * @export
- * @interface CertificationsignedoffCertification
+ * @interface CertificationSignedOffCertification
  */
-export interface CertificationsignedoffCertification {
+export interface CertificationSignedOffCertification {
     /**
      * Unique ID of the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'id': string;
     /**
      * The name of the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'name': string;
     /**
      * The date and time the certification was created.
      * @type {string}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'created': string;
     /**
      * The date and time the certification was last modified.
      * @type {string}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {Campaignreference}
-     * @memberof CertificationsignedoffCertification
+     * @type {CampaignReference}
+     * @memberof CertificationSignedOffCertification
      */
-    'campaignRef': Campaignreference;
+    'campaignRef': CampaignReference;
     /**
      * 
-     * @type {Certificationphase}
-     * @memberof CertificationsignedoffCertification
+     * @type {CertificationPhase}
+     * @memberof CertificationSignedOffCertification
      */
-    'phase': Certificationphase;
+    'phase': CertificationPhase;
     /**
      * The due date of the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'due': string;
     /**
      * The date the reviewer signed off on the certification.
      * @type {string}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'signed': string;
     /**
      * 
      * @type {Reviewer}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'reviewer': Reviewer;
     /**
      * 
      * @type {Reassignment}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'reassignment'?: Reassignment | null;
     /**
      * Indicates it the certification has any errors.
      * @type {boolean}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'hasErrors': boolean;
     /**
      * A message indicating what the error is.
      * @type {string}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'errorMessage'?: string | null;
     /**
      * Indicates if all certification decisions have been made.
      * @type {boolean}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'completed': boolean;
     /**
      * The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
      * @type {number}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'decisionsMade': number;
     /**
      * The total number of approve/revoke/acknowledge decisions for the certification.
      * @type {number}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'decisionsTotal': number;
     /**
      * The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
      * @type {number}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'entitiesCompleted': number;
     /**
      * The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
      * @type {number}
-     * @memberof CertificationsignedoffCertification
+     * @memberof CertificationSignedOffCertification
      */
     'entitiesTotal': number;
 }
@@ -2443,69 +2443,69 @@ export interface CertificationsignedoffCertification {
 /**
  * 
  * @export
- * @interface Completeinvocation
+ * @interface CompleteInvocation
  */
-export interface Completeinvocation {
+export interface CompleteInvocation {
     /**
      * Unique invocation secret that was generated when the invocation was created. Required to authenticate to the endpoint.
      * @type {string}
-     * @memberof Completeinvocation
+     * @memberof CompleteInvocation
      */
     'secret': string;
     /**
      * The error message to indicate a failed invocation or error if any.
      * @type {string}
-     * @memberof Completeinvocation
+     * @memberof CompleteInvocation
      */
     'error'?: string;
     /**
      * Trigger output to complete the invocation. Its schema is defined in the trigger definition.
      * @type {object}
-     * @memberof Completeinvocation
+     * @memberof CompleteInvocation
      */
     'output': object;
 }
 /**
  * 
  * @export
- * @interface Completeinvocationinput
+ * @interface CompleteInvocationInput
  */
-export interface Completeinvocationinput {
+export interface CompleteInvocationInput {
     /**
      * 
-     * @type {Localizedmessage}
-     * @memberof Completeinvocationinput
+     * @type {LocalizedMessage}
+     * @memberof CompleteInvocationInput
      */
-    'localizedError'?: Localizedmessage | null;
+    'localizedError'?: LocalizedMessage | null;
     /**
      * Trigger output that completed the invocation. Its schema is defined in the trigger definition.
      * @type {object}
-     * @memberof Completeinvocationinput
+     * @memberof CompleteInvocationInput
      */
     'output'?: object | null;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -2514,50 +2514,50 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
  * @export
- * @interface Eventbridgeconfig
+ * @interface EventBridgeConfig
  */
-export interface Eventbridgeconfig {
+export interface EventBridgeConfig {
     /**
      * AWS Account Number (12-digit number) that has the EventBridge Partner Event Source Resource.
      * @type {string}
-     * @memberof Eventbridgeconfig
+     * @memberof EventBridgeConfig
      */
     'awsAccount': string;
     /**
      * AWS Region that has the EventBridge Partner Event Source Resource. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a full list of available values.
      * @type {string}
-     * @memberof Eventbridgeconfig
+     * @memberof EventBridgeConfig
      */
     'awsRegion': string;
 }
@@ -2567,51 +2567,51 @@ export interface Eventbridgeconfig {
  * @enum {string}
  */
 
-export const Httpauthenticationtype = {
+export const HttpAuthenticationType = {
     NoAuth: 'NO_AUTH',
     BasicAuth: 'BASIC_AUTH',
     BearerToken: 'BEARER_TOKEN'
 } as const;
 
-export type Httpauthenticationtype = typeof Httpauthenticationtype[keyof typeof Httpauthenticationtype];
+export type HttpAuthenticationType = typeof HttpAuthenticationType[keyof typeof HttpAuthenticationType];
 
 
 /**
  * 
  * @export
- * @interface Httpconfig
+ * @interface HttpConfig
  */
-export interface Httpconfig {
+export interface HttpConfig {
     /**
      * URL of the external/custom integration.
      * @type {string}
-     * @memberof Httpconfig
+     * @memberof HttpConfig
      */
     'url': string;
     /**
      * 
-     * @type {Httpdispatchmode}
-     * @memberof Httpconfig
+     * @type {HttpDispatchMode}
+     * @memberof HttpConfig
      */
-    'httpDispatchMode': Httpdispatchmode;
+    'httpDispatchMode': HttpDispatchMode;
     /**
      * 
-     * @type {Httpauthenticationtype}
-     * @memberof Httpconfig
+     * @type {HttpAuthenticationType}
+     * @memberof HttpConfig
      */
-    'httpAuthenticationType'?: Httpauthenticationtype;
+    'httpAuthenticationType'?: HttpAuthenticationType;
     /**
      * 
-     * @type {Basicauthconfig}
-     * @memberof Httpconfig
+     * @type {BasicAuthConfig}
+     * @memberof HttpConfig
      */
-    'basicAuthConfig'?: Basicauthconfig | null;
+    'basicAuthConfig'?: BasicAuthConfig | null;
     /**
      * 
-     * @type {Bearertokenauthconfig}
-     * @memberof Httpconfig
+     * @type {BearerTokenAuthConfig}
+     * @memberof HttpConfig
      */
-    'bearerTokenAuthConfig'?: Bearertokenauthconfig | null;
+    'bearerTokenAuthConfig'?: BearerTokenAuthConfig | null;
 }
 
 
@@ -2621,241 +2621,241 @@ export interface Httpconfig {
  * @enum {string}
  */
 
-export const Httpdispatchmode = {
+export const HttpDispatchMode = {
     Sync: 'SYNC',
     Async: 'ASYNC',
     Dynamic: 'DYNAMIC'
 } as const;
 
-export type Httpdispatchmode = typeof Httpdispatchmode[keyof typeof Httpdispatchmode];
+export type HttpDispatchMode = typeof HttpDispatchMode[keyof typeof HttpDispatchMode];
 
 
 /**
  * 
  * @export
- * @interface Identityattributeschanged
+ * @interface IdentityAttributesChanged
  */
-export interface Identityattributeschanged {
+export interface IdentityAttributesChanged {
     /**
      * 
-     * @type {IdentityattributeschangedIdentity}
-     * @memberof Identityattributeschanged
+     * @type {IdentityAttributesChangedIdentity}
+     * @memberof IdentityAttributesChanged
      */
-    'identity': IdentityattributeschangedIdentity;
+    'identity': IdentityAttributesChangedIdentity;
     /**
      * A list of one or more identity attributes that changed on the identity.
-     * @type {Array<IdentityattributeschangedChangesInner>}
-     * @memberof Identityattributeschanged
+     * @type {Array<IdentityAttributesChangedChangesInner>}
+     * @memberof IdentityAttributesChanged
      */
-    'changes': Array<IdentityattributeschangedChangesInner>;
+    'changes': Array<IdentityAttributesChangedChangesInner>;
 }
 /**
  * 
  * @export
- * @interface IdentityattributeschangedChangesInner
+ * @interface IdentityAttributesChangedChangesInner
  */
-export interface IdentityattributeschangedChangesInner {
+export interface IdentityAttributesChangedChangesInner {
     /**
      * The name of the identity attribute that changed.
      * @type {string}
-     * @memberof IdentityattributeschangedChangesInner
+     * @memberof IdentityAttributesChangedChangesInner
      */
     'attribute': string;
     /**
      * 
-     * @type {IdentityattributeschangedChangesInnerOldValue}
-     * @memberof IdentityattributeschangedChangesInner
+     * @type {IdentityAttributesChangedChangesInnerOldValue}
+     * @memberof IdentityAttributesChangedChangesInner
      */
-    'oldValue'?: IdentityattributeschangedChangesInnerOldValue | null;
+    'oldValue'?: IdentityAttributesChangedChangesInnerOldValue | null;
     /**
      * 
-     * @type {IdentityattributeschangedChangesInnerNewValue}
-     * @memberof IdentityattributeschangedChangesInner
+     * @type {IdentityAttributesChangedChangesInnerNewValue}
+     * @memberof IdentityAttributesChangedChangesInner
      */
-    'newValue'?: IdentityattributeschangedChangesInnerNewValue;
+    'newValue'?: IdentityAttributesChangedChangesInnerNewValue;
 }
 /**
- * @type IdentityattributeschangedChangesInnerNewValue
+ * @type IdentityAttributesChangedChangesInnerNewValue
  * The value of the identity attribute after it changed.
  * @export
  */
-export type IdentityattributeschangedChangesInnerNewValue = Array<string> | boolean | string | { [key: string]: IdentityattributeschangedChangesInnerOldValueOneOfValue; };
+export type IdentityAttributesChangedChangesInnerNewValue = Array<string> | boolean | string | { [key: string]: IdentityAttributesChangedChangesInnerOldValueOneOfValue; };
 
 /**
- * @type IdentityattributeschangedChangesInnerOldValue
+ * @type IdentityAttributesChangedChangesInnerOldValue
  * The value of the identity attribute before it changed.
  * @export
  */
-export type IdentityattributeschangedChangesInnerOldValue = Array<string> | boolean | string | { [key: string]: IdentityattributeschangedChangesInnerOldValueOneOfValue; };
+export type IdentityAttributesChangedChangesInnerOldValue = Array<string> | boolean | string | { [key: string]: IdentityAttributesChangedChangesInnerOldValueOneOfValue; };
 
 /**
- * @type IdentityattributeschangedChangesInnerOldValueOneOfValue
+ * @type IdentityAttributesChangedChangesInnerOldValueOneOfValue
  * @export
  */
-export type IdentityattributeschangedChangesInnerOldValueOneOfValue = boolean | number | string;
+export type IdentityAttributesChangedChangesInnerOldValueOneOfValue = boolean | number | string;
 
 /**
  * Identity whose attributes changed.
  * @export
- * @interface IdentityattributeschangedIdentity
+ * @interface IdentityAttributesChangedIdentity
  */
-export interface IdentityattributeschangedIdentity {
+export interface IdentityAttributesChangedIdentity {
     /**
      * DTO type of identity whose attributes changed.
      * @type {string}
-     * @memberof IdentityattributeschangedIdentity
+     * @memberof IdentityAttributesChangedIdentity
      */
-    'type': IdentityattributeschangedIdentityTypeEnum;
+    'type': IdentityAttributesChangedIdentityTypeEnum;
     /**
      * ID of identity whose attributes changed.
      * @type {string}
-     * @memberof IdentityattributeschangedIdentity
+     * @memberof IdentityAttributesChangedIdentity
      */
     'id': string;
     /**
      * Display name of identity whose attributes changed.
      * @type {string}
-     * @memberof IdentityattributeschangedIdentity
+     * @memberof IdentityAttributesChangedIdentity
      */
     'name': string;
 }
 
-export const IdentityattributeschangedIdentityTypeEnum = {
+export const IdentityAttributesChangedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentityattributeschangedIdentityTypeEnum = typeof IdentityattributeschangedIdentityTypeEnum[keyof typeof IdentityattributeschangedIdentityTypeEnum];
+export type IdentityAttributesChangedIdentityTypeEnum = typeof IdentityAttributesChangedIdentityTypeEnum[keyof typeof IdentityAttributesChangedIdentityTypeEnum];
 
 /**
  * 
  * @export
- * @interface Identitycreated
+ * @interface IdentityCreated
  */
-export interface Identitycreated {
+export interface IdentityCreated {
     /**
      * 
-     * @type {IdentitycreatedIdentity}
-     * @memberof Identitycreated
+     * @type {IdentityCreatedIdentity}
+     * @memberof IdentityCreated
      */
-    'identity': IdentitycreatedIdentity;
+    'identity': IdentityCreatedIdentity;
     /**
      * The attributes assigned to the identity. Attributes are determined by the identity profile.
      * @type {{ [key: string]: any; }}
-     * @memberof Identitycreated
+     * @memberof IdentityCreated
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * Created identity.
  * @export
- * @interface IdentitycreatedIdentity
+ * @interface IdentityCreatedIdentity
  */
-export interface IdentitycreatedIdentity {
+export interface IdentityCreatedIdentity {
     /**
      * Created identity\'s DTO type.
      * @type {string}
-     * @memberof IdentitycreatedIdentity
+     * @memberof IdentityCreatedIdentity
      */
-    'type': IdentitycreatedIdentityTypeEnum;
+    'type': IdentityCreatedIdentityTypeEnum;
     /**
      * Created identity ID.
      * @type {string}
-     * @memberof IdentitycreatedIdentity
+     * @memberof IdentityCreatedIdentity
      */
     'id': string;
     /**
      * Created identity\'s display name.
      * @type {string}
-     * @memberof IdentitycreatedIdentity
+     * @memberof IdentityCreatedIdentity
      */
     'name': string;
 }
 
-export const IdentitycreatedIdentityTypeEnum = {
+export const IdentityCreatedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentitycreatedIdentityTypeEnum = typeof IdentitycreatedIdentityTypeEnum[keyof typeof IdentitycreatedIdentityTypeEnum];
+export type IdentityCreatedIdentityTypeEnum = typeof IdentityCreatedIdentityTypeEnum[keyof typeof IdentityCreatedIdentityTypeEnum];
 
 /**
  * 
  * @export
- * @interface Identitydeleted
+ * @interface IdentityDeleted
  */
-export interface Identitydeleted {
+export interface IdentityDeleted {
     /**
      * 
-     * @type {IdentitydeletedIdentity}
-     * @memberof Identitydeleted
+     * @type {IdentityDeletedIdentity}
+     * @memberof IdentityDeleted
      */
-    'identity': IdentitydeletedIdentity;
+    'identity': IdentityDeletedIdentity;
     /**
      * The attributes assigned to the identity. Attributes are determined by the identity profile.
      * @type {{ [key: string]: any; }}
-     * @memberof Identitydeleted
+     * @memberof IdentityDeleted
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * Deleted identity.
  * @export
- * @interface IdentitydeletedIdentity
+ * @interface IdentityDeletedIdentity
  */
-export interface IdentitydeletedIdentity {
+export interface IdentityDeletedIdentity {
     /**
      * Deleted identity\'s DTO type.
      * @type {string}
-     * @memberof IdentitydeletedIdentity
+     * @memberof IdentityDeletedIdentity
      */
-    'type': IdentitydeletedIdentityTypeEnum;
+    'type': IdentityDeletedIdentityTypeEnum;
     /**
      * Deleted identity ID.
      * @type {string}
-     * @memberof IdentitydeletedIdentity
+     * @memberof IdentityDeletedIdentity
      */
     'id': string;
     /**
      * Deleted identity\'s display name.
      * @type {string}
-     * @memberof IdentitydeletedIdentity
+     * @memberof IdentityDeletedIdentity
      */
     'name': string;
 }
 
-export const IdentitydeletedIdentityTypeEnum = {
+export const IdentityDeletedIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentitydeletedIdentityTypeEnum = typeof IdentitydeletedIdentityTypeEnum[keyof typeof IdentitydeletedIdentityTypeEnum];
+export type IdentityDeletedIdentityTypeEnum = typeof IdentityDeletedIdentityTypeEnum[keyof typeof IdentityDeletedIdentityTypeEnum];
 
 /**
  * Details about the identity correlated with the account.
  * @export
- * @interface Identityreference2
+ * @interface IdentityReference2
  */
-export interface Identityreference2 {
+export interface IdentityReference2 {
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Identityreference2
+     * @memberof IdentityReference2
      */
     'id': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Identityreference2
+     * @memberof IdentityReference2
      */
     'name': string;
     /**
      * The alias of the identity.
      * @type {string}
-     * @memberof Identityreference2
+     * @memberof IdentityReference2
      */
     'alias': string;
     /**
      * The email of the identity.
      * @type {string}
-     * @memberof Identityreference2
+     * @memberof IdentityReference2
      */
     'email': string;
 }
@@ -2893,63 +2893,63 @@ export interface Invocation {
 /**
  * 
  * @export
- * @interface Invocationstatus
+ * @interface InvocationStatus
  */
-export interface Invocationstatus {
+export interface InvocationStatus {
     /**
      * Invocation ID
      * @type {string}
-     * @memberof Invocationstatus
+     * @memberof InvocationStatus
      */
     'id': string;
     /**
      * Trigger ID
      * @type {string}
-     * @memberof Invocationstatus
+     * @memberof InvocationStatus
      */
     'triggerId': string;
     /**
      * Subscription name
      * @type {string}
-     * @memberof Invocationstatus
+     * @memberof InvocationStatus
      */
     'subscriptionName': string;
     /**
      * Subscription ID
      * @type {string}
-     * @memberof Invocationstatus
+     * @memberof InvocationStatus
      */
     'subscriptionId': string;
     /**
      * 
-     * @type {Invocationstatustype}
-     * @memberof Invocationstatus
+     * @type {InvocationStatusType}
+     * @memberof InvocationStatus
      */
-    'type': Invocationstatustype;
+    'type': InvocationStatusType;
     /**
      * Invocation created timestamp. ISO-8601 in UTC.
      * @type {string}
-     * @memberof Invocationstatus
+     * @memberof InvocationStatus
      */
     'created': string;
     /**
      * Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC.
      * @type {string}
-     * @memberof Invocationstatus
+     * @memberof InvocationStatus
      */
     'completed'?: string;
     /**
      * 
-     * @type {Startinvocationinput}
-     * @memberof Invocationstatus
+     * @type {StartInvocationInput}
+     * @memberof InvocationStatus
      */
-    'startInvocationInput': Startinvocationinput;
+    'startInvocationInput': StartInvocationInput;
     /**
      * 
-     * @type {Completeinvocationinput}
-     * @memberof Invocationstatus
+     * @type {CompleteInvocationInput}
+     * @memberof InvocationStatus
      */
-    'completeInvocationInput'?: Completeinvocationinput;
+    'completeInvocationInput'?: CompleteInvocationInput;
 }
 
 
@@ -2959,12 +2959,12 @@ export interface Invocationstatus {
  * @enum {string}
  */
 
-export const Invocationstatustype = {
+export const InvocationStatusType = {
     Test: 'TEST',
     RealTime: 'REAL_TIME'
 } as const;
 
-export type Invocationstatustype = typeof Invocationstatustype[keyof typeof Invocationstatustype];
+export type InvocationStatusType = typeof InvocationStatusType[keyof typeof InvocationStatusType];
 
 
 /**
@@ -2999,441 +2999,441 @@ export interface ListTriggersV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Localized error message to indicate a failed invocation or error if any.
  * @export
- * @interface Localizedmessage
+ * @interface LocalizedMessage
  */
-export interface Localizedmessage {
+export interface LocalizedMessage {
     /**
      * Message locale
      * @type {string}
-     * @memberof Localizedmessage
+     * @memberof LocalizedMessage
      */
     'locale': string;
     /**
      * Message text
      * @type {string}
-     * @memberof Localizedmessage
+     * @memberof LocalizedMessage
      */
     'message': string;
 }
 /**
  * 
  * @export
- * @interface Machineidentitycreated
+ * @interface MachineIdentityCreated
  */
-export interface Machineidentitycreated {
+export interface MachineIdentityCreated {
     /**
      * Type of the event.
      * @type {string}
-     * @memberof Machineidentitycreated
+     * @memberof MachineIdentityCreated
      */
-    'eventType': MachineidentitycreatedEventTypeEnum;
+    'eventType': MachineIdentityCreatedEventTypeEnum;
     /**
      * 
-     * @type {MachineidentitycreatedMachineIdentity}
-     * @memberof Machineidentitycreated
+     * @type {MachineIdentityCreatedMachineIdentity}
+     * @memberof MachineIdentityCreated
      */
-    'machineIdentity': MachineidentitycreatedMachineIdentity;
+    'machineIdentity': MachineIdentityCreatedMachineIdentity;
 }
 
-export const MachineidentitycreatedEventTypeEnum = {
+export const MachineIdentityCreatedEventTypeEnum = {
     MachineIdentityCreated: 'MACHINE_IDENTITY_CREATED'
 } as const;
 
-export type MachineidentitycreatedEventTypeEnum = typeof MachineidentitycreatedEventTypeEnum[keyof typeof MachineidentitycreatedEventTypeEnum];
+export type MachineIdentityCreatedEventTypeEnum = typeof MachineIdentityCreatedEventTypeEnum[keyof typeof MachineIdentityCreatedEventTypeEnum];
 
 /**
  * Details of the created machine identity.
  * @export
- * @interface MachineidentitycreatedMachineIdentity
+ * @interface MachineIdentityCreatedMachineIdentity
  */
-export interface MachineidentitycreatedMachineIdentity {
+export interface MachineIdentityCreatedMachineIdentity {
     /**
      * Unique identifier for the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'id': string;
     /**
      * Name of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'name'?: string;
     /**
      * Creation timestamp.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'created': string;
     /**
      * Last modified timestamp.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'modified': string;
     /**
      * Associated business application.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'businessApplication'?: string;
     /**
      * Description of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'description'?: string;
     /**
      * The attributes assigned to the identity.
      * @type {{ [key: string]: any; }}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Subtype of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
-    'subtype': MachineidentitycreatedMachineIdentitySubtypeEnum;
+    'subtype': MachineIdentityCreatedMachineIdentitySubtypeEnum;
     /**
      * List of owners.
-     * @type {Array<Machineidentityownerreference>}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @type {Array<MachineIdentityOwnerReference>}
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
-    'owners'?: Array<Machineidentityownerreference>;
+    'owners'?: Array<MachineIdentityOwnerReference>;
     /**
      * Source identifier.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'sourceId'?: string;
     /**
      * UUID of the machine identity.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'uuid'?: string;
     /**
      * Native identity value.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'nativeIdentity'?: string;
     /**
      * Indicates if manually edited.
      * @type {boolean}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'manuallyEdited': boolean;
     /**
      * Indicates if manually created.
      * @type {boolean}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'manuallyCreated'?: boolean;
     /**
      * Dataset identifier.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'datasetId'?: string;
     /**
      * 
-     * @type {Machineidentitysourcereference}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @type {MachineIdentitySourceReference}
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
-    'source'?: Machineidentitysourcereference;
+    'source'?: MachineIdentitySourceReference;
     /**
      * List of user entitlements.
-     * @type {Array<Machineidentityuserentitlements>}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @type {Array<MachineIdentityUserEntitlements>}
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
-    'userEntitlements'?: Array<Machineidentityuserentitlements>;
+    'userEntitlements'?: Array<MachineIdentityUserEntitlements>;
     /**
      * Existence status on source.
      * @type {string}
-     * @memberof MachineidentitycreatedMachineIdentity
+     * @memberof MachineIdentityCreatedMachineIdentity
      */
     'existsOnSource'?: string;
 }
 
-export const MachineidentitycreatedMachineIdentitySubtypeEnum = {
+export const MachineIdentityCreatedMachineIdentitySubtypeEnum = {
     AiAgent: 'AI Agent',
     Application: 'Application'
 } as const;
 
-export type MachineidentitycreatedMachineIdentitySubtypeEnum = typeof MachineidentitycreatedMachineIdentitySubtypeEnum[keyof typeof MachineidentitycreatedMachineIdentitySubtypeEnum];
+export type MachineIdentityCreatedMachineIdentitySubtypeEnum = typeof MachineIdentityCreatedMachineIdentitySubtypeEnum[keyof typeof MachineIdentityCreatedMachineIdentitySubtypeEnum];
 
 /**
  * 
  * @export
- * @interface Machineidentitydeleted
+ * @interface MachineIdentityDeleted
  */
-export interface Machineidentitydeleted {
+export interface MachineIdentityDeleted {
     /**
      * Type of the event.
      * @type {string}
-     * @memberof Machineidentitydeleted
+     * @memberof MachineIdentityDeleted
      */
-    'eventType': MachineidentitydeletedEventTypeEnum;
+    'eventType': MachineIdentityDeletedEventTypeEnum;
     /**
      * 
-     * @type {MachineidentitydeletedMachineIdentity}
-     * @memberof Machineidentitydeleted
+     * @type {MachineIdentityDeletedMachineIdentity}
+     * @memberof MachineIdentityDeleted
      */
-    'machineIdentity': MachineidentitydeletedMachineIdentity;
+    'machineIdentity': MachineIdentityDeletedMachineIdentity;
 }
 
-export const MachineidentitydeletedEventTypeEnum = {
+export const MachineIdentityDeletedEventTypeEnum = {
     MachineIdentityDeleted: 'MACHINE_IDENTITY_DELETED'
 } as const;
 
-export type MachineidentitydeletedEventTypeEnum = typeof MachineidentitydeletedEventTypeEnum[keyof typeof MachineidentitydeletedEventTypeEnum];
+export type MachineIdentityDeletedEventTypeEnum = typeof MachineIdentityDeletedEventTypeEnum[keyof typeof MachineIdentityDeletedEventTypeEnum];
 
 /**
  * Details of the deleted machine identity.
  * @export
- * @interface MachineidentitydeletedMachineIdentity
+ * @interface MachineIdentityDeletedMachineIdentity
  */
-export interface MachineidentitydeletedMachineIdentity {
+export interface MachineIdentityDeletedMachineIdentity {
     /**
      * Unique identifier for the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'id': string;
     /**
      * Name of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'name'?: string;
     /**
      * Creation timestamp.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'created': string;
     /**
      * Last modified timestamp.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'modified': string;
     /**
      * Associated business application.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'businessApplication'?: string;
     /**
      * Description of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'description'?: string;
     /**
      * The attributes assigned to the identity.
      * @type {{ [key: string]: any; }}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Subtype of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
-    'subtype': MachineidentitydeletedMachineIdentitySubtypeEnum;
+    'subtype': MachineIdentityDeletedMachineIdentitySubtypeEnum;
     /**
      * List of owners.
-     * @type {Array<Machineidentityownerreference>}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @type {Array<MachineIdentityOwnerReference>}
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
-    'owners'?: Array<Machineidentityownerreference>;
+    'owners'?: Array<MachineIdentityOwnerReference>;
     /**
      * Source identifier.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'sourceId'?: string;
     /**
      * UUID of the machine identity.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'uuid'?: string;
     /**
      * Native identity value.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'nativeIdentity'?: string;
     /**
      * Indicates if manually edited.
      * @type {boolean}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'manuallyEdited': boolean;
     /**
      * Indicates if manually created.
      * @type {boolean}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'manuallyCreated'?: boolean;
     /**
      * Dataset identifier.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'datasetId'?: string;
     /**
      * 
-     * @type {Machineidentitysourcereference}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @type {MachineIdentitySourceReference}
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
-    'source'?: Machineidentitysourcereference;
+    'source'?: MachineIdentitySourceReference;
     /**
      * List of user entitlements.
-     * @type {Array<Machineidentityuserentitlements>}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @type {Array<MachineIdentityUserEntitlements>}
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
-    'userEntitlements'?: Array<Machineidentityuserentitlements>;
+    'userEntitlements'?: Array<MachineIdentityUserEntitlements>;
     /**
      * Existence status on source.
      * @type {string}
-     * @memberof MachineidentitydeletedMachineIdentity
+     * @memberof MachineIdentityDeletedMachineIdentity
      */
     'existsOnSource'?: string;
 }
 
-export const MachineidentitydeletedMachineIdentitySubtypeEnum = {
+export const MachineIdentityDeletedMachineIdentitySubtypeEnum = {
     AiAgent: 'AI Agent',
     Application: 'Application'
 } as const;
 
-export type MachineidentitydeletedMachineIdentitySubtypeEnum = typeof MachineidentitydeletedMachineIdentitySubtypeEnum[keyof typeof MachineidentitydeletedMachineIdentitySubtypeEnum];
+export type MachineIdentityDeletedMachineIdentitySubtypeEnum = typeof MachineIdentityDeletedMachineIdentitySubtypeEnum[keyof typeof MachineIdentityDeletedMachineIdentitySubtypeEnum];
 
 /**
  * Reference to an owner of the machine identity.
  * @export
- * @interface Machineidentityownerreference
+ * @interface MachineIdentityOwnerReference
  */
-export interface Machineidentityownerreference {
+export interface MachineIdentityOwnerReference {
     [key: string]: any;
 
     /**
      * Owner\'s type.
      * @type {string}
-     * @memberof Machineidentityownerreference
+     * @memberof MachineIdentityOwnerReference
      */
     'type': string;
     /**
      * Owner ID.
      * @type {string}
-     * @memberof Machineidentityownerreference
+     * @memberof MachineIdentityOwnerReference
      */
     'id': string;
     /**
      * Owner\'s display name.
      * @type {string}
-     * @memberof Machineidentityownerreference
+     * @memberof MachineIdentityOwnerReference
      */
     'name': string;
     /**
      * Indicates if this owner is the primary owner.
      * @type {boolean}
-     * @memberof Machineidentityownerreference
+     * @memberof MachineIdentityOwnerReference
      */
     'isPrimary'?: boolean;
 }
 /**
  * Reference to a source of entity.
  * @export
- * @interface Machineidentitysourcereference
+ * @interface MachineIdentitySourceReference
  */
-export interface Machineidentitysourcereference {
+export interface MachineIdentitySourceReference {
     [key: string]: any;
 
     /**
      * Source Type.
      * @type {string}
-     * @memberof Machineidentitysourcereference
+     * @memberof MachineIdentitySourceReference
      */
     'type': string;
     /**
      * Unique identifier.
      * @type {string}
-     * @memberof Machineidentitysourcereference
+     * @memberof MachineIdentitySourceReference
      */
     'id': string;
     /**
      * Display name.
      * @type {string}
-     * @memberof Machineidentitysourcereference
+     * @memberof MachineIdentitySourceReference
      */
     'name': string;
 }
 /**
  * 
  * @export
- * @interface Machineidentityupdated
+ * @interface MachineIdentityUpdated
  */
-export interface Machineidentityupdated {
+export interface MachineIdentityUpdated {
     /**
      * Type of the event.
      * @type {string}
-     * @memberof Machineidentityupdated
+     * @memberof MachineIdentityUpdated
      */
-    'eventType': MachineidentityupdatedEventTypeEnum;
+    'eventType': MachineIdentityUpdatedEventTypeEnum;
     /**
      * 
-     * @type {MachineidentityupdatedMachineIdentity}
-     * @memberof Machineidentityupdated
+     * @type {MachineIdentityUpdatedMachineIdentity}
+     * @memberof MachineIdentityUpdated
      */
-    'machineIdentity': MachineidentityupdatedMachineIdentity;
+    'machineIdentity': MachineIdentityUpdatedMachineIdentity;
     /**
      * Types of changes that occurred to the machine identity.
      * @type {Array<string>}
-     * @memberof Machineidentityupdated
+     * @memberof MachineIdentityUpdated
      */
-    'machineIdentityChangeTypes': Array<MachineidentityupdatedMachineIdentityChangeTypesEnum>;
+    'machineIdentityChangeTypes': Array<MachineIdentityUpdatedMachineIdentityChangeTypesEnum>;
     /**
      * 
-     * @type {MachineidentityupdatedUserEntitlementChanges}
-     * @memberof Machineidentityupdated
+     * @type {MachineIdentityUpdatedUserEntitlementChanges}
+     * @memberof MachineIdentityUpdated
      */
-    'userEntitlementChanges': MachineidentityupdatedUserEntitlementChanges;
+    'userEntitlementChanges': MachineIdentityUpdatedUserEntitlementChanges;
     /**
      * 
-     * @type {MachineidentityupdatedOwnerChanges}
-     * @memberof Machineidentityupdated
+     * @type {MachineIdentityUpdatedOwnerChanges}
+     * @memberof MachineIdentityUpdated
      */
-    'ownerChanges': MachineidentityupdatedOwnerChanges;
+    'ownerChanges': MachineIdentityUpdatedOwnerChanges;
     /**
      * Details about the single-value attribute changes that occurred.
-     * @type {Array<MachineidentityupdatedSingleValueAttributeChangesInner>}
-     * @memberof Machineidentityupdated
+     * @type {Array<MachineIdentityUpdatedSingleValueAttributeChangesInner>}
+     * @memberof MachineIdentityUpdated
      */
-    'singleValueAttributeChanges': Array<MachineidentityupdatedSingleValueAttributeChangesInner> | null;
+    'singleValueAttributeChanges': Array<MachineIdentityUpdatedSingleValueAttributeChangesInner> | null;
 }
 
-export const MachineidentityupdatedEventTypeEnum = {
+export const MachineIdentityUpdatedEventTypeEnum = {
     MachineIdentityUpdated: 'MACHINE_IDENTITY_UPDATED'
 } as const;
 
-export type MachineidentityupdatedEventTypeEnum = typeof MachineidentityupdatedEventTypeEnum[keyof typeof MachineidentityupdatedEventTypeEnum];
-export const MachineidentityupdatedMachineIdentityChangeTypesEnum = {
+export type MachineIdentityUpdatedEventTypeEnum = typeof MachineIdentityUpdatedEventTypeEnum[keyof typeof MachineIdentityUpdatedEventTypeEnum];
+export const MachineIdentityUpdatedMachineIdentityChangeTypesEnum = {
     AttributesChanged: 'ATTRIBUTES_CHANGED',
     UserEntitlementsAdded: 'USER_ENTITLEMENTS_ADDED',
     UserEntitlementsRemoved: 'USER_ENTITLEMENTS_REMOVED',
@@ -3441,489 +3441,489 @@ export const MachineidentityupdatedMachineIdentityChangeTypesEnum = {
     OwnersRemoved: 'OWNERS_REMOVED'
 } as const;
 
-export type MachineidentityupdatedMachineIdentityChangeTypesEnum = typeof MachineidentityupdatedMachineIdentityChangeTypesEnum[keyof typeof MachineidentityupdatedMachineIdentityChangeTypesEnum];
+export type MachineIdentityUpdatedMachineIdentityChangeTypesEnum = typeof MachineIdentityUpdatedMachineIdentityChangeTypesEnum[keyof typeof MachineIdentityUpdatedMachineIdentityChangeTypesEnum];
 
 /**
  * Details of the updated machine identity.
  * @export
- * @interface MachineidentityupdatedMachineIdentity
+ * @interface MachineIdentityUpdatedMachineIdentity
  */
-export interface MachineidentityupdatedMachineIdentity {
+export interface MachineIdentityUpdatedMachineIdentity {
     /**
      * Unique identifier for the machine identity.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'id': string;
     /**
      * Name of the machine identity.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'name'?: string;
     /**
      * Creation timestamp.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'created': string;
     /**
      * Last modified timestamp.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'modified': string;
     /**
      * Associated business application.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'businessApplication'?: string;
     /**
      * Description of the machine identity.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'description'?: string;
     /**
      * The attributes assigned to the identity.
      * @type {{ [key: string]: any; }}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Subtype of the machine identity.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
-    'subtype': MachineidentityupdatedMachineIdentitySubtypeEnum;
+    'subtype': MachineIdentityUpdatedMachineIdentitySubtypeEnum;
     /**
      * List of owners.
-     * @type {Array<Machineidentityownerreference>}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @type {Array<MachineIdentityOwnerReference>}
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
-    'owners'?: Array<Machineidentityownerreference>;
+    'owners'?: Array<MachineIdentityOwnerReference>;
     /**
      * Source identifier.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'sourceId'?: string;
     /**
      * UUID of the machine identity.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'uuid'?: string;
     /**
      * Native identity value.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'nativeIdentity'?: string;
     /**
      * Indicates if manually edited.
      * @type {boolean}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'manuallyEdited': boolean;
     /**
      * Indicates if manually created.
      * @type {boolean}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'manuallyCreated'?: boolean;
     /**
      * Dataset identifier.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'datasetId'?: string;
     /**
      * 
-     * @type {Machineidentitysourcereference}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @type {MachineIdentitySourceReference}
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
-    'source'?: Machineidentitysourcereference;
+    'source'?: MachineIdentitySourceReference;
     /**
      * List of user entitlements.
-     * @type {Array<Machineidentityuserentitlements>}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @type {Array<MachineIdentityUserEntitlements>}
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
-    'userEntitlements'?: Array<Machineidentityuserentitlements>;
+    'userEntitlements'?: Array<MachineIdentityUserEntitlements>;
     /**
      * Existence status on source.
      * @type {string}
-     * @memberof MachineidentityupdatedMachineIdentity
+     * @memberof MachineIdentityUpdatedMachineIdentity
      */
     'existsOnSource'?: string;
 }
 
-export const MachineidentityupdatedMachineIdentitySubtypeEnum = {
+export const MachineIdentityUpdatedMachineIdentitySubtypeEnum = {
     AiAgent: 'AI Agent',
     Application: 'Application'
 } as const;
 
-export type MachineidentityupdatedMachineIdentitySubtypeEnum = typeof MachineidentityupdatedMachineIdentitySubtypeEnum[keyof typeof MachineidentityupdatedMachineIdentitySubtypeEnum];
+export type MachineIdentityUpdatedMachineIdentitySubtypeEnum = typeof MachineIdentityUpdatedMachineIdentitySubtypeEnum[keyof typeof MachineIdentityUpdatedMachineIdentitySubtypeEnum];
 
 /**
  * Changes to owners.
  * @export
- * @interface MachineidentityupdatedOwnerChanges
+ * @interface MachineIdentityUpdatedOwnerChanges
  */
-export interface MachineidentityupdatedOwnerChanges {
+export interface MachineIdentityUpdatedOwnerChanges {
     /**
      * Name of the attribute that changed.
      * @type {string}
-     * @memberof MachineidentityupdatedOwnerChanges
+     * @memberof MachineIdentityUpdatedOwnerChanges
      */
     'attributeName'?: string;
     /**
      * Owners that were added.
-     * @type {Array<Machineidentityownerreference>}
-     * @memberof MachineidentityupdatedOwnerChanges
+     * @type {Array<MachineIdentityOwnerReference>}
+     * @memberof MachineIdentityUpdatedOwnerChanges
      */
-    'added'?: Array<Machineidentityownerreference>;
+    'added'?: Array<MachineIdentityOwnerReference>;
     /**
      * Owners that were removed.
-     * @type {Array<Machineidentityownerreference>}
-     * @memberof MachineidentityupdatedOwnerChanges
+     * @type {Array<MachineIdentityOwnerReference>}
+     * @memberof MachineIdentityUpdatedOwnerChanges
      */
-    'removed'?: Array<Machineidentityownerreference>;
+    'removed'?: Array<MachineIdentityOwnerReference>;
 }
 /**
  * 
  * @export
- * @interface MachineidentityupdatedSingleValueAttributeChangesInner
+ * @interface MachineIdentityUpdatedSingleValueAttributeChangesInner
  */
-export interface MachineidentityupdatedSingleValueAttributeChangesInner {
+export interface MachineIdentityUpdatedSingleValueAttributeChangesInner {
     /**
      * The name of the attribute that was changed.
      * @type {string}
-     * @memberof MachineidentityupdatedSingleValueAttributeChangesInner
+     * @memberof MachineIdentityUpdatedSingleValueAttributeChangesInner
      */
     'name': string;
     /**
      * 
-     * @type {MachineidentityupdatedSingleValueAttributeChangesInnerOldValue}
-     * @memberof MachineidentityupdatedSingleValueAttributeChangesInner
+     * @type {MachineIdentityUpdatedSingleValueAttributeChangesInnerOldValue}
+     * @memberof MachineIdentityUpdatedSingleValueAttributeChangesInner
      */
-    'oldValue': MachineidentityupdatedSingleValueAttributeChangesInnerOldValue | null;
+    'oldValue': MachineIdentityUpdatedSingleValueAttributeChangesInnerOldValue | null;
     /**
      * 
-     * @type {MachineidentityupdatedSingleValueAttributeChangesInnerNewValue}
-     * @memberof MachineidentityupdatedSingleValueAttributeChangesInner
+     * @type {MachineIdentityUpdatedSingleValueAttributeChangesInnerNewValue}
+     * @memberof MachineIdentityUpdatedSingleValueAttributeChangesInner
      */
-    'newValue': MachineidentityupdatedSingleValueAttributeChangesInnerNewValue | null;
+    'newValue': MachineIdentityUpdatedSingleValueAttributeChangesInnerNewValue | null;
 }
 /**
- * @type MachineidentityupdatedSingleValueAttributeChangesInnerNewValue
+ * @type MachineIdentityUpdatedSingleValueAttributeChangesInnerNewValue
  * The new value of the attribute after the change.
  * @export
  */
-export type MachineidentityupdatedSingleValueAttributeChangesInnerNewValue = Array<string> | boolean | number | string;
+export type MachineIdentityUpdatedSingleValueAttributeChangesInnerNewValue = Array<string> | boolean | number | string;
 
 /**
- * @type MachineidentityupdatedSingleValueAttributeChangesInnerOldValue
+ * @type MachineIdentityUpdatedSingleValueAttributeChangesInnerOldValue
  * The old value of the attribute before the change.
  * @export
  */
-export type MachineidentityupdatedSingleValueAttributeChangesInnerOldValue = Array<string> | boolean | number | string;
+export type MachineIdentityUpdatedSingleValueAttributeChangesInnerOldValue = Array<string> | boolean | number | string;
 
 /**
  * Changes to user entitlements.
  * @export
- * @interface MachineidentityupdatedUserEntitlementChanges
+ * @interface MachineIdentityUpdatedUserEntitlementChanges
  */
-export interface MachineidentityupdatedUserEntitlementChanges {
+export interface MachineIdentityUpdatedUserEntitlementChanges {
     /**
      * Name of the attribute that changed.
      * @type {string}
-     * @memberof MachineidentityupdatedUserEntitlementChanges
+     * @memberof MachineIdentityUpdatedUserEntitlementChanges
      */
     'attributeName'?: string;
     /**
      * User entitlements that were added.
-     * @type {Array<Machineidentityuserentitlements>}
-     * @memberof MachineidentityupdatedUserEntitlementChanges
+     * @type {Array<MachineIdentityUserEntitlements>}
+     * @memberof MachineIdentityUpdatedUserEntitlementChanges
      */
-    'added'?: Array<Machineidentityuserentitlements>;
+    'added'?: Array<MachineIdentityUserEntitlements>;
     /**
      * User entitlements that were removed.
-     * @type {Array<Machineidentityuserentitlements>}
-     * @memberof MachineidentityupdatedUserEntitlementChanges
+     * @type {Array<MachineIdentityUserEntitlements>}
+     * @memberof MachineIdentityUpdatedUserEntitlementChanges
      */
-    'removed'?: Array<Machineidentityuserentitlements>;
+    'removed'?: Array<MachineIdentityUserEntitlements>;
 }
 /**
  * Reference to a user entitlement.
  * @export
- * @interface Machineidentityuserentitlements
+ * @interface MachineIdentityUserEntitlements
  */
-export interface Machineidentityuserentitlements {
+export interface MachineIdentityUserEntitlements {
     [key: string]: any;
 
     /**
      * Entitlement identifier.
      * @type {string}
-     * @memberof Machineidentityuserentitlements
+     * @memberof MachineIdentityUserEntitlements
      */
     'entitlementId': string;
     /**
      * Display name of the entitlement.
      * @type {string}
-     * @memberof Machineidentityuserentitlements
+     * @memberof MachineIdentityUserEntitlements
      */
     'displayName': string;
     /**
      * 
-     * @type {Machineidentitysourcereference}
-     * @memberof Machineidentityuserentitlements
+     * @type {MachineIdentitySourceReference}
+     * @memberof MachineIdentityUserEntitlements
      */
-    'source': Machineidentitysourcereference;
+    'source': MachineIdentitySourceReference;
 }
 /**
  * 
  * @export
- * @interface Provisioningcompleted
+ * @interface ProvisioningCompleted
  */
-export interface Provisioningcompleted {
+export interface ProvisioningCompleted {
     /**
      * The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface.
      * @type {string}
-     * @memberof Provisioningcompleted
+     * @memberof ProvisioningCompleted
      */
     'trackingNumber': string;
     /**
      * One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated.
      * @type {string}
-     * @memberof Provisioningcompleted
+     * @memberof ProvisioningCompleted
      */
     'sources': string;
     /**
      * Origin of where the provisioning request came from.
      * @type {string}
-     * @memberof Provisioningcompleted
+     * @memberof ProvisioningCompleted
      */
     'action'?: string | null;
     /**
      * A list of any accumulated error messages that occurred during provisioning.
      * @type {Array<string>}
-     * @memberof Provisioningcompleted
+     * @memberof ProvisioningCompleted
      */
     'errors'?: Array<string> | null;
     /**
      * A list of any accumulated warning messages that occurred during provisioning.
      * @type {Array<string>}
-     * @memberof Provisioningcompleted
+     * @memberof ProvisioningCompleted
      */
     'warnings'?: Array<string> | null;
     /**
      * 
-     * @type {ProvisioningcompletedRecipient}
-     * @memberof Provisioningcompleted
+     * @type {ProvisioningCompletedRecipient}
+     * @memberof ProvisioningCompleted
      */
-    'recipient': ProvisioningcompletedRecipient;
+    'recipient': ProvisioningCompletedRecipient;
     /**
      * 
-     * @type {ProvisioningcompletedRequester}
-     * @memberof Provisioningcompleted
+     * @type {ProvisioningCompletedRequester}
+     * @memberof ProvisioningCompleted
      */
-    'requester'?: ProvisioningcompletedRequester | null;
+    'requester'?: ProvisioningCompletedRequester | null;
     /**
      * A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable.
-     * @type {Array<ProvisioningcompletedAccountRequestsInner>}
-     * @memberof Provisioningcompleted
+     * @type {Array<ProvisioningCompletedAccountRequestsInner>}
+     * @memberof ProvisioningCompleted
      */
-    'accountRequests': Array<ProvisioningcompletedAccountRequestsInner>;
+    'accountRequests': Array<ProvisioningCompletedAccountRequestsInner>;
 }
 /**
  * 
  * @export
- * @interface ProvisioningcompletedAccountRequestsInner
+ * @interface ProvisioningCompletedAccountRequestsInner
  */
-export interface ProvisioningcompletedAccountRequestsInner {
+export interface ProvisioningCompletedAccountRequestsInner {
     /**
      * 
-     * @type {ProvisioningcompletedAccountRequestsInnerSource}
-     * @memberof ProvisioningcompletedAccountRequestsInner
+     * @type {ProvisioningCompletedAccountRequestsInnerSource}
+     * @memberof ProvisioningCompletedAccountRequestsInner
      */
-    'source': ProvisioningcompletedAccountRequestsInnerSource;
+    'source': ProvisioningCompletedAccountRequestsInnerSource;
     /**
      * The unique idenfier of the account being provisioned.
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInner
      */
     'accountId'?: string;
     /**
      * The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete.
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInner
      */
     'accountOperation': string;
     /**
      * The overall result of the provisioning transaction; this could be success, pending, failed, etc.
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInner
      */
-    'provisioningResult': ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum;
+    'provisioningResult': ProvisioningCompletedAccountRequestsInnerProvisioningResultEnum;
     /**
      * The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM).
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInner
      */
     'provisioningTarget': string;
     /**
      * A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM).
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInner
      */
     'ticketId'?: string | null;
     /**
      * A list of attributes as part of the provisioning transaction.
-     * @type {Array<ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner>}
-     * @memberof ProvisioningcompletedAccountRequestsInner
+     * @type {Array<ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner>}
+     * @memberof ProvisioningCompletedAccountRequestsInner
      */
-    'attributeRequests'?: Array<ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner> | null;
+    'attributeRequests'?: Array<ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner> | null;
 }
 
-export const ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum = {
+export const ProvisioningCompletedAccountRequestsInnerProvisioningResultEnum = {
     Success: 'SUCCESS',
     Pending: 'PENDING',
     Failed: 'FAILED'
 } as const;
 
-export type ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum = typeof ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum[keyof typeof ProvisioningcompletedAccountRequestsInnerProvisioningResultEnum];
+export type ProvisioningCompletedAccountRequestsInnerProvisioningResultEnum = typeof ProvisioningCompletedAccountRequestsInnerProvisioningResultEnum[keyof typeof ProvisioningCompletedAccountRequestsInnerProvisioningResultEnum];
 
 /**
  * 
  * @export
- * @interface ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+ * @interface ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
  */
-export interface ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner {
+export interface ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner {
     /**
      * The name of the attribute being provisioned.
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
      */
     'attributeName': string;
     /**
      * The value of the attribute being provisioned.
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
      */
     'attributeValue'?: string | null;
     /**
      * The operation to handle the attribute.
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInner
+     * @memberof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
      */
-    'operation': ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum;
+    'operation': ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum;
 }
 
-export const ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum = {
+export const ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum = {
     Add: 'Add',
     Set: 'Set',
     Remove: 'Remove'
 } as const;
 
-export type ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum = typeof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum[keyof typeof ProvisioningcompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum];
+export type ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum = typeof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum[keyof typeof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerOperationEnum];
 
 /**
  * Reference to the source being provisioned against.
  * @export
- * @interface ProvisioningcompletedAccountRequestsInnerSource
+ * @interface ProvisioningCompletedAccountRequestsInnerSource
  */
-export interface ProvisioningcompletedAccountRequestsInnerSource {
+export interface ProvisioningCompletedAccountRequestsInnerSource {
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerSource
+     * @memberof ProvisioningCompletedAccountRequestsInnerSource
      */
     'id': string;
     /**
      * The type of object that is referenced
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerSource
+     * @memberof ProvisioningCompletedAccountRequestsInnerSource
      */
-    'type': ProvisioningcompletedAccountRequestsInnerSourceTypeEnum;
+    'type': ProvisioningCompletedAccountRequestsInnerSourceTypeEnum;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof ProvisioningcompletedAccountRequestsInnerSource
+     * @memberof ProvisioningCompletedAccountRequestsInnerSource
      */
     'name': string;
 }
 
-export const ProvisioningcompletedAccountRequestsInnerSourceTypeEnum = {
+export const ProvisioningCompletedAccountRequestsInnerSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type ProvisioningcompletedAccountRequestsInnerSourceTypeEnum = typeof ProvisioningcompletedAccountRequestsInnerSourceTypeEnum[keyof typeof ProvisioningcompletedAccountRequestsInnerSourceTypeEnum];
+export type ProvisioningCompletedAccountRequestsInnerSourceTypeEnum = typeof ProvisioningCompletedAccountRequestsInnerSourceTypeEnum[keyof typeof ProvisioningCompletedAccountRequestsInnerSourceTypeEnum];
 
 /**
  * Provisioning recpient.
  * @export
- * @interface ProvisioningcompletedRecipient
+ * @interface ProvisioningCompletedRecipient
  */
-export interface ProvisioningcompletedRecipient {
+export interface ProvisioningCompletedRecipient {
     /**
      * Provisioning recipient DTO type.
      * @type {string}
-     * @memberof ProvisioningcompletedRecipient
+     * @memberof ProvisioningCompletedRecipient
      */
-    'type': ProvisioningcompletedRecipientTypeEnum;
+    'type': ProvisioningCompletedRecipientTypeEnum;
     /**
      * Provisioning recipient\'s identity ID.
      * @type {string}
-     * @memberof ProvisioningcompletedRecipient
+     * @memberof ProvisioningCompletedRecipient
      */
     'id': string;
     /**
      * Provisioning recipient\'s display name.
      * @type {string}
-     * @memberof ProvisioningcompletedRecipient
+     * @memberof ProvisioningCompletedRecipient
      */
     'name': string;
 }
 
-export const ProvisioningcompletedRecipientTypeEnum = {
+export const ProvisioningCompletedRecipientTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ProvisioningcompletedRecipientTypeEnum = typeof ProvisioningcompletedRecipientTypeEnum[keyof typeof ProvisioningcompletedRecipientTypeEnum];
+export type ProvisioningCompletedRecipientTypeEnum = typeof ProvisioningCompletedRecipientTypeEnum[keyof typeof ProvisioningCompletedRecipientTypeEnum];
 
 /**
  * Provisioning requester\'s identity.
  * @export
- * @interface ProvisioningcompletedRequester
+ * @interface ProvisioningCompletedRequester
  */
-export interface ProvisioningcompletedRequester {
+export interface ProvisioningCompletedRequester {
     /**
      * Provisioning requester\'s DTO type.
      * @type {string}
-     * @memberof ProvisioningcompletedRequester
+     * @memberof ProvisioningCompletedRequester
      */
-    'type': ProvisioningcompletedRequesterTypeEnum;
+    'type': ProvisioningCompletedRequesterTypeEnum;
     /**
      * Provisioning requester\'s identity ID.
      * @type {string}
-     * @memberof ProvisioningcompletedRequester
+     * @memberof ProvisioningCompletedRequester
      */
     'id': string;
     /**
      * Provisioning owner\'s human-readable display name.
      * @type {string}
-     * @memberof ProvisioningcompletedRequester
+     * @memberof ProvisioningCompletedRequester
      */
     'name': string;
 }
 
-export const ProvisioningcompletedRequesterTypeEnum = {
+export const ProvisioningCompletedRequesterTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ProvisioningcompletedRequesterTypeEnum = typeof ProvisioningcompletedRequesterTypeEnum[keyof typeof ProvisioningcompletedRequesterTypeEnum];
+export type ProvisioningCompletedRequesterTypeEnum = typeof ProvisioningCompletedRequesterTypeEnum[keyof typeof ProvisioningCompletedRequesterTypeEnum];
 
 /**
  * 
@@ -3933,10 +3933,10 @@ export type ProvisioningcompletedRequesterTypeEnum = typeof Provisioningcomplete
 export interface Reassignment {
     /**
      * 
-     * @type {Certificationreference}
+     * @type {CertificationReference}
      * @memberof Reassignment
      */
-    'from'?: Certificationreference;
+    'from'?: CertificationReference;
     /**
      * The comment entered when the Certification was reassigned
      * @type {string}
@@ -3998,564 +3998,564 @@ export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerType
 /**
  * 
  * @export
- * @interface Savedsearchcomplete
+ * @interface SavedSearchComplete
  */
-export interface Savedsearchcomplete {
+export interface SavedSearchComplete {
     /**
      * A name for the report file.
      * @type {string}
-     * @memberof Savedsearchcomplete
+     * @memberof SavedSearchComplete
      */
     'fileName': string;
     /**
      * The email address of the identity that owns the saved search.
      * @type {string}
-     * @memberof Savedsearchcomplete
+     * @memberof SavedSearchComplete
      */
     'ownerEmail': string;
     /**
      * The name of the identity that owns the saved search.
      * @type {string}
-     * @memberof Savedsearchcomplete
+     * @memberof SavedSearchComplete
      */
     'ownerName': string;
     /**
      * The search query that was used to generate the report.
      * @type {string}
-     * @memberof Savedsearchcomplete
+     * @memberof SavedSearchComplete
      */
     'query': string;
     /**
      * The name of the saved search.
      * @type {string}
-     * @memberof Savedsearchcomplete
+     * @memberof SavedSearchComplete
      */
     'searchName': string;
     /**
      * 
-     * @type {SavedsearchcompleteSearchResults}
-     * @memberof Savedsearchcomplete
+     * @type {SavedSearchCompleteSearchResults}
+     * @memberof SavedSearchComplete
      */
-    'searchResults': SavedsearchcompleteSearchResults;
+    'searchResults': SavedSearchCompleteSearchResults;
     /**
      * The Amazon S3 URL to download the report from.
      * @type {string}
-     * @memberof Savedsearchcomplete
+     * @memberof SavedSearchComplete
      */
     'signedS3Url': string;
 }
 /**
  * A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
  * @export
- * @interface SavedsearchcompleteSearchResults
+ * @interface SavedSearchCompleteSearchResults
  */
-export interface SavedsearchcompleteSearchResults {
+export interface SavedSearchCompleteSearchResults {
     /**
      * 
-     * @type {SavedsearchcompleteSearchResultsAccount}
-     * @memberof SavedsearchcompleteSearchResults
+     * @type {SavedSearchCompleteSearchResultsAccount}
+     * @memberof SavedSearchCompleteSearchResults
      */
-    'Account'?: SavedsearchcompleteSearchResultsAccount | null;
+    'Account'?: SavedSearchCompleteSearchResultsAccount | null;
     /**
      * 
-     * @type {SavedsearchcompleteSearchResultsEntitlement}
-     * @memberof SavedsearchcompleteSearchResults
+     * @type {SavedSearchCompleteSearchResultsEntitlement}
+     * @memberof SavedSearchCompleteSearchResults
      */
-    'Entitlement'?: SavedsearchcompleteSearchResultsEntitlement | null;
+    'Entitlement'?: SavedSearchCompleteSearchResultsEntitlement | null;
     /**
      * 
-     * @type {SavedsearchcompleteSearchResultsIdentity}
-     * @memberof SavedsearchcompleteSearchResults
+     * @type {SavedSearchCompleteSearchResultsIdentity}
+     * @memberof SavedSearchCompleteSearchResults
      */
-    'Identity'?: SavedsearchcompleteSearchResultsIdentity | null;
+    'Identity'?: SavedSearchCompleteSearchResultsIdentity | null;
 }
 /**
  * A table of accounts that match the search criteria.
  * @export
- * @interface SavedsearchcompleteSearchResultsAccount
+ * @interface SavedSearchCompleteSearchResultsAccount
  */
-export interface SavedsearchcompleteSearchResultsAccount {
+export interface SavedSearchCompleteSearchResultsAccount {
     /**
      * The number of rows in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsAccount
+     * @memberof SavedSearchCompleteSearchResultsAccount
      */
     'count': string;
     /**
      * The type of object represented in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsAccount
+     * @memberof SavedSearchCompleteSearchResultsAccount
      */
     'noun': string;
     /**
      * A sample of the data in the table.
      * @type {Array<Array<string>>}
-     * @memberof SavedsearchcompleteSearchResultsAccount
+     * @memberof SavedSearchCompleteSearchResultsAccount
      */
     'preview': Array<Array<string>>;
 }
 /**
  * A table of entitlements that match the search criteria.
  * @export
- * @interface SavedsearchcompleteSearchResultsEntitlement
+ * @interface SavedSearchCompleteSearchResultsEntitlement
  */
-export interface SavedsearchcompleteSearchResultsEntitlement {
+export interface SavedSearchCompleteSearchResultsEntitlement {
     /**
      * The number of rows in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsEntitlement
+     * @memberof SavedSearchCompleteSearchResultsEntitlement
      */
     'count': string;
     /**
      * The type of object represented in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsEntitlement
+     * @memberof SavedSearchCompleteSearchResultsEntitlement
      */
     'noun': string;
     /**
      * A sample of the data in the table.
      * @type {Array<Array<string>>}
-     * @memberof SavedsearchcompleteSearchResultsEntitlement
+     * @memberof SavedSearchCompleteSearchResultsEntitlement
      */
     'preview': Array<Array<string>>;
 }
 /**
  * A table of identities that match the search criteria.
  * @export
- * @interface SavedsearchcompleteSearchResultsIdentity
+ * @interface SavedSearchCompleteSearchResultsIdentity
  */
-export interface SavedsearchcompleteSearchResultsIdentity {
+export interface SavedSearchCompleteSearchResultsIdentity {
     /**
      * The number of rows in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsIdentity
+     * @memberof SavedSearchCompleteSearchResultsIdentity
      */
     'count': string;
     /**
      * The type of object represented in the table.
      * @type {string}
-     * @memberof SavedsearchcompleteSearchResultsIdentity
+     * @memberof SavedSearchCompleteSearchResultsIdentity
      */
     'noun': string;
     /**
      * A sample of the data in the table.
      * @type {Array<Array<string>>}
-     * @memberof SavedsearchcompleteSearchResultsIdentity
+     * @memberof SavedSearchCompleteSearchResultsIdentity
      */
     'preview': Array<Array<string>>;
 }
 /**
  * 
  * @export
- * @interface Sourceaccountcreated
+ * @interface SourceAccountCreated
  */
-export interface Sourceaccountcreated {
+export interface SourceAccountCreated {
     /**
      * Source unique identifier for the identity. UUID is generated by the source system.
      * @type {string}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'uuid'?: string;
     /**
      * SailPoint generated unique identifier.
      * @type {string}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'id': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'nativeIdentifier': string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'sourceId': string;
     /**
      * The name of the source.
      * @type {string}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'sourceName': string;
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'identityId': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'identityName': string;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof Sourceaccountcreated
+     * @memberof SourceAccountCreated
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface Sourceaccountdeleted
+ * @interface SourceAccountDeleted
  */
-export interface Sourceaccountdeleted {
+export interface SourceAccountDeleted {
     /**
      * Source unique identifier for the identity. UUID is generated by the source system.
      * @type {string}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'uuid'?: string;
     /**
      * SailPoint generated unique identifier.
      * @type {string}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'id': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'nativeIdentifier': string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'sourceId': string;
     /**
      * The name of the source.
      * @type {string}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'sourceName': string;
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'identityId': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'identityName': string;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof Sourceaccountdeleted
+     * @memberof SourceAccountDeleted
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface Sourceaccountupdated
+ * @interface SourceAccountUpdated
  */
-export interface Sourceaccountupdated {
+export interface SourceAccountUpdated {
     /**
      * Source unique identifier for the identity. UUID is generated by the source system.
      * @type {string}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'uuid'?: string;
     /**
      * SailPoint generated unique identifier.
      * @type {string}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'id': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'nativeIdentifier': string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'sourceId': string;
     /**
      * The name of the source.
      * @type {string}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'sourceName': string;
     /**
      * The ID of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'identityId': string;
     /**
      * The name of the identity that is correlated with this account.
      * @type {string}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'identityName': string;
     /**
      * The attributes of the account. The contents of attributes depends on the account schema for the source.
      * @type {{ [key: string]: any; }}
-     * @memberof Sourceaccountupdated
+     * @memberof SourceAccountUpdated
      */
     'attributes': { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface Sourcecreated
+ * @interface SourceCreated
  */
-export interface Sourcecreated {
+export interface SourceCreated {
     /**
      * The unique ID of the source.
      * @type {string}
-     * @memberof Sourcecreated
+     * @memberof SourceCreated
      */
     'id': string;
     /**
      * Human friendly name of the source.
      * @type {string}
-     * @memberof Sourcecreated
+     * @memberof SourceCreated
      */
     'name': string;
     /**
      * The connection type.
      * @type {string}
-     * @memberof Sourcecreated
+     * @memberof SourceCreated
      */
     'type': string;
     /**
      * The date and time the source was created.
      * @type {string}
-     * @memberof Sourcecreated
+     * @memberof SourceCreated
      */
     'created': string;
     /**
      * The connector type used to connect to the source.
      * @type {string}
-     * @memberof Sourcecreated
+     * @memberof SourceCreated
      */
     'connector': string;
     /**
      * 
-     * @type {SourcecreatedActor}
-     * @memberof Sourcecreated
+     * @type {SourceCreatedActor}
+     * @memberof SourceCreated
      */
-    'actor': SourcecreatedActor;
+    'actor': SourceCreatedActor;
 }
 /**
  * Identity who created the source.
  * @export
- * @interface SourcecreatedActor
+ * @interface SourceCreatedActor
  */
-export interface SourcecreatedActor {
+export interface SourceCreatedActor {
     /**
      * DTO type of identity who created the source.
      * @type {string}
-     * @memberof SourcecreatedActor
+     * @memberof SourceCreatedActor
      */
-    'type': SourcecreatedActorTypeEnum;
+    'type': SourceCreatedActorTypeEnum;
     /**
      * ID of identity who created the source.
      * @type {string}
-     * @memberof SourcecreatedActor
+     * @memberof SourceCreatedActor
      */
     'id': string;
     /**
      * Display name of identity who created the source.
      * @type {string}
-     * @memberof SourcecreatedActor
+     * @memberof SourceCreatedActor
      */
     'name': string;
 }
 
-export const SourcecreatedActorTypeEnum = {
+export const SourceCreatedActorTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SourcecreatedActorTypeEnum = typeof SourcecreatedActorTypeEnum[keyof typeof SourcecreatedActorTypeEnum];
+export type SourceCreatedActorTypeEnum = typeof SourceCreatedActorTypeEnum[keyof typeof SourceCreatedActorTypeEnum];
 
 /**
  * 
  * @export
- * @interface Sourcedeleted
+ * @interface SourceDeleted
  */
-export interface Sourcedeleted {
+export interface SourceDeleted {
     /**
      * The unique ID of the source.
      * @type {string}
-     * @memberof Sourcedeleted
+     * @memberof SourceDeleted
      */
     'id': string;
     /**
      * Human friendly name of the source.
      * @type {string}
-     * @memberof Sourcedeleted
+     * @memberof SourceDeleted
      */
     'name': string;
     /**
      * The connection type.
      * @type {string}
-     * @memberof Sourcedeleted
+     * @memberof SourceDeleted
      */
     'type': string;
     /**
      * The date and time the source was deleted.
      * @type {string}
-     * @memberof Sourcedeleted
+     * @memberof SourceDeleted
      */
     'deleted': string;
     /**
      * The connector type used to connect to the source.
      * @type {string}
-     * @memberof Sourcedeleted
+     * @memberof SourceDeleted
      */
     'connector': string;
     /**
      * 
-     * @type {SourcedeletedActor}
-     * @memberof Sourcedeleted
+     * @type {SourceDeletedActor}
+     * @memberof SourceDeleted
      */
-    'actor': SourcedeletedActor;
+    'actor': SourceDeletedActor;
 }
 /**
  * Identity who deleted the source.
  * @export
- * @interface SourcedeletedActor
+ * @interface SourceDeletedActor
  */
-export interface SourcedeletedActor {
+export interface SourceDeletedActor {
     /**
      * DTO type of identity who deleted the source.
      * @type {string}
-     * @memberof SourcedeletedActor
+     * @memberof SourceDeletedActor
      */
-    'type': SourcedeletedActorTypeEnum;
+    'type': SourceDeletedActorTypeEnum;
     /**
      * ID of identity who deleted the source.
      * @type {string}
-     * @memberof SourcedeletedActor
+     * @memberof SourceDeletedActor
      */
     'id': string;
     /**
      * Display name of identity who deleted the source.
      * @type {string}
-     * @memberof SourcedeletedActor
+     * @memberof SourceDeletedActor
      */
     'name': string;
 }
 
-export const SourcedeletedActorTypeEnum = {
+export const SourceDeletedActorTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SourcedeletedActorTypeEnum = typeof SourcedeletedActorTypeEnum[keyof typeof SourcedeletedActorTypeEnum];
+export type SourceDeletedActorTypeEnum = typeof SourceDeletedActorTypeEnum[keyof typeof SourceDeletedActorTypeEnum];
 
 /**
  * 
  * @export
- * @interface Sourceupdated
+ * @interface SourceUpdated
  */
-export interface Sourceupdated {
+export interface SourceUpdated {
     /**
      * The unique ID of the source.
      * @type {string}
-     * @memberof Sourceupdated
+     * @memberof SourceUpdated
      */
     'id': string;
     /**
      * The user friendly name of the source.
      * @type {string}
-     * @memberof Sourceupdated
+     * @memberof SourceUpdated
      */
     'name': string;
     /**
      * The connection type of the source.
      * @type {string}
-     * @memberof Sourceupdated
+     * @memberof SourceUpdated
      */
     'type': string;
     /**
      * The date and time the source was modified.
      * @type {string}
-     * @memberof Sourceupdated
+     * @memberof SourceUpdated
      */
     'modified': string;
     /**
      * The connector type used to connect to the source.
      * @type {string}
-     * @memberof Sourceupdated
+     * @memberof SourceUpdated
      */
     'connector': string;
     /**
      * 
-     * @type {SourceupdatedActor}
-     * @memberof Sourceupdated
+     * @type {SourceUpdatedActor}
+     * @memberof SourceUpdated
      */
-    'actor': SourceupdatedActor;
+    'actor': SourceUpdatedActor;
 }
 /**
  * Identity who updated the source.
  * @export
- * @interface SourceupdatedActor
+ * @interface SourceUpdatedActor
  */
-export interface SourceupdatedActor {
+export interface SourceUpdatedActor {
     /**
      * DTO type of identity who updated the source.
      * @type {string}
-     * @memberof SourceupdatedActor
+     * @memberof SourceUpdatedActor
      */
-    'type': SourceupdatedActorTypeEnum;
+    'type': SourceUpdatedActorTypeEnum;
     /**
      * ID of identity who updated the source.
      * @type {string}
-     * @memberof SourceupdatedActor
+     * @memberof SourceUpdatedActor
      */
     'id'?: string;
     /**
      * Display name of identity who updated the source.
      * @type {string}
-     * @memberof SourceupdatedActor
+     * @memberof SourceUpdatedActor
      */
     'name': string;
 }
 
-export const SourceupdatedActorTypeEnum = {
+export const SourceUpdatedActorTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SourceupdatedActorTypeEnum = typeof SourceupdatedActorTypeEnum[keyof typeof SourceupdatedActorTypeEnum];
+export type SourceUpdatedActorTypeEnum = typeof SourceUpdatedActorTypeEnum[keyof typeof SourceUpdatedActorTypeEnum];
 
 /**
  * 
  * @export
- * @interface Startinvocationinput
+ * @interface StartInvocationInput
  */
-export interface Startinvocationinput {
+export interface StartInvocationInput {
     /**
      * Trigger ID
      * @type {string}
-     * @memberof Startinvocationinput
+     * @memberof StartInvocationInput
      */
     'triggerId'?: string;
     /**
      * Trigger input payload. Its schema is defined in the trigger definition.
      * @type {object}
-     * @memberof Startinvocationinput
+     * @memberof StartInvocationInput
      */
     'input'?: object;
     /**
      * JSON map of invocation metadata
      * @type {object}
-     * @memberof Startinvocationinput
+     * @memberof StartInvocationInput
      */
     'contentJson'?: object;
 }
@@ -4597,10 +4597,10 @@ export interface Subscription {
     'triggerName': string;
     /**
      * 
-     * @type {Subscriptiontype}
+     * @type {SubscriptionType}
      * @memberof Subscription
      */
-    'type': Subscriptiontype;
+    'type': SubscriptionType;
     /**
      * Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
      * @type {string}
@@ -4609,16 +4609,16 @@ export interface Subscription {
     'responseDeadline'?: string;
     /**
      * 
-     * @type {Httpconfig}
+     * @type {HttpConfig}
      * @memberof Subscription
      */
-    'httpConfig'?: Httpconfig;
+    'httpConfig'?: HttpConfig;
     /**
      * 
-     * @type {Eventbridgeconfig}
+     * @type {EventBridgeConfig}
      * @memberof Subscription
      */
-    'eventBridgeConfig'?: Eventbridgeconfig;
+    'eventBridgeConfig'?: EventBridgeConfig;
     /**
      * Whether subscription should receive real-time trigger invocations or not. Test trigger invocations are always enabled regardless of this option.
      * @type {boolean}
@@ -4637,30 +4637,30 @@ export interface Subscription {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface SubscriptionpatchrequestInner
+ * @interface SubscriptionPatchRequestInner
  */
-export interface SubscriptionpatchrequestInner {
+export interface SubscriptionPatchRequestInner {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof SubscriptionpatchrequestInner
+     * @memberof SubscriptionPatchRequestInner
      */
-    'op': SubscriptionpatchrequestInnerOpEnum;
+    'op': SubscriptionPatchRequestInnerOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof SubscriptionpatchrequestInner
+     * @memberof SubscriptionPatchRequestInner
      */
     'path': string;
     /**
      * 
-     * @type {SubscriptionpatchrequestInnerValue}
-     * @memberof SubscriptionpatchrequestInner
+     * @type {SubscriptionPatchRequestInnerValue}
+     * @memberof SubscriptionPatchRequestInner
      */
-    'value'?: SubscriptionpatchrequestInnerValue;
+    'value'?: SubscriptionPatchRequestInnerValue;
 }
 
-export const SubscriptionpatchrequestInnerOpEnum = {
+export const SubscriptionPatchRequestInnerOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -4668,80 +4668,80 @@ export const SubscriptionpatchrequestInnerOpEnum = {
     Copy: 'copy'
 } as const;
 
-export type SubscriptionpatchrequestInnerOpEnum = typeof SubscriptionpatchrequestInnerOpEnum[keyof typeof SubscriptionpatchrequestInnerOpEnum];
+export type SubscriptionPatchRequestInnerOpEnum = typeof SubscriptionPatchRequestInnerOpEnum[keyof typeof SubscriptionPatchRequestInnerOpEnum];
 
 /**
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
- * @interface SubscriptionpatchrequestInnerValue
+ * @interface SubscriptionPatchRequestInnerValue
  */
-export interface SubscriptionpatchrequestInnerValue {
+export interface SubscriptionPatchRequestInnerValue {
 }
 /**
  * 
  * @export
- * @interface SubscriptionpatchrequestInnerValueAnyOfInner
+ * @interface SubscriptionPatchRequestInnerValueAnyOfInner
  */
-export interface SubscriptionpatchrequestInnerValueAnyOfInner {
+export interface SubscriptionPatchRequestInnerValueAnyOfInner {
 }
 /**
  * 
  * @export
- * @interface Subscriptionpostrequest
+ * @interface SubscriptionPostRequest
  */
-export interface Subscriptionpostrequest {
+export interface SubscriptionPostRequest {
     /**
      * Subscription name.
      * @type {string}
-     * @memberof Subscriptionpostrequest
+     * @memberof SubscriptionPostRequest
      */
     'name': string;
     /**
      * Subscription description.
      * @type {string}
-     * @memberof Subscriptionpostrequest
+     * @memberof SubscriptionPostRequest
      */
     'description'?: string;
     /**
      * ID of trigger subscribed to.
      * @type {string}
-     * @memberof Subscriptionpostrequest
+     * @memberof SubscriptionPostRequest
      */
     'triggerId': string;
     /**
      * 
-     * @type {Subscriptiontype}
-     * @memberof Subscriptionpostrequest
+     * @type {SubscriptionType}
+     * @memberof SubscriptionPostRequest
      */
-    'type': Subscriptiontype;
+    'type': SubscriptionType;
     /**
      * Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
      * @type {string}
-     * @memberof Subscriptionpostrequest
+     * @memberof SubscriptionPostRequest
      */
     'responseDeadline'?: string;
     /**
      * 
-     * @type {Httpconfig}
-     * @memberof Subscriptionpostrequest
+     * @type {HttpConfig}
+     * @memberof SubscriptionPostRequest
      */
-    'httpConfig'?: Httpconfig;
+    'httpConfig'?: HttpConfig;
     /**
      * 
-     * @type {Eventbridgeconfig}
-     * @memberof Subscriptionpostrequest
+     * @type {EventBridgeConfig}
+     * @memberof SubscriptionPostRequest
      */
-    'eventBridgeConfig'?: Eventbridgeconfig;
+    'eventBridgeConfig'?: EventBridgeConfig;
     /**
      * Whether subscription should receive real-time trigger invocations or not.  Test trigger invocations are always enabled regardless of this option.
      * @type {boolean}
-     * @memberof Subscriptionpostrequest
+     * @memberof SubscriptionPostRequest
      */
     'enabled'?: boolean;
     /**
      * JSONPath filter to conditionally invoke trigger when expression evaluates to true.
      * @type {string}
-     * @memberof Subscriptionpostrequest
+     * @memberof SubscriptionPostRequest
      */
     'filter'?: string;
 }
@@ -4750,55 +4750,55 @@ export interface Subscriptionpostrequest {
 /**
  * 
  * @export
- * @interface Subscriptionputrequest
+ * @interface SubscriptionPutRequest
  */
-export interface Subscriptionputrequest {
+export interface SubscriptionPutRequest {
     /**
      * Subscription name.
      * @type {string}
-     * @memberof Subscriptionputrequest
+     * @memberof SubscriptionPutRequest
      */
     'name'?: string;
     /**
      * Subscription description.
      * @type {string}
-     * @memberof Subscriptionputrequest
+     * @memberof SubscriptionPutRequest
      */
     'description'?: string;
     /**
      * 
-     * @type {Subscriptiontype}
-     * @memberof Subscriptionputrequest
+     * @type {SubscriptionType}
+     * @memberof SubscriptionPutRequest
      */
-    'type'?: Subscriptiontype;
+    'type'?: SubscriptionType;
     /**
      * Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
      * @type {string}
-     * @memberof Subscriptionputrequest
+     * @memberof SubscriptionPutRequest
      */
     'responseDeadline'?: string;
     /**
      * 
-     * @type {Httpconfig}
-     * @memberof Subscriptionputrequest
+     * @type {HttpConfig}
+     * @memberof SubscriptionPutRequest
      */
-    'httpConfig'?: Httpconfig;
+    'httpConfig'?: HttpConfig;
     /**
      * 
-     * @type {Eventbridgeconfig}
-     * @memberof Subscriptionputrequest
+     * @type {EventBridgeConfig}
+     * @memberof SubscriptionPutRequest
      */
-    'eventBridgeConfig'?: Eventbridgeconfig;
+    'eventBridgeConfig'?: EventBridgeConfig;
     /**
      * Whether subscription should receive real-time trigger invocations or not.  Test trigger invocations are always enabled regardless of this option.
      * @type {boolean}
-     * @memberof Subscriptionputrequest
+     * @memberof SubscriptionPutRequest
      */
     'enabled'?: boolean;
     /**
      * JSONPath filter to conditionally invoke trigger when expression evaluates to true.
      * @type {string}
-     * @memberof Subscriptionputrequest
+     * @memberof SubscriptionPutRequest
      */
     'filter'?: string;
 }
@@ -4810,7 +4810,7 @@ export interface Subscriptionputrequest {
  * @enum {string}
  */
 
-export const Subscriptiontype = {
+export const SubscriptionType = {
     Http: 'HTTP',
     Eventbridge: 'EVENTBRIDGE',
     Inline: 'INLINE',
@@ -4818,37 +4818,37 @@ export const Subscriptiontype = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type Subscriptiontype = typeof Subscriptiontype[keyof typeof Subscriptiontype];
+export type SubscriptionType = typeof SubscriptionType[keyof typeof SubscriptionType];
 
 
 /**
  * 
  * @export
- * @interface Testinvocation
+ * @interface TestInvocation
  */
-export interface Testinvocation {
+export interface TestInvocation {
     /**
      * Trigger ID
      * @type {string}
-     * @memberof Testinvocation
+     * @memberof TestInvocation
      */
     'triggerId': string;
     /**
      * Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent.
      * @type {object}
-     * @memberof Testinvocation
+     * @memberof TestInvocation
      */
     'input'?: object;
     /**
      * JSON map of invocation metadata.
      * @type {object}
-     * @memberof Testinvocation
+     * @memberof TestInvocation
      */
     'contentJson': object;
     /**
      * Only send the test event to the subscription IDs listed.  If omitted, the test event will be sent to all subscribers.
      * @type {Array<string>}
-     * @memberof Testinvocation
+     * @memberof TestInvocation
      */
     'subscriptionIds'?: Array<string>;
 }
@@ -4872,10 +4872,10 @@ export interface Trigger {
     'name': string;
     /**
      * 
-     * @type {Triggertype}
+     * @type {TriggerType}
      * @memberof Trigger
      */
-    'type': Triggertype;
+    'type': TriggerType;
     /**
      * Trigger Description.
      * @type {string}
@@ -4914,14 +4914,14 @@ export interface Trigger {
  * An example of the JSON payload that will be sent by the trigger to the subscribed service.
  * @export
  */
-export type TriggerExampleInput = Accessrequestdynamicapprover | Accessrequestpostapproval | Accessrequestpreapproval | Accountaggregationcompleted | Accountattributeschanged | Accountcorrelated | Accountcreated | Accountdeleted | Accountscollectedforaggregation | Accountuncorrelated | Accountupdated | Campaignactivated | Campaignended | Campaigngenerated | Certificationsignedoff | Identityattributeschanged | Identitycreated | Identitydeleted | Machineidentitycreated | Machineidentitydeleted | Machineidentityupdated | Provisioningcompleted | Savedsearchcomplete | Sourceaccountcreated | Sourceaccountdeleted | Sourceaccountupdated | Sourcecreated | Sourcedeleted | Sourceupdated | Vaclusterstatuschangeevent;
+export type TriggerExampleInput = AccessRequestDynamicApprover | AccessRequestPostApproval | AccessRequestPreApproval | AccountAggregationCompleted | AccountAttributesChanged | AccountCorrelated | AccountCreated | AccountDeleted | AccountUncorrelated | AccountUpdated | AccountsCollectedForAggregation | CampaignActivated | CampaignEnded | CampaignGenerated | CertificationSignedOff | IdentityAttributesChanged | IdentityCreated | IdentityDeleted | MachineIdentityCreated | MachineIdentityDeleted | MachineIdentityUpdated | ProvisioningCompleted | SavedSearchComplete | SourceAccountCreated | SourceAccountDeleted | SourceAccountUpdated | SourceCreated | SourceDeleted | SourceUpdated | VAClusterStatusChangeEvent;
 
 /**
  * @type TriggerExampleOutput
  * An example of the JSON payload that will be sent by the subscribed service to the trigger in response to an event.
  * @export
  */
-export type TriggerExampleOutput = Accessrequestdynamicapprover2 | Accessrequestpreapproval2;
+export type TriggerExampleOutput = AccessRequestDynamicApprover2 | AccessRequestPreApproval2;
 
 /**
  * The type of trigger.
@@ -4929,191 +4929,191 @@ export type TriggerExampleOutput = Accessrequestdynamicapprover2 | Accessrequest
  * @enum {string}
  */
 
-export const Triggertype = {
+export const TriggerType = {
     RequestResponse: 'REQUEST_RESPONSE',
     FireAndForget: 'FIRE_AND_FORGET'
 } as const;
 
-export type Triggertype = typeof Triggertype[keyof typeof Triggertype];
+export type TriggerType = typeof TriggerType[keyof typeof TriggerType];
 
 
 /**
  * 
  * @export
- * @interface Vaclusterstatuschangeevent
+ * @interface VAClusterStatusChangeEvent
  */
-export interface Vaclusterstatuschangeevent {
+export interface VAClusterStatusChangeEvent {
     /**
      * The date and time the status change occurred.
      * @type {string}
-     * @memberof Vaclusterstatuschangeevent
+     * @memberof VAClusterStatusChangeEvent
      */
     'created': string;
     /**
      * The type of the object that initiated this event.
      * @type {string}
-     * @memberof Vaclusterstatuschangeevent
+     * @memberof VAClusterStatusChangeEvent
      */
-    'type': VaclusterstatuschangeeventTypeEnum;
+    'type': VAClusterStatusChangeEventTypeEnum;
     /**
      * 
-     * @type {VaclusterstatuschangeeventApplication}
-     * @memberof Vaclusterstatuschangeevent
+     * @type {VAClusterStatusChangeEventApplication}
+     * @memberof VAClusterStatusChangeEvent
      */
-    'application': VaclusterstatuschangeeventApplication;
+    'application': VAClusterStatusChangeEventApplication;
     /**
      * 
-     * @type {VaclusterstatuschangeeventHealthCheckResult}
-     * @memberof Vaclusterstatuschangeevent
+     * @type {VAClusterStatusChangeEventHealthCheckResult}
+     * @memberof VAClusterStatusChangeEvent
      */
-    'healthCheckResult': VaclusterstatuschangeeventHealthCheckResult;
+    'healthCheckResult': VAClusterStatusChangeEventHealthCheckResult;
     /**
      * 
-     * @type {VaclusterstatuschangeeventPreviousHealthCheckResult}
-     * @memberof Vaclusterstatuschangeevent
+     * @type {VAClusterStatusChangeEventPreviousHealthCheckResult}
+     * @memberof VAClusterStatusChangeEvent
      */
-    'previousHealthCheckResult': VaclusterstatuschangeeventPreviousHealthCheckResult;
+    'previousHealthCheckResult': VAClusterStatusChangeEventPreviousHealthCheckResult;
 }
 
-export const VaclusterstatuschangeeventTypeEnum = {
+export const VAClusterStatusChangeEventTypeEnum = {
     Source: 'SOURCE',
     Cluster: 'CLUSTER'
 } as const;
 
-export type VaclusterstatuschangeeventTypeEnum = typeof VaclusterstatuschangeeventTypeEnum[keyof typeof VaclusterstatuschangeeventTypeEnum];
+export type VAClusterStatusChangeEventTypeEnum = typeof VAClusterStatusChangeEventTypeEnum[keyof typeof VAClusterStatusChangeEventTypeEnum];
 
 /**
  * Details about the `CLUSTER` or `SOURCE` that initiated this event.
  * @export
- * @interface VaclusterstatuschangeeventApplication
+ * @interface VAClusterStatusChangeEventApplication
  */
-export interface VaclusterstatuschangeeventApplication {
+export interface VAClusterStatusChangeEventApplication {
     /**
      * The GUID of the application
      * @type {string}
-     * @memberof VaclusterstatuschangeeventApplication
+     * @memberof VAClusterStatusChangeEventApplication
      */
     'id': string;
     /**
      * The name of the application
      * @type {string}
-     * @memberof VaclusterstatuschangeeventApplication
+     * @memberof VAClusterStatusChangeEventApplication
      */
     'name': string;
     /**
      * Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy.
      * @type {{ [key: string]: any; }}
-     * @memberof VaclusterstatuschangeeventApplication
+     * @memberof VAClusterStatusChangeEventApplication
      */
     'attributes': { [key: string]: any; } | null;
 }
 /**
  * The results of the most recent health check.
  * @export
- * @interface VaclusterstatuschangeeventHealthCheckResult
+ * @interface VAClusterStatusChangeEventHealthCheckResult
  */
-export interface VaclusterstatuschangeeventHealthCheckResult {
+export interface VAClusterStatusChangeEventHealthCheckResult {
     /**
      * Detailed message of the result of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventHealthCheckResult
+     * @memberof VAClusterStatusChangeEventHealthCheckResult
      */
     'message': string;
     /**
      * The type of the health check result.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventHealthCheckResult
+     * @memberof VAClusterStatusChangeEventHealthCheckResult
      */
     'resultType': string;
     /**
      * The status of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventHealthCheckResult
+     * @memberof VAClusterStatusChangeEventHealthCheckResult
      */
-    'status': VaclusterstatuschangeeventHealthCheckResultStatusEnum;
+    'status': VAClusterStatusChangeEventHealthCheckResultStatusEnum;
 }
 
-export const VaclusterstatuschangeeventHealthCheckResultStatusEnum = {
+export const VAClusterStatusChangeEventHealthCheckResultStatusEnum = {
     Succeeded: 'Succeeded',
     Failed: 'Failed'
 } as const;
 
-export type VaclusterstatuschangeeventHealthCheckResultStatusEnum = typeof VaclusterstatuschangeeventHealthCheckResultStatusEnum[keyof typeof VaclusterstatuschangeeventHealthCheckResultStatusEnum];
+export type VAClusterStatusChangeEventHealthCheckResultStatusEnum = typeof VAClusterStatusChangeEventHealthCheckResultStatusEnum[keyof typeof VAClusterStatusChangeEventHealthCheckResultStatusEnum];
 
 /**
  * The results of the last health check.
  * @export
- * @interface VaclusterstatuschangeeventPreviousHealthCheckResult
+ * @interface VAClusterStatusChangeEventPreviousHealthCheckResult
  */
-export interface VaclusterstatuschangeeventPreviousHealthCheckResult {
+export interface VAClusterStatusChangeEventPreviousHealthCheckResult {
     /**
      * Detailed message of the result of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResult
+     * @memberof VAClusterStatusChangeEventPreviousHealthCheckResult
      */
     'message': string;
     /**
      * The type of the health check result.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResult
+     * @memberof VAClusterStatusChangeEventPreviousHealthCheckResult
      */
     'resultType': string;
     /**
      * The status of the health check.
      * @type {string}
-     * @memberof VaclusterstatuschangeeventPreviousHealthCheckResult
+     * @memberof VAClusterStatusChangeEventPreviousHealthCheckResult
      */
-    'status': VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum;
+    'status': VAClusterStatusChangeEventPreviousHealthCheckResultStatusEnum;
 }
 
-export const VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum = {
+export const VAClusterStatusChangeEventPreviousHealthCheckResultStatusEnum = {
     Succeeded: 'Succeeded',
     Failed: 'Failed'
 } as const;
 
-export type VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum = typeof VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum[keyof typeof VaclusterstatuschangeeventPreviousHealthCheckResultStatusEnum];
+export type VAClusterStatusChangeEventPreviousHealthCheckResultStatusEnum = typeof VAClusterStatusChangeEventPreviousHealthCheckResultStatusEnum[keyof typeof VAClusterStatusChangeEventPreviousHealthCheckResultStatusEnum];
 
 /**
  * 
  * @export
- * @interface Validatefilterinputdto
+ * @interface ValidateFilterInputDto
  */
-export interface Validatefilterinputdto {
+export interface ValidateFilterInputDto {
     /**
      * Mock input to evaluate filter expression against.
      * @type {object}
-     * @memberof Validatefilterinputdto
+     * @memberof ValidateFilterInputDto
      */
     'input': object;
     /**
      * JSONPath filter to conditionally invoke trigger when expression evaluates to true.
      * @type {string}
-     * @memberof Validatefilterinputdto
+     * @memberof ValidateFilterInputDto
      */
     'filter': string;
 }
 /**
  * 
  * @export
- * @interface Validatefilteroutputdto
+ * @interface ValidateFilterOutputDto
  */
-export interface Validatefilteroutputdto {
+export interface ValidateFilterOutputDto {
     /**
      * When this field is true, the filter expression is valid against the input.
      * @type {boolean}
-     * @memberof Validatefilteroutputdto
+     * @memberof ValidateFilterOutputDto
      */
     'isValid'?: boolean;
     /**
      * When this field is true, the filter expression is using a valid JSON path.
      * @type {boolean}
-     * @memberof Validatefilteroutputdto
+     * @memberof ValidateFilterOutputDto
      */
     'isValidJSONPath'?: boolean;
     /**
      * When this field is true, the filter expression is using an existing path.
      * @type {boolean}
-     * @memberof Validatefilteroutputdto
+     * @memberof ValidateFilterOutputDto
      */
     'isPathExist'?: boolean;
 }
@@ -5128,15 +5128,15 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
          * Completes an invocation to a REQUEST_RESPONSE type trigger.
          * @summary Complete trigger invocation
          * @param {string} id The ID of the invocation to complete.
-         * @param {Completeinvocation} completeinvocation 
+         * @param {CompleteInvocation} completeInvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completeTriggerInvocationV1: async (id: string, completeinvocation: Completeinvocation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        completeTriggerInvocationV1: async (id: string, completeInvocation: CompleteInvocation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('completeTriggerInvocationV1', 'id', id)
-            // verify required parameter 'completeinvocation' is not null or undefined
-            assertParamExists('completeTriggerInvocationV1', 'completeinvocation', completeinvocation)
+            // verify required parameter 'completeInvocation' is not null or undefined
+            assertParamExists('completeTriggerInvocationV1', 'completeInvocation', completeInvocation)
             const localVarPath = `/trigger-invocations/v1/{id}/complete`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5157,7 +5157,7 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(completeinvocation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(completeInvocation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5167,13 +5167,13 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
          * @summary Create a subscription
-         * @param {Subscriptionpostrequest} subscriptionpostrequest 
+         * @param {SubscriptionPostRequest} subscriptionPostRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSubscriptionV1: async (subscriptionpostrequest: Subscriptionpostrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'subscriptionpostrequest' is not null or undefined
-            assertParamExists('createSubscriptionV1', 'subscriptionpostrequest', subscriptionpostrequest)
+        createSubscriptionV1: async (subscriptionPostRequest: SubscriptionPostRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'subscriptionPostRequest' is not null or undefined
+            assertParamExists('createSubscriptionV1', 'subscriptionPostRequest', subscriptionPostRequest)
             const localVarPath = `/trigger-subscriptions/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5193,7 +5193,7 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionpostrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionPostRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5403,15 +5403,15 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
          * This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:  **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
          * @summary Patch a subscription
          * @param {string} id ID of the Subscription to patch
-         * @param {Array<SubscriptionpatchrequestInner>} subscriptionpatchrequestInner 
+         * @param {Array<SubscriptionPatchRequestInner>} subscriptionPatchRequestInner 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSubscriptionV1: async (id: string, subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchSubscriptionV1: async (id: string, subscriptionPatchRequestInner: Array<SubscriptionPatchRequestInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchSubscriptionV1', 'id', id)
-            // verify required parameter 'subscriptionpatchrequestInner' is not null or undefined
-            assertParamExists('patchSubscriptionV1', 'subscriptionpatchrequestInner', subscriptionpatchrequestInner)
+            // verify required parameter 'subscriptionPatchRequestInner' is not null or undefined
+            assertParamExists('patchSubscriptionV1', 'subscriptionPatchRequestInner', subscriptionPatchRequestInner)
             const localVarPath = `/trigger-subscriptions/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5432,7 +5432,7 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionpatchrequestInner, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionPatchRequestInner, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5442,13 +5442,13 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
          * @summary Start a test invocation
-         * @param {Testinvocation} testinvocation 
+         * @param {TestInvocation} testInvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startTestTriggerInvocationV1: async (testinvocation: Testinvocation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'testinvocation' is not null or undefined
-            assertParamExists('startTestTriggerInvocationV1', 'testinvocation', testinvocation)
+        startTestTriggerInvocationV1: async (testInvocation: TestInvocation, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'testInvocation' is not null or undefined
+            assertParamExists('startTestTriggerInvocationV1', 'testInvocation', testInvocation)
             const localVarPath = `/trigger-invocations/v1/test`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5468,7 +5468,7 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(testinvocation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(testInvocation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5478,13 +5478,13 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
          * @summary Validate a subscription filter
-         * @param {Validatefilterinputdto} validatefilterinputdto 
+         * @param {ValidateFilterInputDto} validateFilterInputDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testSubscriptionFilterV1: async (validatefilterinputdto: Validatefilterinputdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'validatefilterinputdto' is not null or undefined
-            assertParamExists('testSubscriptionFilterV1', 'validatefilterinputdto', validatefilterinputdto)
+        testSubscriptionFilterV1: async (validateFilterInputDto: ValidateFilterInputDto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'validateFilterInputDto' is not null or undefined
+            assertParamExists('testSubscriptionFilterV1', 'validateFilterInputDto', validateFilterInputDto)
             const localVarPath = `/trigger-subscriptions/v1/validate-filter`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5504,7 +5504,7 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(validatefilterinputdto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(validateFilterInputDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5515,15 +5515,15 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a subscription
          * @param {string} id Subscription ID
-         * @param {Subscriptionputrequest} subscriptionputrequest 
+         * @param {SubscriptionPutRequest} subscriptionPutRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSubscriptionV1: async (id: string, subscriptionputrequest: Subscriptionputrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSubscriptionV1: async (id: string, subscriptionPutRequest: SubscriptionPutRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateSubscriptionV1', 'id', id)
-            // verify required parameter 'subscriptionputrequest' is not null or undefined
-            assertParamExists('updateSubscriptionV1', 'subscriptionputrequest', subscriptionputrequest)
+            // verify required parameter 'subscriptionPutRequest' is not null or undefined
+            assertParamExists('updateSubscriptionV1', 'subscriptionPutRequest', subscriptionPutRequest)
             const localVarPath = `/trigger-subscriptions/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5544,7 +5544,7 @@ export const TriggersApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionputrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(subscriptionPutRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5565,12 +5565,12 @@ export const TriggersApiFp = function(configuration?: Configuration) {
          * Completes an invocation to a REQUEST_RESPONSE type trigger.
          * @summary Complete trigger invocation
          * @param {string} id The ID of the invocation to complete.
-         * @param {Completeinvocation} completeinvocation 
+         * @param {CompleteInvocation} completeInvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeTriggerInvocationV1(id: string, completeinvocation: Completeinvocation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeTriggerInvocationV1(id, completeinvocation, axiosOptions);
+        async completeTriggerInvocationV1(id: string, completeInvocation: CompleteInvocation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeTriggerInvocationV1(id, completeInvocation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TriggersApi.completeTriggerInvocationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5578,12 +5578,12 @@ export const TriggersApiFp = function(configuration?: Configuration) {
         /**
          * This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
          * @summary Create a subscription
-         * @param {Subscriptionpostrequest} subscriptionpostrequest 
+         * @param {SubscriptionPostRequest} subscriptionPostRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSubscriptionV1(subscriptionpostrequest: Subscriptionpostrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscriptionV1(subscriptionpostrequest, axiosOptions);
+        async createSubscriptionV1(subscriptionPostRequest: SubscriptionPostRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscriptionV1(subscriptionPostRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TriggersApi.createSubscriptionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5629,7 +5629,7 @@ export const TriggersApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTriggerInvocationStatusV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Invocationstatus>>> {
+        async listTriggerInvocationStatusV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationStatus>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggerInvocationStatusV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TriggersApi.listTriggerInvocationStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -5656,12 +5656,12 @@ export const TriggersApiFp = function(configuration?: Configuration) {
          * This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:  **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
          * @summary Patch a subscription
          * @param {string} id ID of the Subscription to patch
-         * @param {Array<SubscriptionpatchrequestInner>} subscriptionpatchrequestInner 
+         * @param {Array<SubscriptionPatchRequestInner>} subscriptionPatchRequestInner 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSubscriptionV1(id: string, subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSubscriptionV1(id, subscriptionpatchrequestInner, axiosOptions);
+        async patchSubscriptionV1(id: string, subscriptionPatchRequestInner: Array<SubscriptionPatchRequestInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSubscriptionV1(id, subscriptionPatchRequestInner, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TriggersApi.patchSubscriptionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5669,12 +5669,12 @@ export const TriggersApiFp = function(configuration?: Configuration) {
         /**
          * Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
          * @summary Start a test invocation
-         * @param {Testinvocation} testinvocation 
+         * @param {TestInvocation} testInvocation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startTestTriggerInvocationV1(testinvocation: Testinvocation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Invocation>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startTestTriggerInvocationV1(testinvocation, axiosOptions);
+        async startTestTriggerInvocationV1(testInvocation: TestInvocation, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Invocation>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startTestTriggerInvocationV1(testInvocation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TriggersApi.startTestTriggerInvocationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5682,12 +5682,12 @@ export const TriggersApiFp = function(configuration?: Configuration) {
         /**
          * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
          * @summary Validate a subscription filter
-         * @param {Validatefilterinputdto} validatefilterinputdto 
+         * @param {ValidateFilterInputDto} validateFilterInputDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testSubscriptionFilterV1(validatefilterinputdto: Validatefilterinputdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Validatefilteroutputdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilterV1(validatefilterinputdto, axiosOptions);
+        async testSubscriptionFilterV1(validateFilterInputDto: ValidateFilterInputDto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ValidateFilterOutputDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilterV1(validateFilterInputDto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TriggersApi.testSubscriptionFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5696,12 +5696,12 @@ export const TriggersApiFp = function(configuration?: Configuration) {
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a subscription
          * @param {string} id Subscription ID
-         * @param {Subscriptionputrequest} subscriptionputrequest 
+         * @param {SubscriptionPutRequest} subscriptionPutRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSubscriptionV1(id: string, subscriptionputrequest: Subscriptionputrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscriptionV1(id, subscriptionputrequest, axiosOptions);
+        async updateSubscriptionV1(id: string, subscriptionPutRequest: SubscriptionPutRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Subscription>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscriptionV1(id, subscriptionPutRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TriggersApi.updateSubscriptionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -5724,7 +5724,7 @@ export const TriggersApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         completeTriggerInvocationV1(requestParameters: TriggersApiCompleteTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.completeTriggerInvocationV1(requestParameters.id, requestParameters.completeinvocation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.completeTriggerInvocationV1(requestParameters.id, requestParameters.completeInvocation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required: * HTTP subscriptions require httpConfig * EventBridge subscriptions require eventBridgeConfig
@@ -5734,7 +5734,7 @@ export const TriggersApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         createSubscriptionV1(requestParameters: TriggersApiCreateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Subscription> {
-            return localVarFp.createSubscriptionV1(requestParameters.subscriptionpostrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createSubscriptionV1(requestParameters.subscriptionPostRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes an existing subscription to a trigger.
@@ -5763,7 +5763,7 @@ export const TriggersApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTriggerInvocationStatusV1(requestParameters: TriggersApiListTriggerInvocationStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Invocationstatus>> {
+        listTriggerInvocationStatusV1(requestParameters: TriggersApiListTriggerInvocationStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<InvocationStatus>> {
             return localVarFp.listTriggerInvocationStatusV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -5784,7 +5784,7 @@ export const TriggersApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         patchSubscriptionV1(requestParameters: TriggersApiPatchSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Subscription> {
-            return localVarFp.patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionpatchrequestInner, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionPatchRequestInner, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
@@ -5794,7 +5794,7 @@ export const TriggersApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         startTestTriggerInvocationV1(requestParameters: TriggersApiStartTestTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Invocation>> {
-            return localVarFp.startTestTriggerInvocationV1(requestParameters.testinvocation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.startTestTriggerInvocationV1(requestParameters.testInvocation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
@@ -5803,8 +5803,8 @@ export const TriggersApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testSubscriptionFilterV1(requestParameters: TriggersApiTestSubscriptionFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Validatefilteroutputdto> {
-            return localVarFp.testSubscriptionFilterV1(requestParameters.validatefilterinputdto, axiosOptions).then((request) => request(axios, basePath));
+        testSubscriptionFilterV1(requestParameters: TriggersApiTestSubscriptionFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ValidateFilterOutputDto> {
+            return localVarFp.testSubscriptionFilterV1(requestParameters.validateFilterInputDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
@@ -5814,7 +5814,7 @@ export const TriggersApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         updateSubscriptionV1(requestParameters: TriggersApiUpdateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Subscription> {
-            return localVarFp.updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionputrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionPutRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5834,10 +5834,10 @@ export interface TriggersApiCompleteTriggerInvocationV1Request {
 
     /**
      * 
-     * @type {Completeinvocation}
+     * @type {CompleteInvocation}
      * @memberof TriggersApiCompleteTriggerInvocationV1
      */
-    readonly completeinvocation: Completeinvocation
+    readonly completeInvocation: CompleteInvocation
 }
 
 /**
@@ -5848,10 +5848,10 @@ export interface TriggersApiCompleteTriggerInvocationV1Request {
 export interface TriggersApiCreateSubscriptionV1Request {
     /**
      * 
-     * @type {Subscriptionpostrequest}
+     * @type {SubscriptionPostRequest}
      * @memberof TriggersApiCreateSubscriptionV1
      */
-    readonly subscriptionpostrequest: Subscriptionpostrequest
+    readonly subscriptionPostRequest: SubscriptionPostRequest
 }
 
 /**
@@ -6009,10 +6009,10 @@ export interface TriggersApiPatchSubscriptionV1Request {
 
     /**
      * 
-     * @type {Array<SubscriptionpatchrequestInner>}
+     * @type {Array<SubscriptionPatchRequestInner>}
      * @memberof TriggersApiPatchSubscriptionV1
      */
-    readonly subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner>
+    readonly subscriptionPatchRequestInner: Array<SubscriptionPatchRequestInner>
 }
 
 /**
@@ -6023,10 +6023,10 @@ export interface TriggersApiPatchSubscriptionV1Request {
 export interface TriggersApiStartTestTriggerInvocationV1Request {
     /**
      * 
-     * @type {Testinvocation}
+     * @type {TestInvocation}
      * @memberof TriggersApiStartTestTriggerInvocationV1
      */
-    readonly testinvocation: Testinvocation
+    readonly testInvocation: TestInvocation
 }
 
 /**
@@ -6037,10 +6037,10 @@ export interface TriggersApiStartTestTriggerInvocationV1Request {
 export interface TriggersApiTestSubscriptionFilterV1Request {
     /**
      * 
-     * @type {Validatefilterinputdto}
+     * @type {ValidateFilterInputDto}
      * @memberof TriggersApiTestSubscriptionFilterV1
      */
-    readonly validatefilterinputdto: Validatefilterinputdto
+    readonly validateFilterInputDto: ValidateFilterInputDto
 }
 
 /**
@@ -6058,10 +6058,10 @@ export interface TriggersApiUpdateSubscriptionV1Request {
 
     /**
      * 
-     * @type {Subscriptionputrequest}
+     * @type {SubscriptionPutRequest}
      * @memberof TriggersApiUpdateSubscriptionV1
      */
-    readonly subscriptionputrequest: Subscriptionputrequest
+    readonly subscriptionPutRequest: SubscriptionPutRequest
 }
 
 /**
@@ -6080,7 +6080,7 @@ export class TriggersApi extends BaseAPI {
      * @memberof TriggersApi
      */
     public completeTriggerInvocationV1(requestParameters: TriggersApiCompleteTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersApiFp(this.configuration).completeTriggerInvocationV1(requestParameters.id, requestParameters.completeinvocation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TriggersApiFp(this.configuration).completeTriggerInvocationV1(requestParameters.id, requestParameters.completeInvocation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6092,7 +6092,7 @@ export class TriggersApi extends BaseAPI {
      * @memberof TriggersApi
      */
     public createSubscriptionV1(requestParameters: TriggersApiCreateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersApiFp(this.configuration).createSubscriptionV1(requestParameters.subscriptionpostrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TriggersApiFp(this.configuration).createSubscriptionV1(requestParameters.subscriptionPostRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6152,7 +6152,7 @@ export class TriggersApi extends BaseAPI {
      * @memberof TriggersApi
      */
     public patchSubscriptionV1(requestParameters: TriggersApiPatchSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersApiFp(this.configuration).patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionpatchrequestInner, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TriggersApiFp(this.configuration).patchSubscriptionV1(requestParameters.id, requestParameters.subscriptionPatchRequestInner, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6164,7 +6164,7 @@ export class TriggersApi extends BaseAPI {
      * @memberof TriggersApi
      */
     public startTestTriggerInvocationV1(requestParameters: TriggersApiStartTestTriggerInvocationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersApiFp(this.configuration).startTestTriggerInvocationV1(requestParameters.testinvocation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TriggersApiFp(this.configuration).startTestTriggerInvocationV1(requestParameters.testInvocation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6176,7 +6176,7 @@ export class TriggersApi extends BaseAPI {
      * @memberof TriggersApi
      */
     public testSubscriptionFilterV1(requestParameters: TriggersApiTestSubscriptionFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersApiFp(this.configuration).testSubscriptionFilterV1(requestParameters.validatefilterinputdto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TriggersApiFp(this.configuration).testSubscriptionFilterV1(requestParameters.validateFilterInputDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6188,7 +6188,7 @@ export class TriggersApi extends BaseAPI {
      * @memberof TriggersApi
      */
     public updateSubscriptionV1(requestParameters: TriggersApiUpdateSubscriptionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TriggersApiFp(this.configuration).updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionputrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TriggersApiFp(this.configuration).updateSubscriptionV1(requestParameters.id, requestParameters.subscriptionPutRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

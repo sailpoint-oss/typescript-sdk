@@ -26,467 +26,467 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Access item requester\'s identity.
  * @export
- * @interface Accessitemrequester
+ * @interface AccessItemRequester
  */
-export interface Accessitemrequester {
+export interface AccessItemRequester {
     /**
      * Access item requester\'s DTO type.
      * @type {string}
-     * @memberof Accessitemrequester
+     * @memberof AccessItemRequester
      */
-    'type'?: AccessitemrequesterTypeEnum;
+    'type'?: AccessItemRequesterTypeEnum;
     /**
      * Access item requester\'s identity ID.
      * @type {string}
-     * @memberof Accessitemrequester
+     * @memberof AccessItemRequester
      */
     'id'?: string;
     /**
      * Access item owner\'s human-readable display name.
      * @type {string}
-     * @memberof Accessitemrequester
+     * @memberof AccessItemRequester
      */
     'name'?: string;
 }
 
-export const AccessitemrequesterTypeEnum = {
+export const AccessItemRequesterTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemrequesterTypeEnum = typeof AccessitemrequesterTypeEnum[keyof typeof AccessitemrequesterTypeEnum];
+export type AccessItemRequesterTypeEnum = typeof AccessItemRequesterTypeEnum[keyof typeof AccessItemRequesterTypeEnum];
 
 /**
  * Identity who reviewed the access item request.
  * @export
- * @interface Accessitemreviewedby
+ * @interface AccessItemReviewedBy
  */
-export interface Accessitemreviewedby {
+export interface AccessItemReviewedBy {
     /**
      * DTO type of identity who reviewed the access item request.
      * @type {string}
-     * @memberof Accessitemreviewedby
+     * @memberof AccessItemReviewedBy
      */
-    'type'?: AccessitemreviewedbyTypeEnum;
+    'type'?: AccessItemReviewedByTypeEnum;
     /**
      * ID of identity who reviewed the access item request.
      * @type {string}
-     * @memberof Accessitemreviewedby
+     * @memberof AccessItemReviewedBy
      */
     'id'?: string;
     /**
      * Human-readable display name of identity who reviewed the access item request.
      * @type {string}
-     * @memberof Accessitemreviewedby
+     * @memberof AccessItemReviewedBy
      */
     'name'?: string;
 }
 
-export const AccessitemreviewedbyTypeEnum = {
+export const AccessItemReviewedByTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessitemreviewedbyTypeEnum = typeof AccessitemreviewedbyTypeEnum[keyof typeof AccessitemreviewedbyTypeEnum];
+export type AccessItemReviewedByTypeEnum = typeof AccessItemReviewedByTypeEnum[keyof typeof AccessItemReviewedByTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequest
+ * @interface AccessRequest
  */
-export interface Accessrequest {
+export interface AccessRequest {
     /**
      * A list of Identity IDs for whom the Access is requested. If it\'s a Revoke request, there can only be one Identity ID.
      * @type {Array<string>}
-     * @memberof Accessrequest
+     * @memberof AccessRequest
      */
     'requestedFor': Array<string>;
     /**
      * 
-     * @type {Accessrequesttype}
-     * @memberof Accessrequest
+     * @type {AccessRequestType}
+     * @memberof AccessRequest
      */
-    'requestType'?: Accessrequesttype | null;
+    'requestType'?: AccessRequestType | null;
     /**
      * 
-     * @type {Array<Accessrequestitem>}
-     * @memberof Accessrequest
+     * @type {Array<AccessRequestItem>}
+     * @memberof AccessRequest
      */
-    'requestedItems': Array<Accessrequestitem>;
+    'requestedItems': Array<AccessRequestItem>;
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities.
      * @type {{ [key: string]: string; }}
-     * @memberof Accessrequest
+     * @memberof AccessRequest
      */
     'clientMetadata'?: { [key: string]: string; };
     /**
      * Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity. * Can only be used when \'requestedFor\' and \'requestedItems\' are not separately provided * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source * Allows the ability to request items with different start dates * Allows the ability to request items with different remove dates * Also allows different combinations of request items and identities in the same request * Only for use in GRANT_ACCESS type requests 
-     * @type {Array<Requestedfordtoref>}
-     * @memberof Accessrequest
+     * @type {Array<RequestedForDtoRef>}
+     * @memberof AccessRequest
      */
-    'requestedForWithRequestedItems'?: Array<Requestedfordtoref> | null;
+    'requestedForWithRequestedItems'?: Array<RequestedForDtoRef> | null;
 }
 
 
 /**
  * 
  * @export
- * @interface Accessrequestadminitemstatus
+ * @interface AccessRequestAdminItemStatus
  */
-export interface Accessrequestadminitemstatus {
+export interface AccessRequestAdminItemStatus {
     /**
      * ID of the access request. This is a new property as of 2025. Older access requests may not have an ID.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'id'?: string | null;
     /**
      * Human-readable display name of the item being requested.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'name'?: string | null;
     /**
      * Type of requested object.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
-    'type'?: AccessrequestadminitemstatusTypeEnum | null;
+    'type'?: AccessRequestAdminItemStatusTypeEnum | null;
     /**
      * 
-     * @type {RequesteditemstatusCancelledRequestDetails}
-     * @memberof Accessrequestadminitemstatus
+     * @type {RequestedItemStatusCancelledRequestDetails}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'cancelledRequestDetails'?: RequesteditemstatusCancelledRequestDetails;
+    'cancelledRequestDetails'?: RequestedItemStatusCancelledRequestDetails;
     /**
      * List of localized error messages, if any, encountered during the approval/provisioning process.
-     * @type {Array<Array<Errormessagedto>>}
-     * @memberof Accessrequestadminitemstatus
+     * @type {Array<Array<ErrorMessageDto>>}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'errorMessages'?: Array<Array<Errormessagedto>> | null;
+    'errorMessages'?: Array<Array<ErrorMessageDto>> | null;
     /**
      * 
-     * @type {Requesteditemstatusrequeststate}
-     * @memberof Accessrequestadminitemstatus
+     * @type {RequestedItemStatusRequestState}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'state'?: Requesteditemstatusrequeststate;
+    'state'?: RequestedItemStatusRequestState;
     /**
      * Approval details for each item.
-     * @type {Array<Approvalstatusdto>}
-     * @memberof Accessrequestadminitemstatus
+     * @type {Array<ApprovalStatusDto>}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'approvalDetails'?: Array<Approvalstatusdto>;
+    'approvalDetails'?: Array<ApprovalStatusDto>;
     /**
      * Manual work items created for provisioning the item.
-     * @type {Array<Manualworkitemdetails>}
-     * @memberof Accessrequestadminitemstatus
+     * @type {Array<ManualWorkItemDetails>}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'manualWorkItemDetails'?: Array<Manualworkitemdetails> | null;
+    'manualWorkItemDetails'?: Array<ManualWorkItemDetails> | null;
     /**
      * Id of associated account activity item.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'accountActivityItemId'?: string;
     /**
      * 
-     * @type {Accessrequesttype}
-     * @memberof Accessrequestadminitemstatus
+     * @type {AccessRequestType}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'requestType'?: Accessrequesttype | null;
+    'requestType'?: AccessRequestType | null;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'modified'?: string | null;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'created'?: string;
     /**
      * 
-     * @type {Accessitemrequester}
-     * @memberof Accessrequestadminitemstatus
+     * @type {AccessItemRequester}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'requester'?: Accessitemrequester;
+    'requester'?: AccessItemRequester;
     /**
      * 
-     * @type {RequesteditemstatusRequestedFor}
-     * @memberof Accessrequestadminitemstatus
+     * @type {RequestedItemStatusRequestedFor}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'requestedFor'?: RequesteditemstatusRequestedFor;
+    'requestedFor'?: RequestedItemStatusRequestedFor;
     /**
      * 
-     * @type {RequesteditemstatusRequesterComment}
-     * @memberof Accessrequestadminitemstatus
+     * @type {RequestedItemStatusRequesterComment}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'requesterComment'?: RequesteditemstatusRequesterComment;
+    'requesterComment'?: RequestedItemStatusRequesterComment;
     /**
      * 
-     * @type {RequesteditemstatusSodViolationContext}
-     * @memberof Accessrequestadminitemstatus
+     * @type {RequestedItemStatusSodViolationContext}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'sodViolationContext'?: RequesteditemstatusSodViolationContext;
+    'sodViolationContext'?: RequestedItemStatusSodViolationContext;
     /**
      * 
-     * @type {RequesteditemstatusProvisioningDetails}
-     * @memberof Accessrequestadminitemstatus
+     * @type {RequestedItemStatusProvisioningDetails}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'provisioningDetails'?: RequesteditemstatusProvisioningDetails;
+    'provisioningDetails'?: RequestedItemStatusProvisioningDetails;
     /**
      * 
-     * @type {RequesteditemstatusPreApprovalTriggerDetails}
-     * @memberof Accessrequestadminitemstatus
+     * @type {RequestedItemStatusPreApprovalTriggerDetails}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'preApprovalTriggerDetails'?: RequesteditemstatusPreApprovalTriggerDetails;
+    'preApprovalTriggerDetails'?: RequestedItemStatusPreApprovalTriggerDetails;
     /**
      * A list of Phases that the Access Request has gone through in order, to help determine the status of the request.
-     * @type {Array<Accessrequestphases>}
-     * @memberof Accessrequestadminitemstatus
+     * @type {Array<AccessRequestPhases>}
+     * @memberof AccessRequestAdminItemStatus
      */
-    'accessRequestPhases'?: Array<Accessrequestphases> | null;
+    'accessRequestPhases'?: Array<AccessRequestPhases> | null;
     /**
      * Description associated to the requested object.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'description'?: string | null;
     /**
      * When the role access is scheduled for provisioning.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'startDate'?: string | null;
     /**
      * When the role access is scheduled for removal.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'removeDate'?: string | null;
     /**
      * True if the request can be canceled.
      * @type {boolean}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'cancelable'?: boolean;
     /**
      * True if re-auth is required.
      * @type {boolean}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'reauthorizationRequired'?: boolean;
     /**
      * This is the account activity id.
      * @type {string}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'accessRequestId'?: string;
     /**
      * Arbitrary key-value pairs, if any were included in the corresponding access request
      * @type {{ [key: string]: string; }}
-     * @memberof Accessrequestadminitemstatus
+     * @memberof AccessRequestAdminItemStatus
      */
     'clientMetadata'?: { [key: string]: string; } | null;
 }
 
-export const AccessrequestadminitemstatusTypeEnum = {
+export const AccessRequestAdminItemStatusTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestadminitemstatusTypeEnum = typeof AccessrequestadminitemstatusTypeEnum[keyof typeof AccessrequestadminitemstatusTypeEnum];
+export type AccessRequestAdminItemStatusTypeEnum = typeof AccessRequestAdminItemStatusTypeEnum[keyof typeof AccessRequestAdminItemStatusTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestconfig
+ * @interface AccessRequestConfig
  */
-export interface Accessrequestconfig {
+export interface AccessRequestConfig {
     /**
      * If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn\'t an org admin.
      * @type {boolean}
-     * @memberof Accessrequestconfig
+     * @memberof AccessRequestConfig
      */
     'approvalsMustBeExternal'?: boolean;
     /**
      * If this is true and the requester and reviewer are the same, the request is automatically approved.
      * @type {boolean}
-     * @memberof Accessrequestconfig
+     * @memberof AccessRequestConfig
      */
     'autoApprovalEnabled'?: boolean;
     /**
      * If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
      * @type {boolean}
-     * @memberof Accessrequestconfig
+     * @memberof AccessRequestConfig
      */
     'reauthorizationEnabled'?: boolean;
     /**
      * 
-     * @type {Requestonbehalfofconfig}
-     * @memberof Accessrequestconfig
+     * @type {RequestOnBehalfOfConfig}
+     * @memberof AccessRequestConfig
      */
-    'requestOnBehalfOfConfig'?: Requestonbehalfofconfig;
+    'requestOnBehalfOfConfig'?: RequestOnBehalfOfConfig;
     /**
      * 
-     * @type {Approvalreminderandescalationconfig}
-     * @memberof Accessrequestconfig
+     * @type {ApprovalReminderAndEscalationConfig}
+     * @memberof AccessRequestConfig
      */
-    'approvalReminderAndEscalationConfig'?: Approvalreminderandescalationconfig;
+    'approvalReminderAndEscalationConfig'?: ApprovalReminderAndEscalationConfig;
     /**
      * 
-     * @type {Entitlementrequestconfig}
-     * @memberof Accessrequestconfig
+     * @type {EntitlementRequestConfig}
+     * @memberof AccessRequestConfig
      */
-    'entitlementRequestConfig'?: Entitlementrequestconfig;
+    'entitlementRequestConfig'?: EntitlementRequestConfig;
 }
 /**
  * 
  * @export
- * @interface Accessrequestconfigv2
+ * @interface AccessRequestConfig2
  */
-export interface Accessrequestconfigv2 {
+export interface AccessRequestConfig2 {
     /**
      * If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn\'t an org admin.
      * @type {boolean}
-     * @memberof Accessrequestconfigv2
+     * @memberof AccessRequestConfig2
      */
     'approvalsMustBeExternal'?: boolean;
     /**
      * If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
      * @type {boolean}
-     * @memberof Accessrequestconfigv2
+     * @memberof AccessRequestConfig2
      */
     'reauthorizationEnabled'?: boolean;
     /**
      * 
-     * @type {Requestonbehalfofconfigv2}
-     * @memberof Accessrequestconfigv2
+     * @type {RequestOnBehalfOfConfig2}
+     * @memberof AccessRequestConfig2
      */
-    'requestOnBehalfOfConfig'?: Requestonbehalfofconfigv2;
+    'requestOnBehalfOfConfig'?: RequestOnBehalfOfConfig2;
     /**
      * 
-     * @type {Entitlementrequestconfigv2}
-     * @memberof Accessrequestconfigv2
+     * @type {EntitlementRequestConfig2}
+     * @memberof AccessRequestConfig2
      */
-    'entitlementRequestConfig'?: Entitlementrequestconfigv2;
+    'entitlementRequestConfig'?: EntitlementRequestConfig2;
     /**
      * If this is true, requesters and requested-for users will be able to see the names of governance group members when a request is awaiting the group\'s approval. Up to the first 10 members of the group will be listed.
      * @type {boolean}
-     * @memberof Accessrequestconfigv2
+     * @memberof AccessRequestConfig2
      */
     'govGroupVisibilityEnabled'?: boolean;
 }
 /**
  * 
  * @export
- * @interface Accessrequestitem
+ * @interface AccessRequestItem
  */
-export interface Accessrequestitem {
+export interface AccessRequestItem {
     /**
      * The type of the item being requested.
      * @type {string}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
-    'type': AccessrequestitemTypeEnum;
+    'type': AccessRequestItemTypeEnum;
     /**
      * ID of Role, Access Profile or Entitlement being requested.
      * @type {string}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
     'id': string;
     /**
      * Comment provided by requester. * Comment is required when the request is of type Revoke Access. 
      * @type {string}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
     'comment'?: string;
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities and /access-request-status.
      * @type {{ [key: string]: string; }}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
     'clientMetadata'?: { [key: string]: string; };
     /**
      * The date and time the role or access profile or entitlement is/will be provisioned to the specified identity. Also known as the sunrise date. * Specify a date-time in the future. * This date-time can be used to indicate date-time when access item will be provisioned on the identity account. A GRANT_ACCESS request can use startDate to specify when to schedule provisioning of access item for an identity/account & a MODIFY_ACCESS request can use startDate to change the provisioning date-time of already assigned access item. But REVOKE_ACCESS request can not have startDate field. You can change the sunrise date in requests for yourself or others you are authorized to request for. * If the startDate is in the past, then the provisioning will be processed as soon as possible, but no guarantees can be made about when the provisioning will occur. If the startDate is in the future, then the provisioning will be scheduled to occur on that date and time. If no startDate is provided, then the provisioning will be processed as soon as possible. 
      * @type {string}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
     'startDate'?: string;
     /**
      * The date and time the role or access profile or entitlement is no longer assigned to the specified identity. Also known as the expiration date. * Specify a date-time in the future. * The current SLA for the deprovisioning is 24 hours. * This date-time can be used to change the duration of an existing access item assignment for the specified identity. A GRANT_ACCESS request can extend duration or even remove an expiration date, and either a  GRANT_ACCESS or REVOKE_ACCESS request can reduce duration or add an expiration date where one has not previously been present. You can change the expiration date in requests for yourself or others you are authorized to request for. 
      * @type {string}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
     'removeDate'?: string;
     /**
      * The assignmentId for a specific role assignment on the identity. This id is used to revoke that specific roleAssignment on that identity. * For use with REVOKE_ACCESS requests for roles for identities with multiple accounts on a single source. 
      * @type {string}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
     'assignmentId'?: string | null;
     /**
      * The unique identifier for an account on the identity, designated as the account ID attribute in the source\'s account schema. This is used to revoke a specific attributeAssignment on the identity. * For use with REVOKE_ACCESS requests for entitlements for identities with multiple accounts on a single source. 
      * @type {string}
-     * @memberof Accessrequestitem
+     * @memberof AccessRequestItem
      */
     'nativeIdentity'?: string | null;
 }
 
-export const AccessrequestitemTypeEnum = {
+export const AccessRequestItemTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessrequestitemTypeEnum = typeof AccessrequestitemTypeEnum[keyof typeof AccessrequestitemTypeEnum];
+export type AccessRequestItemTypeEnum = typeof AccessRequestItemTypeEnum[keyof typeof AccessRequestItemTypeEnum];
 
 /**
  * Provides additional details about this access request phase.
  * @export
- * @interface Accessrequestphases
+ * @interface AccessRequestPhases
  */
-export interface Accessrequestphases {
+export interface AccessRequestPhases {
     /**
      * The time that this phase started.
      * @type {string}
-     * @memberof Accessrequestphases
+     * @memberof AccessRequestPhases
      */
     'started'?: string;
     /**
      * The time that this phase finished.
      * @type {string}
-     * @memberof Accessrequestphases
+     * @memberof AccessRequestPhases
      */
     'finished'?: string | null;
     /**
      * The name of this phase.
      * @type {string}
-     * @memberof Accessrequestphases
+     * @memberof AccessRequestPhases
      */
     'name'?: string;
     /**
      * The state of this phase.
      * @type {string}
-     * @memberof Accessrequestphases
+     * @memberof AccessRequestPhases
      */
-    'state'?: AccessrequestphasesStateEnum;
+    'state'?: AccessRequestPhasesStateEnum;
     /**
      * The state of this phase.
      * @type {string}
-     * @memberof Accessrequestphases
+     * @memberof AccessRequestPhases
      */
-    'result'?: AccessrequestphasesResultEnum | null;
+    'result'?: AccessRequestPhasesResultEnum | null;
     /**
      * A reference to another object on the RequestedItemStatus that contains more details about the phase. Note that for the Provisioning phase, this will be empty if there are no manual work items.
      * @type {string}
-     * @memberof Accessrequestphases
+     * @memberof AccessRequestPhases
      */
     'phaseReference'?: string | null;
 }
 
-export const AccessrequestphasesStateEnum = {
+export const AccessRequestPhasesStateEnum = {
     Pending: 'PENDING',
     Executing: 'EXECUTING',
     Completed: 'COMPLETED',
@@ -494,61 +494,61 @@ export const AccessrequestphasesStateEnum = {
     NotExecuted: 'NOT_EXECUTED'
 } as const;
 
-export type AccessrequestphasesStateEnum = typeof AccessrequestphasesStateEnum[keyof typeof AccessrequestphasesStateEnum];
-export const AccessrequestphasesResultEnum = {
+export type AccessRequestPhasesStateEnum = typeof AccessRequestPhasesStateEnum[keyof typeof AccessRequestPhasesStateEnum];
+export const AccessRequestPhasesResultEnum = {
     Successful: 'SUCCESSFUL',
     Failed: 'FAILED'
 } as const;
 
-export type AccessrequestphasesResultEnum = typeof AccessrequestphasesResultEnum[keyof typeof AccessrequestphasesResultEnum];
+export type AccessRequestPhasesResultEnum = typeof AccessRequestPhasesResultEnum[keyof typeof AccessRequestPhasesResultEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestresponse
+ * @interface AccessRequestResponse
  */
-export interface Accessrequestresponse {
+export interface AccessRequestResponse {
     /**
      * A list of new access request tracking data mapped to the values requested.
-     * @type {Array<Accessrequesttracking>}
-     * @memberof Accessrequestresponse
+     * @type {Array<AccessRequestTracking>}
+     * @memberof AccessRequestResponse
      */
-    'newRequests'?: Array<Accessrequesttracking>;
+    'newRequests'?: Array<AccessRequestTracking>;
     /**
      * A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item.
-     * @type {Array<Accessrequesttracking>}
-     * @memberof Accessrequestresponse
+     * @type {Array<AccessRequestTracking>}
+     * @memberof AccessRequestResponse
      */
-    'existingRequests'?: Array<Accessrequesttracking>;
+    'existingRequests'?: Array<AccessRequestTracking>;
 }
 /**
  * 
  * @export
- * @interface Accessrequesttracking
+ * @interface AccessRequestTracking
  */
-export interface Accessrequesttracking {
+export interface AccessRequestTracking {
     /**
      * The identity id in which the access request is for.
      * @type {string}
-     * @memberof Accessrequesttracking
+     * @memberof AccessRequestTracking
      */
     'requestedFor'?: string;
     /**
      * The details of the item requested.
-     * @type {Array<Requesteditemdetails>}
-     * @memberof Accessrequesttracking
+     * @type {Array<RequestedItemDetails>}
+     * @memberof AccessRequestTracking
      */
-    'requestedItemsDetails'?: Array<Requesteditemdetails>;
+    'requestedItemsDetails'?: Array<RequestedItemDetails>;
     /**
      * a hash representation of the access requested, useful for longer term tracking client side.
      * @type {number}
-     * @memberof Accessrequesttracking
+     * @memberof AccessRequestTracking
      */
     'attributesHash'?: number;
     /**
      * a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids.
      * @type {Array<string>}
-     * @memberof Accessrequesttracking
+     * @memberof AccessRequestTracking
      */
     'accessRequestIds'?: Array<string>;
 }
@@ -558,49 +558,49 @@ export interface Accessrequesttracking {
  * @enum {string}
  */
 
-export const Accessrequesttype = {
+export const AccessRequestType = {
     GrantAccess: 'GRANT_ACCESS',
     RevokeAccess: 'REVOKE_ACCESS',
     ModifyAccess: 'MODIFY_ACCESS'
 } as const;
 
-export type Accessrequesttype = typeof Accessrequesttype[keyof typeof Accessrequesttype];
+export type AccessRequestType = typeof AccessRequestType[keyof typeof AccessRequestType];
 
 
 /**
  * 
  * @export
- * @interface Accountinforef
+ * @interface AccountInfoRef
  */
-export interface Accountinforef {
+export interface AccountInfoRef {
     /**
      * The uuid for the account, available under the \'objectguid\' attribute
      * @type {string}
-     * @memberof Accountinforef
+     * @memberof AccountInfoRef
      */
     'uuid'?: string;
     /**
      * The \'distinguishedName\' attribute for the account
      * @type {string}
-     * @memberof Accountinforef
+     * @memberof AccountInfoRef
      */
     'nativeIdentity'?: string;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Accountinforef
+     * @type {DtoType}
+     * @memberof AccountInfoRef
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The account id
      * @type {string}
-     * @memberof Accountinforef
+     * @memberof AccountInfoRef
      */
     'id'?: string;
     /**
      * The account display name
      * @type {string}
-     * @memberof Accountinforef
+     * @memberof AccountInfoRef
      */
     'name'?: string;
 }
@@ -609,50 +609,50 @@ export interface Accountinforef {
 /**
  * 
  * @export
- * @interface Accountitemref
+ * @interface AccountItemRef
  */
-export interface Accountitemref {
+export interface AccountItemRef {
     /**
      * The uuid for the account, available under the \'objectguid\' attribute
      * @type {string}
-     * @memberof Accountitemref
+     * @memberof AccountItemRef
      */
     'accountUuid'?: string | null;
     /**
      * The \'distinguishedName\' attribute for the account
      * @type {string}
-     * @memberof Accountitemref
+     * @memberof AccountItemRef
      */
     'nativeIdentity'?: string;
 }
 /**
  * 
  * @export
- * @interface Accountsselectionrequest
+ * @interface AccountsSelectionRequest
  */
-export interface Accountsselectionrequest {
+export interface AccountsSelectionRequest {
     /**
      * A list of Identity IDs for whom the Access is requested.
      * @type {Array<string>}
-     * @memberof Accountsselectionrequest
+     * @memberof AccountsSelectionRequest
      */
     'requestedFor': Array<string>;
     /**
      * 
-     * @type {Accessrequesttype}
-     * @memberof Accountsselectionrequest
+     * @type {AccessRequestType}
+     * @memberof AccountsSelectionRequest
      */
-    'requestType'?: Accessrequesttype | null;
+    'requestType'?: AccessRequestType | null;
     /**
      * 
-     * @type {Array<Accessrequestitem>}
-     * @memberof Accountsselectionrequest
+     * @type {Array<AccessRequestItem>}
+     * @memberof AccountsSelectionRequest
      */
-    'requestedItems': Array<Accessrequestitem>;
+    'requestedItems': Array<AccessRequestItem>;
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities.  
      * @type {{ [key: string]: string; }}
-     * @memberof Accountsselectionrequest
+     * @memberof AccountsSelectionRequest
      */
     'clientMetadata'?: { [key: string]: string; };
 }
@@ -661,91 +661,91 @@ export interface Accountsselectionrequest {
 /**
  * 
  * @export
- * @interface Accountsselectionresponse
+ * @interface AccountsSelectionResponse
  */
-export interface Accountsselectionresponse {
+export interface AccountsSelectionResponse {
     /**
      * A list of available account selections per identity in the request, for all the requested items
-     * @type {Array<Identityaccountselections>}
-     * @memberof Accountsselectionresponse
+     * @type {Array<IdentityAccountSelections>}
+     * @memberof AccountsSelectionResponse
      */
-    'identities'?: Array<Identityaccountselections>;
+    'identities'?: Array<IdentityAccountSelections>;
 }
 /**
  * 
  * @export
- * @interface Approvalforwardhistory
+ * @interface ApprovalForwardHistory
  */
-export interface Approvalforwardhistory {
+export interface ApprovalForwardHistory {
     /**
      * Display name of approver from whom the approval was forwarded.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'oldApproverName'?: string;
     /**
      * Display name of approver to whom the approval was forwarded.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'newApproverName'?: string;
     /**
      * Comment made while forwarding.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'comment'?: string | null;
     /**
      * Time at which approval was forwarded.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'modified'?: string;
     /**
      * Display name of forwarder who forwarded the approval.
      * @type {string}
-     * @memberof Approvalforwardhistory
+     * @memberof ApprovalForwardHistory
      */
     'forwarderName'?: string | null;
     /**
      * 
-     * @type {Reassignmenttype}
-     * @memberof Approvalforwardhistory
+     * @type {ReassignmentType}
+     * @memberof ApprovalForwardHistory
      */
-    'reassignmentType'?: Reassignmenttype;
+    'reassignmentType'?: ReassignmentType;
 }
 
 
 /**
  * Configuration for approval reminder and escalation behavior. Important: Modifying this object will override the sp-approval service\'s reminderConfig and escalationConfig settings. Changes made here take precedence over any configuration set directly in the sp-approval service. 
  * @export
- * @interface Approvalreminderandescalationconfig
+ * @interface ApprovalReminderAndEscalationConfig
  */
-export interface Approvalreminderandescalationconfig {
+export interface ApprovalReminderAndEscalationConfig {
     /**
      * Number of days to wait before the first reminder. If no reminders are configured, then this is the number of days to wait before escalation.
      * @type {number}
-     * @memberof Approvalreminderandescalationconfig
+     * @memberof ApprovalReminderAndEscalationConfig
      */
     'daysUntilEscalation'?: number | null;
     /**
      * Number of days to wait between reminder notifications.
      * @type {number}
-     * @memberof Approvalreminderandescalationconfig
+     * @memberof ApprovalReminderAndEscalationConfig
      */
     'daysBetweenReminders'?: number | null;
     /**
      * Maximum number of reminder notifications to send to the reviewer before approval escalation. The maximum allowed value is 20.
      * @type {number}
-     * @memberof Approvalreminderandescalationconfig
+     * @memberof ApprovalReminderAndEscalationConfig
      */
     'maxReminders'?: number | null;
     /**
      * 
-     * @type {Identityreferencewithnameandemail}
-     * @memberof Approvalreminderandescalationconfig
+     * @type {IdentityReferenceWithNameAndEmail}
+     * @memberof ApprovalReminderAndEscalationConfig
      */
-    'fallbackApproverRef'?: Identityreferencewithnameandemail | null;
+    'fallbackApproverRef'?: IdentityReferenceWithNameAndEmail | null;
 }
 /**
  * Describes the individual or group that is responsible for an approval step.
@@ -753,7 +753,7 @@ export interface Approvalreminderandescalationconfig {
  * @enum {string}
  */
 
-export const Approvalscheme = {
+export const ApprovalScheme = {
     AppOwner: 'APP_OWNER',
     SourceOwner: 'SOURCE_OWNER',
     Manager: 'MANAGER',
@@ -763,67 +763,67 @@ export const Approvalscheme = {
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type Approvalscheme = typeof Approvalscheme[keyof typeof Approvalscheme];
+export type ApprovalScheme = typeof ApprovalScheme[keyof typeof ApprovalScheme];
 
 
 /**
  * 
  * @export
- * @interface Approvalstatusdto
+ * @interface ApprovalStatusDto
  */
-export interface Approvalstatusdto {
+export interface ApprovalStatusDto {
     /**
      * True if the request for this item was forwarded from one owner to another.
      * @type {boolean}
-     * @memberof Approvalstatusdto
+     * @memberof ApprovalStatusDto
      */
     'forwarded'?: boolean;
     /**
      * 
-     * @type {ApprovalstatusdtoOriginalOwner}
-     * @memberof Approvalstatusdto
+     * @type {ApprovalStatusDtoOriginalOwner}
+     * @memberof ApprovalStatusDto
      */
-    'originalOwner'?: ApprovalstatusdtoOriginalOwner;
+    'originalOwner'?: ApprovalStatusDtoOriginalOwner;
     /**
      * 
-     * @type {ApprovalstatusdtoCurrentOwner}
-     * @memberof Approvalstatusdto
+     * @type {ApprovalStatusDtoCurrentOwner}
+     * @memberof ApprovalStatusDto
      */
-    'currentOwner'?: ApprovalstatusdtoCurrentOwner;
+    'currentOwner'?: ApprovalStatusDtoCurrentOwner;
     /**
      * Time at which item was modified.
      * @type {string}
-     * @memberof Approvalstatusdto
+     * @memberof ApprovalStatusDto
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {Manualworkitemstate}
-     * @memberof Approvalstatusdto
+     * @type {ManualWorkItemState}
+     * @memberof ApprovalStatusDto
      */
-    'status'?: Manualworkitemstate;
+    'status'?: ManualWorkItemState;
     /**
      * 
-     * @type {Approvalscheme}
-     * @memberof Approvalstatusdto
+     * @type {ApprovalScheme}
+     * @memberof ApprovalStatusDto
      */
-    'scheme'?: Approvalscheme;
+    'scheme'?: ApprovalScheme;
     /**
      * If the request failed, includes any error messages that were generated.
-     * @type {Array<Errormessagedto>}
-     * @memberof Approvalstatusdto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ApprovalStatusDto
      */
-    'errorMessages'?: Array<Errormessagedto> | null;
+    'errorMessages'?: Array<ErrorMessageDto> | null;
     /**
      * Comment, if any, provided by the approver.
      * @type {string}
-     * @memberof Approvalstatusdto
+     * @memberof ApprovalStatusDto
      */
     'comment'?: string | null;
     /**
      * The date the role or access profile or entitlement is no longer assigned to the specified identity.
      * @type {string}
-     * @memberof Approvalstatusdto
+     * @memberof ApprovalStatusDto
      */
     'removeDate'?: string | null;
 }
@@ -832,252 +832,252 @@ export interface Approvalstatusdto {
 /**
  * 
  * @export
- * @interface ApprovalstatusdtoCurrentOwner
+ * @interface ApprovalStatusDtoCurrentOwner
  */
-export interface ApprovalstatusdtoCurrentOwner {
+export interface ApprovalStatusDtoCurrentOwner {
     /**
      * DTO type of identity who reviewed the access item request.
      * @type {string}
-     * @memberof ApprovalstatusdtoCurrentOwner
+     * @memberof ApprovalStatusDtoCurrentOwner
      */
-    'type'?: ApprovalstatusdtoCurrentOwnerTypeEnum;
+    'type'?: ApprovalStatusDtoCurrentOwnerTypeEnum;
     /**
      * ID of identity who reviewed the access item request.
      * @type {string}
-     * @memberof ApprovalstatusdtoCurrentOwner
+     * @memberof ApprovalStatusDtoCurrentOwner
      */
     'id'?: string;
     /**
      * Human-readable display name of identity who reviewed the access item request.
      * @type {string}
-     * @memberof ApprovalstatusdtoCurrentOwner
+     * @memberof ApprovalStatusDtoCurrentOwner
      */
     'name'?: string;
 }
 
-export const ApprovalstatusdtoCurrentOwnerTypeEnum = {
+export const ApprovalStatusDtoCurrentOwnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ApprovalstatusdtoCurrentOwnerTypeEnum = typeof ApprovalstatusdtoCurrentOwnerTypeEnum[keyof typeof ApprovalstatusdtoCurrentOwnerTypeEnum];
+export type ApprovalStatusDtoCurrentOwnerTypeEnum = typeof ApprovalStatusDtoCurrentOwnerTypeEnum[keyof typeof ApprovalStatusDtoCurrentOwnerTypeEnum];
 
 /**
  * Identity of orginal approval owner.
  * @export
- * @interface ApprovalstatusdtoOriginalOwner
+ * @interface ApprovalStatusDtoOriginalOwner
  */
-export interface ApprovalstatusdtoOriginalOwner {
+export interface ApprovalStatusDtoOriginalOwner {
     /**
      * DTO type of original approval owner\'s identity.
      * @type {string}
-     * @memberof ApprovalstatusdtoOriginalOwner
+     * @memberof ApprovalStatusDtoOriginalOwner
      */
-    'type'?: ApprovalstatusdtoOriginalOwnerTypeEnum;
+    'type'?: ApprovalStatusDtoOriginalOwnerTypeEnum;
     /**
      * ID of original approval owner\'s identity.
      * @type {string}
-     * @memberof ApprovalstatusdtoOriginalOwner
+     * @memberof ApprovalStatusDtoOriginalOwner
      */
     'id'?: string;
     /**
      * Display name of original approval owner.
      * @type {string}
-     * @memberof ApprovalstatusdtoOriginalOwner
+     * @memberof ApprovalStatusDtoOriginalOwner
      */
     'name'?: string;
 }
 
-export const ApprovalstatusdtoOriginalOwnerTypeEnum = {
+export const ApprovalStatusDtoOriginalOwnerTypeEnum = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type ApprovalstatusdtoOriginalOwnerTypeEnum = typeof ApprovalstatusdtoOriginalOwnerTypeEnum[keyof typeof ApprovalstatusdtoOriginalOwnerTypeEnum];
+export type ApprovalStatusDtoOriginalOwnerTypeEnum = typeof ApprovalStatusDtoOriginalOwnerTypeEnum[keyof typeof ApprovalStatusDtoOriginalOwnerTypeEnum];
 
 /**
  * Request body payload for bulk approve access request endpoint.
  * @export
- * @interface Bulkapproveaccessrequest
+ * @interface BulkApproveAccessRequest
  */
-export interface Bulkapproveaccessrequest {
+export interface BulkApproveAccessRequest {
     /**
      * List of approval ids to approve the pending requests
      * @type {Array<string>}
-     * @memberof Bulkapproveaccessrequest
+     * @memberof BulkApproveAccessRequest
      */
     'approvalIds': Array<string>;
     /**
      * Reason for approving the pending access request.
      * @type {string}
-     * @memberof Bulkapproveaccessrequest
+     * @memberof BulkApproveAccessRequest
      */
     'comment': string;
 }
 /**
  * Request body payload for bulk cancel access request endpoint.
  * @export
- * @interface Bulkcancelaccessrequest
+ * @interface BulkCancelAccessRequest
  */
-export interface Bulkcancelaccessrequest {
+export interface BulkCancelAccessRequest {
     /**
      * List of access requests ids to cancel the pending requests
      * @type {Array<string>}
-     * @memberof Bulkcancelaccessrequest
+     * @memberof BulkCancelAccessRequest
      */
     'accessRequestIds': Array<string>;
     /**
      * Reason for cancelling the pending access request.
      * @type {string}
-     * @memberof Bulkcancelaccessrequest
+     * @memberof BulkCancelAccessRequest
      */
     'comment': string;
 }
 /**
  * Request body payload for cancel access request endpoint.
  * @export
- * @interface Cancelaccessrequest
+ * @interface CancelAccessRequest
  */
-export interface Cancelaccessrequest {
+export interface CancelAccessRequest {
     /**
      * This refers to the identityRequestId. To successfully cancel an access request, you must provide the identityRequestId.
      * @type {string}
-     * @memberof Cancelaccessrequest
+     * @memberof CancelAccessRequest
      */
     'accountActivityId': string;
     /**
      * Reason for cancelling the pending access request.
      * @type {string}
-     * @memberof Cancelaccessrequest
+     * @memberof CancelAccessRequest
      */
     'comment': string;
 }
 /**
  * Provides additional details for a request that has been cancelled.
  * @export
- * @interface Cancelledrequestdetails
+ * @interface CancelledRequestDetails
  */
-export interface Cancelledrequestdetails {
+export interface CancelledRequestDetails {
     /**
      * Comment made by the owner when cancelling the associated request.
      * @type {string}
-     * @memberof Cancelledrequestdetails
+     * @memberof CancelledRequestDetails
      */
     'comment'?: string;
     /**
      * 
-     * @type {Ownerdto}
-     * @memberof Cancelledrequestdetails
+     * @type {OwnerDto}
+     * @memberof CancelledRequestDetails
      */
-    'owner'?: Ownerdto;
+    'owner'?: OwnerDto;
     /**
      * Date comment was added by the owner when cancelling the associated request.
      * @type {string}
-     * @memberof Cancelledrequestdetails
+     * @memberof CancelledRequestDetails
      */
     'modified'?: string;
 }
 /**
  * Request body payload for close access requests endpoint.
  * @export
- * @interface Closeaccessrequest
+ * @interface CloseAccessRequest
  */
-export interface Closeaccessrequest {
+export interface CloseAccessRequest {
     /**
      * Access Request IDs for the requests to be closed. Accepts 1-500 Identity Request IDs per request.
      * @type {Array<string>}
-     * @memberof Closeaccessrequest
+     * @memberof CloseAccessRequest
      */
     'accessRequestIds': Array<string>;
     /**
      * Reason for closing the access request. Displayed under Warnings in IdentityNow.
      * @type {string}
-     * @memberof Closeaccessrequest
+     * @memberof CloseAccessRequest
      */
     'message'?: string;
     /**
      * The request\'s provisioning status. Displayed as Stage in IdentityNow.
      * @type {string}
-     * @memberof Closeaccessrequest
+     * @memberof CloseAccessRequest
      */
-    'executionStatus'?: CloseaccessrequestExecutionStatusEnum;
+    'executionStatus'?: CloseAccessRequestExecutionStatusEnum;
     /**
      * The request\'s overall status. Displayed as Status in IdentityNow.
      * @type {string}
-     * @memberof Closeaccessrequest
+     * @memberof CloseAccessRequest
      */
-    'completionStatus'?: CloseaccessrequestCompletionStatusEnum;
+    'completionStatus'?: CloseAccessRequestCompletionStatusEnum;
 }
 
-export const CloseaccessrequestExecutionStatusEnum = {
+export const CloseAccessRequestExecutionStatusEnum = {
     Terminated: 'Terminated',
     Completed: 'Completed'
 } as const;
 
-export type CloseaccessrequestExecutionStatusEnum = typeof CloseaccessrequestExecutionStatusEnum[keyof typeof CloseaccessrequestExecutionStatusEnum];
-export const CloseaccessrequestCompletionStatusEnum = {
+export type CloseAccessRequestExecutionStatusEnum = typeof CloseAccessRequestExecutionStatusEnum[keyof typeof CloseAccessRequestExecutionStatusEnum];
+export const CloseAccessRequestCompletionStatusEnum = {
     Success: 'Success',
     Incomplete: 'Incomplete',
     Failure: 'Failure'
 } as const;
 
-export type CloseaccessrequestCompletionStatusEnum = typeof CloseaccessrequestCompletionStatusEnum[keyof typeof CloseaccessrequestCompletionStatusEnum];
+export type CloseAccessRequestCompletionStatusEnum = typeof CloseAccessRequestCompletionStatusEnum[keyof typeof CloseAccessRequestCompletionStatusEnum];
 
 /**
  * 
  * @export
- * @interface Commentdto
+ * @interface CommentDto
  */
-export interface Commentdto {
+export interface CommentDto {
     /**
      * Comment content.
      * @type {string}
-     * @memberof Commentdto
+     * @memberof CommentDto
      */
     'comment'?: string | null;
     /**
      * Date and time comment was created.
      * @type {string}
-     * @memberof Commentdto
+     * @memberof CommentDto
      */
     'created'?: string;
     /**
      * 
-     * @type {CommentdtoAuthor}
-     * @memberof Commentdto
+     * @type {CommentDtoAuthor}
+     * @memberof CommentDto
      */
-    'author'?: CommentdtoAuthor;
+    'author'?: CommentDtoAuthor;
 }
 /**
  * Author of the comment
  * @export
- * @interface CommentdtoAuthor
+ * @interface CommentDtoAuthor
  */
-export interface CommentdtoAuthor {
+export interface CommentDtoAuthor {
     /**
      * The type of object
      * @type {string}
-     * @memberof CommentdtoAuthor
+     * @memberof CommentDtoAuthor
      */
-    'type'?: CommentdtoAuthorTypeEnum;
+    'type'?: CommentDtoAuthorTypeEnum;
     /**
      * The unique ID of the object
      * @type {string}
-     * @memberof CommentdtoAuthor
+     * @memberof CommentDtoAuthor
      */
     'id'?: string;
     /**
      * The display name of the object
      * @type {string}
-     * @memberof CommentdtoAuthor
+     * @memberof CommentDtoAuthor
      */
     'name'?: string;
 }
 
-export const CommentdtoAuthorTypeEnum = {
+export const CommentDtoAuthorTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type CommentdtoAuthorTypeEnum = typeof CommentdtoAuthorTypeEnum[keyof typeof CommentdtoAuthorTypeEnum];
+export type CommentDtoAuthorTypeEnum = typeof CommentDtoAuthorTypeEnum[keyof typeof CommentDtoAuthorTypeEnum];
 
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -1085,7 +1085,7 @@ export type CommentdtoAuthorTypeEnum = typeof CommentdtoAuthorTypeEnum[keyof typ
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -1117,102 +1117,102 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Entitlementaccessrequestconfig
+ * @interface EntitlementAccessRequestConfig
  */
-export interface Entitlementaccessrequestconfig {
+export interface EntitlementAccessRequestConfig {
     /**
      * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<Entitlementapprovalscheme>}
-     * @memberof Entitlementaccessrequestconfig
+     * @type {Array<EntitlementApprovalScheme>}
+     * @memberof EntitlementAccessRequestConfig
      */
-    'approvalSchemes'?: Array<Entitlementapprovalscheme>;
+    'approvalSchemes'?: Array<EntitlementApprovalScheme>;
     /**
      * If the requester must provide a comment during access request.
      * @type {boolean}
-     * @memberof Entitlementaccessrequestconfig
+     * @memberof EntitlementAccessRequestConfig
      */
     'requestCommentRequired'?: boolean;
     /**
      * If the reviewer must provide a comment when denying the access request.
      * @type {boolean}
-     * @memberof Entitlementaccessrequestconfig
+     * @memberof EntitlementAccessRequestConfig
      */
     'denialCommentRequired'?: boolean;
     /**
      * Is Reauthorization Required
      * @type {boolean}
-     * @memberof Entitlementaccessrequestconfig
+     * @memberof EntitlementAccessRequestConfig
      */
     'reauthorizationRequired'?: boolean;
     /**
      * If true, then remove date or sunset date is required in access request of the entitlement.
      * @type {boolean}
-     * @memberof Entitlementaccessrequestconfig
+     * @memberof EntitlementAccessRequestConfig
      */
     'requireEndDate'?: boolean;
     /**
      * 
-     * @type {EntitlementaccessrequestconfigMaxPermittedAccessDuration}
-     * @memberof Entitlementaccessrequestconfig
+     * @type {EntitlementAccessRequestConfigMaxPermittedAccessDuration}
+     * @memberof EntitlementAccessRequestConfig
      */
-    'maxPermittedAccessDuration'?: EntitlementaccessrequestconfigMaxPermittedAccessDuration | null;
+    'maxPermittedAccessDuration'?: EntitlementAccessRequestConfigMaxPermittedAccessDuration | null;
 }
 /**
  * The maximum duration for which the access is permitted.
  * @export
- * @interface EntitlementaccessrequestconfigMaxPermittedAccessDuration
+ * @interface EntitlementAccessRequestConfigMaxPermittedAccessDuration
  */
-export interface EntitlementaccessrequestconfigMaxPermittedAccessDuration {
+export interface EntitlementAccessRequestConfigMaxPermittedAccessDuration {
     /**
      * The numeric value of the duration.
      * @type {number}
-     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDuration
+     * @memberof EntitlementAccessRequestConfigMaxPermittedAccessDuration
      */
     'value'?: number;
     /**
      * The time unit for the duration.
      * @type {string}
-     * @memberof EntitlementaccessrequestconfigMaxPermittedAccessDuration
+     * @memberof EntitlementAccessRequestConfigMaxPermittedAccessDuration
      */
-    'timeUnit'?: EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum;
+    'timeUnit'?: EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum;
 }
 
-export const EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum = {
+export const EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum = {
     Hours: 'HOURS',
     Days: 'DAYS',
     Weeks: 'WEEKS',
     Months: 'MONTHS'
 } as const;
 
-export type EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum = typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum[keyof typeof EntitlementaccessrequestconfigMaxPermittedAccessDurationTimeUnitEnum];
+export type EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum = typeof EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum[keyof typeof EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementapprovalscheme
+ * @interface EntitlementApprovalScheme
  */
-export interface Entitlementapprovalscheme {
+export interface EntitlementApprovalScheme {
     /**
      * Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field, Workflows are exclusive to other types of approvals and License required.     
      * @type {string}
-     * @memberof Entitlementapprovalscheme
+     * @memberof EntitlementApprovalScheme
      */
-    'approverType'?: EntitlementapprovalschemeApproverTypeEnum;
+    'approverType'?: EntitlementApprovalSchemeApproverTypeEnum;
     /**
      * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP or WORKFLOW
      * @type {string}
-     * @memberof Entitlementapprovalscheme
+     * @memberof EntitlementApprovalScheme
      */
     'approverId'?: string | null;
 }
 
-export const EntitlementapprovalschemeApproverTypeEnum = {
+export const EntitlementApprovalSchemeApproverTypeEnum = {
     EntitlementOwner: 'ENTITLEMENT_OWNER',
     SourceOwner: 'SOURCE_OWNER',
     Manager: 'MANAGER',
@@ -1220,108 +1220,108 @@ export const EntitlementapprovalschemeApproverTypeEnum = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type EntitlementapprovalschemeApproverTypeEnum = typeof EntitlementapprovalschemeApproverTypeEnum[keyof typeof EntitlementapprovalschemeApproverTypeEnum];
+export type EntitlementApprovalSchemeApproverTypeEnum = typeof EntitlementApprovalSchemeApproverTypeEnum[keyof typeof EntitlementApprovalSchemeApproverTypeEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementrequestconfig
+ * @interface EntitlementRequestConfig
  */
-export interface Entitlementrequestconfig {
+export interface EntitlementRequestConfig {
     /**
      * 
-     * @type {Entitlementaccessrequestconfig}
-     * @memberof Entitlementrequestconfig
+     * @type {EntitlementAccessRequestConfig}
+     * @memberof EntitlementRequestConfig
      */
-    'accessRequestConfig'?: Entitlementaccessrequestconfig;
+    'accessRequestConfig'?: EntitlementAccessRequestConfig;
     /**
      * 
-     * @type {Entitlementrevocationrequestconfig}
-     * @memberof Entitlementrequestconfig
+     * @type {EntitlementRevocationRequestConfig}
+     * @memberof EntitlementRequestConfig
      */
-    'revocationRequestConfig'?: Entitlementrevocationrequestconfig;
+    'revocationRequestConfig'?: EntitlementRevocationRequestConfig;
 }
 /**
  * 
  * @export
- * @interface Entitlementrequestconfigv2
+ * @interface EntitlementRequestConfig2
  */
-export interface Entitlementrequestconfigv2 {
+export interface EntitlementRequestConfig2 {
     /**
      * 
-     * @type {Entitlementaccessrequestconfig}
-     * @memberof Entitlementrequestconfigv2
+     * @type {EntitlementAccessRequestConfig}
+     * @memberof EntitlementRequestConfig2
      */
-    'accessRequestConfig'?: Entitlementaccessrequestconfig;
+    'accessRequestConfig'?: EntitlementAccessRequestConfig;
     /**
      * 
-     * @type {Entitlementrevocationrequestconfig}
-     * @memberof Entitlementrequestconfigv2
+     * @type {EntitlementRevocationRequestConfig}
+     * @memberof EntitlementRequestConfig2
      */
-    'revocationRequestConfig'?: Entitlementrevocationrequestconfig;
+    'revocationRequestConfig'?: EntitlementRevocationRequestConfig;
 }
 /**
  * 
  * @export
- * @interface Entitlementrevocationrequestconfig
+ * @interface EntitlementRevocationRequestConfig
  */
-export interface Entitlementrevocationrequestconfig {
+export interface EntitlementRevocationRequestConfig {
     /**
      * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<Entitlementapprovalscheme>}
-     * @memberof Entitlementrevocationrequestconfig
+     * @type {Array<EntitlementApprovalScheme>}
+     * @memberof EntitlementRevocationRequestConfig
      */
-    'approvalSchemes'?: Array<Entitlementapprovalscheme>;
+    'approvalSchemes'?: Array<EntitlementApprovalScheme>;
 }
 /**
  * A single JIT entitlement snapshot entry from the provisioning plan.
  * @export
- * @interface Entitlementstatesnapshotjitdetail
+ * @interface EntitlementStateSnapshotJitDetail
  */
-export interface Entitlementstatesnapshotjitdetail {
+export interface EntitlementStateSnapshotJitDetail {
     [key: string]: any;
 
     /**
      * Application id for the entitlement attribute (same as EntitlementStateSnapshot.applicationId).
      * @type {string}
-     * @memberof Entitlementstatesnapshotjitdetail
+     * @memberof EntitlementStateSnapshotJitDetail
      */
     'applicationId'?: string;
     /**
      * Account attribute name for the entitlement (EntitlementStateSnapshot.attributeName).
      * @type {string}
-     * @memberof Entitlementstatesnapshotjitdetail
+     * @memberof EntitlementStateSnapshotJitDetail
      */
     'attributeName'?: string;
     /**
      * Entitlement values for that attribute (EntitlementStateSnapshot.attributeValues).
      * @type {Array<string>}
-     * @memberof Entitlementstatesnapshotjitdetail
+     * @memberof EntitlementStateSnapshotJitDetail
      */
     'attributeValues'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -1330,33 +1330,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -1387,37 +1387,37 @@ export interface GetAccessRequestConfigV1429Response {
 /**
  * 
  * @export
- * @interface Identityaccountselections
+ * @interface IdentityAccountSelections
  */
-export interface Identityaccountselections {
+export interface IdentityAccountSelections {
     /**
      * Available account selections for the identity, per requested item
-     * @type {Array<Requesteditemaccountselections>}
-     * @memberof Identityaccountselections
+     * @type {Array<RequestedItemAccountSelections>}
+     * @memberof IdentityAccountSelections
      */
-    'requestedItems'?: Array<Requesteditemaccountselections>;
+    'requestedItems'?: Array<RequestedItemAccountSelections>;
     /**
      * A boolean indicating whether any account selections will be required for the user to raise an access request
      * @type {boolean}
-     * @memberof Identityaccountselections
+     * @memberof IdentityAccountSelections
      */
     'accountsSelectionRequired'?: boolean;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Identityaccountselections
+     * @type {DtoType}
+     * @memberof IdentityAccountSelections
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The identity id for the user
      * @type {string}
-     * @memberof Identityaccountselections
+     * @memberof IdentityAccountSelections
      */
     'id'?: string;
     /**
      * The name of the identity
      * @type {string}
-     * @memberof Identityaccountselections
+     * @memberof IdentityAccountSelections
      */
     'name'?: string;
 }
@@ -1426,190 +1426,190 @@ export interface Identityaccountselections {
 /**
  * 
  * @export
- * @interface Identityentitlementdetails
+ * @interface IdentityEntitlementDetails
  */
-export interface Identityentitlementdetails {
+export interface IdentityEntitlementDetails {
     /**
      * Id of Identity
      * @type {string}
-     * @memberof Identityentitlementdetails
+     * @memberof IdentityEntitlementDetails
      */
     'identityId'?: string;
     /**
      * 
-     * @type {Identityentitlementdetailsentitlementdto}
-     * @memberof Identityentitlementdetails
+     * @type {IdentityEntitlementDetailsEntitlementDto}
+     * @memberof IdentityEntitlementDetails
      */
-    'entitlement'?: Identityentitlementdetailsentitlementdto;
+    'entitlement'?: IdentityEntitlementDetailsEntitlementDto;
     /**
      * Id of Source
      * @type {string}
-     * @memberof Identityentitlementdetails
+     * @memberof IdentityEntitlementDetails
      */
     'sourceId'?: string;
     /**
      * A list of account targets on the identity provisioned with the requested entitlement.
-     * @type {Array<Identityentitlementdetailsaccounttarget>}
-     * @memberof Identityentitlementdetails
+     * @type {Array<IdentityEntitlementDetailsAccountTarget>}
+     * @memberof IdentityEntitlementDetails
      */
-    'accountTargets'?: Array<Identityentitlementdetailsaccounttarget>;
+    'accountTargets'?: Array<IdentityEntitlementDetailsAccountTarget>;
 }
 /**
  * 
  * @export
- * @interface Identityentitlementdetailsaccounttarget
+ * @interface IdentityEntitlementDetailsAccountTarget
  */
-export interface Identityentitlementdetailsaccounttarget {
+export interface IdentityEntitlementDetailsAccountTarget {
     /**
      * The id of account
      * @type {string}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'accountId'?: string;
     /**
      * The name of account
      * @type {string}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'accountName'?: string;
     /**
      * The UUID representation of the account if available
      * @type {string}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'accountUUID'?: string | null;
     /**
      * The id of Source
      * @type {string}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'sourceId'?: string;
     /**
      * The name of Source
      * @type {string}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'sourceName'?: string;
     /**
      * The removal date scheduled for the entitlement on the Identity
      * @type {string}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'removeDate'?: string | null;
     /**
      * The assignmentId of the entitlement on the Identity
      * @type {string}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'assignmentId'?: string | null;
     /**
      * If the entitlement can be revoked
      * @type {boolean}
-     * @memberof Identityentitlementdetailsaccounttarget
+     * @memberof IdentityEntitlementDetailsAccountTarget
      */
     'revocable'?: boolean;
 }
 /**
  * 
  * @export
- * @interface Identityentitlementdetailsentitlementdto
+ * @interface IdentityEntitlementDetailsEntitlementDto
  */
-export interface Identityentitlementdetailsentitlementdto {
+export interface IdentityEntitlementDetailsEntitlementDto {
     /**
      * The entitlement id
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'id'?: string;
     /**
      * The entitlement name
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'name'?: string;
     /**
      * Time when the entitlement was last modified
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'created'?: string;
     /**
      * Time when the entitlement was last modified
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'modified'?: string;
     /**
      * The description of the entitlement
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'description'?: string | null;
     /**
      * The type of the object, will always be \"ENTITLEMENT\"
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'type'?: string;
     /**
      * The source ID
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'sourceId'?: string;
     /**
      * The source name
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'sourceName'?: string;
     /**
      * 
-     * @type {Ownerdto}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @type {OwnerDto}
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
-    'owner'?: Ownerdto;
+    'owner'?: OwnerDto;
     /**
      * The value of the entitlement
      * @type {string}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'value'?: string;
     /**
      * a list of properties informing the viewer about the entitlement
      * @type {Array<string>}
-     * @memberof Identityentitlementdetailsentitlementdto
+     * @memberof IdentityEntitlementDetailsEntitlementDto
      */
     'flags'?: Array<string>;
 }
 /**
  * 
  * @export
- * @interface Identityreferencewithnameandemail
+ * @interface IdentityReferenceWithNameAndEmail
  */
-export interface Identityreferencewithnameandemail {
+export interface IdentityReferenceWithNameAndEmail {
     /**
      * The type can only be IDENTITY. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'type'?: string;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'id'?: string;
     /**
      * Identity\'s human-readable display name. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'name'?: string;
     /**
      * Identity\'s email address. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'email'?: string | null;
 }
@@ -1619,124 +1619,124 @@ export interface Identityreferencewithnameandemail {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Manualworkitemdetails
+ * @interface ManualWorkItemDetails
  */
-export interface Manualworkitemdetails {
+export interface ManualWorkItemDetails {
     /**
      * True if the request for this item was forwarded from one owner to another.
      * @type {boolean}
-     * @memberof Manualworkitemdetails
+     * @memberof ManualWorkItemDetails
      */
     'forwarded'?: boolean;
     /**
      * 
-     * @type {ManualworkitemdetailsOriginalOwner}
-     * @memberof Manualworkitemdetails
+     * @type {ManualWorkItemDetailsOriginalOwner}
+     * @memberof ManualWorkItemDetails
      */
-    'originalOwner'?: ManualworkitemdetailsOriginalOwner | null;
+    'originalOwner'?: ManualWorkItemDetailsOriginalOwner | null;
     /**
      * 
-     * @type {ManualworkitemdetailsCurrentOwner}
-     * @memberof Manualworkitemdetails
+     * @type {ManualWorkItemDetailsCurrentOwner}
+     * @memberof ManualWorkItemDetails
      */
-    'currentOwner'?: ManualworkitemdetailsCurrentOwner | null;
+    'currentOwner'?: ManualWorkItemDetailsCurrentOwner | null;
     /**
      * Time at which item was modified.
      * @type {string}
-     * @memberof Manualworkitemdetails
+     * @memberof ManualWorkItemDetails
      */
     'modified'?: string;
     /**
      * 
-     * @type {Manualworkitemstate}
-     * @memberof Manualworkitemdetails
+     * @type {ManualWorkItemState}
+     * @memberof ManualWorkItemDetails
      */
-    'status'?: Manualworkitemstate;
+    'status'?: ManualWorkItemState;
     /**
      * The history of approval forward action.
-     * @type {Array<Approvalforwardhistory>}
-     * @memberof Manualworkitemdetails
+     * @type {Array<ApprovalForwardHistory>}
+     * @memberof ManualWorkItemDetails
      */
-    'forwardHistory'?: Array<Approvalforwardhistory> | null;
+    'forwardHistory'?: Array<ApprovalForwardHistory> | null;
 }
 
 
 /**
  * Identity of current work item owner.
  * @export
- * @interface ManualworkitemdetailsCurrentOwner
+ * @interface ManualWorkItemDetailsCurrentOwner
  */
-export interface ManualworkitemdetailsCurrentOwner {
+export interface ManualWorkItemDetailsCurrentOwner {
     /**
      * DTO type of current work item owner\'s identity.
      * @type {string}
-     * @memberof ManualworkitemdetailsCurrentOwner
+     * @memberof ManualWorkItemDetailsCurrentOwner
      */
-    'type'?: ManualworkitemdetailsCurrentOwnerTypeEnum;
+    'type'?: ManualWorkItemDetailsCurrentOwnerTypeEnum;
     /**
      * ID of current work item owner\'s identity.
      * @type {string}
-     * @memberof ManualworkitemdetailsCurrentOwner
+     * @memberof ManualWorkItemDetailsCurrentOwner
      */
     'id'?: string;
     /**
      * Display name of current work item owner.
      * @type {string}
-     * @memberof ManualworkitemdetailsCurrentOwner
+     * @memberof ManualWorkItemDetailsCurrentOwner
      */
     'name'?: string;
 }
 
-export const ManualworkitemdetailsCurrentOwnerTypeEnum = {
+export const ManualWorkItemDetailsCurrentOwnerTypeEnum = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type ManualworkitemdetailsCurrentOwnerTypeEnum = typeof ManualworkitemdetailsCurrentOwnerTypeEnum[keyof typeof ManualworkitemdetailsCurrentOwnerTypeEnum];
+export type ManualWorkItemDetailsCurrentOwnerTypeEnum = typeof ManualWorkItemDetailsCurrentOwnerTypeEnum[keyof typeof ManualWorkItemDetailsCurrentOwnerTypeEnum];
 
 /**
  * Identity of original work item owner, if the work item has been forwarded.
  * @export
- * @interface ManualworkitemdetailsOriginalOwner
+ * @interface ManualWorkItemDetailsOriginalOwner
  */
-export interface ManualworkitemdetailsOriginalOwner {
+export interface ManualWorkItemDetailsOriginalOwner {
     /**
      * DTO type of original work item owner\'s identity.
      * @type {string}
-     * @memberof ManualworkitemdetailsOriginalOwner
+     * @memberof ManualWorkItemDetailsOriginalOwner
      */
-    'type'?: ManualworkitemdetailsOriginalOwnerTypeEnum;
+    'type'?: ManualWorkItemDetailsOriginalOwnerTypeEnum;
     /**
      * ID of original work item owner\'s identity.
      * @type {string}
-     * @memberof ManualworkitemdetailsOriginalOwner
+     * @memberof ManualWorkItemDetailsOriginalOwner
      */
     'id'?: string;
     /**
      * Display name of original work item owner.
      * @type {string}
-     * @memberof ManualworkitemdetailsOriginalOwner
+     * @memberof ManualWorkItemDetailsOriginalOwner
      */
     'name'?: string;
 }
 
-export const ManualworkitemdetailsOriginalOwnerTypeEnum = {
+export const ManualWorkItemDetailsOriginalOwnerTypeEnum = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type ManualworkitemdetailsOriginalOwnerTypeEnum = typeof ManualworkitemdetailsOriginalOwnerTypeEnum[keyof typeof ManualworkitemdetailsOriginalOwnerTypeEnum];
+export type ManualWorkItemDetailsOriginalOwnerTypeEnum = typeof ManualWorkItemDetailsOriginalOwnerTypeEnum[keyof typeof ManualWorkItemDetailsOriginalOwnerTypeEnum];
 
 /**
  * Indicates the state of the request processing for this item: * PENDING: The request for this item is awaiting processing. * APPROVED: The request for this item has been approved. * REJECTED: The request for this item was rejected. * EXPIRED: The request for this item expired with no action taken. * CANCELLED: The request for this item was cancelled with no user action. * ARCHIVED: The request for this item has been archived after completion.
@@ -1744,7 +1744,7 @@ export type ManualworkitemdetailsOriginalOwnerTypeEnum = typeof Manualworkitemde
  * @enum {string}
  */
 
-export const Manualworkitemstate = {
+export const ManualWorkItemState = {
     Pending: 'PENDING',
     Approved: 'APPROVED',
     Rejected: 'REJECTED',
@@ -1753,84 +1753,84 @@ export const Manualworkitemstate = {
     Archived: 'ARCHIVED'
 } as const;
 
-export type Manualworkitemstate = typeof Manualworkitemstate[keyof typeof Manualworkitemstate];
+export type ManualWorkItemState = typeof ManualWorkItemState[keyof typeof ManualWorkItemState];
 
 
 /**
  * Owner\'s identity.
  * @export
- * @interface Ownerdto
+ * @interface OwnerDto
  */
-export interface Ownerdto {
+export interface OwnerDto {
     /**
      * Owner\'s DTO type.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
-    'type'?: OwnerdtoTypeEnum;
+    'type'?: OwnerDtoTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
     'id'?: string;
     /**
      * Owner\'s name.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
     'name'?: string;
 }
 
-export const OwnerdtoTypeEnum = {
+export const OwnerDtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerdtoTypeEnum = typeof OwnerdtoTypeEnum[keyof typeof OwnerdtoTypeEnum];
+export type OwnerDtoTypeEnum = typeof OwnerDtoTypeEnum[keyof typeof OwnerDtoTypeEnum];
 
 /**
  * Provides additional details about the pre-approval trigger for this request.
  * @export
- * @interface Preapprovaltriggerdetails
+ * @interface PreApprovalTriggerDetails
  */
-export interface Preapprovaltriggerdetails {
+export interface PreApprovalTriggerDetails {
     /**
      * Comment left for the pre-approval decision
      * @type {string}
-     * @memberof Preapprovaltriggerdetails
+     * @memberof PreApprovalTriggerDetails
      */
     'comment'?: string;
     /**
      * The reviewer of the pre-approval decision
      * @type {string}
-     * @memberof Preapprovaltriggerdetails
+     * @memberof PreApprovalTriggerDetails
      */
     'reviewer'?: string;
     /**
      * The decision of the pre-approval trigger
      * @type {string}
-     * @memberof Preapprovaltriggerdetails
+     * @memberof PreApprovalTriggerDetails
      */
-    'decision'?: PreapprovaltriggerdetailsDecisionEnum;
+    'decision'?: PreApprovalTriggerDetailsDecisionEnum;
 }
 
-export const PreapprovaltriggerdetailsDecisionEnum = {
+export const PreApprovalTriggerDetailsDecisionEnum = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type PreapprovaltriggerdetailsDecisionEnum = typeof PreapprovaltriggerdetailsDecisionEnum[keyof typeof PreapprovaltriggerdetailsDecisionEnum];
+export type PreApprovalTriggerDetailsDecisionEnum = typeof PreApprovalTriggerDetailsDecisionEnum[keyof typeof PreApprovalTriggerDetailsDecisionEnum];
 
 /**
  * Provides additional details about provisioning for this request.
  * @export
- * @interface Provisioningdetails
+ * @interface ProvisioningDetails
  */
-export interface Provisioningdetails {
+export interface ProvisioningDetails {
     /**
      * Ordered CSV of sub phase references to objects that contain more information about provisioning. For example, this can contain \"manualWorkItemDetails\" which indicate that there is further information in that object for this phase.
      * @type {string}
-     * @memberof Provisioningdetails
+     * @memberof ProvisioningDetails
      */
     'orderedSubPhaseReferences'?: string;
 }
@@ -1840,50 +1840,88 @@ export interface Provisioningdetails {
  * @enum {string}
  */
 
-export const Reassignmenttype = {
+export const ReassignmentType = {
     ManualReassignment: 'MANUAL_REASSIGNMENT',
     AutomaticReassignment: 'AUTOMATIC_REASSIGNMENT',
     AutoEscalation: 'AUTO_ESCALATION',
     SelfReviewDelegation: 'SELF_REVIEW_DELEGATION'
 } as const;
 
-export type Reassignmenttype = typeof Reassignmenttype[keyof typeof Reassignmenttype];
+export type ReassignmentType = typeof ReassignmentType[keyof typeof ReassignmentType];
 
 
 /**
  * 
  * @export
- * @interface Requestedaccountref
+ * @interface RequestOnBehalfOfConfig
  */
-export interface Requestedaccountref {
+export interface RequestOnBehalfOfConfig {
+    /**
+     * If this is true, anyone can request access for anyone.
+     * @type {boolean}
+     * @memberof RequestOnBehalfOfConfig
+     */
+    'allowRequestOnBehalfOfAnyoneByAnyone'?: boolean;
+    /**
+     * If this is true, a manager can request access for his or her direct reports.
+     * @type {boolean}
+     * @memberof RequestOnBehalfOfConfig
+     */
+    'allowRequestOnBehalfOfEmployeeByManager'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface RequestOnBehalfOfConfig2
+ */
+export interface RequestOnBehalfOfConfig2 {
+    /**
+     * If this is true, anyone can request access for anyone.
+     * @type {boolean}
+     * @memberof RequestOnBehalfOfConfig2
+     */
+    'allowRequestOnBehalfOfAnyoneByAnyone'?: boolean;
+    /**
+     * If this is true, a manager can request access for his or her direct reports.
+     * @type {boolean}
+     * @memberof RequestOnBehalfOfConfig2
+     */
+    'allowRequestOnBehalfOfEmployeeByManager'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface RequestedAccountRef
+ */
+export interface RequestedAccountRef {
     /**
      * Display name of the account for the user
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'name'?: string;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Requestedaccountref
+     * @type {DtoType}
+     * @memberof RequestedAccountRef
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The uuid for the account
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'accountUuid'?: string | null;
     /**
      * The native identity for the account
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'accountId'?: string | null;
     /**
      * Display name of the source for the account
      * @type {string}
-     * @memberof Requestedaccountref
+     * @memberof RequestedAccountRef
      */
     'sourceName'?: string;
 }
@@ -1892,524 +1930,434 @@ export interface Requestedaccountref {
 /**
  * 
  * @export
- * @interface Requestedfordtoref
+ * @interface RequestedForDtoRef
  */
-export interface Requestedfordtoref {
+export interface RequestedForDtoRef {
     /**
      * The identity id for which the access is requested
      * @type {string}
-     * @memberof Requestedfordtoref
+     * @memberof RequestedForDtoRef
      */
     'identityId': string;
     /**
      * the details for the access items that are requested for the identity
-     * @type {Array<Requesteditemdtoref>}
-     * @memberof Requestedfordtoref
+     * @type {Array<RequestedItemDtoRef>}
+     * @memberof RequestedForDtoRef
      */
-    'requestedItems': Array<Requesteditemdtoref>;
+    'requestedItems': Array<RequestedItemDtoRef>;
 }
 /**
  * 
  * @export
- * @interface Requesteditemaccountselections
+ * @interface RequestedItemAccountSelections
  */
-export interface Requesteditemaccountselections {
+export interface RequestedItemAccountSelections {
     /**
      * The description for this requested item
      * @type {string}
-     * @memberof Requesteditemaccountselections
+     * @memberof RequestedItemAccountSelections
      */
     'description'?: string;
     /**
      * This field indicates if account selections are not allowed for this requested item. * If true, this field indicates that account selections will not be available for this item and user combination. In this case, no account selections should be provided in the access request for this item and user combination, irrespective of whether the user has single or multiple accounts on a source. * An example is where a user is requesting an access profile that is already assigned to one of their accounts. 
      * @type {boolean}
-     * @memberof Requesteditemaccountselections
+     * @memberof RequestedItemAccountSelections
      */
     'accountsSelectionBlocked'?: boolean;
     /**
      * If account selections are not allowed for an item, this field will denote the reason.
      * @type {string}
-     * @memberof Requesteditemaccountselections
+     * @memberof RequestedItemAccountSelections
      */
     'accountsSelectionBlockedReason'?: string | null;
     /**
      * The type of the item being requested.
      * @type {string}
-     * @memberof Requesteditemaccountselections
+     * @memberof RequestedItemAccountSelections
      */
-    'type'?: RequesteditemaccountselectionsTypeEnum;
+    'type'?: RequestedItemAccountSelectionsTypeEnum;
     /**
      * The id of the requested item
      * @type {string}
-     * @memberof Requesteditemaccountselections
+     * @memberof RequestedItemAccountSelections
      */
     'id'?: string;
     /**
      * The name of the requested item
      * @type {string}
-     * @memberof Requesteditemaccountselections
+     * @memberof RequestedItemAccountSelections
      */
     'name'?: string;
     /**
      * The details for the sources and accounts for the requested item and identity combination
-     * @type {Array<Sourceaccountselections>}
-     * @memberof Requesteditemaccountselections
+     * @type {Array<SourceAccountSelections>}
+     * @memberof RequestedItemAccountSelections
      */
-    'sources'?: Array<Sourceaccountselections>;
+    'sources'?: Array<SourceAccountSelections>;
 }
 
-export const RequesteditemaccountselectionsTypeEnum = {
+export const RequestedItemAccountSelectionsTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type RequesteditemaccountselectionsTypeEnum = typeof RequesteditemaccountselectionsTypeEnum[keyof typeof RequesteditemaccountselectionsTypeEnum];
+export type RequestedItemAccountSelectionsTypeEnum = typeof RequestedItemAccountSelectionsTypeEnum[keyof typeof RequestedItemAccountSelectionsTypeEnum];
 
 /**
  * 
  * @export
- * @interface Requesteditemdetails
+ * @interface RequestedItemDetails
  */
-export interface Requesteditemdetails {
+export interface RequestedItemDetails {
     /**
      * The type of access item requested.
      * @type {string}
-     * @memberof Requesteditemdetails
+     * @memberof RequestedItemDetails
      */
-    'type'?: RequesteditemdetailsTypeEnum;
+    'type'?: RequestedItemDetailsTypeEnum;
     /**
      * The id of the access item requested.
      * @type {string}
-     * @memberof Requesteditemdetails
+     * @memberof RequestedItemDetails
      */
     'id'?: string;
 }
 
-export const RequesteditemdetailsTypeEnum = {
+export const RequestedItemDetailsTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Entitlement: 'ENTITLEMENT',
     Role: 'ROLE'
 } as const;
 
-export type RequesteditemdetailsTypeEnum = typeof RequesteditemdetailsTypeEnum[keyof typeof RequesteditemdetailsTypeEnum];
+export type RequestedItemDetailsTypeEnum = typeof RequestedItemDetailsTypeEnum[keyof typeof RequestedItemDetailsTypeEnum];
 
 /**
  * 
  * @export
- * @interface Requesteditemdtoref
+ * @interface RequestedItemDtoRef
  */
-export interface Requesteditemdtoref {
+export interface RequestedItemDtoRef {
     /**
      * The type of the item being requested.
      * @type {string}
-     * @memberof Requesteditemdtoref
+     * @memberof RequestedItemDtoRef
      */
-    'type': RequesteditemdtorefTypeEnum;
+    'type': RequestedItemDtoRefTypeEnum;
     /**
      * ID of Role, Access Profile or Entitlement being requested.
      * @type {string}
-     * @memberof Requesteditemdtoref
+     * @memberof RequestedItemDtoRef
      */
     'id': string;
     /**
      * Comment provided by requester. * Comment is required when the request is of type Revoke Access. 
      * @type {string}
-     * @memberof Requesteditemdtoref
+     * @memberof RequestedItemDtoRef
      */
     'comment'?: string;
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities and /access-request-status.
      * @type {{ [key: string]: string; }}
-     * @memberof Requesteditemdtoref
+     * @memberof RequestedItemDtoRef
      */
     'clientMetadata'?: { [key: string]: string; };
     /**
      * The date and time the role or access profile or entitlement is/will be provisioned to the specified identity. Also known as the sunrise date. * Specify a date-time in the future. * This date-time can be used to indicate date-time when access item will be provisioned on the identity account. A GRANT_ACCESS request can use startDate to specify when to schedule provisioning of access item for an identity/account & a MODIFY_ACCESS request can use startDate to change the provisioning date-time of already assigned access item. But REVOKE_ACCESS request can not have startDate field. You can change the sunrise date in requests for yourself or others you are authorized to request for. * If the startDate is in the past, then the provisioning will be processed as soon as possible, but no guarantees can be made about when the provisioning will occur. If the startDate is in the future, then the provisioning will be scheduled to occur on that date and time. If no startDate is provided, then the provisioning will be processed as soon as possible. 
      * @type {string}
-     * @memberof Requesteditemdtoref
+     * @memberof RequestedItemDtoRef
      */
     'startDate'?: string;
     /**
      * The date and time the role or access profile or entitlement is no longer assigned to the specified identity. Also known as the expiration date. * Specify a date-time in the future. * The current SLA for the deprovisioning is 24 hours. * This date-time can be used to change the duration of an existing access item assignment for the specified identity. A GRANT_ACCESS request can extend duration or even remove an expiration date, and either a  GRANT_ACCESS or REVOKE_ACCESS request can reduce duration or add an expiration date where one has not previously been present. You can change the expiration date in requests for yourself or others you are authorized to request for. 
      * @type {string}
-     * @memberof Requesteditemdtoref
+     * @memberof RequestedItemDtoRef
      */
     'removeDate'?: string;
     /**
      * The accounts where the access item will be provisioned to * Includes selections performed by the user in the event of multiple accounts existing on the same source * Also includes details for sources where user only has one account 
-     * @type {Array<Sourceitemref>}
-     * @memberof Requesteditemdtoref
+     * @type {Array<SourceItemRef>}
+     * @memberof RequestedItemDtoRef
      */
-    'accountSelection'?: Array<Sourceitemref> | null;
+    'accountSelection'?: Array<SourceItemRef> | null;
 }
 
-export const RequesteditemdtorefTypeEnum = {
+export const RequestedItemDtoRefTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type RequesteditemdtorefTypeEnum = typeof RequesteditemdtorefTypeEnum[keyof typeof RequesteditemdtorefTypeEnum];
+export type RequestedItemDtoRefTypeEnum = typeof RequestedItemDtoRefTypeEnum[keyof typeof RequestedItemDtoRefTypeEnum];
 
 /**
  * 
  * @export
- * @interface Requesteditemstatus
+ * @interface RequestedItemStatus
  */
-export interface Requesteditemstatus {
+export interface RequestedItemStatus {
     /**
      * The ID of the access request. As of 2025, this is a new property. Older access requests might not have an ID.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'id'?: string | null;
     /**
      * Human-readable display name of the item being requested.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'name'?: string | null;
     /**
      * Type of requested object.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
-    'type'?: RequesteditemstatusTypeEnum | null;
+    'type'?: RequestedItemStatusTypeEnum | null;
     /**
      * 
-     * @type {RequesteditemstatusCancelledRequestDetails}
-     * @memberof Requesteditemstatus
+     * @type {RequestedItemStatusCancelledRequestDetails}
+     * @memberof RequestedItemStatus
      */
-    'cancelledRequestDetails'?: RequesteditemstatusCancelledRequestDetails;
+    'cancelledRequestDetails'?: RequestedItemStatusCancelledRequestDetails;
     /**
      * List of list of localized error messages, if any, encountered during the approval/provisioning process.
-     * @type {Array<Array<Errormessagedto>>}
-     * @memberof Requesteditemstatus
+     * @type {Array<Array<ErrorMessageDto>>}
+     * @memberof RequestedItemStatus
      */
-    'errorMessages'?: Array<Array<Errormessagedto>> | null;
+    'errorMessages'?: Array<Array<ErrorMessageDto>> | null;
     /**
      * 
-     * @type {Requesteditemstatusrequeststate}
-     * @memberof Requesteditemstatus
+     * @type {RequestedItemStatusRequestState}
+     * @memberof RequestedItemStatus
      */
-    'state'?: Requesteditemstatusrequeststate;
+    'state'?: RequestedItemStatusRequestState;
     /**
      * Approval details for each item.
-     * @type {Array<Approvalstatusdto>}
-     * @memberof Requesteditemstatus
+     * @type {Array<ApprovalStatusDto>}
+     * @memberof RequestedItemStatus
      */
-    'approvalDetails'?: Array<Approvalstatusdto>;
+    'approvalDetails'?: Array<ApprovalStatusDto>;
     /**
      * List of approval IDs associated with the request.
      * @type {Array<string>}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'approvalIds'?: Array<string> | null;
     /**
      * Manual work items created for provisioning the item.
-     * @type {Array<Manualworkitemdetails>}
-     * @memberof Requesteditemstatus
+     * @type {Array<ManualWorkItemDetails>}
+     * @memberof RequestedItemStatus
      */
-    'manualWorkItemDetails'?: Array<Manualworkitemdetails> | null;
+    'manualWorkItemDetails'?: Array<ManualWorkItemDetails> | null;
     /**
      * Id of associated account activity item.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'accountActivityItemId'?: string;
     /**
      * 
-     * @type {Accessrequesttype}
-     * @memberof Requesteditemstatus
+     * @type {AccessRequestType}
+     * @memberof RequestedItemStatus
      */
-    'requestType'?: Accessrequesttype | null;
+    'requestType'?: AccessRequestType | null;
     /**
      * When the request was last modified.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'modified'?: string | null;
     /**
      * When the request was created.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'created'?: string;
     /**
      * 
-     * @type {Accessitemrequester}
-     * @memberof Requesteditemstatus
+     * @type {AccessItemRequester}
+     * @memberof RequestedItemStatus
      */
-    'requester'?: Accessitemrequester;
+    'requester'?: AccessItemRequester;
     /**
      * 
-     * @type {RequesteditemstatusRequestedFor}
-     * @memberof Requesteditemstatus
+     * @type {RequestedItemStatusRequestedFor}
+     * @memberof RequestedItemStatus
      */
-    'requestedFor'?: RequesteditemstatusRequestedFor;
+    'requestedFor'?: RequestedItemStatusRequestedFor;
     /**
      * 
-     * @type {RequesteditemstatusRequesterComment}
-     * @memberof Requesteditemstatus
+     * @type {RequestedItemStatusRequesterComment}
+     * @memberof RequestedItemStatus
      */
-    'requesterComment'?: RequesteditemstatusRequesterComment;
+    'requesterComment'?: RequestedItemStatusRequesterComment;
     /**
      * 
-     * @type {RequesteditemstatusSodViolationContext}
-     * @memberof Requesteditemstatus
+     * @type {RequestedItemStatusSodViolationContext}
+     * @memberof RequestedItemStatus
      */
-    'sodViolationContext'?: RequesteditemstatusSodViolationContext;
+    'sodViolationContext'?: RequestedItemStatusSodViolationContext;
     /**
      * 
-     * @type {RequesteditemstatusProvisioningDetails}
-     * @memberof Requesteditemstatus
+     * @type {RequestedItemStatusProvisioningDetails}
+     * @memberof RequestedItemStatus
      */
-    'provisioningDetails'?: RequesteditemstatusProvisioningDetails;
+    'provisioningDetails'?: RequestedItemStatusProvisioningDetails;
     /**
      * 
-     * @type {RequesteditemstatusPreApprovalTriggerDetails}
-     * @memberof Requesteditemstatus
+     * @type {RequestedItemStatusPreApprovalTriggerDetails}
+     * @memberof RequestedItemStatus
      */
-    'preApprovalTriggerDetails'?: RequesteditemstatusPreApprovalTriggerDetails;
+    'preApprovalTriggerDetails'?: RequestedItemStatusPreApprovalTriggerDetails;
     /**
      * A list of Phases that the Access Request has gone through in order, to help determine the status of the request.
-     * @type {Array<Accessrequestphases>}
-     * @memberof Requesteditemstatus
+     * @type {Array<AccessRequestPhases>}
+     * @memberof RequestedItemStatus
      */
-    'accessRequestPhases'?: Array<Accessrequestphases> | null;
+    'accessRequestPhases'?: Array<AccessRequestPhases> | null;
     /**
      * Description associated to the requested object.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'description'?: string | null;
     /**
      * When the role access is scheduled for provisioning.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'startDate'?: string | null;
     /**
      * When the role access is scheduled for removal.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'removeDate'?: string | null;
     /**
      * True if the request can be canceled.
      * @type {boolean}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'cancelable'?: boolean;
     /**
      * This is the account activity id.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'accessRequestId'?: string;
     /**
      * Arbitrary key-value pairs, if any were included in the corresponding access request
      * @type {{ [key: string]: string; }}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.
-     * @type {Array<Requestedaccountref>}
-     * @memberof Requesteditemstatus
+     * @type {Array<RequestedAccountRef>}
+     * @memberof RequestedItemStatus
      */
-    'requestedAccounts'?: Array<Requestedaccountref> | null;
+    'requestedAccounts'?: Array<RequestedAccountRef> | null;
     /**
      * The privilege level of the requested access item, if applicable.
      * @type {string}
-     * @memberof Requesteditemstatus
+     * @memberof RequestedItemStatus
      */
     'privilegeLevel'?: string | null;
     /**
      * JIT (Just-In-Time) details for the requested access item, if applicable.
-     * @type {Array<Entitlementstatesnapshotjitdetail>}
-     * @memberof Requesteditemstatus
+     * @type {Array<EntitlementStateSnapshotJitDetail>}
+     * @memberof RequestedItemStatus
      */
-    'jitDetails'?: Array<Entitlementstatesnapshotjitdetail> | null;
+    'jitDetails'?: Array<EntitlementStateSnapshotJitDetail> | null;
 }
 
-export const RequesteditemstatusTypeEnum = {
+export const RequestedItemStatusTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type RequesteditemstatusTypeEnum = typeof RequesteditemstatusTypeEnum[keyof typeof RequesteditemstatusTypeEnum];
+export type RequestedItemStatusTypeEnum = typeof RequestedItemStatusTypeEnum[keyof typeof RequestedItemStatusTypeEnum];
 
 /**
  * 
  * @export
- * @interface RequesteditemstatusCancelledRequestDetails
+ * @interface RequestedItemStatusCancelledRequestDetails
  */
-export interface RequesteditemstatusCancelledRequestDetails {
+export interface RequestedItemStatusCancelledRequestDetails {
     /**
      * Comment made by the owner when cancelling the associated request.
      * @type {string}
-     * @memberof RequesteditemstatusCancelledRequestDetails
+     * @memberof RequestedItemStatusCancelledRequestDetails
      */
     'comment'?: string;
     /**
      * 
-     * @type {Ownerdto}
-     * @memberof RequesteditemstatusCancelledRequestDetails
+     * @type {OwnerDto}
+     * @memberof RequestedItemStatusCancelledRequestDetails
      */
-    'owner'?: Ownerdto;
+    'owner'?: OwnerDto;
     /**
      * Date comment was added by the owner when cancelling the associated request.
      * @type {string}
-     * @memberof RequesteditemstatusCancelledRequestDetails
+     * @memberof RequestedItemStatusCancelledRequestDetails
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface RequesteditemstatusPreApprovalTriggerDetails
+ * @interface RequestedItemStatusPreApprovalTriggerDetails
  */
-export interface RequesteditemstatusPreApprovalTriggerDetails {
+export interface RequestedItemStatusPreApprovalTriggerDetails {
     /**
      * Comment left for the pre-approval decision
      * @type {string}
-     * @memberof RequesteditemstatusPreApprovalTriggerDetails
+     * @memberof RequestedItemStatusPreApprovalTriggerDetails
      */
     'comment'?: string;
     /**
      * The reviewer of the pre-approval decision
      * @type {string}
-     * @memberof RequesteditemstatusPreApprovalTriggerDetails
+     * @memberof RequestedItemStatusPreApprovalTriggerDetails
      */
     'reviewer'?: string;
     /**
      * The decision of the pre-approval trigger
      * @type {string}
-     * @memberof RequesteditemstatusPreApprovalTriggerDetails
+     * @memberof RequestedItemStatusPreApprovalTriggerDetails
      */
-    'decision'?: RequesteditemstatusPreApprovalTriggerDetailsDecisionEnum;
+    'decision'?: RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum;
 }
 
-export const RequesteditemstatusPreApprovalTriggerDetailsDecisionEnum = {
+export const RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type RequesteditemstatusPreApprovalTriggerDetailsDecisionEnum = typeof RequesteditemstatusPreApprovalTriggerDetailsDecisionEnum[keyof typeof RequesteditemstatusPreApprovalTriggerDetailsDecisionEnum];
+export type RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum = typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum[keyof typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum];
 
 /**
  * 
  * @export
- * @interface RequesteditemstatusProvisioningDetails
+ * @interface RequestedItemStatusProvisioningDetails
  */
-export interface RequesteditemstatusProvisioningDetails {
+export interface RequestedItemStatusProvisioningDetails {
     /**
      * Ordered CSV of sub phase references to objects that contain more information about provisioning. For example, this can contain \"manualWorkItemDetails\" which indicate that there is further information in that object for this phase.
      * @type {string}
-     * @memberof RequesteditemstatusProvisioningDetails
+     * @memberof RequestedItemStatusProvisioningDetails
      */
     'orderedSubPhaseReferences'?: string;
 }
-/**
- * Identity access was requested for.
- * @export
- * @interface RequesteditemstatusRequestedFor
- */
-export interface RequesteditemstatusRequestedFor {
-    /**
-     * Type of the object to which this reference applies
-     * @type {string}
-     * @memberof RequesteditemstatusRequestedFor
-     */
-    'type'?: RequesteditemstatusRequestedForTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof RequesteditemstatusRequestedFor
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof RequesteditemstatusRequestedFor
-     */
-    'name'?: string;
-}
-
-export const RequesteditemstatusRequestedForTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type RequesteditemstatusRequestedForTypeEnum = typeof RequesteditemstatusRequestedForTypeEnum[keyof typeof RequesteditemstatusRequestedForTypeEnum];
-
-/**
- * 
- * @export
- * @interface RequesteditemstatusRequesterComment
- */
-export interface RequesteditemstatusRequesterComment {
-    /**
-     * Comment content.
-     * @type {string}
-     * @memberof RequesteditemstatusRequesterComment
-     */
-    'comment'?: string | null;
-    /**
-     * Date and time comment was created.
-     * @type {string}
-     * @memberof RequesteditemstatusRequesterComment
-     */
-    'created'?: string;
-    /**
-     * 
-     * @type {CommentdtoAuthor}
-     * @memberof RequesteditemstatusRequesterComment
-     */
-    'author'?: CommentdtoAuthor;
-}
-/**
- * 
- * @export
- * @interface RequesteditemstatusSodViolationContext
- */
-export interface RequesteditemstatusSodViolationContext {
-    /**
-     * The status of SOD violation check
-     * @type {string}
-     * @memberof RequesteditemstatusSodViolationContext
-     */
-    'state'?: RequesteditemstatusSodViolationContextStateEnum | null;
-    /**
-     * The id of the Violation check event
-     * @type {string}
-     * @memberof RequesteditemstatusSodViolationContext
-     */
-    'uuid'?: string | null;
-    /**
-     * 
-     * @type {Sodviolationcheckresult}
-     * @memberof RequesteditemstatusSodViolationContext
-     */
-    'violationCheckResult'?: Sodviolationcheckresult;
-}
-
-export const RequesteditemstatusSodViolationContextStateEnum = {
-    Success: 'SUCCESS',
-    Error: 'ERROR'
-} as const;
-
-export type RequesteditemstatusSodViolationContextStateEnum = typeof RequesteditemstatusSodViolationContextStateEnum[keyof typeof RequesteditemstatusSodViolationContextStateEnum];
-
 /**
  * Indicates the state of an access request: * EXECUTING: The request is executing, which indicates the system is doing some processing. * REQUEST_COMPLETED: Indicates the request  has been completed. * CANCELLED: The request was cancelled with no user input. * TERMINATED: The request has been terminated before it was able to complete. * PROVISIONING_VERIFICATION_PENDING: The request has finished any approval steps and provisioning is waiting to be verified. * REJECTED: The request was rejected. * PROVISIONING_FAILED: The request has failed to complete. * NOT_ALL_ITEMS_PROVISIONED: One or more of the requested items failed to complete, but there were one or more  successes. * ERROR: An error occurred during request processing.
  * @export
  * @enum {string}
  */
 
-export const Requesteditemstatusrequeststate = {
+export const RequestedItemStatusRequestState = {
     Executing: 'EXECUTING',
     RequestCompleted: 'REQUEST_COMPLETED',
     Cancelled: 'CANCELLED',
@@ -2421,75 +2369,127 @@ export const Requesteditemstatusrequeststate = {
     Error: 'ERROR'
 } as const;
 
-export type Requesteditemstatusrequeststate = typeof Requesteditemstatusrequeststate[keyof typeof Requesteditemstatusrequeststate];
+export type RequestedItemStatusRequestState = typeof RequestedItemStatusRequestState[keyof typeof RequestedItemStatusRequestState];
 
+
+/**
+ * Identity access was requested for.
+ * @export
+ * @interface RequestedItemStatusRequestedFor
+ */
+export interface RequestedItemStatusRequestedFor {
+    /**
+     * Type of the object to which this reference applies
+     * @type {string}
+     * @memberof RequestedItemStatusRequestedFor
+     */
+    'type'?: RequestedItemStatusRequestedForTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof RequestedItemStatusRequestedFor
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof RequestedItemStatusRequestedFor
+     */
+    'name'?: string;
+}
+
+export const RequestedItemStatusRequestedForTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type RequestedItemStatusRequestedForTypeEnum = typeof RequestedItemStatusRequestedForTypeEnum[keyof typeof RequestedItemStatusRequestedForTypeEnum];
 
 /**
  * 
  * @export
- * @interface Requestonbehalfofconfig
+ * @interface RequestedItemStatusRequesterComment
  */
-export interface Requestonbehalfofconfig {
+export interface RequestedItemStatusRequesterComment {
     /**
-     * If this is true, anyone can request access for anyone.
-     * @type {boolean}
-     * @memberof Requestonbehalfofconfig
+     * Comment content.
+     * @type {string}
+     * @memberof RequestedItemStatusRequesterComment
      */
-    'allowRequestOnBehalfOfAnyoneByAnyone'?: boolean;
+    'comment'?: string | null;
     /**
-     * If this is true, a manager can request access for his or her direct reports.
-     * @type {boolean}
-     * @memberof Requestonbehalfofconfig
+     * Date and time comment was created.
+     * @type {string}
+     * @memberof RequestedItemStatusRequesterComment
      */
-    'allowRequestOnBehalfOfEmployeeByManager'?: boolean;
+    'created'?: string;
+    /**
+     * 
+     * @type {CommentDtoAuthor}
+     * @memberof RequestedItemStatusRequesterComment
+     */
+    'author'?: CommentDtoAuthor;
 }
 /**
  * 
  * @export
- * @interface Requestonbehalfofconfigv2
+ * @interface RequestedItemStatusSodViolationContext
  */
-export interface Requestonbehalfofconfigv2 {
+export interface RequestedItemStatusSodViolationContext {
     /**
-     * If this is true, anyone can request access for anyone.
-     * @type {boolean}
-     * @memberof Requestonbehalfofconfigv2
+     * The status of SOD violation check
+     * @type {string}
+     * @memberof RequestedItemStatusSodViolationContext
      */
-    'allowRequestOnBehalfOfAnyoneByAnyone'?: boolean;
+    'state'?: RequestedItemStatusSodViolationContextStateEnum | null;
     /**
-     * If this is true, a manager can request access for his or her direct reports.
-     * @type {boolean}
-     * @memberof Requestonbehalfofconfigv2
+     * The id of the Violation check event
+     * @type {string}
+     * @memberof RequestedItemStatusSodViolationContext
      */
-    'allowRequestOnBehalfOfEmployeeByManager'?: boolean;
+    'uuid'?: string | null;
+    /**
+     * 
+     * @type {SodViolationCheckResult}
+     * @memberof RequestedItemStatusSodViolationContext
+     */
+    'violationCheckResult'?: SodViolationCheckResult;
 }
+
+export const RequestedItemStatusSodViolationContextStateEnum = {
+    Success: 'SUCCESS',
+    Error: 'ERROR'
+} as const;
+
+export type RequestedItemStatusSodViolationContextStateEnum = typeof RequestedItemStatusSodViolationContextStateEnum[keyof typeof RequestedItemStatusSodViolationContextStateEnum];
+
 /**
  * Details of the Entitlement criteria
  * @export
- * @interface Sodexemptcriteria
+ * @interface SodExemptCriteria
  */
-export interface Sodexemptcriteria {
+export interface SodExemptCriteria {
     /**
      * If the entitlement already belonged to the user or not.
      * @type {boolean}
-     * @memberof Sodexemptcriteria
+     * @memberof SodExemptCriteria
      */
     'existing'?: boolean;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Sodexemptcriteria
+     * @type {DtoType}
+     * @memberof SodExemptCriteria
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * Entitlement ID
      * @type {string}
-     * @memberof Sodexemptcriteria
+     * @memberof SodExemptCriteria
      */
     'id'?: string;
     /**
      * Entitlement name
      * @type {string}
-     * @memberof Sodexemptcriteria
+     * @memberof SodExemptCriteria
      */
     'name'?: string;
 }
@@ -2498,201 +2498,201 @@ export interface Sodexemptcriteria {
 /**
  * SOD policy.
  * @export
- * @interface Sodpolicydto
+ * @interface SodPolicyDto
  */
-export interface Sodpolicydto {
+export interface SodPolicyDto {
     /**
      * SOD policy DTO type.
      * @type {string}
-     * @memberof Sodpolicydto
+     * @memberof SodPolicyDto
      */
-    'type'?: SodpolicydtoTypeEnum;
+    'type'?: SodPolicyDtoTypeEnum;
     /**
      * SOD policy ID.
      * @type {string}
-     * @memberof Sodpolicydto
+     * @memberof SodPolicyDto
      */
     'id'?: string;
     /**
      * SOD policy display name.
      * @type {string}
-     * @memberof Sodpolicydto
+     * @memberof SodPolicyDto
      */
     'name'?: string;
 }
 
-export const SodpolicydtoTypeEnum = {
+export const SodPolicyDtoTypeEnum = {
     SodPolicy: 'SOD_POLICY'
 } as const;
 
-export type SodpolicydtoTypeEnum = typeof SodpolicydtoTypeEnum[keyof typeof SodpolicydtoTypeEnum];
+export type SodPolicyDtoTypeEnum = typeof SodPolicyDtoTypeEnum[keyof typeof SodPolicyDtoTypeEnum];
 
 /**
  * The inner object representing the completed SOD Violation check
  * @export
- * @interface Sodviolationcheckresult
+ * @interface SodViolationCheckResult
  */
-export interface Sodviolationcheckresult {
+export interface SodViolationCheckResult {
     /**
      * 
-     * @type {Errormessagedto}
-     * @memberof Sodviolationcheckresult
+     * @type {ErrorMessageDto}
+     * @memberof SodViolationCheckResult
      */
-    'message'?: Errormessagedto;
+    'message'?: ErrorMessageDto;
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check.
      * @type {{ [key: string]: string; }}
-     * @memberof Sodviolationcheckresult
+     * @memberof SodViolationCheckResult
      */
     'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * 
-     * @type {Array<Sodviolationcontext>}
-     * @memberof Sodviolationcheckresult
+     * @type {Array<SodViolationContext>}
+     * @memberof SodViolationCheckResult
      */
-    'violationContexts'?: Array<Sodviolationcontext> | null;
+    'violationContexts'?: Array<SodViolationContext> | null;
     /**
      * A list of the SOD policies that were violated.
-     * @type {Array<Sodpolicydto>}
-     * @memberof Sodviolationcheckresult
+     * @type {Array<SodPolicyDto>}
+     * @memberof SodViolationCheckResult
      */
-    'violatedPolicies'?: Array<Sodpolicydto> | null;
+    'violatedPolicies'?: Array<SodPolicyDto> | null;
 }
 /**
  * The contextual information of the violated criteria
  * @export
- * @interface Sodviolationcontext
+ * @interface SodViolationContext
  */
-export interface Sodviolationcontext {
+export interface SodViolationContext {
     /**
      * 
-     * @type {Sodpolicydto}
-     * @memberof Sodviolationcontext
+     * @type {SodPolicyDto}
+     * @memberof SodViolationContext
      */
-    'policy'?: Sodpolicydto;
+    'policy'?: SodPolicyDto;
     /**
      * 
-     * @type {SodviolationcontextConflictingAccessCriteria}
-     * @memberof Sodviolationcontext
+     * @type {SodViolationContextConflictingAccessCriteria}
+     * @memberof SodViolationContext
      */
-    'conflictingAccessCriteria'?: SodviolationcontextConflictingAccessCriteria;
-}
-/**
- * The object which contains the left and right hand side of the entitlements that got violated according to the policy.
- * @export
- * @interface SodviolationcontextConflictingAccessCriteria
- */
-export interface SodviolationcontextConflictingAccessCriteria {
-    /**
-     * 
-     * @type {SodviolationcontextConflictingAccessCriteriaLeftCriteria}
-     * @memberof SodviolationcontextConflictingAccessCriteria
-     */
-    'leftCriteria'?: SodviolationcontextConflictingAccessCriteriaLeftCriteria;
-    /**
-     * 
-     * @type {SodviolationcontextConflictingAccessCriteriaLeftCriteria}
-     * @memberof SodviolationcontextConflictingAccessCriteria
-     */
-    'rightCriteria'?: SodviolationcontextConflictingAccessCriteriaLeftCriteria;
-}
-/**
- * 
- * @export
- * @interface SodviolationcontextConflictingAccessCriteriaLeftCriteria
- */
-export interface SodviolationcontextConflictingAccessCriteriaLeftCriteria {
-    /**
-     * 
-     * @type {Array<Sodexemptcriteria>}
-     * @memberof SodviolationcontextConflictingAccessCriteriaLeftCriteria
-     */
-    'criteriaList'?: Array<Sodexemptcriteria>;
+    'conflictingAccessCriteria'?: SodViolationContextConflictingAccessCriteria;
 }
 /**
  * An object referencing a completed SOD violation check
  * @export
- * @interface Sodviolationcontextcheckcompleted
+ * @interface SodViolationContextCheckCompleted
  */
-export interface Sodviolationcontextcheckcompleted {
+export interface SodViolationContextCheckCompleted {
     /**
      * The status of SOD violation check
      * @type {string}
-     * @memberof Sodviolationcontextcheckcompleted
+     * @memberof SodViolationContextCheckCompleted
      */
-    'state'?: SodviolationcontextcheckcompletedStateEnum | null;
+    'state'?: SodViolationContextCheckCompletedStateEnum | null;
     /**
      * The id of the Violation check event
      * @type {string}
-     * @memberof Sodviolationcontextcheckcompleted
+     * @memberof SodViolationContextCheckCompleted
      */
     'uuid'?: string | null;
     /**
      * 
-     * @type {Sodviolationcheckresult}
-     * @memberof Sodviolationcontextcheckcompleted
+     * @type {SodViolationCheckResult}
+     * @memberof SodViolationContextCheckCompleted
      */
-    'violationCheckResult'?: Sodviolationcheckresult;
+    'violationCheckResult'?: SodViolationCheckResult;
 }
 
-export const SodviolationcontextcheckcompletedStateEnum = {
+export const SodViolationContextCheckCompletedStateEnum = {
     Success: 'SUCCESS',
     Error: 'ERROR'
 } as const;
 
-export type SodviolationcontextcheckcompletedStateEnum = typeof SodviolationcontextcheckcompletedStateEnum[keyof typeof SodviolationcontextcheckcompletedStateEnum];
+export type SodViolationContextCheckCompletedStateEnum = typeof SodViolationContextCheckCompletedStateEnum[keyof typeof SodViolationContextCheckCompletedStateEnum];
 
+/**
+ * The object which contains the left and right hand side of the entitlements that got violated according to the policy.
+ * @export
+ * @interface SodViolationContextConflictingAccessCriteria
+ */
+export interface SodViolationContextConflictingAccessCriteria {
+    /**
+     * 
+     * @type {SodViolationContextConflictingAccessCriteriaLeftCriteria}
+     * @memberof SodViolationContextConflictingAccessCriteria
+     */
+    'leftCriteria'?: SodViolationContextConflictingAccessCriteriaLeftCriteria;
+    /**
+     * 
+     * @type {SodViolationContextConflictingAccessCriteriaLeftCriteria}
+     * @memberof SodViolationContextConflictingAccessCriteria
+     */
+    'rightCriteria'?: SodViolationContextConflictingAccessCriteriaLeftCriteria;
+}
 /**
  * 
  * @export
- * @interface Sourceaccountselections
+ * @interface SodViolationContextConflictingAccessCriteriaLeftCriteria
  */
-export interface Sourceaccountselections {
+export interface SodViolationContextConflictingAccessCriteriaLeftCriteria {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Sourceaccountselections
+     * @type {Array<SodExemptCriteria>}
+     * @memberof SodViolationContextConflictingAccessCriteriaLeftCriteria
      */
-    'type'?: Dtotype;
+    'criteriaList'?: Array<SodExemptCriteria>;
+}
+/**
+ * 
+ * @export
+ * @interface SourceAccountSelections
+ */
+export interface SourceAccountSelections {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof SourceAccountSelections
+     */
+    'type'?: DtoType;
     /**
      * The source id
      * @type {string}
-     * @memberof Sourceaccountselections
+     * @memberof SourceAccountSelections
      */
     'id'?: string;
     /**
      * The source name
      * @type {string}
-     * @memberof Sourceaccountselections
+     * @memberof SourceAccountSelections
      */
     'name'?: string;
     /**
      * The accounts information for a particular source in the requested item
-     * @type {Array<Accountinforef>}
-     * @memberof Sourceaccountselections
+     * @type {Array<AccountInfoRef>}
+     * @memberof SourceAccountSelections
      */
-    'accounts'?: Array<Accountinforef>;
+    'accounts'?: Array<AccountInfoRef>;
 }
 
 
 /**
  * 
  * @export
- * @interface Sourceitemref
+ * @interface SourceItemRef
  */
-export interface Sourceitemref {
+export interface SourceItemRef {
     /**
      * The id for the source on which account selections are made
      * @type {string}
-     * @memberof Sourceitemref
+     * @memberof SourceItemRef
      */
     'sourceId'?: string | null;
     /**
      * A list of account selections on the source. Currently, only one selection per source is supported.
-     * @type {Array<Accountitemref>}
-     * @memberof Sourceitemref
+     * @type {Array<AccountItemRef>}
+     * @memberof SourceItemRef
      */
-    'accounts'?: Array<Accountitemref> | null;
+    'accounts'?: Array<AccountItemRef> | null;
 }
 
 /**
@@ -2704,13 +2704,13 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights \"idn:access-request-administration:write\" can approve the access requests in bulk.
          * @summary Bulk approve access request
-         * @param {Bulkapproveaccessrequest} bulkapproveaccessrequest 
+         * @param {BulkApproveAccessRequest} bulkApproveAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveBulkAccessRequestV1: async (bulkapproveaccessrequest: Bulkapproveaccessrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkapproveaccessrequest' is not null or undefined
-            assertParamExists('approveBulkAccessRequestV1', 'bulkapproveaccessrequest', bulkapproveaccessrequest)
+        approveBulkAccessRequestV1: async (bulkApproveAccessRequest: BulkApproveAccessRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkApproveAccessRequest' is not null or undefined
+            assertParamExists('approveBulkAccessRequestV1', 'bulkApproveAccessRequest', bulkApproveAccessRequest)
             const localVarPath = `/access-request-approvals/v1/bulk-approve`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2730,7 +2730,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkapproveaccessrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkApproveAccessRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2740,13 +2740,13 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation.  Only ORG_ADMIN or users with rights \"idn:access-request-administration:write\" can cancel the access requests in  bulk.
          * @summary Bulk cancel access request
-         * @param {Bulkcancelaccessrequest} bulkcancelaccessrequest 
+         * @param {BulkCancelAccessRequest} bulkCancelAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelAccessRequestInBulkV1: async (bulkcancelaccessrequest: Bulkcancelaccessrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkcancelaccessrequest' is not null or undefined
-            assertParamExists('cancelAccessRequestInBulkV1', 'bulkcancelaccessrequest', bulkcancelaccessrequest)
+        cancelAccessRequestInBulkV1: async (bulkCancelAccessRequest: BulkCancelAccessRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkCancelAccessRequest' is not null or undefined
+            assertParamExists('cancelAccessRequestInBulkV1', 'bulkCancelAccessRequest', bulkCancelAccessRequest)
             const localVarPath = `/access-requests/v1/bulk-cancel`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2766,7 +2766,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkcancelaccessrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkCancelAccessRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2776,13 +2776,13 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step. In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
          * @summary Cancel access request
-         * @param {Cancelaccessrequest} cancelaccessrequest 
+         * @param {CancelAccessRequest} cancelAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        cancelAccessRequestV1: async (cancelaccessrequest: Cancelaccessrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'cancelaccessrequest' is not null or undefined
-            assertParamExists('cancelAccessRequestV1', 'cancelaccessrequest', cancelaccessrequest)
+        cancelAccessRequestV1: async (cancelAccessRequest: CancelAccessRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cancelAccessRequest' is not null or undefined
+            assertParamExists('cancelAccessRequestV1', 'cancelAccessRequest', cancelAccessRequest)
             const localVarPath = `/access-requests/v1/cancel`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2802,7 +2802,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(cancelaccessrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(cancelAccessRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2812,13 +2812,13 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request\'s lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).  To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND \"Access Request\". Use the Column Chooser to select \'Tracking Number\', and use the \'Download\' button to export a CSV containing the tracking numbers.  To find pending access requests with the API, use the [List Account Activities endpoint](https://developer.sailpoint.com/idn/api/v3/list-account-activities/).  Input the IDs from either source.  To track the status of endpoint requests, navigate to Search and use this query: name:\"Close Identity Requests\". Search will include \"Close Identity Requests Started\" audits when requests are initiated and \"Close Identity Requests Completed\" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.  This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed/) for each access request that is closed. 
          * @summary Close access request
-         * @param {Closeaccessrequest} closeaccessrequest 
+         * @param {CloseAccessRequest} closeAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        closeAccessRequestV1: async (closeaccessrequest: Closeaccessrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'closeaccessrequest' is not null or undefined
-            assertParamExists('closeAccessRequestV1', 'closeaccessrequest', closeaccessrequest)
+        closeAccessRequestV1: async (closeAccessRequest: CloseAccessRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'closeAccessRequest' is not null or undefined
+            assertParamExists('closeAccessRequestV1', 'closeAccessRequest', closeAccessRequest)
             const localVarPath = `/access-requests/v1/close`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2838,7 +2838,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(closeaccessrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(closeAccessRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2848,13 +2848,13 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  >**Security:** idn:access-request:manage is for ORG_ADMIN level. idn:access-request-self:manage is for USER level.  :::info The ability to request access using this API is constrained by the Access Request Segments defined in the API token\'s user context. :::  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it does not return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It is best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has,  without changing the account details or end date information from the existing assignment,  the API will cancel the request as a duplicate.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval. * If a `startDate` is specified, then the requested role, access profile, or entitlement will be provisioned on that date and time. * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Now supports an alternate field \'requestedForWithRequestedItems\' for users to specify account selections while requesting items where they have more than one account on the source.  :::caution  If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.  :::  __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You cannot specify a \'startDate\' in a REVOKE_ACCESS request, as startDate is only applicable for GRANT_ACCESS requests to indicate when the access should be provisioned, and it does not make sense in the context of revoking access. * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of \'assignmentId\' and \'nativeIdentity\' fields. These fields should be used within the \'requestedItems\' section for the revoke requests.  * Usage of \'requestedForWithRequestedItems\' field is not supported for revoke requests. 
          * @summary Submit access request
-         * @param {Accessrequest} accessrequest 
+         * @param {AccessRequest} accessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessRequestV1: async (accessrequest: Accessrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequest' is not null or undefined
-            assertParamExists('createAccessRequestV1', 'accessrequest', accessrequest)
+        createAccessRequestV1: async (accessRequest: AccessRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessRequest' is not null or undefined
+            assertParamExists('createAccessRequestV1', 'accessRequest', accessRequest)
             const localVarPath = `/access-requests/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2874,7 +2874,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3153,14 +3153,14 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Use this API to fetch account information for an identity against the items in an access request.  Used to fetch accountSelection for the AccessRequest prior to submitting for async processing. 
          * @summary Get accounts selections for identity
-         * @param {Accountsselectionrequest} accountsselectionrequest 
+         * @param {AccountsSelectionRequest} accountsSelectionRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadAccountSelectionsV1: async (accountsselectionrequest: Accountsselectionrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountsselectionrequest' is not null or undefined
-            assertParamExists('loadAccountSelectionsV1', 'accountsselectionrequest', accountsselectionrequest)
+        loadAccountSelectionsV1: async (accountsSelectionRequest: AccountsSelectionRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountsSelectionRequest' is not null or undefined
+            assertParamExists('loadAccountSelectionsV1', 'accountsSelectionRequest', accountsSelectionRequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -3187,7 +3187,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accountsselectionrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accountsSelectionRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3197,14 +3197,14 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This endpoint replaces the current access-request configuration.
          * @summary Update access request configuration
-         * @param {Accessrequestconfig} accessrequestconfig 
+         * @param {AccessRequestConfig} accessRequestConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        setAccessRequestConfigV1: async (accessrequestconfig: Accessrequestconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequestconfig' is not null or undefined
-            assertParamExists('setAccessRequestConfigV1', 'accessrequestconfig', accessrequestconfig)
+        setAccessRequestConfigV1: async (accessRequestConfig: AccessRequestConfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessRequestConfig' is not null or undefined
+            assertParamExists('setAccessRequestConfigV1', 'accessRequestConfig', accessRequestConfig)
             const localVarPath = `/access-request-config/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3224,7 +3224,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestconfig, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessRequestConfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3234,13 +3234,13 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This endpoint replaces the current access-request configuration.
          * @summary Update access request configuration
-         * @param {Accessrequestconfigv2} accessrequestconfigv2 
+         * @param {AccessRequestConfig2} accessRequestConfig2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setAccessRequestConfigV2: async (accessrequestconfigv2: Accessrequestconfigv2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessrequestconfigv2' is not null or undefined
-            assertParamExists('setAccessRequestConfigV2', 'accessrequestconfigv2', accessrequestconfigv2)
+        setAccessRequestConfigV2: async (accessRequestConfig2: AccessRequestConfig2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessRequestConfig2' is not null or undefined
+            assertParamExists('setAccessRequestConfigV2', 'accessRequestConfig2', accessRequestConfig2)
             const localVarPath = `/access-request-config/v2`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3260,7 +3260,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessrequestconfigv2, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessRequestConfig2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3280,12 +3280,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights \"idn:access-request-administration:write\" can approve the access requests in bulk.
          * @summary Bulk approve access request
-         * @param {Bulkapproveaccessrequest} bulkapproveaccessrequest 
+         * @param {BulkApproveAccessRequest} bulkApproveAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveBulkAccessRequestV1(bulkapproveaccessrequest: Bulkapproveaccessrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveBulkAccessRequestV1(bulkapproveaccessrequest, axiosOptions);
+        async approveBulkAccessRequestV1(bulkApproveAccessRequest: BulkApproveAccessRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveBulkAccessRequestV1(bulkApproveAccessRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.approveBulkAccessRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3293,12 +3293,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation.  Only ORG_ADMIN or users with rights \"idn:access-request-administration:write\" can cancel the access requests in  bulk.
          * @summary Bulk cancel access request
-         * @param {Bulkcancelaccessrequest} bulkcancelaccessrequest 
+         * @param {BulkCancelAccessRequest} bulkCancelAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelAccessRequestInBulkV1(bulkcancelaccessrequest: Bulkcancelaccessrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequestInBulkV1(bulkcancelaccessrequest, axiosOptions);
+        async cancelAccessRequestInBulkV1(bulkCancelAccessRequest: BulkCancelAccessRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequestInBulkV1(bulkCancelAccessRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.cancelAccessRequestInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3306,12 +3306,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step. In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
          * @summary Cancel access request
-         * @param {Cancelaccessrequest} cancelaccessrequest 
+         * @param {CancelAccessRequest} cancelAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelAccessRequestV1(cancelaccessrequest: Cancelaccessrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequestV1(cancelaccessrequest, axiosOptions);
+        async cancelAccessRequestV1(cancelAccessRequest: CancelAccessRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequestV1(cancelAccessRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.cancelAccessRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3319,12 +3319,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request\'s lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).  To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND \"Access Request\". Use the Column Chooser to select \'Tracking Number\', and use the \'Download\' button to export a CSV containing the tracking numbers.  To find pending access requests with the API, use the [List Account Activities endpoint](https://developer.sailpoint.com/idn/api/v3/list-account-activities/).  Input the IDs from either source.  To track the status of endpoint requests, navigate to Search and use this query: name:\"Close Identity Requests\". Search will include \"Close Identity Requests Started\" audits when requests are initiated and \"Close Identity Requests Completed\" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.  This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed/) for each access request that is closed. 
          * @summary Close access request
-         * @param {Closeaccessrequest} closeaccessrequest 
+         * @param {CloseAccessRequest} closeAccessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async closeAccessRequestV1(closeaccessrequest: Closeaccessrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.closeAccessRequestV1(closeaccessrequest, axiosOptions);
+        async closeAccessRequestV1(closeAccessRequest: CloseAccessRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.closeAccessRequestV1(closeAccessRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.closeAccessRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3332,12 +3332,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  >**Security:** idn:access-request:manage is for ORG_ADMIN level. idn:access-request-self:manage is for USER level.  :::info The ability to request access using this API is constrained by the Access Request Segments defined in the API token\'s user context. :::  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it does not return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It is best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has,  without changing the account details or end date information from the existing assignment,  the API will cancel the request as a duplicate.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval. * If a `startDate` is specified, then the requested role, access profile, or entitlement will be provisioned on that date and time. * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Now supports an alternate field \'requestedForWithRequestedItems\' for users to specify account selections while requesting items where they have more than one account on the source.  :::caution  If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.  :::  __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You cannot specify a \'startDate\' in a REVOKE_ACCESS request, as startDate is only applicable for GRANT_ACCESS requests to indicate when the access should be provisioned, and it does not make sense in the context of revoking access. * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of \'assignmentId\' and \'nativeIdentity\' fields. These fields should be used within the \'requestedItems\' section for the revoke requests.  * Usage of \'requestedForWithRequestedItems\' field is not supported for revoke requests. 
          * @summary Submit access request
-         * @param {Accessrequest} accessrequest 
+         * @param {AccessRequest} accessRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessRequestV1(accessrequest: Accessrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequestV1(accessrequest, axiosOptions);
+        async createAccessRequestV1(accessRequest: AccessRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequestV1(accessRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.createAccessRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3349,7 +3349,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getAccessRequestConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestconfig>> {
+        async getAccessRequestConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.getAccessRequestConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -3361,7 +3361,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestConfigV2(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestconfigv2>> {
+        async getAccessRequestConfigV2(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfigV2(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.getAccessRequestConfigV2']?.[localVarOperationServerIndex]?.url;
@@ -3375,7 +3375,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementDetailsForIdentityV1(identityId: string, entitlementId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityentitlementdetails>> {
+        async getEntitlementDetailsForIdentityV1(identityId: string, entitlementId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityEntitlementDetails>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementDetailsForIdentityV1(identityId, entitlementId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.getEntitlementDetailsForIdentityV1']?.[localVarOperationServerIndex]?.url;
@@ -3397,7 +3397,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessRequestStatusV1(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Requesteditemstatus>>> {
+        async listAccessRequestStatusV1(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatus>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatusV1(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, requestState, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.listAccessRequestStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -3420,7 +3420,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAdministratorsAccessRequestStatusV1(xSailPointExperimental: string, requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessrequestadminitemstatus>>> {
+        async listAdministratorsAccessRequestStatusV1(xSailPointExperimental: string, requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestAdminItemStatus>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAdministratorsAccessRequestStatusV1(xSailPointExperimental, requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, requestState, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.listAdministratorsAccessRequestStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -3429,13 +3429,13 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * Use this API to fetch account information for an identity against the items in an access request.  Used to fetch accountSelection for the AccessRequest prior to submitting for async processing. 
          * @summary Get accounts selections for identity
-         * @param {Accountsselectionrequest} accountsselectionrequest 
+         * @param {AccountsSelectionRequest} accountsSelectionRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async loadAccountSelectionsV1(accountsselectionrequest: Accountsselectionrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountsselectionresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.loadAccountSelectionsV1(accountsselectionrequest, xSailPointExperimental, axiosOptions);
+        async loadAccountSelectionsV1(accountsSelectionRequest: AccountsSelectionRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsSelectionResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.loadAccountSelectionsV1(accountsSelectionRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.loadAccountSelectionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3443,13 +3443,13 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint replaces the current access-request configuration.
          * @summary Update access request configuration
-         * @param {Accessrequestconfig} accessrequestconfig 
+         * @param {AccessRequestConfig} accessRequestConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        async setAccessRequestConfigV1(accessrequestconfig: Accessrequestconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestconfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfigV1(accessrequestconfig, axiosOptions);
+        async setAccessRequestConfigV1(accessRequestConfig: AccessRequestConfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfigV1(accessRequestConfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.setAccessRequestConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3457,12 +3457,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint replaces the current access-request configuration.
          * @summary Update access request configuration
-         * @param {Accessrequestconfigv2} accessrequestconfigv2 
+         * @param {AccessRequestConfig2} accessRequestConfig2 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setAccessRequestConfigV2(accessrequestconfigv2: Accessrequestconfigv2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessrequestconfigv2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfigV2(accessrequestconfigv2, axiosOptions);
+        async setAccessRequestConfigV2(accessRequestConfig2: AccessRequestConfig2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfigV2(accessRequestConfig2, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.setAccessRequestConfigV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3485,7 +3485,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         approveBulkAccessRequestV1(requestParameters: AccessRequestsApiApproveBulkAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.approveBulkAccessRequestV1(requestParameters.bulkapproveaccessrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.approveBulkAccessRequestV1(requestParameters.bulkApproveAccessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation.  Only ORG_ADMIN or users with rights \"idn:access-request-administration:write\" can cancel the access requests in  bulk.
@@ -3495,7 +3495,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         cancelAccessRequestInBulkV1(requestParameters: AccessRequestsApiCancelAccessRequestInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.cancelAccessRequestInBulkV1(requestParameters.bulkcancelaccessrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.cancelAccessRequestInBulkV1(requestParameters.bulkCancelAccessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step. In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
@@ -3505,7 +3505,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         cancelAccessRequestV1(requestParameters: AccessRequestsApiCancelAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.cancelAccessRequestV1(requestParameters.cancelaccessrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.cancelAccessRequestV1(requestParameters.cancelAccessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request\'s lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).  To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND \"Access Request\". Use the Column Chooser to select \'Tracking Number\', and use the \'Download\' button to export a CSV containing the tracking numbers.  To find pending access requests with the API, use the [List Account Activities endpoint](https://developer.sailpoint.com/idn/api/v3/list-account-activities/).  Input the IDs from either source.  To track the status of endpoint requests, navigate to Search and use this query: name:\"Close Identity Requests\". Search will include \"Close Identity Requests Started\" audits when requests are initiated and \"Close Identity Requests Completed\" audits when requests are completed. The completion audit will list the identity request IDs that finished in error.  This API triggers the [Provisioning Completed event trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/provisioning-completed/) for each access request that is closed. 
@@ -3515,7 +3515,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         closeAccessRequestV1(requestParameters: AccessRequestsApiCloseAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.closeAccessRequestV1(requestParameters.closeaccessrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.closeAccessRequestV1(requestParameters.closeAccessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.  >**Security:** idn:access-request:manage is for ORG_ADMIN level. idn:access-request-self:manage is for USER level.  :::info The ability to request access using this API is constrained by the Access Request Segments defined in the API token\'s user context. :::  Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it does not return an error if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.  It is best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting an access request to ensure that you aren\'t requesting access that is already granted. If you use this API to request access that an identity already has,  without changing the account details or end date information from the existing assignment,  the API will cancel the request as a duplicate.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, access profiles and entitlements can be requested. * You can specify a `startDate` to set or alter a sunrise date-time on an assignment. The startDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunrise date and its yet to be provisioned, you can also submit a request without a `startDate` to request immediate provisioning after approval. * If a `startDate` is specified, then the requested role, access profile, or entitlement will be provisioned on that date and time. * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Now supports an alternate field \'requestedForWithRequestedItems\' for users to specify account selections while requesting items where they have more than one account on the source.  :::caution  If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.  :::  __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning.  * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time. * Roles, access profiles, and entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * You cannot specify a \'startDate\' in a REVOKE_ACCESS request, as startDate is only applicable for GRANT_ACCESS requests to indicate when the access should be provisioned, and it does not make sense in the context of revoking access. * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time.  * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone. * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of \'assignmentId\' and \'nativeIdentity\' fields. These fields should be used within the \'requestedItems\' section for the revoke requests.  * Usage of \'requestedForWithRequestedItems\' field is not supported for revoke requests. 
@@ -3524,8 +3524,8 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessRequestV1(requestParameters: AccessRequestsApiCreateAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestresponse> {
-            return localVarFp.createAccessRequestV1(requestParameters.accessrequest, axiosOptions).then((request) => request(axios, basePath));
+        createAccessRequestV1(requestParameters: AccessRequestsApiCreateAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestResponse> {
+            return localVarFp.createAccessRequestV1(requestParameters.accessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint returns the current access-request configuration.
@@ -3534,7 +3534,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @deprecated
          * @throws {RequiredError}
          */
-        getAccessRequestConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestconfig> {
+        getAccessRequestConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig> {
             return localVarFp.getAccessRequestConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3543,7 +3543,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestConfigV2(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestconfigv2> {
+        getAccessRequestConfigV2(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig2> {
             return localVarFp.getAccessRequestConfigV2(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3553,7 +3553,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEntitlementDetailsForIdentityV1(requestParameters: AccessRequestsApiGetEntitlementDetailsForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityentitlementdetails> {
+        getEntitlementDetailsForIdentityV1(requestParameters: AccessRequestsApiGetEntitlementDetailsForIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityEntitlementDetails> {
             return localVarFp.getEntitlementDetailsForIdentityV1(requestParameters.identityId, requestParameters.entitlementId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3563,7 +3563,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessRequestStatusV1(requestParameters: AccessRequestsApiListAccessRequestStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Requesteditemstatus>> {
+        listAccessRequestStatusV1(requestParameters: AccessRequestsApiListAccessRequestStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RequestedItemStatus>> {
             return localVarFp.listAccessRequestStatusV1(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, requestParameters.requestState, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3573,7 +3573,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAdministratorsAccessRequestStatusV1(requestParameters: AccessRequestsApiListAdministratorsAccessRequestStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessrequestadminitemstatus>> {
+        listAdministratorsAccessRequestStatusV1(requestParameters: AccessRequestsApiListAdministratorsAccessRequestStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessRequestAdminItemStatus>> {
             return localVarFp.listAdministratorsAccessRequestStatusV1(requestParameters.xSailPointExperimental, requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, requestParameters.requestState, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3583,8 +3583,8 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadAccountSelectionsV1(requestParameters: AccessRequestsApiLoadAccountSelectionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountsselectionresponse> {
-            return localVarFp.loadAccountSelectionsV1(requestParameters.accountsselectionrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        loadAccountSelectionsV1(requestParameters: AccessRequestsApiLoadAccountSelectionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountsSelectionResponse> {
+            return localVarFp.loadAccountSelectionsV1(requestParameters.accountsSelectionRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint replaces the current access-request configuration.
@@ -3594,8 +3594,8 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @deprecated
          * @throws {RequiredError}
          */
-        setAccessRequestConfigV1(requestParameters: AccessRequestsApiSetAccessRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestconfig> {
-            return localVarFp.setAccessRequestConfigV1(requestParameters.accessrequestconfig, axiosOptions).then((request) => request(axios, basePath));
+        setAccessRequestConfigV1(requestParameters: AccessRequestsApiSetAccessRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig> {
+            return localVarFp.setAccessRequestConfigV1(requestParameters.accessRequestConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint replaces the current access-request configuration.
@@ -3604,8 +3604,8 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setAccessRequestConfigV2(requestParameters: AccessRequestsApiSetAccessRequestConfigV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessrequestconfigv2> {
-            return localVarFp.setAccessRequestConfigV2(requestParameters.accessrequestconfigv2, axiosOptions).then((request) => request(axios, basePath));
+        setAccessRequestConfigV2(requestParameters: AccessRequestsApiSetAccessRequestConfigV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig2> {
+            return localVarFp.setAccessRequestConfigV2(requestParameters.accessRequestConfig2, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3618,10 +3618,10 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
 export interface AccessRequestsApiApproveBulkAccessRequestV1Request {
     /**
      * 
-     * @type {Bulkapproveaccessrequest}
+     * @type {BulkApproveAccessRequest}
      * @memberof AccessRequestsApiApproveBulkAccessRequestV1
      */
-    readonly bulkapproveaccessrequest: Bulkapproveaccessrequest
+    readonly bulkApproveAccessRequest: BulkApproveAccessRequest
 }
 
 /**
@@ -3632,10 +3632,10 @@ export interface AccessRequestsApiApproveBulkAccessRequestV1Request {
 export interface AccessRequestsApiCancelAccessRequestInBulkV1Request {
     /**
      * 
-     * @type {Bulkcancelaccessrequest}
+     * @type {BulkCancelAccessRequest}
      * @memberof AccessRequestsApiCancelAccessRequestInBulkV1
      */
-    readonly bulkcancelaccessrequest: Bulkcancelaccessrequest
+    readonly bulkCancelAccessRequest: BulkCancelAccessRequest
 }
 
 /**
@@ -3646,10 +3646,10 @@ export interface AccessRequestsApiCancelAccessRequestInBulkV1Request {
 export interface AccessRequestsApiCancelAccessRequestV1Request {
     /**
      * 
-     * @type {Cancelaccessrequest}
+     * @type {CancelAccessRequest}
      * @memberof AccessRequestsApiCancelAccessRequestV1
      */
-    readonly cancelaccessrequest: Cancelaccessrequest
+    readonly cancelAccessRequest: CancelAccessRequest
 }
 
 /**
@@ -3660,10 +3660,10 @@ export interface AccessRequestsApiCancelAccessRequestV1Request {
 export interface AccessRequestsApiCloseAccessRequestV1Request {
     /**
      * 
-     * @type {Closeaccessrequest}
+     * @type {CloseAccessRequest}
      * @memberof AccessRequestsApiCloseAccessRequestV1
      */
-    readonly closeaccessrequest: Closeaccessrequest
+    readonly closeAccessRequest: CloseAccessRequest
 }
 
 /**
@@ -3674,10 +3674,10 @@ export interface AccessRequestsApiCloseAccessRequestV1Request {
 export interface AccessRequestsApiCreateAccessRequestV1Request {
     /**
      * 
-     * @type {Accessrequest}
+     * @type {AccessRequest}
      * @memberof AccessRequestsApiCreateAccessRequestV1
      */
-    readonly accessrequest: Accessrequest
+    readonly accessRequest: AccessRequest
 }
 
 /**
@@ -3870,10 +3870,10 @@ export interface AccessRequestsApiListAdministratorsAccessRequestStatusV1Request
 export interface AccessRequestsApiLoadAccountSelectionsV1Request {
     /**
      * 
-     * @type {Accountsselectionrequest}
+     * @type {AccountsSelectionRequest}
      * @memberof AccessRequestsApiLoadAccountSelectionsV1
      */
-    readonly accountsselectionrequest: Accountsselectionrequest
+    readonly accountsSelectionRequest: AccountsSelectionRequest
 
     /**
      * Use this header to enable this experimental API.
@@ -3891,10 +3891,10 @@ export interface AccessRequestsApiLoadAccountSelectionsV1Request {
 export interface AccessRequestsApiSetAccessRequestConfigV1Request {
     /**
      * 
-     * @type {Accessrequestconfig}
+     * @type {AccessRequestConfig}
      * @memberof AccessRequestsApiSetAccessRequestConfigV1
      */
-    readonly accessrequestconfig: Accessrequestconfig
+    readonly accessRequestConfig: AccessRequestConfig
 }
 
 /**
@@ -3905,10 +3905,10 @@ export interface AccessRequestsApiSetAccessRequestConfigV1Request {
 export interface AccessRequestsApiSetAccessRequestConfigV2Request {
     /**
      * 
-     * @type {Accessrequestconfigv2}
+     * @type {AccessRequestConfig2}
      * @memberof AccessRequestsApiSetAccessRequestConfigV2
      */
-    readonly accessrequestconfigv2: Accessrequestconfigv2
+    readonly accessRequestConfig2: AccessRequestConfig2
 }
 
 /**
@@ -3927,7 +3927,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public approveBulkAccessRequestV1(requestParameters: AccessRequestsApiApproveBulkAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).approveBulkAccessRequestV1(requestParameters.bulkapproveaccessrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).approveBulkAccessRequestV1(requestParameters.bulkApproveAccessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3939,7 +3939,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public cancelAccessRequestInBulkV1(requestParameters: AccessRequestsApiCancelAccessRequestInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).cancelAccessRequestInBulkV1(requestParameters.bulkcancelaccessrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).cancelAccessRequestInBulkV1(requestParameters.bulkCancelAccessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3951,7 +3951,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public cancelAccessRequestV1(requestParameters: AccessRequestsApiCancelAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).cancelAccessRequestV1(requestParameters.cancelaccessrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).cancelAccessRequestV1(requestParameters.cancelAccessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3963,7 +3963,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public closeAccessRequestV1(requestParameters: AccessRequestsApiCloseAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).closeAccessRequestV1(requestParameters.closeaccessrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).closeAccessRequestV1(requestParameters.closeAccessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3975,7 +3975,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public createAccessRequestV1(requestParameters: AccessRequestsApiCreateAccessRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).createAccessRequestV1(requestParameters.accessrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).createAccessRequestV1(requestParameters.accessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4046,7 +4046,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public loadAccountSelectionsV1(requestParameters: AccessRequestsApiLoadAccountSelectionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).loadAccountSelectionsV1(requestParameters.accountsselectionrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).loadAccountSelectionsV1(requestParameters.accountsSelectionRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4059,7 +4059,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public setAccessRequestConfigV1(requestParameters: AccessRequestsApiSetAccessRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).setAccessRequestConfigV1(requestParameters.accessrequestconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).setAccessRequestConfigV1(requestParameters.accessRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4071,7 +4071,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public setAccessRequestConfigV2(requestParameters: AccessRequestsApiSetAccessRequestConfigV2Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).setAccessRequestConfigV2(requestParameters.accessrequestconfigv2, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).setAccessRequestConfigV2(requestParameters.accessRequestConfig2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

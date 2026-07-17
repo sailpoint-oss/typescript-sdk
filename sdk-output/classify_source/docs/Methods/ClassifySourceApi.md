@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourceclassificationstatus`
+`SourceClassificationStatus`
 
 ### HTTP request headers
 

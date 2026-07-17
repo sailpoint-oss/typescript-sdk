@@ -6,12 +6,14 @@
       source: |
         import { ConnectorCustomizersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Connectorcustomizercreaterequest } from 'sailpoint-api-client/dist/connector_customizers/api';
+        import { ConnectorCustomizerCreateRequest } from 'sailpoint-api-client/dist/connector_customizers/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorCustomizersApi(configuration);
-        const connectorcustomizercreaterequest: Connectorcustomizercreaterequest = ; // Connectorcustomizercreaterequest | Connector customizer to create.
-        const result = await apiInstance.createConnectorCustomizerV1({ connectorcustomizercreaterequest: connectorcustomizercreaterequest });
+        const connectorCustomizerCreateRequest: ConnectorCustomizerCreateRequest = {
+  "name" : "My Custom Connector"
+}; // ConnectorCustomizerCreateRequest | Connector customizer to create.
+        const result = await apiInstance.createConnectorCustomizerV1({ connectorCustomizerCreateRequest: connectorCustomizerCreateRequest });
         console.log(result);
 - path: /connector-customizers/v1/{id}/versions
   method: POST
@@ -78,11 +80,13 @@
       source: |
         import { ConnectorCustomizersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Connectorcustomizerupdaterequest } from 'sailpoint-api-client/dist/connector_customizers/api';
+        import { ConnectorCustomizerUpdateRequest } from 'sailpoint-api-client/dist/connector_customizers/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorCustomizersApi(configuration);
         const id: string = 'b07dc46a-1498-4de8-bfbb-259a68e70c8a'; // string | ID of the connector customizer to update. (default to undefined)
-        const connectorcustomizerupdaterequest: Connectorcustomizerupdaterequest = ; // Connectorcustomizerupdaterequest | Connector rule with updated data. (optional)
+        const connectorCustomizerUpdateRequest: ConnectorCustomizerUpdateRequest = {
+  "name" : "My Custom Connector"
+}; // ConnectorCustomizerUpdateRequest | Connector rule with updated data. (optional)
         const result = await apiInstance.putConnectorCustomizerV1({ id: id });
         console.log(result);

@@ -1,12 +1,12 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-Errormessagedto.md
-Errorresponsedto.md
+ErrorMessageDto.md
+ErrorResponseDto.md
 Index.md
 ListTagsV1401Response.md
 ListTagsV1429Response.md
-Localeorigin.md
+LocaleOrigin.md
 README.md
 Tag2.md
 Tag2TagCategoryRefsInner.md

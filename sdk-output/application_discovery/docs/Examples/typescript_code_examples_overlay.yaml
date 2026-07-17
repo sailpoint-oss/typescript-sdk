@@ -51,12 +51,14 @@
       source: |
         import { ApplicationDiscoveryApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Applicationdiscoveryrequest } from 'sailpoint-api-client/dist/application_discovery/api';
+        import { ApplicationDiscoveryRequest } from 'sailpoint-api-client/dist/application_discovery/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApplicationDiscoveryApi(configuration);
         const sourceId: string = 'sourceId_example'; // string | The sourceId. (default to undefined)
-        const applicationdiscoveryrequest: Applicationdiscoveryrequest = ; // Applicationdiscoveryrequest | 
+        const applicationDiscoveryRequest: ApplicationDiscoveryRequest = {
+  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+}; // ApplicationDiscoveryRequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.startApplicationDiscoveryV1({ sourceId: sourceId, applicationdiscoveryrequest: applicationdiscoveryrequest });
+        const result = await apiInstance.startApplicationDiscoveryV1({ sourceId: sourceId, applicationDiscoveryRequest: applicationDiscoveryRequest });
         console.log(result);

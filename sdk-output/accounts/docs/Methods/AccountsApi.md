@@ -82,11 +82,11 @@ By providing the account ID of an existing account in the request body, this API
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accountattributescreate** | `Accountattributescreate` |  | 
+**accountAttributesCreate** | `AccountAttributesCreate` |  | 
 
 ### Return type
 
-`Accountsasyncresult`
+`AccountsAsyncResult`
 
 ### HTTP request headers
 
@@ -98,12 +98,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accountattributescreate } from 'sailpoint-api-client/dist/accounts/api';
+import { AccountAttributesCreate } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
-const accountattributescreate: Accountattributescreate = ; // 
-const result = await apiInstance.createAccountV1({ accountattributescreate: accountattributescreate });
+const accountAttributesCreate: AccountAttributesCreate = {
+  "attributes" : {
+    "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
+    "city" : "Austin",
+    "displayName" : "John Doe",
+    "userName" : "jdoe",
+    "sAMAccountName" : "jDoe",
+    "mail" : "john.doe@sailpoint.com"
+  }
+}; // 
+const result = await apiInstance.createAccountV1({ accountAttributesCreate: accountAttributesCreate });
 console.log(result);
 ```
 
@@ -130,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Taskresultdto`
+`TaskResultDto`
 
 ### HTTP request headers
 
@@ -170,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accountsasyncresult`
+`AccountsAsyncResult`
 
 ### HTTP request headers
 
@@ -241,11 +250,11 @@ This API submits a task to disable the account and returns the task ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The account id |  [default to undefined]
-**accounttogglerequest** | `Accounttogglerequest` |  | 
+**accountToggleRequest** | `AccountToggleRequest` |  | 
 
 ### Return type
 
-`Accountsasyncresult`
+`AccountsAsyncResult`
 
 ### HTTP request headers
 
@@ -257,13 +266,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accounttogglerequest } from 'sailpoint-api-client/dist/accounts/api';
+import { AccountToggleRequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The account id
-const accounttogglerequest: Accounttogglerequest = ; // 
-const result = await apiInstance.disableAccountV1({ id: id, accounttogglerequest: accounttogglerequest });
+const accountToggleRequest: AccountToggleRequest = {
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+}; // 
+const result = await apiInstance.disableAccountV1({ id: id, accountToggleRequest: accountToggleRequest });
 console.log(result);
 ```
 
@@ -280,11 +292,11 @@ This API submits tasks to disable IDN account for each identity provided in the 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identitiesaccountsbulkrequest** | `Identitiesaccountsbulkrequest` |  | 
+**identitiesAccountsBulkRequest** | `IdentitiesAccountsBulkRequest` |  | 
 
 ### Return type
 
-`Array<Bulkidentitiesaccountsresponse>`
+`Array<BulkIdentitiesAccountsResponse>`
 
 ### HTTP request headers
 
@@ -296,12 +308,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identitiesaccountsbulkrequest } from 'sailpoint-api-client/dist/accounts/api';
+import { IdentitiesAccountsBulkRequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
-const identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest = ; // 
-const result = await apiInstance.disableAccountsForIdentitiesV1({ identitiesaccountsbulkrequest: identitiesaccountsbulkrequest });
+const identitiesAccountsBulkRequest: IdentitiesAccountsBulkRequest = {
+  "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+}; // 
+const result = await apiInstance.disableAccountsForIdentitiesV1({ identitiesAccountsBulkRequest: identitiesAccountsBulkRequest });
 console.log(result);
 ```
 
@@ -356,11 +370,11 @@ This API submits a task to enable account and returns the task ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The account id |  [default to undefined]
-**accounttogglerequest** | `Accounttogglerequest` |  | 
+**accountToggleRequest** | `AccountToggleRequest` |  | 
 
 ### Return type
 
-`Accountsasyncresult`
+`AccountsAsyncResult`
 
 ### HTTP request headers
 
@@ -372,13 +386,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accounttogglerequest } from 'sailpoint-api-client/dist/accounts/api';
+import { AccountToggleRequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The account id
-const accounttogglerequest: Accounttogglerequest = ; // 
-const result = await apiInstance.enableAccountV1({ id: id, accounttogglerequest: accounttogglerequest });
+const accountToggleRequest: AccountToggleRequest = {
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+}; // 
+const result = await apiInstance.enableAccountV1({ id: id, accountToggleRequest: accountToggleRequest });
 console.log(result);
 ```
 
@@ -395,11 +412,11 @@ This API submits tasks to enable IDN account for each identity provided in the r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identitiesaccountsbulkrequest** | `Identitiesaccountsbulkrequest` |  | 
+**identitiesAccountsBulkRequest** | `IdentitiesAccountsBulkRequest` |  | 
 
 ### Return type
 
-`Array<Bulkidentitiesaccountsresponse>`
+`Array<BulkIdentitiesAccountsResponse>`
 
 ### HTTP request headers
 
@@ -411,12 +428,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identitiesaccountsbulkrequest } from 'sailpoint-api-client/dist/accounts/api';
+import { IdentitiesAccountsBulkRequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
-const identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest = ; // 
-const result = await apiInstance.enableAccountsForIdentitiesV1({ identitiesaccountsbulkrequest: identitiesaccountsbulkrequest });
+const identitiesAccountsBulkRequest: IdentitiesAccountsBulkRequest = {
+  "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+}; // 
+const result = await apiInstance.enableAccountsForIdentitiesV1({ identitiesAccountsBulkRequest: identitiesAccountsBulkRequest });
 console.log(result);
 ```
 
@@ -566,11 +585,11 @@ This endpoint submits an account update task and returns the task ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Account ID. |  [default to undefined]
-**accountattributes** | `Accountattributes` |  | 
+**accountAttributes** | `AccountAttributes` |  | 
 
 ### Return type
 
-`Accountsasyncresult`
+`AccountsAsyncResult`
 
 ### HTTP request headers
 
@@ -582,13 +601,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accountattributes } from 'sailpoint-api-client/dist/accounts/api';
+import { AccountAttributes } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Account ID.
-const accountattributes: Accountattributes = ; // 
-const result = await apiInstance.putAccountV1({ id: id, accountattributes: accountattributes });
+const accountAttributes: AccountAttributes = {
+  "attributes" : {
+    "city" : "Austin",
+    "displayName" : "John Doe",
+    "userName" : "jdoe",
+    "sAMAccountName" : "jDoe",
+    "mail" : "john.doe@sailpoint.com"
+  }
+}; // 
+const result = await apiInstance.putAccountV1({ id: id, accountAttributes: accountAttributes });
 console.log(result);
 ```
 
@@ -609,7 +636,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accountsasyncresult`
+`AccountsAsyncResult`
 
 ### HTTP request headers
 
@@ -644,11 +671,11 @@ To use this endpoint to unlock an account that has the `forceProvisioning` optio
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The account ID. |  [default to undefined]
-**accountunlockrequest** | `Accountunlockrequest` |  | 
+**accountUnlockRequest** | `AccountUnlockRequest` |  | 
 
 ### Return type
 
-`Accountsasyncresult`
+`AccountsAsyncResult`
 
 ### HTTP request headers
 
@@ -660,13 +687,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accountunlockrequest } from 'sailpoint-api-client/dist/accounts/api';
+import { AccountUnlockRequest } from 'sailpoint-api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The account ID.
-const accountunlockrequest: Accountunlockrequest = ; // 
-const result = await apiInstance.unlockAccountV1({ id: id, accountunlockrequest: accountunlockrequest });
+const accountUnlockRequest: AccountUnlockRequest = {
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
+  "unlockIDNAccount" : false
+}; // 
+const result = await apiInstance.unlockAccountV1({ id: id, accountUnlockRequest: accountUnlockRequest });
 console.log(result);
 ```
 

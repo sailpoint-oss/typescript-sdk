@@ -55,7 +55,7 @@ Create and configure extended search attributes.  This API accepts an attribute 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**searchattributeconfig** | `Searchattributeconfig` |  | 
+**searchAttributeConfig** | `SearchAttributeConfig` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
@@ -72,13 +72,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { SearchAttributeConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Searchattributeconfig } from 'sailpoint-api-client/dist/search_attribute_configuration/api';
+import { SearchAttributeConfig } from 'sailpoint-api-client/dist/search_attribute_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
-const searchattributeconfig: Searchattributeconfig = {"name":"newMailAttribute","displayName":"New Mail Attribute","applicationAttributes":{"2c9180866166b5b0016167c32ef31a66":"mail","2c9180866166b5b0016167c32ef31a67":"mail"}}; // 
+const searchAttributeConfig: SearchAttributeConfig = {
+  "displayName" : "New Mail Attribute",
+  "name" : "newMailAttribute",
+  "applicationAttributes" : {
+    "2c91808b79fd2422017a0b35d30f3968" : "employeeNumber",
+    "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
+  }
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createSearchAttributeConfigV1({ searchattributeconfig: searchattributeconfig });
+const result = await apiInstance.createSearchAttributeConfigV1({ searchAttributeConfig: searchAttributeConfig });
 console.log(result);
 ```
 
@@ -146,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Searchattributeconfig>`
+`Array<SearchAttributeConfig>`
 
 ### HTTP request headers
 
@@ -189,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Searchattributeconfig`
+`SearchAttributeConfig`
 
 ### HTTP request headers
 
@@ -229,12 +236,12 @@ You can patch these fields:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | `string` | Name of the search attribute configuration to patch. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Searchattributeconfig`
+`SearchAttributeConfig`
 
 ### HTTP request headers
 
@@ -246,14 +253,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { SearchAttributeConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/search_attribute_configuration/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/search_attribute_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
 const name: string = promotedMailAttribute; // Name of the search attribute configuration to patch.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"newAttributeName"},{"op":"replace","path":"/displayName","value":"new attribute display name"},{"op":"add","path":"/applicationAttributes","value":{"2c91808b79fd2422017a0b35d30f3968":"employeeNumber"}}]; // 
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.patchSearchAttributeConfigV1({ name: name, jsonpatchoperation: jsonpatchoperation });
+const result = await apiInstance.patchSearchAttributeConfigV1({ name: name, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

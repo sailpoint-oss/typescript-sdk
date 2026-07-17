@@ -41,11 +41,11 @@ Create a connector rule from the available types.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**connectorrulecreaterequest** | `Connectorrulecreaterequest` | Connector rule to create. | 
+**connectorRuleCreateRequest** | `ConnectorRuleCreateRequest` | Connector rule to create. | 
 
 ### Return type
 
-`Connectorruleresponse`
+`ConnectorRuleResponse`
 
 ### HTTP request headers
 
@@ -57,12 +57,37 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Connectorrulecreaterequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+import { ConnectorRuleCreateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
-const connectorrulecreaterequest: Connectorrulecreaterequest = ; // Connector rule to create.
-const result = await apiInstance.createConnectorRuleV1({ connectorrulecreaterequest: connectorrulecreaterequest });
+const connectorRuleCreateRequest: ConnectorRuleCreateRequest = {
+  "sourceCode" : {
+    "version" : "1.0",
+    "script" : "return \"Mr. \" + firstName;"
+  },
+  "signature" : {
+    "output" : {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    },
+    "input" : [ {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    }, {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    } ]
+  },
+  "name" : "WebServiceBeforeOperationRule",
+  "description" : "This rule does that",
+  "attributes" : { },
+  "type" : "BuildMap"
+}; // Connector rule to create.
+const result = await apiInstance.createConnectorRuleV1({ connectorRuleCreateRequest: connectorRuleCreateRequest });
 console.log(result);
 ```
 
@@ -122,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Connectorruleresponse>`
+`Array<ConnectorRuleResponse>`
 
 ### HTTP request headers
 
@@ -161,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Connectorruleresponse`
+`ConnectorRuleResponse`
 
 ### HTTP request headers
 
@@ -195,11 +220,11 @@ Update an existing connector rule with the one provided in the request body. The
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the connector rule to update. |  [default to undefined]
-**connectorruleupdaterequest** | `Connectorruleupdaterequest` | Connector rule with updated data. | [optional]
+**connectorRuleUpdateRequest** | `ConnectorRuleUpdateRequest` | Connector rule with updated data. | [optional]
 
 ### Return type
 
-`Connectorruleresponse`
+`ConnectorRuleResponse`
 
 ### HTTP request headers
 
@@ -211,12 +236,38 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Connectorruleupdaterequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+import { ConnectorRuleUpdateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
 const id: string = 8c190e6787aa4ed9a90bd9d5344523fb; // ID of the connector rule to update.
-const connectorruleupdaterequest: Connectorruleupdaterequest = ; // Connector rule with updated data. (optional)
+const connectorRuleUpdateRequest: ConnectorRuleUpdateRequest = {
+  "sourceCode" : {
+    "version" : "1.0",
+    "script" : "return \"Mr. \" + firstName;"
+  },
+  "signature" : {
+    "output" : {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    },
+    "input" : [ {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    }, {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    } ]
+  },
+  "name" : "WebServiceBeforeOperationRule",
+  "description" : "This rule does that",
+  "attributes" : { },
+  "id" : "8113d48c0b914f17b4c6072d4dcb9dfe",
+  "type" : "BuildMap"
+}; // Connector rule with updated data. (optional)
 const result = await apiInstance.putConnectorRuleV1({ id: id });
 console.log(result);
 ```
@@ -234,11 +285,11 @@ Detect issues within the connector rule's code to fix and list them.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**sourcecode** | `Sourcecode` | Code to validate. | 
+**sourceCode** | `SourceCode` | Code to validate. | 
 
 ### Return type
 
-`Connectorrulevalidationresponse`
+`ConnectorRuleValidationResponse`
 
 ### HTTP request headers
 
@@ -250,12 +301,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sourcecode } from 'sailpoint-api-client/dist/connector_rule_management/api';
+import { SourceCode } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
-const sourcecode: Sourcecode = ; // Code to validate.
-const result = await apiInstance.testConnectorRuleV1({ sourcecode: sourcecode });
+const sourceCode: SourceCode = {
+  "version" : "1.0",
+  "script" : "return \"Mr. \" + firstName;"
+}; // Code to validate.
+const result = await apiInstance.testConnectorRuleV1({ sourceCode: sourceCode });
 console.log(result);
 ```
 

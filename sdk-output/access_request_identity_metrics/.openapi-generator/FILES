@@ -3,12 +3,12 @@
 .openapi-generator-ignore
 AccessRequestIdentityMetricsApi.md
 AccessRequestIdentityMetricsApideveloperSite_code_examples.yaml
-Errormessagedto.md
-Errorresponsedto.md
+ErrorMessageDto.md
+ErrorResponseDto.md
 GetAccessRequestIdentityMetricsV1401Response.md
 GetAccessRequestIdentityMetricsV1429Response.md
 Index.md
-Localeorigin.md
+LocaleOrigin.md
 README.md
 api.ts
 base.ts

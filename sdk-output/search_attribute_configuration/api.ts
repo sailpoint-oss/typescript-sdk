@@ -33,25 +33,25 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -60,33 +60,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -117,30 +117,30 @@ export interface GetSearchAttributeConfigV1429Response {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -149,14 +149,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -164,36 +164,36 @@ export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | obj
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Searchattributeconfig
+ * @interface SearchAttributeConfig
  */
-export interface Searchattributeconfig {
+export interface SearchAttributeConfig {
     /**
      * Name of the new attribute
      * @type {string}
-     * @memberof Searchattributeconfig
+     * @memberof SearchAttributeConfig
      */
     'name'?: string;
     /**
      * The display name of the new attribute
      * @type {string}
-     * @memberof Searchattributeconfig
+     * @memberof SearchAttributeConfig
      */
     'displayName'?: string;
     /**
      * Map of application id and their associated attribute.
      * @type {object}
-     * @memberof Searchattributeconfig
+     * @memberof SearchAttributeConfig
      */
     'applicationAttributes'?: object;
 }
@@ -207,14 +207,14 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
         /**
          * Create and configure extended search attributes.  This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig. >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes\' `applicationAttributes`.**
          * @summary Create extended search attributes
-         * @param {Searchattributeconfig} searchattributeconfig 
+         * @param {SearchAttributeConfig} searchAttributeConfig 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSearchAttributeConfigV1: async (searchattributeconfig: Searchattributeconfig, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'searchattributeconfig' is not null or undefined
-            assertParamExists('createSearchAttributeConfigV1', 'searchattributeconfig', searchattributeconfig)
+        createSearchAttributeConfigV1: async (searchAttributeConfig: SearchAttributeConfig, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'searchAttributeConfig' is not null or undefined
+            assertParamExists('createSearchAttributeConfigV1', 'searchAttributeConfig', searchAttributeConfig)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -241,7 +241,7 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(searchattributeconfig, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(searchAttributeConfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -384,16 +384,16 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
          * Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
          * @summary Update extended search attribute
          * @param {string} name Name of the search attribute configuration to patch.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSearchAttributeConfigV1: async (name: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchSearchAttributeConfigV1: async (name: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'name' is not null or undefined
             assertParamExists('patchSearchAttributeConfigV1', 'name', name)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchSearchAttributeConfigV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchSearchAttributeConfigV1', 'jsonPatchOperation', jsonPatchOperation)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -421,7 +421,7 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -441,13 +441,13 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
         /**
          * Create and configure extended search attributes.  This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig. >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes\' `applicationAttributes`.**
          * @summary Create extended search attributes
-         * @param {Searchattributeconfig} searchattributeconfig 
+         * @param {SearchAttributeConfig} searchAttributeConfig 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSearchAttributeConfigV1(searchattributeconfig: Searchattributeconfig, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSearchAttributeConfigV1(searchattributeconfig, xSailPointExperimental, axiosOptions);
+        async createSearchAttributeConfigV1(searchAttributeConfig: SearchAttributeConfig, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSearchAttributeConfigV1(searchAttributeConfig, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SearchAttributeConfigurationApi.createSearchAttributeConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -475,7 +475,7 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSearchAttributeConfigV1(limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Searchattributeconfig>>> {
+        async getSearchAttributeConfigV1(limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfig>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfigV1(limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SearchAttributeConfigurationApi.getSearchAttributeConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -489,7 +489,7 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSingleSearchAttributeConfigV1(name: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Searchattributeconfig>> {
+        async getSingleSearchAttributeConfigV1(name: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchAttributeConfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSingleSearchAttributeConfigV1(name, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SearchAttributeConfigurationApi.getSingleSearchAttributeConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -499,13 +499,13 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
          * Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
          * @summary Update extended search attribute
          * @param {string} name Name of the search attribute configuration to patch.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSearchAttributeConfigV1(name: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Searchattributeconfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSearchAttributeConfigV1(name, jsonpatchoperation, xSailPointExperimental, axiosOptions);
+        async patchSearchAttributeConfigV1(name: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchAttributeConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSearchAttributeConfigV1(name, jsonPatchOperation, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SearchAttributeConfigurationApi.patchSearchAttributeConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -528,7 +528,7 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
          * @throws {RequiredError}
          */
         createSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiCreateSearchAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.createSearchAttributeConfigV1(requestParameters.searchattributeconfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createSearchAttributeConfigV1(requestParameters.searchAttributeConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete an extended attribute configuration by name.
@@ -547,7 +547,7 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiGetSearchAttributeConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Searchattributeconfig>> {
+        getSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiGetSearchAttributeConfigV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SearchAttributeConfig>> {
             return localVarFp.getSearchAttributeConfigV1(requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -557,7 +557,7 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSingleSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiGetSingleSearchAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Searchattributeconfig> {
+        getSingleSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiGetSingleSearchAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SearchAttributeConfig> {
             return localVarFp.getSingleSearchAttributeConfigV1(requestParameters.name, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -567,8 +567,8 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiPatchSearchAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Searchattributeconfig> {
-            return localVarFp.patchSearchAttributeConfigV1(requestParameters.name, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        patchSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiPatchSearchAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SearchAttributeConfig> {
+            return localVarFp.patchSearchAttributeConfigV1(requestParameters.name, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -581,10 +581,10 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
 export interface SearchAttributeConfigurationApiCreateSearchAttributeConfigV1Request {
     /**
      * 
-     * @type {Searchattributeconfig}
+     * @type {SearchAttributeConfig}
      * @memberof SearchAttributeConfigurationApiCreateSearchAttributeConfigV1
      */
-    readonly searchattributeconfig: Searchattributeconfig
+    readonly searchAttributeConfig: SearchAttributeConfig
 
     /**
      * Use this header to enable this experimental API.
@@ -679,10 +679,10 @@ export interface SearchAttributeConfigurationApiPatchSearchAttributeConfigV1Requ
 
     /**
      * 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof SearchAttributeConfigurationApiPatchSearchAttributeConfigV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 
     /**
      * Use this header to enable this experimental API.
@@ -708,7 +708,7 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
      * @memberof SearchAttributeConfigurationApi
      */
     public createSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiCreateSearchAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SearchAttributeConfigurationApiFp(this.configuration).createSearchAttributeConfigV1(requestParameters.searchattributeconfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SearchAttributeConfigurationApiFp(this.configuration).createSearchAttributeConfigV1(requestParameters.searchAttributeConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -756,7 +756,7 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
      * @memberof SearchAttributeConfigurationApi
      */
     public patchSearchAttributeConfigV1(requestParameters: SearchAttributeConfigurationApiPatchSearchAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SearchAttributeConfigurationApiFp(this.configuration).patchSearchAttributeConfigV1(requestParameters.name, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SearchAttributeConfigurationApiFp(this.configuration).patchSearchAttributeConfigV1(requestParameters.name, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

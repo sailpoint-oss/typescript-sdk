@@ -72,7 +72,7 @@ Note that each tenant is limited to a maximum of 100 key-value pairs.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**jsonpatchoperation** | `Jsonpatchoperation` |  | 
+**jsonPatchOperation** | `JsonPatchOperation` |  | 
 
 ### Return type
 
@@ -88,12 +88,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { TenantContextApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/tenant_context/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/tenant_context/api';
 
 const configuration = new Configuration();
 const apiInstance = new TenantContextApi(configuration);
-const jsonpatchoperation: Jsonpatchoperation = [{"op":"add","path":"/Key/IAS","value":"Integrated Automation System"},{"op":"replace","path":"/Key/IAS","value":"International Accounting Standards"},{"op":"remove","path":"/Key/NDR"}]; // 
-const result = await apiInstance.patchTenantContextV1({ jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: JsonPatchOperation = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
+const result = await apiInstance.patchTenantContextV1({ jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

@@ -43,11 +43,11 @@ This API creates a new Governance Group.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**workgroupdto** | `Workgroupdto` |  | 
+**workgroupDto** | `WorkgroupDto` |  | 
 
 ### Return type
 
-`Workgroupdto`
+`WorkgroupDto`
 
 ### HTTP request headers
 
@@ -59,12 +59,27 @@ Name | Type | Description  | Notes
 ```typescript
 import { GovernanceGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Workgroupdto } from 'sailpoint-api-client/dist/governance_groups/api';
+import { WorkgroupDto } from 'sailpoint-api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
-const workgroupdto: Workgroupdto = ; // 
-const result = await apiInstance.createWorkgroupV1({ workgroupdto: workgroupdto });
+const workgroupDto: WorkgroupDto = {
+  "owner" : {
+    "emailAddress" : "support@sailpoint.com",
+    "displayName" : "Support",
+    "name" : "Support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "connectionCount" : 1641498673000,
+  "created" : "2022-01-06T19:51:13Z",
+  "memberCount" : 1641498673000,
+  "name" : "DB Access Governance Group",
+  "description" : "Description of the Governance Group",
+  "modified" : "2022-01-06T19:51:13Z",
+  "id" : "2c91808568c529c60168cca6f90c1313"
+}; // 
+const result = await apiInstance.createWorkgroupV1({ workgroupDto: workgroupDto });
 console.log(result);
 ```
 
@@ -85,11 +100,11 @@ This API removes one or more  members from a Governance Group.  A
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **workgroupId** | `string` | ID of the Governance Group. |  [default to undefined]
-**bulkworkgroupmembersrequestInner** | `Array<BulkworkgroupmembersrequestInner>` | List of identities to be removed from  a Governance Group members list. | 
+**bulkWorkgroupMembersRequestInner** | `Array<BulkWorkgroupMembersRequestInner>` | List of identities to be removed from  a Governance Group members list. | 
 
 ### Return type
 
-`Array<Workgroupmemberdeleteitem>`
+`Array<WorkgroupMemberDeleteItem>`
 
 ### HTTP request headers
 
@@ -101,13 +116,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { GovernanceGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { BulkworkgroupmembersrequestInner } from 'sailpoint-api-client/dist/governance_groups/api';
+import { BulkWorkgroupMembersRequestInner } from 'sailpoint-api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
 const workgroupId: string = 2c91808a7813090a017814121919ecca; // ID of the Governance Group.
-const bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner> = ; // List of identities to be removed from  a Governance Group members list.
-const result = await apiInstance.deleteWorkgroupMembersV1({ workgroupId: workgroupId, bulkworkgroupmembersrequestInner: bulkworkgroupmembersrequestInner });
+const bulkWorkgroupMembersRequestInner: Array<BulkWorkgroupMembersRequestInner> = ; // List of identities to be removed from  a Governance Group members list.
+const result = await apiInstance.deleteWorkgroupMembersV1({ workgroupId: workgroupId, bulkWorkgroupMembersRequestInner: bulkWorkgroupMembersRequestInner });
 console.log(result);
 ```
 
@@ -172,11 +187,11 @@ This API initiates a bulk deletion of one or more Governance Groups.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**workgroupbulkdeleterequest** | `Workgroupbulkdeleterequest` |  | 
+**workgroupBulkDeleteRequest** | `WorkgroupBulkDeleteRequest` |  | 
 
 ### Return type
 
-`Array<Workgroupdeleteitem>`
+`Array<WorkgroupDeleteItem>`
 
 ### HTTP request headers
 
@@ -188,12 +203,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { GovernanceGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Workgroupbulkdeleterequest } from 'sailpoint-api-client/dist/governance_groups/api';
+import { WorkgroupBulkDeleteRequest } from 'sailpoint-api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
-const workgroupbulkdeleterequest: Workgroupbulkdeleterequest = {"ids":["567a697e-885b-495a-afc5-d55e1c23a302","c7b0f7b2-1e78-4063-b294-a555333dacd2"]}; // 
-const result = await apiInstance.deleteWorkgroupsInBulkV1({ workgroupbulkdeleterequest: workgroupbulkdeleterequest });
+const workgroupBulkDeleteRequest: WorkgroupBulkDeleteRequest = {
+  "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
+}; // 
+const result = await apiInstance.deleteWorkgroupsInBulkV1({ workgroupBulkDeleteRequest: workgroupBulkDeleteRequest });
 console.log(result);
 ```
 
@@ -214,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workgroupdto`
+`WorkgroupDto`
 
 ### HTTP request headers
 
@@ -255,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workgroupconnectiondto>`
+`Array<WorkgroupConnectionDto>`
 
 ### HTTP request headers
 
@@ -345,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workgroupdto>`
+`Array<WorkgroupDto>`
 
 ### HTTP request headers
 
@@ -386,11 +403,11 @@ This API updates an existing governance group by ID. The following fields and ob
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Governance Group |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | [optional]
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | [optional]
 
 ### Return type
 
-`Workgroupdto`
+`WorkgroupDto`
 
 ### HTTP request headers
 
@@ -402,12 +419,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { GovernanceGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/governance_groups/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
 const id: string = 2c9180837ca6693d017ca8d097500149; // ID of the Governance Group
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Governance Group new description."}]; //  (optional)
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; //  (optional)
 const result = await apiInstance.patchWorkgroupV1({ id: id });
 console.log(result);
 ```
@@ -430,11 +451,11 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **workgroupId** | `string` | ID of the Governance Group. |  [default to undefined]
-**bulkworkgroupmembersrequestInner** | `Array<BulkworkgroupmembersrequestInner>` | List of identities to be added to a Governance Group members list. | 
+**bulkWorkgroupMembersRequestInner** | `Array<BulkWorkgroupMembersRequestInner>` | List of identities to be added to a Governance Group members list. | 
 
 ### Return type
 
-`Array<Workgroupmemberadditem>`
+`Array<WorkgroupMemberAddItem>`
 
 ### HTTP request headers
 
@@ -446,13 +467,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { GovernanceGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { BulkworkgroupmembersrequestInner } from 'sailpoint-api-client/dist/governance_groups/api';
+import { BulkWorkgroupMembersRequestInner } from 'sailpoint-api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
 const workgroupId: string = 2c91808a7813090a017814121919ecca; // ID of the Governance Group.
-const bulkworkgroupmembersrequestInner: Array<BulkworkgroupmembersrequestInner> = ; // List of identities to be added to a Governance Group members list.
-const result = await apiInstance.updateWorkgroupMembersV1({ workgroupId: workgroupId, bulkworkgroupmembersrequestInner: bulkworkgroupmembersrequestInner });
+const bulkWorkgroupMembersRequestInner: Array<BulkWorkgroupMembersRequestInner> = ; // List of identities to be added to a Governance Group members list.
+const result = await apiInstance.updateWorkgroupMembersV1({ workgroupId: workgroupId, bulkWorkgroupMembersRequestInner: bulkWorkgroupMembersRequestInner });
 console.log(result);
 ```
 

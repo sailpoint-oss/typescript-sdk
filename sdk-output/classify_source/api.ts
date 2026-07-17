@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,12 +113,12 @@ export interface GetClassifyMachineAccountFromSourceStatusV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -137,36 +137,36 @@ export interface SendClassifyMachineAccountFromSourceV1200Response {
 /**
  * 
  * @export
- * @interface Sourceclassificationstatus
+ * @interface SourceClassificationStatus
  */
-export interface Sourceclassificationstatus {
+export interface SourceClassificationStatus {
     /**
      * Status of Classification Process
      * @type {string}
-     * @memberof Sourceclassificationstatus
+     * @memberof SourceClassificationStatus
      */
-    'status'?: SourceclassificationstatusStatusEnum;
+    'status'?: SourceClassificationStatusStatusEnum;
     /**
      * Time when the process was started
      * @type {string}
-     * @memberof Sourceclassificationstatus
+     * @memberof SourceClassificationStatus
      */
     'started'?: string;
     /**
      * Time when the process status was last updated
      * @type {string}
-     * @memberof Sourceclassificationstatus
+     * @memberof SourceClassificationStatus
      */
     'updated'?: string | null;
     /**
      * 
-     * @type {SourceclassificationstatusAllOfCounts}
-     * @memberof Sourceclassificationstatus
+     * @type {SourceClassificationStatusAllOfCounts}
+     * @memberof SourceClassificationStatus
      */
-    'counts'?: SourceclassificationstatusAllOfCounts;
+    'counts'?: SourceClassificationStatusAllOfCounts;
 }
 
-export const SourceclassificationstatusStatusEnum = {
+export const SourceClassificationStatusStatusEnum = {
     Started: 'STARTED',
     Collected: 'COLLECTED',
     Completed: 'COMPLETED',
@@ -174,30 +174,30 @@ export const SourceclassificationstatusStatusEnum = {
     Terminated: 'TERMINATED'
 } as const;
 
-export type SourceclassificationstatusStatusEnum = typeof SourceclassificationstatusStatusEnum[keyof typeof SourceclassificationstatusStatusEnum];
+export type SourceClassificationStatusStatusEnum = typeof SourceClassificationStatusStatusEnum[keyof typeof SourceClassificationStatusStatusEnum];
 
 /**
  * A map containing numbers relevant to the source classification process
  * @export
- * @interface SourceclassificationstatusAllOfCounts
+ * @interface SourceClassificationStatusAllOfCounts
  */
-export interface SourceclassificationstatusAllOfCounts {
+export interface SourceClassificationStatusAllOfCounts {
     /**
      * total number of source accounts
      * @type {number}
-     * @memberof SourceclassificationstatusAllOfCounts
+     * @memberof SourceClassificationStatusAllOfCounts
      */
     'EXPECTED': number;
     /**
      * number of accounts that have been sent for processing (should be the same as expected when all accounts are collected)
      * @type {number}
-     * @memberof SourceclassificationstatusAllOfCounts
+     * @memberof SourceClassificationStatusAllOfCounts
      */
     'RECEIVED': number;
     /**
      * number of accounts that have been classified
      * @type {number}
-     * @memberof SourceclassificationstatusAllOfCounts
+     * @memberof SourceClassificationStatusAllOfCounts
      */
     'COMPLETED': number;
 }
@@ -340,7 +340,7 @@ export const ClassifySourceApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getClassifyMachineAccountFromSourceStatusV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceclassificationstatus>> {
+        async getClassifyMachineAccountFromSourceStatusV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceClassificationStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getClassifyMachineAccountFromSourceStatusV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ClassifySourceApi.getClassifyMachineAccountFromSourceStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -386,7 +386,7 @@ export const ClassifySourceApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceclassificationstatus> {
+        getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceClassificationStatus> {
             return localVarFp.getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**

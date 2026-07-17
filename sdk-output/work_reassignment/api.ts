@@ -26,68 +26,68 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Audit details for the reassignment configuration of an identity
  * @export
- * @interface Auditdetails
+ * @interface AuditDetails
  */
-export interface Auditdetails {
+export interface AuditDetails {
     /**
      * Initial date and time when the record was created
      * @type {string}
-     * @memberof Auditdetails
+     * @memberof AuditDetails
      */
     'created'?: string;
     /**
      * 
      * @type {Identity2}
-     * @memberof Auditdetails
+     * @memberof AuditDetails
      */
     'createdBy'?: Identity2;
     /**
      * Last modified date and time for the record
      * @type {string}
-     * @memberof Auditdetails
+     * @memberof AuditDetails
      */
     'modified'?: string;
     /**
      * 
      * @type {Identity2}
-     * @memberof Auditdetails
+     * @memberof AuditDetails
      */
     'modifiedBy'?: Identity2;
 }
 /**
  * Type of Reassignment Configuration.
  * @export
- * @interface Configtype
+ * @interface ConfigType
  */
-export interface Configtype {
+export interface ConfigType {
     /**
      * 
      * @type {number}
-     * @memberof Configtype
+     * @memberof ConfigType
      */
     'priority'?: number;
     /**
      * 
-     * @type {Configtypeenumcamel}
-     * @memberof Configtype
+     * @type {ConfigTypeEnumCamel}
+     * @memberof ConfigType
      */
-    'internalName'?: Configtypeenumcamel;
+    'internalName'?: ConfigTypeEnumCamel;
     /**
      * 
-     * @type {Configtypeenum}
-     * @memberof Configtype
+     * @type {ConfigTypeEnum}
+     * @memberof ConfigType
      */
-    'internalNameCamel'?: Configtypeenum;
+    'internalNameCamel'?: ConfigTypeEnum;
     /**
      * Human readable display name of the type to be shown on UI
      * @type {string}
-     * @memberof Configtype
+     * @memberof ConfigType
      */
     'displayName'?: string;
     /**
      * Description of the type of work to be reassigned, displayed by the UI.
      * @type {string}
-     * @memberof Configtype
+     * @memberof ConfigType
      */
     'description'?: string;
 }
@@ -99,14 +99,14 @@ export interface Configtype {
  * @enum {string}
  */
 
-export const Configtypeenum = {
+export const ConfigTypeEnum = {
     AccessRequests: 'ACCESS_REQUESTS',
     Certifications: 'CERTIFICATIONS',
     ManualTasks: 'MANUAL_TASKS',
     GenericApprovals: 'GENERIC_APPROVALS'
 } as const;
 
-export type Configtypeenum = typeof Configtypeenum[keyof typeof Configtypeenum];
+export type ConfigTypeEnum = typeof ConfigTypeEnum[keyof typeof ConfigTypeEnum];
 
 
 /**
@@ -115,88 +115,88 @@ export type Configtypeenum = typeof Configtypeenum[keyof typeof Configtypeenum];
  * @enum {string}
  */
 
-export const Configtypeenumcamel = {
+export const ConfigTypeEnumCamel = {
     AccessRequests: 'accessRequests',
     Certifications: 'certifications',
     ManualTasks: 'manualTasks'
 } as const;
 
-export type Configtypeenumcamel = typeof Configtypeenumcamel[keyof typeof Configtypeenumcamel];
+export type ConfigTypeEnumCamel = typeof ConfigTypeEnumCamel[keyof typeof ConfigTypeEnumCamel];
 
 
 /**
  * The request body of Reassignment Configuration Details for a specific identity and config type
  * @export
- * @interface Configurationdetailsresponse
+ * @interface ConfigurationDetailsResponse
  */
-export interface Configurationdetailsresponse {
+export interface ConfigurationDetailsResponse {
     /**
      * 
-     * @type {Configtypeenum}
-     * @memberof Configurationdetailsresponse
+     * @type {ConfigTypeEnum}
+     * @memberof ConfigurationDetailsResponse
      */
-    'configType'?: Configtypeenum;
+    'configType'?: ConfigTypeEnum;
     /**
      * 
      * @type {Identity2}
-     * @memberof Configurationdetailsresponse
+     * @memberof ConfigurationDetailsResponse
      */
     'targetIdentity'?: Identity2;
     /**
      * The date from which to start reassigning work items
      * @type {string}
-     * @memberof Configurationdetailsresponse
+     * @memberof ConfigurationDetailsResponse
      */
     'startDate'?: string;
     /**
      * The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment.
      * @type {string}
-     * @memberof Configurationdetailsresponse
+     * @memberof ConfigurationDetailsResponse
      */
     'endDate'?: string;
     /**
      * 
-     * @type {Auditdetails}
-     * @memberof Configurationdetailsresponse
+     * @type {AuditDetails}
+     * @memberof ConfigurationDetailsResponse
      */
-    'auditDetails'?: Auditdetails;
+    'auditDetails'?: AuditDetails;
 }
 
 
 /**
  * The request body for creation or update of a Reassignment Configuration for a single identity and work type
  * @export
- * @interface Configurationitemrequest
+ * @interface ConfigurationItemRequest
  */
-export interface Configurationitemrequest {
+export interface ConfigurationItemRequest {
     /**
      * The identity id to reassign an item from
      * @type {string}
-     * @memberof Configurationitemrequest
+     * @memberof ConfigurationItemRequest
      */
     'reassignedFromId'?: string;
     /**
      * The identity id to reassign an item to
      * @type {string}
-     * @memberof Configurationitemrequest
+     * @memberof ConfigurationItemRequest
      */
     'reassignedToId'?: string;
     /**
      * 
-     * @type {Configtypeenum}
-     * @memberof Configurationitemrequest
+     * @type {ConfigTypeEnum}
+     * @memberof ConfigurationItemRequest
      */
-    'configType'?: Configtypeenum;
+    'configType'?: ConfigTypeEnum;
     /**
      * The date from which to start reassigning work items
      * @type {string}
-     * @memberof Configurationitemrequest
+     * @memberof ConfigurationItemRequest
      */
     'startDate'?: string;
     /**
      * The date from which to stop reassigning work items.  If this is an null string it indicates a permanent reassignment.
      * @type {string}
-     * @memberof Configurationitemrequest
+     * @memberof ConfigurationItemRequest
      */
     'endDate'?: string | null;
 }
@@ -205,63 +205,63 @@ export interface Configurationitemrequest {
 /**
  * The response body of a Reassignment Configuration for a single identity
  * @export
- * @interface Configurationitemresponse
+ * @interface ConfigurationItemResponse
  */
-export interface Configurationitemresponse {
+export interface ConfigurationItemResponse {
     /**
      * 
      * @type {Identity2}
-     * @memberof Configurationitemresponse
+     * @memberof ConfigurationItemResponse
      */
     'identity'?: Identity2;
     /**
      * Details of how work should be reassigned for an Identity
-     * @type {Array<Configurationdetailsresponse>}
-     * @memberof Configurationitemresponse
+     * @type {Array<ConfigurationDetailsResponse>}
+     * @memberof ConfigurationItemResponse
      */
-    'configDetails'?: Array<Configurationdetailsresponse>;
+    'configDetails'?: Array<ConfigurationDetailsResponse>;
 }
 /**
  * The response body of a Reassignment Configuration for a single identity
  * @export
- * @interface Configurationresponse
+ * @interface ConfigurationResponse
  */
-export interface Configurationresponse {
+export interface ConfigurationResponse {
     /**
      * 
      * @type {Identity2}
-     * @memberof Configurationresponse
+     * @memberof ConfigurationResponse
      */
     'identity'?: Identity2;
     /**
      * Details of how work should be reassigned for an Identity
-     * @type {Array<Configurationdetailsresponse>}
-     * @memberof Configurationresponse
+     * @type {Array<ConfigurationDetailsResponse>}
+     * @memberof ConfigurationResponse
      */
-    'configDetails'?: Array<Configurationdetailsresponse>;
+    'configDetails'?: Array<ConfigurationDetailsResponse>;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -270,52 +270,52 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * The response body for Evaluate Reassignment Configuration
  * @export
- * @interface Evaluateresponse
+ * @interface EvaluateResponse
  */
-export interface Evaluateresponse {
+export interface EvaluateResponse {
     /**
      * The Identity ID which should be the recipient of any work items sent to a specific identity & work type
      * @type {string}
-     * @memberof Evaluateresponse
+     * @memberof EvaluateResponse
      */
     'reassignToId'?: string;
     /**
      * List of Reassignments found by looking up the next `TargetIdentity` in a ReassignmentConfiguration
-     * @type {Array<Lookupstep>}
-     * @memberof Evaluateresponse
+     * @type {Array<LookupStep>}
+     * @memberof EvaluateResponse
      */
-    'lookupTrail'?: Array<Lookupstep>;
+    'lookupTrail'?: Array<LookupStep>;
 }
 /**
  * 
@@ -368,38 +368,38 @@ export interface Identity2 {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * The definition of an Identity according to the Reassignment Configuration service
  * @export
- * @interface Lookupstep
+ * @interface LookupStep
  */
-export interface Lookupstep {
+export interface LookupStep {
     /**
      * The ID of the Identity who work is reassigned to
      * @type {string}
-     * @memberof Lookupstep
+     * @memberof LookupStep
      */
     'reassignedToId'?: string;
     /**
      * The ID of the Identity who work is reassigned from
      * @type {string}
-     * @memberof Lookupstep
+     * @memberof LookupStep
      */
     'reassignedFromId'?: string;
     /**
      * 
-     * @type {Reassignmenttypeenum}
-     * @memberof Lookupstep
+     * @type {ReassignmentTypeEnum}
+     * @memberof LookupStep
      */
-    'reassignmentType'?: Reassignmenttypeenum;
+    'reassignmentType'?: ReassignmentTypeEnum;
 }
 
 
@@ -409,60 +409,60 @@ export interface Lookupstep {
  * @enum {string}
  */
 
-export const Reassignmenttypeenum = {
+export const ReassignmentTypeEnum = {
     ManualReassignment: 'MANUAL_REASSIGNMENT,',
     AutomaticReassignment: 'AUTOMATIC_REASSIGNMENT,',
     AutoEscalation: 'AUTO_ESCALATION,',
     SelfReviewDelegation: 'SELF_REVIEW_DELEGATION'
 } as const;
 
-export type Reassignmenttypeenum = typeof Reassignmenttypeenum[keyof typeof Reassignmenttypeenum];
+export type ReassignmentTypeEnum = typeof ReassignmentTypeEnum[keyof typeof ReassignmentTypeEnum];
 
 
 /**
  * Details of any tenant-wide Reassignment Configurations (eg. enabled/disabled)
  * @export
- * @interface Tenantconfigurationdetails
+ * @interface TenantConfigurationDetails
  */
-export interface Tenantconfigurationdetails {
+export interface TenantConfigurationDetails {
     /**
      * Flag to determine if Reassignment Configuration is enabled or disabled for a tenant.  When this flag is set to true, Reassignment Configuration is disabled.
      * @type {boolean}
-     * @memberof Tenantconfigurationdetails
+     * @memberof TenantConfigurationDetails
      */
     'disabled'?: boolean | null;
 }
 /**
  * Tenant-wide Reassignment Configuration settings
  * @export
- * @interface Tenantconfigurationrequest
+ * @interface TenantConfigurationRequest
  */
-export interface Tenantconfigurationrequest {
+export interface TenantConfigurationRequest {
     /**
      * 
-     * @type {Tenantconfigurationdetails}
-     * @memberof Tenantconfigurationrequest
+     * @type {TenantConfigurationDetails}
+     * @memberof TenantConfigurationRequest
      */
-    'configDetails'?: Tenantconfigurationdetails;
+    'configDetails'?: TenantConfigurationDetails;
 }
 /**
  * Tenant-wide Reassignment Configuration settings
  * @export
- * @interface Tenantconfigurationresponse
+ * @interface TenantConfigurationResponse
  */
-export interface Tenantconfigurationresponse {
+export interface TenantConfigurationResponse {
     /**
      * 
-     * @type {Auditdetails}
-     * @memberof Tenantconfigurationresponse
+     * @type {AuditDetails}
+     * @memberof TenantConfigurationResponse
      */
-    'auditDetails'?: Auditdetails;
+    'auditDetails'?: AuditDetails;
     /**
      * 
-     * @type {Tenantconfigurationdetails}
-     * @memberof Tenantconfigurationresponse
+     * @type {TenantConfigurationDetails}
+     * @memberof TenantConfigurationResponse
      */
-    'configDetails'?: Tenantconfigurationdetails;
+    'configDetails'?: TenantConfigurationDetails;
 }
 
 /**
@@ -474,14 +474,14 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
         /**
          * Creates a new Reassignment Configuration for the specified identity.
          * @summary Create a reassignment configuration
-         * @param {Configurationitemrequest} configurationitemrequest 
+         * @param {ConfigurationItemRequest} configurationItemRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createReassignmentConfigurationV1: async (configurationitemrequest: Configurationitemrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'configurationitemrequest' is not null or undefined
-            assertParamExists('createReassignmentConfigurationV1', 'configurationitemrequest', configurationitemrequest)
+        createReassignmentConfigurationV1: async (configurationItemRequest: ConfigurationItemRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'configurationItemRequest' is not null or undefined
+            assertParamExists('createReassignmentConfigurationV1', 'configurationItemRequest', configurationItemRequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -508,7 +508,7 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(configurationitemrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(configurationItemRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -519,12 +519,12 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
          * Deletes a single reassignment configuration for the specified identity
          * @summary Delete reassignment configuration
          * @param {string} identityId unique identity id
-         * @param {Configtypeenum} configType 
+         * @param {ConfigTypeEnum} configType 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteReassignmentConfigurationV1: async (identityId: string, configType: Configtypeenum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteReassignmentConfigurationV1: async (identityId: string, configType: ConfigTypeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityId' is not null or undefined
             assertParamExists('deleteReassignmentConfigurationV1', 'identityId', identityId)
             // verify required parameter 'configType' is not null or undefined
@@ -565,13 +565,13 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
          * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
          * @summary Evaluate reassignment configuration
          * @param {string} identityId unique identity id
-         * @param {Configtypeenum} configType Reassignment work type
+         * @param {ConfigTypeEnum} configType Reassignment work type
          * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEvaluateReassignmentConfigurationV1: async (identityId: string, configType: Configtypeenum, exclusionFilters?: Array<string>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getEvaluateReassignmentConfigurationV1: async (identityId: string, configType: ConfigTypeEnum, exclusionFilters?: Array<string>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityId' is not null or undefined
             assertParamExists('getEvaluateReassignmentConfigurationV1', 'identityId', identityId)
             // verify required parameter 'configType' is not null or undefined
@@ -772,16 +772,16 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
          * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
          * @summary Update reassignment configuration
          * @param {string} identityId unique identity id
-         * @param {Configurationitemrequest} configurationitemrequest 
+         * @param {ConfigurationItemRequest} configurationItemRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putReassignmentConfigV1: async (identityId: string, configurationitemrequest: Configurationitemrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putReassignmentConfigV1: async (identityId: string, configurationItemRequest: ConfigurationItemRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityId' is not null or undefined
             assertParamExists('putReassignmentConfigV1', 'identityId', identityId)
-            // verify required parameter 'configurationitemrequest' is not null or undefined
-            assertParamExists('putReassignmentConfigV1', 'configurationitemrequest', configurationitemrequest)
+            // verify required parameter 'configurationItemRequest' is not null or undefined
+            assertParamExists('putReassignmentConfigV1', 'configurationItemRequest', configurationItemRequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -809,7 +809,7 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(configurationitemrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(configurationItemRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -819,14 +819,14 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
         /**
          * Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
          * @summary Update tenant-wide reassignment configuration settings
-         * @param {Tenantconfigurationrequest} tenantconfigurationrequest 
+         * @param {TenantConfigurationRequest} tenantConfigurationRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTenantConfigurationV1: async (tenantconfigurationrequest: Tenantconfigurationrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantconfigurationrequest' is not null or undefined
-            assertParamExists('putTenantConfigurationV1', 'tenantconfigurationrequest', tenantconfigurationrequest)
+        putTenantConfigurationV1: async (tenantConfigurationRequest: TenantConfigurationRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantConfigurationRequest' is not null or undefined
+            assertParamExists('putTenantConfigurationV1', 'tenantConfigurationRequest', tenantConfigurationRequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -853,7 +853,7 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(tenantconfigurationrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(tenantConfigurationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -873,13 +873,13 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new Reassignment Configuration for the specified identity.
          * @summary Create a reassignment configuration
-         * @param {Configurationitemrequest} configurationitemrequest 
+         * @param {ConfigurationItemRequest} configurationItemRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createReassignmentConfigurationV1(configurationitemrequest: Configurationitemrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Configurationitemresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createReassignmentConfigurationV1(configurationitemrequest, xSailPointExperimental, axiosOptions);
+        async createReassignmentConfigurationV1(configurationItemRequest: ConfigurationItemRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createReassignmentConfigurationV1(configurationItemRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.createReassignmentConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -888,12 +888,12 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * Deletes a single reassignment configuration for the specified identity
          * @summary Delete reassignment configuration
          * @param {string} identityId unique identity id
-         * @param {Configtypeenum} configType 
+         * @param {ConfigTypeEnum} configType 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteReassignmentConfigurationV1(identityId: string, configType: Configtypeenum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteReassignmentConfigurationV1(identityId: string, configType: ConfigTypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteReassignmentConfigurationV1(identityId, configType, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.deleteReassignmentConfigurationV1']?.[localVarOperationServerIndex]?.url;
@@ -903,13 +903,13 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
          * @summary Evaluate reassignment configuration
          * @param {string} identityId unique identity id
-         * @param {Configtypeenum} configType Reassignment work type
+         * @param {ConfigTypeEnum} configType Reassignment work type
          * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEvaluateReassignmentConfigurationV1(identityId: string, configType: Configtypeenum, exclusionFilters?: Array<string>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Evaluateresponse>>> {
+        async getEvaluateReassignmentConfigurationV1(identityId: string, configType: ConfigTypeEnum, exclusionFilters?: Array<string>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvaluateResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEvaluateReassignmentConfigurationV1(identityId, configType, exclusionFilters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.getEvaluateReassignmentConfigurationV1']?.[localVarOperationServerIndex]?.url;
@@ -922,7 +922,7 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReassignmentConfigTypesV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Configtype>>> {
+        async getReassignmentConfigTypesV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigType>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfigTypesV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.getReassignmentConfigTypesV1']?.[localVarOperationServerIndex]?.url;
@@ -936,7 +936,7 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReassignmentConfigurationV1(identityId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Configurationresponse>> {
+        async getReassignmentConfigurationV1(identityId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfigurationV1(identityId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.getReassignmentConfigurationV1']?.[localVarOperationServerIndex]?.url;
@@ -949,7 +949,7 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTenantConfigConfigurationV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tenantconfigurationresponse>> {
+        async getTenantConfigConfigurationV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantConfigConfigurationV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.getTenantConfigConfigurationV1']?.[localVarOperationServerIndex]?.url;
@@ -962,7 +962,7 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listReassignmentConfigurationsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Configurationresponse>>> {
+        async listReassignmentConfigurationsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurationsV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.listReassignmentConfigurationsV1']?.[localVarOperationServerIndex]?.url;
@@ -972,13 +972,13 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
          * @summary Update reassignment configuration
          * @param {string} identityId unique identity id
-         * @param {Configurationitemrequest} configurationitemrequest 
+         * @param {ConfigurationItemRequest} configurationItemRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putReassignmentConfigV1(identityId: string, configurationitemrequest: Configurationitemrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Configurationitemresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putReassignmentConfigV1(identityId, configurationitemrequest, xSailPointExperimental, axiosOptions);
+        async putReassignmentConfigV1(identityId: string, configurationItemRequest: ConfigurationItemRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putReassignmentConfigV1(identityId, configurationItemRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.putReassignmentConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -986,13 +986,13 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
         /**
          * Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
          * @summary Update tenant-wide reassignment configuration settings
-         * @param {Tenantconfigurationrequest} tenantconfigurationrequest 
+         * @param {TenantConfigurationRequest} tenantConfigurationRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTenantConfigurationV1(tenantconfigurationrequest: Tenantconfigurationrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tenantconfigurationresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putTenantConfigurationV1(tenantconfigurationrequest, xSailPointExperimental, axiosOptions);
+        async putTenantConfigurationV1(tenantConfigurationRequest: TenantConfigurationRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTenantConfigurationV1(tenantConfigurationRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.putTenantConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1014,8 +1014,8 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createReassignmentConfigurationV1(requestParameters: WorkReassignmentApiCreateReassignmentConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Configurationitemresponse> {
-            return localVarFp.createReassignmentConfigurationV1(requestParameters.configurationitemrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createReassignmentConfigurationV1(requestParameters: WorkReassignmentApiCreateReassignmentConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConfigurationItemResponse> {
+            return localVarFp.createReassignmentConfigurationV1(requestParameters.configurationItemRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a single reassignment configuration for the specified identity
@@ -1034,7 +1034,7 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEvaluateReassignmentConfigurationV1(requestParameters: WorkReassignmentApiGetEvaluateReassignmentConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Evaluateresponse>> {
+        getEvaluateReassignmentConfigurationV1(requestParameters: WorkReassignmentApiGetEvaluateReassignmentConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EvaluateResponse>> {
             return localVarFp.getEvaluateReassignmentConfigurationV1(requestParameters.identityId, requestParameters.configType, requestParameters.exclusionFilters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1044,7 +1044,7 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getReassignmentConfigTypesV1(requestParameters: WorkReassignmentApiGetReassignmentConfigTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Configtype>> {
+        getReassignmentConfigTypesV1(requestParameters: WorkReassignmentApiGetReassignmentConfigTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ConfigType>> {
             return localVarFp.getReassignmentConfigTypesV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1054,7 +1054,7 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getReassignmentConfigurationV1(requestParameters: WorkReassignmentApiGetReassignmentConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Configurationresponse> {
+        getReassignmentConfigurationV1(requestParameters: WorkReassignmentApiGetReassignmentConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConfigurationResponse> {
             return localVarFp.getReassignmentConfigurationV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1064,7 +1064,7 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTenantConfigConfigurationV1(requestParameters: WorkReassignmentApiGetTenantConfigConfigurationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tenantconfigurationresponse> {
+        getTenantConfigConfigurationV1(requestParameters: WorkReassignmentApiGetTenantConfigConfigurationV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TenantConfigurationResponse> {
             return localVarFp.getTenantConfigConfigurationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1074,7 +1074,7 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listReassignmentConfigurationsV1(requestParameters: WorkReassignmentApiListReassignmentConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Configurationresponse>> {
+        listReassignmentConfigurationsV1(requestParameters: WorkReassignmentApiListReassignmentConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ConfigurationResponse>> {
             return localVarFp.listReassignmentConfigurationsV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1084,8 +1084,8 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putReassignmentConfigV1(requestParameters: WorkReassignmentApiPutReassignmentConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Configurationitemresponse> {
-            return localVarFp.putReassignmentConfigV1(requestParameters.identityId, requestParameters.configurationitemrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        putReassignmentConfigV1(requestParameters: WorkReassignmentApiPutReassignmentConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConfigurationItemResponse> {
+            return localVarFp.putReassignmentConfigV1(requestParameters.identityId, requestParameters.configurationItemRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
@@ -1094,8 +1094,8 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTenantConfigurationV1(requestParameters: WorkReassignmentApiPutTenantConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tenantconfigurationresponse> {
-            return localVarFp.putTenantConfigurationV1(requestParameters.tenantconfigurationrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        putTenantConfigurationV1(requestParameters: WorkReassignmentApiPutTenantConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TenantConfigurationResponse> {
+            return localVarFp.putTenantConfigurationV1(requestParameters.tenantConfigurationRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1108,10 +1108,10 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
 export interface WorkReassignmentApiCreateReassignmentConfigurationV1Request {
     /**
      * 
-     * @type {Configurationitemrequest}
+     * @type {ConfigurationItemRequest}
      * @memberof WorkReassignmentApiCreateReassignmentConfigurationV1
      */
-    readonly configurationitemrequest: Configurationitemrequest
+    readonly configurationItemRequest: ConfigurationItemRequest
 
     /**
      * Use this header to enable this experimental API.
@@ -1136,10 +1136,10 @@ export interface WorkReassignmentApiDeleteReassignmentConfigurationV1Request {
 
     /**
      * 
-     * @type {Configtypeenum}
+     * @type {ConfigTypeEnum}
      * @memberof WorkReassignmentApiDeleteReassignmentConfigurationV1
      */
-    readonly configType: Configtypeenum
+    readonly configType: ConfigTypeEnum
 
     /**
      * Use this header to enable this experimental API.
@@ -1164,10 +1164,10 @@ export interface WorkReassignmentApiGetEvaluateReassignmentConfigurationV1Reques
 
     /**
      * Reassignment work type
-     * @type {Configtypeenum}
+     * @type {ConfigTypeEnum}
      * @memberof WorkReassignmentApiGetEvaluateReassignmentConfigurationV1
      */
-    readonly configType: Configtypeenum
+    readonly configType: ConfigTypeEnum
 
     /**
      * Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
@@ -1262,10 +1262,10 @@ export interface WorkReassignmentApiPutReassignmentConfigV1Request {
 
     /**
      * 
-     * @type {Configurationitemrequest}
+     * @type {ConfigurationItemRequest}
      * @memberof WorkReassignmentApiPutReassignmentConfigV1
      */
-    readonly configurationitemrequest: Configurationitemrequest
+    readonly configurationItemRequest: ConfigurationItemRequest
 
     /**
      * Use this header to enable this experimental API.
@@ -1283,10 +1283,10 @@ export interface WorkReassignmentApiPutReassignmentConfigV1Request {
 export interface WorkReassignmentApiPutTenantConfigurationV1Request {
     /**
      * 
-     * @type {Tenantconfigurationrequest}
+     * @type {TenantConfigurationRequest}
      * @memberof WorkReassignmentApiPutTenantConfigurationV1
      */
-    readonly tenantconfigurationrequest: Tenantconfigurationrequest
+    readonly tenantConfigurationRequest: TenantConfigurationRequest
 
     /**
      * Use this header to enable this experimental API.
@@ -1312,7 +1312,7 @@ export class WorkReassignmentApi extends BaseAPI {
      * @memberof WorkReassignmentApi
      */
     public createReassignmentConfigurationV1(requestParameters: WorkReassignmentApiCreateReassignmentConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkReassignmentApiFp(this.configuration).createReassignmentConfigurationV1(requestParameters.configurationitemrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkReassignmentApiFp(this.configuration).createReassignmentConfigurationV1(requestParameters.configurationItemRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1396,7 +1396,7 @@ export class WorkReassignmentApi extends BaseAPI {
      * @memberof WorkReassignmentApi
      */
     public putReassignmentConfigV1(requestParameters: WorkReassignmentApiPutReassignmentConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkReassignmentApiFp(this.configuration).putReassignmentConfigV1(requestParameters.identityId, requestParameters.configurationitemrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkReassignmentApiFp(this.configuration).putReassignmentConfigV1(requestParameters.identityId, requestParameters.configurationItemRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1408,7 +1408,7 @@ export class WorkReassignmentApi extends BaseAPI {
      * @memberof WorkReassignmentApi
      */
     public putTenantConfigurationV1(requestParameters: WorkReassignmentApiPutTenantConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkReassignmentApiFp(this.configuration).putTenantConfigurationV1(requestParameters.tenantconfigurationrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkReassignmentApiFp(this.configuration).putTenantConfigurationV1(requestParameters.tenantConfigurationRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

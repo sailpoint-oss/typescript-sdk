@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Jitactivationconfigresponse`
+`JITActivationConfigResponse`
 
 ### HTTP request headers
 
@@ -81,11 +81,11 @@ The body must be a non-empty array. Only **replace** is supported; each **path**
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **configType** | `'policy'` | Configuration kind to update. Only **policy** (JIT activation policy) is supported today.  |  [default to undefined]
-**jitaccessoperationrequest** | `Array<Jitaccessoperationrequest>` |  | 
+**jitAccessOperationRequest** | `Array<JitAccessOperationRequest>` |  | 
 
 ### Return type
 
-`Jitactivationconfigresponse`
+`JITActivationConfigResponse`
 
 ### HTTP request headers
 
@@ -97,13 +97,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITAccessApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jitaccessoperationrequest } from 'sailpoint-api-client/dist/jit_access/api';
+import { JitAccessOperationRequest } from 'sailpoint-api-client/dist/jit_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITAccessApi(configuration);
 const configType: string = policy; // Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
-const jitaccessoperationrequest: Array<Jitaccessoperationrequest> = ; // 
-const result = await apiInstance.patchJitActivationConfigV1({ configType: configType, jitaccessoperationrequest: jitaccessoperationrequest });
+const jitAccessOperationRequest: Array<JitAccessOperationRequest> = {
+  "op" : "replace",
+  "path" : "/maxActivationPeriodMins",
+  "value" : 60
+}; // 
+const result = await apiInstance.patchJitActivationConfigV1({ configType: configType, jitAccessOperationRequest: jitAccessOperationRequest });
 console.log(result);
 ```
 

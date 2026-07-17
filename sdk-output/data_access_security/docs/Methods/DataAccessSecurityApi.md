@@ -92,7 +92,7 @@ This endpoint creates a new application in Data Access Security with the specifi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**basecreateapplicationrequest** | `Basecreateapplicationrequest` | Request body containing the details required to create a new application. | 
+**baseCreateApplicationRequest** | `BaseCreateApplicationRequest` | Request body containing the details required to create a new application. | 
 
 ### Return type
 
@@ -108,12 +108,58 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Basecreateapplicationrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { BaseCreateApplicationRequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
-const basecreateapplicationrequest: Basecreateapplicationrequest = ; // Request body containing the details required to create a new application.
-const result = await apiInstance.createApplicationV1({ basecreateapplicationrequest: basecreateapplicationrequest });
+const baseCreateApplicationRequest: BaseCreateApplicationRequest = {
+  "adIdentityCollectorId" : 987654321,
+  "applicationType" : 9,
+  "nisIdentityCollectorId" : 192837465,
+  "executeNow" : false,
+  "name" : "HR File Server",
+  "description" : "Stores HR documents and employee records.",
+  "dataClassificationSettings" : {
+    "isEnabled" : true,
+    "clusterId" : "cluster-001"
+  },
+  "activityConfigurationSettings" : {
+    "excludeFolders" : [ "/tmp", "/archive" ],
+    "excludeFileExtensions" : [ ".log", ".bak" ],
+    "excludeActions" : [ "delete", "move" ],
+    "isEnabled" : true,
+    "retentionTimePeriod" : 30,
+    "retentionTimeType" : "days",
+    "clusterId" : "cluster-001",
+    "excludeUsers" : [ "user1", "user2" ]
+  },
+  "applicationCrawlerSettings" : {
+    "calculateResourceSize" : 2,
+    "excludedResources" : [ "resourceA", "resourceB" ],
+    "crawlPublicFolders" : true,
+    "excludedPathsByRegex" : "^/archive/.*",
+    "isEnabled" : true,
+    "crawlSnapshotsFolder" : true,
+    "crawlMailboxes" : false,
+    "crawlTopLevelShares" : [ "share1", "share2" ],
+    "clusterId" : "cluster-001",
+    "includeResources" : [ "resourceX", "resourceY" ]
+  },
+  "identityCollectorId" : 123456789,
+  "permissionCollectorSettings" : {
+    "analyzeUniquePermissions" : true,
+    "calculateRiskiestPermissions" : false,
+    "isEnabled" : true,
+    "calculateEffectivePermissions" : true,
+    "clusterId" : "cluster-001",
+    "effectivePermissionsSource" : "S3"
+  },
+  "tags" : [ {
+    "key" : 1,
+    "value" : "Confidential"
+  } ]
+}; // Request body containing the details required to create a new application.
+const result = await apiInstance.createApplicationV1({ baseCreateApplicationRequest: baseCreateApplicationRequest });
 console.log(result);
 ```
 
@@ -150,7 +196,10 @@ import { Createidentitycollectorrequest } from 'sailpoint-api-client/dist/data_a
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
-const createidentitycollectorrequest: Createidentitycollectorrequest = ; // Request body containing the details required to create a new identity collector.
+const createidentitycollectorrequest: Createidentitycollectorrequest = {
+  "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+  "name" : "Active Directory Identity Collector"
+}; // Request body containing the details required to create a new identity collector.
 const result = await apiInstance.createIdentityCollectorV1({ createidentitycollectorrequest: createidentitycollectorrequest });
 console.log(result);
 ```
@@ -168,7 +217,7 @@ Create a new schedule.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**createschedulerequest** | `Createschedulerequest` |  | 
+**createScheduleRequest** | `CreateScheduleRequest` |  | 
 
 ### Return type
 
@@ -184,12 +233,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Createschedulerequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { CreateScheduleRequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
-const createschedulerequest: Createschedulerequest = ; // 
-const result = await apiInstance.createScheduleV1({ createschedulerequest: createschedulerequest });
+const createScheduleRequest: CreateScheduleRequest = {
+  "scheduleTaskName" : "Daily Data Sync",
+  "scheduleType" : "Daily",
+  "active" : true,
+  "interval" : 1440,
+  "startTime" : 1762237200,
+  "endTime" : 1762240800,
+  "taskTypeName" : "DataSync",
+  "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+  "applicationId" : 2001,
+  "runAfterScheduleTaskId" : 1000
+}; // 
+const result = await apiInstance.createScheduleV1({ createScheduleRequest: createScheduleRequest });
 console.log(result);
 ```
 
@@ -206,7 +266,7 @@ Assign owner to application resource.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**assignresourceownerrequest** | `Assignresourceownerrequest` | The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner. | 
+**assignResourceOwnerRequest** | `AssignResourceOwnerRequest` | The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner. | 
 
 ### Return type
 
@@ -222,12 +282,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Assignresourceownerrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { AssignResourceOwnerRequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
-const assignresourceownerrequest: Assignresourceownerrequest = ; // The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
-const result = await apiInstance.dasV1OwnersAssignPost({ assignresourceownerrequest: assignresourceownerrequest });
+const assignResourceOwnerRequest: AssignResourceOwnerRequest = {
+  "fullPath" : "/shared/hr/documents/employee-records.pdf",
+  "identityId" : "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "appId" : 12345
+}; // The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+const result = await apiInstance.dasV1OwnersAssignPost({ assignResourceOwnerRequest: assignResourceOwnerRequest });
 console.log(result);
 ```
 
@@ -250,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Resourcemodel>`
+`Array<ResourceModel>`
 
 ### HTTP request headers
 
@@ -285,7 +349,7 @@ Re-elect resource owner.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**reelectrequest** | `Reelectrequest` | The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds. | 
+**reelectRequest** | `ReelectRequest` | The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds. | 
 
 ### Return type
 
@@ -301,12 +365,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Reelectrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { ReelectRequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
-const reelectrequest: Reelectrequest = ; // The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
-const result = await apiInstance.dasV1OwnersReelectPost({ reelectrequest: reelectrequest });
+const reelectRequest: ReelectRequest = {
+  "ownerId" : "c1a2b3d4-e5f6-7890-abcd-1234567890ab",
+  "campaignName" : "Annual Resource Owner Election",
+  "reviewers" : [ "d4e5f6a7-b8c9-0123-4567-89abcdef0123", "e7f8g9h0-i1j2-3456-7890-klmnopqrstuv" ]
+}; // The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+const result = await apiInstance.dasV1OwnersReelectPost({ reelectRequest: reelectRequest });
 console.log(result);
 ```
 
@@ -556,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Applicationitem`
+`ApplicationItem`
 
 ### HTTP request headers
 
@@ -596,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Applicationitem>`
+`Array<ApplicationItem>`
 
 ### HTTP request headers
 
@@ -638,7 +706,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Dataownermodel>`
+`Array<DataOwnerModel>`
 
 ### HTTP request headers
 
@@ -677,7 +745,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Scheduleinfo`
+`ScheduleInfo`
 
 ### HTTP request headers
 
@@ -717,7 +785,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Scheduleinfo>`
+`Array<ScheduleInfo>`
 
 ### HTTP request headers
 
@@ -757,7 +825,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Taskinfo`
+`TaskInfo`
 
 ### HTTP request headers
 
@@ -797,7 +865,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Taskinfo>`
+`Array<TaskInfo>`
 
 ### HTTP request headers
 
@@ -879,7 +947,7 @@ This endpoint updates an existing application in Data Access Security with the s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `number` | The unique identifier of the application to update. |  [default to undefined]
-**basecreateapplicationrequest** | `Basecreateapplicationrequest` | Request body containing the updated details for the application. | 
+**baseCreateApplicationRequest** | `BaseCreateApplicationRequest` | Request body containing the updated details for the application. | 
 
 ### Return type
 
@@ -895,13 +963,59 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Basecreateapplicationrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { BaseCreateApplicationRequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
 const id: number = 12345; // The unique identifier of the application to update.
-const basecreateapplicationrequest: Basecreateapplicationrequest = ; // Request body containing the updated details for the application.
-const result = await apiInstance.putApplicationV1({ id: id, basecreateapplicationrequest: basecreateapplicationrequest });
+const baseCreateApplicationRequest: BaseCreateApplicationRequest = {
+  "adIdentityCollectorId" : 987654321,
+  "applicationType" : 9,
+  "nisIdentityCollectorId" : 192837465,
+  "executeNow" : false,
+  "name" : "HR File Server",
+  "description" : "Stores HR documents and employee records.",
+  "dataClassificationSettings" : {
+    "isEnabled" : true,
+    "clusterId" : "cluster-001"
+  },
+  "activityConfigurationSettings" : {
+    "excludeFolders" : [ "/tmp", "/archive" ],
+    "excludeFileExtensions" : [ ".log", ".bak" ],
+    "excludeActions" : [ "delete", "move" ],
+    "isEnabled" : true,
+    "retentionTimePeriod" : 30,
+    "retentionTimeType" : "days",
+    "clusterId" : "cluster-001",
+    "excludeUsers" : [ "user1", "user2" ]
+  },
+  "applicationCrawlerSettings" : {
+    "calculateResourceSize" : 2,
+    "excludedResources" : [ "resourceA", "resourceB" ],
+    "crawlPublicFolders" : true,
+    "excludedPathsByRegex" : "^/archive/.*",
+    "isEnabled" : true,
+    "crawlSnapshotsFolder" : true,
+    "crawlMailboxes" : false,
+    "crawlTopLevelShares" : [ "share1", "share2" ],
+    "clusterId" : "cluster-001",
+    "includeResources" : [ "resourceX", "resourceY" ]
+  },
+  "identityCollectorId" : 123456789,
+  "permissionCollectorSettings" : {
+    "analyzeUniquePermissions" : true,
+    "calculateRiskiestPermissions" : false,
+    "isEnabled" : true,
+    "calculateEffectivePermissions" : true,
+    "clusterId" : "cluster-001",
+    "effectivePermissionsSource" : "S3"
+  },
+  "tags" : [ {
+    "key" : 1,
+    "value" : "Confidential"
+  } ]
+}; // Request body containing the updated details for the application.
+const result = await apiInstance.putApplicationV1({ id: id, baseCreateApplicationRequest: baseCreateApplicationRequest });
 console.log(result);
 ```
 
@@ -940,7 +1054,11 @@ import { Updateidentitycollectorrequest } from 'sailpoint-api-client/dist/data_a
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
 const id: number = 12345; // The unique identifier of the identity collector to update.
-const updateidentitycollectorrequest: Updateidentitycollectorrequest = ; // Request body containing the updated details for the identity collector.
+const updateidentitycollectorrequest: Updateidentitycollectorrequest = {
+  "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+  "name" : "Active Directory Identity Collector",
+  "type" : "Active Directory"
+}; // Request body containing the updated details for the identity collector.
 const result = await apiInstance.putIdentityCollectorV1({ id: id, updateidentitycollectorrequest: updateidentitycollectorrequest });
 console.log(result);
 ```
@@ -959,7 +1077,7 @@ Update a schedule.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `number` | The unique identifier of the schedule to update. |  [default to undefined]
-**updateschedulerequest** | `Updateschedulerequest` |  | 
+**updateScheduleRequest** | `UpdateScheduleRequest` |  | 
 
 ### Return type
 
@@ -975,13 +1093,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { DataAccessSecurityApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Updateschedulerequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { UpdateScheduleRequest } from 'sailpoint-api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
 const id: number = 1001; // The unique identifier of the schedule to update.
-const updateschedulerequest: Updateschedulerequest = ; // 
-const result = await apiInstance.putScheduleV1({ id: id, updateschedulerequest: updateschedulerequest });
+const updateScheduleRequest: UpdateScheduleRequest = {
+  "scheduleTaskName" : "Daily Data Sync",
+  "scheduleType" : "Daily",
+  "active" : true,
+  "interval" : 1440,
+  "startTime" : 1762237200,
+  "endTime" : 1762240800,
+  "taskTypeName" : "DataSync",
+  "daysOfWeek" : [ "Monday", "Wednesday", "Friday" ],
+  "applicationId" : 2001,
+  "runAfterScheduleTaskId" : 1000
+}; // 
+const result = await apiInstance.putScheduleV1({ id: id, updateScheduleRequest: updateScheduleRequest });
 console.log(result);
 ```
 

@@ -1,0 +1,22 @@
+---
+id: v1-test-invocation
+title: TestInvocation
+pagination_label: TestInvocation
+sidebar_label: TestInvocation
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'TestInvocation', 'v1TestInvocation']
+slug: /tools/sdk/typescript/triggers/models/test-invocation
+tags: ['SDK', 'Software Development Kit', 'TestInvocation', 'v1TestInvocation']
+---
+
+# TestInvocation
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**triggerId** | `string` | Trigger ID | [default to undefined]
+**input** | **(optional)** `object` | Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent. | [default to undefined]
+**contentJson** | `object` | JSON map of invocation metadata. | [default to undefined]
+**subscriptionIds** | **(optional)** `Array<string>` | Only send the test event to the subscription IDs listed.  If omitted, the test event will be sent to all subscribers. | [default to undefined]
+

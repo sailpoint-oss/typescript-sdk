@@ -16,6 +16,6 @@ tags: ['SDK', 'Software Development Kit', 'ModelError', 'v1ModelError']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **detailCode** | **(optional)** `string` | DetailCode is the text of the status code returned | [default to undefined]
-**messages** | **(optional)** `Array<Errormessage>` |  | [default to undefined]
+**messages** | **(optional)** `Array<ErrorMessage>` |  | [default to undefined]
 **trackingId** | **(optional)** `string` | TrackingID is the request tracking unique identifier | [default to undefined]
 

@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Scheduledsearch`
+`ScheduledSearch`
 
 ### HTTP request headers
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Scheduledsearch`
+`ScheduledSearch`
 
 ### HTTP request headers
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Scheduledsearch>`
+`Array<ScheduledSearch>`
 
 ### HTTP request headers
 
@@ -220,7 +220,7 @@ Unsubscribes a recipient from the specified scheduled search.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the requested document. |  [default to undefined]
-**typedreference** | `Typedreference` | The recipient to be removed from the scheduled search.  | 
+**typedReference** | `TypedReference` | The recipient to be removed from the scheduled search.  | 
 
 ### Return type
 
@@ -236,13 +236,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { ScheduledSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Typedreference } from 'sailpoint-api-client/dist/scheduled_search/api';
+import { TypedReference } from 'sailpoint-api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
 const id: string = 2c91808568c529c60168cca6f90c1313; // ID of the requested document.
-const typedreference: Typedreference = ; // The recipient to be removed from the scheduled search. 
-const result = await apiInstance.unsubscribeScheduledSearchV1({ id: id, typedreference: typedreference });
+const typedReference: TypedReference = {
+  "id" : "2c91808568c529c60168cca6f90c1313",
+  "type" : "IDENTITY"
+}; // The recipient to be removed from the scheduled search. 
+const result = await apiInstance.unsubscribeScheduledSearchV1({ id: id, typedReference: typedReference });
 console.log(result);
 ```
 
@@ -261,11 +264,11 @@ Updates an existing scheduled search.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the requested document. |  [default to undefined]
-**scheduledsearch** | `Scheduledsearch` | The scheduled search to persist. | 
+**scheduledSearch** | `ScheduledSearch` | The scheduled search to persist. | 
 
 ### Return type
 
-`Scheduledsearch`
+`ScheduledSearch`
 
 ### HTTP request headers
 
@@ -277,13 +280,55 @@ Name | Type | Description  | Notes
 ```typescript
 import { ScheduledSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Scheduledsearch } from 'sailpoint-api-client/dist/scheduled_search/api';
+import { ScheduledSearch } from 'sailpoint-api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
 const id: string = 2c91808568c529c60168cca6f90c1313; // ID of the requested document.
-const scheduledsearch: Scheduledsearch = ; // The scheduled search to persist.
-const result = await apiInstance.updateScheduledSearchV1({ id: id, scheduledsearch: scheduledsearch });
+const scheduledSearch: ScheduledSearch = {
+  "owner" : {
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  },
+  "displayQueryDetails" : false,
+  "created" : "",
+  "description" : "Daily disabled accounts",
+  "ownerId" : "2c9180867624cbd7017642d8c8c81f67",
+  "enabled" : false,
+  "schedule" : {
+    "hours" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "months" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "timeZoneId" : "America/Chicago",
+    "days" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "expiration" : "2018-06-25T20:22:28.104Z",
+    "type" : "WEEKLY"
+  },
+  "recipients" : [ {
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  }, {
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  } ],
+  "savedSearchId" : "554f1511-f0a1-4744-ab14-599514d3e57c",
+  "name" : "Daily disabled accounts",
+  "modified" : "",
+  "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
+  "emailEmptyResults" : false
+}; // The scheduled search to persist.
+const result = await apiInstance.updateScheduledSearchV1({ id: id, scheduledSearch: scheduledSearch });
 console.log(result);
 ```
 

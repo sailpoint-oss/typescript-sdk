@@ -59,12 +59,12 @@ This API is used to generate a digit token for password management. Requires aut
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**passworddigittokenreset** | `Passworddigittokenreset` |  | 
+**passwordDigitTokenReset** | `PasswordDigitTokenReset` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Passworddigittoken`
+`PasswordDigitToken`
 
 ### HTTP request headers
 
@@ -76,13 +76,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passworddigittokenreset } from 'sailpoint-api-client/dist/password_management/api';
+import { PasswordDigitTokenReset } from 'sailpoint-api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
-const passworddigittokenreset: Passworddigittokenreset = {"userId":"Abby.Smith","length":8,"durationMinutes":5}; // 
+const passwordDigitTokenReset: PasswordDigitTokenReset = {
+  "durationMinutes" : 5,
+  "length" : 8,
+  "userId" : "Abby.Smith"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createDigitTokenV1({ passworddigittokenreset: passworddigittokenreset });
+const result = await apiInstance.createDigitTokenV1({ passwordDigitTokenReset: passwordDigitTokenReset });
 console.log(result);
 ```
 
@@ -103,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Passwordstatus`
+`PasswordStatus`
 
 ### HTTP request headers
 
@@ -137,11 +141,11 @@ This API is used to query password related information.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**passwordinfoquerydto** | `Passwordinfoquerydto` |  | 
+**passwordInfoQueryDTO** | `PasswordInfoQueryDTO` |  | 
 
 ### Return type
 
-`Passwordinfo`
+`PasswordInfo`
 
 ### HTTP request headers
 
@@ -153,12 +157,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordinfoquerydto } from 'sailpoint-api-client/dist/password_management/api';
+import { PasswordInfoQueryDTO } from 'sailpoint-api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
-const passwordinfoquerydto: Passwordinfoquerydto = ; // 
-const result = await apiInstance.queryPasswordInfoV1({ passwordinfoquerydto: passwordinfoquerydto });
+const passwordInfoQueryDTO: PasswordInfoQueryDTO = {
+  "sourceName" : "My-AD",
+  "userName" : "Abby.Smith"
+}; // 
+const result = await apiInstance.queryPasswordInfoV1({ passwordInfoQueryDTO: passwordInfoQueryDTO });
 console.log(result);
 ```
 
@@ -194,11 +201,11 @@ You can then use [Get Password Change Request Status](https://developer.sailpoin
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**passwordchangerequest** | `Passwordchangerequest` |  | 
+**passwordChangeRequest** | `PasswordChangeRequest` |  | 
 
 ### Return type
 
-`Passwordchangeresponse`
+`PasswordChangeResponse`
 
 ### HTTP request headers
 
@@ -210,12 +217,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordchangerequest } from 'sailpoint-api-client/dist/password_management/api';
+import { PasswordChangeRequest } from 'sailpoint-api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
-const passwordchangerequest: Passwordchangerequest = ; // 
-const result = await apiInstance.setPasswordV1({ passwordchangerequest: passwordchangerequest });
+const passwordChangeRequest: PasswordChangeRequest = {
+  "sourceId" : "8a807d4c73c545510173c545d4b60246",
+  "accountId" : "CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com",
+  "identityId" : "8a807d4c73c545510173c545f0a002ff",
+  "publicKeyId" : "YWQ2NjQ4MTItZjY0NC00MWExLWFjMjktOGNmMzU3Y2VlNjk2",
+  "encryptedPassword" : "XzN+YwKgr2C+InkMYFMBG3UtjMEw5ZIql/XFlXo8cJNeslmkplx6vn4kd4/43IF9STBk5RnzR6XmjpEO+FwHDoiBwYZAkAZK/Iswxk4OdybG6Y4MStJCOCiK8osKr35IMMSV/mbO4wAeltoCk7daTWzTGLiI6UaT5tf+F2EgdjJZ7YqM8W8r7aUWsm3p2Xt01Y46ZRx0QaM91QruiIx2rECFT2pUO0wr+7oQ77jypATyGWRtADsu3YcvCk/6U5MqCnXMzKBcRas7NnZdSL/d5H1GglVGz3VLPMaivG4/oL4chOMmFCRl/zVsGxZ9RhN8rxsRGFFKn+rhExTi+bax3A=="
+}; // 
+const result = await apiInstance.setPasswordV1({ passwordChangeRequest: passwordChangeRequest });
 console.log(result);
 ```
 

@@ -73,16 +73,16 @@ export interface DataSegment {
     'memberSelection'?: Array<Ref>;
     /**
      * 
-     * @type {Visibilitycriteria}
+     * @type {VisibilityCriteria}
      * @memberof DataSegment
      */
-    'memberFilter'?: Visibilitycriteria;
+    'memberFilter'?: VisibilityCriteria;
     /**
      * 
-     * @type {Membershiptype}
+     * @type {MembershipType}
      * @memberof DataSegment
      */
-    'membership'?: Membershiptype;
+    'membership'?: MembershipType;
     /**
      * This boolean indicates whether the segment is currently active. Inactive segments have no effect.
      * @type {boolean}
@@ -104,7 +104,7 @@ export interface DataSegment {
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -136,31 +136,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -169,33 +169,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -307,12 +307,12 @@ export interface GetDataSegmentIdentityMembershipV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -321,13 +321,13 @@ export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
  * @enum {string}
  */
 
-export const Membershiptype = {
+export const MembershipType = {
     All: 'ALL',
     Filter: 'FILTER',
     Selection: 'SELECTION'
 } as const;
 
-export type Membershiptype = typeof Membershiptype[keyof typeof Membershiptype];
+export type MembershipType = typeof MembershipType[keyof typeof MembershipType];
 
 
 /**
@@ -338,10 +338,10 @@ export type Membershiptype = typeof Membershiptype[keyof typeof Membershiptype];
 export interface Ref {
     /**
      * 
-     * @type {Dtotype}
+     * @type {DtoType}
      * @memberof Ref
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * ID of the object to which this reference applies
      * @type {string}
@@ -359,22 +359,22 @@ export interface Ref {
 export interface Scope {
     /**
      * 
-     * @type {Scopetype}
+     * @type {ScopeType}
      * @memberof Scope
      */
-    'scope'?: Scopetype;
+    'scope'?: ScopeType;
     /**
      * 
-     * @type {Scopevisibilitytype}
+     * @type {ScopeVisibilityType}
      * @memberof Scope
      */
-    'visibility'?: Scopevisibilitytype;
+    'visibility'?: ScopeVisibilityType;
     /**
      * 
-     * @type {Visibilitycriteria}
+     * @type {VisibilityCriteria}
      * @memberof Scope
      */
-    'scopeFilter'?: Visibilitycriteria;
+    'scopeFilter'?: VisibilityCriteria;
     /**
      * List of Identities that are assigned to the segment
      * @type {Array<Ref>}
@@ -390,14 +390,14 @@ export interface Scope {
  * @enum {string}
  */
 
-export const Scopetype = {
+export const ScopeType = {
     Entitlement: 'ENTITLEMENT',
     Certification: 'CERTIFICATION',
     Identity: 'IDENTITY',
     Entitlementrequest: 'ENTITLEMENTREQUEST'
 } as const;
 
-export type Scopetype = typeof Scopetype[keyof typeof Scopetype];
+export type ScopeType = typeof ScopeType[keyof typeof ScopeType];
 
 
 /**
@@ -406,38 +406,38 @@ export type Scopetype = typeof Scopetype[keyof typeof Scopetype];
  * @enum {string}
  */
 
-export const Scopevisibilitytype = {
+export const ScopeVisibilityType = {
     All: 'ALL',
     Filter: 'FILTER',
     Selection: 'SELECTION',
     Unsegmented: 'UNSEGMENTED'
 } as const;
 
-export type Scopevisibilitytype = typeof Scopevisibilitytype[keyof typeof Scopevisibilitytype];
+export type ScopeVisibilityType = typeof ScopeVisibilityType[keyof typeof ScopeVisibilityType];
 
 
 /**
  * Contains the segments and types that an identity is associated with
  * @export
- * @interface Segmentmembership
+ * @interface SegmentMembership
  */
-export interface Segmentmembership {
+export interface SegmentMembership {
     /**
      * List of segment ids that the identity is associated with.
      * @type {Array<string>}
-     * @memberof Segmentmembership
+     * @memberof SegmentMembership
      */
     'segments'?: Array<string>;
     /**
      * They type of scopes that are assigned to the identity.
-     * @type {Array<Scopetype>}
-     * @memberof Segmentmembership
+     * @type {Array<ScopeType>}
+     * @memberof SegmentMembership
      */
-    'allAccessScopes'?: Array<Scopetype>;
+    'allAccessScopes'?: Array<ScopeType>;
     /**
      * Date time string that lets you know when the membership data is going to be refreshed.
      * @type {string}
-     * @memberof Segmentmembership
+     * @memberof SegmentMembership
      */
     'refreshBy'?: string;
 }
@@ -463,13 +463,13 @@ export interface Value {
 /**
  * 
  * @export
- * @interface Visibilitycriteria
+ * @interface VisibilityCriteria
  */
-export interface Visibilitycriteria {
+export interface VisibilityCriteria {
     /**
      * 
      * @type {Expression}
-     * @memberof Visibilitycriteria
+     * @memberof VisibilityCriteria
      */
     'expression'?: Expression;
 }
@@ -909,7 +909,7 @@ export const DataSegmentationApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDataSegmentIdentityMembershipV1(identityId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segmentmembership>>> {
+        async getDataSegmentIdentityMembershipV1(identityId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SegmentMembership>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDataSegmentIdentityMembershipV1(identityId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.getDataSegmentIdentityMembershipV1']?.[localVarOperationServerIndex]?.url;
@@ -1031,7 +1031,7 @@ export const DataSegmentationApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDataSegmentIdentityMembershipV1(requestParameters: DataSegmentationApiGetDataSegmentIdentityMembershipV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Segmentmembership>> {
+        getDataSegmentIdentityMembershipV1(requestParameters: DataSegmentationApiGetDataSegmentIdentityMembershipV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SegmentMembership>> {
             return localVarFp.getDataSegmentIdentityMembershipV1(requestParameters.identityId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**

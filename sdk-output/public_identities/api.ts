@@ -29,7 +29,7 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -61,31 +61,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -94,33 +94,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -151,25 +151,25 @@ export interface GetPublicIdentitiesV1429Response {
 /**
  * The manager for the identity.
  * @export
- * @interface Identityreference
+ * @interface IdentityReference
  */
-export interface Identityreference {
+export interface IdentityReference {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Identityreference
+     * @type {DtoType}
+     * @memberof IdentityReference
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * Identity id
      * @type {string}
-     * @memberof Identityreference
+     * @memberof IdentityReference
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof Identityreference
+     * @memberof IdentityReference
      */
     'name'?: string;
 }
@@ -181,100 +181,100 @@ export interface Identityreference {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Details about a public identity
  * @export
- * @interface Publicidentity
+ * @interface PublicIdentity
  */
-export interface Publicidentity {
+export interface PublicIdentity {
     /**
      * Identity id
      * @type {string}
-     * @memberof Publicidentity
+     * @memberof PublicIdentity
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof Publicidentity
+     * @memberof PublicIdentity
      */
     'name'?: string;
     /**
      * Alternate unique identifier for the identity.
      * @type {string}
-     * @memberof Publicidentity
+     * @memberof PublicIdentity
      */
     'alias'?: string;
     /**
      * Email address of identity.
      * @type {string}
-     * @memberof Publicidentity
+     * @memberof PublicIdentity
      */
     'email'?: string | null;
     /**
      * The lifecycle status for the identity
      * @type {string}
-     * @memberof Publicidentity
+     * @memberof PublicIdentity
      */
     'status'?: string | null;
     /**
      * The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features. 
      * @type {string}
-     * @memberof Publicidentity
+     * @memberof PublicIdentity
      */
-    'identityState'?: PublicidentityIdentityStateEnum | null;
+    'identityState'?: PublicIdentityIdentityStateEnum | null;
     /**
      * 
-     * @type {Identityreference}
-     * @memberof Publicidentity
+     * @type {IdentityReference}
+     * @memberof PublicIdentity
      */
-    'manager'?: Identityreference | null;
+    'manager'?: IdentityReference | null;
     /**
      * The public identity attributes of the identity
-     * @type {Array<PublicidentityAttributesInner>}
-     * @memberof Publicidentity
+     * @type {Array<PublicIdentityAttributesInner>}
+     * @memberof PublicIdentity
      */
-    'attributes'?: Array<PublicidentityAttributesInner>;
+    'attributes'?: Array<PublicIdentityAttributesInner>;
 }
 
-export const PublicidentityIdentityStateEnum = {
+export const PublicIdentityIdentityStateEnum = {
     Active: 'ACTIVE',
     InactiveShortTerm: 'INACTIVE_SHORT_TERM',
     InactiveLongTerm: 'INACTIVE_LONG_TERM'
 } as const;
 
-export type PublicidentityIdentityStateEnum = typeof PublicidentityIdentityStateEnum[keyof typeof PublicidentityIdentityStateEnum];
+export type PublicIdentityIdentityStateEnum = typeof PublicIdentityIdentityStateEnum[keyof typeof PublicIdentityIdentityStateEnum];
 
 /**
  * 
  * @export
- * @interface PublicidentityAttributesInner
+ * @interface PublicIdentityAttributesInner
  */
-export interface PublicidentityAttributesInner {
+export interface PublicIdentityAttributesInner {
     /**
      * The attribute key
      * @type {string}
-     * @memberof PublicidentityAttributesInner
+     * @memberof PublicIdentityAttributesInner
      */
     'key'?: string;
     /**
      * Human-readable display name of the attribute
      * @type {string}
-     * @memberof PublicidentityAttributesInner
+     * @memberof PublicIdentityAttributesInner
      */
     'name'?: string;
     /**
      * The attribute value
      * @type {string}
-     * @memberof PublicidentityAttributesInner
+     * @memberof PublicIdentityAttributesInner
      */
     'value'?: string | null;
 }
@@ -367,7 +367,7 @@ export const PublicIdentitiesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPublicIdentitiesV1(limit?: number, offset?: number, count?: boolean, filters?: string, addCoreFilters?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Publicidentity>>> {
+        async getPublicIdentitiesV1(limit?: number, offset?: number, count?: boolean, filters?: string, addCoreFilters?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicIdentity>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentitiesV1(limit, offset, count, filters, addCoreFilters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesApi.getPublicIdentitiesV1']?.[localVarOperationServerIndex]?.url;
@@ -390,7 +390,7 @@ export const PublicIdentitiesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPublicIdentitiesV1(requestParameters: PublicIdentitiesApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Publicidentity>> {
+        getPublicIdentitiesV1(requestParameters: PublicIdentitiesApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PublicIdentity>> {
             return localVarFp.getPublicIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };

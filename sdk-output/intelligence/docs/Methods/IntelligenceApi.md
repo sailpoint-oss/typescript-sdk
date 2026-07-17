@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Intelidentityaggregate`
+`IntelIdentityAggregate`
 
 ### HTTP request headers
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Intelaccessitemhistoryevent>`
+`Array<IntelAccessItemHistoryEvent>`
 
 ### HTTP request headers
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Intelaccessaccountwire>`
+`Array<IntelAccessAccountWire>`
 
 ### HTTP request headers
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Intelcertificationhistoryevent>`
+`Array<IntelCertificationHistoryEvent>`
 
 ### HTTP request headers
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Inteloutlieraccessitem>`
+`Array<IntelOutlierAccessItem>`
 
 ### HTTP request headers
 

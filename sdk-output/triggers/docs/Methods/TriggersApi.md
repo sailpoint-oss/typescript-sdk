@@ -69,7 +69,7 @@ Completes an invocation to a REQUEST_RESPONSE type trigger.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the invocation to complete. |  [default to undefined]
-**completeinvocation** | `Completeinvocation` |  | 
+**completeInvocation** | `CompleteInvocation` |  | 
 
 ### Return type
 
@@ -85,13 +85,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Completeinvocation } from 'sailpoint-api-client/dist/triggers/api';
+import { CompleteInvocation } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
 const id: string = 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde; // The ID of the invocation to complete.
-const completeinvocation: Completeinvocation = {"secret":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","output":{"approved":false}}; // 
-const result = await apiInstance.completeTriggerInvocationV1({ id: id, completeinvocation: completeinvocation });
+const completeInvocation: CompleteInvocation = {
+  "output" : {
+    "approved" : false
+  },
+  "secret" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "error" : "Access request is denied."
+}; // 
+const result = await apiInstance.completeTriggerInvocationV1({ id: id, completeInvocation: completeInvocation });
 console.log(result);
 ```
 
@@ -110,7 +116,7 @@ This API creates a new subscription to a trigger and defines trigger invocation 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**subscriptionpostrequest** | `Subscriptionpostrequest` |  | 
+**subscriptionPostRequest** | `SubscriptionPostRequest` |  | 
 
 ### Return type
 
@@ -126,12 +132,36 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Subscriptionpostrequest } from 'sailpoint-api-client/dist/triggers/api';
+import { SubscriptionPostRequest } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
-const subscriptionpostrequest: Subscriptionpostrequest = {"name":"Access request subscription","description":"Access requested to site xyz","triggerId":"idn:access-requested","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}; // 
-const result = await apiInstance.createSubscriptionV1({ subscriptionpostrequest: subscriptionpostrequest });
+const subscriptionPostRequest: SubscriptionPostRequest = {
+  "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+  "httpConfig" : {
+    "bearerTokenAuthConfig" : {
+      "bearerToken" : "bearerToken"
+    },
+    "httpAuthenticationType" : "BASIC_AUTH",
+    "httpDispatchMode" : "SYNC",
+    "basicAuthConfig" : {
+      "password" : "password",
+      "userName" : "user@example.com"
+    },
+    "url" : "https://www.example.com"
+  },
+  "triggerId" : "idn:access-requested",
+  "name" : "Access request subscription",
+  "description" : "Access requested to site xyz",
+  "eventBridgeConfig" : {
+    "awsRegion" : "us-west-1",
+    "awsAccount" : "123456789012"
+  },
+  "responseDeadline" : "PT1H",
+  "type" : "HTTP",
+  "enabled" : true
+}; // 
+const result = await apiInstance.createSubscriptionV1({ subscriptionPostRequest: subscriptionPostRequest });
 console.log(result);
 ```
 
@@ -240,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Invocationstatus>`
+`Array<InvocationStatus>`
 
 ### HTTP request headers
 
@@ -325,7 +355,7 @@ This API updates a trigger subscription in IdentityNow, using a set of instructi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Subscription to patch |  [default to undefined]
-**subscriptionpatchrequestInner** | `Array<SubscriptionpatchrequestInner>` |  | 
+**subscriptionPatchRequestInner** | `Array<SubscriptionPatchRequestInner>` |  | 
 
 ### Return type
 
@@ -341,13 +371,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { SubscriptionpatchrequestInner } from 'sailpoint-api-client/dist/triggers/api';
+import { SubscriptionPatchRequestInner } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
 const id: string = 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde; // ID of the Subscription to patch
-const subscriptionpatchrequestInner: Array<SubscriptionpatchrequestInner> = ; // 
-const result = await apiInstance.patchSubscriptionV1({ id: id, subscriptionpatchrequestInner: subscriptionpatchrequestInner });
+const subscriptionPatchRequestInner: Array<SubscriptionPatchRequestInner> = ; // 
+const result = await apiInstance.patchSubscriptionV1({ id: id, subscriptionPatchRequestInner: subscriptionPatchRequestInner });
 console.log(result);
 ```
 
@@ -364,7 +394,7 @@ Initiate a test event for all subscribers of the specified event trigger.  If th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**testinvocation** | `Testinvocation` |  | 
+**testInvocation** | `TestInvocation` |  | 
 
 ### Return type
 
@@ -380,12 +410,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Testinvocation } from 'sailpoint-api-client/dist/triggers/api';
+import { TestInvocation } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
-const testinvocation: Testinvocation = {"triggerId":"idn:access-requested","input":{"identityId":"201327fda1c44704ac01181e963d463c"},"contentJson":{"workflowId":1234}}; // 
-const result = await apiInstance.startTestTriggerInvocationV1({ testinvocation: testinvocation });
+const testInvocation: TestInvocation = {
+  "input" : {
+    "identityId" : "201327fda1c44704ac01181e963d463c"
+  },
+  "subscriptionIds" : [ "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" ],
+  "triggerId" : "idn:access-request-post-approval",
+  "contentJson" : {
+    "workflowId" : 1234
+  }
+}; // 
+const result = await apiInstance.startTestTriggerInvocationV1({ testInvocation: testInvocation });
 console.log(result);
 ```
 
@@ -403,11 +442,11 @@ Request requires a security scope of:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**validatefilterinputdto** | `Validatefilterinputdto` |  | 
+**validateFilterInputDto** | `ValidateFilterInputDto` |  | 
 
 ### Return type
 
-`Validatefilteroutputdto`
+`ValidateFilterOutputDto`
 
 ### HTTP request headers
 
@@ -419,12 +458,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Validatefilterinputdto } from 'sailpoint-api-client/dist/triggers/api';
+import { ValidateFilterInputDto } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
-const validatefilterinputdto: Validatefilterinputdto = {"input":{"identityId":"201327fda1c44704ac01181e963d463c"},"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}; // 
-const result = await apiInstance.testSubscriptionFilterV1({ validatefilterinputdto: validatefilterinputdto });
+const validateFilterInputDto: ValidateFilterInputDto = {
+  "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+  "input" : {
+    "identityId" : "201327fda1c44704ac01181e963d463c"
+  }
+}; // 
+const result = await apiInstance.testSubscriptionFilterV1({ validateFilterInputDto: validateFilterInputDto });
 console.log(result);
 ```
 
@@ -451,7 +495,7 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Subscription ID |  [default to undefined]
-**subscriptionputrequest** | `Subscriptionputrequest` |  | 
+**subscriptionPutRequest** | `SubscriptionPutRequest` |  | 
 
 ### Return type
 
@@ -467,13 +511,36 @@ Name | Type | Description  | Notes
 ```typescript
 import { TriggersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Subscriptionputrequest } from 'sailpoint-api-client/dist/triggers/api';
+import { SubscriptionPutRequest } from 'sailpoint-api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
 const id: string = 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde; // Subscription ID
-const subscriptionputrequest: Subscriptionputrequest = {"name":"Access request subscription","description":"Access requested to site xyz","type":"HTTP","httpConfig":{"url":"https://www.example.com","httpDispatchMode":"SYNC","httpAuthenticationType":"BASIC_AUTH","basicAuthConfig":{"userName":"user@example.com","password":"eRtg4%6yuI!"}},"enabled":true,"filter":"$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]"}; // 
-const result = await apiInstance.updateSubscriptionV1({ id: id, subscriptionputrequest: subscriptionputrequest });
+const subscriptionPutRequest: SubscriptionPutRequest = {
+  "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
+  "httpConfig" : {
+    "bearerTokenAuthConfig" : {
+      "bearerToken" : "bearerToken"
+    },
+    "httpAuthenticationType" : "BASIC_AUTH",
+    "httpDispatchMode" : "SYNC",
+    "basicAuthConfig" : {
+      "password" : "password",
+      "userName" : "user@example.com"
+    },
+    "url" : "https://www.example.com"
+  },
+  "name" : "Access request subscription",
+  "description" : "Access requested to site xyz",
+  "eventBridgeConfig" : {
+    "awsRegion" : "us-west-1",
+    "awsAccount" : "123456789012"
+  },
+  "responseDeadline" : "PT1H",
+  "type" : "HTTP",
+  "enabled" : true
+}; // 
+const result = await apiInstance.updateSubscriptionV1({ id: id, subscriptionPutRequest: subscriptionPutRequest });
 console.log(result);
 ```
 

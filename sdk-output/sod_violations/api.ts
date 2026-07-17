@@ -29,7 +29,7 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -61,31 +61,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -94,181 +94,181 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
  * @export
- * @interface Exceptionaccesscriteria
+ * @interface ExceptionAccessCriteria
  */
-export interface Exceptionaccesscriteria {
+export interface ExceptionAccessCriteria {
     /**
      * 
-     * @type {Exceptioncriteria}
-     * @memberof Exceptionaccesscriteria
+     * @type {ExceptionCriteria}
+     * @memberof ExceptionAccessCriteria
      */
-    'leftCriteria'?: Exceptioncriteria;
+    'leftCriteria'?: ExceptionCriteria;
     /**
      * 
-     * @type {Exceptioncriteria}
-     * @memberof Exceptionaccesscriteria
+     * @type {ExceptionCriteria}
+     * @memberof ExceptionAccessCriteria
      */
-    'rightCriteria'?: Exceptioncriteria;
+    'rightCriteria'?: ExceptionCriteria;
 }
 /**
  * 
  * @export
- * @interface Exceptioncriteria
+ * @interface ExceptionCriteria
  */
-export interface Exceptioncriteria {
+export interface ExceptionCriteria {
     /**
      * List of exception criteria. There is a min of 1 and max of 50 items in the list.
-     * @type {Array<ExceptioncriteriaCriteriaListInner>}
-     * @memberof Exceptioncriteria
+     * @type {Array<ExceptionCriteriaCriteriaListInner>}
+     * @memberof ExceptionCriteria
      */
-    'criteriaList'?: Array<ExceptioncriteriaCriteriaListInner>;
+    'criteriaList'?: Array<ExceptionCriteriaCriteriaListInner>;
 }
-/**
- * The types of objects supported for SOD violations
- * @export
- * @interface ExceptioncriteriaCriteriaListInner
- */
-export interface ExceptioncriteriaCriteriaListInner {
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof ExceptioncriteriaCriteriaListInner
-     */
-    'type'?: ExceptioncriteriaCriteriaListInnerTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof ExceptioncriteriaCriteriaListInner
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof ExceptioncriteriaCriteriaListInner
-     */
-    'name'?: string;
-    /**
-     * Whether the subject identity already had that access or not
-     * @type {boolean}
-     * @memberof ExceptioncriteriaCriteriaListInner
-     */
-    'existing'?: boolean;
-}
-
-export const ExceptioncriteriaCriteriaListInnerTypeEnum = {
-    Entitlement: 'ENTITLEMENT'
-} as const;
-
-export type ExceptioncriteriaCriteriaListInnerTypeEnum = typeof ExceptioncriteriaCriteriaListInnerTypeEnum[keyof typeof ExceptioncriteriaCriteriaListInnerTypeEnum];
-
 /**
  * Access reference with addition of boolean existing flag to indicate whether the access was extant
  * @export
- * @interface Exceptioncriteriaaccess
+ * @interface ExceptionCriteriaAccess
  */
-export interface Exceptioncriteriaaccess {
+export interface ExceptionCriteriaAccess {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Exceptioncriteriaaccess
+     * @type {DtoType}
+     * @memberof ExceptionCriteriaAccess
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof Exceptioncriteriaaccess
+     * @memberof ExceptionCriteriaAccess
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof Exceptioncriteriaaccess
+     * @memberof ExceptionCriteriaAccess
      */
     'name'?: string;
     /**
      * Whether the subject identity already had that access or not
      * @type {boolean}
-     * @memberof Exceptioncriteriaaccess
+     * @memberof ExceptionCriteriaAccess
      */
     'existing'?: boolean;
 }
 
+
+/**
+ * The types of objects supported for SOD violations
+ * @export
+ * @interface ExceptionCriteriaCriteriaListInner
+ */
+export interface ExceptionCriteriaCriteriaListInner {
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'type'?: ExceptionCriteriaCriteriaListInnerTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'name'?: string;
+    /**
+     * Whether the subject identity already had that access or not
+     * @type {boolean}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'existing'?: boolean;
+}
+
+export const ExceptionCriteriaCriteriaListInnerTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type ExceptionCriteriaCriteriaListInnerTypeEnum = typeof ExceptionCriteriaCriteriaListInnerTypeEnum[keyof typeof ExceptionCriteriaCriteriaListInnerTypeEnum];
 
 /**
  * An identity with a set of access to be added
  * @export
- * @interface Identitywithnewaccess
+ * @interface IdentityWithNewAccess
  */
-export interface Identitywithnewaccess {
+export interface IdentityWithNewAccess {
     /**
      * Identity id to be checked.
      * @type {string}
-     * @memberof Identitywithnewaccess
+     * @memberof IdentityWithNewAccess
      */
     'identityId': string;
     /**
      * The list of entitlements to consider for possible violations in a preventive check.
-     * @type {Array<IdentitywithnewaccessAccessRefsInner>}
-     * @memberof Identitywithnewaccess
+     * @type {Array<IdentityWithNewAccessAccessRefsInner>}
+     * @memberof IdentityWithNewAccess
      */
-    'accessRefs': Array<IdentitywithnewaccessAccessRefsInner>;
+    'accessRefs': Array<IdentityWithNewAccessAccessRefsInner>;
 }
 /**
  * Entitlement including a specific set of access.
  * @export
- * @interface IdentitywithnewaccessAccessRefsInner
+ * @interface IdentityWithNewAccessAccessRefsInner
  */
-export interface IdentitywithnewaccessAccessRefsInner {
+export interface IdentityWithNewAccessAccessRefsInner {
     /**
      * Entitlement\'s DTO type.
      * @type {string}
-     * @memberof IdentitywithnewaccessAccessRefsInner
+     * @memberof IdentityWithNewAccessAccessRefsInner
      */
-    'type'?: IdentitywithnewaccessAccessRefsInnerTypeEnum;
+    'type'?: IdentityWithNewAccessAccessRefsInnerTypeEnum;
     /**
      * Entitlement\'s ID.
      * @type {string}
-     * @memberof IdentitywithnewaccessAccessRefsInner
+     * @memberof IdentityWithNewAccessAccessRefsInner
      */
     'id'?: string;
 }
 
-export const IdentitywithnewaccessAccessRefsInnerTypeEnum = {
+export const IdentityWithNewAccessAccessRefsInnerTypeEnum = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type IdentitywithnewaccessAccessRefsInnerTypeEnum = typeof IdentitywithnewaccessAccessRefsInnerTypeEnum[keyof typeof IdentitywithnewaccessAccessRefsInnerTypeEnum];
+export type IdentityWithNewAccessAccessRefsInnerTypeEnum = typeof IdentityWithNewAccessAccessRefsInnerTypeEnum[keyof typeof IdentityWithNewAccessAccessRefsInnerTypeEnum];
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -276,62 +276,62 @@ export type IdentitywithnewaccessAccessRefsInnerTypeEnum = typeof Identitywithne
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * SOD policy.
  * @export
- * @interface Sodpolicydto2
+ * @interface SodPolicyDto2
  */
-export interface Sodpolicydto2 {
+export interface SodPolicyDto2 {
     /**
      * SOD policy DTO type.
      * @type {string}
-     * @memberof Sodpolicydto2
+     * @memberof SodPolicyDto2
      */
-    'type'?: Sodpolicydto2TypeEnum;
+    'type'?: SodPolicyDto2TypeEnum;
     /**
      * SOD policy ID.
      * @type {string}
-     * @memberof Sodpolicydto2
+     * @memberof SodPolicyDto2
      */
     'id'?: string;
     /**
      * SOD policy display name.
      * @type {string}
-     * @memberof Sodpolicydto2
+     * @memberof SodPolicyDto2
      */
     'name'?: string;
 }
 
-export const Sodpolicydto2TypeEnum = {
+export const SodPolicyDto2TypeEnum = {
     SodPolicy: 'SOD_POLICY'
 } as const;
 
-export type Sodpolicydto2TypeEnum = typeof Sodpolicydto2TypeEnum[keyof typeof Sodpolicydto2TypeEnum];
+export type SodPolicyDto2TypeEnum = typeof SodPolicyDto2TypeEnum[keyof typeof SodPolicyDto2TypeEnum];
 
 /**
  * An object referencing an SOD violation check
  * @export
- * @interface Sodviolationcheck
+ * @interface SodViolationCheck
  */
-export interface Sodviolationcheck {
+export interface SodViolationCheck {
     /**
      * The id of the original request
      * @type {string}
-     * @memberof Sodviolationcheck
+     * @memberof SodViolationCheck
      */
     'requestId': string;
     /**
      * The date-time when this request was created.
      * @type {string}
-     * @memberof Sodviolationcheck
+     * @memberof SodViolationCheck
      */
     'created'?: string;
 }
@@ -364,66 +364,66 @@ export interface StartPredictSodViolationsV1429Response {
 /**
  * 
  * @export
- * @interface Violationcontext
+ * @interface ViolationContext
  */
-export interface Violationcontext {
+export interface ViolationContext {
     /**
      * 
-     * @type {ViolationcontextPolicy}
-     * @memberof Violationcontext
+     * @type {ViolationContextPolicy}
+     * @memberof ViolationContext
      */
-    'policy'?: ViolationcontextPolicy;
+    'policy'?: ViolationContextPolicy;
     /**
      * 
-     * @type {Exceptionaccesscriteria}
-     * @memberof Violationcontext
+     * @type {ExceptionAccessCriteria}
+     * @memberof ViolationContext
      */
-    'conflictingAccessCriteria'?: Exceptionaccesscriteria;
+    'conflictingAccessCriteria'?: ExceptionAccessCriteria;
 }
 /**
  * The types of objects supported for SOD violations
  * @export
- * @interface ViolationcontextPolicy
+ * @interface ViolationContextPolicy
  */
-export interface ViolationcontextPolicy {
+export interface ViolationContextPolicy {
     /**
      * The type of object that is referenced
      * @type {string}
-     * @memberof ViolationcontextPolicy
+     * @memberof ViolationContextPolicy
      */
-    'type'?: ViolationcontextPolicyTypeEnum;
+    'type'?: ViolationContextPolicyTypeEnum;
     /**
      * SOD policy ID.
      * @type {string}
-     * @memberof ViolationcontextPolicy
+     * @memberof ViolationContextPolicy
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof ViolationcontextPolicy
+     * @memberof ViolationContextPolicy
      */
     'name'?: string;
 }
 
-export const ViolationcontextPolicyTypeEnum = {
+export const ViolationContextPolicyTypeEnum = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type ViolationcontextPolicyTypeEnum = typeof ViolationcontextPolicyTypeEnum[keyof typeof ViolationcontextPolicyTypeEnum];
+export type ViolationContextPolicyTypeEnum = typeof ViolationContextPolicyTypeEnum[keyof typeof ViolationContextPolicyTypeEnum];
 
 /**
  * An object containing a listing of the SOD violation reasons detected by this check.
  * @export
- * @interface Violationprediction
+ * @interface ViolationPrediction
  */
-export interface Violationprediction {
+export interface ViolationPrediction {
     /**
      * List of Violation Contexts
-     * @type {Array<Violationcontext>}
-     * @memberof Violationprediction
+     * @type {Array<ViolationContext>}
+     * @memberof ViolationPrediction
      */
-    'violationContexts'?: Array<Violationcontext>;
+    'violationContexts'?: Array<ViolationContext>;
 }
 
 /**
@@ -435,13 +435,13 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
-         * @param {Identitywithnewaccess} identitywithnewaccess 
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startPredictSodViolationsV1: async (identitywithnewaccess: Identitywithnewaccess, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identitywithnewaccess' is not null or undefined
-            assertParamExists('startPredictSodViolationsV1', 'identitywithnewaccess', identitywithnewaccess)
+        startPredictSodViolationsV1: async (identityWithNewAccess: IdentityWithNewAccess, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityWithNewAccess' is not null or undefined
+            assertParamExists('startPredictSodViolationsV1', 'identityWithNewAccess', identityWithNewAccess)
             const localVarPath = `/sod-violations/v1/predict`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -461,7 +461,7 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identitywithnewaccess, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityWithNewAccess, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -471,13 +471,13 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API initiates a SOD policy verification asynchronously.
          * @summary Check sod violations
-         * @param {Identitywithnewaccess} identitywithnewaccess 
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startViolationCheckV1: async (identitywithnewaccess: Identitywithnewaccess, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identitywithnewaccess' is not null or undefined
-            assertParamExists('startViolationCheckV1', 'identitywithnewaccess', identitywithnewaccess)
+        startViolationCheckV1: async (identityWithNewAccess: IdentityWithNewAccess, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityWithNewAccess' is not null or undefined
+            assertParamExists('startViolationCheckV1', 'identityWithNewAccess', identityWithNewAccess)
             const localVarPath = `/sod-violations/v1/check`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -497,7 +497,7 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identitywithnewaccess, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityWithNewAccess, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -517,12 +517,12 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
         /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
-         * @param {Identitywithnewaccess} identitywithnewaccess 
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startPredictSodViolationsV1(identitywithnewaccess: Identitywithnewaccess, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Violationprediction>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolationsV1(identitywithnewaccess, axiosOptions);
+        async startPredictSodViolationsV1(identityWithNewAccess: IdentityWithNewAccess, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPrediction>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolationsV1(identityWithNewAccess, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.startPredictSodViolationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -530,12 +530,12 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a SOD policy verification asynchronously.
          * @summary Check sod violations
-         * @param {Identitywithnewaccess} identitywithnewaccess 
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startViolationCheckV1(identitywithnewaccess: Identitywithnewaccess, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sodviolationcheck>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startViolationCheckV1(identitywithnewaccess, axiosOptions);
+        async startViolationCheckV1(identityWithNewAccess: IdentityWithNewAccess, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodViolationCheck>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startViolationCheckV1(identityWithNewAccess, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.startViolationCheckV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -557,8 +557,8 @@ export const SODViolationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startPredictSodViolationsV1(requestParameters: SODViolationsApiStartPredictSodViolationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Violationprediction> {
-            return localVarFp.startPredictSodViolationsV1(requestParameters.identitywithnewaccess, axiosOptions).then((request) => request(axios, basePath));
+        startPredictSodViolationsV1(requestParameters: SODViolationsApiStartPredictSodViolationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ViolationPrediction> {
+            return localVarFp.startPredictSodViolationsV1(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initiates a SOD policy verification asynchronously.
@@ -567,8 +567,8 @@ export const SODViolationsApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startViolationCheckV1(requestParameters: SODViolationsApiStartViolationCheckV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sodviolationcheck> {
-            return localVarFp.startViolationCheckV1(requestParameters.identitywithnewaccess, axiosOptions).then((request) => request(axios, basePath));
+        startViolationCheckV1(requestParameters: SODViolationsApiStartViolationCheckV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SodViolationCheck> {
+            return localVarFp.startViolationCheckV1(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -581,10 +581,10 @@ export const SODViolationsApiFactory = function (configuration?: Configuration, 
 export interface SODViolationsApiStartPredictSodViolationsV1Request {
     /**
      * 
-     * @type {Identitywithnewaccess}
+     * @type {IdentityWithNewAccess}
      * @memberof SODViolationsApiStartPredictSodViolationsV1
      */
-    readonly identitywithnewaccess: Identitywithnewaccess
+    readonly identityWithNewAccess: IdentityWithNewAccess
 }
 
 /**
@@ -595,10 +595,10 @@ export interface SODViolationsApiStartPredictSodViolationsV1Request {
 export interface SODViolationsApiStartViolationCheckV1Request {
     /**
      * 
-     * @type {Identitywithnewaccess}
+     * @type {IdentityWithNewAccess}
      * @memberof SODViolationsApiStartViolationCheckV1
      */
-    readonly identitywithnewaccess: Identitywithnewaccess
+    readonly identityWithNewAccess: IdentityWithNewAccess
 }
 
 /**
@@ -617,7 +617,7 @@ export class SODViolationsApi extends BaseAPI {
      * @memberof SODViolationsApi
      */
     public startPredictSodViolationsV1(requestParameters: SODViolationsApiStartPredictSodViolationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODViolationsApiFp(this.configuration).startPredictSodViolationsV1(requestParameters.identitywithnewaccess, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODViolationsApiFp(this.configuration).startPredictSodViolationsV1(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -629,7 +629,7 @@ export class SODViolationsApi extends BaseAPI {
      * @memberof SODViolationsApi
      */
     public startViolationCheckV1(requestParameters: SODViolationsApiStartViolationCheckV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODViolationsApiFp(this.configuration).startViolationCheckV1(requestParameters.identitywithnewaccess, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODViolationsApiFp(this.configuration).startViolationCheckV1(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

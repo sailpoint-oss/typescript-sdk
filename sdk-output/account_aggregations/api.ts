@@ -26,60 +26,60 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Accountaggregationstatus
+ * @interface AccountAggregationStatus
  */
-export interface Accountaggregationstatus {
+export interface AccountAggregationStatus {
     /**
      * When the aggregation started.
      * @type {string}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
     'start'?: string | null;
     /**
      * STARTED - Aggregation started, but source account iteration has not completed.  ACCOUNTS_COLLECTED - Source account iteration completed, but all accounts have not yet been processed.  COMPLETED - Aggregation completed (*possibly with errors*).  CANCELLED - Aggregation cancelled by user.  RETRIED - Aggregation retried because of connectivity issues with the Virtual Appliance.  TERMINATED - Aggregation marked as failed after 3 tries after connectivity issues with the Virtual Appliance. 
      * @type {string}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
-    'status'?: AccountaggregationstatusStatusEnum;
+    'status'?: AccountAggregationStatusStatusEnum;
     /**
      * The total number of *NEW, CHANGED and DELETED* accounts that need to be processed for this aggregation. This does not include accounts that were unchanged since the previous aggregation. This can be zero if there were no new, changed or deleted accounts since the previous aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
      * @type {number}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
     'totalAccounts'?: number;
     /**
      * The number of *NEW, CHANGED and DELETED* accounts that have been processed so far. This reflects the number of accounts that have been processed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
      * @type {number}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
     'processedAccounts'?: number;
     /**
      * The total number of accounts that have been marked for deletion during the aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
      * @type {number}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
     'totalAccountsMarkedForDeletion'?: number;
     /**
      * The number of accounts that have been deleted during the aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
      * @type {number}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
     'deletedAccounts'?: number;
     /**
      * The total number of unique identities that have been marked for refresh. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
      * @type {number}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
     'totalIdentities'?: number;
     /**
      * The number of unique identities that have been refreshed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
      * @type {number}
-     * @memberof Accountaggregationstatus
+     * @memberof AccountAggregationStatus
      */
     'processedIdentities'?: number;
 }
 
-export const AccountaggregationstatusStatusEnum = {
+export const AccountAggregationStatusStatusEnum = {
     Started: 'STARTED',
     AccountsCollected: 'ACCOUNTS_COLLECTED',
     Completed: 'COMPLETED',
@@ -89,30 +89,30 @@ export const AccountaggregationstatusStatusEnum = {
     NotFound: 'NOT_FOUND'
 } as const;
 
-export type AccountaggregationstatusStatusEnum = typeof AccountaggregationstatusStatusEnum[keyof typeof AccountaggregationstatusStatusEnum];
+export type AccountAggregationStatusStatusEnum = typeof AccountAggregationStatusStatusEnum[keyof typeof AccountAggregationStatusStatusEnum];
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -121,33 +121,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -181,12 +181,12 @@ export interface GetAccountAggregationStatusV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -247,7 +247,7 @@ export const AccountAggregationsApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountAggregationStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountaggregationstatus>> {
+        async getAccountAggregationStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountAggregationStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountAggregationStatusV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccountAggregationsApi.getAccountAggregationStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -270,7 +270,7 @@ export const AccountAggregationsApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountAggregationStatusV1(requestParameters: AccountAggregationsApiGetAccountAggregationStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountaggregationstatus> {
+        getAccountAggregationStatusV1(requestParameters: AccountAggregationsApiGetAccountAggregationStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountAggregationStatus> {
             return localVarFp.getAccountAggregationStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
     };

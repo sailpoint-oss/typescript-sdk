@@ -26,36 +26,36 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Accessmodelmetadatabulkupdateresponse
+ * @interface AccessModelMetadataBulkUpdateResponse
  */
-export interface Accessmodelmetadatabulkupdateresponse {
+export interface AccessModelMetadataBulkUpdateResponse {
     /**
      * ID of the task which is executing the bulk update.
      * @type {string}
-     * @memberof Accessmodelmetadatabulkupdateresponse
+     * @memberof AccessModelMetadataBulkUpdateResponse
      */
     'id'?: string;
     /**
      * Type of the bulk update object.
      * @type {string}
-     * @memberof Accessmodelmetadatabulkupdateresponse
+     * @memberof AccessModelMetadataBulkUpdateResponse
      */
     'type'?: string;
     /**
      * The status of the bulk update request, only list unfinished request\'s status.
      * @type {string}
-     * @memberof Accessmodelmetadatabulkupdateresponse
+     * @memberof AccessModelMetadataBulkUpdateResponse
      */
-    'status'?: AccessmodelmetadatabulkupdateresponseStatusEnum;
+    'status'?: AccessModelMetadataBulkUpdateResponseStatusEnum;
     /**
      * Time when the bulk update request was created
      * @type {string}
-     * @memberof Accessmodelmetadatabulkupdateresponse
+     * @memberof AccessModelMetadataBulkUpdateResponse
      */
     'created'?: string;
 }
 
-export const AccessmodelmetadatabulkupdateresponseStatusEnum = {
+export const AccessModelMetadataBulkUpdateResponseStatusEnum = {
     Created: 'CREATED',
     PreProcess: 'PRE_PROCESS',
     PreProcessCompleted: 'PRE_PROCESS_COMPLETED',
@@ -68,7 +68,21 @@ export const AccessmodelmetadatabulkupdateresponseStatusEnum = {
     Failed: 'FAILED'
 } as const;
 
-export type AccessmodelmetadatabulkupdateresponseStatusEnum = typeof AccessmodelmetadatabulkupdateresponseStatusEnum[keyof typeof AccessmodelmetadatabulkupdateresponseStatusEnum];
+export type AccessModelMetadataBulkUpdateResponseStatusEnum = typeof AccessModelMetadataBulkUpdateResponseStatusEnum[keyof typeof AccessModelMetadataBulkUpdateResponseStatusEnum];
+
+/**
+ * Enum representing the currently available query languages for aggregations, which are used to perform calculations or groupings on search results.  Additional values may be added in the future without notice. 
+ * @export
+ * @enum {string}
+ */
+
+export const AggregationType = {
+    Dsl: 'DSL',
+    Sailpoint: 'SAILPOINT'
+} as const;
+
+export type AggregationType = typeof AggregationType[keyof typeof AggregationType];
+
 
 /**
  * 
@@ -78,43 +92,29 @@ export type AccessmodelmetadatabulkupdateresponseStatusEnum = typeof Accessmodel
 export interface Aggregations {
     /**
      * 
-     * @type {Nestedaggregation}
+     * @type {NestedAggregation}
      * @memberof Aggregations
      */
-    'nested'?: Nestedaggregation;
+    'nested'?: NestedAggregation;
     /**
      * 
-     * @type {Metricaggregation}
+     * @type {MetricAggregation}
      * @memberof Aggregations
      */
-    'metric'?: Metricaggregation;
+    'metric'?: MetricAggregation;
     /**
      * 
-     * @type {Filteraggregation}
+     * @type {FilterAggregation}
      * @memberof Aggregations
      */
-    'filter'?: Filteraggregation;
+    'filter'?: FilterAggregation;
     /**
      * 
-     * @type {Bucketaggregation}
+     * @type {BucketAggregation}
      * @memberof Aggregations
      */
-    'bucket'?: Bucketaggregation;
+    'bucket'?: BucketAggregation;
 }
-/**
- * Enum representing the currently available query languages for aggregations, which are used to perform calculations or groupings on search results.  Additional values may be added in the future without notice. 
- * @export
- * @enum {string}
- */
-
-export const Aggregationtype = {
-    Dsl: 'DSL',
-    Sailpoint: 'SAILPOINT'
-} as const;
-
-export type Aggregationtype = typeof Aggregationtype[keyof typeof Aggregationtype];
-
-
 /**
  * 
  * @export
@@ -125,80 +125,80 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Attributedto
+ * @interface AttributeDTO
  */
-export interface Attributedto {
+export interface AttributeDTO {
     /**
      * Technical name of the Attribute. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'key'?: string;
     /**
      * The display name of the key.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'name'?: string;
     /**
      * Indicates whether the attribute can have multiple values.
      * @type {boolean}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'multiselect'?: boolean;
     /**
      * The status of the Attribute.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'status'?: string;
     /**
      * The type of the Attribute. This can be either \"custom\" or \"governance\".
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'type'?: string;
     /**
      * An array of object types this attributes values can be applied to. Possible values are \"all\" or \"entitlement\". Value \"all\" means this attribute can be used with all object types that are supported.
      * @type {Array<string>}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'objectTypes'?: Array<string> | null;
     /**
      * The description of the Attribute.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'description'?: string;
     /**
      * 
-     * @type {Array<Attributevaluedto>}
-     * @memberof Attributedto
+     * @type {Array<AttributeValueDTO>}
+     * @memberof AttributeDTO
      */
-    'values'?: Array<Attributevaluedto> | null;
+    'values'?: Array<AttributeValueDTO> | null;
 }
 /**
  * 
  * @export
- * @interface Attributevaluedto
+ * @interface AttributeValueDTO
  */
-export interface Attributevaluedto {
+export interface AttributeValueDTO {
     /**
      * Technical name of the Attribute value. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'value'?: string;
     /**
      * The display name of the Attribute value.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'name'?: string;
     /**
      * The status of the Attribute value.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'status'?: string;
 }
@@ -224,37 +224,37 @@ export interface Bound {
 /**
  * The bucket to group the results of the aggregation query by.
  * @export
- * @interface Bucketaggregation
+ * @interface BucketAggregation
  */
-export interface Bucketaggregation {
+export interface BucketAggregation {
     /**
      * The name of the bucket aggregate to be included in the result.
      * @type {string}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'name': string;
     /**
      * 
-     * @type {Buckettype}
-     * @memberof Bucketaggregation
+     * @type {BucketType}
+     * @memberof BucketAggregation
      */
-    'type'?: Buckettype;
+    'type'?: BucketType;
     /**
      * The field to bucket on. Prefix the field name with \'@\' to reference a nested object.
      * @type {string}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'field': string;
     /**
      * Maximum number of buckets to include.
      * @type {number}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'size'?: number;
     /**
      * Minimum number of documents a bucket should have.
      * @type {number}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'minDocCount'?: number;
 }
@@ -266,192 +266,192 @@ export interface Bucketaggregation {
  * @enum {string}
  */
 
-export const Buckettype = {
+export const BucketType = {
     Terms: 'TERMS'
 } as const;
 
-export type Buckettype = typeof Buckettype[keyof typeof Buckettype];
+export type BucketType = typeof BucketType[keyof typeof BucketType];
 
 
 /**
  * 
  * @export
- * @interface BulkupdateammkeyvalueInner
+ * @interface BulkUpdateAMMKeyValueInner
  */
-export interface BulkupdateammkeyvalueInner {
+export interface BulkUpdateAMMKeyValueInner {
     /**
      * the key of metadata attribute
      * @type {string}
-     * @memberof BulkupdateammkeyvalueInner
+     * @memberof BulkUpdateAMMKeyValueInner
      */
     'attribute': string;
     /**
      * the values of attribute to be updated
      * @type {Array<string>}
-     * @memberof BulkupdateammkeyvalueInner
+     * @memberof BulkUpdateAMMKeyValueInner
      */
     'values': Array<string> | null;
 }
 /**
  * 
  * @export
- * @interface Entitlementattributebulkupdatefilterrequest
+ * @interface EntitlementAttributeBulkUpdateFilterRequest
  */
-export interface Entitlementattributebulkupdatefilterrequest {
+export interface EntitlementAttributeBulkUpdateFilterRequest {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq*
      * @type {string}
-     * @memberof Entitlementattributebulkupdatefilterrequest
+     * @memberof EntitlementAttributeBulkUpdateFilterRequest
      */
     'filters'?: string;
     /**
      * Operation to perform on the attributes in the bulk update request.
      * @type {string}
-     * @memberof Entitlementattributebulkupdatefilterrequest
+     * @memberof EntitlementAttributeBulkUpdateFilterRequest
      */
-    'operation'?: EntitlementattributebulkupdatefilterrequestOperationEnum;
+    'operation'?: EntitlementAttributeBulkUpdateFilterRequestOperationEnum;
     /**
      * The choice of update scope.
      * @type {string}
-     * @memberof Entitlementattributebulkupdatefilterrequest
+     * @memberof EntitlementAttributeBulkUpdateFilterRequest
      */
-    'replaceScope'?: EntitlementattributebulkupdatefilterrequestReplaceScopeEnum;
+    'replaceScope'?: EntitlementAttributeBulkUpdateFilterRequestReplaceScopeEnum;
     /**
      * The metadata to be updated, including attribute and values.
-     * @type {Array<BulkupdateammkeyvalueInner>}
-     * @memberof Entitlementattributebulkupdatefilterrequest
+     * @type {Array<BulkUpdateAMMKeyValueInner>}
+     * @memberof EntitlementAttributeBulkUpdateFilterRequest
      */
-    'values'?: Array<BulkupdateammkeyvalueInner>;
+    'values'?: Array<BulkUpdateAMMKeyValueInner>;
 }
 
-export const EntitlementattributebulkupdatefilterrequestOperationEnum = {
+export const EntitlementAttributeBulkUpdateFilterRequestOperationEnum = {
     Add: 'ADD',
     Remove: 'REMOVE',
     Replace: 'REPLACE'
 } as const;
 
-export type EntitlementattributebulkupdatefilterrequestOperationEnum = typeof EntitlementattributebulkupdatefilterrequestOperationEnum[keyof typeof EntitlementattributebulkupdatefilterrequestOperationEnum];
-export const EntitlementattributebulkupdatefilterrequestReplaceScopeEnum = {
+export type EntitlementAttributeBulkUpdateFilterRequestOperationEnum = typeof EntitlementAttributeBulkUpdateFilterRequestOperationEnum[keyof typeof EntitlementAttributeBulkUpdateFilterRequestOperationEnum];
+export const EntitlementAttributeBulkUpdateFilterRequestReplaceScopeEnum = {
     All: 'ALL',
     Attribute: 'ATTRIBUTE'
 } as const;
 
-export type EntitlementattributebulkupdatefilterrequestReplaceScopeEnum = typeof EntitlementattributebulkupdatefilterrequestReplaceScopeEnum[keyof typeof EntitlementattributebulkupdatefilterrequestReplaceScopeEnum];
+export type EntitlementAttributeBulkUpdateFilterRequestReplaceScopeEnum = typeof EntitlementAttributeBulkUpdateFilterRequestReplaceScopeEnum[keyof typeof EntitlementAttributeBulkUpdateFilterRequestReplaceScopeEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementattributebulkupdateidsrequest
+ * @interface EntitlementAttributeBulkUpdateIdsRequest
  */
-export interface Entitlementattributebulkupdateidsrequest {
+export interface EntitlementAttributeBulkUpdateIdsRequest {
     /**
      * List of entitlement IDs to update.
      * @type {Array<string>}
-     * @memberof Entitlementattributebulkupdateidsrequest
+     * @memberof EntitlementAttributeBulkUpdateIdsRequest
      */
     'entitlements'?: Array<string>;
     /**
      * Operation to perform on the attributes in the bulk update request.
      * @type {string}
-     * @memberof Entitlementattributebulkupdateidsrequest
+     * @memberof EntitlementAttributeBulkUpdateIdsRequest
      */
-    'operation'?: EntitlementattributebulkupdateidsrequestOperationEnum;
+    'operation'?: EntitlementAttributeBulkUpdateIdsRequestOperationEnum;
     /**
      * The choice of update scope.
      * @type {string}
-     * @memberof Entitlementattributebulkupdateidsrequest
+     * @memberof EntitlementAttributeBulkUpdateIdsRequest
      */
-    'replaceScope'?: EntitlementattributebulkupdateidsrequestReplaceScopeEnum;
+    'replaceScope'?: EntitlementAttributeBulkUpdateIdsRequestReplaceScopeEnum;
     /**
      * The metadata to be updated, including attribute and values.
-     * @type {Array<BulkupdateammkeyvalueInner>}
-     * @memberof Entitlementattributebulkupdateidsrequest
+     * @type {Array<BulkUpdateAMMKeyValueInner>}
+     * @memberof EntitlementAttributeBulkUpdateIdsRequest
      */
-    'values'?: Array<BulkupdateammkeyvalueInner>;
+    'values'?: Array<BulkUpdateAMMKeyValueInner>;
 }
 
-export const EntitlementattributebulkupdateidsrequestOperationEnum = {
+export const EntitlementAttributeBulkUpdateIdsRequestOperationEnum = {
     Add: 'ADD',
     Remove: 'REMOVE',
     Replace: 'REPLACE'
 } as const;
 
-export type EntitlementattributebulkupdateidsrequestOperationEnum = typeof EntitlementattributebulkupdateidsrequestOperationEnum[keyof typeof EntitlementattributebulkupdateidsrequestOperationEnum];
-export const EntitlementattributebulkupdateidsrequestReplaceScopeEnum = {
+export type EntitlementAttributeBulkUpdateIdsRequestOperationEnum = typeof EntitlementAttributeBulkUpdateIdsRequestOperationEnum[keyof typeof EntitlementAttributeBulkUpdateIdsRequestOperationEnum];
+export const EntitlementAttributeBulkUpdateIdsRequestReplaceScopeEnum = {
     All: 'ALL',
     Attribute: 'ATTRIBUTE'
 } as const;
 
-export type EntitlementattributebulkupdateidsrequestReplaceScopeEnum = typeof EntitlementattributebulkupdateidsrequestReplaceScopeEnum[keyof typeof EntitlementattributebulkupdateidsrequestReplaceScopeEnum];
+export type EntitlementAttributeBulkUpdateIdsRequestReplaceScopeEnum = typeof EntitlementAttributeBulkUpdateIdsRequestReplaceScopeEnum[keyof typeof EntitlementAttributeBulkUpdateIdsRequestReplaceScopeEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementattributebulkupdatequeryrequest
+ * @interface EntitlementAttributeBulkUpdateQueryRequest
  */
-export interface Entitlementattributebulkupdatequeryrequest {
+export interface EntitlementAttributeBulkUpdateQueryRequest {
     /**
      * 
      * @type {Search}
-     * @memberof Entitlementattributebulkupdatequeryrequest
+     * @memberof EntitlementAttributeBulkUpdateQueryRequest
      */
     'query'?: Search;
     /**
      * Operation to perform on the attributes in the bulk update request.
      * @type {string}
-     * @memberof Entitlementattributebulkupdatequeryrequest
+     * @memberof EntitlementAttributeBulkUpdateQueryRequest
      */
-    'operation'?: EntitlementattributebulkupdatequeryrequestOperationEnum;
+    'operation'?: EntitlementAttributeBulkUpdateQueryRequestOperationEnum;
     /**
      * The choice of update scope.
      * @type {string}
-     * @memberof Entitlementattributebulkupdatequeryrequest
+     * @memberof EntitlementAttributeBulkUpdateQueryRequest
      */
-    'replaceScope'?: EntitlementattributebulkupdatequeryrequestReplaceScopeEnum;
+    'replaceScope'?: EntitlementAttributeBulkUpdateQueryRequestReplaceScopeEnum;
     /**
      * The metadata to be updated, including attribute and values.
-     * @type {Array<BulkupdateammkeyvalueInner>}
-     * @memberof Entitlementattributebulkupdatequeryrequest
+     * @type {Array<BulkUpdateAMMKeyValueInner>}
+     * @memberof EntitlementAttributeBulkUpdateQueryRequest
      */
-    'values'?: Array<BulkupdateammkeyvalueInner>;
+    'values'?: Array<BulkUpdateAMMKeyValueInner>;
 }
 
-export const EntitlementattributebulkupdatequeryrequestOperationEnum = {
+export const EntitlementAttributeBulkUpdateQueryRequestOperationEnum = {
     Add: 'ADD',
     Remove: 'REMOVE',
     Replace: 'REPLACE'
 } as const;
 
-export type EntitlementattributebulkupdatequeryrequestOperationEnum = typeof EntitlementattributebulkupdatequeryrequestOperationEnum[keyof typeof EntitlementattributebulkupdatequeryrequestOperationEnum];
-export const EntitlementattributebulkupdatequeryrequestReplaceScopeEnum = {
+export type EntitlementAttributeBulkUpdateQueryRequestOperationEnum = typeof EntitlementAttributeBulkUpdateQueryRequestOperationEnum[keyof typeof EntitlementAttributeBulkUpdateQueryRequestOperationEnum];
+export const EntitlementAttributeBulkUpdateQueryRequestReplaceScopeEnum = {
     All: 'ALL',
     Attribute: 'ATTRIBUTE'
 } as const;
 
-export type EntitlementattributebulkupdatequeryrequestReplaceScopeEnum = typeof EntitlementattributebulkupdatequeryrequestReplaceScopeEnum[keyof typeof EntitlementattributebulkupdatequeryrequestReplaceScopeEnum];
+export type EntitlementAttributeBulkUpdateQueryRequestReplaceScopeEnum = typeof EntitlementAttributeBulkUpdateQueryRequestReplaceScopeEnum[keyof typeof EntitlementAttributeBulkUpdateQueryRequestReplaceScopeEnum];
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -460,33 +460,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -496,10 +496,10 @@ export interface Errorresponsedto {
 export interface Filter {
     /**
      * 
-     * @type {Filtertype}
+     * @type {FilterType}
      * @memberof Filter
      */
-    'type'?: Filtertype;
+    'type'?: FilterType;
     /**
      * 
      * @type {Range}
@@ -524,31 +524,31 @@ export interface Filter {
 /**
  * An additional filter to constrain the results of the search query.
  * @export
- * @interface Filteraggregation
+ * @interface FilterAggregation
  */
-export interface Filteraggregation {
+export interface FilterAggregation {
     /**
      * The name of the filter aggregate to be included in the result.
      * @type {string}
-     * @memberof Filteraggregation
+     * @memberof FilterAggregation
      */
     'name': string;
     /**
      * 
-     * @type {Searchfiltertype}
-     * @memberof Filteraggregation
+     * @type {SearchFilterType}
+     * @memberof FilterAggregation
      */
-    'type'?: Searchfiltertype;
+    'type'?: SearchFilterType;
     /**
      * The search field to apply the filter to.  Prefix the field name with \'@\' to reference a nested object. 
      * @type {string}
-     * @memberof Filteraggregation
+     * @memberof FilterAggregation
      */
     'field': string;
     /**
      * The value to filter on.
      * @type {string}
-     * @memberof Filteraggregation
+     * @memberof FilterAggregation
      */
     'value': string;
 }
@@ -560,13 +560,13 @@ export interface Filteraggregation {
  * @enum {string}
  */
 
-export const Filtertype = {
+export const FilterType = {
     Exists: 'EXISTS',
     Range: 'RANGE',
     Terms: 'TERMS'
 } as const;
 
-export type Filtertype = typeof Filtertype[keyof typeof Filtertype];
+export type FilterType = typeof FilterType[keyof typeof FilterType];
 
 
 /**
@@ -591,49 +591,49 @@ export type Index = typeof Index[keyof typeof Index];
 /**
  * Inner Hit query object that will cause the specified nested type to be returned as the result matching the supplied query.
  * @export
- * @interface Innerhit
+ * @interface InnerHit
  */
-export interface Innerhit {
+export interface InnerHit {
     /**
      * The search query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
      * @type {string}
-     * @memberof Innerhit
+     * @memberof InnerHit
      */
     'query': string;
     /**
      * The nested type to use in the inner hits query.  The nested type [Nested Type](https://www.elastic.co/guide/en/elasticsearch/reference/current/nested.html) refers to a document \"nested\" within another document. For example, an identity can have nested documents for access, accounts, and apps.
      * @type {string}
-     * @memberof Innerhit
+     * @memberof InnerHit
      */
     'type': string;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -642,14 +642,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
@@ -683,36 +683,36 @@ export interface ListAccessModelMetadataAttributeV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * The calculation done on the results of the query
  * @export
- * @interface Metricaggregation
+ * @interface MetricAggregation
  */
-export interface Metricaggregation {
+export interface MetricAggregation {
     /**
      * The name of the metric aggregate to be included in the result. If the metric aggregation is omitted, the resulting aggregation will be a count of the documents in the search results.
      * @type {string}
-     * @memberof Metricaggregation
+     * @memberof MetricAggregation
      */
     'name': string;
     /**
      * 
-     * @type {Metrictype}
-     * @memberof Metricaggregation
+     * @type {MetricType}
+     * @memberof MetricAggregation
      */
-    'type'?: Metrictype;
+    'type'?: MetricType;
     /**
      * The field the calculation is performed on.  Prefix the field name with \'@\' to reference a nested object. 
      * @type {string}
-     * @memberof Metricaggregation
+     * @memberof MetricAggregation
      */
     'field': string;
 }
@@ -724,7 +724,7 @@ export interface Metricaggregation {
  * @enum {string}
  */
 
-export const Metrictype = {
+export const MetricType = {
     Count: 'COUNT',
     UniqueCount: 'UNIQUE_COUNT',
     Avg: 'AVG',
@@ -734,25 +734,25 @@ export const Metrictype = {
     Max: 'MAX'
 } as const;
 
-export type Metrictype = typeof Metrictype[keyof typeof Metrictype];
+export type MetricType = typeof MetricType[keyof typeof MetricType];
 
 
 /**
  * The nested aggregation object.
  * @export
- * @interface Nestedaggregation
+ * @interface NestedAggregation
  */
-export interface Nestedaggregation {
+export interface NestedAggregation {
     /**
      * The name of the nested aggregate to be included in the result.
      * @type {string}
-     * @memberof Nestedaggregation
+     * @memberof NestedAggregation
      */
     'name': string;
     /**
      * The type of the nested object.
      * @type {string}
-     * @memberof Nestedaggregation
+     * @memberof NestedAggregation
      */
     'type': string;
 }
@@ -782,27 +782,27 @@ export interface Query {
     'timeZone'?: string;
     /**
      * 
-     * @type {Innerhit}
+     * @type {InnerHit}
      * @memberof Query
      */
-    'innerHit'?: Innerhit;
+    'innerHit'?: InnerHit;
 }
 /**
  * Allows the query results to be filtered by specifying a list of fields to include and/or exclude from the result documents.
  * @export
- * @interface Queryresultfilter
+ * @interface QueryResultFilter
  */
-export interface Queryresultfilter {
+export interface QueryResultFilter {
     /**
      * The list of field names to include in the result documents.
      * @type {Array<string>}
-     * @memberof Queryresultfilter
+     * @memberof QueryResultFilter
      */
     'includes'?: Array<string>;
     /**
      * The list of field names to exclude from the result documents.
      * @type {Array<string>}
-     * @memberof Queryresultfilter
+     * @memberof QueryResultFilter
      */
     'excludes'?: Array<string>;
 }
@@ -812,14 +812,14 @@ export interface Queryresultfilter {
  * @enum {string}
  */
 
-export const Querytype = {
+export const QueryType = {
     Dsl: 'DSL',
     Sailpoint: 'SAILPOINT',
     Text: 'TEXT',
     Typeahead: 'TYPEAHEAD'
 } as const;
 
-export type Querytype = typeof Querytype[keyof typeof Querytype];
+export type QueryType = typeof QueryType[keyof typeof QueryType];
 
 
 /**
@@ -855,10 +855,10 @@ export interface Search {
     'indices'?: Array<Index>;
     /**
      * 
-     * @type {Querytype}
+     * @type {QueryType}
      * @memberof Search
      */
-    'queryType'?: Querytype;
+    'queryType'?: QueryType;
     /**
      * 
      * @type {string}
@@ -879,16 +879,16 @@ export interface Search {
     'queryDsl'?: object;
     /**
      * 
-     * @type {Textquery}
+     * @type {TextQuery}
      * @memberof Search
      */
-    'textQuery'?: Textquery;
+    'textQuery'?: TextQuery;
     /**
      * 
-     * @type {Typeaheadquery}
+     * @type {TypeAheadQuery}
      * @memberof Search
      */
-    'typeAheadQuery'?: Typeaheadquery;
+    'typeAheadQuery'?: TypeAheadQuery;
     /**
      * Indicates whether nested objects from returned search results should be included.
      * @type {boolean}
@@ -897,16 +897,16 @@ export interface Search {
     'includeNested'?: boolean;
     /**
      * 
-     * @type {Queryresultfilter}
+     * @type {QueryResultFilter}
      * @memberof Search
      */
-    'queryResultFilter'?: Queryresultfilter;
+    'queryResultFilter'?: QueryResultFilter;
     /**
      * 
-     * @type {Aggregationtype}
+     * @type {AggregationType}
      * @memberof Search
      */
-    'aggregationType'?: Aggregationtype;
+    'aggregationType'?: AggregationType;
     /**
      * 
      * @type {string}
@@ -921,10 +921,10 @@ export interface Search {
     'aggregationsDsl'?: object;
     /**
      * 
-     * @type {Searchaggregationspecification}
+     * @type {SearchAggregationSpecification}
      * @memberof Search
      */
-    'aggregations'?: Searchaggregationspecification;
+    'aggregations'?: SearchAggregationSpecification;
     /**
      * The fields to be used to sort the search results. Use + or - to specify the sort direction.
      * @type {Array<string>}
@@ -949,39 +949,39 @@ export interface Search {
 /**
  * 
  * @export
- * @interface Searchaggregationspecification
+ * @interface SearchAggregationSpecification
  */
-export interface Searchaggregationspecification {
+export interface SearchAggregationSpecification {
     /**
      * 
-     * @type {Nestedaggregation}
-     * @memberof Searchaggregationspecification
+     * @type {NestedAggregation}
+     * @memberof SearchAggregationSpecification
      */
-    'nested'?: Nestedaggregation;
+    'nested'?: NestedAggregation;
     /**
      * 
-     * @type {Metricaggregation}
-     * @memberof Searchaggregationspecification
+     * @type {MetricAggregation}
+     * @memberof SearchAggregationSpecification
      */
-    'metric'?: Metricaggregation;
+    'metric'?: MetricAggregation;
     /**
      * 
-     * @type {Filteraggregation}
-     * @memberof Searchaggregationspecification
+     * @type {FilterAggregation}
+     * @memberof SearchAggregationSpecification
      */
-    'filter'?: Filteraggregation;
+    'filter'?: FilterAggregation;
     /**
      * 
-     * @type {Bucketaggregation}
-     * @memberof Searchaggregationspecification
+     * @type {BucketAggregation}
+     * @memberof SearchAggregationSpecification
      */
-    'bucket'?: Bucketaggregation;
+    'bucket'?: BucketAggregation;
     /**
      * 
-     * @type {Subsearchaggregationspecification}
-     * @memberof Searchaggregationspecification
+     * @type {SubSearchAggregationSpecification}
+     * @memberof SearchAggregationSpecification
      */
-    'subAggregation'?: Subsearchaggregationspecification;
+    'subAggregation'?: SubSearchAggregationSpecification;
 }
 /**
  * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
@@ -989,127 +989,127 @@ export interface Searchaggregationspecification {
  * @enum {string}
  */
 
-export const Searchfiltertype = {
+export const SearchFilterType = {
     Term: 'TERM'
 } as const;
 
-export type Searchfiltertype = typeof Searchfiltertype[keyof typeof Searchfiltertype];
+export type SearchFilterType = typeof SearchFilterType[keyof typeof SearchFilterType];
 
 
 /**
  * 
  * @export
- * @interface Subsearchaggregationspecification
+ * @interface SubSearchAggregationSpecification
  */
-export interface Subsearchaggregationspecification {
+export interface SubSearchAggregationSpecification {
     /**
      * 
-     * @type {Nestedaggregation}
-     * @memberof Subsearchaggregationspecification
+     * @type {NestedAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'nested'?: Nestedaggregation;
+    'nested'?: NestedAggregation;
     /**
      * 
-     * @type {Metricaggregation}
-     * @memberof Subsearchaggregationspecification
+     * @type {MetricAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'metric'?: Metricaggregation;
+    'metric'?: MetricAggregation;
     /**
      * 
-     * @type {Filteraggregation}
-     * @memberof Subsearchaggregationspecification
+     * @type {FilterAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'filter'?: Filteraggregation;
+    'filter'?: FilterAggregation;
     /**
      * 
-     * @type {Bucketaggregation}
-     * @memberof Subsearchaggregationspecification
+     * @type {BucketAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'bucket'?: Bucketaggregation;
+    'bucket'?: BucketAggregation;
     /**
      * 
      * @type {Aggregations}
-     * @memberof Subsearchaggregationspecification
+     * @memberof SubSearchAggregationSpecification
      */
     'subAggregation'?: Aggregations;
 }
 /**
  * Query parameters used to construct an Elasticsearch text query object.
  * @export
- * @interface Textquery
+ * @interface TextQuery
  */
-export interface Textquery {
+export interface TextQuery {
     /**
      * Words or characters that specify a particular thing to be searched for.
      * @type {Array<string>}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'terms': Array<string>;
     /**
      * The fields to be searched.
      * @type {Array<string>}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'fields': Array<string>;
     /**
      * Indicates that at least one of the terms must be found in the specified fields;  otherwise, all terms must be found.
      * @type {boolean}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'matchAny'?: boolean;
     /**
      * Indicates that the terms can be located anywhere in the specified fields;  otherwise, the fields must begin with the terms.
      * @type {boolean}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'contains'?: boolean;
 }
 /**
  * Query parameters used to construct an Elasticsearch type ahead query object.  The typeAheadQuery performs a search for top values beginning with the typed values. For example, typing \"Jo\" results in top hits matching \"Jo.\" Typing \"Job\" results in top hits matching \"Job.\" 
  * @export
- * @interface Typeaheadquery
+ * @interface TypeAheadQuery
  */
-export interface Typeaheadquery {
+export interface TypeAheadQuery {
     /**
      * The type ahead query string used to construct a phrase prefix match query.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'query': string;
     /**
      * The field on which to perform the type ahead search.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'field': string;
     /**
      * The nested type.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'nestedType'?: string;
     /**
      * The number of suffixes the last term will be expanded into. Influences the performance of the query and the number results returned. Valid values: 1 to 1000.
      * @type {number}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'maxExpansions'?: number;
     /**
      * The max amount of records the search will return.
      * @type {number}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'size'?: number;
     /**
      * The sort order of the returned records.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'sort'?: string;
     /**
      * The flag that defines the sort type, by count or value.
      * @type {boolean}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'sortByValue'?: boolean;
 }
@@ -1123,13 +1123,13 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
         /**
          * Create a new Access Model Metadata Attribute. 
          * @summary Create access model metadata attribute
-         * @param {Attributedto} attributedto Attribute to create
+         * @param {AttributeDTO} attributeDTO Attribute to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessModelMetadataAttributeV1: async (attributedto: Attributedto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'attributedto' is not null or undefined
-            assertParamExists('createAccessModelMetadataAttributeV1', 'attributedto', attributedto)
+        createAccessModelMetadataAttributeV1: async (attributeDTO: AttributeDTO, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'attributeDTO' is not null or undefined
+            assertParamExists('createAccessModelMetadataAttributeV1', 'attributeDTO', attributeDTO)
             const localVarPath = `/access-model-metadata/v1/attributes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1149,7 +1149,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(attributedto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(attributeDTO, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1160,15 +1160,15 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
          * Create a new value for an existing Access Model Metadata Attribute.     
          * @summary Create access model metadata value
          * @param {string} key Technical name of the Attribute.
-         * @param {Attributevaluedto} attributevaluedto Attribute value to create
+         * @param {AttributeValueDTO} attributeValueDTO Attribute value to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessModelMetadataAttributeValueV1: async (key: string, attributevaluedto: Attributevaluedto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAccessModelMetadataAttributeValueV1: async (key: string, attributeValueDTO: AttributeValueDTO, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'key' is not null or undefined
             assertParamExists('createAccessModelMetadataAttributeValueV1', 'key', key)
-            // verify required parameter 'attributevaluedto' is not null or undefined
-            assertParamExists('createAccessModelMetadataAttributeValueV1', 'attributevaluedto', attributevaluedto)
+            // verify required parameter 'attributeValueDTO' is not null or undefined
+            assertParamExists('createAccessModelMetadataAttributeValueV1', 'attributeValueDTO', attributeValueDTO)
             const localVarPath = `/access-model-metadata/v1/attributes/{key}/values`
                 .replace(`{${"key"}}`, encodeURIComponent(String(key)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1189,7 +1189,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(attributevaluedto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(attributeValueDTO, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1366,15 +1366,15 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
          * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **values** 
          * @summary Update access model metadata attribute
          * @param {string} key Technical name of the Attribute.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSON Patch array to apply
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSON Patch array to apply
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataAttributeV1: async (key: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateAccessModelMetadataAttributeV1: async (key: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'key' is not null or undefined
             assertParamExists('updateAccessModelMetadataAttributeV1', 'key', key)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('updateAccessModelMetadataAttributeV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateAccessModelMetadataAttributeV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/access-model-metadata/v1/attributes/{key}`
                 .replace(`{${"key"}}`, encodeURIComponent(String(key)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1395,7 +1395,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1407,17 +1407,17 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
          * @summary Update access model metadata value
          * @param {string} key Technical name of the Attribute.
          * @param {string} value Technical name of the Attribute value.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSON Patch array to apply
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSON Patch array to apply
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataAttributeValueV1: async (key: string, value: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateAccessModelMetadataAttributeValueV1: async (key: string, value: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'key' is not null or undefined
             assertParamExists('updateAccessModelMetadataAttributeValueV1', 'key', key)
             // verify required parameter 'value' is not null or undefined
             assertParamExists('updateAccessModelMetadataAttributeValueV1', 'value', value)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('updateAccessModelMetadataAttributeValueV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateAccessModelMetadataAttributeValueV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/access-model-metadata/v1/attributes/{key}/values/{value}`
                 .replace(`{${"key"}}`, encodeURIComponent(String(key)))
                 .replace(`{${"value"}}`, encodeURIComponent(String(value)));
@@ -1439,7 +1439,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1449,14 +1449,14 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
         /**
          * Bulk update Access Model Metadata Attribute Values using a filter
          * @summary Metadata Attribute update by filter
-         * @param {Entitlementattributebulkupdatefilterrequest} entitlementattributebulkupdatefilterrequest Attribute metadata bulk update request body.
+         * @param {EntitlementAttributeBulkUpdateFilterRequest} entitlementAttributeBulkUpdateFilterRequest Attribute metadata bulk update request body.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataByFilterV1: async (entitlementattributebulkupdatefilterrequest: Entitlementattributebulkupdatefilterrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementattributebulkupdatefilterrequest' is not null or undefined
-            assertParamExists('updateAccessModelMetadataByFilterV1', 'entitlementattributebulkupdatefilterrequest', entitlementattributebulkupdatefilterrequest)
+        updateAccessModelMetadataByFilterV1: async (entitlementAttributeBulkUpdateFilterRequest: EntitlementAttributeBulkUpdateFilterRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementAttributeBulkUpdateFilterRequest' is not null or undefined
+            assertParamExists('updateAccessModelMetadataByFilterV1', 'entitlementAttributeBulkUpdateFilterRequest', entitlementAttributeBulkUpdateFilterRequest)
             const localVarPath = `/access-model-metadata/v1/bulk-update/filter`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1476,7 +1476,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementattributebulkupdatefilterrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementAttributeBulkUpdateFilterRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1486,14 +1486,14 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
         /**
          * Bulk update Access Model Metadata Attribute Values using ids.
          * @summary Metadata Attribute update by ids
-         * @param {Entitlementattributebulkupdateidsrequest} entitlementattributebulkupdateidsrequest Attribute metadata bulk update request body.
+         * @param {EntitlementAttributeBulkUpdateIdsRequest} entitlementAttributeBulkUpdateIdsRequest Attribute metadata bulk update request body.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataByIdsV1: async (entitlementattributebulkupdateidsrequest: Entitlementattributebulkupdateidsrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementattributebulkupdateidsrequest' is not null or undefined
-            assertParamExists('updateAccessModelMetadataByIdsV1', 'entitlementattributebulkupdateidsrequest', entitlementattributebulkupdateidsrequest)
+        updateAccessModelMetadataByIdsV1: async (entitlementAttributeBulkUpdateIdsRequest: EntitlementAttributeBulkUpdateIdsRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementAttributeBulkUpdateIdsRequest' is not null or undefined
+            assertParamExists('updateAccessModelMetadataByIdsV1', 'entitlementAttributeBulkUpdateIdsRequest', entitlementAttributeBulkUpdateIdsRequest)
             const localVarPath = `/access-model-metadata/v1/bulk-update/ids`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1513,7 +1513,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementattributebulkupdateidsrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementAttributeBulkUpdateIdsRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1523,14 +1523,14 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
         /**
          * Bulk update Access Model Metadata Attribute Values using a query
          * @summary Metadata Attribute update by query
-         * @param {Entitlementattributebulkupdatequeryrequest} entitlementattributebulkupdatequeryrequest Attribute metadata bulk update request body.
+         * @param {EntitlementAttributeBulkUpdateQueryRequest} entitlementAttributeBulkUpdateQueryRequest Attribute metadata bulk update request body.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataByQueryV1: async (entitlementattributebulkupdatequeryrequest: Entitlementattributebulkupdatequeryrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementattributebulkupdatequeryrequest' is not null or undefined
-            assertParamExists('updateAccessModelMetadataByQueryV1', 'entitlementattributebulkupdatequeryrequest', entitlementattributebulkupdatequeryrequest)
+        updateAccessModelMetadataByQueryV1: async (entitlementAttributeBulkUpdateQueryRequest: EntitlementAttributeBulkUpdateQueryRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementAttributeBulkUpdateQueryRequest' is not null or undefined
+            assertParamExists('updateAccessModelMetadataByQueryV1', 'entitlementAttributeBulkUpdateQueryRequest', entitlementAttributeBulkUpdateQueryRequest)
             const localVarPath = `/access-model-metadata/v1/bulk-update/query`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1550,7 +1550,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementattributebulkupdatequeryrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementAttributeBulkUpdateQueryRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1570,12 +1570,12 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
         /**
          * Create a new Access Model Metadata Attribute. 
          * @summary Create access model metadata attribute
-         * @param {Attributedto} attributedto Attribute to create
+         * @param {AttributeDTO} attributeDTO Attribute to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessModelMetadataAttributeV1(attributedto: Attributedto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attributedto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessModelMetadataAttributeV1(attributedto, axiosOptions);
+        async createAccessModelMetadataAttributeV1(attributeDTO: AttributeDTO, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttributeDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessModelMetadataAttributeV1(attributeDTO, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.createAccessModelMetadataAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1584,12 +1584,12 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
          * Create a new value for an existing Access Model Metadata Attribute.     
          * @summary Create access model metadata value
          * @param {string} key Technical name of the Attribute.
-         * @param {Attributevaluedto} attributevaluedto Attribute value to create
+         * @param {AttributeValueDTO} attributeValueDTO Attribute value to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessModelMetadataAttributeValueV1(key: string, attributevaluedto: Attributevaluedto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attributevaluedto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessModelMetadataAttributeValueV1(key, attributevaluedto, axiosOptions);
+        async createAccessModelMetadataAttributeValueV1(key: string, attributeValueDTO: AttributeValueDTO, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttributeValueDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessModelMetadataAttributeValueV1(key, attributeValueDTO, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.createAccessModelMetadataAttributeValueV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1601,7 +1601,7 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessModelMetadataAttributeV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attributedto>> {
+        async getAccessModelMetadataAttributeV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttributeDTO>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessModelMetadataAttributeV1(key, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.getAccessModelMetadataAttributeV1']?.[localVarOperationServerIndex]?.url;
@@ -1615,7 +1615,7 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessModelMetadataAttributeValueV1(key: string, value: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attributevaluedto>> {
+        async getAccessModelMetadataAttributeValueV1(key: string, value: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttributeValueDTO>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessModelMetadataAttributeValueV1(key, value, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.getAccessModelMetadataAttributeValueV1']?.[localVarOperationServerIndex]?.url;
@@ -1631,7 +1631,7 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessModelMetadataAttributeV1(filters?: string, sorters?: string, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Attributedto>>> {
+        async listAccessModelMetadataAttributeV1(filters?: string, sorters?: string, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeDTO>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessModelMetadataAttributeV1(filters, sorters, limit, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.listAccessModelMetadataAttributeV1']?.[localVarOperationServerIndex]?.url;
@@ -1646,7 +1646,7 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessModelMetadataAttributeValueV1(key: string, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Attributevaluedto>>> {
+        async listAccessModelMetadataAttributeValueV1(key: string, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeValueDTO>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessModelMetadataAttributeValueV1(key, limit, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.listAccessModelMetadataAttributeValueV1']?.[localVarOperationServerIndex]?.url;
@@ -1656,12 +1656,12 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
          * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **values** 
          * @summary Update access model metadata attribute
          * @param {string} key Technical name of the Attribute.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSON Patch array to apply
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSON Patch array to apply
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessModelMetadataAttributeV1(key: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attributedto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataAttributeV1(key, jsonpatchoperation, axiosOptions);
+        async updateAccessModelMetadataAttributeV1(key: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttributeDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataAttributeV1(key, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.updateAccessModelMetadataAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1671,12 +1671,12 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
          * @summary Update access model metadata value
          * @param {string} key Technical name of the Attribute.
          * @param {string} value Technical name of the Attribute value.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSON Patch array to apply
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSON Patch array to apply
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessModelMetadataAttributeValueV1(key: string, value: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Attributevaluedto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataAttributeValueV1(key, value, jsonpatchoperation, axiosOptions);
+        async updateAccessModelMetadataAttributeValueV1(key: string, value: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttributeValueDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataAttributeValueV1(key, value, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.updateAccessModelMetadataAttributeValueV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1684,13 +1684,13 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
         /**
          * Bulk update Access Model Metadata Attribute Values using a filter
          * @summary Metadata Attribute update by filter
-         * @param {Entitlementattributebulkupdatefilterrequest} entitlementattributebulkupdatefilterrequest Attribute metadata bulk update request body.
+         * @param {EntitlementAttributeBulkUpdateFilterRequest} entitlementAttributeBulkUpdateFilterRequest Attribute metadata bulk update request body.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        async updateAccessModelMetadataByFilterV1(entitlementattributebulkupdatefilterrequest: Entitlementattributebulkupdatefilterrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessmodelmetadatabulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataByFilterV1(entitlementattributebulkupdatefilterrequest, axiosOptions);
+        async updateAccessModelMetadataByFilterV1(entitlementAttributeBulkUpdateFilterRequest: EntitlementAttributeBulkUpdateFilterRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessModelMetadataBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataByFilterV1(entitlementAttributeBulkUpdateFilterRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.updateAccessModelMetadataByFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1698,13 +1698,13 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
         /**
          * Bulk update Access Model Metadata Attribute Values using ids.
          * @summary Metadata Attribute update by ids
-         * @param {Entitlementattributebulkupdateidsrequest} entitlementattributebulkupdateidsrequest Attribute metadata bulk update request body.
+         * @param {EntitlementAttributeBulkUpdateIdsRequest} entitlementAttributeBulkUpdateIdsRequest Attribute metadata bulk update request body.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        async updateAccessModelMetadataByIdsV1(entitlementattributebulkupdateidsrequest: Entitlementattributebulkupdateidsrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessmodelmetadatabulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataByIdsV1(entitlementattributebulkupdateidsrequest, axiosOptions);
+        async updateAccessModelMetadataByIdsV1(entitlementAttributeBulkUpdateIdsRequest: EntitlementAttributeBulkUpdateIdsRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessModelMetadataBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataByIdsV1(entitlementAttributeBulkUpdateIdsRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.updateAccessModelMetadataByIdsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1712,13 +1712,13 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
         /**
          * Bulk update Access Model Metadata Attribute Values using a query
          * @summary Metadata Attribute update by query
-         * @param {Entitlementattributebulkupdatequeryrequest} entitlementattributebulkupdatequeryrequest Attribute metadata bulk update request body.
+         * @param {EntitlementAttributeBulkUpdateQueryRequest} entitlementAttributeBulkUpdateQueryRequest Attribute metadata bulk update request body.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
          */
-        async updateAccessModelMetadataByQueryV1(entitlementattributebulkupdatequeryrequest: Entitlementattributebulkupdatequeryrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessmodelmetadatabulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataByQueryV1(entitlementattributebulkupdatequeryrequest, axiosOptions);
+        async updateAccessModelMetadataByQueryV1(entitlementAttributeBulkUpdateQueryRequest: EntitlementAttributeBulkUpdateQueryRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessModelMetadataBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessModelMetadataByQueryV1(entitlementAttributeBulkUpdateQueryRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.updateAccessModelMetadataByQueryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1740,8 +1740,8 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attributedto> {
-            return localVarFp.createAccessModelMetadataAttributeV1(requestParameters.attributedto, axiosOptions).then((request) => request(axios, basePath));
+        createAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttributeDTO> {
+            return localVarFp.createAccessModelMetadataAttributeV1(requestParameters.attributeDTO, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Create a new value for an existing Access Model Metadata Attribute.     
@@ -1750,8 +1750,8 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attributevaluedto> {
-            return localVarFp.createAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.attributevaluedto, axiosOptions).then((request) => request(axios, basePath));
+        createAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttributeValueDTO> {
+            return localVarFp.createAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.attributeValueDTO, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get single Access Model Metadata Attribute
@@ -1760,7 +1760,7 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiGetAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attributedto> {
+        getAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiGetAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttributeDTO> {
             return localVarFp.getAccessModelMetadataAttributeV1(requestParameters.key, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1770,7 +1770,7 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiGetAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attributevaluedto> {
+        getAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiGetAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttributeValueDTO> {
             return localVarFp.getAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1780,7 +1780,7 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Attributedto>> {
+        listAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributeDTO>> {
             return localVarFp.listAccessModelMetadataAttributeV1(requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1790,7 +1790,7 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Attributevaluedto>> {
+        listAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributeValueDTO>> {
             return localVarFp.listAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1800,8 +1800,8 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attributedto> {
-            return localVarFp.updateAccessModelMetadataAttributeV1(requestParameters.key, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttributeDTO> {
+            return localVarFp.updateAccessModelMetadataAttributeV1(requestParameters.key, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing Access Model Metadata Attribute Value.     The following fields are patchable: **name** 
@@ -1810,8 +1810,8 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Attributevaluedto> {
-            return localVarFp.updateAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttributeValueDTO> {
+            return localVarFp.updateAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Bulk update Access Model Metadata Attribute Values using a filter
@@ -1821,8 +1821,8 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @deprecated
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataByFilterV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessmodelmetadatabulkupdateresponse> {
-            return localVarFp.updateAccessModelMetadataByFilterV1(requestParameters.entitlementattributebulkupdatefilterrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessModelMetadataByFilterV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessModelMetadataBulkUpdateResponse> {
+            return localVarFp.updateAccessModelMetadataByFilterV1(requestParameters.entitlementAttributeBulkUpdateFilterRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Bulk update Access Model Metadata Attribute Values using ids.
@@ -1832,8 +1832,8 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @deprecated
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataByIdsV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessmodelmetadatabulkupdateresponse> {
-            return localVarFp.updateAccessModelMetadataByIdsV1(requestParameters.entitlementattributebulkupdateidsrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessModelMetadataByIdsV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessModelMetadataBulkUpdateResponse> {
+            return localVarFp.updateAccessModelMetadataByIdsV1(requestParameters.entitlementAttributeBulkUpdateIdsRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Bulk update Access Model Metadata Attribute Values using a query
@@ -1843,8 +1843,8 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          * @deprecated
          * @throws {RequiredError}
          */
-        updateAccessModelMetadataByQueryV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessmodelmetadatabulkupdateresponse> {
-            return localVarFp.updateAccessModelMetadataByQueryV1(requestParameters.entitlementattributebulkupdatequeryrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessModelMetadataByQueryV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessModelMetadataBulkUpdateResponse> {
+            return localVarFp.updateAccessModelMetadataByQueryV1(requestParameters.entitlementAttributeBulkUpdateQueryRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1857,10 +1857,10 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
 export interface AccessModelMetadataApiCreateAccessModelMetadataAttributeV1Request {
     /**
      * Attribute to create
-     * @type {Attributedto}
+     * @type {AttributeDTO}
      * @memberof AccessModelMetadataApiCreateAccessModelMetadataAttributeV1
      */
-    readonly attributedto: Attributedto
+    readonly attributeDTO: AttributeDTO
 }
 
 /**
@@ -1878,10 +1878,10 @@ export interface AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1
 
     /**
      * Attribute value to create
-     * @type {Attributevaluedto}
+     * @type {AttributeValueDTO}
      * @memberof AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1
      */
-    readonly attributevaluedto: Attributevaluedto
+    readonly attributeValueDTO: AttributeValueDTO
 }
 
 /**
@@ -1997,10 +1997,10 @@ export interface AccessModelMetadataApiUpdateAccessModelMetadataAttributeV1Reque
 
     /**
      * JSON Patch array to apply
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof AccessModelMetadataApiUpdateAccessModelMetadataAttributeV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -2025,10 +2025,10 @@ export interface AccessModelMetadataApiUpdateAccessModelMetadataAttributeValueV1
 
     /**
      * JSON Patch array to apply
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof AccessModelMetadataApiUpdateAccessModelMetadataAttributeValueV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -2039,10 +2039,10 @@ export interface AccessModelMetadataApiUpdateAccessModelMetadataAttributeValueV1
 export interface AccessModelMetadataApiUpdateAccessModelMetadataByFilterV1Request {
     /**
      * Attribute metadata bulk update request body.
-     * @type {Entitlementattributebulkupdatefilterrequest}
+     * @type {EntitlementAttributeBulkUpdateFilterRequest}
      * @memberof AccessModelMetadataApiUpdateAccessModelMetadataByFilterV1
      */
-    readonly entitlementattributebulkupdatefilterrequest: Entitlementattributebulkupdatefilterrequest
+    readonly entitlementAttributeBulkUpdateFilterRequest: EntitlementAttributeBulkUpdateFilterRequest
 }
 
 /**
@@ -2053,10 +2053,10 @@ export interface AccessModelMetadataApiUpdateAccessModelMetadataByFilterV1Reques
 export interface AccessModelMetadataApiUpdateAccessModelMetadataByIdsV1Request {
     /**
      * Attribute metadata bulk update request body.
-     * @type {Entitlementattributebulkupdateidsrequest}
+     * @type {EntitlementAttributeBulkUpdateIdsRequest}
      * @memberof AccessModelMetadataApiUpdateAccessModelMetadataByIdsV1
      */
-    readonly entitlementattributebulkupdateidsrequest: Entitlementattributebulkupdateidsrequest
+    readonly entitlementAttributeBulkUpdateIdsRequest: EntitlementAttributeBulkUpdateIdsRequest
 }
 
 /**
@@ -2067,10 +2067,10 @@ export interface AccessModelMetadataApiUpdateAccessModelMetadataByIdsV1Request {
 export interface AccessModelMetadataApiUpdateAccessModelMetadataByQueryV1Request {
     /**
      * Attribute metadata bulk update request body.
-     * @type {Entitlementattributebulkupdatequeryrequest}
+     * @type {EntitlementAttributeBulkUpdateQueryRequest}
      * @memberof AccessModelMetadataApiUpdateAccessModelMetadataByQueryV1
      */
-    readonly entitlementattributebulkupdatequeryrequest: Entitlementattributebulkupdatequeryrequest
+    readonly entitlementAttributeBulkUpdateQueryRequest: EntitlementAttributeBulkUpdateQueryRequest
 }
 
 /**
@@ -2089,7 +2089,7 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public createAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).createAccessModelMetadataAttributeV1(requestParameters.attributedto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).createAccessModelMetadataAttributeV1(requestParameters.attributeDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2101,7 +2101,7 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public createAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).createAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.attributevaluedto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).createAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.attributeValueDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2161,7 +2161,7 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public updateAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataAttributeV1(requestParameters.key, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataAttributeV1(requestParameters.key, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2173,7 +2173,7 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public updateAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2186,7 +2186,7 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public updateAccessModelMetadataByFilterV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataByFilterV1(requestParameters.entitlementattributebulkupdatefilterrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataByFilterV1(requestParameters.entitlementAttributeBulkUpdateFilterRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2199,7 +2199,7 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public updateAccessModelMetadataByIdsV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataByIdsV1(requestParameters.entitlementattributebulkupdateidsrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataByIdsV1(requestParameters.entitlementAttributeBulkUpdateIdsRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2212,7 +2212,7 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public updateAccessModelMetadataByQueryV1(requestParameters: AccessModelMetadataApiUpdateAccessModelMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataByQueryV1(requestParameters.entitlementattributebulkupdatequeryrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).updateAccessModelMetadataByQueryV1(requestParameters.entitlementAttributeBulkUpdateQueryRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

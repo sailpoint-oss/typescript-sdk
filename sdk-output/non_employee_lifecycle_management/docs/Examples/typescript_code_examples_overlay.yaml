@@ -6,13 +6,15 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Nonemployeeapprovaldecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeApprovalDecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Non-Employee approval item id (UUID) (default to undefined)
-        const nonemployeeapprovaldecision: Nonemployeeapprovaldecision = ; // Nonemployeeapprovaldecision | 
-        const result = await apiInstance.approveNonEmployeeRequestV1({ id: id, nonemployeeapprovaldecision: nonemployeeapprovaldecision });
+        const nonEmployeeApprovalDecision: NonEmployeeApprovalDecision = {
+  "comment" : "Approved by manager"
+}; // NonEmployeeApprovalDecision | 
+        const result = await apiInstance.approveNonEmployeeRequestV1({ id: id, nonEmployeeApprovalDecision: nonEmployeeApprovalDecision });
         console.log(result);
 - path: /non-employee-records/v1
   method: POST
@@ -22,12 +24,25 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Nonemployeerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
-        const nonemployeerequestbody: Nonemployeerequestbody = ; // Nonemployeerequestbody | Non-Employee record creation request body.
-        const result = await apiInstance.createNonEmployeeRecordV1({ nonemployeerequestbody: nonemployeerequestbody });
+        const nonEmployeeRequestBody: NonEmployeeRequestBody = {
+  "sourceId" : "2c91808568c529c60168cca6f90c1313",
+  "firstName" : "William",
+  "lastName" : "Smith",
+  "manager" : "jane.doe",
+  "data" : {
+    "description" : "Auditing"
+  },
+  "accountName" : "william.smith",
+  "phone" : "5125555555",
+  "endDate" : "2021-03-25T00:00:00-05:00",
+  "email" : "william.smith@example.com",
+  "startDate" : "2020-03-24T00:00:00-05:00"
+}; // NonEmployeeRequestBody | Non-Employee record creation request body.
+        const result = await apiInstance.createNonEmployeeRecordV1({ nonEmployeeRequestBody: nonEmployeeRequestBody });
         console.log(result);
 - path: /non-employee-requests/v1
   method: POST
@@ -37,12 +52,25 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Nonemployeerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
-        const nonemployeerequestbody: Nonemployeerequestbody = ; // Nonemployeerequestbody | Non-Employee creation request body
-        const result = await apiInstance.createNonEmployeeRequestV1({ nonemployeerequestbody: nonemployeerequestbody });
+        const nonEmployeeRequestBody: NonEmployeeRequestBody = {
+  "sourceId" : "2c91808568c529c60168cca6f90c1313",
+  "firstName" : "William",
+  "lastName" : "Smith",
+  "manager" : "jane.doe",
+  "data" : {
+    "description" : "Auditing"
+  },
+  "accountName" : "william.smith",
+  "phone" : "5125555555",
+  "endDate" : "2021-03-25T00:00:00-05:00",
+  "email" : "william.smith@example.com",
+  "startDate" : "2020-03-24T00:00:00-05:00"
+}; // NonEmployeeRequestBody | Non-Employee creation request body
+        const result = await apiInstance.createNonEmployeeRequestV1({ nonEmployeeRequestBody: nonEmployeeRequestBody });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes
   method: POST
@@ -52,13 +80,20 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Nonemployeeschemaattributebody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeSchemaAttributeBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const nonemployeeschemaattributebody: Nonemployeeschemaattributebody = ; // Nonemployeeschemaattributebody | 
-        const result = await apiInstance.createNonEmployeeSourceSchemaAttributesV1({ sourceId: sourceId, nonemployeeschemaattributebody: nonemployeeschemaattributebody });
+        const nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody = {
+  "helpText" : "The unique identifier for the account",
+  "label" : "Account Name",
+  "placeholder" : "Enter a unique user name for this account.",
+  "type" : "TEXT",
+  "technicalName" : "account.name",
+  "required" : true
+}; // NonEmployeeSchemaAttributeBody | 
+        const result = await apiInstance.createNonEmployeeSourceSchemaAttributesV1({ sourceId: sourceId, nonEmployeeSchemaAttributeBody: nonEmployeeSchemaAttributeBody });
         console.log(result);
 - path: /non-employee-sources/v1
   method: POST
@@ -68,12 +103,37 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Nonemployeesourcerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeSourceRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
-        const nonemployeesourcerequestbody: Nonemployeesourcerequestbody = ; // Nonemployeesourcerequestbody | Non-Employee source creation request body.
-        const result = await apiInstance.createNonEmployeeSourceV1({ nonemployeesourcerequestbody: nonemployeesourcerequestbody });
+        const nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody = {
+  "owner" : {
+    "id" : "2c91808570313110017040b06f344ec9"
+  },
+  "managementWorkgroup" : "123299",
+  "accountManagers" : [ {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  } ],
+  "name" : "Retail",
+  "description" : "Source description",
+  "approvers" : [ {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  }, {
+    "id" : "2c91808570313110017040b06f344ec9"
+  } ]
+}; // NonEmployeeSourceRequestBody | Non-Employee source creation request body.
+        const result = await apiInstance.createNonEmployeeSourceV1({ nonEmployeeSourceRequestBody: nonEmployeeSourceRequestBody });
         console.log(result);
 - path: /non-employee-records/v1/{id}
   method: DELETE
@@ -415,13 +475,17 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-employee record id (UUID) (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/endDate","value":"2019-08-23T18:40:35.772Z"}]; // Array<Jsonpatchoperation> | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-        const result = await apiInstance.patchNonEmployeeRecordV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+        const result = await apiInstance.patchNonEmployeeRecordV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}/schema-attributes/{attributeId}
   method: PATCH
@@ -431,14 +495,18 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const attributeId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Schema Attribute Id (UUID) (default to undefined)
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The Source id (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/label","value":{"new attribute label":null}}]; // Array<Jsonpatchoperation> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \':\' \'label\', \'helpText\', \'placeholder\', \'required\'.
-        const result = await apiInstance.patchNonEmployeeSchemaAttributeV1({ attributeId: attributeId, sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \':\' \'label\', \'helpText\', \'placeholder\', \'required\'.
+        const result = await apiInstance.patchNonEmployeeSchemaAttributeV1({ attributeId: attributeId, sourceId: sourceId, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /non-employee-sources/v1/{sourceId}
   method: PATCH
@@ -448,13 +516,17 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const sourceId: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Source Id (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":{"new name":null}},{"op":"replace","path":"/approvers","value":["2c91809f703bb37a017040a2fe8748c7","48b1f463c9e8427db5a5071bd81914b8"]}]; // Array<Jsonpatchoperation> | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-        const result = await apiInstance.patchNonEmployeeSourceV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const result = await apiInstance.patchNonEmployeeSourceV1({ sourceId: sourceId, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /non-employee-approvals/v1/{id}/reject
   method: POST
@@ -464,13 +536,15 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Nonemployeerejectapprovaldecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeRejectApprovalDecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'e136567de87e4d029e60b3c3c55db56d'; // string | Non-Employee approval item id (UUID) (default to undefined)
-        const nonemployeerejectapprovaldecision: Nonemployeerejectapprovaldecision = ; // Nonemployeerejectapprovaldecision | 
-        const result = await apiInstance.rejectNonEmployeeRequestV1({ id: id, nonemployeerejectapprovaldecision: nonemployeerejectapprovaldecision });
+        const nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision = {
+  "comment" : "approved"
+}; // NonEmployeeRejectApprovalDecision | 
+        const result = await apiInstance.rejectNonEmployeeRequestV1({ id: id, nonEmployeeRejectApprovalDecision: nonEmployeeRejectApprovalDecision });
         console.log(result);
 - path: /non-employee-records/v1/{id}
   method: PUT
@@ -480,11 +554,24 @@
       source: |
         import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Nonemployeerequestbody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-employee record id (UUID) (default to undefined)
-        const nonemployeerequestbody: Nonemployeerequestbody = ; // Nonemployeerequestbody | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-        const result = await apiInstance.updateNonEmployeeRecordV1({ id: id, nonemployeerequestbody: nonemployeerequestbody });
+        const nonEmployeeRequestBody: NonEmployeeRequestBody = {
+  "sourceId" : "2c91808568c529c60168cca6f90c1313",
+  "firstName" : "William",
+  "lastName" : "Smith",
+  "manager" : "jane.doe",
+  "data" : {
+    "description" : "Auditing"
+  },
+  "accountName" : "william.smith",
+  "phone" : "5125555555",
+  "endDate" : "2021-03-25T00:00:00-05:00",
+  "email" : "william.smith@example.com",
+  "startDate" : "2020-03-24T00:00:00-05:00"
+}; // NonEmployeeRequestBody | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+        const result = await apiInstance.updateNonEmployeeRecordV1({ id: id, nonEmployeeRequestBody: nonEmployeeRequestBody });
         console.log(result);

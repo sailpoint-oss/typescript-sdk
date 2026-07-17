@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -110,47 +110,47 @@ export interface GetIdentityOutlierSnapshotsV1429Response {
 /**
  * 
  * @export
- * @interface Latestoutliersummary
+ * @interface LatestOutlierSummary
  */
-export interface Latestoutliersummary {
+export interface LatestOutlierSummary {
     /**
      * The type of outlier summary
      * @type {string}
-     * @memberof Latestoutliersummary
+     * @memberof LatestOutlierSummary
      */
-    'type'?: LatestoutliersummaryTypeEnum;
+    'type'?: LatestOutlierSummaryTypeEnum;
     /**
      * The date the bulk outlier detection ran/snapshot was created
      * @type {string}
-     * @memberof Latestoutliersummary
+     * @memberof LatestOutlierSummary
      */
     'snapshotDate'?: string;
     /**
      * Total number of outliers for the customer making the request
      * @type {number}
-     * @memberof Latestoutliersummary
+     * @memberof LatestOutlierSummary
      */
     'totalOutliers'?: number;
     /**
      * Total number of identities for the customer making the request
      * @type {number}
-     * @memberof Latestoutliersummary
+     * @memberof LatestOutlierSummary
      */
     'totalIdentities'?: number;
     /**
      * Total number of ignored outliers
      * @type {number}
-     * @memberof Latestoutliersummary
+     * @memberof LatestOutlierSummary
      */
     'totalIgnored'?: number;
 }
 
-export const LatestoutliersummaryTypeEnum = {
+export const LatestOutlierSummaryTypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
 
-export type LatestoutliersummaryTypeEnum = typeof LatestoutliersummaryTypeEnum[keyof typeof LatestoutliersummaryTypeEnum];
+export type LatestOutlierSummaryTypeEnum = typeof LatestOutlierSummaryTypeEnum[keyof typeof LatestOutlierSummaryTypeEnum];
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -158,12 +158,12 @@ export type LatestoutliersummaryTypeEnum = typeof LatestoutliersummaryTypeEnum[k
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -256,297 +256,297 @@ export type OutlierUnignoreTypeEnum = typeof OutlierUnignoreTypeEnum[keyof typeo
 /**
  * 
  * @export
- * @interface Outliercontributingfeature
+ * @interface OutlierContributingFeature
  */
-export interface Outliercontributingfeature {
+export interface OutlierContributingFeature {
     /**
      * Contributing feature id
      * @type {string}
-     * @memberof Outliercontributingfeature
+     * @memberof OutlierContributingFeature
      */
     'id'?: string;
     /**
      * The name of the feature
      * @type {string}
-     * @memberof Outliercontributingfeature
+     * @memberof OutlierContributingFeature
      */
     'name'?: string;
     /**
      * 
-     * @type {Outliervaluetype}
-     * @memberof Outliercontributingfeature
+     * @type {OutlierValueType}
+     * @memberof OutlierContributingFeature
      */
-    'valueType'?: Outliervaluetype;
+    'valueType'?: OutlierValueType;
     /**
      * The feature value
      * @type {number}
-     * @memberof Outliercontributingfeature
+     * @memberof OutlierContributingFeature
      */
     'value'?: number;
     /**
      * The importance of the feature. This can also be a negative value
      * @type {number}
-     * @memberof Outliercontributingfeature
+     * @memberof OutlierContributingFeature
      */
     'importance'?: number;
     /**
      * The (translated if header is passed) displayName for the feature
      * @type {string}
-     * @memberof Outliercontributingfeature
+     * @memberof OutlierContributingFeature
      */
     'displayName'?: string;
     /**
      * The (translated if header is passed) description for the feature
      * @type {string}
-     * @memberof Outliercontributingfeature
+     * @memberof OutlierContributingFeature
      */
     'description'?: string;
     /**
      * 
-     * @type {Outlierfeaturetranslation}
-     * @memberof Outliercontributingfeature
+     * @type {OutlierFeatureTranslation}
+     * @memberof OutlierContributingFeature
      */
-    'translationMessages'?: Outlierfeaturetranslation | null;
+    'translationMessages'?: OutlierFeatureTranslation | null;
 }
 /**
  * 
  * @export
- * @interface Outlierfeaturesummary
+ * @interface OutlierFeatureSummary
  */
-export interface Outlierfeaturesummary {
+export interface OutlierFeatureSummary {
     /**
      * Contributing feature name
      * @type {string}
-     * @memberof Outlierfeaturesummary
+     * @memberof OutlierFeatureSummary
      */
     'contributingFeatureName'?: string;
     /**
      * Identity display name
      * @type {string}
-     * @memberof Outlierfeaturesummary
+     * @memberof OutlierFeatureSummary
      */
     'identityOutlierDisplayName'?: string;
     /**
      * 
-     * @type {Array<OutlierfeaturesummaryOutlierFeatureDisplayValuesInner>}
-     * @memberof Outlierfeaturesummary
+     * @type {Array<OutlierFeatureSummaryOutlierFeatureDisplayValuesInner>}
+     * @memberof OutlierFeatureSummary
      */
-    'outlierFeatureDisplayValues'?: Array<OutlierfeaturesummaryOutlierFeatureDisplayValuesInner>;
+    'outlierFeatureDisplayValues'?: Array<OutlierFeatureSummaryOutlierFeatureDisplayValuesInner>;
     /**
      * Definition of the feature
      * @type {string}
-     * @memberof Outlierfeaturesummary
+     * @memberof OutlierFeatureSummary
      */
     'featureDefinition'?: string;
     /**
      * Detailed explanation of the feature
      * @type {string}
-     * @memberof Outlierfeaturesummary
+     * @memberof OutlierFeatureSummary
      */
     'featureExplanation'?: string;
     /**
      * outlier\'s peer identity display name
      * @type {string}
-     * @memberof Outlierfeaturesummary
+     * @memberof OutlierFeatureSummary
      */
     'peerDisplayName'?: string | null;
     /**
      * outlier\'s peer identity id
      * @type {string}
-     * @memberof Outlierfeaturesummary
+     * @memberof OutlierFeatureSummary
      */
     'peerIdentityId'?: string | null;
     /**
      * Access Item reference
      * @type {object}
-     * @memberof Outlierfeaturesummary
+     * @memberof OutlierFeatureSummary
      */
     'accessItemReference'?: object;
 }
 /**
  * 
  * @export
- * @interface OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+ * @interface OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
  */
-export interface OutlierfeaturesummaryOutlierFeatureDisplayValuesInner {
+export interface OutlierFeatureSummaryOutlierFeatureDisplayValuesInner {
     /**
      * display name
      * @type {string}
-     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+     * @memberof OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
      */
     'displayName'?: string;
     /**
      * value
      * @type {string}
-     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+     * @memberof OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
      */
     'value'?: string;
     /**
      * 
-     * @type {Outliervaluetype}
-     * @memberof OutlierfeaturesummaryOutlierFeatureDisplayValuesInner
+     * @type {OutlierValueType}
+     * @memberof OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
      */
-    'valueType'?: Outliervaluetype;
+    'valueType'?: OutlierValueType;
 }
 /**
  * 
  * @export
- * @interface Outlierfeaturetranslation
+ * @interface OutlierFeatureTranslation
  */
-export interface Outlierfeaturetranslation {
+export interface OutlierFeatureTranslation {
     /**
      * 
-     * @type {Translationmessage}
-     * @memberof Outlierfeaturetranslation
+     * @type {TranslationMessage}
+     * @memberof OutlierFeatureTranslation
      */
-    'displayName'?: Translationmessage;
+    'displayName'?: TranslationMessage;
     /**
      * 
-     * @type {Translationmessage}
-     * @memberof Outlierfeaturetranslation
+     * @type {TranslationMessage}
+     * @memberof OutlierFeatureTranslation
      */
-    'description'?: Translationmessage;
+    'description'?: TranslationMessage;
 }
 /**
  * 
  * @export
- * @interface Outlierscontributingfeatureaccessitems
+ * @interface OutlierSummary
  */
-export interface Outlierscontributingfeatureaccessitems {
-    /**
-     * The ID of the access item
-     * @type {string}
-     * @memberof Outlierscontributingfeatureaccessitems
-     */
-    'id'?: string;
-    /**
-     * the display name of the access item
-     * @type {string}
-     * @memberof Outlierscontributingfeatureaccessitems
-     */
-    'displayName'?: string;
-    /**
-     * Description of the access item.
-     * @type {string}
-     * @memberof Outlierscontributingfeatureaccessitems
-     */
-    'description'?: string | null;
-    /**
-     * The type of the access item.
-     * @type {string}
-     * @memberof Outlierscontributingfeatureaccessitems
-     */
-    'accessType'?: OutlierscontributingfeatureaccessitemsAccessTypeEnum;
-    /**
-     * the associated source name if it exists
-     * @type {string}
-     * @memberof Outlierscontributingfeatureaccessitems
-     */
-    'sourceName'?: string;
-    /**
-     * rarest access
-     * @type {boolean}
-     * @memberof Outlierscontributingfeatureaccessitems
-     */
-    'extremelyRare'?: boolean;
-}
-
-export const OutlierscontributingfeatureaccessitemsAccessTypeEnum = {
-    Entitlement: 'ENTITLEMENT',
-    AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE'
-} as const;
-
-export type OutlierscontributingfeatureaccessitemsAccessTypeEnum = typeof OutlierscontributingfeatureaccessitemsAccessTypeEnum[keyof typeof OutlierscontributingfeatureaccessitemsAccessTypeEnum];
-
-/**
- * 
- * @export
- * @interface Outliersummary
- */
-export interface Outliersummary {
+export interface OutlierSummary {
     /**
      * The type of outlier summary
      * @type {string}
-     * @memberof Outliersummary
+     * @memberof OutlierSummary
      */
-    'type'?: OutliersummaryTypeEnum;
+    'type'?: OutlierSummaryTypeEnum;
     /**
      * The date the bulk outlier detection ran/snapshot was created
      * @type {string}
-     * @memberof Outliersummary
+     * @memberof OutlierSummary
      */
     'snapshotDate'?: string;
     /**
      * Total number of outliers for the customer making the request
      * @type {number}
-     * @memberof Outliersummary
+     * @memberof OutlierSummary
      */
     'totalOutliers'?: number;
     /**
      * Total number of identities for the customer making the request
      * @type {number}
-     * @memberof Outliersummary
+     * @memberof OutlierSummary
      */
     'totalIdentities'?: number;
     /**
      * 
      * @type {number}
-     * @memberof Outliersummary
+     * @memberof OutlierSummary
      */
     'totalIgnored'?: number;
 }
 
-export const OutliersummaryTypeEnum = {
+export const OutlierSummaryTypeEnum = {
     LowSimilarity: 'LOW_SIMILARITY',
     Structural: 'STRUCTURAL'
 } as const;
 
-export type OutliersummaryTypeEnum = typeof OutliersummaryTypeEnum[keyof typeof OutliersummaryTypeEnum];
+export type OutlierSummaryTypeEnum = typeof OutlierSummaryTypeEnum[keyof typeof OutlierSummaryTypeEnum];
 
 /**
  * The data type of the value field
  * @export
- * @interface Outliervaluetype
+ * @interface OutlierValueType
  */
-export interface Outliervaluetype {
+export interface OutlierValueType {
     /**
      * The data type of the value field
      * @type {string}
-     * @memberof Outliervaluetype
+     * @memberof OutlierValueType
      */
-    'name'?: OutliervaluetypeNameEnum;
+    'name'?: OutlierValueTypeNameEnum;
     /**
      * The position of the value type
      * @type {number}
-     * @memberof Outliervaluetype
+     * @memberof OutlierValueType
      */
     'ordinal'?: number;
 }
 
-export const OutliervaluetypeNameEnum = {
+export const OutlierValueTypeNameEnum = {
     Integer: 'INTEGER',
     Float: 'FLOAT'
 } as const;
 
-export type OutliervaluetypeNameEnum = typeof OutliervaluetypeNameEnum[keyof typeof OutliervaluetypeNameEnum];
+export type OutlierValueTypeNameEnum = typeof OutlierValueTypeNameEnum[keyof typeof OutlierValueTypeNameEnum];
 
 /**
  * 
  * @export
- * @interface Translationmessage
+ * @interface OutliersContributingFeatureAccessItems
  */
-export interface Translationmessage {
+export interface OutliersContributingFeatureAccessItems {
+    /**
+     * The ID of the access item
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItems
+     */
+    'id'?: string;
+    /**
+     * the display name of the access item
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItems
+     */
+    'displayName'?: string;
+    /**
+     * Description of the access item.
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItems
+     */
+    'description'?: string | null;
+    /**
+     * The type of the access item.
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItems
+     */
+    'accessType'?: OutliersContributingFeatureAccessItemsAccessTypeEnum;
+    /**
+     * the associated source name if it exists
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItems
+     */
+    'sourceName'?: string;
+    /**
+     * rarest access
+     * @type {boolean}
+     * @memberof OutliersContributingFeatureAccessItems
+     */
+    'extremelyRare'?: boolean;
+}
+
+export const OutliersContributingFeatureAccessItemsAccessTypeEnum = {
+    Entitlement: 'ENTITLEMENT',
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE'
+} as const;
+
+export type OutliersContributingFeatureAccessItemsAccessTypeEnum = typeof OutliersContributingFeatureAccessItemsAccessTypeEnum[keyof typeof OutliersContributingFeatureAccessItemsAccessTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface TranslationMessage
+ */
+export interface TranslationMessage {
     /**
      * The key of the translation message
      * @type {string}
-     * @memberof Translationmessage
+     * @memberof TranslationMessage
      */
     'key'?: string;
     /**
      * The values corresponding to the translation messages
      * @type {Array<string>}
-     * @memberof Translationmessage
+     * @memberof TranslationMessage
      */
     'values'?: Array<string>;
 }
@@ -1078,7 +1078,7 @@ export const IAIOutliersApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityOutlierSnapshotsV1(limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsV1TypeEnum, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Outliersummary>>> {
+        async getIdentityOutlierSnapshotsV1(limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsV1TypeEnum, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutlierSnapshotsV1(limit, offset, type, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getIdentityOutlierSnapshotsV1']?.[localVarOperationServerIndex]?.url;
@@ -1111,7 +1111,7 @@ export const IAIOutliersApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLatestIdentityOutlierSnapshotsV1(type?: GetLatestIdentityOutlierSnapshotsV1TypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Latestoutliersummary>>> {
+        async getLatestIdentityOutlierSnapshotsV1(type?: GetLatestIdentityOutlierSnapshotsV1TypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LatestOutlierSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLatestIdentityOutlierSnapshotsV1(type, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getLatestIdentityOutlierSnapshotsV1']?.[localVarOperationServerIndex]?.url;
@@ -1125,7 +1125,7 @@ export const IAIOutliersApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOutlierContributingFeatureSummaryV1(outlierFeatureId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Outlierfeaturesummary>> {
+        async getOutlierContributingFeatureSummaryV1(outlierFeatureId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OutlierFeatureSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOutlierContributingFeatureSummaryV1(outlierFeatureId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getOutlierContributingFeatureSummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -1144,7 +1144,7 @@ export const IAIOutliersApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPeerGroupOutliersContributingFeaturesV1(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Outliercontributingfeature>>> {
+        async getPeerGroupOutliersContributingFeaturesV1(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierContributingFeature>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliersContributingFeaturesV1(outlierId, limit, offset, count, includeTranslationMessages, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.getPeerGroupOutliersContributingFeaturesV1']?.[localVarOperationServerIndex]?.url;
@@ -1178,7 +1178,7 @@ export const IAIOutliersApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOutliersContributingFeatureAccessItemsV1(outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Outlierscontributingfeatureaccessitems>>> {
+        async listOutliersContributingFeatureAccessItemsV1(outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsV1ContributingFeatureNameEnum, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersContributingFeatureAccessItems>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItemsV1(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIOutliersApi.listOutliersContributingFeatureAccessItemsV1']?.[localVarOperationServerIndex]?.url;
@@ -1225,7 +1225,7 @@ export const IAIOutliersApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Outliersummary>> {
+        getIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<OutlierSummary>> {
             return localVarFp.getIdentityOutlierSnapshotsV1(requestParameters.limit, requestParameters.offset, requestParameters.type, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1245,7 +1245,7 @@ export const IAIOutliersApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getLatestIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Latestoutliersummary>> {
+        getLatestIdentityOutlierSnapshotsV1(requestParameters: IAIOutliersApiGetLatestIdentityOutlierSnapshotsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<LatestOutlierSummary>> {
             return localVarFp.getLatestIdentityOutlierSnapshotsV1(requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1255,7 +1255,7 @@ export const IAIOutliersApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOutlierContributingFeatureSummaryV1(requestParameters: IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Outlierfeaturesummary> {
+        getOutlierContributingFeatureSummaryV1(requestParameters: IAIOutliersApiGetOutlierContributingFeatureSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<OutlierFeatureSummary> {
             return localVarFp.getOutlierContributingFeatureSummaryV1(requestParameters.outlierFeatureId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1265,7 +1265,7 @@ export const IAIOutliersApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPeerGroupOutliersContributingFeaturesV1(requestParameters: IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Outliercontributingfeature>> {
+        getPeerGroupOutliersContributingFeaturesV1(requestParameters: IAIOutliersApiGetPeerGroupOutliersContributingFeaturesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<OutlierContributingFeature>> {
             return localVarFp.getPeerGroupOutliersContributingFeaturesV1(requestParameters.outlierId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1285,7 +1285,7 @@ export const IAIOutliersApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOutliersContributingFeatureAccessItemsV1(requestParameters: IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Outlierscontributingfeatureaccessitems>> {
+        listOutliersContributingFeatureAccessItemsV1(requestParameters: IAIOutliersApiListOutliersContributingFeatureAccessItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<OutliersContributingFeatureAccessItems>> {
             return localVarFp.listOutliersContributingFeatureAccessItemsV1(requestParameters.outlierId, requestParameters.contributingFeatureName, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**

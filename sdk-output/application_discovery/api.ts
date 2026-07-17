@@ -26,140 +26,140 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Applicationdiscoveryrequest
+ * @interface ApplicationDiscoveryRequest
  */
-export interface Applicationdiscoveryrequest {
+export interface ApplicationDiscoveryRequest {
     /**
      * List of dataset Ids to discover applications
      * @type {Array<string>}
-     * @memberof Applicationdiscoveryrequest
+     * @memberof ApplicationDiscoveryRequest
      */
     'datasetIds': Array<string>;
 }
 /**
  * 
  * @export
- * @interface Applicationdiscoveryresponse
+ * @interface ApplicationDiscoveryResponse
  */
-export interface Applicationdiscoveryresponse {
+export interface ApplicationDiscoveryResponse {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'id'?: string;
     /**
      * Type of task for app discovery
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
-    'type'?: ApplicationdiscoveryresponseTypeEnum;
+    'type'?: ApplicationDiscoveryResponseTypeEnum;
     /**
      * Name of the task for app discovery
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'uniqueName'?: string;
     /**
      * Description of the app discovery aggregation
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'description'?: string;
     /**
      * Name of the parent of the task for app discovery
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'parentName'?: string | null;
     /**
      * Service to execute app discovery
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'launcher'?: string;
     /**
      * 
-     * @type {ApplicationdiscoveryresponseTarget}
-     * @memberof Applicationdiscoveryresponse
+     * @type {ApplicationDiscoveryResponseTarget}
+     * @memberof ApplicationDiscoveryResponse
      */
-    'target'?: ApplicationdiscoveryresponseTarget;
+    'target'?: ApplicationDiscoveryResponseTarget;
     /**
      * Creation date of app discovery task
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'created'?: string;
     /**
      * Last modification date of app discovery task
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'modified'?: string;
     /**
      * Launch date of app discovery task
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'launched'?: string | null;
     /**
      * Completion date of app discovery task
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'completed'?: string | null;
     /**
      * 
-     * @type {Taskdefinitionsummary}
-     * @memberof Applicationdiscoveryresponse
+     * @type {TaskDefinitionSummary}
+     * @memberof ApplicationDiscoveryResponse
      */
-    'taskDefinitionSummary'?: Taskdefinitionsummary;
+    'taskDefinitionSummary'?: TaskDefinitionSummary;
     /**
      * Completion status of app discovery task
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
-    'completionStatus'?: ApplicationdiscoveryresponseCompletionStatusEnum | null;
+    'completionStatus'?: ApplicationDiscoveryResponseCompletionStatusEnum | null;
     /**
      * Messages associated with the app discovery task
-     * @type {Array<Taskstatusmessage>}
-     * @memberof Applicationdiscoveryresponse
+     * @type {Array<TaskStatusMessage>}
+     * @memberof ApplicationDiscoveryResponse
      */
-    'messages'?: Array<Taskstatusmessage>;
+    'messages'?: Array<TaskStatusMessage>;
     /**
      * Return values associated with the app discovery task
-     * @type {Array<Taskreturndetails>}
-     * @memberof Applicationdiscoveryresponse
+     * @type {Array<TaskReturnDetails>}
+     * @memberof ApplicationDiscoveryResponse
      */
-    'returns'?: Array<Taskreturndetails>;
+    'returns'?: Array<TaskReturnDetails>;
     /**
      * Attributes of the app discovery task
      * @type {{ [key: string]: any; }}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Current progress of aggregation
      * @type {string}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'progress'?: string | null;
     /**
      * Current percentage completion of app discovery task
      * @type {number}
-     * @memberof Applicationdiscoveryresponse
+     * @memberof ApplicationDiscoveryResponse
      */
     'percentComplete'?: number;
 }
 
-export const ApplicationdiscoveryresponseTypeEnum = {
+export const ApplicationDiscoveryResponseTypeEnum = {
     Quartz: 'QUARTZ',
     Qpoc: 'QPOC',
     QueuedTask: 'QUEUED_TASK'
 } as const;
 
-export type ApplicationdiscoveryresponseTypeEnum = typeof ApplicationdiscoveryresponseTypeEnum[keyof typeof ApplicationdiscoveryresponseTypeEnum];
-export const ApplicationdiscoveryresponseCompletionStatusEnum = {
+export type ApplicationDiscoveryResponseTypeEnum = typeof ApplicationDiscoveryResponseTypeEnum[keyof typeof ApplicationDiscoveryResponseTypeEnum];
+export const ApplicationDiscoveryResponseCompletionStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -167,30 +167,30 @@ export const ApplicationdiscoveryresponseCompletionStatusEnum = {
     Temperror: 'TEMPERROR'
 } as const;
 
-export type ApplicationdiscoveryresponseCompletionStatusEnum = typeof ApplicationdiscoveryresponseCompletionStatusEnum[keyof typeof ApplicationdiscoveryresponseCompletionStatusEnum];
+export type ApplicationDiscoveryResponseCompletionStatusEnum = typeof ApplicationDiscoveryResponseCompletionStatusEnum[keyof typeof ApplicationDiscoveryResponseCompletionStatusEnum];
 
 /**
  * The target(source) of app discovery
  * @export
- * @interface ApplicationdiscoveryresponseTarget
+ * @interface ApplicationDiscoveryResponseTarget
  */
-export interface ApplicationdiscoveryresponseTarget {
+export interface ApplicationDiscoveryResponseTarget {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof ApplicationdiscoveryresponseTarget
+     * @type {DtoType}
+     * @memberof ApplicationDiscoveryResponseTarget
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof ApplicationdiscoveryresponseTarget
+     * @memberof ApplicationDiscoveryResponseTarget
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof ApplicationdiscoveryresponseTarget
+     * @memberof ApplicationDiscoveryResponseTarget
      */
     'name'?: string;
 }
@@ -199,25 +199,25 @@ export interface ApplicationdiscoveryresponseTarget {
 /**
  * 
  * @export
- * @interface Basereferencedto
+ * @interface BaseReferenceDto
  */
-export interface Basereferencedto {
+export interface BaseReferenceDto {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Basereferencedto
+     * @type {DtoType}
+     * @memberof BaseReferenceDto
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof Basereferencedto
+     * @memberof BaseReferenceDto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof Basereferencedto
+     * @memberof BaseReferenceDto
      */
     'name'?: string;
 }
@@ -229,7 +229,7 @@ export interface Basereferencedto {
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -261,31 +261,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -294,247 +294,247 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * Discovered applications with their respective associated sources
  * @export
- * @interface Fulldiscoveredapplications
+ * @interface FullDiscoveredApplications
  */
-export interface Fulldiscoveredapplications {
+export interface FullDiscoveredApplications {
     /**
      * Unique identifier for the discovered application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'id'?: string;
     /**
      * Name of the discovered application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'name'?: string;
     /**
      * Source from which the application was discovered.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'discoverySource'?: string;
     /**
      * The vendor associated with the discovered application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'discoveredVendor'?: string;
     /**
      * A brief description of the discovered application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'description'?: string;
     /**
      * List of recommended connectors for the application.
      * @type {Array<string>}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'recommendedConnectors'?: Array<string>;
     /**
      * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'discoveredAt'?: string;
     /**
      * The timestamp when the application was first discovered, in ISO 8601 format.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'createdAt'?: string;
     /**
      * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'status'?: string;
     /**
      * List of associated sources related to this discovered application.
      * @type {Array<string>}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'associatedSources'?: Array<string>;
     /**
      * The operational status of the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'operationalStatus'?: string;
     /**
      * The category of the discovery source.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'discoverySourceCategory'?: string;
     /**
      * The number of licenses associated with the application.
      * @type {number}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'licenseCount'?: number;
     /**
      * Indicates whether the application is sanctioned.
      * @type {boolean}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'isSanctioned'?: boolean;
     /**
      * URL of the application\'s logo.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'logo'?: string;
     /**
      * The URL of the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'appUrl'?: string;
     /**
      * List of groups associated with the application.
      * @type {Array<object>}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'groups'?: Array<object>;
     /**
      * The count of users associated with the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'usersCount'?: string;
     /**
      * The owners of the application.
      * @type {Array<string>}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'applicationOwner'?: Array<string>;
     /**
      * The IT owners of the application.
      * @type {Array<string>}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'itApplicationOwner'?: Array<string>;
     /**
      * The business criticality level of the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'businessCriticality'?: string;
     /**
      * The data classification level of the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'dataClassification'?: string;
     /**
      * The business unit associated with the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'businessUnit'?: string;
     /**
      * The installation type of the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'installType'?: string;
     /**
      * The environment in which the application operates.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'environment'?: string;
     /**
      * The risk score of the application ranging from 0-100, 100 being highest risk.
      * @type {number}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'riskScore'?: number;
     /**
      * Indicates whether the application is used for business purposes.
      * @type {boolean}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'isBusiness'?: boolean;
     /**
      * The total number of sign-in accounts for the application.
      * @type {number}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'totalSigninsCount'?: number;
     /**
      * The risk level of the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
-    'riskLevel'?: FulldiscoveredapplicationsRiskLevelEnum;
+    'riskLevel'?: FullDiscoveredApplicationsRiskLevelEnum;
     /**
      * Indicates whether the application has privileged access.
      * @type {boolean}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'isPrivileged'?: boolean;
     /**
      * The warranty expiration date of the application.
      * @type {string}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'warrantyExpiration'?: string;
     /**
      * Additional attributes of the application useful for visibility of governance posture.
      * @type {object}
-     * @memberof Fulldiscoveredapplications
+     * @memberof FullDiscoveredApplications
      */
     'attributes'?: object;
 }
 
-export const FulldiscoveredapplicationsRiskLevelEnum = {
+export const FullDiscoveredApplicationsRiskLevelEnum = {
     High: 'High',
     Medium: 'Medium',
     Low: 'Low'
 } as const;
 
-export type FulldiscoveredapplicationsRiskLevelEnum = typeof FulldiscoveredapplicationsRiskLevelEnum[keyof typeof FulldiscoveredapplicationsRiskLevelEnum];
+export type FullDiscoveredApplicationsRiskLevelEnum = typeof FullDiscoveredApplicationsRiskLevelEnum[keyof typeof FullDiscoveredApplicationsRiskLevelEnum];
 
 /**
  * @type GetDiscoveredApplicationsV1200ResponseInner
  * @export
  */
-export type GetDiscoveredApplicationsV1200ResponseInner = Fulldiscoveredapplications | Slimdiscoveredapplications;
+export type GetDiscoveredApplicationsV1200ResponseInner = FullDiscoveredApplications | SlimDiscoveredApplications;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -542,266 +542,266 @@ export type GetDiscoveredApplicationsV1200ResponseInner = Fulldiscoveredapplicat
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Localized error message to indicate a failed invocation or error if any.
  * @export
- * @interface Localizedmessage
+ * @interface LocalizedMessage
  */
-export interface Localizedmessage {
+export interface LocalizedMessage {
     /**
      * Message locale
      * @type {string}
-     * @memberof Localizedmessage
+     * @memberof LocalizedMessage
      */
     'locale': string;
     /**
      * Message text
      * @type {string}
-     * @memberof Localizedmessage
+     * @memberof LocalizedMessage
      */
     'message': string;
 }
 /**
  * 
  * @export
- * @interface Manualdiscoverapplications
+ * @interface ManualDiscoverApplications
  */
-export interface Manualdiscoverapplications {
+export interface ManualDiscoverApplications {
     /**
      * The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
      * @type {File}
-     * @memberof Manualdiscoverapplications
+     * @memberof ManualDiscoverApplications
      */
     'file': File;
 }
 /**
  * 
  * @export
- * @interface Manualdiscoverapplicationstemplate
+ * @interface ManualDiscoverApplicationsTemplate
  */
-export interface Manualdiscoverapplicationstemplate {
+export interface ManualDiscoverApplicationsTemplate {
     /**
      * Name of the application.
      * @type {string}
-     * @memberof Manualdiscoverapplicationstemplate
+     * @memberof ManualDiscoverApplicationsTemplate
      */
     'application_name'?: string;
     /**
      * Description of the application.
      * @type {string}
-     * @memberof Manualdiscoverapplicationstemplate
+     * @memberof ManualDiscoverApplicationsTemplate
      */
     'description'?: string;
 }
 /**
  * Discovered applications
  * @export
- * @interface Slimdiscoveredapplications
+ * @interface SlimDiscoveredApplications
  */
-export interface Slimdiscoveredapplications {
+export interface SlimDiscoveredApplications {
     /**
      * Unique identifier for the discovered application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'id'?: string;
     /**
      * Name of the discovered application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'name'?: string;
     /**
      * Source from which the application was discovered.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'discoverySource'?: string;
     /**
      * The vendor associated with the discovered application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'discoveredVendor'?: string;
     /**
      * A brief description of the discovered application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'description'?: string;
     /**
      * List of recommended connectors for the application.
      * @type {Array<string>}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'recommendedConnectors'?: Array<string>;
     /**
      * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'discoveredAt'?: string;
     /**
      * The timestamp when the application was first discovered, in ISO 8601 format.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'createdAt'?: string;
     /**
      * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'status'?: string;
     /**
      * The operational status of the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'operationalStatus'?: string;
     /**
      * The category of the discovery source.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'discoverySourceCategory'?: string;
     /**
      * The number of licenses associated with the application.
      * @type {number}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'licenseCount'?: number;
     /**
      * Indicates whether the application is sanctioned.
      * @type {boolean}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'isSanctioned'?: boolean;
     /**
      * URL of the application\'s logo.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'logo'?: string;
     /**
      * The URL of the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'appUrl'?: string;
     /**
      * List of groups associated with the application.
      * @type {Array<object>}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'groups'?: Array<object>;
     /**
      * The count of users associated with the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'usersCount'?: string;
     /**
      * The owners of the application.
      * @type {Array<string>}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'applicationOwner'?: Array<string>;
     /**
      * The IT owners of the application.
      * @type {Array<string>}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'itApplicationOwner'?: Array<string>;
     /**
      * The business criticality level of the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'businessCriticality'?: string;
     /**
      * The data classification level of the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'dataClassification'?: string;
     /**
      * The business unit associated with the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'businessUnit'?: string;
     /**
      * The installation type of the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'installType'?: string;
     /**
      * The environment in which the application operates.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'environment'?: string;
     /**
      * The risk score of the application ranging from 0-100, 100 being highest risk.
      * @type {number}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'riskScore'?: number;
     /**
      * Indicates whether the application is used for business purposes.
      * @type {boolean}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'isBusiness'?: boolean;
     /**
      * The total number of sign-in accounts for the application.
      * @type {number}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'totalSigninsCount'?: number;
     /**
      * The risk level of the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
-    'riskLevel'?: SlimdiscoveredapplicationsRiskLevelEnum;
+    'riskLevel'?: SlimDiscoveredApplicationsRiskLevelEnum;
     /**
      * Indicates whether the application has privileged access.
      * @type {boolean}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'isPrivileged'?: boolean;
     /**
      * The warranty expiration date of the application.
      * @type {string}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'warrantyExpiration'?: string;
     /**
      * Additional attributes of the application useful for visibility of governance posture.
      * @type {object}
-     * @memberof Slimdiscoveredapplications
+     * @memberof SlimDiscoveredApplications
      */
     'attributes'?: object;
 }
 
-export const SlimdiscoveredapplicationsRiskLevelEnum = {
+export const SlimDiscoveredApplicationsRiskLevelEnum = {
     High: 'High',
     Medium: 'Medium',
     Low: 'Low'
 } as const;
 
-export type SlimdiscoveredapplicationsRiskLevelEnum = typeof SlimdiscoveredapplicationsRiskLevelEnum[keyof typeof SlimdiscoveredapplicationsRiskLevelEnum];
+export type SlimDiscoveredApplicationsRiskLevelEnum = typeof SlimDiscoveredApplicationsRiskLevelEnum[keyof typeof SlimDiscoveredApplicationsRiskLevelEnum];
 
 /**
  * 
@@ -820,7 +820,7 @@ export interface StartApplicationDiscoveryV1401Response {
  * @type StartApplicationDiscoveryV1403Response
  * @export
  */
-export type StartApplicationDiscoveryV1403Response = Errorresponsedto | StartApplicationDiscoveryV1403ResponseOneOf;
+export type StartApplicationDiscoveryV1403Response = ErrorResponseDto | StartApplicationDiscoveryV1403ResponseOneOf;
 
 /**
  * 
@@ -851,111 +851,111 @@ export interface StartApplicationDiscoveryV1429Response {
 /**
  * Definition of a type of task, used to invoke tasks
  * @export
- * @interface Taskdefinitionsummary
+ * @interface TaskDefinitionSummary
  */
-export interface Taskdefinitionsummary {
+export interface TaskDefinitionSummary {
     /**
      * System-generated unique ID of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'id': string;
     /**
      * Name of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'uniqueName': string;
     /**
      * Description of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'description': string | null;
     /**
      * Name of the parent of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'parentName': string;
     /**
      * Executor of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'executor': string | null;
     /**
      * Formal parameters of the TaskDefinition, without values
      * @type {{ [key: string]: any; }}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'arguments': { [key: string]: any; };
 }
 /**
  * Task return details
  * @export
- * @interface Taskreturndetails
+ * @interface TaskReturnDetails
  */
-export interface Taskreturndetails {
+export interface TaskReturnDetails {
     /**
      * Display name of the TaskReturnDetails
      * @type {string}
-     * @memberof Taskreturndetails
+     * @memberof TaskReturnDetails
      */
     'name': string;
     /**
      * Attribute the TaskReturnDetails is for
      * @type {string}
-     * @memberof Taskreturndetails
+     * @memberof TaskReturnDetails
      */
     'attributeName': string;
 }
 /**
  * TaskStatus Message
  * @export
- * @interface Taskstatusmessage
+ * @interface TaskStatusMessage
  */
-export interface Taskstatusmessage {
+export interface TaskStatusMessage {
     /**
      * Type of the message
      * @type {string}
-     * @memberof Taskstatusmessage
+     * @memberof TaskStatusMessage
      */
-    'type': TaskstatusmessageTypeEnum;
+    'type': TaskStatusMessageTypeEnum;
     /**
      * 
-     * @type {Localizedmessage}
-     * @memberof Taskstatusmessage
+     * @type {LocalizedMessage}
+     * @memberof TaskStatusMessage
      */
-    'localizedText': Localizedmessage | null;
+    'localizedText': LocalizedMessage | null;
     /**
      * Key of the message
      * @type {string}
-     * @memberof Taskstatusmessage
+     * @memberof TaskStatusMessage
      */
     'key': string;
     /**
      * Message parameters for internationalization
-     * @type {Array<TaskstatusmessageParametersInner>}
-     * @memberof Taskstatusmessage
+     * @type {Array<TaskStatusMessageParametersInner>}
+     * @memberof TaskStatusMessage
      */
-    'parameters': Array<TaskstatusmessageParametersInner> | null;
+    'parameters': Array<TaskStatusMessageParametersInner> | null;
 }
 
-export const TaskstatusmessageTypeEnum = {
+export const TaskStatusMessageTypeEnum = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type TaskstatusmessageTypeEnum = typeof TaskstatusmessageTypeEnum[keyof typeof TaskstatusmessageTypeEnum];
+export type TaskStatusMessageTypeEnum = typeof TaskStatusMessageTypeEnum[keyof typeof TaskStatusMessageTypeEnum];
 
 /**
  * 
  * @export
- * @interface TaskstatusmessageParametersInner
+ * @interface TaskStatusMessageParametersInner
  */
-export interface TaskstatusmessageParametersInner {
+export interface TaskStatusMessageParametersInner {
 }
 
 /**
@@ -1094,16 +1094,16 @@ export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?
          * Use this API to discover applications.
          * @summary Start Application Discovery
          * @param {string} sourceId The sourceId.
-         * @param {Applicationdiscoveryrequest} applicationdiscoveryrequest 
+         * @param {ApplicationDiscoveryRequest} applicationDiscoveryRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startApplicationDiscoveryV1: async (sourceId: string, applicationdiscoveryrequest: Applicationdiscoveryrequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startApplicationDiscoveryV1: async (sourceId: string, applicationDiscoveryRequest: ApplicationDiscoveryRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('startApplicationDiscoveryV1', 'sourceId', sourceId)
-            // verify required parameter 'applicationdiscoveryrequest' is not null or undefined
-            assertParamExists('startApplicationDiscoveryV1', 'applicationdiscoveryrequest', applicationdiscoveryrequest)
+            // verify required parameter 'applicationDiscoveryRequest' is not null or undefined
+            assertParamExists('startApplicationDiscoveryV1', 'applicationDiscoveryRequest', applicationDiscoveryRequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1131,7 +1131,7 @@ export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(applicationdiscoveryrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(applicationDiscoveryRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1171,7 +1171,7 @@ export const ApplicationDiscoveryApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Manualdiscoverapplicationstemplate>> {
+        async getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManualDiscoverApplicationsTemplate>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManualDiscoverApplicationsCsvTemplateV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryApi.getManualDiscoverApplicationsCsvTemplateV1']?.[localVarOperationServerIndex]?.url;
@@ -1194,13 +1194,13 @@ export const ApplicationDiscoveryApiFp = function(configuration?: Configuration)
          * Use this API to discover applications.
          * @summary Start Application Discovery
          * @param {string} sourceId The sourceId.
-         * @param {Applicationdiscoveryrequest} applicationdiscoveryrequest 
+         * @param {ApplicationDiscoveryRequest} applicationDiscoveryRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startApplicationDiscoveryV1(sourceId: string, applicationdiscoveryrequest: Applicationdiscoveryrequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Applicationdiscoveryresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startApplicationDiscoveryV1(sourceId, applicationdiscoveryrequest, xSailPointExperimental, axiosOptions);
+        async startApplicationDiscoveryV1(sourceId: string, applicationDiscoveryRequest: ApplicationDiscoveryRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApplicationDiscoveryResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startApplicationDiscoveryV1(sourceId, applicationDiscoveryRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryApi.startApplicationDiscoveryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1231,7 +1231,7 @@ export const ApplicationDiscoveryApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Manualdiscoverapplicationstemplate> {
+        getManualDiscoverApplicationsCsvTemplateV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManualDiscoverApplicationsTemplate> {
             return localVarFp.getManualDiscoverApplicationsCsvTemplateV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1251,8 +1251,8 @@ export const ApplicationDiscoveryApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startApplicationDiscoveryV1(requestParameters: ApplicationDiscoveryApiStartApplicationDiscoveryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Applicationdiscoveryresponse> {
-            return localVarFp.startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationdiscoveryrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        startApplicationDiscoveryV1(requestParameters: ApplicationDiscoveryApiStartApplicationDiscoveryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ApplicationDiscoveryResponse> {
+            return localVarFp.startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationDiscoveryRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1328,10 +1328,10 @@ export interface ApplicationDiscoveryApiStartApplicationDiscoveryV1Request {
 
     /**
      * 
-     * @type {Applicationdiscoveryrequest}
+     * @type {ApplicationDiscoveryRequest}
      * @memberof ApplicationDiscoveryApiStartApplicationDiscoveryV1
      */
-    readonly applicationdiscoveryrequest: Applicationdiscoveryrequest
+    readonly applicationDiscoveryRequest: ApplicationDiscoveryRequest
 
     /**
      * Use this header to enable this experimental API.
@@ -1392,7 +1392,7 @@ export class ApplicationDiscoveryApi extends BaseAPI {
      * @memberof ApplicationDiscoveryApi
      */
     public startApplicationDiscoveryV1(requestParameters: ApplicationDiscoveryApiStartApplicationDiscoveryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ApplicationDiscoveryApiFp(this.configuration).startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationdiscoveryrequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ApplicationDiscoveryApiFp(this.configuration).startApplicationDiscoveryV1(requestParameters.sourceId, requestParameters.applicationDiscoveryRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

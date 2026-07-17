@@ -1,8 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-Errormessagedto.md
-Errorresponsedto.md
+ErrorMessageDto.md
+ErrorResponseDto.md
 GetLaunchersV1200Response.md
 GetLaunchersV1401Response.md
 GetLaunchersV1429Response.md
@@ -10,11 +10,11 @@ Index.md
 Launcher.md
 LauncherOwner.md
 LauncherReference.md
-Launcherrequest.md
-LauncherrequestReference.md
+LauncherRequest.md
+LauncherRequestReference.md
 LaunchersApi.md
 LaunchersApideveloperSite_code_examples.yaml
-Localeorigin.md
+LocaleOrigin.md
 README.md
 StartLauncherV1200Response.md
 api.ts

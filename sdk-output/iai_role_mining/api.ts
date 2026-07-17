@@ -40,44 +40,44 @@ export interface ArrayInner1 {
 /**
  * 
  * @export
- * @interface Entitycreatedbydto
+ * @interface EntityCreatedByDTO
  */
-export interface Entitycreatedbydto {
+export interface EntityCreatedByDTO {
     /**
      * ID of the creator
      * @type {string}
-     * @memberof Entitycreatedbydto
+     * @memberof EntityCreatedByDTO
      */
     'id'?: string;
     /**
      * The display name of the creator
      * @type {string}
-     * @memberof Entitycreatedbydto
+     * @memberof EntityCreatedByDTO
      */
     'displayName'?: string;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -86,33 +86,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -143,30 +143,30 @@ export interface GetRoleMiningSessionsV1429Response {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -175,54 +175,54 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
-
-/**
- * @type JsonpatchoperationValue
- * The value to be used for the operation, required for \"add\" and \"replace\" operations
- * @export
- */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
  * A JSONPatch Operation for Role Mining endpoints, supporting only remove and replace operations as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperationrolemining
+ * @interface JsonPatchOperationRoleMining
  */
-export interface Jsonpatchoperationrolemining {
+export interface JsonPatchOperationRoleMining {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperationrolemining
+     * @memberof JsonPatchOperationRoleMining
      */
-    'op': JsonpatchoperationroleminingOpEnum;
+    'op': JsonPatchOperationRoleMiningOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperationrolemining
+     * @memberof JsonPatchOperationRoleMining
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationroleminingValue}
-     * @memberof Jsonpatchoperationrolemining
+     * @type {JsonPatchOperationRoleMiningValue}
+     * @memberof JsonPatchOperationRoleMining
      */
-    'value'?: JsonpatchoperationroleminingValue;
+    'value'?: JsonPatchOperationRoleMiningValue;
 }
 
-export const JsonpatchoperationroleminingOpEnum = {
+export const JsonPatchOperationRoleMiningOpEnum = {
     Remove: 'remove',
     Replace: 'replace'
 } as const;
 
-export type JsonpatchoperationroleminingOpEnum = typeof JsonpatchoperationroleminingOpEnum[keyof typeof JsonpatchoperationroleminingOpEnum];
+export type JsonPatchOperationRoleMiningOpEnum = typeof JsonPatchOperationRoleMiningOpEnum[keyof typeof JsonPatchOperationRoleMiningOpEnum];
 
 /**
- * @type JsonpatchoperationroleminingValue
+ * @type JsonPatchOperationRoleMiningValue
  * The value to be used for the operation, required for \"replace\" operations
  * @export
  */
-export type JsonpatchoperationroleminingValue = Array<ArrayInner1> | boolean | number | object | string;
+export type JsonPatchOperationRoleMiningValue = Array<ArrayInner1> | boolean | number | object | string;
+
+/**
+ * @type JsonPatchOperationValue
+ * The value to be used for the operation, required for \"add\" and \"replace\" operations
+ * @export
+ */
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -230,429 +230,410 @@ export type JsonpatchoperationroleminingValue = Array<ArrayInner1> | boolean | n
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Roleminingentitlement
+ * @interface RoleMiningEntitlement
  */
-export interface Roleminingentitlement {
+export interface RoleMiningEntitlement {
     /**
      * 
-     * @type {Roleminingentitlementref}
-     * @memberof Roleminingentitlement
+     * @type {RoleMiningEntitlementRef}
+     * @memberof RoleMiningEntitlement
      */
-    'entitlementRef'?: Roleminingentitlementref;
+    'entitlementRef'?: RoleMiningEntitlementRef;
     /**
      * Name of the entitlement
      * @type {string}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'name'?: string;
     /**
      * Application name of the entitlement
      * @type {string}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'applicationName'?: string;
     /**
      * The number of identities with this entitlement in a role.
      * @type {number}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'identityCount'?: number;
     /**
      * The % popularity of this entitlement in a role.
      * @type {number}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'popularity'?: number;
     /**
      * The % popularity of this entitlement in the org.
      * @type {number}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'popularityInOrg'?: number;
     /**
      * The ID of the source/application.
      * @type {string}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'sourceId'?: string;
     /**
      * The status of activity data for the source.   Value is complete or notComplete.
      * @type {string}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'activitySourceState'?: string | null;
     /**
      * The percentage of identities in the potential role that have usage of the source/application of this entitlement.
      * @type {number}
-     * @memberof Roleminingentitlement
+     * @memberof RoleMiningEntitlement
      */
     'sourceUsagePercent'?: number | null;
 }
 /**
  * 
  * @export
- * @interface Roleminingentitlementref
+ * @interface RoleMiningEntitlementRef
  */
-export interface Roleminingentitlementref {
+export interface RoleMiningEntitlementRef {
     /**
      * Id of the entitlement
      * @type {string}
-     * @memberof Roleminingentitlementref
+     * @memberof RoleMiningEntitlementRef
      */
     'id'?: string;
     /**
      * Name of the entitlement
      * @type {string}
-     * @memberof Roleminingentitlementref
+     * @memberof RoleMiningEntitlementRef
      */
     'name'?: string;
     /**
      * Description forthe entitlement
      * @type {string}
-     * @memberof Roleminingentitlementref
+     * @memberof RoleMiningEntitlementRef
      */
     'description'?: string | null;
     /**
      * The entitlement attribute
      * @type {string}
-     * @memberof Roleminingentitlementref
+     * @memberof RoleMiningEntitlementRef
      */
     'attribute'?: string;
 }
 /**
  * 
  * @export
- * @interface Roleminingidentity
+ * @interface RoleMiningIdentity
  */
-export interface Roleminingidentity {
+export interface RoleMiningIdentity {
     /**
      * Id of the identity
      * @type {string}
-     * @memberof Roleminingidentity
+     * @memberof RoleMiningIdentity
      */
     'id'?: string;
     /**
      * Name of the identity
      * @type {string}
-     * @memberof Roleminingidentity
+     * @memberof RoleMiningIdentity
      */
     'name'?: string;
     /**
      * 
      * @type {{ [key: string]: string | null; }}
-     * @memberof Roleminingidentity
+     * @memberof RoleMiningIdentity
      */
     'attributes'?: { [key: string]: string | null; };
 }
 /**
  * 
  * @export
- * @interface Roleminingidentitydistribution
+ * @interface RoleMiningIdentityDistribution
  */
-export interface Roleminingidentitydistribution {
+export interface RoleMiningIdentityDistribution {
     /**
      * Id of the potential role
      * @type {string}
-     * @memberof Roleminingidentitydistribution
+     * @memberof RoleMiningIdentityDistribution
      */
     'attributeName'?: string;
     /**
      * 
-     * @type {Array<RoleminingidentitydistributionDistributionInner>}
-     * @memberof Roleminingidentitydistribution
+     * @type {Array<RoleMiningIdentityDistributionDistributionInner>}
+     * @memberof RoleMiningIdentityDistribution
      */
-    'distribution'?: Array<RoleminingidentitydistributionDistributionInner>;
+    'distribution'?: Array<RoleMiningIdentityDistributionDistributionInner>;
 }
 /**
  * 
  * @export
- * @interface RoleminingidentitydistributionDistributionInner
+ * @interface RoleMiningIdentityDistributionDistributionInner
  */
-export interface RoleminingidentitydistributionDistributionInner {
+export interface RoleMiningIdentityDistributionDistributionInner {
     /**
      * The attribute value that identities are grouped by
      * @type {string}
-     * @memberof RoleminingidentitydistributionDistributionInner
+     * @memberof RoleMiningIdentityDistributionDistributionInner
      */
     'attributeValue'?: string | null;
     /**
      * The number of identities that have this attribute value
      * @type {number}
-     * @memberof RoleminingidentitydistributionDistributionInner
+     * @memberof RoleMiningIdentityDistributionDistributionInner
      */
     'count'?: number;
 }
 /**
  * 
  * @export
- * @interface Roleminingpotentialrole
+ * @interface RoleMiningPotentialRole
  */
-export interface Roleminingpotentialrole {
+export interface RoleMiningPotentialRole {
     /**
      * 
-     * @type {RoleminingsessionresponseCreatedBy}
-     * @memberof Roleminingpotentialrole
+     * @type {RoleMiningSessionResponseCreatedBy}
+     * @memberof RoleMiningPotentialRole
      */
-    'createdBy'?: RoleminingsessionresponseCreatedBy;
+    'createdBy'?: RoleMiningSessionResponseCreatedBy;
     /**
      * The density of a potential role.
      * @type {number}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'density'?: number;
     /**
      * The description of a potential role.
      * @type {string}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'description'?: string | null;
     /**
      * The number of entitlements in a potential role.
      * @type {number}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'entitlementCount'?: number;
     /**
      * The list of entitlement ids to be excluded.
      * @type {Array<string>}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'excludedEntitlements'?: Array<string> | null;
     /**
      * The freshness of a potential role.
      * @type {number}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'freshness'?: number;
     /**
      * The number of identities in a potential role.
      * @type {number}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'identityCount'?: number;
     /**
      * Identity attribute distribution.
-     * @type {Array<Roleminingidentitydistribution>}
-     * @memberof Roleminingpotentialrole
+     * @type {Array<RoleMiningIdentityDistribution>}
+     * @memberof RoleMiningPotentialRole
      */
-    'identityDistribution'?: Array<Roleminingidentitydistribution> | null;
+    'identityDistribution'?: Array<RoleMiningIdentityDistribution> | null;
     /**
      * The list of ids in a potential role.
      * @type {Array<string>}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'identityIds'?: Array<string>;
     /**
      * The status for this identity group which can be OBTAINED or COMPRESSED
      * @type {string}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'identityGroupStatus'?: string | null;
     /**
      * Name of the potential role.
      * @type {string}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'name'?: string;
     /**
      * 
-     * @type {RoleminingpotentialrolePotentialRoleRef}
-     * @memberof Roleminingpotentialrole
+     * @type {RoleMiningPotentialRolePotentialRoleRef}
+     * @memberof RoleMiningPotentialRole
      */
-    'potentialRoleRef'?: RoleminingpotentialrolePotentialRoleRef | null;
+    'potentialRoleRef'?: RoleMiningPotentialRolePotentialRoleRef | null;
     /**
      * 
-     * @type {Roleminingpotentialroleprovisionstate}
-     * @memberof Roleminingpotentialrole
+     * @type {RoleMiningPotentialRoleProvisionState}
+     * @memberof RoleMiningPotentialRole
      */
-    'provisionState'?: Roleminingpotentialroleprovisionstate;
+    'provisionState'?: RoleMiningPotentialRoleProvisionState;
     /**
      * The quality of a potential role.
      * @type {number}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'quality'?: number;
     /**
      * The roleId of a potential role.
      * @type {string}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'roleId'?: string | null;
     /**
      * The potential role\'s saved status.
      * @type {boolean}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'saved'?: boolean;
     /**
      * 
-     * @type {Roleminingsessionparametersdto}
-     * @memberof Roleminingpotentialrole
+     * @type {RoleMiningSessionParametersDto}
+     * @memberof RoleMiningPotentialRole
      */
-    'session'?: Roleminingsessionparametersdto;
+    'session'?: RoleMiningSessionParametersDto;
     /**
      * 
-     * @type {Roleminingroletype}
-     * @memberof Roleminingpotentialrole
+     * @type {RoleMiningRoleType}
+     * @memberof RoleMiningPotentialRole
      */
-    'type'?: Roleminingroletype;
+    'type'?: RoleMiningRoleType;
     /**
      * Id of the potential role
      * @type {string}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'id'?: string;
     /**
      * The date-time when this potential role was created.
      * @type {string}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'createdDate'?: string;
     /**
      * The date-time when this potential role was modified.
      * @type {string}
-     * @memberof Roleminingpotentialrole
+     * @memberof RoleMiningPotentialRole
      */
     'modifiedDate'?: string;
 }
 
 
 /**
- * The potential role reference
- * @export
- * @interface RoleminingpotentialrolePotentialRoleRef
- */
-export interface RoleminingpotentialrolePotentialRoleRef {
-    /**
-     * Id of the potential role
-     * @type {string}
-     * @memberof RoleminingpotentialrolePotentialRoleRef
-     */
-    'id'?: string;
-    /**
-     * Name of the potential role
-     * @type {string}
-     * @memberof RoleminingpotentialrolePotentialRoleRef
-     */
-    'name'?: string;
-}
-/**
  * 
  * @export
- * @interface Roleminingpotentialroleapplication
+ * @interface RoleMiningPotentialRoleApplication
  */
-export interface Roleminingpotentialroleapplication {
+export interface RoleMiningPotentialRoleApplication {
     /**
      * Id of the application
      * @type {string}
-     * @memberof Roleminingpotentialroleapplication
+     * @memberof RoleMiningPotentialRoleApplication
      */
     'id'?: string;
     /**
      * Name of the application
      * @type {string}
-     * @memberof Roleminingpotentialroleapplication
+     * @memberof RoleMiningPotentialRoleApplication
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface Roleminingpotentialroleeditentitlements
+ * @interface RoleMiningPotentialRoleEditEntitlements
  */
-export interface Roleminingpotentialroleeditentitlements {
+export interface RoleMiningPotentialRoleEditEntitlements {
     /**
      * The list of entitlement ids to be edited
      * @type {Array<string>}
-     * @memberof Roleminingpotentialroleeditentitlements
+     * @memberof RoleMiningPotentialRoleEditEntitlements
      */
     'ids'?: Array<string>;
     /**
      * If true, add ids to be exclusion list. If false, remove ids from the exclusion list.
      * @type {boolean}
-     * @memberof Roleminingpotentialroleeditentitlements
+     * @memberof RoleMiningPotentialRoleEditEntitlements
      */
     'exclude'?: boolean;
 }
 /**
  * 
  * @export
- * @interface Roleminingpotentialroleentitlements
+ * @interface RoleMiningPotentialRoleEntitlements
  */
-export interface Roleminingpotentialroleentitlements {
+export interface RoleMiningPotentialRoleEntitlements {
     /**
      * Id of the entitlement
      * @type {string}
-     * @memberof Roleminingpotentialroleentitlements
+     * @memberof RoleMiningPotentialRoleEntitlements
      */
     'id'?: string;
     /**
      * Name of the entitlement
      * @type {string}
-     * @memberof Roleminingpotentialroleentitlements
+     * @memberof RoleMiningPotentialRoleEntitlements
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface Roleminingpotentialroleexportrequest
+ * @interface RoleMiningPotentialRoleExportRequest
  */
-export interface Roleminingpotentialroleexportrequest {
+export interface RoleMiningPotentialRoleExportRequest {
     /**
      * The minimum popularity among identities in the role which an entitlement must have to be included in the report
      * @type {number}
-     * @memberof Roleminingpotentialroleexportrequest
+     * @memberof RoleMiningPotentialRoleExportRequest
      */
     'minEntitlementPopularity'?: number;
     /**
      * If false, do not include entitlements that are highly popular among the entire orginization
      * @type {boolean}
-     * @memberof Roleminingpotentialroleexportrequest
+     * @memberof RoleMiningPotentialRoleExportRequest
      */
     'includeCommonAccess'?: boolean;
 }
 /**
  * 
  * @export
- * @interface Roleminingpotentialroleexportresponse
+ * @interface RoleMiningPotentialRoleExportResponse
  */
-export interface Roleminingpotentialroleexportresponse {
+export interface RoleMiningPotentialRoleExportResponse {
     /**
      * The minimum popularity among identities in the role which an entitlement must have to be included in the report
      * @type {number}
-     * @memberof Roleminingpotentialroleexportresponse
+     * @memberof RoleMiningPotentialRoleExportResponse
      */
     'minEntitlementPopularity'?: number;
     /**
      * If false, do not include entitlements that are highly popular among the entire orginization
      * @type {boolean}
-     * @memberof Roleminingpotentialroleexportresponse
+     * @memberof RoleMiningPotentialRoleExportResponse
      */
     'includeCommonAccess'?: boolean;
     /**
      * ID used to reference this export
      * @type {string}
-     * @memberof Roleminingpotentialroleexportresponse
+     * @memberof RoleMiningPotentialRoleExportResponse
      */
     'exportId'?: string;
     /**
      * 
-     * @type {Roleminingpotentialroleexportstate}
-     * @memberof Roleminingpotentialroleexportresponse
+     * @type {RoleMiningPotentialRoleExportState}
+     * @memberof RoleMiningPotentialRoleExportResponse
      */
-    'status'?: Roleminingpotentialroleexportstate;
+    'status'?: RoleMiningPotentialRoleExportState;
 }
 
 
@@ -662,50 +643,69 @@ export interface Roleminingpotentialroleexportresponse {
  * @enum {string}
  */
 
-export const Roleminingpotentialroleexportstate = {
+export const RoleMiningPotentialRoleExportState = {
     Queued: 'QUEUED',
     InProgress: 'IN_PROGRESS',
     Success: 'SUCCESS',
     Error: 'ERROR'
 } as const;
 
-export type Roleminingpotentialroleexportstate = typeof Roleminingpotentialroleexportstate[keyof typeof Roleminingpotentialroleexportstate];
+export type RoleMiningPotentialRoleExportState = typeof RoleMiningPotentialRoleExportState[keyof typeof RoleMiningPotentialRoleExportState];
 
 
 /**
+ * The potential role reference
+ * @export
+ * @interface RoleMiningPotentialRolePotentialRoleRef
+ */
+export interface RoleMiningPotentialRolePotentialRoleRef {
+    /**
+     * Id of the potential role
+     * @type {string}
+     * @memberof RoleMiningPotentialRolePotentialRoleRef
+     */
+    'id'?: string;
+    /**
+     * Name of the potential role
+     * @type {string}
+     * @memberof RoleMiningPotentialRolePotentialRoleRef
+     */
+    'name'?: string;
+}
+/**
  * 
  * @export
- * @interface Roleminingpotentialroleprovisionrequest
+ * @interface RoleMiningPotentialRoleProvisionRequest
  */
-export interface Roleminingpotentialroleprovisionrequest {
+export interface RoleMiningPotentialRoleProvisionRequest {
     /**
      * Name of the new role being created
      * @type {string}
-     * @memberof Roleminingpotentialroleprovisionrequest
+     * @memberof RoleMiningPotentialRoleProvisionRequest
      */
     'roleName'?: string;
     /**
      * Short description of the new role being created
      * @type {string}
-     * @memberof Roleminingpotentialroleprovisionrequest
+     * @memberof RoleMiningPotentialRoleProvisionRequest
      */
     'roleDescription'?: string;
     /**
      * ID of the identity that will own this role
      * @type {string}
-     * @memberof Roleminingpotentialroleprovisionrequest
+     * @memberof RoleMiningPotentialRoleProvisionRequest
      */
     'ownerId'?: string;
     /**
      * When true, create access requests for the identities associated with the potential role
      * @type {boolean}
-     * @memberof Roleminingpotentialroleprovisionrequest
+     * @memberof RoleMiningPotentialRoleProvisionRequest
      */
     'includeIdentities'?: boolean;
     /**
      * When true, assign entitlements directly to the role; otherwise, create access profiles containing the entitlements
      * @type {boolean}
-     * @memberof Roleminingpotentialroleprovisionrequest
+     * @memberof RoleMiningPotentialRoleProvisionRequest
      */
     'directlyAssignedEntitlements'?: boolean;
 }
@@ -715,183 +715,183 @@ export interface Roleminingpotentialroleprovisionrequest {
  * @enum {string}
  */
 
-export const Roleminingpotentialroleprovisionstate = {
+export const RoleMiningPotentialRoleProvisionState = {
     Potential: 'POTENTIAL',
     Pending: 'PENDING',
     Complete: 'COMPLETE',
     Failed: 'FAILED'
 } as const;
 
-export type Roleminingpotentialroleprovisionstate = typeof Roleminingpotentialroleprovisionstate[keyof typeof Roleminingpotentialroleprovisionstate];
+export type RoleMiningPotentialRoleProvisionState = typeof RoleMiningPotentialRoleProvisionState[keyof typeof RoleMiningPotentialRoleProvisionState];
 
 
 /**
  * 
  * @export
- * @interface Roleminingpotentialroleref
+ * @interface RoleMiningPotentialRoleRef
  */
-export interface Roleminingpotentialroleref {
+export interface RoleMiningPotentialRoleRef {
     /**
      * Id of the potential role
      * @type {string}
-     * @memberof Roleminingpotentialroleref
+     * @memberof RoleMiningPotentialRoleRef
      */
     'id'?: string;
     /**
      * Name of the potential role
      * @type {string}
-     * @memberof Roleminingpotentialroleref
+     * @memberof RoleMiningPotentialRoleRef
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface Roleminingpotentialrolesourceusage
+ * @interface RoleMiningPotentialRoleSourceUsage
  */
-export interface Roleminingpotentialrolesourceusage {
+export interface RoleMiningPotentialRoleSourceUsage {
     /**
      * The identity ID
      * @type {string}
-     * @memberof Roleminingpotentialrolesourceusage
+     * @memberof RoleMiningPotentialRoleSourceUsage
      */
     'id'?: string;
     /**
      * Display name for the identity
      * @type {string}
-     * @memberof Roleminingpotentialrolesourceusage
+     * @memberof RoleMiningPotentialRoleSourceUsage
      */
     'displayName'?: string;
     /**
      * Email address for the identity
      * @type {string}
-     * @memberof Roleminingpotentialrolesourceusage
+     * @memberof RoleMiningPotentialRoleSourceUsage
      */
     'email'?: string;
     /**
      * The number of days there has been usage of the source by the identity.
      * @type {number}
-     * @memberof Roleminingpotentialrolesourceusage
+     * @memberof RoleMiningPotentialRoleSourceUsage
      */
     'usageCount'?: number;
 }
 /**
  * 
  * @export
- * @interface Roleminingpotentialrolesummary
+ * @interface RoleMiningPotentialRoleSummary
  */
-export interface Roleminingpotentialrolesummary {
+export interface RoleMiningPotentialRoleSummary {
     /**
      * Id of the potential role
      * @type {string}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'id'?: string;
     /**
      * Name of the potential role
      * @type {string}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'name'?: string;
     /**
      * 
-     * @type {Roleminingpotentialroleref}
-     * @memberof Roleminingpotentialrolesummary
+     * @type {RoleMiningPotentialRoleRef}
+     * @memberof RoleMiningPotentialRoleSummary
      */
-    'potentialRoleRef'?: Roleminingpotentialroleref;
+    'potentialRoleRef'?: RoleMiningPotentialRoleRef;
     /**
      * The number of identities in a potential role.
      * @type {number}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'identityCount'?: number;
     /**
      * The number of entitlements in a potential role.
      * @type {number}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'entitlementCount'?: number;
     /**
      * The status for this identity group which can be \"REQUESTED\" or \"OBTAINED\"
      * @type {string}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'identityGroupStatus'?: string;
     /**
      * 
-     * @type {Roleminingpotentialroleprovisionstate}
-     * @memberof Roleminingpotentialrolesummary
+     * @type {RoleMiningPotentialRoleProvisionState}
+     * @memberof RoleMiningPotentialRoleSummary
      */
-    'provisionState'?: Roleminingpotentialroleprovisionstate;
+    'provisionState'?: RoleMiningPotentialRoleProvisionState;
     /**
      * ID of the provisioned role in IIQ or IDN.  Null if this potential role has not been provisioned.
      * @type {string}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'roleId'?: string | null;
     /**
      * The density metric (0-100) of this potential role. Higher density values indicate higher similarity amongst the identities.
      * @type {number}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'density'?: number;
     /**
      * The freshness metric (0-100) of this potential role. Higher freshness values indicate this potential role is more distinctive compared to existing roles.
      * @type {number}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'freshness'?: number;
     /**
      * The quality metric (0-100) of this potential role. Higher quality values indicate this potential role has high density and freshness.
      * @type {number}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'quality'?: number;
     /**
      * 
-     * @type {Roleminingroletype}
-     * @memberof Roleminingpotentialrolesummary
+     * @type {RoleMiningRoleType}
+     * @memberof RoleMiningPotentialRoleSummary
      */
-    'type'?: Roleminingroletype;
+    'type'?: RoleMiningRoleType;
     /**
      * 
-     * @type {RoleminingpotentialrolesummaryCreatedBy}
-     * @memberof Roleminingpotentialrolesummary
+     * @type {RoleMiningPotentialRoleSummaryCreatedBy}
+     * @memberof RoleMiningPotentialRoleSummary
      */
-    'createdBy'?: RoleminingpotentialrolesummaryCreatedBy;
+    'createdBy'?: RoleMiningPotentialRoleSummaryCreatedBy;
     /**
      * The date-time when this potential role was created.
      * @type {string}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'createdDate'?: string;
     /**
      * The potential role\'s saved status
      * @type {boolean}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'saved'?: boolean;
     /**
      * Description of the potential role
      * @type {string}
-     * @memberof Roleminingpotentialrolesummary
+     * @memberof RoleMiningPotentialRoleSummary
      */
     'description'?: string | null;
     /**
      * 
-     * @type {Roleminingsessionparametersdto}
-     * @memberof Roleminingpotentialrolesummary
+     * @type {RoleMiningSessionParametersDto}
+     * @memberof RoleMiningPotentialRoleSummary
      */
-    'session'?: Roleminingsessionparametersdto;
+    'session'?: RoleMiningSessionParametersDto;
 }
 
 
 /**
- * @type RoleminingpotentialrolesummaryCreatedBy
+ * @type RoleMiningPotentialRoleSummaryCreatedBy
  * The potential role created by details
  * @export
  */
-export type RoleminingpotentialrolesummaryCreatedBy = Entitycreatedbydto | string;
+export type RoleMiningPotentialRoleSummaryCreatedBy = EntityCreatedByDTO | string;
 
 /**
  * Role type
@@ -899,78 +899,78 @@ export type RoleminingpotentialrolesummaryCreatedBy = Entitycreatedbydto | strin
  * @enum {string}
  */
 
-export const Roleminingroletype = {
+export const RoleMiningRoleType = {
     Specialized: 'SPECIALIZED',
     Common: 'COMMON'
 } as const;
 
-export type Roleminingroletype = typeof Roleminingroletype[keyof typeof Roleminingroletype];
+export type RoleMiningRoleType = typeof RoleMiningRoleType[keyof typeof RoleMiningRoleType];
 
 
 /**
  * 
  * @export
- * @interface Roleminingsessiondraftroledto
+ * @interface RoleMiningSessionDraftRoleDto
  */
-export interface Roleminingsessiondraftroledto {
+export interface RoleMiningSessionDraftRoleDto {
     /**
      * Name of the draft role
      * @type {string}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'name'?: string;
     /**
      * Draft role description
      * @type {string}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'description'?: string;
     /**
      * The list of identities for this role mining session.
      * @type {Array<string>}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'identityIds'?: Array<string>;
     /**
      * The list of entitlement ids for this role mining session.
      * @type {Array<string>}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'entitlementIds'?: Array<string>;
     /**
      * The list of excluded entitlement ids.
      * @type {Array<string>}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'excludedEntitlements'?: Array<string>;
     /**
      * Last modified date
      * @type {string}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'modified'?: string;
     /**
      * 
-     * @type {Roleminingroletype}
-     * @memberof Roleminingsessiondraftroledto
+     * @type {RoleMiningRoleType}
+     * @memberof RoleMiningSessionDraftRoleDto
      */
-    'type'?: Roleminingroletype;
+    'type'?: RoleMiningRoleType;
     /**
      * Id of the potential draft role
      * @type {string}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'id'?: string;
     /**
      * The date-time when this potential draft role was created.
      * @type {string}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'createdDate'?: string;
     /**
      * The date-time when this potential draft role was modified.
      * @type {string}
-     * @memberof Roleminingsessiondraftroledto
+     * @memberof RoleMiningSessionDraftRoleDto
      */
     'modifiedDate'?: string;
 }
@@ -979,73 +979,73 @@ export interface Roleminingsessiondraftroledto {
 /**
  * 
  * @export
- * @interface Roleminingsessiondto
+ * @interface RoleMiningSessionDto
  */
-export interface Roleminingsessiondto {
+export interface RoleMiningSessionDto {
     /**
      * 
-     * @type {Roleminingsessionscope}
-     * @memberof Roleminingsessiondto
+     * @type {RoleMiningSessionScope}
+     * @memberof RoleMiningSessionDto
      */
-    'scope'?: Roleminingsessionscope;
+    'scope'?: RoleMiningSessionScope;
     /**
      * The prune threshold to be used or null to calculate prescribedPruneThreshold
      * @type {number}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'pruneThreshold'?: number | null;
     /**
      * The calculated prescribedPruneThreshold
      * @type {number}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'prescribedPruneThreshold'?: number | null;
     /**
      * Minimum number of identities in a potential role
      * @type {number}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'minNumIdentitiesInPotentialRole'?: number | null;
     /**
      * Number of potential roles
      * @type {number}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'potentialRoleCount'?: number;
     /**
      * Number of potential roles ready
      * @type {number}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'potentialRolesReadyCount'?: number;
     /**
      * 
-     * @type {Roleminingroletype}
-     * @memberof Roleminingsessiondto
+     * @type {RoleMiningRoleType}
+     * @memberof RoleMiningSessionDto
      */
-    'type'?: Roleminingroletype;
+    'type'?: RoleMiningRoleType;
     /**
      * The id of the user who will receive an email about the role mining session
      * @type {string}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'emailRecipientId'?: string | null;
     /**
      * Number of identities in the population which meet the search criteria or identity list provided
      * @type {number}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'identityCount'?: number;
     /**
      * The session\'s saved status
      * @type {boolean}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'saved'?: boolean;
     /**
      * The session\'s saved name
      * @type {string}
-     * @memberof Roleminingsessiondto
+     * @memberof RoleMiningSessionDto
      */
     'name'?: string | null;
 }
@@ -1054,212 +1054,212 @@ export interface Roleminingsessiondto {
 /**
  * 
  * @export
- * @interface Roleminingsessionparametersdto
+ * @interface RoleMiningSessionParametersDto
  */
-export interface Roleminingsessionparametersdto {
+export interface RoleMiningSessionParametersDto {
     /**
      * The ID of the role mining session
      * @type {string}
-     * @memberof Roleminingsessionparametersdto
+     * @memberof RoleMiningSessionParametersDto
      */
     'id'?: string;
     /**
      * The session\'s saved name
      * @type {string}
-     * @memberof Roleminingsessionparametersdto
+     * @memberof RoleMiningSessionParametersDto
      */
     'name'?: string | null;
     /**
      * Minimum number of identities in a potential role
      * @type {number}
-     * @memberof Roleminingsessionparametersdto
+     * @memberof RoleMiningSessionParametersDto
      */
     'minNumIdentitiesInPotentialRole'?: number | null;
     /**
      * The prune threshold to be used or null to calculate prescribedPruneThreshold
      * @type {number}
-     * @memberof Roleminingsessionparametersdto
+     * @memberof RoleMiningSessionParametersDto
      */
     'pruneThreshold'?: number | null;
     /**
      * The session\'s saved status
      * @type {boolean}
-     * @memberof Roleminingsessionparametersdto
+     * @memberof RoleMiningSessionParametersDto
      */
     'saved'?: boolean;
     /**
      * 
-     * @type {Roleminingsessionscope}
-     * @memberof Roleminingsessionparametersdto
+     * @type {RoleMiningSessionScope}
+     * @memberof RoleMiningSessionParametersDto
      */
-    'scope'?: Roleminingsessionscope;
+    'scope'?: RoleMiningSessionScope;
     /**
      * 
-     * @type {Roleminingroletype}
-     * @memberof Roleminingsessionparametersdto
+     * @type {RoleMiningRoleType}
+     * @memberof RoleMiningSessionParametersDto
      */
-    'type'?: Roleminingroletype;
+    'type'?: RoleMiningRoleType;
     /**
      * 
-     * @type {Roleminingsessionstate}
-     * @memberof Roleminingsessionparametersdto
+     * @type {RoleMiningSessionState}
+     * @memberof RoleMiningSessionParametersDto
      */
-    'state'?: Roleminingsessionstate;
+    'state'?: RoleMiningSessionState;
     /**
      * 
-     * @type {Roleminingsessionscopingmethod}
-     * @memberof Roleminingsessionparametersdto
+     * @type {RoleMiningSessionScopingMethod}
+     * @memberof RoleMiningSessionParametersDto
      */
-    'scopingMethod'?: Roleminingsessionscopingmethod;
+    'scopingMethod'?: RoleMiningSessionScopingMethod;
 }
 
 
 /**
  * 
  * @export
- * @interface Roleminingsessionresponse
+ * @interface RoleMiningSessionResponse
  */
-export interface Roleminingsessionresponse {
+export interface RoleMiningSessionResponse {
     /**
      * 
-     * @type {Roleminingsessionscope}
-     * @memberof Roleminingsessionresponse
+     * @type {RoleMiningSessionScope}
+     * @memberof RoleMiningSessionResponse
      */
-    'scope'?: Roleminingsessionscope;
+    'scope'?: RoleMiningSessionScope;
     /**
      * Minimum number of identities in a potential role
      * @type {number}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'minNumIdentitiesInPotentialRole'?: number | null;
     /**
      * The scoping method of the role mining session
      * @type {string}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'scopingMethod'?: string | null;
     /**
      * The computed (or prescribed) prune threshold for this session
      * @type {number}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'prescribedPruneThreshold'?: number | null;
     /**
      * The prune threshold to be used for this role mining session
      * @type {number}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'pruneThreshold'?: number | null;
     /**
      * The number of potential roles
      * @type {number}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'potentialRoleCount'?: number;
     /**
      * The number of potential roles which have completed processing
      * @type {number}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'potentialRolesReadyCount'?: number;
     /**
      * 
-     * @type {Roleminingsessionstatus}
-     * @memberof Roleminingsessionresponse
+     * @type {RoleMiningSessionStatus}
+     * @memberof RoleMiningSessionResponse
      */
-    'status'?: Roleminingsessionstatus;
+    'status'?: RoleMiningSessionStatus;
     /**
      * The id of the user who will receive an email about the role mining session
      * @type {string}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'emailRecipientId'?: string | null;
     /**
      * 
-     * @type {RoleminingsessionresponseCreatedBy}
-     * @memberof Roleminingsessionresponse
+     * @type {RoleMiningSessionResponseCreatedBy}
+     * @memberof RoleMiningSessionResponse
      */
-    'createdBy'?: RoleminingsessionresponseCreatedBy;
+    'createdBy'?: RoleMiningSessionResponseCreatedBy;
     /**
      * The number of identities
      * @type {number}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'identityCount'?: number;
     /**
      * The session\'s saved status
      * @type {boolean}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'saved'?: boolean;
     /**
      * The session\'s saved name
      * @type {string}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'name'?: string | null;
     /**
      * The data file path of the role mining session
      * @type {string}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'dataFilePath'?: string | null;
     /**
      * Session Id for this role mining session
      * @type {string}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'id'?: string;
     /**
      * The date-time when this role mining session was created.
      * @type {string}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'createdDate'?: string;
     /**
      * The date-time when this role mining session was completed.
      * @type {string}
-     * @memberof Roleminingsessionresponse
+     * @memberof RoleMiningSessionResponse
      */
     'modifiedDate'?: string;
     /**
      * 
-     * @type {Roleminingroletype}
-     * @memberof Roleminingsessionresponse
+     * @type {RoleMiningRoleType}
+     * @memberof RoleMiningSessionResponse
      */
-    'type'?: Roleminingroletype;
+    'type'?: RoleMiningRoleType;
 }
 
 
 /**
- * @type RoleminingsessionresponseCreatedBy
+ * @type RoleMiningSessionResponseCreatedBy
  * The session created by details
  * @export
  */
-export type RoleminingsessionresponseCreatedBy = Entitycreatedbydto | string;
+export type RoleMiningSessionResponseCreatedBy = EntityCreatedByDTO | string;
 
 /**
  * 
  * @export
- * @interface Roleminingsessionscope
+ * @interface RoleMiningSessionScope
  */
-export interface Roleminingsessionscope {
+export interface RoleMiningSessionScope {
     /**
      * The list of identities for this role mining session.
      * @type {Array<string>}
-     * @memberof Roleminingsessionscope
+     * @memberof RoleMiningSessionScope
      */
     'identityIds'?: Array<string>;
     /**
      * The \"search\" criteria that produces the list of identities for this role mining session.
      * @type {string}
-     * @memberof Roleminingsessionscope
+     * @memberof RoleMiningSessionScope
      */
     'criteria'?: string | null;
     /**
      * The filter criteria for this role mining session.
      * @type {Array<object>}
-     * @memberof Roleminingsessionscope
+     * @memberof RoleMiningSessionScope
      */
     'attributeFilterCriteria'?: Array<object> | null;
 }
@@ -1269,12 +1269,12 @@ export interface Roleminingsessionscope {
  * @enum {string}
  */
 
-export const Roleminingsessionscopingmethod = {
+export const RoleMiningSessionScopingMethod = {
     Manual: 'MANUAL',
     AutoRm: 'AUTO_RM'
 } as const;
 
-export type Roleminingsessionscopingmethod = typeof Roleminingsessionscopingmethod[keyof typeof Roleminingsessionscopingmethod];
+export type RoleMiningSessionScopingMethod = typeof RoleMiningSessionScopingMethod[keyof typeof RoleMiningSessionScopingMethod];
 
 
 /**
@@ -1283,7 +1283,7 @@ export type Roleminingsessionscopingmethod = typeof Roleminingsessionscopingmeth
  * @enum {string}
  */
 
-export const Roleminingsessionstate = {
+export const RoleMiningSessionState = {
     Created: 'CREATED',
     Updated: 'UPDATED',
     IdentitiesObtained: 'IDENTITIES_OBTAINED',
@@ -1292,21 +1292,21 @@ export const Roleminingsessionstate = {
     PotentialRolesCreated: 'POTENTIAL_ROLES_CREATED'
 } as const;
 
-export type Roleminingsessionstate = typeof Roleminingsessionstate[keyof typeof Roleminingsessionstate];
+export type RoleMiningSessionState = typeof RoleMiningSessionState[keyof typeof RoleMiningSessionState];
 
 
 /**
  * 
  * @export
- * @interface Roleminingsessionstatus
+ * @interface RoleMiningSessionStatus
  */
-export interface Roleminingsessionstatus {
+export interface RoleMiningSessionStatus {
     /**
      * 
-     * @type {Roleminingsessionstate}
-     * @memberof Roleminingsessionstatus
+     * @type {RoleMiningSessionState}
+     * @memberof RoleMiningSessionStatus
      */
-    'state'?: Roleminingsessionstate;
+    'state'?: RoleMiningSessionState;
 }
 
 
@@ -1325,11 +1325,11 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
          * @param {number} [minEntitlementPopularity] Minimum popularity required for an entitlement to be included in the provisioned role.
          * @param {boolean} [includeCommonAccess] Boolean determining whether common access entitlements will be included in the provisioned role.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Roleminingpotentialroleprovisionrequest} [roleminingpotentialroleprovisionrequest] Required information to create a new role
+         * @param {RoleMiningPotentialRoleProvisionRequest} [roleMiningPotentialRoleProvisionRequest] Required information to create a new role
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPotentialRoleProvisionRequestV1: async (sessionId: string, potentialRoleId: string, minEntitlementPopularity?: number, includeCommonAccess?: boolean, xSailPointExperimental?: string, roleminingpotentialroleprovisionrequest?: Roleminingpotentialroleprovisionrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createPotentialRoleProvisionRequestV1: async (sessionId: string, potentialRoleId: string, minEntitlementPopularity?: number, includeCommonAccess?: boolean, xSailPointExperimental?: string, roleMiningPotentialRoleProvisionRequest?: RoleMiningPotentialRoleProvisionRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sessionId' is not null or undefined
             assertParamExists('createPotentialRoleProvisionRequestV1', 'sessionId', sessionId)
             // verify required parameter 'potentialRoleId' is not null or undefined
@@ -1370,7 +1370,7 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(roleminingpotentialroleprovisionrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleMiningPotentialRoleProvisionRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1380,14 +1380,14 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This submits a create role mining session request to the role mining application.
          * @summary Create a role mining session
-         * @param {Roleminingsessiondto} roleminingsessiondto Role mining session parameters
+         * @param {RoleMiningSessionDto} roleMiningSessionDto Role mining session parameters
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createRoleMiningSessionsV1: async (roleminingsessiondto: Roleminingsessiondto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'roleminingsessiondto' is not null or undefined
-            assertParamExists('createRoleMiningSessionsV1', 'roleminingsessiondto', roleminingsessiondto)
+        createRoleMiningSessionsV1: async (roleMiningSessionDto: RoleMiningSessionDto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roleMiningSessionDto' is not null or undefined
+            assertParamExists('createRoleMiningSessionsV1', 'roleMiningSessionDto', roleMiningSessionDto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1414,7 +1414,7 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(roleminingsessiondto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleMiningSessionDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1477,11 +1477,11 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId A potential role id in a role mining session
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Roleminingpotentialroleexportrequest} [roleminingpotentialroleexportrequest] 
+         * @param {RoleMiningPotentialRoleExportRequest} [roleMiningPotentialRoleExportRequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportRoleMiningPotentialRoleAsyncV1: async (sessionId: string, potentialRoleId: string, xSailPointExperimental?: string, roleminingpotentialroleexportrequest?: Roleminingpotentialroleexportrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        exportRoleMiningPotentialRoleAsyncV1: async (sessionId: string, potentialRoleId: string, xSailPointExperimental?: string, roleMiningPotentialRoleExportRequest?: RoleMiningPotentialRoleExportRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sessionId' is not null or undefined
             assertParamExists('exportRoleMiningPotentialRoleAsyncV1', 'sessionId', sessionId)
             // verify required parameter 'potentialRoleId' is not null or undefined
@@ -1514,7 +1514,7 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(roleminingpotentialroleexportrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleMiningPotentialRoleExportRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2512,18 +2512,18 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
          * @summary Update a potential role session
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId The potential role summary id
-         * @param {Array<Jsonpatchoperationrolemining>} jsonpatchoperationrolemining 
+         * @param {Array<JsonPatchOperationRoleMining>} jsonPatchOperationRoleMining 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchPotentialRoleSessionV1: async (sessionId: string, potentialRoleId: string, jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchPotentialRoleSessionV1: async (sessionId: string, potentialRoleId: string, jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sessionId' is not null or undefined
             assertParamExists('patchPotentialRoleSessionV1', 'sessionId', sessionId)
             // verify required parameter 'potentialRoleId' is not null or undefined
             assertParamExists('patchPotentialRoleSessionV1', 'potentialRoleId', potentialRoleId)
-            // verify required parameter 'jsonpatchoperationrolemining' is not null or undefined
-            assertParamExists('patchPotentialRoleSessionV1', 'jsonpatchoperationrolemining', jsonpatchoperationrolemining)
+            // verify required parameter 'jsonPatchOperationRoleMining' is not null or undefined
+            assertParamExists('patchPotentialRoleSessionV1', 'jsonPatchOperationRoleMining', jsonPatchOperationRoleMining)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -2552,7 +2552,7 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationrolemining, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationRoleMining, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2564,18 +2564,18 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
          * @summary Update a potential role
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId The potential role summary id
-         * @param {Array<Jsonpatchoperationrolemining>} jsonpatchoperationrolemining 
+         * @param {Array<JsonPatchOperationRoleMining>} jsonPatchOperationRoleMining 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchPotentialRoleV1: async (sessionId: string, potentialRoleId: string, jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchPotentialRoleV1: async (sessionId: string, potentialRoleId: string, jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sessionId' is not null or undefined
             assertParamExists('patchPotentialRoleV1', 'sessionId', sessionId)
             // verify required parameter 'potentialRoleId' is not null or undefined
             assertParamExists('patchPotentialRoleV1', 'potentialRoleId', potentialRoleId)
-            // verify required parameter 'jsonpatchoperationrolemining' is not null or undefined
-            assertParamExists('patchPotentialRoleV1', 'jsonpatchoperationrolemining', jsonpatchoperationrolemining)
+            // verify required parameter 'jsonPatchOperationRoleMining' is not null or undefined
+            assertParamExists('patchPotentialRoleV1', 'jsonPatchOperationRoleMining', jsonPatchOperationRoleMining)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -2604,7 +2604,7 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperationrolemining, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationRoleMining, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2615,16 +2615,16 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
          * The  method updates an existing role mining session using PATCH. Supports op in {\"replace\"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
          * @summary Patch a role mining session
          * @param {string} sessionId The role mining session id to be patched
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchRoleMiningSessionV1: async (sessionId: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchRoleMiningSessionV1: async (sessionId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sessionId' is not null or undefined
             assertParamExists('patchRoleMiningSessionV1', 'sessionId', sessionId)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchRoleMiningSessionV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchRoleMiningSessionV1', 'jsonPatchOperation', jsonPatchOperation)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -2652,7 +2652,7 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2664,18 +2664,18 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
          * @summary Edit entitlements for a potential role to exclude some entitlements
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId A potential role id in a role mining session
-         * @param {Roleminingpotentialroleeditentitlements} roleminingpotentialroleeditentitlements Role mining session parameters
+         * @param {RoleMiningPotentialRoleEditEntitlements} roleMiningPotentialRoleEditEntitlements Role mining session parameters
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateEntitlementsPotentialRoleV1: async (sessionId: string, potentialRoleId: string, roleminingpotentialroleeditentitlements: Roleminingpotentialroleeditentitlements, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateEntitlementsPotentialRoleV1: async (sessionId: string, potentialRoleId: string, roleMiningPotentialRoleEditEntitlements: RoleMiningPotentialRoleEditEntitlements, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sessionId' is not null or undefined
             assertParamExists('updateEntitlementsPotentialRoleV1', 'sessionId', sessionId)
             // verify required parameter 'potentialRoleId' is not null or undefined
             assertParamExists('updateEntitlementsPotentialRoleV1', 'potentialRoleId', potentialRoleId)
-            // verify required parameter 'roleminingpotentialroleeditentitlements' is not null or undefined
-            assertParamExists('updateEntitlementsPotentialRoleV1', 'roleminingpotentialroleeditentitlements', roleminingpotentialroleeditentitlements)
+            // verify required parameter 'roleMiningPotentialRoleEditEntitlements' is not null or undefined
+            assertParamExists('updateEntitlementsPotentialRoleV1', 'roleMiningPotentialRoleEditEntitlements', roleMiningPotentialRoleEditEntitlements)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -2704,7 +2704,7 @@ export const IAIRoleMiningApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(roleminingpotentialroleeditentitlements, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleMiningPotentialRoleEditEntitlements, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2729,12 +2729,12 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {number} [minEntitlementPopularity] Minimum popularity required for an entitlement to be included in the provisioned role.
          * @param {boolean} [includeCommonAccess] Boolean determining whether common access entitlements will be included in the provisioned role.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Roleminingpotentialroleprovisionrequest} [roleminingpotentialroleprovisionrequest] Required information to create a new role
+         * @param {RoleMiningPotentialRoleProvisionRequest} [roleMiningPotentialRoleProvisionRequest] Required information to create a new role
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPotentialRoleProvisionRequestV1(sessionId: string, potentialRoleId: string, minEntitlementPopularity?: number, includeCommonAccess?: boolean, xSailPointExperimental?: string, roleminingpotentialroleprovisionrequest?: Roleminingpotentialroleprovisionrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingpotentialrolesummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPotentialRoleProvisionRequestV1(sessionId, potentialRoleId, minEntitlementPopularity, includeCommonAccess, xSailPointExperimental, roleminingpotentialroleprovisionrequest, axiosOptions);
+        async createPotentialRoleProvisionRequestV1(sessionId: string, potentialRoleId: string, minEntitlementPopularity?: number, includeCommonAccess?: boolean, xSailPointExperimental?: string, roleMiningPotentialRoleProvisionRequest?: RoleMiningPotentialRoleProvisionRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPotentialRoleProvisionRequestV1(sessionId, potentialRoleId, minEntitlementPopularity, includeCommonAccess, xSailPointExperimental, roleMiningPotentialRoleProvisionRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.createPotentialRoleProvisionRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2742,13 +2742,13 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
         /**
          * This submits a create role mining session request to the role mining application.
          * @summary Create a role mining session
-         * @param {Roleminingsessiondto} roleminingsessiondto Role mining session parameters
+         * @param {RoleMiningSessionDto} roleMiningSessionDto Role mining session parameters
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createRoleMiningSessionsV1(roleminingsessiondto: Roleminingsessiondto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingsessionresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleMiningSessionsV1(roleminingsessiondto, xSailPointExperimental, axiosOptions);
+        async createRoleMiningSessionsV1(roleMiningSessionDto: RoleMiningSessionDto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleMiningSessionsV1(roleMiningSessionDto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.createRoleMiningSessionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2775,12 +2775,12 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId A potential role id in a role mining session
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {Roleminingpotentialroleexportrequest} [roleminingpotentialroleexportrequest] 
+         * @param {RoleMiningPotentialRoleExportRequest} [roleMiningPotentialRoleExportRequest] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportRoleMiningPotentialRoleAsyncV1(sessionId: string, potentialRoleId: string, xSailPointExperimental?: string, roleminingpotentialroleexportrequest?: Roleminingpotentialroleexportrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingpotentialroleexportresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleAsyncV1(sessionId, potentialRoleId, xSailPointExperimental, roleminingpotentialroleexportrequest, axiosOptions);
+        async exportRoleMiningPotentialRoleAsyncV1(sessionId: string, potentialRoleId: string, xSailPointExperimental?: string, roleMiningPotentialRoleExportRequest?: RoleMiningPotentialRoleExportRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleAsyncV1(sessionId, potentialRoleId, xSailPointExperimental, roleMiningPotentialRoleExportRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.exportRoleMiningPotentialRoleAsyncV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2795,7 +2795,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportRoleMiningPotentialRoleStatusV1(sessionId: string, potentialRoleId: string, exportId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingpotentialroleexportresponse>> {
+        async exportRoleMiningPotentialRoleStatusV1(sessionId: string, potentialRoleId: string, exportId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleStatusV1(sessionId, potentialRoleId, exportId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.exportRoleMiningPotentialRoleStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -2828,7 +2828,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllPotentialRoleSummariesV1(sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingpotentialrolesummary>>> {
+        async getAllPotentialRoleSummariesV1(sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPotentialRoleSummariesV1(sorters, filters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getAllPotentialRoleSummariesV1']?.[localVarOperationServerIndex]?.url;
@@ -2865,7 +2865,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementsPotentialRoleV1(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingentitlement>>> {
+        async getEntitlementsPotentialRoleV1(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlement>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementsPotentialRoleV1(sessionId, potentialRoleId, includeCommonAccess, sorters, filters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getEntitlementsPotentialRoleV1']?.[localVarOperationServerIndex]?.url;
@@ -2885,7 +2885,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getExcludedEntitlementsPotentialRoleV1(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingentitlement>>> {
+        async getExcludedEntitlementsPotentialRoleV1(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlement>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getExcludedEntitlementsPotentialRoleV1(sessionId, potentialRoleId, sorters, filters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getExcludedEntitlementsPotentialRoleV1']?.[localVarOperationServerIndex]?.url;
@@ -2905,7 +2905,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitiesPotentialRoleV1(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingidentity>>> {
+        async getIdentitiesPotentialRoleV1(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningIdentity>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitiesPotentialRoleV1(sessionId, potentialRoleId, sorters, filters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getIdentitiesPotentialRoleV1']?.[localVarOperationServerIndex]?.url;
@@ -2924,7 +2924,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleApplicationsV1(sessionId: string, potentialRoleId: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingpotentialroleapplication>>> {
+        async getPotentialRoleApplicationsV1(sessionId: string, potentialRoleId: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleApplication>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleApplicationsV1(sessionId, potentialRoleId, filters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getPotentialRoleApplicationsV1']?.[localVarOperationServerIndex]?.url;
@@ -2943,7 +2943,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleEntitlementsV1(sessionId: string, potentialRoleId: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingpotentialroleentitlements>>> {
+        async getPotentialRoleEntitlementsV1(sessionId: string, potentialRoleId: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleEntitlements>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleEntitlementsV1(sessionId, potentialRoleId, filters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getPotentialRoleEntitlementsV1']?.[localVarOperationServerIndex]?.url;
@@ -2962,7 +2962,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleSourceIdentityUsageV1(potentialRoleId: string, sourceId: string, sorters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingpotentialrolesourceusage>>> {
+        async getPotentialRoleSourceIdentityUsageV1(potentialRoleId: string, sourceId: string, sorters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSourceUsage>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSourceIdentityUsageV1(potentialRoleId, sourceId, sorters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getPotentialRoleSourceIdentityUsageV1']?.[localVarOperationServerIndex]?.url;
@@ -2981,7 +2981,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleSummariesV1(sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingpotentialrolesummary>>> {
+        async getPotentialRoleSummariesV1(sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSummariesV1(sessionId, sorters, filters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getPotentialRoleSummariesV1']?.[localVarOperationServerIndex]?.url;
@@ -2996,7 +2996,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleV1(sessionId: string, potentialRoleId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingpotentialrole>> {
+        async getPotentialRoleV1(sessionId: string, potentialRoleId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRole>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleV1(sessionId, potentialRoleId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getPotentialRoleV1']?.[localVarOperationServerIndex]?.url;
@@ -3010,7 +3010,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningPotentialRoleV1(potentialRoleId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingpotentialrole>> {
+        async getRoleMiningPotentialRoleV1(potentialRoleId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRole>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningPotentialRoleV1(potentialRoleId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getRoleMiningPotentialRoleV1']?.[localVarOperationServerIndex]?.url;
@@ -3024,7 +3024,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningSessionStatusV1(sessionId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingsessionstatus>> {
+        async getRoleMiningSessionStatusV1(sessionId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessionStatusV1(sessionId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getRoleMiningSessionStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -3038,7 +3038,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningSessionV1(sessionId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingsessionresponse>> {
+        async getRoleMiningSessionV1(sessionId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessionV1(sessionId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getRoleMiningSessionV1']?.[localVarOperationServerIndex]?.url;
@@ -3056,7 +3056,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningSessionsV1(filters?: string, sorters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingsessiondto>>> {
+        async getRoleMiningSessionsV1(filters?: string, sorters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessionsV1(filters, sorters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getRoleMiningSessionsV1']?.[localVarOperationServerIndex]?.url;
@@ -3073,7 +3073,7 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSavedPotentialRolesV1(sorters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleminingsessiondraftroledto>>> {
+        async getSavedPotentialRolesV1(sorters?: string, offset?: number, limit?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDraftRoleDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedPotentialRolesV1(sorters, offset, limit, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.getSavedPotentialRolesV1']?.[localVarOperationServerIndex]?.url;
@@ -3084,13 +3084,13 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @summary Update a potential role session
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId The potential role summary id
-         * @param {Array<Jsonpatchoperationrolemining>} jsonpatchoperationrolemining 
+         * @param {Array<JsonPatchOperationRoleMining>} jsonPatchOperationRoleMining 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPotentialRoleSessionV1(sessionId: string, potentialRoleId: string, jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRoleSessionV1(sessionId, potentialRoleId, jsonpatchoperationrolemining, xSailPointExperimental, axiosOptions);
+        async patchPotentialRoleSessionV1(sessionId: string, potentialRoleId: string, jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRoleSessionV1(sessionId, potentialRoleId, jsonPatchOperationRoleMining, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.patchPotentialRoleSessionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3100,13 +3100,13 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @summary Update a potential role
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId The potential role summary id
-         * @param {Array<Jsonpatchoperationrolemining>} jsonpatchoperationrolemining 
+         * @param {Array<JsonPatchOperationRoleMining>} jsonPatchOperationRoleMining 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPotentialRoleV1(sessionId: string, potentialRoleId: string, jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRoleV1(sessionId, potentialRoleId, jsonpatchoperationrolemining, xSailPointExperimental, axiosOptions);
+        async patchPotentialRoleV1(sessionId: string, potentialRoleId: string, jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRoleV1(sessionId, potentialRoleId, jsonPatchOperationRoleMining, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.patchPotentialRoleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3115,13 +3115,13 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * The  method updates an existing role mining session using PATCH. Supports op in {\"replace\"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
          * @summary Patch a role mining session
          * @param {string} sessionId The role mining session id to be patched
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchRoleMiningSessionV1(sessionId: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRoleMiningSessionV1(sessionId, jsonpatchoperation, xSailPointExperimental, axiosOptions);
+        async patchRoleMiningSessionV1(sessionId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRoleMiningSessionV1(sessionId, jsonPatchOperation, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.patchRoleMiningSessionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3131,13 +3131,13 @@ export const IAIRoleMiningApiFp = function(configuration?: Configuration) {
          * @summary Edit entitlements for a potential role to exclude some entitlements
          * @param {string} sessionId The role mining session id
          * @param {string} potentialRoleId A potential role id in a role mining session
-         * @param {Roleminingpotentialroleeditentitlements} roleminingpotentialroleeditentitlements Role mining session parameters
+         * @param {RoleMiningPotentialRoleEditEntitlements} roleMiningPotentialRoleEditEntitlements Role mining session parameters
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEntitlementsPotentialRoleV1(sessionId: string, potentialRoleId: string, roleminingpotentialroleeditentitlements: Roleminingpotentialroleeditentitlements, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleminingpotentialrole>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsPotentialRoleV1(sessionId, potentialRoleId, roleminingpotentialroleeditentitlements, xSailPointExperimental, axiosOptions);
+        async updateEntitlementsPotentialRoleV1(sessionId: string, potentialRoleId: string, roleMiningPotentialRoleEditEntitlements: RoleMiningPotentialRoleEditEntitlements, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRole>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsPotentialRoleV1(sessionId, potentialRoleId, roleMiningPotentialRoleEditEntitlements, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IAIRoleMiningApi.updateEntitlementsPotentialRoleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3159,8 +3159,8 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPotentialRoleProvisionRequestV1(requestParameters: IAIRoleMiningApiCreatePotentialRoleProvisionRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingpotentialrolesummary> {
-            return localVarFp.createPotentialRoleProvisionRequestV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.minEntitlementPopularity, requestParameters.includeCommonAccess, requestParameters.xSailPointExperimental, requestParameters.roleminingpotentialroleprovisionrequest, axiosOptions).then((request) => request(axios, basePath));
+        createPotentialRoleProvisionRequestV1(requestParameters: IAIRoleMiningApiCreatePotentialRoleProvisionRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningPotentialRoleSummary> {
+            return localVarFp.createPotentialRoleProvisionRequestV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.minEntitlementPopularity, requestParameters.includeCommonAccess, requestParameters.xSailPointExperimental, requestParameters.roleMiningPotentialRoleProvisionRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This submits a create role mining session request to the role mining application.
@@ -3169,8 +3169,8 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createRoleMiningSessionsV1(requestParameters: IAIRoleMiningApiCreateRoleMiningSessionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingsessionresponse> {
-            return localVarFp.createRoleMiningSessionsV1(requestParameters.roleminingsessiondto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createRoleMiningSessionsV1(requestParameters: IAIRoleMiningApiCreateRoleMiningSessionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningSessionResponse> {
+            return localVarFp.createRoleMiningSessionsV1(requestParameters.roleMiningSessionDto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint downloads a completed export of information for a potential role in a role mining session.
@@ -3189,8 +3189,8 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportRoleMiningPotentialRoleAsyncV1(requestParameters: IAIRoleMiningApiExportRoleMiningPotentialRoleAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingpotentialroleexportresponse> {
-            return localVarFp.exportRoleMiningPotentialRoleAsyncV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.xSailPointExperimental, requestParameters.roleminingpotentialroleexportrequest, axiosOptions).then((request) => request(axios, basePath));
+        exportRoleMiningPotentialRoleAsyncV1(requestParameters: IAIRoleMiningApiExportRoleMiningPotentialRoleAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningPotentialRoleExportResponse> {
+            return localVarFp.exportRoleMiningPotentialRoleAsyncV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.xSailPointExperimental, requestParameters.roleMiningPotentialRoleExportRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint retrieves information about the current status of a potential role export.
@@ -3199,7 +3199,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportRoleMiningPotentialRoleStatusV1(requestParameters: IAIRoleMiningApiExportRoleMiningPotentialRoleStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingpotentialroleexportresponse> {
+        exportRoleMiningPotentialRoleStatusV1(requestParameters: IAIRoleMiningApiExportRoleMiningPotentialRoleStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningPotentialRoleExportResponse> {
             return localVarFp.exportRoleMiningPotentialRoleStatusV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.exportId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3219,7 +3219,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAllPotentialRoleSummariesV1(requestParameters: IAIRoleMiningApiGetAllPotentialRoleSummariesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingpotentialrolesummary>> {
+        getAllPotentialRoleSummariesV1(requestParameters: IAIRoleMiningApiGetAllPotentialRoleSummariesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningPotentialRoleSummary>> {
             return localVarFp.getAllPotentialRoleSummariesV1(requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3239,7 +3239,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEntitlementsPotentialRoleV1(requestParameters: IAIRoleMiningApiGetEntitlementsPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingentitlement>> {
+        getEntitlementsPotentialRoleV1(requestParameters: IAIRoleMiningApiGetEntitlementsPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningEntitlement>> {
             return localVarFp.getEntitlementsPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.includeCommonAccess, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3249,7 +3249,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getExcludedEntitlementsPotentialRoleV1(requestParameters: IAIRoleMiningApiGetExcludedEntitlementsPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingentitlement>> {
+        getExcludedEntitlementsPotentialRoleV1(requestParameters: IAIRoleMiningApiGetExcludedEntitlementsPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningEntitlement>> {
             return localVarFp.getExcludedEntitlementsPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3259,7 +3259,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitiesPotentialRoleV1(requestParameters: IAIRoleMiningApiGetIdentitiesPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingidentity>> {
+        getIdentitiesPotentialRoleV1(requestParameters: IAIRoleMiningApiGetIdentitiesPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningIdentity>> {
             return localVarFp.getIdentitiesPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3269,7 +3269,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPotentialRoleApplicationsV1(requestParameters: IAIRoleMiningApiGetPotentialRoleApplicationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingpotentialroleapplication>> {
+        getPotentialRoleApplicationsV1(requestParameters: IAIRoleMiningApiGetPotentialRoleApplicationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningPotentialRoleApplication>> {
             return localVarFp.getPotentialRoleApplicationsV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3279,7 +3279,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPotentialRoleEntitlementsV1(requestParameters: IAIRoleMiningApiGetPotentialRoleEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingpotentialroleentitlements>> {
+        getPotentialRoleEntitlementsV1(requestParameters: IAIRoleMiningApiGetPotentialRoleEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningPotentialRoleEntitlements>> {
             return localVarFp.getPotentialRoleEntitlementsV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3289,7 +3289,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPotentialRoleSourceIdentityUsageV1(requestParameters: IAIRoleMiningApiGetPotentialRoleSourceIdentityUsageV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingpotentialrolesourceusage>> {
+        getPotentialRoleSourceIdentityUsageV1(requestParameters: IAIRoleMiningApiGetPotentialRoleSourceIdentityUsageV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningPotentialRoleSourceUsage>> {
             return localVarFp.getPotentialRoleSourceIdentityUsageV1(requestParameters.potentialRoleId, requestParameters.sourceId, requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3299,7 +3299,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPotentialRoleSummariesV1(requestParameters: IAIRoleMiningApiGetPotentialRoleSummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingpotentialrolesummary>> {
+        getPotentialRoleSummariesV1(requestParameters: IAIRoleMiningApiGetPotentialRoleSummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningPotentialRoleSummary>> {
             return localVarFp.getPotentialRoleSummariesV1(requestParameters.sessionId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3309,7 +3309,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPotentialRoleV1(requestParameters: IAIRoleMiningApiGetPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingpotentialrole> {
+        getPotentialRoleV1(requestParameters: IAIRoleMiningApiGetPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningPotentialRole> {
             return localVarFp.getPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3319,7 +3319,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleMiningPotentialRoleV1(requestParameters: IAIRoleMiningApiGetRoleMiningPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingpotentialrole> {
+        getRoleMiningPotentialRoleV1(requestParameters: IAIRoleMiningApiGetRoleMiningPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningPotentialRole> {
             return localVarFp.getRoleMiningPotentialRoleV1(requestParameters.potentialRoleId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3329,7 +3329,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleMiningSessionStatusV1(requestParameters: IAIRoleMiningApiGetRoleMiningSessionStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingsessionstatus> {
+        getRoleMiningSessionStatusV1(requestParameters: IAIRoleMiningApiGetRoleMiningSessionStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningSessionStatus> {
             return localVarFp.getRoleMiningSessionStatusV1(requestParameters.sessionId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3339,7 +3339,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleMiningSessionV1(requestParameters: IAIRoleMiningApiGetRoleMiningSessionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingsessionresponse> {
+        getRoleMiningSessionV1(requestParameters: IAIRoleMiningApiGetRoleMiningSessionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningSessionResponse> {
             return localVarFp.getRoleMiningSessionV1(requestParameters.sessionId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3349,7 +3349,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleMiningSessionsV1(requestParameters: IAIRoleMiningApiGetRoleMiningSessionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingsessiondto>> {
+        getRoleMiningSessionsV1(requestParameters: IAIRoleMiningApiGetRoleMiningSessionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningSessionDto>> {
             return localVarFp.getRoleMiningSessionsV1(requestParameters.filters, requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3359,7 +3359,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSavedPotentialRolesV1(requestParameters: IAIRoleMiningApiGetSavedPotentialRolesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleminingsessiondraftroledto>> {
+        getSavedPotentialRolesV1(requestParameters: IAIRoleMiningApiGetSavedPotentialRolesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleMiningSessionDraftRoleDto>> {
             return localVarFp.getSavedPotentialRolesV1(requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3370,7 +3370,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @throws {RequiredError}
          */
         patchPotentialRoleSessionV1(requestParameters: IAIRoleMiningApiPatchPotentialRoleSessionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.patchPotentialRoleSessionV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonpatchoperationrolemining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchPotentialRoleSessionV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonPatchOperationRoleMining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
@@ -3380,7 +3380,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @throws {RequiredError}
          */
         patchPotentialRoleV1(requestParameters: IAIRoleMiningApiPatchPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.patchPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonpatchoperationrolemining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonPatchOperationRoleMining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The  method updates an existing role mining session using PATCH. Supports op in {\"replace\"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
@@ -3390,7 +3390,7 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @throws {RequiredError}
          */
         patchRoleMiningSessionV1(requestParameters: IAIRoleMiningApiPatchRoleMiningSessionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<object> {
-            return localVarFp.patchRoleMiningSessionV1(requestParameters.sessionId, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchRoleMiningSessionV1(requestParameters.sessionId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint adds or removes entitlements from an exclusion list for a potential role.
@@ -3399,8 +3399,8 @@ export const IAIRoleMiningApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateEntitlementsPotentialRoleV1(requestParameters: IAIRoleMiningApiUpdateEntitlementsPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleminingpotentialrole> {
-            return localVarFp.updateEntitlementsPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleminingpotentialroleeditentitlements, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        updateEntitlementsPotentialRoleV1(requestParameters: IAIRoleMiningApiUpdateEntitlementsPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleMiningPotentialRole> {
+            return localVarFp.updateEntitlementsPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleMiningPotentialRoleEditEntitlements, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3448,10 +3448,10 @@ export interface IAIRoleMiningApiCreatePotentialRoleProvisionRequestV1Request {
 
     /**
      * Required information to create a new role
-     * @type {Roleminingpotentialroleprovisionrequest}
+     * @type {RoleMiningPotentialRoleProvisionRequest}
      * @memberof IAIRoleMiningApiCreatePotentialRoleProvisionRequestV1
      */
-    readonly roleminingpotentialroleprovisionrequest?: Roleminingpotentialroleprovisionrequest
+    readonly roleMiningPotentialRoleProvisionRequest?: RoleMiningPotentialRoleProvisionRequest
 }
 
 /**
@@ -3462,10 +3462,10 @@ export interface IAIRoleMiningApiCreatePotentialRoleProvisionRequestV1Request {
 export interface IAIRoleMiningApiCreateRoleMiningSessionsV1Request {
     /**
      * Role mining session parameters
-     * @type {Roleminingsessiondto}
+     * @type {RoleMiningSessionDto}
      * @memberof IAIRoleMiningApiCreateRoleMiningSessionsV1
      */
-    readonly roleminingsessiondto: Roleminingsessiondto
+    readonly roleMiningSessionDto: RoleMiningSessionDto
 
     /**
      * Use this header to enable this experimental API.
@@ -3539,10 +3539,10 @@ export interface IAIRoleMiningApiExportRoleMiningPotentialRoleAsyncV1Request {
 
     /**
      * 
-     * @type {Roleminingpotentialroleexportrequest}
+     * @type {RoleMiningPotentialRoleExportRequest}
      * @memberof IAIRoleMiningApiExportRoleMiningPotentialRoleAsyncV1
      */
-    readonly roleminingpotentialroleexportrequest?: Roleminingpotentialroleexportrequest
+    readonly roleMiningPotentialRoleExportRequest?: RoleMiningPotentialRoleExportRequest
 }
 
 /**
@@ -4316,10 +4316,10 @@ export interface IAIRoleMiningApiPatchPotentialRoleSessionV1Request {
 
     /**
      * 
-     * @type {Array<Jsonpatchoperationrolemining>}
+     * @type {Array<JsonPatchOperationRoleMining>}
      * @memberof IAIRoleMiningApiPatchPotentialRoleSessionV1
      */
-    readonly jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining>
+    readonly jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining>
 
     /**
      * Use this header to enable this experimental API.
@@ -4351,10 +4351,10 @@ export interface IAIRoleMiningApiPatchPotentialRoleV1Request {
 
     /**
      * 
-     * @type {Array<Jsonpatchoperationrolemining>}
+     * @type {Array<JsonPatchOperationRoleMining>}
      * @memberof IAIRoleMiningApiPatchPotentialRoleV1
      */
-    readonly jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining>
+    readonly jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining>
 
     /**
      * Use this header to enable this experimental API.
@@ -4379,10 +4379,10 @@ export interface IAIRoleMiningApiPatchRoleMiningSessionV1Request {
 
     /**
      * Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof IAIRoleMiningApiPatchRoleMiningSessionV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 
     /**
      * Use this header to enable this experimental API.
@@ -4414,10 +4414,10 @@ export interface IAIRoleMiningApiUpdateEntitlementsPotentialRoleV1Request {
 
     /**
      * Role mining session parameters
-     * @type {Roleminingpotentialroleeditentitlements}
+     * @type {RoleMiningPotentialRoleEditEntitlements}
      * @memberof IAIRoleMiningApiUpdateEntitlementsPotentialRoleV1
      */
-    readonly roleminingpotentialroleeditentitlements: Roleminingpotentialroleeditentitlements
+    readonly roleMiningPotentialRoleEditEntitlements: RoleMiningPotentialRoleEditEntitlements
 
     /**
      * Use this header to enable this experimental API.
@@ -4443,7 +4443,7 @@ export class IAIRoleMiningApi extends BaseAPI {
      * @memberof IAIRoleMiningApi
      */
     public createPotentialRoleProvisionRequestV1(requestParameters: IAIRoleMiningApiCreatePotentialRoleProvisionRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRoleMiningApiFp(this.configuration).createPotentialRoleProvisionRequestV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.minEntitlementPopularity, requestParameters.includeCommonAccess, requestParameters.xSailPointExperimental, requestParameters.roleminingpotentialroleprovisionrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIRoleMiningApiFp(this.configuration).createPotentialRoleProvisionRequestV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.minEntitlementPopularity, requestParameters.includeCommonAccess, requestParameters.xSailPointExperimental, requestParameters.roleMiningPotentialRoleProvisionRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4455,7 +4455,7 @@ export class IAIRoleMiningApi extends BaseAPI {
      * @memberof IAIRoleMiningApi
      */
     public createRoleMiningSessionsV1(requestParameters: IAIRoleMiningApiCreateRoleMiningSessionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRoleMiningApiFp(this.configuration).createRoleMiningSessionsV1(requestParameters.roleminingsessiondto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIRoleMiningApiFp(this.configuration).createRoleMiningSessionsV1(requestParameters.roleMiningSessionDto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4479,7 +4479,7 @@ export class IAIRoleMiningApi extends BaseAPI {
      * @memberof IAIRoleMiningApi
      */
     public exportRoleMiningPotentialRoleAsyncV1(requestParameters: IAIRoleMiningApiExportRoleMiningPotentialRoleAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRoleMiningApiFp(this.configuration).exportRoleMiningPotentialRoleAsyncV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.xSailPointExperimental, requestParameters.roleminingpotentialroleexportrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIRoleMiningApiFp(this.configuration).exportRoleMiningPotentialRoleAsyncV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.xSailPointExperimental, requestParameters.roleMiningPotentialRoleExportRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4695,7 +4695,7 @@ export class IAIRoleMiningApi extends BaseAPI {
      * @memberof IAIRoleMiningApi
      */
     public patchPotentialRoleSessionV1(requestParameters: IAIRoleMiningApiPatchPotentialRoleSessionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRoleMiningApiFp(this.configuration).patchPotentialRoleSessionV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonpatchoperationrolemining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIRoleMiningApiFp(this.configuration).patchPotentialRoleSessionV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonPatchOperationRoleMining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4707,7 +4707,7 @@ export class IAIRoleMiningApi extends BaseAPI {
      * @memberof IAIRoleMiningApi
      */
     public patchPotentialRoleV1(requestParameters: IAIRoleMiningApiPatchPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRoleMiningApiFp(this.configuration).patchPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonpatchoperationrolemining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIRoleMiningApiFp(this.configuration).patchPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.jsonPatchOperationRoleMining, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4719,7 +4719,7 @@ export class IAIRoleMiningApi extends BaseAPI {
      * @memberof IAIRoleMiningApi
      */
     public patchRoleMiningSessionV1(requestParameters: IAIRoleMiningApiPatchRoleMiningSessionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRoleMiningApiFp(this.configuration).patchRoleMiningSessionV1(requestParameters.sessionId, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIRoleMiningApiFp(this.configuration).patchRoleMiningSessionV1(requestParameters.sessionId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4731,7 +4731,7 @@ export class IAIRoleMiningApi extends BaseAPI {
      * @memberof IAIRoleMiningApi
      */
     public updateEntitlementsPotentialRoleV1(requestParameters: IAIRoleMiningApiUpdateEntitlementsPotentialRoleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IAIRoleMiningApiFp(this.configuration).updateEntitlementsPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleminingpotentialroleeditentitlements, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIRoleMiningApiFp(this.configuration).updateEntitlementsPotentialRoleV1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleMiningPotentialRoleEditEntitlements, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

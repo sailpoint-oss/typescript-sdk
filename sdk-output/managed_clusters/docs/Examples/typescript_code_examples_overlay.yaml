@@ -6,12 +6,20 @@
       source: |
         import { ManagedClustersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Managedclusterrequest } from 'sailpoint-api-client/dist/managed_clusters/api';
+        import { ManagedClusterRequest } from 'sailpoint-api-client/dist/managed_clusters/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
-        const managedclusterrequest: Managedclusterrequest = ; // Managedclusterrequest | 
-        const result = await apiInstance.createManagedClusterV1({ managedclusterrequest: managedclusterrequest });
+        const managedClusterRequest: ManagedClusterRequest = {
+  "configuration" : {
+    "clusterExternalId" : "externalId",
+    "ccgVersion" : "77.0.0"
+  },
+  "name" : "Managed Cluster Name",
+  "description" : "A short description of the managed cluster.",
+  "type" : "idn"
+}; // ManagedClusterRequest | 
+        const result = await apiInstance.createManagedClusterV1({ managedClusterRequest: managedClusterRequest });
         console.log(result);
 - path: /managed-clusters/v1/{id}
   method: DELETE
@@ -97,13 +105,17 @@
       source: |
         import { ManagedClustersApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/managed_clusters/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/managed_clusters/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
         const id: string = '2c9180897de347a2017de8859e8c5039'; // string | Managed cluster ID. (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | JSONPatch payload used to update the object.
-        const result = await apiInstance.updateManagedClusterV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | JSONPatch payload used to update the object.
+        const result = await apiInstance.updateManagedClusterV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /managed-clusters/v1/{id}/manualUpgrade
   method: POST

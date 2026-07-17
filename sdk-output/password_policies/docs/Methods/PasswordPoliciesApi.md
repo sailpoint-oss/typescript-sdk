@@ -44,12 +44,12 @@ This API creates the specified password policy.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**passwordpolicyv3dto** | `Passwordpolicyv3dto` |  | 
+**passwordPolicyV3Dto** | `PasswordPolicyV3Dto` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Passwordpolicyv3dto`
+`PasswordPolicyV3Dto`
 
 ### HTTP request headers
 
@@ -61,13 +61,45 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordpolicyv3dto } from 'sailpoint-api-client/dist/password_policies/api';
+import { PasswordPolicyV3Dto } from 'sailpoint-api-client/dist/password_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordPoliciesApi(configuration);
-const passwordpolicyv3dto: Passwordpolicyv3dto = {"description":"New Password Policy with high requirements to password complexity.","id":null,"name":"High security Password Policy","dateCreated":1639056206564,"lastUpdated":1662385430753,"firstExpirationReminder":90,"accountIdMinWordLength":3,"accountNameMinWordLength":3,"maxLength":0,"maxRepeatedChars":4,"minAlpha":1,"minCharacterTypes":-1,"minLength":8,"minLower":0,"minNumeric":1,"minSpecial":0,"minUpper":0,"passwordExpiration":90,"defaultPolicy":false,"enablePasswdExpiration":false,"requireStrongAuthn":false,"requireStrongAuthOffNetwork":false,"requireStrongAuthUntrustedGeographies":false,"useAccountAttributes":false,"useDictionary":false,"useIdentityAttributes":false,"validateAgainstAccountId":true,"validateAgainstAccountName":true,"sourceIds":["2c91808382ffee0b01830de154f14034","2c91808582ffee0c01830de36511405f"]}; // 
+const passwordPolicyV3Dto: PasswordPolicyV3Dto = {
+  "validateAgainstAccountName" : true,
+  "minLength" : 8,
+  "description" : "Information about the Password Policy",
+  "requireStrongAuthUntrustedGeographies" : true,
+  "enablePasswdExpiration" : true,
+  "minNumeric" : 8,
+  "lastUpdated" : 1939056206564,
+  "validateAgainstAccountId" : false,
+  "dateCreated" : 1639056206564,
+  "accountNameMinWordLength" : 6,
+  "minUpper" : 8,
+  "firstExpirationReminder" : 45,
+  "modified" : "modified",
+  "id" : "2c91808e7d976f3b017d9f5ceae440c8",
+  "requireStrongAuthn" : true,
+  "useDictionary" : false,
+  "minSpecial" : 8,
+  "sourceIds" : [ "2c91808382ffee0b01830de154f14034", "2f98808382ffee0b01830de154f12134" ],
+  "passwordExpiration" : 8,
+  "maxRepeatedChars" : 3,
+  "minCharacterTypes" : 5,
+  "minAlpha" : 5,
+  "created" : "created",
+  "useAccountAttributes" : false,
+  "accountIdMinWordLength" : 4,
+  "minLower" : 8,
+  "useIdentityAttributes" : false,
+  "defaultPolicy" : true,
+  "requireStrongAuthOffNetwork" : true,
+  "name" : "PasswordPolicy Example",
+  "maxLength" : 25
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createPasswordPolicyV1({ passwordpolicyv3dto: passwordpolicyv3dto });
+const result = await apiInstance.createPasswordPolicyV1({ passwordPolicyV3Dto: passwordPolicyV3Dto });
 console.log(result);
 ```
 
@@ -134,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Passwordpolicyv3dto`
+`PasswordPolicyV3Dto`
 
 ### HTTP request headers
 
@@ -179,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Passwordpolicyv3dto>`
+`Array<PasswordPolicyV3Dto>`
 
 ### HTTP request headers
 
@@ -219,12 +251,12 @@ This API updates the specified password policy.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of password policy to update. |  [default to undefined]
-**passwordpolicyv3dto** | `Passwordpolicyv3dto` |  | 
+**passwordPolicyV3Dto** | `PasswordPolicyV3Dto` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Passwordpolicyv3dto`
+`PasswordPolicyV3Dto`
 
 ### HTTP request headers
 
@@ -236,14 +268,46 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordpolicyv3dto } from 'sailpoint-api-client/dist/password_policies/api';
+import { PasswordPolicyV3Dto } from 'sailpoint-api-client/dist/password_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordPoliciesApi(configuration);
 const id: string = ff808081838d9e9d01838da6a03e0007; // The ID of password policy to update.
-const passwordpolicyv3dto: Passwordpolicyv3dto = {"description":"Password Policy after update.","id":"2c91808e7d976f3b017d9f5ceae440c8","name":"Improved Password Policy","dateCreated":1639056206564,"lastUpdated":1662385430753,"firstExpirationReminder":90,"accountIdMinWordLength":3,"accountNameMinWordLength":3,"maxLength":0,"maxRepeatedChars":4,"minAlpha":1,"minCharacterTypes":-1,"minLength":8,"minLower":0,"minNumeric":1,"minSpecial":0,"minUpper":0,"passwordExpiration":90,"defaultPolicy":false,"enablePasswdExpiration":false,"requireStrongAuthn":false,"requireStrongAuthOffNetwork":false,"requireStrongAuthUntrustedGeographies":false,"useAccountAttributes":false,"useDictionary":false,"useIdentityAttributes":false,"validateAgainstAccountId":true,"validateAgainstAccountName":true,"sourceIds":["2c91808382ffee0b01830de154f14034","2c91808582ffee0c01830de36511405f"]}; // 
+const passwordPolicyV3Dto: PasswordPolicyV3Dto = {
+  "validateAgainstAccountName" : true,
+  "minLength" : 8,
+  "description" : "Information about the Password Policy",
+  "requireStrongAuthUntrustedGeographies" : true,
+  "enablePasswdExpiration" : true,
+  "minNumeric" : 8,
+  "lastUpdated" : 1939056206564,
+  "validateAgainstAccountId" : false,
+  "dateCreated" : 1639056206564,
+  "accountNameMinWordLength" : 6,
+  "minUpper" : 8,
+  "firstExpirationReminder" : 45,
+  "modified" : "modified",
+  "id" : "2c91808e7d976f3b017d9f5ceae440c8",
+  "requireStrongAuthn" : true,
+  "useDictionary" : false,
+  "minSpecial" : 8,
+  "sourceIds" : [ "2c91808382ffee0b01830de154f14034", "2f98808382ffee0b01830de154f12134" ],
+  "passwordExpiration" : 8,
+  "maxRepeatedChars" : 3,
+  "minCharacterTypes" : 5,
+  "minAlpha" : 5,
+  "created" : "created",
+  "useAccountAttributes" : false,
+  "accountIdMinWordLength" : 4,
+  "minLower" : 8,
+  "useIdentityAttributes" : false,
+  "defaultPolicy" : true,
+  "requireStrongAuthOffNetwork" : true,
+  "name" : "PasswordPolicy Example",
+  "maxLength" : 25
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.setPasswordPolicyV1({ id: id, passwordpolicyv3dto: passwordpolicyv3dto });
+const result = await apiInstance.setPasswordPolicyV1({ id: id, passwordPolicyV3Dto: passwordPolicyV3Dto });
 console.log(result);
 ```
 

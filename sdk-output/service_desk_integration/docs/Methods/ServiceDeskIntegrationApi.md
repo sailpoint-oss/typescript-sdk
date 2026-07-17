@@ -62,11 +62,11 @@ Create a new Service Desk integration.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**servicedeskintegrationdto** | `Servicedeskintegrationdto` | The specifics of a new integration to create | 
+**serviceDeskIntegrationDto** | `ServiceDeskIntegrationDto` | The specifics of a new integration to create | 
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -78,12 +78,45 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Servicedeskintegrationdto } from 'sailpoint-api-client/dist/service_desk_integration/api';
+import { ServiceDeskIntegrationDto } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
-const servicedeskintegrationdto: Servicedeskintegrationdto = ; // The specifics of a new integration to create
-const result = await apiInstance.createServiceDeskIntegrationV1({ servicedeskintegrationdto: servicedeskintegrationdto });
+const serviceDeskIntegrationDto: ServiceDeskIntegrationDto = {
+  "ownerRef" : "",
+  "cluster" : "xyzzy999",
+  "created" : "2024-01-17T18:45:25.994Z",
+  "description" : "A very nice Service Desk integration",
+  "clusterRef" : "",
+  "type" : "ServiceNowSDIM",
+  "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "provisioningConfig" : {
+    "managedResourceRefs" : [ {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb051111",
+      "name" : "My Source 1"
+    }, {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb052222",
+      "name" : "My Source 2"
+    } ],
+    "provisioningRequestExpiration" : 7,
+    "noProvisioningRequests" : true,
+    "universalManager" : true,
+    "planInitializerScript" : {
+      "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+    }
+  },
+  "name" : "Service Desk Integration Name",
+  "modified" : "2024-02-18T18:45:25.994Z",
+  "attributes" : {
+    "property" : "value",
+    "key" : "value"
+  },
+  "id" : "62945a496ef440189b1f03e3623411c8",
+  "beforeProvisioningRule" : ""
+}; // The specifics of a new integration to create
+const result = await apiInstance.createServiceDeskIntegrationV1({ serviceDeskIntegrationDto: serviceDeskIntegrationDto });
 console.log(result);
 ```
 
@@ -141,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Servicedeskintegrationtemplatedto`
+`ServiceDeskIntegrationTemplateDto`
 
 ### HTTP request headers
 
@@ -175,7 +208,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Array<Servicedeskintegrationtemplatetype>`
+`Array<ServiceDeskIntegrationTemplateType>`
 
 ### HTTP request headers
 
@@ -211,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -252,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Servicedeskintegrationdto>`
+`Array<ServiceDeskIntegrationDto>`
 
 ### HTTP request headers
 
@@ -290,7 +323,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Queuedcheckconfigdetails`
+`QueuedCheckConfigDetails`
 
 ### HTTP request headers
 
@@ -323,11 +356,11 @@ Update an existing Service Desk integration by ID with a PATCH request.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Service Desk integration to update |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed.  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed.  | 
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -339,13 +372,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/service_desk_integration/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
 const id: string = anId; // ID of the Service Desk integration to update
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
-const result = await apiInstance.patchServiceDeskIntegrationV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+const result = await apiInstance.patchServiceDeskIntegrationV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -363,11 +400,11 @@ Update an existing Service Desk integration by ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Service Desk integration to update |  [default to undefined]
-**servicedeskintegrationdto** | `Servicedeskintegrationdto` | The specifics of the integration to update | 
+**serviceDeskIntegrationDto** | `ServiceDeskIntegrationDto` | The specifics of the integration to update | 
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -379,13 +416,46 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Servicedeskintegrationdto } from 'sailpoint-api-client/dist/service_desk_integration/api';
+import { ServiceDeskIntegrationDto } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
 const id: string = anId; // ID of the Service Desk integration to update
-const servicedeskintegrationdto: Servicedeskintegrationdto = ; // The specifics of the integration to update
-const result = await apiInstance.putServiceDeskIntegrationV1({ id: id, servicedeskintegrationdto: servicedeskintegrationdto });
+const serviceDeskIntegrationDto: ServiceDeskIntegrationDto = {
+  "ownerRef" : "",
+  "cluster" : "xyzzy999",
+  "created" : "2024-01-17T18:45:25.994Z",
+  "description" : "A very nice Service Desk integration",
+  "clusterRef" : "",
+  "type" : "ServiceNowSDIM",
+  "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "provisioningConfig" : {
+    "managedResourceRefs" : [ {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb051111",
+      "name" : "My Source 1"
+    }, {
+      "type" : "SOURCE",
+      "id" : "2c9180855d191c59015d291ceb052222",
+      "name" : "My Source 2"
+    } ],
+    "provisioningRequestExpiration" : 7,
+    "noProvisioningRequests" : true,
+    "universalManager" : true,
+    "planInitializerScript" : {
+      "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+    }
+  },
+  "name" : "Service Desk Integration Name",
+  "modified" : "2024-02-18T18:45:25.994Z",
+  "attributes" : {
+    "property" : "value",
+    "key" : "value"
+  },
+  "id" : "62945a496ef440189b1f03e3623411c8",
+  "beforeProvisioningRule" : ""
+}; // The specifics of the integration to update
+const result = await apiInstance.putServiceDeskIntegrationV1({ id: id, serviceDeskIntegrationDto: serviceDeskIntegrationDto });
 console.log(result);
 ```
 
@@ -402,11 +472,11 @@ Update the time check configuration of queued SDIM tickets.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**queuedcheckconfigdetails** | `Queuedcheckconfigdetails` | The modified time check configuration | 
+**queuedCheckConfigDetails** | `QueuedCheckConfigDetails` | The modified time check configuration | 
 
 ### Return type
 
-`Queuedcheckconfigdetails`
+`QueuedCheckConfigDetails`
 
 ### HTTP request headers
 
@@ -418,12 +488,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Queuedcheckconfigdetails } from 'sailpoint-api-client/dist/service_desk_integration/api';
+import { QueuedCheckConfigDetails } from 'sailpoint-api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
-const queuedcheckconfigdetails: Queuedcheckconfigdetails = ; // The modified time check configuration
-const result = await apiInstance.updateStatusCheckDetailsV1({ queuedcheckconfigdetails: queuedcheckconfigdetails });
+const queuedCheckConfigDetails: QueuedCheckConfigDetails = {
+  "provisioningStatusCheckIntervalMinutes" : "30",
+  "provisioningMaxStatusCheckDays" : "2"
+}; // The modified time check configuration
+const result = await apiInstance.updateStatusCheckDetailsV1({ queuedCheckConfigDetails: queuedCheckConfigDetails });
 console.log(result);
 ```
 

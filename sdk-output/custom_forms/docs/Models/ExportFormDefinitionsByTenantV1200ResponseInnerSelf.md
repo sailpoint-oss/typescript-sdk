@@ -15,5 +15,5 @@ tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenantV1200Res
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object** | **(optional)** `Formdefinitionselfimportexportdto` |  | [default to undefined]
+**object** | **(optional)** `FormDefinitionSelfImportExportDto` |  | [default to undefined]
 

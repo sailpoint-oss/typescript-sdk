@@ -47,12 +47,12 @@ This endpoint creates a source app using the given source app payload
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**sourceappcreatedto** | `Sourceappcreatedto` |  | 
+**sourceAppCreateDto** | `SourceAppCreateDto` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Sourceapp`
+`SourceApp`
 
 ### HTTP request headers
 
@@ -64,13 +64,22 @@ Name | Type | Description  | Notes
 ```typescript
 import { AppsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sourceappcreatedto } from 'sailpoint-api-client/dist/apps/api';
+import { SourceAppCreateDto } from 'sailpoint-api-client/dist/apps/api';
 
 const configuration = new Configuration();
 const apiInstance = new AppsApi(configuration);
-const sourceappcreatedto: Sourceappcreatedto = {"name":"new app name","description":"app description","matchAllAccounts":true,"accountSource":{"id":"edcb0951812949d085b60cd8bf35bc78"}}; // 
+const sourceAppCreateDto: SourceAppCreateDto = {
+  "name" : "my app",
+  "description" : "the source app for engineers",
+  "accountSource" : {
+    "name" : "ODS-AD-Source",
+    "id" : "2c9180827ca885d7017ca8ce28a000eb",
+    "type" : "SOURCE"
+  },
+  "matchAllAccounts" : true
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createSourceAppV1({ sourceappcreatedto: sourceappcreatedto });
+const result = await apiInstance.createSourceAppV1({ sourceAppCreateDto: sourceAppCreateDto });
 console.log(result);
 ```
 
@@ -97,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessprofiledetails>`
+`Array<AccessProfileDetails>`
 
 ### HTTP request headers
 
@@ -141,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourceapp`
+`SourceApp`
 
 ### HTTP request headers
 
@@ -183,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourceapp`
+`SourceApp`
 
 ### HTTP request headers
 
@@ -228,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessprofiledetails>`
+`Array<AccessProfileDetails>`
 
 ### HTTP request headers
 
@@ -277,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sourceapp>`
+`Array<SourceApp>`
 
 ### HTTP request headers
 
@@ -327,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Userapp>`
+`Array<UserApp>`
 
 ### HTTP request headers
 
@@ -376,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sourceapp>`
+`Array<SourceApp>`
 
 ### HTTP request headers
 
@@ -424,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Appaccountdetails>`
+`Array<AppAccountDetails>`
 
 ### HTTP request headers
 
@@ -472,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sourceapp>`
+`Array<SourceApp>`
 
 ### HTTP request headers
 
@@ -521,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Userapp>`
+`Array<UserApp>`
 
 ### HTTP request headers
 
@@ -565,11 +574,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the source app to patch |  [default to undefined]
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | [optional]
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | [optional]
 
 ### Return type
 
-`Sourceapppatchdto`
+`SourceAppPatchDto`
 
 ### HTTP request headers
 
@@ -581,13 +590,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AppsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/apps/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/apps/api';
 
 const configuration = new Configuration();
 const apiInstance = new AppsApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // ID of the source app to patch
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/enabled","value":true},{"op":"replace","path":"/matchAllAccounts","value":true}]; //  (optional)
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; //  (optional)
 const result = await apiInstance.patchSourceAppV1({ id: id });
 console.log(result);
 ```
@@ -611,11 +624,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the user app to patch |  [default to undefined]
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | [optional]
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | [optional]
 
 ### Return type
 
-`Userapp`
+`UserApp`
 
 ### HTTP request headers
 
@@ -627,13 +640,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AppsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/apps/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/apps/api';
 
 const configuration = new Configuration();
 const apiInstance = new AppsApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // ID of the user app to patch
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; //  (optional)
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; //  (optional)
 const result = await apiInstance.patchUserAppV1({ id: id });
 console.log(result);
 ```
@@ -657,7 +674,7 @@ Name, description and owner can't be empty or null.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
-**sourceappbulkupdaterequest** | `Sourceappbulkupdaterequest` |  | [optional]
+**sourceAppBulkUpdateRequest** | `SourceAppBulkUpdateRequest` |  | [optional]
 
 ### Return type
 
@@ -673,12 +690,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { AppsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sourceappbulkupdaterequest } from 'sailpoint-api-client/dist/apps/api';
+import { SourceAppBulkUpdateRequest } from 'sailpoint-api-client/dist/apps/api';
 
 const configuration = new Configuration();
 const apiInstance = new AppsApi(configuration);
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const sourceappbulkupdaterequest: Sourceappbulkupdaterequest = ; //  (optional)
+const sourceAppBulkUpdateRequest: SourceAppBulkUpdateRequest = {
+  "appIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
+  "jsonPatch" : [ {
+    "op" : "replace",
+    "path" : "/enabled",
+    "value" : false
+  }, {
+    "op" : "replace",
+    "path" : "/matchAllAccounts",
+    "value" : false
+  } ]
+}; //  (optional)
 const result = await apiInstance.updateSourceAppsInBulkV1({  });
 console.log(result);
 ```

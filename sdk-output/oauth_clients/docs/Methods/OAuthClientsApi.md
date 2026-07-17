@@ -36,11 +36,11 @@ This creates an OAuth client.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**createoauthclientrequest** | `Createoauthclientrequest` |  | 
+**createOAuthClientRequest** | `CreateOAuthClientRequest` |  | 
 
 ### Return type
 
-`Createoauthclientresponse`
+`CreateOAuthClientResponse`
 
 ### HTTP request headers
 
@@ -52,12 +52,28 @@ Name | Type | Description  | Notes
 ```typescript
 import { OAuthClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Createoauthclientrequest } from 'sailpoint-api-client/dist/oauth_clients/api';
+import { CreateOAuthClientRequest } from 'sailpoint-api-client/dist/oauth_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
-const createoauthclientrequest: Createoauthclientrequest = ; // 
-const result = await apiInstance.createOauthClientV1({ createoauthclientrequest: createoauthclientrequest });
+const createOAuthClientRequest: CreateOAuthClientRequest = {
+  "internal" : false,
+  "businessName" : "Acme-Solar",
+  "description" : "An API client used for the authorization_code, refresh_token, and client_credentials flows",
+  "refreshTokenValiditySeconds" : 86400,
+  "type" : "CONFIDENTIAL",
+  "redirectUris" : [ "http://localhost:12345" ],
+  "enabled" : true,
+  "accessType" : "OFFLINE",
+  "grantTypes" : [ "AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN" ],
+  "strongAuthSupported" : false,
+  "homepageUrl" : "http://localhost:12345",
+  "accessTokenValiditySeconds" : 750,
+  "scope" : [ "demo:api-client-scope:first", "demo:api-client-scope:second" ],
+  "name" : "Demo API Client",
+  "claimsSupported" : false
+}; // 
+const result = await apiInstance.createOauthClientV1({ createOAuthClientRequest: createOAuthClientRequest });
 console.log(result);
 ```
 
@@ -115,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Getoauthclientresponse`
+`GetOAuthClientResponse`
 
 ### HTTP request headers
 
@@ -152,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Getoauthclientresponse>`
+`Array<GetOAuthClientResponse>`
 
 ### HTTP request headers
 
@@ -186,11 +202,11 @@ This performs a targeted update to the field(s) of an OAuth client.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The OAuth client id |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported  | 
 
 ### Return type
 
-`Getoauthclientresponse`
+`GetOAuthClientResponse`
 
 ### HTTP request headers
 
@@ -202,13 +218,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { OAuthClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/oauth_clients/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/oauth_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The OAuth client id
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
-const result = await apiInstance.patchOauthClientV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+const result = await apiInstance.patchOauthClientV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

@@ -76,10 +76,10 @@ export interface CreateWorkflowV1Request {
     'name': string;
     /**
      * 
-     * @type {WorkflowbodyOwner}
+     * @type {WorkflowBodyOwner}
      * @memberof CreateWorkflowV1Request
      */
-    'owner'?: WorkflowbodyOwner;
+    'owner'?: WorkflowBodyOwner;
     /**
      * Description of what the workflow accomplishes
      * @type {string}
@@ -88,10 +88,10 @@ export interface CreateWorkflowV1Request {
     'description'?: string;
     /**
      * 
-     * @type {Workflowdefinition}
+     * @type {WorkflowDefinition}
      * @memberof CreateWorkflowV1Request
      */
-    'definition'?: Workflowdefinition;
+    'definition'?: WorkflowDefinition;
     /**
      * Enable or disable the workflow.  Workflows cannot be created in an enabled state.
      * @type {boolean}
@@ -100,33 +100,33 @@ export interface CreateWorkflowV1Request {
     'enabled'?: boolean;
     /**
      * 
-     * @type {Workflowtrigger}
+     * @type {WorkflowTrigger}
      * @memberof CreateWorkflowV1Request
      */
-    'trigger'?: Workflowtrigger;
+    'trigger'?: WorkflowTrigger;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -135,61 +135,61 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -198,14 +198,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
@@ -239,16 +239,16 @@ export interface ListCompleteWorkflowLibraryV1200ResponseInner {
     'description'?: string;
     /**
      * One or more inputs that the operator accepts
-     * @type {Array<Workflowlibraryformfields>}
+     * @type {Array<WorkflowLibraryFormFields>}
      * @memberof ListCompleteWorkflowLibraryV1200ResponseInner
      */
-    'formFields'?: Array<Workflowlibraryformfields> | null;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
     /**
      * 
-     * @type {WorkflowlibraryactionExampleOutput}
+     * @type {WorkflowLibraryActionExampleOutput}
      * @memberof ListCompleteWorkflowLibraryV1200ResponseInner
      */
-    'exampleOutput'?: WorkflowlibraryactionExampleOutput;
+    'exampleOutput'?: WorkflowLibraryActionExampleOutput;
     /**
      * 
      * @type {boolean}
@@ -324,12 +324,12 @@ export interface ListWorkflowsV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -398,10 +398,10 @@ export interface Workflow {
     'name'?: string;
     /**
      * 
-     * @type {WorkflowbodyOwner}
+     * @type {WorkflowBodyOwner}
      * @memberof Workflow
      */
-    'owner'?: WorkflowbodyOwner;
+    'owner'?: WorkflowBodyOwner;
     /**
      * Description of what the workflow accomplishes
      * @type {string}
@@ -410,10 +410,10 @@ export interface Workflow {
     'description'?: string;
     /**
      * 
-     * @type {Workflowdefinition}
+     * @type {WorkflowDefinition}
      * @memberof Workflow
      */
-    'definition'?: Workflowdefinition;
+    'definition'?: WorkflowDefinition;
     /**
      * Enable or disable the workflow.  Workflows cannot be created in an enabled state.
      * @type {boolean}
@@ -422,10 +422,10 @@ export interface Workflow {
     'enabled'?: boolean;
     /**
      * 
-     * @type {Workflowtrigger}
+     * @type {WorkflowTrigger}
      * @memberof Workflow
      */
-    'trigger'?: Workflowtrigger;
+    'trigger'?: WorkflowTrigger;
     /**
      * Workflow ID. This is a UUID generated upon creation.
      * @type {string}
@@ -458,10 +458,10 @@ export interface Workflow {
     'modified'?: string;
     /**
      * 
-     * @type {Workflowmodifiedby}
+     * @type {WorkflowModifiedBy}
      * @memberof Workflow
      */
-    'modifiedBy'?: Workflowmodifiedby;
+    'modifiedBy'?: WorkflowModifiedBy;
     /**
      * 
      * @type {WorkflowAllOfCreator}
@@ -504,142 +504,142 @@ export type WorkflowAllOfCreatorTypeEnum = typeof WorkflowAllOfCreatorTypeEnum[k
 /**
  * 
  * @export
- * @interface Workflowbody
+ * @interface WorkflowBody
  */
-export interface Workflowbody {
+export interface WorkflowBody {
     /**
      * The name of the workflow
      * @type {string}
-     * @memberof Workflowbody
+     * @memberof WorkflowBody
      */
     'name'?: string;
     /**
      * 
-     * @type {WorkflowbodyOwner}
-     * @memberof Workflowbody
+     * @type {WorkflowBodyOwner}
+     * @memberof WorkflowBody
      */
-    'owner'?: WorkflowbodyOwner;
+    'owner'?: WorkflowBodyOwner;
     /**
      * Description of what the workflow accomplishes
      * @type {string}
-     * @memberof Workflowbody
+     * @memberof WorkflowBody
      */
     'description'?: string;
     /**
      * 
-     * @type {Workflowdefinition}
-     * @memberof Workflowbody
+     * @type {WorkflowDefinition}
+     * @memberof WorkflowBody
      */
-    'definition'?: Workflowdefinition;
+    'definition'?: WorkflowDefinition;
     /**
      * Enable or disable the workflow.  Workflows cannot be created in an enabled state.
      * @type {boolean}
-     * @memberof Workflowbody
+     * @memberof WorkflowBody
      */
     'enabled'?: boolean;
     /**
      * 
-     * @type {Workflowtrigger}
-     * @memberof Workflowbody
+     * @type {WorkflowTrigger}
+     * @memberof WorkflowBody
      */
-    'trigger'?: Workflowtrigger;
+    'trigger'?: WorkflowTrigger;
 }
 /**
  * The identity that owns the workflow.  The owner\'s permissions in IDN will determine what actions the workflow is allowed to perform.  Ownership can be changed by updating the owner in a PUT or PATCH request.
  * @export
- * @interface WorkflowbodyOwner
+ * @interface WorkflowBodyOwner
  */
-export interface WorkflowbodyOwner {
+export interface WorkflowBodyOwner {
     /**
      * The type of object that is referenced
      * @type {string}
-     * @memberof WorkflowbodyOwner
+     * @memberof WorkflowBodyOwner
      */
-    'type'?: WorkflowbodyOwnerTypeEnum;
+    'type'?: WorkflowBodyOwnerTypeEnum;
     /**
      * The unique ID of the object
      * @type {string}
-     * @memberof WorkflowbodyOwner
+     * @memberof WorkflowBodyOwner
      */
     'id'?: string;
     /**
      * The name of the object
      * @type {string}
-     * @memberof WorkflowbodyOwner
+     * @memberof WorkflowBodyOwner
      */
     'name'?: string;
 }
 
-export const WorkflowbodyOwnerTypeEnum = {
+export const WorkflowBodyOwnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type WorkflowbodyOwnerTypeEnum = typeof WorkflowbodyOwnerTypeEnum[keyof typeof WorkflowbodyOwnerTypeEnum];
+export type WorkflowBodyOwnerTypeEnum = typeof WorkflowBodyOwnerTypeEnum[keyof typeof WorkflowBodyOwnerTypeEnum];
 
 /**
  * The map of steps that the workflow will execute.
  * @export
- * @interface Workflowdefinition
+ * @interface WorkflowDefinition
  */
-export interface Workflowdefinition {
+export interface WorkflowDefinition {
     /**
      * The name of the starting step.
      * @type {string}
-     * @memberof Workflowdefinition
+     * @memberof WorkflowDefinition
      */
     'start'?: string;
     /**
      * One or more step objects that comprise this workflow.  Please see the Workflow documentation to see the JSON schema for each step type.
      * @type {{ [key: string]: any; }}
-     * @memberof Workflowdefinition
+     * @memberof WorkflowDefinition
      */
     'steps'?: { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface Workflowexecution
+ * @interface WorkflowExecution
  */
-export interface Workflowexecution {
+export interface WorkflowExecution {
     /**
      * Workflow execution ID.
      * @type {string}
-     * @memberof Workflowexecution
+     * @memberof WorkflowExecution
      */
     'id'?: string;
     /**
      * Workflow ID.
      * @type {string}
-     * @memberof Workflowexecution
+     * @memberof WorkflowExecution
      */
     'workflowId'?: string;
     /**
      * Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes.
      * @type {string}
-     * @memberof Workflowexecution
+     * @memberof WorkflowExecution
      */
     'requestId'?: string;
     /**
      * Date/time when the workflow started.
      * @type {string}
-     * @memberof Workflowexecution
+     * @memberof WorkflowExecution
      */
     'startTime'?: string;
     /**
      * Date/time when the workflow ended.
      * @type {string}
-     * @memberof Workflowexecution
+     * @memberof WorkflowExecution
      */
     'closeTime'?: string;
     /**
      * Workflow execution status.
      * @type {string}
-     * @memberof Workflowexecution
+     * @memberof WorkflowExecution
      */
-    'status'?: WorkflowexecutionStatusEnum;
+    'status'?: WorkflowExecutionStatusEnum;
 }
 
-export const WorkflowexecutionStatusEnum = {
+export const WorkflowExecutionStatusEnum = {
     Completed: 'Completed',
     Failed: 'Failed',
     Canceled: 'Canceled',
@@ -647,35 +647,35 @@ export const WorkflowexecutionStatusEnum = {
     Queued: 'Queued'
 } as const;
 
-export type WorkflowexecutionStatusEnum = typeof WorkflowexecutionStatusEnum[keyof typeof WorkflowexecutionStatusEnum];
+export type WorkflowExecutionStatusEnum = typeof WorkflowExecutionStatusEnum[keyof typeof WorkflowExecutionStatusEnum];
 
 /**
  * 
  * @export
- * @interface Workflowexecutionevent
+ * @interface WorkflowExecutionEvent
  */
-export interface Workflowexecutionevent {
+export interface WorkflowExecutionEvent {
     /**
      * The type of event
      * @type {string}
-     * @memberof Workflowexecutionevent
+     * @memberof WorkflowExecutionEvent
      */
-    'type'?: WorkflowexecutioneventTypeEnum;
+    'type'?: WorkflowExecutionEventTypeEnum;
     /**
      * The date-time when the event occurred
      * @type {string}
-     * @memberof Workflowexecutionevent
+     * @memberof WorkflowExecutionEvent
      */
     'timestamp'?: string;
     /**
      * Additional attributes associated with the event
      * @type {object}
-     * @memberof Workflowexecutionevent
+     * @memberof WorkflowExecutionEvent
      */
     'attributes'?: object;
 }
 
-export const WorkflowexecutioneventTypeEnum = {
+export const WorkflowExecutionEventTypeEnum = {
     WorkflowExecutionScheduled: 'WorkflowExecutionScheduled',
     WorkflowExecutionStarted: 'WorkflowExecutionStarted',
     WorkflowExecutionCompleted: 'WorkflowExecutionCompleted',
@@ -694,163 +694,163 @@ export const WorkflowexecutioneventTypeEnum = {
     ChildWorkflowExecutionFailed: 'ChildWorkflowExecutionFailed'
 } as const;
 
-export type WorkflowexecutioneventTypeEnum = typeof WorkflowexecutioneventTypeEnum[keyof typeof WorkflowexecutioneventTypeEnum];
+export type WorkflowExecutionEventTypeEnum = typeof WorkflowExecutionEventTypeEnum[keyof typeof WorkflowExecutionEventTypeEnum];
 
 /**
  * 
  * @export
- * @interface Workflowexecutionhistory
+ * @interface WorkflowExecutionHistory
  */
-export interface Workflowexecutionhistory {
+export interface WorkflowExecutionHistory {
     /**
      * 
      * @type {object}
-     * @memberof Workflowexecutionhistory
+     * @memberof WorkflowExecutionHistory
      */
     'definition'?: object;
     /**
      * 
      * @type {object}
-     * @memberof Workflowexecutionhistory
+     * @memberof WorkflowExecutionHistory
      */
     'history'?: object;
     /**
      * 
      * @type {object}
-     * @memberof Workflowexecutionhistory
+     * @memberof WorkflowExecutionHistory
      */
     'trigger'?: object;
 }
 /**
  * 
  * @export
- * @interface Workflowlibraryaction
+ * @interface WorkflowLibraryAction
  */
-export interface Workflowlibraryaction {
+export interface WorkflowLibraryAction {
     /**
      * Action ID. This is a static namespaced ID for the action
      * @type {string}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'id'?: string;
     /**
      * Action Name
      * @type {string}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'name'?: string;
     /**
      * Action type
      * @type {string}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'type'?: string;
     /**
      * Action Description
      * @type {string}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'description'?: string;
     /**
      * One or more inputs that the action accepts
-     * @type {Array<Workflowlibraryformfields>}
-     * @memberof Workflowlibraryaction
+     * @type {Array<WorkflowLibraryFormFields>}
+     * @memberof WorkflowLibraryAction
      */
-    'formFields'?: Array<Workflowlibraryformfields> | null;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
     /**
      * 
-     * @type {WorkflowlibraryactionExampleOutput}
-     * @memberof Workflowlibraryaction
+     * @type {WorkflowLibraryActionExampleOutput}
+     * @memberof WorkflowLibraryAction
      */
-    'exampleOutput'?: WorkflowlibraryactionExampleOutput;
+    'exampleOutput'?: WorkflowLibraryActionExampleOutput;
     /**
      * 
      * @type {boolean}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'deprecated'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'deprecatedBy'?: string;
     /**
      * Version number
      * @type {number}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'versionNumber'?: number;
     /**
      * 
      * @type {boolean}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'isSimulationEnabled'?: boolean;
     /**
      * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
      * @type {boolean}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'isDynamicSchema'?: boolean;
     /**
      * Defines the output schema, if any, that this action produces.
      * @type {object}
-     * @memberof Workflowlibraryaction
+     * @memberof WorkflowLibraryAction
      */
     'outputSchema'?: object;
 }
 /**
- * @type WorkflowlibraryactionExampleOutput
+ * @type WorkflowLibraryActionExampleOutput
  * @export
  */
-export type WorkflowlibraryactionExampleOutput = Array<object> | object;
+export type WorkflowLibraryActionExampleOutput = Array<object> | object;
 
 /**
  * 
  * @export
- * @interface Workflowlibraryformfields
+ * @interface WorkflowLibraryFormFields
  */
-export interface Workflowlibraryformfields {
+export interface WorkflowLibraryFormFields {
     /**
      * Description of the form field
      * @type {string}
-     * @memberof Workflowlibraryformfields
+     * @memberof WorkflowLibraryFormFields
      */
     'description'?: string;
     /**
      * Describes the form field in the UI
      * @type {string}
-     * @memberof Workflowlibraryformfields
+     * @memberof WorkflowLibraryFormFields
      */
     'helpText'?: string;
     /**
      * A human readable name for this form field in the UI
      * @type {string}
-     * @memberof Workflowlibraryformfields
+     * @memberof WorkflowLibraryFormFields
      */
     'label'?: string;
     /**
      * The name of the input attribute
      * @type {string}
-     * @memberof Workflowlibraryformfields
+     * @memberof WorkflowLibraryFormFields
      */
     'name'?: string;
     /**
      * Denotes if this field is a required attribute
      * @type {boolean}
-     * @memberof Workflowlibraryformfields
+     * @memberof WorkflowLibraryFormFields
      */
     'required'?: boolean;
     /**
      * The type of the form field
      * @type {string}
-     * @memberof Workflowlibraryformfields
+     * @memberof WorkflowLibraryFormFields
      */
-    'type'?: WorkflowlibraryformfieldsTypeEnum | null;
+    'type'?: WorkflowLibraryFormFieldsTypeEnum | null;
 }
 
-export const WorkflowlibraryformfieldsTypeEnum = {
+export const WorkflowLibraryFormFieldsTypeEnum = {
     Text: 'text',
     Textarea: 'textarea',
     Boolean: 'boolean',
@@ -878,243 +878,243 @@ export const WorkflowlibraryformfieldsTypeEnum = {
     HtmlEditor: 'htmlEditor'
 } as const;
 
-export type WorkflowlibraryformfieldsTypeEnum = typeof WorkflowlibraryformfieldsTypeEnum[keyof typeof WorkflowlibraryformfieldsTypeEnum];
+export type WorkflowLibraryFormFieldsTypeEnum = typeof WorkflowLibraryFormFieldsTypeEnum[keyof typeof WorkflowLibraryFormFieldsTypeEnum];
 
 /**
  * 
  * @export
- * @interface Workflowlibraryoperator
+ * @interface WorkflowLibraryOperator
  */
-export interface Workflowlibraryoperator {
+export interface WorkflowLibraryOperator {
     /**
      * Operator ID.
      * @type {string}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'id'?: string;
     /**
      * Operator friendly name
      * @type {string}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'name'?: string;
     /**
      * Operator type
      * @type {string}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'type'?: string;
     /**
      * Description of the operator
      * @type {string}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'description'?: string;
     /**
      * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
      * @type {boolean}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'isDynamicSchema'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'deprecated'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'deprecatedBy'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof Workflowlibraryoperator
+     * @memberof WorkflowLibraryOperator
      */
     'isSimulationEnabled'?: boolean;
     /**
      * One or more inputs that the operator accepts
-     * @type {Array<Workflowlibraryformfields>}
-     * @memberof Workflowlibraryoperator
+     * @type {Array<WorkflowLibraryFormFields>}
+     * @memberof WorkflowLibraryOperator
      */
-    'formFields'?: Array<Workflowlibraryformfields> | null;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
 }
 /**
  * 
  * @export
- * @interface Workflowlibrarytrigger
+ * @interface WorkflowLibraryTrigger
  */
-export interface Workflowlibrarytrigger {
+export interface WorkflowLibraryTrigger {
     /**
      * Trigger ID. This is a static namespaced ID for the trigger.
      * @type {string}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'id'?: string;
     /**
      * Trigger type
      * @type {string}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
-    'type'?: WorkflowlibrarytriggerTypeEnum;
+    'type'?: WorkflowLibraryTriggerTypeEnum;
     /**
      * Whether the trigger is deprecated.
      * @type {boolean}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'deprecated'?: boolean;
     /**
      * Date the trigger was deprecated, if applicable.
      * @type {string}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'deprecatedBy'?: string;
     /**
      * Whether the trigger can be simulated.
      * @type {boolean}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'isSimulationEnabled'?: boolean;
     /**
      * Example output schema
      * @type {object}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'outputSchema'?: object;
     /**
      * Trigger Name
      * @type {string}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'name'?: string;
     /**
      * Trigger Description
      * @type {string}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'description'?: string;
     /**
      * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
      * @type {boolean}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'isDynamicSchema'?: boolean;
     /**
      * Example trigger payload if applicable
      * @type {object}
-     * @memberof Workflowlibrarytrigger
+     * @memberof WorkflowLibraryTrigger
      */
     'inputExample'?: object | null;
     /**
      * One or more inputs that the trigger accepts
-     * @type {Array<Workflowlibraryformfields>}
-     * @memberof Workflowlibrarytrigger
+     * @type {Array<WorkflowLibraryFormFields>}
+     * @memberof WorkflowLibraryTrigger
      */
-    'formFields'?: Array<Workflowlibraryformfields> | null;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
 }
 
-export const WorkflowlibrarytriggerTypeEnum = {
+export const WorkflowLibraryTriggerTypeEnum = {
     Event: 'EVENT',
     Scheduled: 'SCHEDULED',
     External: 'EXTERNAL',
     AccessRequestTrigger: 'AccessRequestTrigger'
 } as const;
 
-export type WorkflowlibrarytriggerTypeEnum = typeof WorkflowlibrarytriggerTypeEnum[keyof typeof WorkflowlibrarytriggerTypeEnum];
+export type WorkflowLibraryTriggerTypeEnum = typeof WorkflowLibraryTriggerTypeEnum[keyof typeof WorkflowLibraryTriggerTypeEnum];
 
 /**
  * 
  * @export
- * @interface Workflowmodifiedby
+ * @interface WorkflowModifiedBy
  */
-export interface Workflowmodifiedby {
+export interface WorkflowModifiedBy {
     /**
      * 
      * @type {string}
-     * @memberof Workflowmodifiedby
+     * @memberof WorkflowModifiedBy
      */
-    'type'?: WorkflowmodifiedbyTypeEnum;
+    'type'?: WorkflowModifiedByTypeEnum;
     /**
      * Identity ID
      * @type {string}
-     * @memberof Workflowmodifiedby
+     * @memberof WorkflowModifiedBy
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof Workflowmodifiedby
+     * @memberof WorkflowModifiedBy
      */
     'name'?: string;
 }
 
-export const WorkflowmodifiedbyTypeEnum = {
+export const WorkflowModifiedByTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type WorkflowmodifiedbyTypeEnum = typeof WorkflowmodifiedbyTypeEnum[keyof typeof WorkflowmodifiedbyTypeEnum];
+export type WorkflowModifiedByTypeEnum = typeof WorkflowModifiedByTypeEnum[keyof typeof WorkflowModifiedByTypeEnum];
 
 /**
  * 
  * @export
- * @interface Workflowoauthclient
+ * @interface WorkflowOAuthClient
  */
-export interface Workflowoauthclient {
+export interface WorkflowOAuthClient {
     /**
      * OAuth client ID for the trigger. This is a UUID generated upon creation.
      * @type {string}
-     * @memberof Workflowoauthclient
+     * @memberof WorkflowOAuthClient
      */
     'id'?: string;
     /**
      * OAuthClient secret.
      * @type {string}
-     * @memberof Workflowoauthclient
+     * @memberof WorkflowOAuthClient
      */
     'secret'?: string;
     /**
      * URL for the external trigger to invoke
      * @type {string}
-     * @memberof Workflowoauthclient
+     * @memberof WorkflowOAuthClient
      */
     'url'?: string;
 }
 /**
  * The trigger that starts the workflow
  * @export
- * @interface Workflowtrigger
+ * @interface WorkflowTrigger
  */
-export interface Workflowtrigger {
+export interface WorkflowTrigger {
     /**
      * The trigger type
      * @type {string}
-     * @memberof Workflowtrigger
+     * @memberof WorkflowTrigger
      */
-    'type': WorkflowtriggerTypeEnum;
+    'type': WorkflowTriggerTypeEnum;
     /**
      * The trigger display name
      * @type {string}
-     * @memberof Workflowtrigger
+     * @memberof WorkflowTrigger
      */
     'displayName'?: string | null;
     /**
      * Workflow Trigger Attributes.
      * @type {object}
-     * @memberof Workflowtrigger
+     * @memberof WorkflowTrigger
      */
     'attributes': object | null;
 }
 
-export const WorkflowtriggerTypeEnum = {
+export const WorkflowTriggerTypeEnum = {
     Event: 'EVENT',
     External: 'EXTERNAL',
     Scheduled: 'SCHEDULED',
     Empty: ''
 } as const;
 
-export type WorkflowtriggerTypeEnum = typeof WorkflowtriggerTypeEnum[keyof typeof WorkflowtriggerTypeEnum];
+export type WorkflowTriggerTypeEnum = typeof WorkflowTriggerTypeEnum[keyof typeof WorkflowTriggerTypeEnum];
 
 
 /**
@@ -1679,15 +1679,15 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
          * @summary Patch workflow
          * @param {string} id Id of the Workflow
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchWorkflowV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchWorkflowV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchWorkflowV1', 'id', id)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchWorkflowV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchWorkflowV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/workflows/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1708,7 +1708,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1719,15 +1719,15 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * Perform a full update of a workflow.  The updated workflow object is returned in the response.
          * @summary Update workflow
          * @param {string} id Id of the Workflow
-         * @param {Workflowbody} workflowbody 
+         * @param {WorkflowBody} workflowBody 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putWorkflowV1: async (id: string, workflowbody: Workflowbody, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putWorkflowV1: async (id: string, workflowBody: WorkflowBody, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putWorkflowV1', 'id', id)
-            // verify required parameter 'workflowbody' is not null or undefined
-            assertParamExists('putWorkflowV1', 'workflowbody', workflowbody)
+            // verify required parameter 'workflowBody' is not null or undefined
+            assertParamExists('putWorkflowV1', 'workflowBody', workflowBody)
             const localVarPath = `/workflows/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1748,7 +1748,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(workflowbody, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(workflowBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1877,7 +1877,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createWorkflowExternalTriggerV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflowoauthclient>> {
+        async createWorkflowExternalTriggerV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowOAuthClient>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkflowExternalTriggerV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.createWorkflowExternalTriggerV1']?.[localVarOperationServerIndex]?.url;
@@ -1916,7 +1916,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecutionHistoryV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflowexecutionevent>>> {
+        async getWorkflowExecutionHistoryV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEvent>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistoryV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutionHistoryV1']?.[localVarOperationServerIndex]?.url;
@@ -1929,7 +1929,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecutionHistoryV2(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflowexecutionhistory>> {
+        async getWorkflowExecutionHistoryV2(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecutionHistory>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistoryV2(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutionHistoryV2']?.[localVarOperationServerIndex]?.url;
@@ -1942,7 +1942,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecutionV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflowexecution>>> {
+        async getWorkflowExecutionV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutionV1']?.[localVarOperationServerIndex]?.url;
@@ -1959,7 +1959,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getWorkflowExecutionsV1(id: string, limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflowexecution>>> {
+        async getWorkflowExecutionsV1(id: string, limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionsV1(id, limit, offset, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutionsV1']?.[localVarOperationServerIndex]?.url;
@@ -2001,7 +2001,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowLibraryActionsV1(limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflowlibraryaction>>> {
+        async listWorkflowLibraryActionsV1(limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryAction>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryActionsV1(limit, offset, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.listWorkflowLibraryActionsV1']?.[localVarOperationServerIndex]?.url;
@@ -2013,7 +2013,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowLibraryOperatorsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflowlibraryoperator>>> {
+        async listWorkflowLibraryOperatorsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryOperator>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryOperatorsV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.listWorkflowLibraryOperatorsV1']?.[localVarOperationServerIndex]?.url;
@@ -2028,7 +2028,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowLibraryTriggersV1(limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflowlibrarytrigger>>> {
+        async listWorkflowLibraryTriggersV1(limit?: number, offset?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryTrigger>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryTriggersV1(limit, offset, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.listWorkflowLibraryTriggersV1']?.[localVarOperationServerIndex]?.url;
@@ -2050,12 +2050,12 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
          * @summary Patch workflow
          * @param {string} id Id of the Workflow
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchWorkflowV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkflowV1(id, jsonpatchoperation, axiosOptions);
+        async patchWorkflowV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkflowV1(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.patchWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2064,12 +2064,12 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * Perform a full update of a workflow.  The updated workflow object is returned in the response.
          * @summary Update workflow
          * @param {string} id Id of the Workflow
-         * @param {Workflowbody} workflowbody 
+         * @param {WorkflowBody} workflowBody 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putWorkflowV1(id: string, workflowbody: Workflowbody, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putWorkflowV1(id, workflowbody, axiosOptions);
+        async putWorkflowV1(id: string, workflowBody: WorkflowBody, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putWorkflowV1(id, workflowBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.putWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2139,7 +2139,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createWorkflowExternalTriggerV1(requestParameters: WorkflowsApiCreateWorkflowExternalTriggerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workflowoauthclient> {
+        createWorkflowExternalTriggerV1(requestParameters: WorkflowsApiCreateWorkflowExternalTriggerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkflowOAuthClient> {
             return localVarFp.createWorkflowExternalTriggerV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2169,7 +2169,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowExecutionHistoryV1(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflowexecutionevent>> {
+        getWorkflowExecutionHistoryV1(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowExecutionEvent>> {
             return localVarFp.getWorkflowExecutionHistoryV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2179,7 +2179,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowExecutionHistoryV2(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workflowexecutionhistory> {
+        getWorkflowExecutionHistoryV2(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkflowExecutionHistory> {
             return localVarFp.getWorkflowExecutionHistoryV2(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2189,7 +2189,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowExecutionV1(requestParameters: WorkflowsApiGetWorkflowExecutionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflowexecution>> {
+        getWorkflowExecutionV1(requestParameters: WorkflowsApiGetWorkflowExecutionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowExecution>> {
             return localVarFp.getWorkflowExecutionV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2200,7 +2200,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @deprecated
          * @throws {RequiredError}
          */
-        getWorkflowExecutionsV1(requestParameters: WorkflowsApiGetWorkflowExecutionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflowexecution>> {
+        getWorkflowExecutionsV1(requestParameters: WorkflowsApiGetWorkflowExecutionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowExecution>> {
             return localVarFp.getWorkflowExecutionsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2230,7 +2230,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflowLibraryActionsV1(requestParameters: WorkflowsApiListWorkflowLibraryActionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflowlibraryaction>> {
+        listWorkflowLibraryActionsV1(requestParameters: WorkflowsApiListWorkflowLibraryActionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowLibraryAction>> {
             return localVarFp.listWorkflowLibraryActionsV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2239,7 +2239,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflowLibraryOperatorsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflowlibraryoperator>> {
+        listWorkflowLibraryOperatorsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowLibraryOperator>> {
             return localVarFp.listWorkflowLibraryOperatorsV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2249,7 +2249,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflowLibraryTriggersV1(requestParameters: WorkflowsApiListWorkflowLibraryTriggersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflowlibrarytrigger>> {
+        listWorkflowLibraryTriggersV1(requestParameters: WorkflowsApiListWorkflowLibraryTriggersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowLibraryTrigger>> {
             return localVarFp.listWorkflowLibraryTriggersV1(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2269,7 +2269,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         patchWorkflowV1(requestParameters: WorkflowsApiPatchWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workflow> {
-            return localVarFp.patchWorkflowV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchWorkflowV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Perform a full update of a workflow.  The updated workflow object is returned in the response.
@@ -2279,7 +2279,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         putWorkflowV1(requestParameters: WorkflowsApiPutWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workflow> {
-            return localVarFp.putWorkflowV1(requestParameters.id, requestParameters.workflowbody, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.putWorkflowV1(requestParameters.id, requestParameters.workflowBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Validate a workflow with an \"External Trigger\" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
@@ -2564,10 +2564,10 @@ export interface WorkflowsApiPatchWorkflowV1Request {
 
     /**
      * 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof WorkflowsApiPatchWorkflowV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -2585,10 +2585,10 @@ export interface WorkflowsApiPutWorkflowV1Request {
 
     /**
      * 
-     * @type {Workflowbody}
+     * @type {WorkflowBody}
      * @memberof WorkflowsApiPutWorkflowV1
      */
-    readonly workflowbody: Workflowbody
+    readonly workflowBody: WorkflowBody
 }
 
 /**
@@ -2828,7 +2828,7 @@ export class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     public patchWorkflowV1(requestParameters: WorkflowsApiPatchWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).patchWorkflowV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkflowsApiFp(this.configuration).patchWorkflowV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2840,7 +2840,7 @@ export class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     public putWorkflowV1(requestParameters: WorkflowsApiPutWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).putWorkflowV1(requestParameters.id, requestParameters.workflowbody, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkflowsApiFp(this.configuration).putWorkflowV1(requestParameters.id, requestParameters.workflowBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

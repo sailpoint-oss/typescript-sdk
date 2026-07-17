@@ -40,12 +40,12 @@ and generates an asynchronous result containing a tracking ID.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**machineaccountcreaterequestinput** | `Machineaccountcreaterequestinput` |  | 
+**machineAccountCreateRequestInput** | `MachineAccountCreateRequestInput` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Accountrequestasyncresult`
+`AccountRequestAsyncResult`
 
 ### HTTP request headers
 
@@ -57,13 +57,25 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Machineaccountcreaterequestinput } from 'sailpoint-api-client/dist/machine_account_creation_request/api';
+import { MachineAccountCreateRequestInput } from 'sailpoint-api-client/dist/machine_account_creation_request/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountCreationRequestApi(configuration);
-const machineaccountcreaterequestinput: Machineaccountcreaterequestinput = ; // 
+const machineAccountCreateRequestInput: MachineAccountCreateRequestInput = {
+  "formId" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+  "entitlementIds" : [ "6d28b7c1620c49c6b6d5cbf81eb4b5fa", "2c91808a7624751a01762f19d67c220e" ],
+  "environment" : "Dev",
+  "description" : "Requesting machine account for tracking the inventory.",
+  "machineIdentityId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+  "ownerIdentityId" : "18104e7e499b4e23882d6323344ab6bc",
+  "userInput" : {
+    "target" : "AD Source",
+    "description" : "Inventory tracking"
+  },
+  "subtypeId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createMachineAccountRequestV1({ machineaccountcreaterequestinput: machineaccountcreaterequestinput });
+const result = await apiInstance.createMachineAccountRequestV1({ machineAccountCreateRequestInput: machineAccountCreateRequestInput });
 console.log(result);
 ```
 
@@ -88,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accountrequestdetailsdto`
+`AccountRequestDetailsDto`
 
 ### HTTP request headers
 
@@ -132,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Machineaccountcreateaccessdto>`
+`Array<MachineAccountCreateAccessDto>`
 
 ### HTTP request headers
 

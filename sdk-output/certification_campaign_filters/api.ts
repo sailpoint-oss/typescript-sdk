@@ -26,124 +26,124 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Campaign Filter Details
  * @export
- * @interface Campaignfilterdetails
+ * @interface CampaignFilterDetails
  */
-export interface Campaignfilterdetails {
+export interface CampaignFilterDetails {
     /**
      * The unique ID of the campaign filter
      * @type {string}
-     * @memberof Campaignfilterdetails
+     * @memberof CampaignFilterDetails
      */
     'id': string;
     /**
      * Campaign filter name.
      * @type {string}
-     * @memberof Campaignfilterdetails
+     * @memberof CampaignFilterDetails
      */
     'name': string;
     /**
      * Campaign filter description.
      * @type {string}
-     * @memberof Campaignfilterdetails
+     * @memberof CampaignFilterDetails
      */
     'description'?: string;
     /**
      * Owner of the filter. This field automatically populates at creation time with the current user.
      * @type {string}
-     * @memberof Campaignfilterdetails
+     * @memberof CampaignFilterDetails
      */
     'owner': string | null;
     /**
      * Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns  as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
      * @type {string}
-     * @memberof Campaignfilterdetails
+     * @memberof CampaignFilterDetails
      */
-    'mode': CampaignfilterdetailsModeEnum;
+    'mode': CampaignFilterDetailsModeEnum;
     /**
      * List of criteria.
-     * @type {Array<CampaignfilterdetailsCriteriaListInner>}
-     * @memberof Campaignfilterdetails
+     * @type {Array<CampaignFilterDetailsCriteriaListInner>}
+     * @memberof CampaignFilterDetails
      */
-    'criteriaList'?: Array<CampaignfilterdetailsCriteriaListInner>;
+    'criteriaList'?: Array<CampaignFilterDetailsCriteriaListInner>;
     /**
      * If true, the filter is created by the system. If false, the filter is created by a user.
      * @type {boolean}
-     * @memberof Campaignfilterdetails
+     * @memberof CampaignFilterDetails
      */
     'isSystemFilter': boolean;
 }
 
-export const CampaignfilterdetailsModeEnum = {
+export const CampaignFilterDetailsModeEnum = {
     Inclusion: 'INCLUSION',
     Exclusion: 'EXCLUSION'
 } as const;
 
-export type CampaignfilterdetailsModeEnum = typeof CampaignfilterdetailsModeEnum[keyof typeof CampaignfilterdetailsModeEnum];
+export type CampaignFilterDetailsModeEnum = typeof CampaignFilterDetailsModeEnum[keyof typeof CampaignFilterDetailsModeEnum];
 
 /**
  * 
  * @export
- * @interface CampaignfilterdetailsCriteriaListInner
+ * @interface CampaignFilterDetailsCriteriaListInner
  */
-export interface CampaignfilterdetailsCriteriaListInner {
+export interface CampaignFilterDetailsCriteriaListInner {
     /**
      * 
-     * @type {Criteriatype}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @type {CriteriaType}
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
-    'type': Criteriatype;
+    'type': CriteriaType;
     /**
      * 
      * @type {Operation}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'operation'?: Operation | null;
     /**
      * Specified key from the type of criteria.
      * @type {string}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'property': string | null;
     /**
      * Value for the specified key from the type of criteria.
      * @type {string}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'value': string | null;
     /**
      * If true, the filter will negate the result of the criteria.
      * @type {boolean}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'negateResult'?: boolean;
     /**
      * If true, the filter will short circuit the evaluation of the criteria.
      * @type {boolean}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'shortCircuit'?: boolean;
     /**
      * If true, the filter will record child matches for the criteria.
      * @type {boolean}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'recordChildMatches'?: boolean;
     /**
      * The unique ID of the criteria.
      * @type {string}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'id'?: string | null;
     /**
      * If this value is true, then matched items will not only be excluded from the campaign, they will also not have archived certification items created.  Such items will not appear in the exclusion report. 
      * @type {boolean}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'suppressMatchedItems'?: boolean;
     /**
      * List of child criteria.
      * @type {Array<object>}
-     * @memberof CampaignfilterdetailsCriteriaListInner
+     * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'children'?: Array<object>;
 }
@@ -155,7 +155,7 @@ export interface CampaignfilterdetailsCriteriaListInner {
  * @enum {string}
  */
 
-export const Criteriatype = {
+export const CriteriaType = {
     Composite: 'COMPOSITE',
     Role: 'ROLE',
     Identity: 'IDENTITY',
@@ -169,31 +169,31 @@ export const Criteriatype = {
     InvalidCertifiableBundle: 'INVALID_CERTIFIABLE_BUNDLE'
 } as const;
 
-export type Criteriatype = typeof Criteriatype[keyof typeof Criteriatype];
+export type CriteriaType = typeof CriteriaType[keyof typeof CriteriaType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -202,33 +202,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -238,10 +238,10 @@ export interface Errorresponsedto {
 export interface ListCampaignFiltersV1200Response {
     /**
      * List of campaign filters.
-     * @type {Array<Campaignfilterdetails>}
+     * @type {Array<CampaignFilterDetails>}
      * @memberof ListCampaignFiltersV1200Response
      */
-    'items'?: Array<Campaignfilterdetails>;
+    'items'?: Array<CampaignFilterDetails>;
     /**
      * Number of filters returned.
      * @type {number}
@@ -281,12 +281,12 @@ export interface ListCampaignFiltersV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -318,13 +318,13 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
         /**
          * Use this API to create a campaign filter based on filter details and criteria.
          * @summary Create campaign filter
-         * @param {Campaignfilterdetails} campaignfilterdetails 
+         * @param {CampaignFilterDetails} campaignFilterDetails 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCampaignFilterV1: async (campaignfilterdetails: Campaignfilterdetails, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'campaignfilterdetails' is not null or undefined
-            assertParamExists('createCampaignFilterV1', 'campaignfilterdetails', campaignfilterdetails)
+        createCampaignFilterV1: async (campaignFilterDetails: CampaignFilterDetails, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaignFilterDetails' is not null or undefined
+            assertParamExists('createCampaignFilterV1', 'campaignFilterDetails', campaignFilterDetails)
             const localVarPath = `/campaign-filters/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -344,7 +344,7 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(campaignfilterdetails, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignFilterDetails, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -470,15 +470,15 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
          * Updates an existing campaign filter using the filter\'s ID.
          * @summary Updates a campaign filter
          * @param {string} id The ID of the campaign filter being modified.
-         * @param {Campaignfilterdetails} campaignfilterdetails A campaign filter details with updated field values.
+         * @param {CampaignFilterDetails} campaignFilterDetails A campaign filter details with updated field values.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateCampaignFilterV1: async (id: string, campaignfilterdetails: Campaignfilterdetails, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateCampaignFilterV1: async (id: string, campaignFilterDetails: CampaignFilterDetails, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateCampaignFilterV1', 'id', id)
-            // verify required parameter 'campaignfilterdetails' is not null or undefined
-            assertParamExists('updateCampaignFilterV1', 'campaignfilterdetails', campaignfilterdetails)
+            // verify required parameter 'campaignFilterDetails' is not null or undefined
+            assertParamExists('updateCampaignFilterV1', 'campaignFilterDetails', campaignFilterDetails)
             const localVarPath = `/campaign-filters/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -499,7 +499,7 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(campaignfilterdetails, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignFilterDetails, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -519,12 +519,12 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
         /**
          * Use this API to create a campaign filter based on filter details and criteria.
          * @summary Create campaign filter
-         * @param {Campaignfilterdetails} campaignfilterdetails 
+         * @param {CampaignFilterDetails} campaignFilterDetails 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCampaignFilterV1(campaignfilterdetails: Campaignfilterdetails, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaignfilterdetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignFilterV1(campaignfilterdetails, axiosOptions);
+        async createCampaignFilterV1(campaignFilterDetails: CampaignFilterDetails, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignFilterV1(campaignFilterDetails, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationCampaignFiltersApi.createCampaignFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -549,7 +549,7 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignFilterByIdV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaignfilterdetails>> {
+        async getCampaignFilterByIdV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignFilterByIdV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationCampaignFiltersApi.getCampaignFilterByIdV1']?.[localVarOperationServerIndex]?.url;
@@ -574,12 +574,12 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * Updates an existing campaign filter using the filter\'s ID.
          * @summary Updates a campaign filter
          * @param {string} id The ID of the campaign filter being modified.
-         * @param {Campaignfilterdetails} campaignfilterdetails A campaign filter details with updated field values.
+         * @param {CampaignFilterDetails} campaignFilterDetails A campaign filter details with updated field values.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCampaignFilterV1(id: string, campaignfilterdetails: Campaignfilterdetails, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaignfilterdetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaignFilterV1(id, campaignfilterdetails, axiosOptions);
+        async updateCampaignFilterV1(id: string, campaignFilterDetails: CampaignFilterDetails, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaignFilterV1(id, campaignFilterDetails, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationCampaignFiltersApi.updateCampaignFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -601,8 +601,8 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCampaignFilterV1(requestParameters: CertificationCampaignFiltersApiCreateCampaignFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaignfilterdetails> {
-            return localVarFp.createCampaignFilterV1(requestParameters.campaignfilterdetails, axiosOptions).then((request) => request(axios, basePath));
+        createCampaignFilterV1(requestParameters: CertificationCampaignFiltersApiCreateCampaignFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaignFilterDetails> {
+            return localVarFp.createCampaignFilterV1(requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
@@ -621,7 +621,7 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignFilterByIdV1(requestParameters: CertificationCampaignFiltersApiGetCampaignFilterByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaignfilterdetails> {
+        getCampaignFilterByIdV1(requestParameters: CertificationCampaignFiltersApiGetCampaignFilterByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaignFilterDetails> {
             return localVarFp.getCampaignFilterByIdV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -641,8 +641,8 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateCampaignFilterV1(requestParameters: CertificationCampaignFiltersApiUpdateCampaignFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Campaignfilterdetails> {
-            return localVarFp.updateCampaignFilterV1(requestParameters.id, requestParameters.campaignfilterdetails, axiosOptions).then((request) => request(axios, basePath));
+        updateCampaignFilterV1(requestParameters: CertificationCampaignFiltersApiUpdateCampaignFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CampaignFilterDetails> {
+            return localVarFp.updateCampaignFilterV1(requestParameters.id, requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -655,10 +655,10 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
 export interface CertificationCampaignFiltersApiCreateCampaignFilterV1Request {
     /**
      * 
-     * @type {Campaignfilterdetails}
+     * @type {CampaignFilterDetails}
      * @memberof CertificationCampaignFiltersApiCreateCampaignFilterV1
      */
-    readonly campaignfilterdetails: Campaignfilterdetails
+    readonly campaignFilterDetails: CampaignFilterDetails
 }
 
 /**
@@ -732,10 +732,10 @@ export interface CertificationCampaignFiltersApiUpdateCampaignFilterV1Request {
 
     /**
      * A campaign filter details with updated field values.
-     * @type {Campaignfilterdetails}
+     * @type {CampaignFilterDetails}
      * @memberof CertificationCampaignFiltersApiUpdateCampaignFilterV1
      */
-    readonly campaignfilterdetails: Campaignfilterdetails
+    readonly campaignFilterDetails: CampaignFilterDetails
 }
 
 /**
@@ -754,7 +754,7 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @memberof CertificationCampaignFiltersApi
      */
     public createCampaignFilterV1(requestParameters: CertificationCampaignFiltersApiCreateCampaignFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).createCampaignFilterV1(requestParameters.campaignfilterdetails, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationCampaignFiltersApiFp(this.configuration).createCampaignFilterV1(requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -802,7 +802,7 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @memberof CertificationCampaignFiltersApi
      */
     public updateCampaignFilterV1(requestParameters: CertificationCampaignFiltersApiUpdateCampaignFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).updateCampaignFilterV1(requestParameters.id, requestParameters.campaignfilterdetails, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationCampaignFiltersApiFp(this.configuration).updateCampaignFilterV1(requestParameters.id, requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

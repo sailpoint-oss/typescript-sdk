@@ -53,7 +53,7 @@ Use this endpoint to approve an access request approval. Only the owner of the a
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **approvalId** | `string` | Approval ID. |  [default to undefined]
-**commentdto** | `Commentdto` | Reviewer\&#39;s comment. | [optional]
+**commentDto** | `CommentDto` | Reviewer\&#39;s comment. | [optional]
 
 ### Return type
 
@@ -69,12 +69,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Commentdto } from 'sailpoint-api-client/dist/access_request_approvals/api';
+import { CommentDto } from 'sailpoint-api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
 const approvalId: string = 2c91808b7294bea301729568c68c002e; // Approval ID.
-const commentdto: Commentdto = ; // Reviewer\&#39;s comment. (optional)
+const commentDto: CommentDto = {
+  "created" : "2017-07-11T18:45:37.098Z",
+  "author" : {
+    "name" : "john.doe",
+    "id" : "2c9180847e25f377017e2ae8cae4650b",
+    "type" : "IDENTITY"
+  },
+  "comment" : "This is a comment."
+}; // Reviewer\&#39;s comment. (optional)
 const result = await apiInstance.approveAccessRequestV1({ approvalId: approvalId });
 console.log(result);
 ```
@@ -93,7 +101,7 @@ Use this API to forward an access request approval to a new owner. Only the owne
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **approvalId** | `string` | Approval ID. |  [default to undefined]
-**forwardapprovaldto** | `Forwardapprovaldto` | Information about the forwarded approval. | 
+**forwardApprovalDto** | `ForwardApprovalDto` | Information about the forwarded approval. | 
 
 ### Return type
 
@@ -109,13 +117,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Forwardapprovaldto } from 'sailpoint-api-client/dist/access_request_approvals/api';
+import { ForwardApprovalDto } from 'sailpoint-api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
 const approvalId: string = 2c91808b7294bea301729568c68c002e; // Approval ID.
-const forwardapprovaldto: Forwardapprovaldto = ; // Information about the forwarded approval.
-const result = await apiInstance.forwardAccessRequestV1({ approvalId: approvalId, forwardapprovaldto: forwardapprovaldto });
+const forwardApprovalDto: ForwardApprovalDto = {
+  "newOwnerId" : "2c91808568c529c60168cca6f90c1314",
+  "comment" : "2c91808568c529c60168cca6f90c1313"
+}; // Information about the forwarded approval.
+const result = await apiInstance.forwardAccessRequestV1({ approvalId: approvalId, forwardApprovalDto: forwardApprovalDto });
 console.log(result);
 ```
 
@@ -137,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Approvalsummary`
+`ApprovalSummary`
 
 ### HTTP request headers
 
@@ -179,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessrequestapproverslistresponse>`
+`Array<AccessRequestApproversListResponse>`
 
 ### HTTP request headers
 
@@ -224,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Completedapproval>`
+`Array<CompletedApproval>`
 
 ### HTTP request headers
 
@@ -271,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Pendingapproval>`
+`Array<PendingApproval>`
 
 ### HTTP request headers
 
@@ -310,7 +321,7 @@ Use this API to reject an access request approval. Only the owner of the approva
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **approvalId** | `string` | Approval ID. |  [default to undefined]
-**commentdto** | `Commentdto` | Reviewer\&#39;s comment. | 
+**commentDto** | `CommentDto` | Reviewer\&#39;s comment. | 
 
 ### Return type
 
@@ -326,13 +337,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Commentdto } from 'sailpoint-api-client/dist/access_request_approvals/api';
+import { CommentDto } from 'sailpoint-api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
 const approvalId: string = 2c91808b7294bea301729568c68c002e; // Approval ID.
-const commentdto: Commentdto = ; // Reviewer\&#39;s comment.
-const result = await apiInstance.rejectAccessRequestV1({ approvalId: approvalId, commentdto: commentdto });
+const commentDto: CommentDto = {
+  "created" : "2017-07-11T18:45:37.098Z",
+  "author" : {
+    "name" : "john.doe",
+    "id" : "2c9180847e25f377017e2ae8cae4650b",
+    "type" : "IDENTITY"
+  },
+  "comment" : "This is a comment."
+}; // Reviewer\&#39;s comment.
+const result = await apiInstance.rejectAccessRequestV1({ approvalId: approvalId, commentDto: commentDto });
 console.log(result);
 ```
 

@@ -26,154 +26,154 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Createprivilegecriteriarequest
+ * @interface CreatePrivilegeCriteriaRequest
  */
-export interface Createprivilegecriteriarequest {
+export interface CreatePrivilegeCriteriaRequest {
     /**
      * The Id of the source that the criteria is applied to.
      * @type {string}
-     * @memberof Createprivilegecriteriarequest
+     * @memberof CreatePrivilegeCriteriaRequest
      */
     'sourceId'?: string;
     /**
      * The type of criteria being created. Expects \"CUSTOM\".
      * @type {string}
-     * @memberof Createprivilegecriteriarequest
+     * @memberof CreatePrivilegeCriteriaRequest
      */
-    'type'?: CreateprivilegecriteriarequestTypeEnum;
+    'type'?: CreatePrivilegeCriteriaRequestTypeEnum;
     /**
      * The logical operator to apply between groups.
      * @type {string}
-     * @memberof Createprivilegecriteriarequest
+     * @memberof CreatePrivilegeCriteriaRequest
      */
-    'operator'?: CreateprivilegecriteriarequestOperatorEnum;
+    'operator'?: CreatePrivilegeCriteriaRequestOperatorEnum;
     /**
      * 
-     * @type {Array<CreateprivilegecriteriarequestGroupsInner>}
-     * @memberof Createprivilegecriteriarequest
+     * @type {Array<CreatePrivilegeCriteriaRequestGroupsInner>}
+     * @memberof CreatePrivilegeCriteriaRequest
      */
-    'groups'?: Array<CreateprivilegecriteriarequestGroupsInner>;
+    'groups'?: Array<CreatePrivilegeCriteriaRequestGroupsInner>;
     /**
      * The privilege level assigned by this criteria.
      * @type {string}
-     * @memberof Createprivilegecriteriarequest
+     * @memberof CreatePrivilegeCriteriaRequest
      */
-    'privilegeLevel'?: CreateprivilegecriteriarequestPrivilegeLevelEnum;
+    'privilegeLevel'?: CreatePrivilegeCriteriaRequestPrivilegeLevelEnum;
 }
 
-export const CreateprivilegecriteriarequestTypeEnum = {
+export const CreatePrivilegeCriteriaRequestTypeEnum = {
     Custom: 'CUSTOM'
 } as const;
 
-export type CreateprivilegecriteriarequestTypeEnum = typeof CreateprivilegecriteriarequestTypeEnum[keyof typeof CreateprivilegecriteriarequestTypeEnum];
-export const CreateprivilegecriteriarequestOperatorEnum = {
+export type CreatePrivilegeCriteriaRequestTypeEnum = typeof CreatePrivilegeCriteriaRequestTypeEnum[keyof typeof CreatePrivilegeCriteriaRequestTypeEnum];
+export const CreatePrivilegeCriteriaRequestOperatorEnum = {
     And: 'AND',
     Or: 'OR'
 } as const;
 
-export type CreateprivilegecriteriarequestOperatorEnum = typeof CreateprivilegecriteriarequestOperatorEnum[keyof typeof CreateprivilegecriteriarequestOperatorEnum];
-export const CreateprivilegecriteriarequestPrivilegeLevelEnum = {
+export type CreatePrivilegeCriteriaRequestOperatorEnum = typeof CreatePrivilegeCriteriaRequestOperatorEnum[keyof typeof CreatePrivilegeCriteriaRequestOperatorEnum];
+export const CreatePrivilegeCriteriaRequestPrivilegeLevelEnum = {
     High: 'HIGH',
     Medium: 'MEDIUM',
     Low: 'LOW'
 } as const;
 
-export type CreateprivilegecriteriarequestPrivilegeLevelEnum = typeof CreateprivilegecriteriarequestPrivilegeLevelEnum[keyof typeof CreateprivilegecriteriarequestPrivilegeLevelEnum];
+export type CreatePrivilegeCriteriaRequestPrivilegeLevelEnum = typeof CreatePrivilegeCriteriaRequestPrivilegeLevelEnum[keyof typeof CreatePrivilegeCriteriaRequestPrivilegeLevelEnum];
 
 /**
  * 
  * @export
- * @interface CreateprivilegecriteriarequestGroupsInner
+ * @interface CreatePrivilegeCriteriaRequestGroupsInner
  */
-export interface CreateprivilegecriteriarequestGroupsInner {
+export interface CreatePrivilegeCriteriaRequestGroupsInner {
     /**
      * The logical operator to apply between criteria items in the group.
      * @type {string}
-     * @memberof CreateprivilegecriteriarequestGroupsInner
+     * @memberof CreatePrivilegeCriteriaRequestGroupsInner
      */
-    'operator'?: CreateprivilegecriteriarequestGroupsInnerOperatorEnum;
+    'operator'?: CreatePrivilegeCriteriaRequestGroupsInnerOperatorEnum;
     /**
      * 
-     * @type {Array<CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner>}
-     * @memberof CreateprivilegecriteriarequestGroupsInner
+     * @type {Array<CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner>}
+     * @memberof CreatePrivilegeCriteriaRequestGroupsInner
      */
-    'criteriaItems'?: Array<CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner>;
+    'criteriaItems'?: Array<CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner>;
 }
 
-export const CreateprivilegecriteriarequestGroupsInnerOperatorEnum = {
+export const CreatePrivilegeCriteriaRequestGroupsInnerOperatorEnum = {
     And: 'AND',
     Or: 'OR'
 } as const;
 
-export type CreateprivilegecriteriarequestGroupsInnerOperatorEnum = typeof CreateprivilegecriteriarequestGroupsInnerOperatorEnum[keyof typeof CreateprivilegecriteriarequestGroupsInnerOperatorEnum];
+export type CreatePrivilegeCriteriaRequestGroupsInnerOperatorEnum = typeof CreatePrivilegeCriteriaRequestGroupsInnerOperatorEnum[keyof typeof CreatePrivilegeCriteriaRequestGroupsInnerOperatorEnum];
 
 /**
  * 
  * @export
- * @interface CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner
+ * @interface CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner
  */
-export interface CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner {
+export interface CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner {
     /**
      * The target type of the criteria item.
      * @type {string}
-     * @memberof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner
+     * @memberof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner
      */
-    'targetType'?: CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerTargetTypeEnum;
+    'targetType'?: CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerTargetTypeEnum;
     /**
      * 
      * @type {string}
-     * @memberof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner
+     * @memberof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner
      */
-    'operator'?: CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerOperatorEnum | null;
+    'operator'?: CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerOperatorEnum | null;
     /**
      * The values to evaluate the property against.
      * @type {Array<string>}
-     * @memberof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner
+     * @memberof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner
      */
     'values'?: Array<string>;
     /**
      * Whether to ignore case when evaluating the property against the values.
      * @type {boolean}
-     * @memberof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInner
+     * @memberof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInner
      */
     'ignoreCase'?: boolean;
 }
 
-export const CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerTargetTypeEnum = {
+export const CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerTargetTypeEnum = {
     Group: 'group'
 } as const;
 
-export type CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerTargetTypeEnum = typeof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerTargetTypeEnum[keyof typeof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerTargetTypeEnum];
-export const CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerOperatorEnum = {
+export type CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerTargetTypeEnum = typeof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerTargetTypeEnum[keyof typeof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerTargetTypeEnum];
+export const CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerOperatorEnum = {
     DisplayName: 'displayName',
     Description: 'description',
     Value: 'value'
 } as const;
 
-export type CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerOperatorEnum = typeof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerOperatorEnum[keyof typeof CreateprivilegecriteriarequestGroupsInnerCriteriaItemsInnerOperatorEnum];
+export type CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerOperatorEnum = typeof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerOperatorEnum[keyof typeof CreatePrivilegeCriteriaRequestGroupsInnerCriteriaItemsInnerOperatorEnum];
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -182,33 +182,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -242,150 +242,150 @@ export interface ListPrivilegeCriteriaV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Privilegecriteriadto
+ * @interface PrivilegeCriteriaDTO
  */
-export interface Privilegecriteriadto {
+export interface PrivilegeCriteriaDTO {
     /**
      * The Id of the criteria.
      * @type {string}
-     * @memberof Privilegecriteriadto
+     * @memberof PrivilegeCriteriaDTO
      */
     'id'?: string;
     /**
      * The Id of the source that the criteria is applied to.
      * @type {string}
-     * @memberof Privilegecriteriadto
+     * @memberof PrivilegeCriteriaDTO
      */
     'sourceId'?: string;
     /**
      * The type of criteria.
      * @type {string}
-     * @memberof Privilegecriteriadto
+     * @memberof PrivilegeCriteriaDTO
      */
-    'type'?: PrivilegecriteriadtoTypeEnum;
+    'type'?: PrivilegeCriteriaDTOTypeEnum;
     /**
      * The logical operator to apply between groups.
      * @type {string}
-     * @memberof Privilegecriteriadto
+     * @memberof PrivilegeCriteriaDTO
      */
-    'operator'?: PrivilegecriteriadtoOperatorEnum;
+    'operator'?: PrivilegeCriteriaDTOOperatorEnum;
     /**
      * 
-     * @type {Array<PrivilegecriteriadtoGroupsInner>}
-     * @memberof Privilegecriteriadto
+     * @type {Array<PrivilegeCriteriaDTOGroupsInner>}
+     * @memberof PrivilegeCriteriaDTO
      */
-    'groups'?: Array<PrivilegecriteriadtoGroupsInner>;
+    'groups'?: Array<PrivilegeCriteriaDTOGroupsInner>;
     /**
      * The privilege level assigned by this criteria.
      * @type {string}
-     * @memberof Privilegecriteriadto
+     * @memberof PrivilegeCriteriaDTO
      */
-    'privilegeLevel'?: PrivilegecriteriadtoPrivilegeLevelEnum;
+    'privilegeLevel'?: PrivilegeCriteriaDTOPrivilegeLevelEnum;
 }
 
-export const PrivilegecriteriadtoTypeEnum = {
+export const PrivilegeCriteriaDTOTypeEnum = {
     Custom: 'CUSTOM',
     Connector: 'CONNECTOR',
     SingleLevel: 'SINGLE_LEVEL'
 } as const;
 
-export type PrivilegecriteriadtoTypeEnum = typeof PrivilegecriteriadtoTypeEnum[keyof typeof PrivilegecriteriadtoTypeEnum];
-export const PrivilegecriteriadtoOperatorEnum = {
+export type PrivilegeCriteriaDTOTypeEnum = typeof PrivilegeCriteriaDTOTypeEnum[keyof typeof PrivilegeCriteriaDTOTypeEnum];
+export const PrivilegeCriteriaDTOOperatorEnum = {
     And: 'AND',
     Or: 'OR'
 } as const;
 
-export type PrivilegecriteriadtoOperatorEnum = typeof PrivilegecriteriadtoOperatorEnum[keyof typeof PrivilegecriteriadtoOperatorEnum];
-export const PrivilegecriteriadtoPrivilegeLevelEnum = {
+export type PrivilegeCriteriaDTOOperatorEnum = typeof PrivilegeCriteriaDTOOperatorEnum[keyof typeof PrivilegeCriteriaDTOOperatorEnum];
+export const PrivilegeCriteriaDTOPrivilegeLevelEnum = {
     High: 'HIGH',
     Medium: 'MEDIUM',
     Low: 'LOW'
 } as const;
 
-export type PrivilegecriteriadtoPrivilegeLevelEnum = typeof PrivilegecriteriadtoPrivilegeLevelEnum[keyof typeof PrivilegecriteriadtoPrivilegeLevelEnum];
+export type PrivilegeCriteriaDTOPrivilegeLevelEnum = typeof PrivilegeCriteriaDTOPrivilegeLevelEnum[keyof typeof PrivilegeCriteriaDTOPrivilegeLevelEnum];
 
 /**
  * 
  * @export
- * @interface PrivilegecriteriadtoGroupsInner
+ * @interface PrivilegeCriteriaDTOGroupsInner
  */
-export interface PrivilegecriteriadtoGroupsInner {
+export interface PrivilegeCriteriaDTOGroupsInner {
     /**
      * The logical operator to apply between criteria items in the group.
      * @type {string}
-     * @memberof PrivilegecriteriadtoGroupsInner
+     * @memberof PrivilegeCriteriaDTOGroupsInner
      */
-    'operator'?: PrivilegecriteriadtoGroupsInnerOperatorEnum;
+    'operator'?: PrivilegeCriteriaDTOGroupsInnerOperatorEnum;
     /**
      * 
-     * @type {Array<PrivilegecriteriadtoGroupsInnerCriteriaItemsInner>}
-     * @memberof PrivilegecriteriadtoGroupsInner
+     * @type {Array<PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner>}
+     * @memberof PrivilegeCriteriaDTOGroupsInner
      */
-    'criteriaItems'?: Array<PrivilegecriteriadtoGroupsInnerCriteriaItemsInner>;
+    'criteriaItems'?: Array<PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner>;
 }
 
-export const PrivilegecriteriadtoGroupsInnerOperatorEnum = {
+export const PrivilegeCriteriaDTOGroupsInnerOperatorEnum = {
     And: 'AND',
     Or: 'OR'
 } as const;
 
-export type PrivilegecriteriadtoGroupsInnerOperatorEnum = typeof PrivilegecriteriadtoGroupsInnerOperatorEnum[keyof typeof PrivilegecriteriadtoGroupsInnerOperatorEnum];
+export type PrivilegeCriteriaDTOGroupsInnerOperatorEnum = typeof PrivilegeCriteriaDTOGroupsInnerOperatorEnum[keyof typeof PrivilegeCriteriaDTOGroupsInnerOperatorEnum];
 
 /**
  * 
  * @export
- * @interface PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
+ * @interface PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner
  */
-export interface PrivilegecriteriadtoGroupsInnerCriteriaItemsInner {
+export interface PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner {
     /**
      * The target type for the criteria item.
      * @type {string}
-     * @memberof PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
+     * @memberof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner
      */
-    'targetType'?: PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerTargetTypeEnum;
+    'targetType'?: PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerTargetTypeEnum;
     /**
      * The operator to apply to the property and values.
      * @type {string}
-     * @memberof PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
+     * @memberof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner
      */
-    'operator'?: PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerOperatorEnum;
+    'operator'?: PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerOperatorEnum;
     /**
      * 
      * @type {string}
-     * @memberof PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
+     * @memberof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner
      */
-    'property'?: PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerPropertyEnum | null;
+    'property'?: PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerPropertyEnum | null;
     /**
      * The values to evaluate the property against.
      * @type {Array<string>}
-     * @memberof PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
+     * @memberof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner
      */
     'values'?: Array<string>;
     /**
      * Whether to ignore case when evaluating the property against the values.
      * @type {boolean}
-     * @memberof PrivilegecriteriadtoGroupsInnerCriteriaItemsInner
+     * @memberof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInner
      */
     'ignoreCase'?: boolean;
 }
 
-export const PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerTargetTypeEnum = {
+export const PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerTargetTypeEnum = {
     Group: 'group'
 } as const;
 
-export type PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerTargetTypeEnum = typeof PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerTargetTypeEnum[keyof typeof PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerTargetTypeEnum];
-export const PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerOperatorEnum = {
+export type PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerTargetTypeEnum = typeof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerTargetTypeEnum[keyof typeof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerTargetTypeEnum];
+export const PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerOperatorEnum = {
     In: 'IN',
     Equals: 'EQUALS',
     NotEquals: 'NOT_EQUALS',
@@ -395,14 +395,14 @@ export const PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerOperatorEnum = {
     EndsWith: 'ENDS_WITH'
 } as const;
 
-export type PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerOperatorEnum = typeof PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerOperatorEnum[keyof typeof PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerOperatorEnum];
-export const PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerPropertyEnum = {
+export type PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerOperatorEnum = typeof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerOperatorEnum[keyof typeof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerOperatorEnum];
+export const PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerPropertyEnum = {
     DisplayName: 'displayName',
     Description: 'description',
     Value: 'value'
 } as const;
 
-export type PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerPropertyEnum = typeof PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerPropertyEnum[keyof typeof PrivilegecriteriadtoGroupsInnerCriteriaItemsInnerPropertyEnum];
+export type PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerPropertyEnum = typeof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerPropertyEnum[keyof typeof PrivilegeCriteriaDTOGroupsInnerCriteriaItemsInnerPropertyEnum];
 
 
 /**
@@ -414,13 +414,13 @@ export const PrivilegeCriteriaApiAxiosParamCreator = function (configuration?: C
         /**
          * Use this API to create a custom privilege criteria
          * @summary Create custom privilege criteria
-         * @param {Createprivilegecriteriarequest} createprivilegecriteriarequest Create custom privilege criteria request body.
+         * @param {CreatePrivilegeCriteriaRequest} createPrivilegeCriteriaRequest Create custom privilege criteria request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomPrivilegeCriteriaV1: async (createprivilegecriteriarequest: Createprivilegecriteriarequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createprivilegecriteriarequest' is not null or undefined
-            assertParamExists('createCustomPrivilegeCriteriaV1', 'createprivilegecriteriarequest', createprivilegecriteriarequest)
+        createCustomPrivilegeCriteriaV1: async (createPrivilegeCriteriaRequest: CreatePrivilegeCriteriaRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createPrivilegeCriteriaRequest' is not null or undefined
+            assertParamExists('createCustomPrivilegeCriteriaV1', 'createPrivilegeCriteriaRequest', createPrivilegeCriteriaRequest)
             const localVarPath = `/criteria/v1/privilege`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -440,7 +440,7 @@ export const PrivilegeCriteriaApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createprivilegecriteriarequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createPrivilegeCriteriaRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -556,15 +556,15 @@ export const PrivilegeCriteriaApiAxiosParamCreator = function (configuration?: C
          * Use this API to update a specific custom privilege criteria by overwriting the information with new information.
          * @summary Update privilege criteria
          * @param {string} criteriaId The Id of the privilege criteria record to return.
-         * @param {Privilegecriteriadto} privilegecriteriadto The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
+         * @param {PrivilegeCriteriaDTO} privilegeCriteriaDTO The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putCustomPrivilegeCriteriaValueV1: async (criteriaId: string, privilegecriteriadto: Privilegecriteriadto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putCustomPrivilegeCriteriaValueV1: async (criteriaId: string, privilegeCriteriaDTO: PrivilegeCriteriaDTO, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'criteriaId' is not null or undefined
             assertParamExists('putCustomPrivilegeCriteriaValueV1', 'criteriaId', criteriaId)
-            // verify required parameter 'privilegecriteriadto' is not null or undefined
-            assertParamExists('putCustomPrivilegeCriteriaValueV1', 'privilegecriteriadto', privilegecriteriadto)
+            // verify required parameter 'privilegeCriteriaDTO' is not null or undefined
+            assertParamExists('putCustomPrivilegeCriteriaValueV1', 'privilegeCriteriaDTO', privilegeCriteriaDTO)
             const localVarPath = `/criteria/v1/privilege/{criteriaId}`
                 .replace(`{${"criteriaId"}}`, encodeURIComponent(String(criteriaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -585,7 +585,7 @@ export const PrivilegeCriteriaApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(privilegecriteriadto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(privilegeCriteriaDTO, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -605,12 +605,12 @@ export const PrivilegeCriteriaApiFp = function(configuration?: Configuration) {
         /**
          * Use this API to create a custom privilege criteria
          * @summary Create custom privilege criteria
-         * @param {Createprivilegecriteriarequest} createprivilegecriteriarequest Create custom privilege criteria request body.
+         * @param {CreatePrivilegeCriteriaRequest} createPrivilegeCriteriaRequest Create custom privilege criteria request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomPrivilegeCriteriaV1(createprivilegecriteriarequest: Createprivilegecriteriarequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Privilegecriteriadto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPrivilegeCriteriaV1(createprivilegecriteriarequest, axiosOptions);
+        async createCustomPrivilegeCriteriaV1(createPrivilegeCriteriaRequest: CreatePrivilegeCriteriaRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PrivilegeCriteriaDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPrivilegeCriteriaV1(createPrivilegeCriteriaRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaApi.createCustomPrivilegeCriteriaV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -635,7 +635,7 @@ export const PrivilegeCriteriaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPrivilegeCriteriaV1(criteriaId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Privilegecriteriadto>> {
+        async getPrivilegeCriteriaV1(criteriaId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PrivilegeCriteriaDTO>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPrivilegeCriteriaV1(criteriaId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaApi.getPrivilegeCriteriaV1']?.[localVarOperationServerIndex]?.url;
@@ -648,7 +648,7 @@ export const PrivilegeCriteriaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPrivilegeCriteriaV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Privilegecriteriadto>>> {
+        async listPrivilegeCriteriaV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PrivilegeCriteriaDTO>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPrivilegeCriteriaV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaApi.listPrivilegeCriteriaV1']?.[localVarOperationServerIndex]?.url;
@@ -658,12 +658,12 @@ export const PrivilegeCriteriaApiFp = function(configuration?: Configuration) {
          * Use this API to update a specific custom privilege criteria by overwriting the information with new information.
          * @summary Update privilege criteria
          * @param {string} criteriaId The Id of the privilege criteria record to return.
-         * @param {Privilegecriteriadto} privilegecriteriadto The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
+         * @param {PrivilegeCriteriaDTO} privilegeCriteriaDTO The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putCustomPrivilegeCriteriaValueV1(criteriaId: string, privilegecriteriadto: Privilegecriteriadto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Privilegecriteriadto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putCustomPrivilegeCriteriaValueV1(criteriaId, privilegecriteriadto, axiosOptions);
+        async putCustomPrivilegeCriteriaValueV1(criteriaId: string, privilegeCriteriaDTO: PrivilegeCriteriaDTO, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PrivilegeCriteriaDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putCustomPrivilegeCriteriaValueV1(criteriaId, privilegeCriteriaDTO, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaApi.putCustomPrivilegeCriteriaValueV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -685,8 +685,8 @@ export const PrivilegeCriteriaApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomPrivilegeCriteriaV1(requestParameters: PrivilegeCriteriaApiCreateCustomPrivilegeCriteriaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Privilegecriteriadto> {
-            return localVarFp.createCustomPrivilegeCriteriaV1(requestParameters.createprivilegecriteriarequest, axiosOptions).then((request) => request(axios, basePath));
+        createCustomPrivilegeCriteriaV1(requestParameters: PrivilegeCriteriaApiCreateCustomPrivilegeCriteriaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PrivilegeCriteriaDTO> {
+            return localVarFp.createCustomPrivilegeCriteriaV1(requestParameters.createPrivilegeCriteriaRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to delete a specific custom privilege criteria.
@@ -705,7 +705,7 @@ export const PrivilegeCriteriaApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPrivilegeCriteriaV1(requestParameters: PrivilegeCriteriaApiGetPrivilegeCriteriaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Privilegecriteriadto> {
+        getPrivilegeCriteriaV1(requestParameters: PrivilegeCriteriaApiGetPrivilegeCriteriaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PrivilegeCriteriaDTO> {
             return localVarFp.getPrivilegeCriteriaV1(requestParameters.criteriaId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -715,7 +715,7 @@ export const PrivilegeCriteriaApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPrivilegeCriteriaV1(requestParameters: PrivilegeCriteriaApiListPrivilegeCriteriaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Privilegecriteriadto>> {
+        listPrivilegeCriteriaV1(requestParameters: PrivilegeCriteriaApiListPrivilegeCriteriaV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PrivilegeCriteriaDTO>> {
             return localVarFp.listPrivilegeCriteriaV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -725,8 +725,8 @@ export const PrivilegeCriteriaApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putCustomPrivilegeCriteriaValueV1(requestParameters: PrivilegeCriteriaApiPutCustomPrivilegeCriteriaValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Privilegecriteriadto> {
-            return localVarFp.putCustomPrivilegeCriteriaValueV1(requestParameters.criteriaId, requestParameters.privilegecriteriadto, axiosOptions).then((request) => request(axios, basePath));
+        putCustomPrivilegeCriteriaValueV1(requestParameters: PrivilegeCriteriaApiPutCustomPrivilegeCriteriaValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PrivilegeCriteriaDTO> {
+            return localVarFp.putCustomPrivilegeCriteriaValueV1(requestParameters.criteriaId, requestParameters.privilegeCriteriaDTO, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -739,10 +739,10 @@ export const PrivilegeCriteriaApiFactory = function (configuration?: Configurati
 export interface PrivilegeCriteriaApiCreateCustomPrivilegeCriteriaV1Request {
     /**
      * Create custom privilege criteria request body.
-     * @type {Createprivilegecriteriarequest}
+     * @type {CreatePrivilegeCriteriaRequest}
      * @memberof PrivilegeCriteriaApiCreateCustomPrivilegeCriteriaV1
      */
-    readonly createprivilegecriteriarequest: Createprivilegecriteriarequest
+    readonly createPrivilegeCriteriaRequest: CreatePrivilegeCriteriaRequest
 }
 
 /**
@@ -802,10 +802,10 @@ export interface PrivilegeCriteriaApiPutCustomPrivilegeCriteriaValueV1Request {
 
     /**
      * The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
-     * @type {Privilegecriteriadto}
+     * @type {PrivilegeCriteriaDTO}
      * @memberof PrivilegeCriteriaApiPutCustomPrivilegeCriteriaValueV1
      */
-    readonly privilegecriteriadto: Privilegecriteriadto
+    readonly privilegeCriteriaDTO: PrivilegeCriteriaDTO
 }
 
 /**
@@ -824,7 +824,7 @@ export class PrivilegeCriteriaApi extends BaseAPI {
      * @memberof PrivilegeCriteriaApi
      */
     public createCustomPrivilegeCriteriaV1(requestParameters: PrivilegeCriteriaApiCreateCustomPrivilegeCriteriaV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PrivilegeCriteriaApiFp(this.configuration).createCustomPrivilegeCriteriaV1(requestParameters.createprivilegecriteriarequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PrivilegeCriteriaApiFp(this.configuration).createCustomPrivilegeCriteriaV1(requestParameters.createPrivilegeCriteriaRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -872,7 +872,7 @@ export class PrivilegeCriteriaApi extends BaseAPI {
      * @memberof PrivilegeCriteriaApi
      */
     public putCustomPrivilegeCriteriaValueV1(requestParameters: PrivilegeCriteriaApiPutCustomPrivilegeCriteriaValueV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PrivilegeCriteriaApiFp(this.configuration).putCustomPrivilegeCriteriaValueV1(requestParameters.criteriaId, requestParameters.privilegecriteriadto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PrivilegeCriteriaApiFp(this.configuration).putCustomPrivilegeCriteriaValueV1(requestParameters.criteriaId, requestParameters.privilegeCriteriaDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

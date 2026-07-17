@@ -41,12 +41,12 @@ This API ignores a recommended access request item. Once an item is ignored, it 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequestrecommendationactionitemdto** | `Accessrequestrecommendationactionitemdto` | The recommended access item to ignore for an identity. | 
+**accessRequestRecommendationActionItemDto** | `AccessRequestRecommendationActionItemDto` | The recommended access item to ignore for an identity. | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Accessrequestrecommendationactionitemresponsedto`
+`AccessRequestRecommendationActionItemResponseDto`
 
 ### HTTP request headers
 
@@ -58,13 +58,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
+import { AccessRequestRecommendationActionItemDto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
-const accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto = ; // The recommended access item to ignore for an identity.
+const accessRequestRecommendationActionItemDto: AccessRequestRecommendationActionItemDto = {
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}; // The recommended access item to ignore for an identity.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.addAccessRequestRecommendationsIgnoredItemV1({ accessrequestrecommendationactionitemdto: accessrequestrecommendationactionitemdto });
+const result = await apiInstance.addAccessRequestRecommendationsIgnoredItemV1({ accessRequestRecommendationActionItemDto: accessRequestRecommendationActionItemDto });
 console.log(result);
 ```
 
@@ -84,12 +90,12 @@ This API consumes a notification that a recommended access request item was requ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequestrecommendationactionitemdto** | `Accessrequestrecommendationactionitemdto` | The recommended access item that was requested for an identity. | 
+**accessRequestRecommendationActionItemDto** | `AccessRequestRecommendationActionItemDto` | The recommended access item that was requested for an identity. | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Accessrequestrecommendationactionitemresponsedto`
+`AccessRequestRecommendationActionItemResponseDto`
 
 ### HTTP request headers
 
@@ -101,13 +107,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
+import { AccessRequestRecommendationActionItemDto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
-const accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto = ; // The recommended access item that was requested for an identity.
+const accessRequestRecommendationActionItemDto: AccessRequestRecommendationActionItemDto = {
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}; // The recommended access item that was requested for an identity.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.addAccessRequestRecommendationsRequestedItemV1({ accessrequestrecommendationactionitemdto: accessrequestrecommendationactionitemdto });
+const result = await apiInstance.addAccessRequestRecommendationsRequestedItemV1({ accessRequestRecommendationActionItemDto: accessRequestRecommendationActionItemDto });
 console.log(result);
 ```
 
@@ -127,12 +139,12 @@ This API consumes a notification that a recommended access request item was view
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequestrecommendationactionitemdto** | `Accessrequestrecommendationactionitemdto` | The recommended access that was viewed for an identity. | 
+**accessRequestRecommendationActionItemDto** | `AccessRequestRecommendationActionItemDto` | The recommended access that was viewed for an identity. | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Accessrequestrecommendationactionitemresponsedto`
+`AccessRequestRecommendationActionItemResponseDto`
 
 ### HTTP request headers
 
@@ -144,13 +156,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
+import { AccessRequestRecommendationActionItemDto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
-const accessrequestrecommendationactionitemdto: Accessrequestrecommendationactionitemdto = ; // The recommended access that was viewed for an identity.
+const accessRequestRecommendationActionItemDto: AccessRequestRecommendationActionItemDto = {
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}; // The recommended access that was viewed for an identity.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.addAccessRequestRecommendationsViewedItemV1({ accessrequestrecommendationactionitemdto: accessrequestrecommendationactionitemdto });
+const result = await apiInstance.addAccessRequestRecommendationsViewedItemV1({ accessRequestRecommendationActionItemDto: accessRequestRecommendationActionItemDto });
 console.log(result);
 ```
 
@@ -170,12 +188,12 @@ This API consumes a notification that a set of recommended access request item w
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequestrecommendationactionitemdto** | `Array<Accessrequestrecommendationactionitemdto>` | The recommended access items that were viewed for an identity. | 
+**accessRequestRecommendationActionItemDto** | `Array<AccessRequestRecommendationActionItemDto>` | The recommended access items that were viewed for an identity. | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Array<Accessrequestrecommendationactionitemresponsedto>`
+`Array<AccessRequestRecommendationActionItemResponseDto>`
 
 ### HTTP request headers
 
@@ -187,13 +205,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequestrecommendationactionitemdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
+import { AccessRequestRecommendationActionItemDto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
-const accessrequestrecommendationactionitemdto: Array<Accessrequestrecommendationactionitemdto> = ; // The recommended access items that were viewed for an identity.
+const accessRequestRecommendationActionItemDto: Array<AccessRequestRecommendationActionItemDto> = {
+  "access" : {
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE"
+  },
+  "identityId" : "2c91808570313110017040b06f344ec9"
+}; // The recommended access items that were viewed for an identity.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.addAccessRequestRecommendationsViewedItemsV1({ accessrequestrecommendationactionitemdto: accessrequestrecommendationactionitemdto });
+const result = await apiInstance.addAccessRequestRecommendationsViewedItemsV1({ accessRequestRecommendationActionItemDto: accessRequestRecommendationActionItemDto });
 console.log(result);
 ```
 
@@ -217,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accessrequestrecommendationconfigdto`
+`AccessRequestRecommendationConfigDto`
 
 ### HTTP request headers
 
@@ -262,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessrequestrecommendationactionitemresponsedto>`
+`Array<AccessRequestRecommendationActionItemResponseDto>`
 
 ### HTTP request headers
 
@@ -312,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessrequestrecommendationactionitemresponsedto>`
+`Array<AccessRequestRecommendationActionItemResponseDto>`
 
 ### HTTP request headers
 
@@ -364,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessrequestrecommendationitemdetail>`
+`Array<AccessRequestRecommendationItemDetail>`
 
 ### HTTP request headers
 
@@ -416,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessrequestrecommendationactionitemresponsedto>`
+`Array<AccessRequestRecommendationActionItemResponseDto>`
 
 ### HTTP request headers
 
@@ -457,12 +481,12 @@ This API updates the configurations for Access Request Recommender for the tenan
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequestrecommendationconfigdto** | `Accessrequestrecommendationconfigdto` | The desired configurations for Access Request Recommender for the tenant. | 
+**accessRequestRecommendationConfigDto** | `AccessRequestRecommendationConfigDto` | The desired configurations for Access Request Recommender for the tenant. | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Accessrequestrecommendationconfigdto`
+`AccessRequestRecommendationConfigDto`
 
 ### HTTP request headers
 
@@ -474,13 +498,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIAccessRequestRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequestrecommendationconfigdto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
+import { AccessRequestRecommendationConfigDto } from 'sailpoint-api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
-const accessrequestrecommendationconfigdto: Accessrequestrecommendationconfigdto = ; // The desired configurations for Access Request Recommender for the tenant.
+const accessRequestRecommendationConfigDto: AccessRequestRecommendationConfigDto = {
+  "scoreThreshold" : 0.5,
+  "startDateAttribute" : "startDate",
+  "restrictionAttribute" : "location",
+  "moverAttribute" : "isMover",
+  "joinerAttribute" : "isJoiner",
+  "useRestrictionAttribute" : true
+}; // The desired configurations for Access Request Recommender for the tenant.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.setAccessRequestRecommendationsConfigV1({ accessrequestrecommendationconfigdto: accessrequestrecommendationconfigdto });
+const result = await apiInstance.setAccessRequestRecommendationsConfigV1({ accessRequestRecommendationConfigDto: accessRequestRecommendationConfigDto });
 console.log(result);
 ```
 

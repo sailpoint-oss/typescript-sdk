@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Authuser`
+`AuthUser`
 
 ### HTTP request headers
 
@@ -77,11 +77,11 @@ A '400.1.1 Illegal update attempt' detail code indicates that you attempted to P
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Identity ID |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type
 
-`Authuser`
+`AuthUser`
 
 ### HTTP request headers
 
@@ -93,13 +93,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AuthUsersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/auth_users/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/auth_users/api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthUsersApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Identity ID
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/capabilities","value":["ORG_ADMIN"]}]; // A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-const result = await apiInstance.patchAuthUserV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const result = await apiInstance.patchAuthUserV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

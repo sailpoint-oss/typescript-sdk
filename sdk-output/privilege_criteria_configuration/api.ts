@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,48 +113,48 @@ export interface GetPrivilegeCriteriaConfigV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Privilegecriteriaconfigdto
+ * @interface PrivilegeCriteriaConfigDTO
  */
-export interface Privilegecriteriaconfigdto {
+export interface PrivilegeCriteriaConfigDTO {
     /**
      * The Id of the task which is executing the bulk update.
      * @type {string}
-     * @memberof Privilegecriteriaconfigdto
+     * @memberof PrivilegeCriteriaConfigDTO
      */
     'id'?: string;
     /**
      * The Id of the source that the criteria configuration is applied to.
      * @type {string}
-     * @memberof Privilegecriteriaconfigdto
+     * @memberof PrivilegeCriteriaConfigDTO
      */
     'sourceId'?: string;
     /**
      * The configuration settings for privilege criteria evaluation. 
      * @type {object}
-     * @memberof Privilegecriteriaconfigdto
+     * @memberof PrivilegeCriteriaConfigDTO
      */
     'config'?: object;
     /**
      * The date and time when the privilege criteria configuration was created.
      * @type {string}
-     * @memberof Privilegecriteriaconfigdto
+     * @memberof PrivilegeCriteriaConfigDTO
      */
     'created'?: string;
     /**
      * The date and time when the privilege criteria configuration was last modified.
      * @type {string}
-     * @memberof Privilegecriteriaconfigdto
+     * @memberof PrivilegeCriteriaConfigDTO
      */
     'modified'?: string;
 }
@@ -293,7 +293,7 @@ export const PrivilegeCriteriaConfigurationApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPrivilegeCriteriaConfigV1(criteriaConfigId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Privilegecriteriaconfigdto>> {
+        async getPrivilegeCriteriaConfigV1(criteriaConfigId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PrivilegeCriteriaConfigDTO>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPrivilegeCriteriaConfigV1(criteriaConfigId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationApi.getPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -306,7 +306,7 @@ export const PrivilegeCriteriaConfigurationApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPrivilegeCriteriaConfigV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Privilegecriteriaconfigdto>>> {
+        async listPrivilegeCriteriaConfigV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PrivilegeCriteriaConfigDTO>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPrivilegeCriteriaConfigV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationApi.listPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -320,7 +320,7 @@ export const PrivilegeCriteriaConfigurationApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPrivilegeCriteriaConfigV1(criteriaConfigId: string, requestBody: Array<object>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Privilegecriteriaconfigdto>> {
+        async patchPrivilegeCriteriaConfigV1(criteriaConfigId: string, requestBody: Array<object>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PrivilegeCriteriaConfigDTO>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchPrivilegeCriteriaConfigV1(criteriaConfigId, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PrivilegeCriteriaConfigurationApi.patchPrivilegeCriteriaConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -343,7 +343,7 @@ export const PrivilegeCriteriaConfigurationApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Privilegecriteriaconfigdto> {
+        getPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiGetPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PrivilegeCriteriaConfigDTO> {
             return localVarFp.getPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -353,7 +353,7 @@ export const PrivilegeCriteriaConfigurationApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Privilegecriteriaconfigdto>> {
+        listPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiListPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PrivilegeCriteriaConfigDTO>> {
             return localVarFp.listPrivilegeCriteriaConfigV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -363,7 +363,7 @@ export const PrivilegeCriteriaConfigurationApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Privilegecriteriaconfigdto> {
+        patchPrivilegeCriteriaConfigV1(requestParameters: PrivilegeCriteriaConfigurationApiPatchPrivilegeCriteriaConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PrivilegeCriteriaConfigDTO> {
             return localVarFp.patchPrivilegeCriteriaConfigV1(requestParameters.criteriaConfigId, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
     };

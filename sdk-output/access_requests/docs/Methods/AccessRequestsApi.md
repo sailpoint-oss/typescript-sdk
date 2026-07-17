@@ -41,7 +41,7 @@ This API endpoint allows approving pending access requests in bulk. Maximum of 5
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**bulkapproveaccessrequest** | `Bulkapproveaccessrequest` |  | 
+**bulkApproveAccessRequest** | `BulkApproveAccessRequest` |  | 
 
 ### Return type
 
@@ -57,12 +57,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Bulkapproveaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
+import { BulkApproveAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const bulkapproveaccessrequest: Bulkapproveaccessrequest = {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I approve these request items"}; // 
-const result = await apiInstance.approveBulkAccessRequestV1({ bulkapproveaccessrequest: bulkapproveaccessrequest });
+const bulkApproveAccessRequest: BulkApproveAccessRequest = {
+  "comment" : "I approve these request items",
+  "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
+}; // 
+const result = await apiInstance.approveBulkAccessRequestV1({ bulkApproveAccessRequest: bulkApproveAccessRequest });
 console.log(result);
 ```
 
@@ -80,7 +83,7 @@ Only ORG_ADMIN or users with rights "idn:access-request-administration:write" ca
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**bulkcancelaccessrequest** | `Bulkcancelaccessrequest` |  | 
+**bulkCancelAccessRequest** | `BulkCancelAccessRequest` |  | 
 
 ### Return type
 
@@ -96,12 +99,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Bulkcancelaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
+import { BulkCancelAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const bulkcancelaccessrequest: Bulkcancelaccessrequest = {"accessRequestIds":["2c91808568c529c60168cca6f90c1313","2c91808568c529c60168cca6f90c1314"],"comment":"I requested this role by mistake."}; // 
-const result = await apiInstance.cancelAccessRequestInBulkV1({ bulkcancelaccessrequest: bulkcancelaccessrequest });
+const bulkCancelAccessRequest: BulkCancelAccessRequest = {
+  "accessRequestIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ],
+  "comment" : "I requested this role by mistake."
+}; // 
+const result = await apiInstance.cancelAccessRequestInBulkV1({ bulkCancelAccessRequest: bulkCancelAccessRequest });
 console.log(result);
 ```
 
@@ -119,7 +125,7 @@ In addition to users with ORG_ADMIN, any user who originally submitted the acces
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**cancelaccessrequest** | `Cancelaccessrequest` |  | 
+**cancelAccessRequest** | `CancelAccessRequest` |  | 
 
 ### Return type
 
@@ -135,12 +141,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Cancelaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
+import { CancelAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const cancelaccessrequest: Cancelaccessrequest = {"accountActivityId":"2c91808568c529c60168cca6f90c1313","comment":"I requested this role by mistake."}; // 
-const result = await apiInstance.cancelAccessRequestV1({ cancelaccessrequest: cancelaccessrequest });
+const cancelAccessRequest: CancelAccessRequest = {
+  "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
+  "comment" : "I requested this role by mistake."
+}; // 
+const result = await apiInstance.cancelAccessRequestV1({ cancelAccessRequest: cancelAccessRequest });
 console.log(result);
 ```
 
@@ -168,7 +177,7 @@ This API triggers the [Provisioning Completed event trigger](https://developer.s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**closeaccessrequest** | `Closeaccessrequest` |  | 
+**closeAccessRequest** | `CloseAccessRequest` |  | 
 
 ### Return type
 
@@ -184,12 +193,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Closeaccessrequest } from 'sailpoint-api-client/dist/access_requests/api';
+import { CloseAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const closeaccessrequest: Closeaccessrequest = {"accessRequestIds":["2c90ad2a70ace7d50170acf22ca90010"],"executionStatus":"Terminated","completionStatus":"Failure","message":"The IdentityNow Administrator manually closed this request."}; // 
-const result = await apiInstance.closeAccessRequestV1({ closeaccessrequest: closeaccessrequest });
+const closeAccessRequest: CloseAccessRequest = {
+  "executionStatus" : "Terminated",
+  "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+  "completionStatus" : "Failure",
+  "message" : "The IdentityNow Administrator manually closed this request."
+}; // 
+const result = await apiInstance.closeAccessRequestV1({ closeAccessRequest: closeAccessRequest });
 console.log(result);
 ```
 
@@ -256,11 +270,11 @@ __REVOKE_ACCESS__
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequest** | `Accessrequest` |  | 
+**accessRequest** | `AccessRequest` |  | 
 
 ### Return type
 
-`Accessrequestresponse`
+`AccessRequestResponse`
 
 ### HTTP request headers
 
@@ -272,12 +286,167 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequest } from 'sailpoint-api-client/dist/access_requests/api';
+import { AccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const accessrequest: Accessrequest = ; // 
-const result = await apiInstance.createAccessRequestV1({ accessrequest: accessrequest });
+const accessRequest: AccessRequest = {
+  "requestedFor" : "2c918084660f45d6016617daa9210584",
+  "clientMetadata" : {
+    "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+    "requestedAppName" : "test-app"
+  },
+  "requestType" : "GRANT_ACCESS",
+  "requestedItems" : [ {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  } ],
+  "requestedForWithRequestedItems" : [ {
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    } ]
+  }, {
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "startDate" : "2020-06-12T21:22:23Z"
+    } ]
+  } ]
+}; // 
+const result = await apiInstance.createAccessRequestV1({ accessRequest: accessRequest });
 console.log(result);
 ```
 
@@ -298,7 +467,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Accessrequestconfig`
+`AccessRequestConfig`
 
 ### HTTP request headers
 
@@ -331,7 +500,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Accessrequestconfigv2`
+`AccessRequestConfig2`
 
 ### HTTP request headers
 
@@ -368,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identityentitlementdetails`
+`IdentityEntitlementDetails`
 
 ### HTTP request headers
 
@@ -417,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Requesteditemstatus>`
+`Array<RequestedItemStatus>`
 
 ### HTTP request headers
 
@@ -477,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessrequestadminitemstatus>`
+`Array<AccessRequestAdminItemStatus>`
 
 ### HTTP request headers
 
@@ -526,12 +695,12 @@ Used to fetch accountSelection for the AccessRequest prior to submitting for asy
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accountsselectionrequest** | `Accountsselectionrequest` |  | 
+**accountsSelectionRequest** | `AccountsSelectionRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Accountsselectionresponse`
+`AccountsSelectionResponse`
 
 ### HTTP request headers
 
@@ -543,13 +712,81 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accountsselectionrequest } from 'sailpoint-api-client/dist/access_requests/api';
+import { AccountsSelectionRequest } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const accountsselectionrequest: Accountsselectionrequest = ; // 
+const accountsSelectionRequest: AccountsSelectionRequest = {
+  "requestedFor" : "2c918084660f45d6016617daa9210584",
+  "clientMetadata" : {
+    "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+    "requestedAppName" : "test-app"
+  },
+  "requestType" : "GRANT_ACCESS",
+  "requestedItems" : [ {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "startDate" : "2020-06-12T21:22:23Z",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  } ]
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.loadAccountSelectionsV1({ accountsselectionrequest: accountsselectionrequest });
+const result = await apiInstance.loadAccountSelectionsV1({ accountsSelectionRequest: accountsSelectionRequest });
 console.log(result);
 ```
 
@@ -569,11 +806,11 @@ This endpoint replaces the current access-request configuration.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequestconfig** | `Accessrequestconfig` |  | 
+**accessRequestConfig** | `AccessRequestConfig` |  | 
 
 ### Return type
 
-`Accessrequestconfig`
+`AccessRequestConfig`
 
 ### HTTP request headers
 
@@ -585,12 +822,59 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequestconfig } from 'sailpoint-api-client/dist/access_requests/api';
+import { AccessRequestConfig } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const accessrequestconfig: Accessrequestconfig = ; // 
-const result = await apiInstance.setAccessRequestConfigV1({ accessrequestconfig: accessrequestconfig });
+const accessRequestConfig: AccessRequestConfig = {
+  "requestOnBehalfOfConfig" : {
+    "allowRequestOnBehalfOfEmployeeByManager" : true,
+    "allowRequestOnBehalfOfAnyoneByAnyone" : true
+  },
+  "approvalReminderAndEscalationConfig" : {
+    "fallbackApproverRef" : {
+      "name" : "Alison Ferguso",
+      "id" : "5168015d32f890ca15812c9180835d2e",
+      "type" : "IDENTITY",
+      "email" : "alison.ferguso@identitysoon.com"
+    },
+    "maxReminders" : 1,
+    "daysUntilEscalation" : 0,
+    "daysBetweenReminders" : 0
+  },
+  "autoApprovalEnabled" : true,
+  "entitlementRequestConfig" : {
+    "accessRequestConfig" : {
+      "denialCommentRequired" : false,
+      "approvalSchemes" : [ {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      }, {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      } ],
+      "reauthorizationRequired" : false,
+      "requestCommentRequired" : true,
+      "requireEndDate" : true,
+      "maxPermittedAccessDuration" : {
+        "value" : 5,
+        "timeUnit" : "DAYS"
+      }
+    },
+    "revocationRequestConfig" : {
+      "approvalSchemes" : [ {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      }, {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      } ]
+    }
+  },
+  "reauthorizationEnabled" : true,
+  "approvalsMustBeExternal" : true
+}; // 
+const result = await apiInstance.setAccessRequestConfigV1({ accessRequestConfig: accessRequestConfig });
 console.log(result);
 ```
 
@@ -607,11 +891,11 @@ This endpoint replaces the current access-request configuration.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessrequestconfigv2** | `Accessrequestconfigv2` |  | 
+**accessRequestConfig2** | `AccessRequestConfig2` |  | 
 
 ### Return type
 
-`Accessrequestconfigv2`
+`AccessRequestConfig2`
 
 ### HTTP request headers
 
@@ -623,12 +907,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessrequestconfigv2 } from 'sailpoint-api-client/dist/access_requests/api';
+import { AccessRequestConfig2 } from 'sailpoint-api-client/dist/access_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const accessrequestconfigv2: Accessrequestconfigv2 = ; // 
-const result = await apiInstance.setAccessRequestConfigV2({ accessrequestconfigv2: accessrequestconfigv2 });
+const accessRequestConfig2: AccessRequestConfig2 = ; // 
+const result = await apiInstance.setAccessRequestConfigV2({ accessRequestConfig2: accessRequestConfig2 });
 console.log(result);
 ```
 

@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Mfaduoconfig`
+`MfaDuoConfig`
 
 ### HTTP request headers
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Kbaquestion>`
+`Array<KbaQuestion>`
 
 ### HTTP request headers
 
@@ -106,7 +106,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Mfaoktaconfig`
+`MfaOktaConfig`
 
 ### HTTP request headers
 
@@ -138,11 +138,11 @@ This API sets the configuration of an Duo MFA method.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**mfaduoconfig** | `Mfaduoconfig` |  | 
+**mfaDuoConfig** | `MfaDuoConfig` |  | 
 
 ### Return type
 
-`Mfaduoconfig`
+`MfaDuoConfig`
 
 ### HTTP request headers
 
@@ -154,12 +154,22 @@ Name | Type | Description  | Notes
 ```typescript
 import { MFAConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Mfaduoconfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
+import { MfaDuoConfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
-const mfaduoconfig: Mfaduoconfig = {"mfaMethod":"duo-web","enabled":true,"host":"www.example.com","accessKey":"qw123Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email","configProperties":{"skey":"12q3WERlcUHWJmiMqyCXI3uOF7EaDJTbdeOp6E2B","ikey":"Q123WE45R6TY7890ZXCV"}}; // 
-const result = await apiInstance.setMFADuoConfigV1({ mfaduoconfig: mfaduoconfig });
+const mfaDuoConfig: MfaDuoConfig = {
+  "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
+  "host" : "example.com",
+  "configProperties" : {
+    "skey" : "qwERttyZx1CdlQye2Vwtbsjr3HKddy4BAiCXjc5x",
+    "ikey" : "Q123WE45R6TY7890ZXCV"
+  },
+  "mfaMethod" : "duo-web",
+  "enabled" : true,
+  "identityAttribute" : "email"
+}; // 
+const result = await apiInstance.setMFADuoConfigV1({ mfaDuoConfig: mfaDuoConfig });
 console.log(result);
 ```
 
@@ -176,11 +186,11 @@ This API sets answers to challenge questions.  Any configured questions omitted 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**kbaanswerrequestitem** | `Array<Kbaanswerrequestitem>` |  | 
+**kbaAnswerRequestItem** | `Array<KbaAnswerRequestItem>` |  | 
 
 ### Return type
 
-`Array<Kbaanswerresponseitem>`
+`Array<KbaAnswerResponseItem>`
 
 ### HTTP request headers
 
@@ -192,12 +202,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { MFAConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Kbaanswerrequestitem } from 'sailpoint-api-client/dist/mfa_configuration/api';
+import { KbaAnswerRequestItem } from 'sailpoint-api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
-const kbaanswerrequestitem: Array<Kbaanswerrequestitem> = [{"id":"173423","answer":"822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"},{"id":"c54fee53-2d63-4fc5-9259-3e93b9994135","answer":"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"}]; // 
-const result = await apiInstance.setMFAKBAConfigV1({ kbaanswerrequestitem: kbaanswerrequestitem });
+const kbaAnswerRequestItem: Array<KbaAnswerRequestItem> = {
+  "answer" : "Your answer",
+  "id" : "c54fee53-2d63-4fc5-9259-3e93b9994135"
+}; // 
+const result = await apiInstance.setMFAKBAConfigV1({ kbaAnswerRequestItem: kbaAnswerRequestItem });
 console.log(result);
 ```
 
@@ -214,11 +227,11 @@ This API sets the configuration of an Okta MFA method.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**mfaoktaconfig** | `Mfaoktaconfig` |  | 
+**mfaOktaConfig** | `MfaOktaConfig` |  | 
 
 ### Return type
 
-`Mfaoktaconfig`
+`MfaOktaConfig`
 
 ### HTTP request headers
 
@@ -230,12 +243,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { MFAConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Mfaoktaconfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
+import { MfaOktaConfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
-const mfaoktaconfig: Mfaoktaconfig = {"mfaMethod":"okta-verify","enabled":true,"host":"www.example.com","accessKey":"dk778Y3QlA5UqocYpdU3rEkzrK2D497y","identityAttribute":"email"}; // 
-const result = await apiInstance.setMFAOktaConfigV1({ mfaoktaconfig: mfaoktaconfig });
+const mfaOktaConfig: MfaOktaConfig = {
+  "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
+  "host" : "example.com",
+  "mfaMethod" : "okta-verify",
+  "enabled" : true,
+  "identityAttribute" : "email"
+}; // 
+const result = await apiInstance.setMFAOktaConfigV1({ mfaOktaConfig: mfaOktaConfig });
 console.log(result);
 ```
 
@@ -256,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Mfaconfigtestresponse`
+`MfaConfigTestResponse`
 
 ### HTTP request headers
 

@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourcesubtype`
+`SourceSubtype`
 
 ### HTTP request headers
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourcesubtype`
+`SourceSubtype`
 
 ### HTTP request headers
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourcesubtype`
+`SourceSubtype`
 
 ### HTTP request headers
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Machineaccount`
+`MachineAccount`
 
 ### HTTP request headers
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sourcesubtype>`
+`Array<SourceSubtype>`
 
 ### HTTP request headers
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Machineaccount>`
+`Array<MachineAccount>`
 
 ### HTTP request headers
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourcesubtype`
+`SourceSubtype`
 
 ### HTTP request headers
 
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Machineaccount`
+`MachineAccount`
 
 ### HTTP request headers
 

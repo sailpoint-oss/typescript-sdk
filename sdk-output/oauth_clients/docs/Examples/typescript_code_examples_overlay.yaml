@@ -6,12 +6,28 @@
       source: |
         import { OAuthClientsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Createoauthclientrequest } from 'sailpoint-api-client/dist/oauth_clients/api';
+        import { CreateOAuthClientRequest } from 'sailpoint-api-client/dist/oauth_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new OAuthClientsApi(configuration);
-        const createoauthclientrequest: Createoauthclientrequest = ; // Createoauthclientrequest | 
-        const result = await apiInstance.createOauthClientV1({ createoauthclientrequest: createoauthclientrequest });
+        const createOAuthClientRequest: CreateOAuthClientRequest = {
+  "internal" : false,
+  "businessName" : "Acme-Solar",
+  "description" : "An API client used for the authorization_code, refresh_token, and client_credentials flows",
+  "refreshTokenValiditySeconds" : 86400,
+  "type" : "CONFIDENTIAL",
+  "redirectUris" : [ "http://localhost:12345" ],
+  "enabled" : true,
+  "accessType" : "OFFLINE",
+  "grantTypes" : [ "AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "REFRESH_TOKEN" ],
+  "strongAuthSupported" : false,
+  "homepageUrl" : "http://localhost:12345",
+  "accessTokenValiditySeconds" : 750,
+  "scope" : [ "demo:api-client-scope:first", "demo:api-client-scope:second" ],
+  "name" : "Demo API Client",
+  "claimsSupported" : false
+}; // CreateOAuthClientRequest | 
+        const result = await apiInstance.createOauthClientV1({ createOAuthClientRequest: createOAuthClientRequest });
         console.log(result);
 - path: /oauth-clients/v1/{id}
   method: DELETE
@@ -63,11 +79,15 @@
       source: |
         import { OAuthClientsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/oauth_clients/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/oauth_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new OAuthClientsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The OAuth client id (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/strongAuthSupported","value":true},{"op":"replace","path":"/businessName","value":"acme-solar"}]; // Array<Jsonpatchoperation> | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
-        const result = await apiInstance.patchOauthClientV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+        const result = await apiInstance.patchOauthClientV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);

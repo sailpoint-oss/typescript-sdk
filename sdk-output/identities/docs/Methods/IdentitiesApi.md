@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identityownershipassociationdetails`
+`IdentityOwnershipAssociationDetails`
 
 ### HTTP request headers
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Roleassignmentdto`
+`RoleAssignmentDto`
 
 ### HTTP request headers
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identityentitlements>`
+`Array<IdentityEntitlements>`
 
 ### HTTP request headers
 
@@ -385,7 +385,7 @@ This API sends an email with the link to start Password Reset. After selecting t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Identity ID |  [default to undefined]
-**sendaccountverificationrequest** | `Sendaccountverificationrequest` |  | 
+**sendAccountVerificationRequest** | `SendAccountVerificationRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
@@ -402,14 +402,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sendaccountverificationrequest } from 'sailpoint-api-client/dist/identities/api';
+import { SendAccountVerificationRequest } from 'sailpoint-api-client/dist/identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentitiesApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Identity ID
-const sendaccountverificationrequest: Sendaccountverificationrequest = ; // 
+const sendAccountVerificationRequest: SendAccountVerificationRequest = {
+  "sourceName" : "Active Directory Source",
+  "via" : "EMAIL_WORK"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.sendIdentityVerificationAccountTokenV1({ id: id, sendaccountverificationrequest: sendaccountverificationrequest });
+const result = await apiInstance.sendIdentityVerificationAccountTokenV1({ id: id, sendAccountVerificationRequest: sendAccountVerificationRequest });
 console.log(result);
 ```
 
@@ -434,12 +437,12 @@ The executed task status can be checked by Task Management > [Get task status by
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**inviteidentitiesrequest** | `Inviteidentitiesrequest` |  | 
+**inviteIdentitiesRequest** | `InviteIdentitiesRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Taskstatus`
+`TaskStatus`
 
 ### HTTP request headers
 
@@ -451,13 +454,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Inviteidentitiesrequest } from 'sailpoint-api-client/dist/identities/api';
+import { InviteIdentitiesRequest } from 'sailpoint-api-client/dist/identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentitiesApi(configuration);
-const inviteidentitiesrequest: Inviteidentitiesrequest = ; // 
+const inviteIdentitiesRequest: InviteIdentitiesRequest = {
+  "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
+  "uninvited" : false
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.startIdentitiesInviteV1({ inviteidentitiesrequest: inviteidentitiesrequest });
+const result = await apiInstance.startIdentitiesInviteV1({ inviteIdentitiesRequest: inviteIdentitiesRequest });
 console.log(result);
 ```
 
@@ -484,12 +490,12 @@ This endpoint will perform the following tasks:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**processidentitiesrequest** | `Processidentitiesrequest` |  | 
+**processIdentitiesRequest** | `ProcessIdentitiesRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Taskresultresponse`
+`TaskResultResponse`
 
 ### HTTP request headers
 
@@ -501,13 +507,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Processidentitiesrequest } from 'sailpoint-api-client/dist/identities/api';
+import { ProcessIdentitiesRequest } from 'sailpoint-api-client/dist/identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentitiesApi(configuration);
-const processidentitiesrequest: Processidentitiesrequest = ; // 
+const processIdentitiesRequest: ProcessIdentitiesRequest = {
+  "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.startIdentityProcessingV1({ processidentitiesrequest: processidentitiesrequest });
+const result = await apiInstance.startIdentityProcessingV1({ processIdentitiesRequest: processIdentitiesRequest });
 console.log(result);
 ```
 
@@ -532,7 +540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identitysyncjob`
+`IdentitySyncJob`
 
 ### HTTP request headers
 

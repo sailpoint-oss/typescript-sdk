@@ -33,25 +33,25 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -60,33 +60,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -120,234 +120,259 @@ export interface GetMultiHostIntegrationsListV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Managercorrelationmapping
+ * @interface ManagerCorrelationMapping
  */
-export interface Managercorrelationmapping {
+export interface ManagerCorrelationMapping {
     /**
      * Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager\'s identity.
      * @type {string}
-     * @memberof Managercorrelationmapping
+     * @memberof ManagerCorrelationMapping
      */
     'accountAttributeName'?: string;
     /**
      * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
      * @type {string}
-     * @memberof Managercorrelationmapping
+     * @memberof ManagerCorrelationMapping
      */
     'identityAttributeName'?: string;
 }
 /**
+ * This represents a Multi-Host Integration template type.
+ * @export
+ * @interface MultiHostIntegrationTemplateType
+ */
+export interface MultiHostIntegrationTemplateType {
+    /**
+     * This is the name of the type.
+     * @type {string}
+     * @memberof MultiHostIntegrationTemplateType
+     */
+    'name'?: string;
+    /**
+     * This is the type value for the type.
+     * @type {string}
+     * @memberof MultiHostIntegrationTemplateType
+     */
+    'type': string;
+    /**
+     * This is the scriptName attribute value for the type.
+     * @type {string}
+     * @memberof MultiHostIntegrationTemplateType
+     */
+    'scriptName': string;
+}
+/**
  * 
  * @export
- * @interface Multihostintegrations
+ * @interface MultiHostIntegrations
  */
-export interface Multihostintegrations {
+export interface MultiHostIntegrations {
     /**
      * Multi-Host Integration ID.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'id': string;
     /**
      * Multi-Host Integration\'s human-readable name.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'name': string;
     /**
      * Multi-Host Integration\'s human-readable description.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'description': string;
     /**
      * 
-     * @type {MultihostintegrationsOwner}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsOwner}
+     * @memberof MultiHostIntegrations
      */
-    'owner': MultihostintegrationsOwner;
+    'owner': MultiHostIntegrationsOwner;
     /**
      * 
-     * @type {MultihostintegrationsCluster}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsCluster}
+     * @memberof MultiHostIntegrations
      */
-    'cluster'?: MultihostintegrationsCluster | null;
+    'cluster'?: MultiHostIntegrationsCluster | null;
     /**
      * 
-     * @type {MultihostintegrationsAccountCorrelationConfig}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsAccountCorrelationConfig}
+     * @memberof MultiHostIntegrations
      */
-    'accountCorrelationConfig'?: MultihostintegrationsAccountCorrelationConfig | null;
+    'accountCorrelationConfig'?: MultiHostIntegrationsAccountCorrelationConfig | null;
     /**
      * 
-     * @type {MultihostintegrationsAccountCorrelationRule}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsAccountCorrelationRule}
+     * @memberof MultiHostIntegrations
      */
-    'accountCorrelationRule'?: MultihostintegrationsAccountCorrelationRule | null;
+    'accountCorrelationRule'?: MultiHostIntegrationsAccountCorrelationRule | null;
     /**
      * 
-     * @type {MultihostintegrationsManagerCorrelationMapping}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsManagerCorrelationMapping}
+     * @memberof MultiHostIntegrations
      */
-    'managerCorrelationMapping'?: MultihostintegrationsManagerCorrelationMapping;
+    'managerCorrelationMapping'?: MultiHostIntegrationsManagerCorrelationMapping;
     /**
      * 
-     * @type {MultihostintegrationsManagerCorrelationRule}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsManagerCorrelationRule}
+     * @memberof MultiHostIntegrations
      */
-    'managerCorrelationRule'?: MultihostintegrationsManagerCorrelationRule | null;
+    'managerCorrelationRule'?: MultiHostIntegrationsManagerCorrelationRule | null;
     /**
      * 
-     * @type {MultihostintegrationsBeforeProvisioningRule}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsBeforeProvisioningRule}
+     * @memberof MultiHostIntegrations
      */
-    'beforeProvisioningRule'?: MultihostintegrationsBeforeProvisioningRule | null;
+    'beforeProvisioningRule'?: MultiHostIntegrationsBeforeProvisioningRule | null;
     /**
      * List of references to schema objects.
-     * @type {Array<MultihostintegrationsSchemasInner>}
-     * @memberof Multihostintegrations
+     * @type {Array<MultiHostIntegrationsSchemasInner>}
+     * @memberof MultiHostIntegrations
      */
-    'schemas'?: Array<MultihostintegrationsSchemasInner>;
+    'schemas'?: Array<MultiHostIntegrationsSchemasInner>;
     /**
      * List of references to the associated PasswordPolicy objects.
-     * @type {Array<MultihostintegrationsPasswordPoliciesInner>}
-     * @memberof Multihostintegrations
+     * @type {Array<MultiHostIntegrationsPasswordPoliciesInner>}
+     * @memberof MultiHostIntegrations
      */
-    'passwordPolicies'?: Array<MultihostintegrationsPasswordPoliciesInner> | null;
+    'passwordPolicies'?: Array<MultiHostIntegrationsPasswordPoliciesInner> | null;
     /**
      * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
      * @type {Array<string>}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
-    'features'?: Array<MultihostintegrationsFeaturesEnum>;
+    'features'?: Array<MultiHostIntegrationsFeaturesEnum>;
     /**
      * Specifies the type of system being managed e.g. Workday, Multi-Host - Microsoft SQL Server, etc.. If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'type'?: string;
     /**
      * Connector script name.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'connector': string;
     /**
      * Fully qualified name of the Java class that implements the connector interface.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'connectorClass'?: string;
     /**
      * 
-     * @type {MultihostintegrationsConnectorAttributes}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsConnectorAttributes}
+     * @memberof MultiHostIntegrations
      */
-    'connectorAttributes'?: MultihostintegrationsConnectorAttributes;
+    'connectorAttributes'?: MultiHostIntegrationsConnectorAttributes;
     /**
      * Number from 0 to 100 that specifies when to skip the delete phase.
      * @type {number}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'deleteThreshold'?: number;
     /**
      * When this is true, it indicates that the source is referenced by an identity profile.
      * @type {boolean}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'authoritative'?: boolean;
     /**
      * 
-     * @type {MultihostintegrationsManagementWorkgroup}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsManagementWorkgroup}
+     * @memberof MultiHostIntegrations
      */
-    'managementWorkgroup'?: MultihostintegrationsManagementWorkgroup | null;
+    'managementWorkgroup'?: MultiHostIntegrationsManagementWorkgroup | null;
     /**
      * When this is true, it indicates that the source is healthy.
      * @type {boolean}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'healthy'?: boolean;
     /**
      * Status identifier that gives specific information about why a source is or isn\'t healthy.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
-    'status'?: MultihostintegrationsStatusEnum;
+    'status'?: MultiHostIntegrationsStatusEnum;
     /**
      * Timestamp that shows when a source health check was last performed.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'since'?: string;
     /**
      * Connector ID
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'connectorId'?: string;
     /**
      * Name of the connector that was chosen during source creation.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'connectorName'?: string;
     /**
      * Type of connection (direct or file).
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
-    'connectionType'?: MultihostintegrationsConnectionTypeEnum;
+    'connectionType'?: MultiHostIntegrationsConnectionTypeEnum;
     /**
      * Connector implementation ID.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'connectorImplementationId'?: string;
     /**
      * Date-time when the source was created
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'created'?: string;
     /**
      * Date-time when the source was last modified.
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'modified'?: string;
     /**
      * If this is true, it enables a credential provider for the source. If credentialProvider is turned on,  then the source can use credential provider(s) to fetch credentials.
      * @type {boolean}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'credentialProviderEnabled'?: boolean;
     /**
      * Source category (e.g. null, CredentialProvider).
      * @type {string}
-     * @memberof Multihostintegrations
+     * @memberof MultiHostIntegrations
      */
     'category'?: string | null;
     /**
      * 
-     * @type {MultihostintegrationsAccountsFile}
-     * @memberof Multihostintegrations
+     * @type {MultiHostIntegrationsAccountsFile}
+     * @memberof MultiHostIntegrations
      */
-    'accountsFile'?: MultihostintegrationsAccountsFile | null;
+    'accountsFile'?: MultiHostIntegrationsAccountsFile | null;
 }
 
-export const MultihostintegrationsFeaturesEnum = {
+export const MultiHostIntegrationsFeaturesEnum = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -383,8 +408,8 @@ export const MultihostintegrationsFeaturesEnum = {
     Delete: 'DELETE'
 } as const;
 
-export type MultihostintegrationsFeaturesEnum = typeof MultihostintegrationsFeaturesEnum[keyof typeof MultihostintegrationsFeaturesEnum];
-export const MultihostintegrationsStatusEnum = {
+export type MultiHostIntegrationsFeaturesEnum = typeof MultiHostIntegrationsFeaturesEnum[keyof typeof MultiHostIntegrationsFeaturesEnum];
+export const MultiHostIntegrationsStatusEnum = {
     SourceStateErrorAccountFileImport: 'SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT',
     SourceStateErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     SourceStateErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
@@ -398,232 +423,287 @@ export const MultihostintegrationsStatusEnum = {
     SourceStateUncheckedSourceNoAccounts: 'SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS'
 } as const;
 
-export type MultihostintegrationsStatusEnum = typeof MultihostintegrationsStatusEnum[keyof typeof MultihostintegrationsStatusEnum];
-export const MultihostintegrationsConnectionTypeEnum = {
+export type MultiHostIntegrationsStatusEnum = typeof MultiHostIntegrationsStatusEnum[keyof typeof MultiHostIntegrationsStatusEnum];
+export const MultiHostIntegrationsConnectionTypeEnum = {
     Direct: 'direct',
     File: 'file'
 } as const;
 
-export type MultihostintegrationsConnectionTypeEnum = typeof MultihostintegrationsConnectionTypeEnum[keyof typeof MultihostintegrationsConnectionTypeEnum];
+export type MultiHostIntegrationsConnectionTypeEnum = typeof MultiHostIntegrationsConnectionTypeEnum[keyof typeof MultiHostIntegrationsConnectionTypeEnum];
 
 /**
  * Reference to account correlation config object.
  * @export
- * @interface MultihostintegrationsAccountCorrelationConfig
+ * @interface MultiHostIntegrationsAccountCorrelationConfig
  */
-export interface MultihostintegrationsAccountCorrelationConfig {
+export interface MultiHostIntegrationsAccountCorrelationConfig {
     /**
      * Type of object being referenced.
      * @type {string}
-     * @memberof MultihostintegrationsAccountCorrelationConfig
+     * @memberof MultiHostIntegrationsAccountCorrelationConfig
      */
-    'type'?: MultihostintegrationsAccountCorrelationConfigTypeEnum;
+    'type'?: MultiHostIntegrationsAccountCorrelationConfigTypeEnum;
     /**
      * Account correlation config ID.
      * @type {string}
-     * @memberof MultihostintegrationsAccountCorrelationConfig
+     * @memberof MultiHostIntegrationsAccountCorrelationConfig
      */
     'id'?: string;
     /**
      * Account correlation config\'s human-readable display name.
      * @type {string}
-     * @memberof MultihostintegrationsAccountCorrelationConfig
+     * @memberof MultiHostIntegrationsAccountCorrelationConfig
      */
     'name'?: string;
 }
 
-export const MultihostintegrationsAccountCorrelationConfigTypeEnum = {
+export const MultiHostIntegrationsAccountCorrelationConfigTypeEnum = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG'
 } as const;
 
-export type MultihostintegrationsAccountCorrelationConfigTypeEnum = typeof MultihostintegrationsAccountCorrelationConfigTypeEnum[keyof typeof MultihostintegrationsAccountCorrelationConfigTypeEnum];
+export type MultiHostIntegrationsAccountCorrelationConfigTypeEnum = typeof MultiHostIntegrationsAccountCorrelationConfigTypeEnum[keyof typeof MultiHostIntegrationsAccountCorrelationConfigTypeEnum];
 
 /**
  * Reference to a rule that can do COMPLEX correlation. Only use this rule when you can\'t use accountCorrelationConfig.
  * @export
- * @interface MultihostintegrationsAccountCorrelationRule
+ * @interface MultiHostIntegrationsAccountCorrelationRule
  */
-export interface MultihostintegrationsAccountCorrelationRule {
+export interface MultiHostIntegrationsAccountCorrelationRule {
     /**
      * Type of object being referenced.
      * @type {string}
-     * @memberof MultihostintegrationsAccountCorrelationRule
+     * @memberof MultiHostIntegrationsAccountCorrelationRule
      */
-    'type'?: MultihostintegrationsAccountCorrelationRuleTypeEnum;
+    'type'?: MultiHostIntegrationsAccountCorrelationRuleTypeEnum;
     /**
      * Rule ID.
      * @type {string}
-     * @memberof MultihostintegrationsAccountCorrelationRule
+     * @memberof MultiHostIntegrationsAccountCorrelationRule
      */
     'id'?: string;
     /**
      * Rule\'s human-readable display name.
      * @type {string}
-     * @memberof MultihostintegrationsAccountCorrelationRule
+     * @memberof MultiHostIntegrationsAccountCorrelationRule
      */
     'name'?: string;
 }
 
-export const MultihostintegrationsAccountCorrelationRuleTypeEnum = {
+export const MultiHostIntegrationsAccountCorrelationRuleTypeEnum = {
     Rule: 'RULE'
 } as const;
 
-export type MultihostintegrationsAccountCorrelationRuleTypeEnum = typeof MultihostintegrationsAccountCorrelationRuleTypeEnum[keyof typeof MultihostintegrationsAccountCorrelationRuleTypeEnum];
+export type MultiHostIntegrationsAccountCorrelationRuleTypeEnum = typeof MultiHostIntegrationsAccountCorrelationRuleTypeEnum[keyof typeof MultiHostIntegrationsAccountCorrelationRuleTypeEnum];
 
 /**
  * Reference to accounts file for the source.
  * @export
- * @interface MultihostintegrationsAccountsFile
+ * @interface MultiHostIntegrationsAccountsFile
  */
-export interface MultihostintegrationsAccountsFile {
+export interface MultiHostIntegrationsAccountsFile {
     /**
      * Name of the accounts file.
      * @type {string}
-     * @memberof MultihostintegrationsAccountsFile
+     * @memberof MultiHostIntegrationsAccountsFile
      */
     'name'?: string;
     /**
      * The accounts file key.
      * @type {string}
-     * @memberof MultihostintegrationsAccountsFile
+     * @memberof MultiHostIntegrationsAccountsFile
      */
     'key'?: string;
     /**
      * Date-time when the file was uploaded
      * @type {string}
-     * @memberof MultihostintegrationsAccountsFile
+     * @memberof MultiHostIntegrationsAccountsFile
      */
     'uploadTime'?: string;
     /**
      * Date-time when the accounts file expired.
      * @type {string}
-     * @memberof MultihostintegrationsAccountsFile
+     * @memberof MultiHostIntegrationsAccountsFile
      */
     'expiry'?: string;
     /**
      * If this is true, it indicates that the accounts file has expired.
      * @type {boolean}
-     * @memberof MultihostintegrationsAccountsFile
+     * @memberof MultiHostIntegrationsAccountsFile
      */
     'expired'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface MultiHostIntegrationsAggScheduleUpdate
+ */
+export interface MultiHostIntegrationsAggScheduleUpdate {
+    /**
+     * Multi-Host Integration ID. The ID must be unique
+     * @type {string}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'multihostId': string;
+    /**
+     * Multi-Host Integration aggregation group ID
+     * @type {string}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'aggregation_grp_id': string;
+    /**
+     * Multi-Host Integration name
+     * @type {string}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'aggregation_grp_name': string;
+    /**
+     * Cron expression to schedule aggregation
+     * @type {string}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'aggregation_cron_schedule': string;
+    /**
+     * Boolean value for Multi-Host Integration aggregation schedule.  This specifies if scheduled aggregation is enabled or disabled.
+     * @type {boolean}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'enableSchedule': boolean;
+    /**
+     * Source IDs of the Multi-Host Integration
+     * @type {Array<string>}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'source_id_list': Array<string>;
+    /**
+     * Created date of Multi-Host Integration aggregation schedule
+     * @type {string}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'created'?: string;
+    /**
+     * Modified date of Multi-Host Integration aggregation schedule
+     * @type {string}
+     * @memberof MultiHostIntegrationsAggScheduleUpdate
+     */
+    'modified'?: string;
+}
+/**
  * Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector.
  * @export
- * @interface MultihostintegrationsBeforeProvisioningRule
+ * @interface MultiHostIntegrationsBeforeProvisioningRule
  */
-export interface MultihostintegrationsBeforeProvisioningRule {
+export interface MultiHostIntegrationsBeforeProvisioningRule {
     /**
      * Type of object being referenced.
      * @type {string}
-     * @memberof MultihostintegrationsBeforeProvisioningRule
+     * @memberof MultiHostIntegrationsBeforeProvisioningRule
      */
-    'type'?: MultihostintegrationsBeforeProvisioningRuleTypeEnum;
+    'type'?: MultiHostIntegrationsBeforeProvisioningRuleTypeEnum;
     /**
      * Rule ID.
      * @type {string}
-     * @memberof MultihostintegrationsBeforeProvisioningRule
+     * @memberof MultiHostIntegrationsBeforeProvisioningRule
      */
     'id'?: string;
     /**
      * Rule\'s human-readable display name.
      * @type {string}
-     * @memberof MultihostintegrationsBeforeProvisioningRule
+     * @memberof MultiHostIntegrationsBeforeProvisioningRule
      */
     'name'?: string;
 }
 
-export const MultihostintegrationsBeforeProvisioningRuleTypeEnum = {
+export const MultiHostIntegrationsBeforeProvisioningRuleTypeEnum = {
     Rule: 'RULE'
 } as const;
 
-export type MultihostintegrationsBeforeProvisioningRuleTypeEnum = typeof MultihostintegrationsBeforeProvisioningRuleTypeEnum[keyof typeof MultihostintegrationsBeforeProvisioningRuleTypeEnum];
+export type MultiHostIntegrationsBeforeProvisioningRuleTypeEnum = typeof MultiHostIntegrationsBeforeProvisioningRuleTypeEnum[keyof typeof MultiHostIntegrationsBeforeProvisioningRuleTypeEnum];
 
 /**
  * Reference to the source\'s associated cluster.
  * @export
- * @interface MultihostintegrationsCluster
+ * @interface MultiHostIntegrationsCluster
  */
-export interface MultihostintegrationsCluster {
+export interface MultiHostIntegrationsCluster {
     /**
      * Type of object being referenced.
      * @type {string}
-     * @memberof MultihostintegrationsCluster
+     * @memberof MultiHostIntegrationsCluster
      */
-    'type': MultihostintegrationsClusterTypeEnum;
+    'type': MultiHostIntegrationsClusterTypeEnum;
     /**
      * Cluster ID.
      * @type {string}
-     * @memberof MultihostintegrationsCluster
+     * @memberof MultiHostIntegrationsCluster
      */
     'id': string;
     /**
      * Cluster\'s human-readable display name.
      * @type {string}
-     * @memberof MultihostintegrationsCluster
+     * @memberof MultiHostIntegrationsCluster
      */
     'name': string;
 }
 
-export const MultihostintegrationsClusterTypeEnum = {
+export const MultiHostIntegrationsClusterTypeEnum = {
     Cluster: 'CLUSTER'
 } as const;
 
-export type MultihostintegrationsClusterTypeEnum = typeof MultihostintegrationsClusterTypeEnum[keyof typeof MultihostintegrationsClusterTypeEnum];
+export type MultiHostIntegrationsClusterTypeEnum = typeof MultiHostIntegrationsClusterTypeEnum[keyof typeof MultiHostIntegrationsClusterTypeEnum];
 
 /**
  * Connector specific configuration. This configuration will differ for Multi-Host Integration type.
  * @export
- * @interface MultihostintegrationsConnectorAttributes
+ * @interface MultiHostIntegrationsConnectorAttributes
  */
-export interface MultihostintegrationsConnectorAttributes {
+export interface MultiHostIntegrationsConnectorAttributes {
     [key: string]: string | any;
 
     /**
      * Maximum sources allowed count of a Multi-Host Integration
      * @type {number}
-     * @memberof MultihostintegrationsConnectorAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributes
      */
     'maxAllowedSources'?: number;
     /**
      * Last upload sources count of a Multi-Host Integration
      * @type {number}
-     * @memberof MultihostintegrationsConnectorAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributes
      */
     'lastSourceUploadCount'?: number;
     /**
      * 
-     * @type {MultihostintegrationsConnectorAttributesConnectorFileUploadHistory}
-     * @memberof MultihostintegrationsConnectorAttributes
+     * @type {MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory}
+     * @memberof MultiHostIntegrationsConnectorAttributes
      */
-    'connectorFileUploadHistory'?: MultihostintegrationsConnectorAttributesConnectorFileUploadHistory;
+    'connectorFileUploadHistory'?: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory;
     /**
      * Multi-Host integration status.
      * @type {string}
-     * @memberof MultihostintegrationsConnectorAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributes
      */
-    'multihost_status'?: MultihostintegrationsConnectorAttributesMultihostStatusEnum;
+    'multihost_status'?: MultiHostIntegrationsConnectorAttributesMultihostStatusEnum;
     /**
      * Show account schema
      * @type {boolean}
-     * @memberof MultihostintegrationsConnectorAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributes
      */
     'showAccountSchema'?: boolean;
     /**
      * Show entitlement schema
      * @type {boolean}
-     * @memberof MultihostintegrationsConnectorAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributes
      */
     'showEntitlementSchema'?: boolean;
     /**
      * 
-     * @type {MultihostintegrationsConnectorAttributesMultiHostAttributes}
-     * @memberof MultihostintegrationsConnectorAttributes
+     * @type {MultiHostIntegrationsConnectorAttributesMultiHostAttributes}
+     * @memberof MultiHostIntegrationsConnectorAttributes
      */
-    'multiHostAttributes'?: MultihostintegrationsConnectorAttributesMultiHostAttributes;
+    'multiHostAttributes'?: MultiHostIntegrationsConnectorAttributesMultiHostAttributes;
 }
 
-export const MultihostintegrationsConnectorAttributesMultihostStatusEnum = {
+export const MultiHostIntegrationsConnectorAttributesMultihostStatusEnum = {
     Ready: 'ready',
     Processing: 'processing',
     FileUploadInProgress: 'fileUploadInProgress',
@@ -634,592 +714,512 @@ export const MultihostintegrationsConnectorAttributesMultihostStatusEnum = {
     DeleteFailed: 'deleteFailed'
 } as const;
 
-export type MultihostintegrationsConnectorAttributesMultihostStatusEnum = typeof MultihostintegrationsConnectorAttributesMultihostStatusEnum[keyof typeof MultihostintegrationsConnectorAttributesMultihostStatusEnum];
+export type MultiHostIntegrationsConnectorAttributesMultihostStatusEnum = typeof MultiHostIntegrationsConnectorAttributesMultihostStatusEnum[keyof typeof MultiHostIntegrationsConnectorAttributesMultihostStatusEnum];
 
 /**
  * 
  * @export
- * @interface MultihostintegrationsConnectorAttributesConnectorFileUploadHistory
+ * @interface MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
  */
-export interface MultihostintegrationsConnectorAttributesConnectorFileUploadHistory {
+export interface MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory {
     /**
      * File name of the connector JAR
      * @type {string}
-     * @memberof MultihostintegrationsConnectorAttributesConnectorFileUploadHistory
+     * @memberof MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
      */
     'connectorFileNameUploadedDate'?: string;
 }
 /**
  * Attributes of Multi-Host Integration
  * @export
- * @interface MultihostintegrationsConnectorAttributesMultiHostAttributes
+ * @interface MultiHostIntegrationsConnectorAttributesMultiHostAttributes
  */
-export interface MultihostintegrationsConnectorAttributesMultiHostAttributes {
+export interface MultiHostIntegrationsConnectorAttributesMultiHostAttributes {
     /**
      * Password.
      * @type {string}
-     * @memberof MultihostintegrationsConnectorAttributesMultiHostAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributesMultiHostAttributes
      */
     'password'?: string;
     /**
      * Connector file.
      * @type {string}
-     * @memberof MultihostintegrationsConnectorAttributesMultiHostAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributesMultiHostAttributes
      */
     'connector_files'?: string;
     /**
      * Authentication type.
      * @type {string}
-     * @memberof MultihostintegrationsConnectorAttributesMultiHostAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributesMultiHostAttributes
      */
     'authType'?: string;
     /**
      * Username.
      * @type {string}
-     * @memberof MultihostintegrationsConnectorAttributesMultiHostAttributes
+     * @memberof MultiHostIntegrationsConnectorAttributesMultiHostAttributes
      */
     'user'?: string;
 }
 /**
- * Reference to management workgroup for the source.
- * @export
- * @interface MultihostintegrationsManagementWorkgroup
- */
-export interface MultihostintegrationsManagementWorkgroup {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof MultihostintegrationsManagementWorkgroup
-     */
-    'type'?: MultihostintegrationsManagementWorkgroupTypeEnum;
-    /**
-     * Management workgroup ID.
-     * @type {string}
-     * @memberof MultihostintegrationsManagementWorkgroup
-     */
-    'id'?: string;
-    /**
-     * Management workgroup\'s human-readable display name.
-     * @type {string}
-     * @memberof MultihostintegrationsManagementWorkgroup
-     */
-    'name'?: string;
-}
-
-export const MultihostintegrationsManagementWorkgroupTypeEnum = {
-    GovernanceGroup: 'GOVERNANCE_GROUP'
-} as const;
-
-export type MultihostintegrationsManagementWorkgroupTypeEnum = typeof MultihostintegrationsManagementWorkgroupTypeEnum[keyof typeof MultihostintegrationsManagementWorkgroupTypeEnum];
-
-/**
  * 
  * @export
- * @interface MultihostintegrationsManagerCorrelationMapping
+ * @interface MultiHostIntegrationsCreate
  */
-export interface MultihostintegrationsManagerCorrelationMapping {
-    /**
-     * Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager\'s identity.
-     * @type {string}
-     * @memberof MultihostintegrationsManagerCorrelationMapping
-     */
-    'accountAttributeName'?: string;
-    /**
-     * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
-     * @type {string}
-     * @memberof MultihostintegrationsManagerCorrelationMapping
-     */
-    'identityAttributeName'?: string;
-}
-/**
- * Reference to the ManagerCorrelationRule. Only use this rule when a simple filter isn\'t sufficient.
- * @export
- * @interface MultihostintegrationsManagerCorrelationRule
- */
-export interface MultihostintegrationsManagerCorrelationRule {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof MultihostintegrationsManagerCorrelationRule
-     */
-    'type'?: MultihostintegrationsManagerCorrelationRuleTypeEnum;
-    /**
-     * Rule ID.
-     * @type {string}
-     * @memberof MultihostintegrationsManagerCorrelationRule
-     */
-    'id'?: string;
-    /**
-     * Rule\'s human-readable display name.
-     * @type {string}
-     * @memberof MultihostintegrationsManagerCorrelationRule
-     */
-    'name'?: string;
-}
-
-export const MultihostintegrationsManagerCorrelationRuleTypeEnum = {
-    Rule: 'RULE'
-} as const;
-
-export type MultihostintegrationsManagerCorrelationRuleTypeEnum = typeof MultihostintegrationsManagerCorrelationRuleTypeEnum[keyof typeof MultihostintegrationsManagerCorrelationRuleTypeEnum];
-
-/**
- * Reference to identity object who owns the source.
- * @export
- * @interface MultihostintegrationsOwner
- */
-export interface MultihostintegrationsOwner {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof MultihostintegrationsOwner
-     */
-    'type'?: MultihostintegrationsOwnerTypeEnum;
-    /**
-     * Owner identity\'s ID.
-     * @type {string}
-     * @memberof MultihostintegrationsOwner
-     */
-    'id'?: string;
-    /**
-     * Owner identity\'s human-readable display name.
-     * @type {string}
-     * @memberof MultihostintegrationsOwner
-     */
-    'name'?: string;
-}
-
-export const MultihostintegrationsOwnerTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type MultihostintegrationsOwnerTypeEnum = typeof MultihostintegrationsOwnerTypeEnum[keyof typeof MultihostintegrationsOwnerTypeEnum];
-
-/**
- * 
- * @export
- * @interface MultihostintegrationsPasswordPoliciesInner
- */
-export interface MultihostintegrationsPasswordPoliciesInner {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof MultihostintegrationsPasswordPoliciesInner
-     */
-    'type'?: MultihostintegrationsPasswordPoliciesInnerTypeEnum;
-    /**
-     * Policy ID.
-     * @type {string}
-     * @memberof MultihostintegrationsPasswordPoliciesInner
-     */
-    'id'?: string;
-    /**
-     * Policy\'s human-readable display name.
-     * @type {string}
-     * @memberof MultihostintegrationsPasswordPoliciesInner
-     */
-    'name'?: string;
-}
-
-export const MultihostintegrationsPasswordPoliciesInnerTypeEnum = {
-    PasswordPolicy: 'PASSWORD_POLICY'
-} as const;
-
-export type MultihostintegrationsPasswordPoliciesInnerTypeEnum = typeof MultihostintegrationsPasswordPoliciesInnerTypeEnum[keyof typeof MultihostintegrationsPasswordPoliciesInnerTypeEnum];
-
-/**
- * 
- * @export
- * @interface MultihostintegrationsSchemasInner
- */
-export interface MultihostintegrationsSchemasInner {
-    /**
-     * Type of object being referenced.
-     * @type {string}
-     * @memberof MultihostintegrationsSchemasInner
-     */
-    'type'?: MultihostintegrationsSchemasInnerTypeEnum;
-    /**
-     * Schema ID.
-     * @type {string}
-     * @memberof MultihostintegrationsSchemasInner
-     */
-    'id'?: string;
-    /**
-     * Schema\'s human-readable display name.
-     * @type {string}
-     * @memberof MultihostintegrationsSchemasInner
-     */
-    'name'?: string;
-}
-
-export const MultihostintegrationsSchemasInnerTypeEnum = {
-    ConnectorSchema: 'CONNECTOR_SCHEMA'
-} as const;
-
-export type MultihostintegrationsSchemasInnerTypeEnum = typeof MultihostintegrationsSchemasInnerTypeEnum[keyof typeof MultihostintegrationsSchemasInnerTypeEnum];
-
-/**
- * 
- * @export
- * @interface Multihostintegrationsaggscheduleupdate
- */
-export interface Multihostintegrationsaggscheduleupdate {
-    /**
-     * Multi-Host Integration ID. The ID must be unique
-     * @type {string}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'multihostId': string;
-    /**
-     * Multi-Host Integration aggregation group ID
-     * @type {string}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'aggregation_grp_id': string;
-    /**
-     * Multi-Host Integration name
-     * @type {string}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'aggregation_grp_name': string;
-    /**
-     * Cron expression to schedule aggregation
-     * @type {string}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'aggregation_cron_schedule': string;
-    /**
-     * Boolean value for Multi-Host Integration aggregation schedule.  This specifies if scheduled aggregation is enabled or disabled.
-     * @type {boolean}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'enableSchedule': boolean;
-    /**
-     * Source IDs of the Multi-Host Integration
-     * @type {Array<string>}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'source_id_list': Array<string>;
-    /**
-     * Created date of Multi-Host Integration aggregation schedule
-     * @type {string}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'created'?: string;
-    /**
-     * Modified date of Multi-Host Integration aggregation schedule
-     * @type {string}
-     * @memberof Multihostintegrationsaggscheduleupdate
-     */
-    'modified'?: string;
-}
-/**
- * 
- * @export
- * @interface Multihostintegrationscreate
- */
-export interface Multihostintegrationscreate {
+export interface MultiHostIntegrationsCreate {
     /**
      * Multi-Host Integration\'s human-readable name.
      * @type {string}
-     * @memberof Multihostintegrationscreate
+     * @memberof MultiHostIntegrationsCreate
      */
     'name': string;
     /**
      * Multi-Host Integration\'s human-readable description.
      * @type {string}
-     * @memberof Multihostintegrationscreate
+     * @memberof MultiHostIntegrationsCreate
      */
     'description': string;
     /**
      * 
-     * @type {MultihostintegrationsOwner}
-     * @memberof Multihostintegrationscreate
+     * @type {MultiHostIntegrationsOwner}
+     * @memberof MultiHostIntegrationsCreate
      */
-    'owner': MultihostintegrationsOwner;
+    'owner': MultiHostIntegrationsOwner;
     /**
      * 
-     * @type {MultihostintegrationsCluster}
-     * @memberof Multihostintegrationscreate
+     * @type {MultiHostIntegrationsCluster}
+     * @memberof MultiHostIntegrationsCreate
      */
-    'cluster'?: MultihostintegrationsCluster | null;
+    'cluster'?: MultiHostIntegrationsCluster | null;
     /**
      * Connector script name.
      * @type {string}
-     * @memberof Multihostintegrationscreate
+     * @memberof MultiHostIntegrationsCreate
      */
     'connector': string;
     /**
      * Multi-Host Integration specific configuration. User can add any number of additional attributes. e.g. maxSourcesPerAggGroup, maxAllowedSources etc.
      * @type {{ [key: string]: any; }}
-     * @memberof Multihostintegrationscreate
+     * @memberof MultiHostIntegrationsCreate
      */
     'connectorAttributes'?: { [key: string]: any; };
     /**
      * 
-     * @type {MultihostintegrationsManagementWorkgroup}
-     * @memberof Multihostintegrationscreate
+     * @type {MultiHostIntegrationsManagementWorkgroup}
+     * @memberof MultiHostIntegrationsCreate
      */
-    'managementWorkgroup'?: MultihostintegrationsManagementWorkgroup | null;
+    'managementWorkgroup'?: MultiHostIntegrationsManagementWorkgroup | null;
     /**
      * Date-time when the source was created
      * @type {string}
-     * @memberof Multihostintegrationscreate
+     * @memberof MultiHostIntegrationsCreate
      */
     'created'?: string;
     /**
      * Date-time when the source was last modified.
      * @type {string}
-     * @memberof Multihostintegrationscreate
+     * @memberof MultiHostIntegrationsCreate
      */
     'modified'?: string;
 }
 /**
  * This represents sources to be created of same type.
  * @export
- * @interface Multihostintegrationscreatesources
+ * @interface MultiHostIntegrationsCreateSources
  */
-export interface Multihostintegrationscreatesources {
+export interface MultiHostIntegrationsCreateSources {
     /**
      * Source\'s human-readable name.
      * @type {string}
-     * @memberof Multihostintegrationscreatesources
+     * @memberof MultiHostIntegrationsCreateSources
      */
     'name': string;
     /**
      * Source\'s human-readable description.
      * @type {string}
-     * @memberof Multihostintegrationscreatesources
+     * @memberof MultiHostIntegrationsCreateSources
      */
     'description'?: string;
     /**
      * Connector specific configuration. This configuration will differ from type to type.
      * @type {{ [key: string]: any; }}
-     * @memberof Multihostintegrationscreatesources
+     * @memberof MultiHostIntegrationsCreateSources
      */
     'connectorAttributes'?: { [key: string]: any; };
 }
 /**
- * This represents a Multi-Host Integration template type.
+ * Reference to management workgroup for the source.
  * @export
- * @interface Multihostintegrationtemplatetype
+ * @interface MultiHostIntegrationsManagementWorkgroup
  */
-export interface Multihostintegrationtemplatetype {
+export interface MultiHostIntegrationsManagementWorkgroup {
     /**
-     * This is the name of the type.
+     * Type of object being referenced.
      * @type {string}
-     * @memberof Multihostintegrationtemplatetype
+     * @memberof MultiHostIntegrationsManagementWorkgroup
+     */
+    'type'?: MultiHostIntegrationsManagementWorkgroupTypeEnum;
+    /**
+     * Management workgroup ID.
+     * @type {string}
+     * @memberof MultiHostIntegrationsManagementWorkgroup
+     */
+    'id'?: string;
+    /**
+     * Management workgroup\'s human-readable display name.
+     * @type {string}
+     * @memberof MultiHostIntegrationsManagementWorkgroup
      */
     'name'?: string;
-    /**
-     * This is the type value for the type.
-     * @type {string}
-     * @memberof Multihostintegrationtemplatetype
-     */
-    'type': string;
-    /**
-     * This is the scriptName attribute value for the type.
-     * @type {string}
-     * @memberof Multihostintegrationtemplatetype
-     */
-    'scriptName': string;
 }
+
+export const MultiHostIntegrationsManagementWorkgroupTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type MultiHostIntegrationsManagementWorkgroupTypeEnum = typeof MultiHostIntegrationsManagementWorkgroupTypeEnum[keyof typeof MultiHostIntegrationsManagementWorkgroupTypeEnum];
+
 /**
  * 
  * @export
- * @interface Multihostsources
+ * @interface MultiHostIntegrationsManagerCorrelationMapping
  */
-export interface Multihostsources {
+export interface MultiHostIntegrationsManagerCorrelationMapping {
+    /**
+     * Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager\'s identity.
+     * @type {string}
+     * @memberof MultiHostIntegrationsManagerCorrelationMapping
+     */
+    'accountAttributeName'?: string;
+    /**
+     * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
+     * @type {string}
+     * @memberof MultiHostIntegrationsManagerCorrelationMapping
+     */
+    'identityAttributeName'?: string;
+}
+/**
+ * Reference to the ManagerCorrelationRule. Only use this rule when a simple filter isn\'t sufficient.
+ * @export
+ * @interface MultiHostIntegrationsManagerCorrelationRule
+ */
+export interface MultiHostIntegrationsManagerCorrelationRule {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof MultiHostIntegrationsManagerCorrelationRule
+     */
+    'type'?: MultiHostIntegrationsManagerCorrelationRuleTypeEnum;
+    /**
+     * Rule ID.
+     * @type {string}
+     * @memberof MultiHostIntegrationsManagerCorrelationRule
+     */
+    'id'?: string;
+    /**
+     * Rule\'s human-readable display name.
+     * @type {string}
+     * @memberof MultiHostIntegrationsManagerCorrelationRule
+     */
+    'name'?: string;
+}
+
+export const MultiHostIntegrationsManagerCorrelationRuleTypeEnum = {
+    Rule: 'RULE'
+} as const;
+
+export type MultiHostIntegrationsManagerCorrelationRuleTypeEnum = typeof MultiHostIntegrationsManagerCorrelationRuleTypeEnum[keyof typeof MultiHostIntegrationsManagerCorrelationRuleTypeEnum];
+
+/**
+ * Reference to identity object who owns the source.
+ * @export
+ * @interface MultiHostIntegrationsOwner
+ */
+export interface MultiHostIntegrationsOwner {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof MultiHostIntegrationsOwner
+     */
+    'type'?: MultiHostIntegrationsOwnerTypeEnum;
+    /**
+     * Owner identity\'s ID.
+     * @type {string}
+     * @memberof MultiHostIntegrationsOwner
+     */
+    'id'?: string;
+    /**
+     * Owner identity\'s human-readable display name.
+     * @type {string}
+     * @memberof MultiHostIntegrationsOwner
+     */
+    'name'?: string;
+}
+
+export const MultiHostIntegrationsOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type MultiHostIntegrationsOwnerTypeEnum = typeof MultiHostIntegrationsOwnerTypeEnum[keyof typeof MultiHostIntegrationsOwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface MultiHostIntegrationsPasswordPoliciesInner
+ */
+export interface MultiHostIntegrationsPasswordPoliciesInner {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof MultiHostIntegrationsPasswordPoliciesInner
+     */
+    'type'?: MultiHostIntegrationsPasswordPoliciesInnerTypeEnum;
+    /**
+     * Policy ID.
+     * @type {string}
+     * @memberof MultiHostIntegrationsPasswordPoliciesInner
+     */
+    'id'?: string;
+    /**
+     * Policy\'s human-readable display name.
+     * @type {string}
+     * @memberof MultiHostIntegrationsPasswordPoliciesInner
+     */
+    'name'?: string;
+}
+
+export const MultiHostIntegrationsPasswordPoliciesInnerTypeEnum = {
+    PasswordPolicy: 'PASSWORD_POLICY'
+} as const;
+
+export type MultiHostIntegrationsPasswordPoliciesInnerTypeEnum = typeof MultiHostIntegrationsPasswordPoliciesInnerTypeEnum[keyof typeof MultiHostIntegrationsPasswordPoliciesInnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface MultiHostIntegrationsSchemasInner
+ */
+export interface MultiHostIntegrationsSchemasInner {
+    /**
+     * Type of object being referenced.
+     * @type {string}
+     * @memberof MultiHostIntegrationsSchemasInner
+     */
+    'type'?: MultiHostIntegrationsSchemasInnerTypeEnum;
+    /**
+     * Schema ID.
+     * @type {string}
+     * @memberof MultiHostIntegrationsSchemasInner
+     */
+    'id'?: string;
+    /**
+     * Schema\'s human-readable display name.
+     * @type {string}
+     * @memberof MultiHostIntegrationsSchemasInner
+     */
+    'name'?: string;
+}
+
+export const MultiHostIntegrationsSchemasInnerTypeEnum = {
+    ConnectorSchema: 'CONNECTOR_SCHEMA'
+} as const;
+
+export type MultiHostIntegrationsSchemasInnerTypeEnum = typeof MultiHostIntegrationsSchemasInnerTypeEnum[keyof typeof MultiHostIntegrationsSchemasInnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface MultiHostSources
+ */
+export interface MultiHostSources {
     /**
      * Source ID.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'id': string;
     /**
      * Source\'s human-readable name.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'name': string;
     /**
      * Source\'s human-readable description.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'description'?: string;
     /**
      * 
-     * @type {MultihostintegrationsOwner}
-     * @memberof Multihostsources
+     * @type {MultiHostIntegrationsOwner}
+     * @memberof MultiHostSources
      */
-    'owner': MultihostintegrationsOwner;
+    'owner': MultiHostIntegrationsOwner;
     /**
      * 
-     * @type {MultihostintegrationsCluster}
-     * @memberof Multihostsources
+     * @type {MultiHostIntegrationsCluster}
+     * @memberof MultiHostSources
      */
-    'cluster'?: MultihostintegrationsCluster | null;
+    'cluster'?: MultiHostIntegrationsCluster | null;
     /**
      * 
-     * @type {MultihostintegrationsAccountCorrelationConfig}
-     * @memberof Multihostsources
+     * @type {MultiHostIntegrationsAccountCorrelationConfig}
+     * @memberof MultiHostSources
      */
-    'accountCorrelationConfig'?: MultihostintegrationsAccountCorrelationConfig | null;
+    'accountCorrelationConfig'?: MultiHostIntegrationsAccountCorrelationConfig | null;
     /**
      * 
-     * @type {MultihostintegrationsAccountCorrelationRule}
-     * @memberof Multihostsources
+     * @type {MultiHostIntegrationsAccountCorrelationRule}
+     * @memberof MultiHostSources
      */
-    'accountCorrelationRule'?: MultihostintegrationsAccountCorrelationRule | null;
+    'accountCorrelationRule'?: MultiHostIntegrationsAccountCorrelationRule | null;
     /**
      * 
-     * @type {Managercorrelationmapping}
-     * @memberof Multihostsources
+     * @type {ManagerCorrelationMapping}
+     * @memberof MultiHostSources
      */
-    'managerCorrelationMapping'?: Managercorrelationmapping;
+    'managerCorrelationMapping'?: ManagerCorrelationMapping;
     /**
      * 
-     * @type {MultihostintegrationsManagerCorrelationRule}
-     * @memberof Multihostsources
+     * @type {MultiHostIntegrationsManagerCorrelationRule}
+     * @memberof MultiHostSources
      */
-    'managerCorrelationRule'?: MultihostintegrationsManagerCorrelationRule | null;
+    'managerCorrelationRule'?: MultiHostIntegrationsManagerCorrelationRule | null;
     /**
      * 
-     * @type {MultihostsourcesBeforeProvisioningRule}
-     * @memberof Multihostsources
+     * @type {MultiHostSourcesBeforeProvisioningRule}
+     * @memberof MultiHostSources
      */
-    'beforeProvisioningRule'?: MultihostsourcesBeforeProvisioningRule | null;
+    'beforeProvisioningRule'?: MultiHostSourcesBeforeProvisioningRule | null;
     /**
      * List of references to schema objects.
-     * @type {Array<MultihostintegrationsSchemasInner>}
-     * @memberof Multihostsources
+     * @type {Array<MultiHostIntegrationsSchemasInner>}
+     * @memberof MultiHostSources
      */
-    'schemas'?: Array<MultihostintegrationsSchemasInner>;
+    'schemas'?: Array<MultiHostIntegrationsSchemasInner>;
     /**
      * List of references to the associated PasswordPolicy objects.
-     * @type {Array<MultihostintegrationsPasswordPoliciesInner>}
-     * @memberof Multihostsources
+     * @type {Array<MultiHostIntegrationsPasswordPoliciesInner>}
+     * @memberof MultiHostSources
      */
-    'passwordPolicies'?: Array<MultihostintegrationsPasswordPoliciesInner> | null;
+    'passwordPolicies'?: Array<MultiHostIntegrationsPasswordPoliciesInner> | null;
     /**
      * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
      * @type {Array<string>}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
-    'features'?: Array<MultihostsourcesFeaturesEnum>;
+    'features'?: Array<MultiHostSourcesFeaturesEnum>;
     /**
      * Specifies the type of system being managed e.g. Multi-Host - Microsoft SQL Server, Workday, etc.. If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`. 
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'type'?: string;
     /**
      * Connector script name.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'connector': string;
     /**
      * Fully qualified name of the Java class that implements the connector interface.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'connectorClass'?: string;
     /**
      * Connector specific configuration. This configuration will differ from type to type.
      * @type {{ [key: string]: any; }}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'connectorAttributes'?: { [key: string]: any; };
     /**
      * Number from 0 to 100 that specifies when to skip the delete phase.
      * @type {number}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'deleteThreshold'?: number;
     /**
      * When this is true, it indicates that the source is referenced by an identity profile.
      * @type {boolean}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'authoritative'?: boolean;
     /**
      * 
-     * @type {MultihostintegrationsManagementWorkgroup}
-     * @memberof Multihostsources
+     * @type {MultiHostIntegrationsManagementWorkgroup}
+     * @memberof MultiHostSources
      */
-    'managementWorkgroup'?: MultihostintegrationsManagementWorkgroup | null;
+    'managementWorkgroup'?: MultiHostIntegrationsManagementWorkgroup | null;
     /**
      * When this is true, it indicates that the source is healthy.
      * @type {boolean}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'healthy'?: boolean;
     /**
      * Status identifier that gives specific information about why a source is or isn\'t healthy. 
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
-    'status'?: MultihostsourcesStatusEnum;
+    'status'?: MultiHostSourcesStatusEnum;
     /**
      * Timestamp that shows when a source health check was last performed.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'since'?: string;
     /**
      * Connector ID
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'connectorId'?: string;
     /**
      * Name of the connector that was chosen during source creation.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'connectorName': string;
     /**
      * Type of connection (direct or file).
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'connectionType'?: string;
     /**
      * Connector implementation ID.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'connectorImplementationId'?: string;
     /**
      * Date-time when the source was created
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'created'?: string;
     /**
      * Date-time when the source was last modified.
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'modified'?: string;
     /**
      * If this is true, it enables a credential provider for the source. If credentialProvider is turned on,  then the source can use credential provider(s) to fetch credentials.
      * @type {boolean}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'credentialProviderEnabled'?: boolean;
     /**
      * Source category (e.g. null, CredentialProvider).
      * @type {string}
-     * @memberof Multihostsources
+     * @memberof MultiHostSources
      */
     'category'?: string | null;
 }
 
-export const MultihostsourcesFeaturesEnum = {
+export const MultiHostSourcesFeaturesEnum = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -1255,8 +1255,8 @@ export const MultihostsourcesFeaturesEnum = {
     Delete: 'DELETE'
 } as const;
 
-export type MultihostsourcesFeaturesEnum = typeof MultihostsourcesFeaturesEnum[keyof typeof MultihostsourcesFeaturesEnum];
-export const MultihostsourcesStatusEnum = {
+export type MultiHostSourcesFeaturesEnum = typeof MultiHostSourcesFeaturesEnum[keyof typeof MultiHostSourcesFeaturesEnum];
+export const MultiHostSourcesStatusEnum = {
     SourceStateErrorAccountFileImport: 'SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT',
     SourceStateErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     SourceStateErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
@@ -1270,80 +1270,80 @@ export const MultihostsourcesStatusEnum = {
     SourceStateUncheckedSourceNoAccounts: 'SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS'
 } as const;
 
-export type MultihostsourcesStatusEnum = typeof MultihostsourcesStatusEnum[keyof typeof MultihostsourcesStatusEnum];
+export type MultiHostSourcesStatusEnum = typeof MultiHostSourcesStatusEnum[keyof typeof MultiHostSourcesStatusEnum];
 
 /**
  * Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector. 
  * @export
- * @interface MultihostsourcesBeforeProvisioningRule
+ * @interface MultiHostSourcesBeforeProvisioningRule
  */
-export interface MultihostsourcesBeforeProvisioningRule {
+export interface MultiHostSourcesBeforeProvisioningRule {
     /**
      * Type of object being referenced.
      * @type {string}
-     * @memberof MultihostsourcesBeforeProvisioningRule
+     * @memberof MultiHostSourcesBeforeProvisioningRule
      */
-    'type'?: MultihostsourcesBeforeProvisioningRuleTypeEnum;
+    'type'?: MultiHostSourcesBeforeProvisioningRuleTypeEnum;
     /**
      * Rule ID.
      * @type {string}
-     * @memberof MultihostsourcesBeforeProvisioningRule
+     * @memberof MultiHostSourcesBeforeProvisioningRule
      */
     'id'?: string;
     /**
      * Rule\'s human-readable display name.
      * @type {string}
-     * @memberof MultihostsourcesBeforeProvisioningRule
+     * @memberof MultiHostSourcesBeforeProvisioningRule
      */
     'name'?: string;
 }
 
-export const MultihostsourcesBeforeProvisioningRuleTypeEnum = {
+export const MultiHostSourcesBeforeProvisioningRuleTypeEnum = {
     Rule: 'RULE'
 } as const;
 
-export type MultihostsourcesBeforeProvisioningRuleTypeEnum = typeof MultihostsourcesBeforeProvisioningRuleTypeEnum[keyof typeof MultihostsourcesBeforeProvisioningRuleTypeEnum];
+export type MultiHostSourcesBeforeProvisioningRuleTypeEnum = typeof MultiHostSourcesBeforeProvisioningRuleTypeEnum[keyof typeof MultiHostSourcesBeforeProvisioningRuleTypeEnum];
 
 /**
  * 
  * @export
- * @interface Sourcecreationerrors
+ * @interface SourceCreationErrors
  */
-export interface Sourcecreationerrors {
+export interface SourceCreationErrors {
     /**
      * Multi-Host Integration ID.
      * @type {string}
-     * @memberof Sourcecreationerrors
+     * @memberof SourceCreationErrors
      */
     'multihostId'?: string;
     /**
      * Source\'s human-readable name.
      * @type {string}
-     * @memberof Sourcecreationerrors
+     * @memberof SourceCreationErrors
      */
     'source_name'?: string;
     /**
      * Source\'s human-readable description.
      * @type {string}
-     * @memberof Sourcecreationerrors
+     * @memberof SourceCreationErrors
      */
     'source_error'?: string;
     /**
      * Date-time when the source was created
      * @type {string}
-     * @memberof Sourcecreationerrors
+     * @memberof SourceCreationErrors
      */
     'created'?: string;
     /**
      * Date-time when the source was last modified.
      * @type {string}
-     * @memberof Sourcecreationerrors
+     * @memberof SourceCreationErrors
      */
     'modified'?: string;
     /**
      * operation category (e.g. DELETE).
      * @type {string}
-     * @memberof Sourcecreationerrors
+     * @memberof SourceCreationErrors
      */
     'operation'?: string | null;
 }
@@ -1451,13 +1451,13 @@ export const MultiHostIntegrationApiAxiosParamCreator = function (configuration?
         /**
          * This API is used to create Multi-Host Integration. Multi-host Integration holds similar types of sources.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
          * @summary Create multi-host integration
-         * @param {Multihostintegrationscreate} multihostintegrationscreate The specifics of the Multi-Host Integration to create
+         * @param {MultiHostIntegrationsCreate} multiHostIntegrationsCreate The specifics of the Multi-Host Integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMultiHostIntegrationV1: async (multihostintegrationscreate: Multihostintegrationscreate, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'multihostintegrationscreate' is not null or undefined
-            assertParamExists('createMultiHostIntegrationV1', 'multihostintegrationscreate', multihostintegrationscreate)
+        createMultiHostIntegrationV1: async (multiHostIntegrationsCreate: MultiHostIntegrationsCreate, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'multiHostIntegrationsCreate' is not null or undefined
+            assertParamExists('createMultiHostIntegrationV1', 'multiHostIntegrationsCreate', multiHostIntegrationsCreate)
             const localVarPath = `/multihosts/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1477,7 +1477,7 @@ export const MultiHostIntegrationApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(multihostintegrationscreate, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(multiHostIntegrationsCreate, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1488,15 +1488,15 @@ export const MultiHostIntegrationApiAxiosParamCreator = function (configuration?
          * This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
          * @summary Create sources within multi-host integration
          * @param {string} multihostId ID of the Multi-Host Integration.
-         * @param {Array<Multihostintegrationscreatesources>} multihostintegrationscreatesources The specifics of the sources to create within Multi-Host Integration.
+         * @param {Array<MultiHostIntegrationsCreateSources>} multiHostIntegrationsCreateSources The specifics of the sources to create within Multi-Host Integration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourcesWithinMultiHostV1: async (multihostId: string, multihostintegrationscreatesources: Array<Multihostintegrationscreatesources>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createSourcesWithinMultiHostV1: async (multihostId: string, multiHostIntegrationsCreateSources: Array<MultiHostIntegrationsCreateSources>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'multihostId' is not null or undefined
             assertParamExists('createSourcesWithinMultiHostV1', 'multihostId', multihostId)
-            // verify required parameter 'multihostintegrationscreatesources' is not null or undefined
-            assertParamExists('createSourcesWithinMultiHostV1', 'multihostintegrationscreatesources', multihostintegrationscreatesources)
+            // verify required parameter 'multiHostIntegrationsCreateSources' is not null or undefined
+            assertParamExists('createSourcesWithinMultiHostV1', 'multiHostIntegrationsCreateSources', multiHostIntegrationsCreateSources)
             const localVarPath = `/multihosts/v1/{multihostId}`
                 .replace(`{${"multihostId"}}`, encodeURIComponent(String(multihostId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1517,7 +1517,7 @@ export const MultiHostIntegrationApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(multihostintegrationscreatesources, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(multiHostIntegrationsCreateSources, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2028,12 +2028,12 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
         /**
          * This API is used to create Multi-Host Integration. Multi-host Integration holds similar types of sources.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
          * @summary Create multi-host integration
-         * @param {Multihostintegrationscreate} multihostintegrationscreate The specifics of the Multi-Host Integration to create
+         * @param {MultiHostIntegrationsCreate} multiHostIntegrationsCreate The specifics of the Multi-Host Integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createMultiHostIntegrationV1(multihostintegrationscreate: Multihostintegrationscreate, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Multihostintegrations>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMultiHostIntegrationV1(multihostintegrationscreate, axiosOptions);
+        async createMultiHostIntegrationV1(multiHostIntegrationsCreate: MultiHostIntegrationsCreate, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MultiHostIntegrations>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMultiHostIntegrationV1(multiHostIntegrationsCreate, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.createMultiHostIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2042,12 +2042,12 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
          * @summary Create sources within multi-host integration
          * @param {string} multihostId ID of the Multi-Host Integration.
-         * @param {Array<Multihostintegrationscreatesources>} multihostintegrationscreatesources The specifics of the sources to create within Multi-Host Integration.
+         * @param {Array<MultiHostIntegrationsCreateSources>} multiHostIntegrationsCreateSources The specifics of the sources to create within Multi-Host Integration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourcesWithinMultiHostV1(multihostId: string, multihostintegrationscreatesources: Array<Multihostintegrationscreatesources>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourcesWithinMultiHostV1(multihostId, multihostintegrationscreatesources, axiosOptions);
+        async createSourcesWithinMultiHostV1(multihostId: string, multiHostIntegrationsCreateSources: Array<MultiHostIntegrationsCreateSources>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourcesWithinMultiHostV1(multihostId, multiHostIntegrationsCreateSources, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.createSourcesWithinMultiHostV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2088,7 +2088,7 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAcctAggregationGroupsV1(multihostId: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Multihostintegrationsaggscheduleupdate>>> {
+        async getAcctAggregationGroupsV1(multihostId: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MultiHostIntegrationsAggScheduleUpdate>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAcctAggregationGroupsV1(multihostId, offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.getAcctAggregationGroupsV1']?.[localVarOperationServerIndex]?.url;
@@ -2103,7 +2103,7 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementAggregationGroupsV1(multiHostId: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Multihostintegrationsaggscheduleupdate>>> {
+        async getEntitlementAggregationGroupsV1(multiHostId: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MultiHostIntegrationsAggScheduleUpdate>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementAggregationGroupsV1(multiHostId, offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.getEntitlementAggregationGroupsV1']?.[localVarOperationServerIndex]?.url;
@@ -2121,7 +2121,7 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMultiHostIntegrationsListV1(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, forSubadmin?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Multihostintegrations>>> {
+        async getMultiHostIntegrationsListV1(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, forSubadmin?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MultiHostIntegrations>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMultiHostIntegrationsListV1(offset, limit, sorters, filters, count, forSubadmin, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.getMultiHostIntegrationsListV1']?.[localVarOperationServerIndex]?.url;
@@ -2134,7 +2134,7 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMultiHostIntegrationsV1(multihostId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Multihostintegrations>> {
+        async getMultiHostIntegrationsV1(multihostId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MultiHostIntegrations>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMultiHostIntegrationsV1(multihostId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.getMultiHostIntegrationsV1']?.[localVarOperationServerIndex]?.url;
@@ -2147,7 +2147,7 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMultiHostSourceCreationErrorsV1(multiHostId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourcecreationerrors>>> {
+        async getMultiHostSourceCreationErrorsV1(multiHostId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceCreationErrors>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMultiHostSourceCreationErrorsV1(multiHostId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.getMultiHostSourceCreationErrorsV1']?.[localVarOperationServerIndex]?.url;
@@ -2159,7 +2159,7 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMultihostIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Multihostintegrationtemplatetype>>> {
+        async getMultihostIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MultiHostIntegrationTemplateType>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMultihostIntegrationTypesV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.getMultihostIntegrationTypesV1']?.[localVarOperationServerIndex]?.url;
@@ -2177,7 +2177,7 @@ export const MultiHostIntegrationApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourcesWithinMultiHostV1(multihostId: string, offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Multihostsources>>> {
+        async getSourcesWithinMultiHostV1(multihostId: string, offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MultiHostSources>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourcesWithinMultiHostV1(multihostId, offset, limit, sorters, filters, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MultiHostIntegrationApi.getSourcesWithinMultiHostV1']?.[localVarOperationServerIndex]?.url;
@@ -2241,8 +2241,8 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMultiHostIntegrationV1(requestParameters: MultiHostIntegrationApiCreateMultiHostIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Multihostintegrations> {
-            return localVarFp.createMultiHostIntegrationV1(requestParameters.multihostintegrationscreate, axiosOptions).then((request) => request(axios, basePath));
+        createMultiHostIntegrationV1(requestParameters: MultiHostIntegrationApiCreateMultiHostIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MultiHostIntegrations> {
+            return localVarFp.createMultiHostIntegrationV1(requestParameters.multiHostIntegrationsCreate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.  A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -2252,7 +2252,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         createSourcesWithinMultiHostV1(requestParameters: MultiHostIntegrationApiCreateSourcesWithinMultiHostV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.createSourcesWithinMultiHostV1(requestParameters.multihostId, requestParameters.multihostintegrationscreatesources, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createSourcesWithinMultiHostV1(requestParameters.multihostId, requestParameters.multiHostIntegrationsCreateSources, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint performs bulk sources delete within Multi-Host Integration via a list of supplied IDs.  The following rights are required to access this endpoint: idn:multihosts:delete, idn:sources:delete
@@ -2281,7 +2281,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAcctAggregationGroupsV1(requestParameters: MultiHostIntegrationApiGetAcctAggregationGroupsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Multihostintegrationsaggscheduleupdate>> {
+        getAcctAggregationGroupsV1(requestParameters: MultiHostIntegrationApiGetAcctAggregationGroupsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MultiHostIntegrationsAggScheduleUpdate>> {
             return localVarFp.getAcctAggregationGroupsV1(requestParameters.multihostId, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2291,7 +2291,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEntitlementAggregationGroupsV1(requestParameters: MultiHostIntegrationApiGetEntitlementAggregationGroupsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Multihostintegrationsaggscheduleupdate>> {
+        getEntitlementAggregationGroupsV1(requestParameters: MultiHostIntegrationApiGetEntitlementAggregationGroupsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MultiHostIntegrationsAggScheduleUpdate>> {
             return localVarFp.getEntitlementAggregationGroupsV1(requestParameters.multiHostId, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2301,7 +2301,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMultiHostIntegrationsListV1(requestParameters: MultiHostIntegrationApiGetMultiHostIntegrationsListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Multihostintegrations>> {
+        getMultiHostIntegrationsListV1(requestParameters: MultiHostIntegrationApiGetMultiHostIntegrationsListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MultiHostIntegrations>> {
             return localVarFp.getMultiHostIntegrationsListV1(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, requestParameters.forSubadmin, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2311,7 +2311,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMultiHostIntegrationsV1(requestParameters: MultiHostIntegrationApiGetMultiHostIntegrationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Multihostintegrations> {
+        getMultiHostIntegrationsV1(requestParameters: MultiHostIntegrationApiGetMultiHostIntegrationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MultiHostIntegrations> {
             return localVarFp.getMultiHostIntegrationsV1(requestParameters.multihostId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2321,7 +2321,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMultiHostSourceCreationErrorsV1(requestParameters: MultiHostIntegrationApiGetMultiHostSourceCreationErrorsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourcecreationerrors>> {
+        getMultiHostSourceCreationErrorsV1(requestParameters: MultiHostIntegrationApiGetMultiHostSourceCreationErrorsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceCreationErrors>> {
             return localVarFp.getMultiHostSourceCreationErrorsV1(requestParameters.multiHostId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2330,7 +2330,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMultihostIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Multihostintegrationtemplatetype>> {
+        getMultihostIntegrationTypesV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MultiHostIntegrationTemplateType>> {
             return localVarFp.getMultihostIntegrationTypesV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2340,7 +2340,7 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourcesWithinMultiHostV1(requestParameters: MultiHostIntegrationApiGetSourcesWithinMultiHostV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Multihostsources>> {
+        getSourcesWithinMultiHostV1(requestParameters: MultiHostIntegrationApiGetSourcesWithinMultiHostV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MultiHostSources>> {
             return localVarFp.getSourcesWithinMultiHostV1(requestParameters.multihostId, requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2384,10 +2384,10 @@ export const MultiHostIntegrationApiFactory = function (configuration?: Configur
 export interface MultiHostIntegrationApiCreateMultiHostIntegrationV1Request {
     /**
      * The specifics of the Multi-Host Integration to create
-     * @type {Multihostintegrationscreate}
+     * @type {MultiHostIntegrationsCreate}
      * @memberof MultiHostIntegrationApiCreateMultiHostIntegrationV1
      */
-    readonly multihostintegrationscreate: Multihostintegrationscreate
+    readonly multiHostIntegrationsCreate: MultiHostIntegrationsCreate
 }
 
 /**
@@ -2405,10 +2405,10 @@ export interface MultiHostIntegrationApiCreateSourcesWithinMultiHostV1Request {
 
     /**
      * The specifics of the sources to create within Multi-Host Integration.
-     * @type {Array<Multihostintegrationscreatesources>}
+     * @type {Array<MultiHostIntegrationsCreateSources>}
      * @memberof MultiHostIntegrationApiCreateSourcesWithinMultiHostV1
      */
-    readonly multihostintegrationscreatesources: Array<Multihostintegrationscreatesources>
+    readonly multiHostIntegrationsCreateSources: Array<MultiHostIntegrationsCreateSources>
 }
 
 /**
@@ -2700,7 +2700,7 @@ export class MultiHostIntegrationApi extends BaseAPI {
      * @memberof MultiHostIntegrationApi
      */
     public createMultiHostIntegrationV1(requestParameters: MultiHostIntegrationApiCreateMultiHostIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MultiHostIntegrationApiFp(this.configuration).createMultiHostIntegrationV1(requestParameters.multihostintegrationscreate, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MultiHostIntegrationApiFp(this.configuration).createMultiHostIntegrationV1(requestParameters.multiHostIntegrationsCreate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2712,7 +2712,7 @@ export class MultiHostIntegrationApi extends BaseAPI {
      * @memberof MultiHostIntegrationApi
      */
     public createSourcesWithinMultiHostV1(requestParameters: MultiHostIntegrationApiCreateSourcesWithinMultiHostV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MultiHostIntegrationApiFp(this.configuration).createSourcesWithinMultiHostV1(requestParameters.multihostId, requestParameters.multihostintegrationscreatesources, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MultiHostIntegrationApiFp(this.configuration).createSourcesWithinMultiHostV1(requestParameters.multihostId, requestParameters.multiHostIntegrationsCreateSources, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **privileged** | `boolean` | indicates whether the entitlement is privileged | [default to undefined]
 **cloudGoverned** | `boolean` | indicates whether the entitlement is cloud governed | [default to undefined]
 **entitlementCount** | `number` | the number of entitlements the account will create | [default to undefined]
-**appRefs** | `Array<AccessitemaccessprofileresponseAppRefsInner>` | the list of app ids associated with the access profile | [default to undefined]
+**appRefs** | `Array<AccessItemAccessProfileResponseAppRefsInner>` | the list of app ids associated with the access profile | [default to undefined]
 **startDate** | **(optional)** `string` | the date the access profile will be assigned to the specified identity, in case requested with a future start date | [default to undefined]
 **removeDate** | **(optional)** `string` | the date the role is no longer assigned to the specified identity | [default to undefined]
 **revocable** | `boolean` | indicates whether the role is revocable | [default to undefined]

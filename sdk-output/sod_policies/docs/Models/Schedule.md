@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'Schedule', 'v1Schedule']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | `Scheduletype` |  | [default to undefined]
+**type** | `ScheduleType` |  | [default to undefined]
 **months** | **(optional)** `ScheduleMonths` |  | [default to undefined]
 **days** | **(optional)** `ScheduleDays` |  | [default to undefined]
 **hours** | `ScheduleHours` |  | [default to undefined]

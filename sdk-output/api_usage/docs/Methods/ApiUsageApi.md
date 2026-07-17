@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Summaryresponse>`
+`Array<SummaryResponse>`
 
 ### HTTP request headers
 

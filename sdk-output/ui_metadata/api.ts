@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,61 +113,61 @@ export interface GetTenantUiMetadataV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Tenantuimetadataitemresponse
+ * @interface TenantUiMetadataItemResponse
  */
-export interface Tenantuimetadataitemresponse {
+export interface TenantUiMetadataItemResponse {
     /**
      * Parameter that organizational administrators can adjust to permit another domain to encapsulate IDN within an iframe. If you would like to reset the value use \"null\". It will only allow include into iframe non authenticated portions of the product, such as password reset.
      * @type {string}
-     * @memberof Tenantuimetadataitemresponse
+     * @memberof TenantUiMetadataItemResponse
      */
     'iframeWhiteList'?: string | null;
     /**
      * Descriptor for the username input field. If you would like to reset the value use \"null\".
      * @type {string}
-     * @memberof Tenantuimetadataitemresponse
+     * @memberof TenantUiMetadataItemResponse
      */
     'usernameLabel'?: string | null;
     /**
      * Placeholder text displayed in the username input field. If you would like to reset the value use \"null\".
      * @type {string}
-     * @memberof Tenantuimetadataitemresponse
+     * @memberof TenantUiMetadataItemResponse
      */
     'usernameEmptyText'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Tenantuimetadataitemupdaterequest
+ * @interface TenantUiMetadataItemUpdateRequest
  */
-export interface Tenantuimetadataitemupdaterequest {
+export interface TenantUiMetadataItemUpdateRequest {
     /**
      * Parameter that organizational administrators can adjust to permit another domain to encapsulate IDN within an iframe. If you would like to reset the value use \"null\". It will only allow include into iframe non authenticated portions of the product, such as password reset.
      * @type {string}
-     * @memberof Tenantuimetadataitemupdaterequest
+     * @memberof TenantUiMetadataItemUpdateRequest
      */
     'iframeWhiteList'?: string | null;
     /**
      * Descriptor for the username input field. If you would like to reset the value use \"null\".
      * @type {string}
-     * @memberof Tenantuimetadataitemupdaterequest
+     * @memberof TenantUiMetadataItemUpdateRequest
      */
     'usernameLabel'?: string | null;
     /**
      * Placeholder text displayed in the username input field. If you would like to reset the value use \"null\".
      * @type {string}
-     * @memberof Tenantuimetadataitemupdaterequest
+     * @memberof TenantUiMetadataItemUpdateRequest
      */
     'usernameEmptyText'?: string | null;
 }
@@ -219,14 +219,14 @@ export const UIMetadataApiAxiosParamCreator = function (configuration?: Configur
         /**
          * This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
          * @summary Update tenant ui metadata
-         * @param {Tenantuimetadataitemupdaterequest} tenantuimetadataitemupdaterequest 
+         * @param {TenantUiMetadataItemUpdateRequest} tenantUiMetadataItemUpdateRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTenantUiMetadataV1: async (tenantuimetadataitemupdaterequest: Tenantuimetadataitemupdaterequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantuimetadataitemupdaterequest' is not null or undefined
-            assertParamExists('setTenantUiMetadataV1', 'tenantuimetadataitemupdaterequest', tenantuimetadataitemupdaterequest)
+        setTenantUiMetadataV1: async (tenantUiMetadataItemUpdateRequest: TenantUiMetadataItemUpdateRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantUiMetadataItemUpdateRequest' is not null or undefined
+            assertParamExists('setTenantUiMetadataV1', 'tenantUiMetadataItemUpdateRequest', tenantUiMetadataItemUpdateRequest)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -253,7 +253,7 @@ export const UIMetadataApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(tenantuimetadataitemupdaterequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(tenantUiMetadataItemUpdateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -277,7 +277,7 @@ export const UIMetadataApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTenantUiMetadataV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tenantuimetadataitemresponse>> {
+        async getTenantUiMetadataV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantUiMetadataItemResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantUiMetadataV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UIMetadataApi.getTenantUiMetadataV1']?.[localVarOperationServerIndex]?.url;
@@ -286,13 +286,13 @@ export const UIMetadataApiFp = function(configuration?: Configuration) {
         /**
          * This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
          * @summary Update tenant ui metadata
-         * @param {Tenantuimetadataitemupdaterequest} tenantuimetadataitemupdaterequest 
+         * @param {TenantUiMetadataItemUpdateRequest} tenantUiMetadataItemUpdateRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTenantUiMetadataV1(tenantuimetadataitemupdaterequest: Tenantuimetadataitemupdaterequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tenantuimetadataitemresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTenantUiMetadataV1(tenantuimetadataitemupdaterequest, xSailPointExperimental, axiosOptions);
+        async setTenantUiMetadataV1(tenantUiMetadataItemUpdateRequest: TenantUiMetadataItemUpdateRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantUiMetadataItemResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTenantUiMetadataV1(tenantUiMetadataItemUpdateRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UIMetadataApi.setTenantUiMetadataV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -314,7 +314,7 @@ export const UIMetadataApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTenantUiMetadataV1(requestParameters: UIMetadataApiGetTenantUiMetadataV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tenantuimetadataitemresponse> {
+        getTenantUiMetadataV1(requestParameters: UIMetadataApiGetTenantUiMetadataV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TenantUiMetadataItemResponse> {
             return localVarFp.getTenantUiMetadataV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -324,8 +324,8 @@ export const UIMetadataApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTenantUiMetadataV1(requestParameters: UIMetadataApiSetTenantUiMetadataV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Tenantuimetadataitemresponse> {
-            return localVarFp.setTenantUiMetadataV1(requestParameters.tenantuimetadataitemupdaterequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        setTenantUiMetadataV1(requestParameters: UIMetadataApiSetTenantUiMetadataV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TenantUiMetadataItemResponse> {
+            return localVarFp.setTenantUiMetadataV1(requestParameters.tenantUiMetadataItemUpdateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -352,10 +352,10 @@ export interface UIMetadataApiGetTenantUiMetadataV1Request {
 export interface UIMetadataApiSetTenantUiMetadataV1Request {
     /**
      * 
-     * @type {Tenantuimetadataitemupdaterequest}
+     * @type {TenantUiMetadataItemUpdateRequest}
      * @memberof UIMetadataApiSetTenantUiMetadataV1
      */
-    readonly tenantuimetadataitemupdaterequest: Tenantuimetadataitemupdaterequest
+    readonly tenantUiMetadataItemUpdateRequest: TenantUiMetadataItemUpdateRequest
 
     /**
      * Use this header to enable this experimental API.
@@ -393,7 +393,7 @@ export class UIMetadataApi extends BaseAPI {
      * @memberof UIMetadataApi
      */
     public setTenantUiMetadataV1(requestParameters: UIMetadataApiSetTenantUiMetadataV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return UIMetadataApiFp(this.configuration).setTenantUiMetadataV1(requestParameters.tenantuimetadataitemupdaterequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return UIMetadataApiFp(this.configuration).setTenantUiMetadataV1(requestParameters.tenantUiMetadataItemUpdateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

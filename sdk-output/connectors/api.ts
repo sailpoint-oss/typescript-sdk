@@ -33,138 +33,138 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Connectordetail
+ * @interface ConnectorDetail
  */
-export interface Connectordetail {
+export interface ConnectorDetail {
     /**
      * The connector name
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'name'?: string;
     /**
      * The connector type
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'type'?: string;
     /**
      * The connector class name
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'className'?: string;
     /**
      * The connector script name
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'scriptName'?: string;
     /**
      * The connector application xml
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'applicationXml'?: string;
     /**
      * The connector correlation config xml
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'correlationConfigXml'?: string;
     /**
      * The connector source config xml
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'sourceConfigXml'?: string;
     /**
      * The connector source config
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'sourceConfig'?: string | null;
     /**
      * The connector source config origin
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'sourceConfigFrom'?: string | null;
     /**
      * storage path key for this connector
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     's3Location'?: string;
     /**
      * The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation.
      * @type {Array<string>}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'uploadedFiles'?: Array<string> | null;
     /**
      * true if the source is file upload
      * @type {boolean}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'fileUpload'?: boolean;
     /**
      * true if the source is a direct connect source
      * @type {boolean}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'directConnect'?: boolean;
     /**
      * A map containing translation attributes by loacale key
      * @type {{ [key: string]: any; }}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'translationProperties'?: { [key: string]: any; };
     /**
      * A map containing metadata pertinent to the UI to be used
      * @type {{ [key: string]: any; }}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
     'connectorMetadata'?: { [key: string]: any; };
     /**
      * The connector status
      * @type {string}
-     * @memberof Connectordetail
+     * @memberof ConnectorDetail
      */
-    'status'?: ConnectordetailStatusEnum;
+    'status'?: ConnectorDetailStatusEnum;
 }
 
-export const ConnectordetailStatusEnum = {
+export const ConnectorDetailStatusEnum = {
     Deprecated: 'DEPRECATED',
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type ConnectordetailStatusEnum = typeof ConnectordetailStatusEnum[keyof typeof ConnectordetailStatusEnum];
+export type ConnectorDetailStatusEnum = typeof ConnectorDetailStatusEnum[keyof typeof ConnectorDetailStatusEnum];
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -173,33 +173,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -230,30 +230,30 @@ export interface GetConnectorV1429Response {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -262,14 +262,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -277,12 +277,12 @@ export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | obj
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -327,154 +327,154 @@ export interface PutConnectorSourceTemplateV1Request {
 /**
  * 
  * @export
- * @interface Updatedetail
+ * @interface UpdateDetail
  */
-export interface Updatedetail {
+export interface UpdateDetail {
     /**
      * The detailed message for an update. Typically the relevent error message when status is error.
      * @type {string}
-     * @memberof Updatedetail
+     * @memberof UpdateDetail
      */
     'message'?: string;
     /**
      * The connector script name
      * @type {string}
-     * @memberof Updatedetail
+     * @memberof UpdateDetail
      */
     'scriptName'?: string;
     /**
      * The list of updated files supported by the connector
      * @type {Array<string>}
-     * @memberof Updatedetail
+     * @memberof UpdateDetail
      */
     'updatedFiles'?: Array<string> | null;
     /**
      * The connector update status
      * @type {string}
-     * @memberof Updatedetail
+     * @memberof UpdateDetail
      */
-    'status'?: UpdatedetailStatusEnum;
+    'status'?: UpdateDetailStatusEnum;
 }
 
-export const UpdatedetailStatusEnum = {
+export const UpdateDetailStatusEnum = {
     Error: 'ERROR',
     Updated: 'UPDATED',
     Unchanged: 'UNCHANGED',
     Skipped: 'SKIPPED'
 } as const;
 
-export type UpdatedetailStatusEnum = typeof UpdatedetailStatusEnum[keyof typeof UpdatedetailStatusEnum];
+export type UpdateDetailStatusEnum = typeof UpdateDetailStatusEnum[keyof typeof UpdateDetailStatusEnum];
 
 /**
  * 
  * @export
- * @interface V3connectordto
+ * @interface V3ConnectorDto
  */
-export interface V3connectordto {
+export interface V3ConnectorDto {
     /**
      * The connector name
      * @type {string}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
     'name'?: string;
     /**
      * The connector type
      * @type {string}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
     'type'?: string;
     /**
      * The connector script name
      * @type {string}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
     'scriptName'?: string;
     /**
      * The connector class name.
      * @type {string}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
     'className'?: string | null;
     /**
      * The list of features supported by the connector
      * @type {Array<string>}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
     'features'?: Array<string> | null;
     /**
      * true if the source is a direct connect source
      * @type {boolean}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
     'directConnect'?: boolean;
     /**
      * A map containing metadata pertinent to the connector
      * @type {{ [key: string]: any; }}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
     'connectorMetadata'?: { [key: string]: any; };
     /**
      * The connector status
      * @type {string}
-     * @memberof V3connectordto
+     * @memberof V3ConnectorDto
      */
-    'status'?: V3connectordtoStatusEnum;
+    'status'?: V3ConnectorDtoStatusEnum;
 }
 
-export const V3connectordtoStatusEnum = {
+export const V3ConnectorDtoStatusEnum = {
     Deprecated: 'DEPRECATED',
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type V3connectordtoStatusEnum = typeof V3connectordtoStatusEnum[keyof typeof V3connectordtoStatusEnum];
+export type V3ConnectorDtoStatusEnum = typeof V3ConnectorDtoStatusEnum[keyof typeof V3ConnectorDtoStatusEnum];
 
 /**
  * 
  * @export
- * @interface V3createconnectordto
+ * @interface V3CreateConnectorDto
  */
-export interface V3createconnectordto {
+export interface V3CreateConnectorDto {
     /**
      * The connector name. Need to be unique per tenant. The name will able be used to derive a url friendly unique scriptname that will be in response. Script name can then be used for all update endpoints
      * @type {string}
-     * @memberof V3createconnectordto
+     * @memberof V3CreateConnectorDto
      */
     'name': string;
     /**
      * The connector type. If not specified will be defaulted to \'custom \'+name
      * @type {string}
-     * @memberof V3createconnectordto
+     * @memberof V3CreateConnectorDto
      */
     'type'?: string;
     /**
      * The connector class name. If you are implementing openconnector standard (what is recommended), then this need to be set to sailpoint.connector.OpenConnectorAdapter
      * @type {string}
-     * @memberof V3createconnectordto
+     * @memberof V3CreateConnectorDto
      */
     'className': string;
     /**
      * true if the source is a direct connect source
      * @type {boolean}
-     * @memberof V3createconnectordto
+     * @memberof V3CreateConnectorDto
      */
     'directConnect'?: boolean;
     /**
      * The connector status
      * @type {string}
-     * @memberof V3createconnectordto
+     * @memberof V3CreateConnectorDto
      */
-    'status'?: V3createconnectordtoStatusEnum;
+    'status'?: V3CreateConnectorDtoStatusEnum;
 }
 
-export const V3createconnectordtoStatusEnum = {
+export const V3CreateConnectorDtoStatusEnum = {
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type V3createconnectordtoStatusEnum = typeof V3createconnectordtoStatusEnum[keyof typeof V3createconnectordtoStatusEnum];
+export type V3CreateConnectorDtoStatusEnum = typeof V3CreateConnectorDtoStatusEnum[keyof typeof V3CreateConnectorDtoStatusEnum];
 
 
 /**
@@ -486,13 +486,13 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Create custom connector.    
          * @summary Create custom connector
-         * @param {V3createconnectordto} v3createconnectordto 
+         * @param {V3CreateConnectorDto} v3CreateConnectorDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomConnectorV1: async (v3createconnectordto: V3createconnectordto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'v3createconnectordto' is not null or undefined
-            assertParamExists('createCustomConnectorV1', 'v3createconnectordto', v3createconnectordto)
+        createCustomConnectorV1: async (v3CreateConnectorDto: V3CreateConnectorDto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'v3CreateConnectorDto' is not null or undefined
+            assertParamExists('createCustomConnectorV1', 'v3CreateConnectorDto', v3CreateConnectorDto)
             const localVarPath = `/connectors/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -512,7 +512,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(v3createconnectordto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(v3CreateConnectorDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -964,15 +964,15 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
          * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
          * @summary Update connector by script name
          * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of connector detail update operations 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateConnectorV1: async (scriptName: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateConnectorV1: async (scriptName: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('updateConnectorV1', 'scriptName', scriptName)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('updateConnectorV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateConnectorV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/connectors/v1/{scriptName}`
                 .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -993,7 +993,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1013,12 +1013,12 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         /**
          * Create custom connector.    
          * @summary Create custom connector
-         * @param {V3createconnectordto} v3createconnectordto 
+         * @param {V3CreateConnectorDto} v3CreateConnectorDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomConnectorV1(v3createconnectordto: V3createconnectordto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V3connectordto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomConnectorV1(v3createconnectordto, axiosOptions);
+        async createCustomConnectorV1(v3CreateConnectorDto: V3CreateConnectorDto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V3ConnectorDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomConnectorV1(v3CreateConnectorDto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.createCustomConnectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1060,7 +1060,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorListV1(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3connectordto>>> {
+        async getConnectorListV1(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3ConnectorDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorListV1(filters, limit, offset, count, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorListV1']?.[localVarOperationServerIndex]?.url;
@@ -1114,7 +1114,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorV1(scriptName: string, locale?: GetConnectorV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectordetail>> {
+        async getConnectorV1(scriptName: string, locale?: GetConnectorV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorV1(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorV1']?.[localVarOperationServerIndex]?.url;
@@ -1128,7 +1128,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorCorrelationConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
+        async putConnectorCorrelationConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorCorrelationConfigV1(scriptName, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -1142,7 +1142,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorSourceConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
+        async putConnectorSourceConfigV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorSourceConfigV1(scriptName, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorSourceConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -1156,7 +1156,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorSourceTemplateV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
+        async putConnectorSourceTemplateV1(scriptName: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorSourceTemplateV1(scriptName, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorSourceTemplateV1']?.[localVarOperationServerIndex]?.url;
@@ -1170,7 +1170,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorTranslationsV1(scriptName: string, locale: PutConnectorTranslationsV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatedetail>> {
+        async putConnectorTranslationsV1(scriptName: string, locale: PutConnectorTranslationsV1LocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorTranslationsV1(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putConnectorTranslationsV1']?.[localVarOperationServerIndex]?.url;
@@ -1180,12 +1180,12 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
          * @summary Update connector by script name
          * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation A list of connector detail update operations 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateConnectorV1(scriptName: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectordetail>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnectorV1(scriptName, jsonpatchoperation, axiosOptions);
+        async updateConnectorV1(scriptName: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnectorV1(scriptName, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.updateConnectorV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1207,8 +1207,8 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomConnectorV1(requestParameters: ConnectorsApiCreateCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<V3connectordto> {
-            return localVarFp.createCustomConnectorV1(requestParameters.v3createconnectordto, axiosOptions).then((request) => request(axios, basePath));
+        createCustomConnectorV1(requestParameters: ConnectorsApiCreateCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<V3ConnectorDto> {
+            return localVarFp.createCustomConnectorV1(requestParameters.v3CreateConnectorDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete a custom connector that using its script name.
@@ -1237,7 +1237,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorListV1(requestParameters: ConnectorsApiGetConnectorListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<V3connectordto>> {
+        getConnectorListV1(requestParameters: ConnectorsApiGetConnectorListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<V3ConnectorDto>> {
             return localVarFp.getConnectorListV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1277,7 +1277,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorV1(requestParameters: ConnectorsApiGetConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectordetail> {
+        getConnectorV1(requestParameters: ConnectorsApiGetConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorDetail> {
             return localVarFp.getConnectorV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1287,7 +1287,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorCorrelationConfigV1(requestParameters: ConnectorsApiPutConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
+        putConnectorCorrelationConfigV1(requestParameters: ConnectorsApiPutConnectorCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdateDetail> {
             return localVarFp.putConnectorCorrelationConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1297,7 +1297,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorSourceConfigV1(requestParameters: ConnectorsApiPutConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
+        putConnectorSourceConfigV1(requestParameters: ConnectorsApiPutConnectorSourceConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdateDetail> {
             return localVarFp.putConnectorSourceConfigV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1307,7 +1307,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorSourceTemplateV1(requestParameters: ConnectorsApiPutConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
+        putConnectorSourceTemplateV1(requestParameters: ConnectorsApiPutConnectorSourceTemplateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdateDetail> {
             return localVarFp.putConnectorSourceTemplateV1(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1317,7 +1317,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorTranslationsV1(requestParameters: ConnectorsApiPutConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatedetail> {
+        putConnectorTranslationsV1(requestParameters: ConnectorsApiPutConnectorTranslationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdateDetail> {
             return localVarFp.putConnectorTranslationsV1(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1327,8 +1327,8 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateConnectorV1(requestParameters: ConnectorsApiUpdateConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectordetail> {
-            return localVarFp.updateConnectorV1(requestParameters.scriptName, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        updateConnectorV1(requestParameters: ConnectorsApiUpdateConnectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorDetail> {
+            return localVarFp.updateConnectorV1(requestParameters.scriptName, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1341,10 +1341,10 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
 export interface ConnectorsApiCreateCustomConnectorV1Request {
     /**
      * 
-     * @type {V3createconnectordto}
+     * @type {V3CreateConnectorDto}
      * @memberof ConnectorsApiCreateCustomConnectorV1
      */
-    readonly v3createconnectordto: V3createconnectordto
+    readonly v3CreateConnectorDto: V3CreateConnectorDto
 }
 
 /**
@@ -1586,10 +1586,10 @@ export interface ConnectorsApiUpdateConnectorV1Request {
 
     /**
      * A list of connector detail update operations 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof ConnectorsApiUpdateConnectorV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -1608,7 +1608,7 @@ export class ConnectorsApi extends BaseAPI {
      * @memberof ConnectorsApi
      */
     public createCustomConnectorV1(requestParameters: ConnectorsApiCreateCustomConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsApiFp(this.configuration).createCustomConnectorV1(requestParameters.v3createconnectordto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ConnectorsApiFp(this.configuration).createCustomConnectorV1(requestParameters.v3CreateConnectorDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1752,7 +1752,7 @@ export class ConnectorsApi extends BaseAPI {
      * @memberof ConnectorsApi
      */
     public updateConnectorV1(requestParameters: ConnectorsApiUpdateConnectorV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorsApiFp(this.configuration).updateConnectorV1(requestParameters.scriptName, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ConnectorsApiFp(this.configuration).updateConnectorV1(requestParameters.scriptName, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

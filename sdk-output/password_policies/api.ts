@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,204 +113,204 @@ export interface GetPasswordPolicyByIdV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Passwordpolicyv3dto
+ * @interface PasswordPolicyV3Dto
  */
-export interface Passwordpolicyv3dto {
+export interface PasswordPolicyV3Dto {
     /**
      * The password policy Id.
      * @type {string}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'id'?: string;
     /**
      * Description for current password policy.
      * @type {string}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'description'?: string | null;
     /**
      * The name of the password policy.
      * @type {string}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'name'?: string;
     /**
      * Date the Password Policy was created.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'dateCreated'?: number;
     /**
      * Date the Password Policy was updated.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'lastUpdated'?: number | null;
     /**
      * The number of days before expiration remaninder.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'firstExpirationReminder'?: number;
     /**
      * The minimun length of account Id. By default is equals to -1.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'accountIdMinWordLength'?: number;
     /**
      * The minimun length of account name. By default is equals to -1.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'accountNameMinWordLength'?: number;
     /**
      * Maximum alpha. By default is equals to 0.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'minAlpha'?: number;
     /**
      * MinCharacterTypes. By default is equals to -1.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'minCharacterTypes'?: number;
     /**
      * Maximum length of the password.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'maxLength'?: number;
     /**
      * Minimum length of the password. By default is equals to 0.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'minLength'?: number;
     /**
      * Maximum repetition of the same character in the password. By default is equals to -1.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'maxRepeatedChars'?: number;
     /**
      * Minimum amount of lower case character in the password. By default is equals to 0.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'minLower'?: number;
     /**
      * Minimum amount of numeric characters in the password. By default is equals to 0.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'minNumeric'?: number;
     /**
      * Minimum amount of special symbols in the password. By default is equals to 0.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'minSpecial'?: number;
     /**
      * Minimum amount of upper case symbols in the password. By default is equals to 0.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'minUpper'?: number;
     /**
      * Number of days before current password expires. By default is equals to 90.
      * @type {number}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'passwordExpiration'?: number;
     /**
      * Defines whether this policy is default or not. Default policy is created automatically when an org is setup. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'defaultPolicy'?: boolean;
     /**
      * Defines whether this policy is enabled to expire or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'enablePasswdExpiration'?: boolean;
     /**
      * Defines whether this policy require strong Auth or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'requireStrongAuthn'?: boolean;
     /**
      * Defines whether this policy require strong Auth of network or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'requireStrongAuthOffNetwork'?: boolean;
     /**
      * Defines whether this policy require strong Auth for untrusted geographies. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'requireStrongAuthUntrustedGeographies'?: boolean;
     /**
      * Defines whether this policy uses account attributes or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'useAccountAttributes'?: boolean;
     /**
      * Defines whether this policy uses dictionary or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'useDictionary'?: boolean;
     /**
      * Defines whether this policy uses identity attributes or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'useIdentityAttributes'?: boolean;
     /**
      * Defines whether this policy validate against account id or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'validateAgainstAccountId'?: boolean;
     /**
      * Defines whether this policy validate against account name or not. This field is false by default.
      * @type {boolean}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'validateAgainstAccountName'?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'created'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'modified'?: string | null;
     /**
      * List of sources IDs managed by this password policy.
      * @type {Array<string>}
-     * @memberof Passwordpolicyv3dto
+     * @memberof PasswordPolicyV3Dto
      */
     'sourceIds'?: Array<string>;
 }
@@ -324,14 +324,14 @@ export const PasswordPoliciesApiAxiosParamCreator = function (configuration?: Co
         /**
          * This API creates the specified password policy.
          * @summary Create password policy
-         * @param {Passwordpolicyv3dto} passwordpolicyv3dto 
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPasswordPolicyV1: async (passwordpolicyv3dto: Passwordpolicyv3dto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'passwordpolicyv3dto' is not null or undefined
-            assertParamExists('createPasswordPolicyV1', 'passwordpolicyv3dto', passwordpolicyv3dto)
+        createPasswordPolicyV1: async (passwordPolicyV3Dto: PasswordPolicyV3Dto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordPolicyV3Dto' is not null or undefined
+            assertParamExists('createPasswordPolicyV1', 'passwordPolicyV3Dto', passwordPolicyV3Dto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -358,7 +358,7 @@ export const PasswordPoliciesApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordpolicyv3dto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordPolicyV3Dto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -506,16 +506,16 @@ export const PasswordPoliciesApiAxiosParamCreator = function (configuration?: Co
          * This API updates the specified password policy.
          * @summary Update password policy by id
          * @param {string} id The ID of password policy to update.
-         * @param {Passwordpolicyv3dto} passwordpolicyv3dto 
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setPasswordPolicyV1: async (id: string, passwordpolicyv3dto: Passwordpolicyv3dto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setPasswordPolicyV1: async (id: string, passwordPolicyV3Dto: PasswordPolicyV3Dto, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('setPasswordPolicyV1', 'id', id)
-            // verify required parameter 'passwordpolicyv3dto' is not null or undefined
-            assertParamExists('setPasswordPolicyV1', 'passwordpolicyv3dto', passwordpolicyv3dto)
+            // verify required parameter 'passwordPolicyV3Dto' is not null or undefined
+            assertParamExists('setPasswordPolicyV1', 'passwordPolicyV3Dto', passwordPolicyV3Dto)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -543,7 +543,7 @@ export const PasswordPoliciesApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordpolicyv3dto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordPolicyV3Dto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -563,13 +563,13 @@ export const PasswordPoliciesApiFp = function(configuration?: Configuration) {
         /**
          * This API creates the specified password policy.
          * @summary Create password policy
-         * @param {Passwordpolicyv3dto} passwordpolicyv3dto 
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPasswordPolicyV1(passwordpolicyv3dto: Passwordpolicyv3dto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordpolicyv3dto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordPolicyV1(passwordpolicyv3dto, xSailPointExperimental, axiosOptions);
+        async createPasswordPolicyV1(passwordPolicyV3Dto: PasswordPolicyV3Dto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordPolicyV3Dto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordPolicyV1(passwordPolicyV3Dto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PasswordPoliciesApi.createPasswordPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -596,7 +596,7 @@ export const PasswordPoliciesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordPolicyByIdV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordpolicyv3dto>> {
+        async getPasswordPolicyByIdV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordPolicyV3Dto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordPolicyByIdV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PasswordPoliciesApi.getPasswordPolicyByIdV1']?.[localVarOperationServerIndex]?.url;
@@ -612,7 +612,7 @@ export const PasswordPoliciesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPasswordPoliciesV1(limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Passwordpolicyv3dto>>> {
+        async listPasswordPoliciesV1(limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordPolicyV3Dto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPasswordPoliciesV1(limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PasswordPoliciesApi.listPasswordPoliciesV1']?.[localVarOperationServerIndex]?.url;
@@ -622,13 +622,13 @@ export const PasswordPoliciesApiFp = function(configuration?: Configuration) {
          * This API updates the specified password policy.
          * @summary Update password policy by id
          * @param {string} id The ID of password policy to update.
-         * @param {Passwordpolicyv3dto} passwordpolicyv3dto 
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setPasswordPolicyV1(id: string, passwordpolicyv3dto: Passwordpolicyv3dto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordpolicyv3dto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setPasswordPolicyV1(id, passwordpolicyv3dto, xSailPointExperimental, axiosOptions);
+        async setPasswordPolicyV1(id: string, passwordPolicyV3Dto: PasswordPolicyV3Dto, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordPolicyV3Dto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setPasswordPolicyV1(id, passwordPolicyV3Dto, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PasswordPoliciesApi.setPasswordPolicyV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -650,8 +650,8 @@ export const PasswordPoliciesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPasswordPolicyV1(requestParameters: PasswordPoliciesApiCreatePasswordPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordpolicyv3dto> {
-            return localVarFp.createPasswordPolicyV1(requestParameters.passwordpolicyv3dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createPasswordPolicyV1(requestParameters: PasswordPoliciesApiCreatePasswordPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordPolicyV3Dto> {
+            return localVarFp.createPasswordPolicyV1(requestParameters.passwordPolicyV3Dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes the specified password policy.
@@ -670,7 +670,7 @@ export const PasswordPoliciesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPasswordPolicyByIdV1(requestParameters: PasswordPoliciesApiGetPasswordPolicyByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordpolicyv3dto> {
+        getPasswordPolicyByIdV1(requestParameters: PasswordPoliciesApiGetPasswordPolicyByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordPolicyV3Dto> {
             return localVarFp.getPasswordPolicyByIdV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -680,7 +680,7 @@ export const PasswordPoliciesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPasswordPoliciesV1(requestParameters: PasswordPoliciesApiListPasswordPoliciesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Passwordpolicyv3dto>> {
+        listPasswordPoliciesV1(requestParameters: PasswordPoliciesApiListPasswordPoliciesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PasswordPolicyV3Dto>> {
             return localVarFp.listPasswordPoliciesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -690,8 +690,8 @@ export const PasswordPoliciesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setPasswordPolicyV1(requestParameters: PasswordPoliciesApiSetPasswordPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordpolicyv3dto> {
-            return localVarFp.setPasswordPolicyV1(requestParameters.id, requestParameters.passwordpolicyv3dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        setPasswordPolicyV1(requestParameters: PasswordPoliciesApiSetPasswordPolicyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordPolicyV3Dto> {
+            return localVarFp.setPasswordPolicyV1(requestParameters.id, requestParameters.passwordPolicyV3Dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -704,10 +704,10 @@ export const PasswordPoliciesApiFactory = function (configuration?: Configuratio
 export interface PasswordPoliciesApiCreatePasswordPolicyV1Request {
     /**
      * 
-     * @type {Passwordpolicyv3dto}
+     * @type {PasswordPolicyV3Dto}
      * @memberof PasswordPoliciesApiCreatePasswordPolicyV1
      */
-    readonly passwordpolicyv3dto: Passwordpolicyv3dto
+    readonly passwordPolicyV3Dto: PasswordPolicyV3Dto
 
     /**
      * Use this header to enable this experimental API.
@@ -809,10 +809,10 @@ export interface PasswordPoliciesApiSetPasswordPolicyV1Request {
 
     /**
      * 
-     * @type {Passwordpolicyv3dto}
+     * @type {PasswordPolicyV3Dto}
      * @memberof PasswordPoliciesApiSetPasswordPolicyV1
      */
-    readonly passwordpolicyv3dto: Passwordpolicyv3dto
+    readonly passwordPolicyV3Dto: PasswordPolicyV3Dto
 
     /**
      * Use this header to enable this experimental API.
@@ -838,7 +838,7 @@ export class PasswordPoliciesApi extends BaseAPI {
      * @memberof PasswordPoliciesApi
      */
     public createPasswordPolicyV1(requestParameters: PasswordPoliciesApiCreatePasswordPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordPoliciesApiFp(this.configuration).createPasswordPolicyV1(requestParameters.passwordpolicyv3dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PasswordPoliciesApiFp(this.configuration).createPasswordPolicyV1(requestParameters.passwordPolicyV3Dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -886,7 +886,7 @@ export class PasswordPoliciesApi extends BaseAPI {
      * @memberof PasswordPoliciesApi
      */
     public setPasswordPolicyV1(requestParameters: PasswordPoliciesApiSetPasswordPolicyV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordPoliciesApiFp(this.configuration).setPasswordPolicyV1(requestParameters.id, requestParameters.passwordpolicyv3dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PasswordPoliciesApiFp(this.configuration).setPasswordPolicyV1(requestParameters.id, requestParameters.passwordPolicyV3Dto, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

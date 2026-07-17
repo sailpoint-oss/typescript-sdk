@@ -36,11 +36,11 @@ For more information about the object types that currently support export functi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**exportpayload** | `Exportpayload` | Export options control what will be included in the export. | 
+**exportPayload** | `ExportPayload` | Export options control what will be included in the export. | 
 
 ### Return type
 
-`Spconfigexportjob`
+`SpConfigExportJob`
 
 ### HTTP request headers
 
@@ -52,12 +52,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { SPConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Exportpayload } from 'sailpoint-api-client/dist/sp_config/api';
+import { ExportPayload } from 'sailpoint-api-client/dist/sp_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
-const exportpayload: Exportpayload = {"description":"Export all available objects","excludeTypes":[],"includeTypes":["ACCESS_PROFILE","ACCESS_REQUEST_CONFIG","ATTR_SYNC_SOURCE_CONFIG","AUTH_ORG","CAMPAIGN_FILTER","CONNECTOR_RULE","FORM_DEFINITION","GOVERNANCE_GROUP","IDENTITY_OBJECT_CONFIG","IDENTITY_PROFILE","LIFECYCLE_STATE","NOTIFICATION_TEMPLATE","PASSWORD_POLICY","PASSWORD_SYNC_GROUP","PUBLIC_IDENTITIES_CONFIG","ROLE","RULE","SEGMENT","SERVICE_DESK_INTEGRATION","SOD_POLICY","SOURCE","TAG","TRANSFORM","TRIGGER_SUBSCRIPTION","WORKFLOW"],"objectOptions":{}}; // Export options control what will be included in the export.
-const result = await apiInstance.exportSpConfigV1({ exportpayload: exportpayload });
+const exportPayload: ExportPayload = {
+  "description" : "Export Job 1 Test"
+}; // Export options control what will be included in the export.
+const result = await apiInstance.exportSpConfigV1({ exportPayload: exportPayload });
 console.log(result);
 ```
 
@@ -80,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Spconfigexportjobstatus`
+`SpConfigExportJobStatus`
 
 ### HTTP request headers
 
@@ -119,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Spconfigexportresults`
+`SpConfigExportResults`
 
 ### HTTP request headers
 
@@ -160,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Spconfigimportjobstatus`
+`SpConfigImportJobStatus`
 
 ### HTTP request headers
 
@@ -199,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Spconfigimportresults`
+`SpConfigImportResults`
 
 ### HTTP request headers
 
@@ -244,11 +246,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **data** | `File` | JSON file containing the objects to be imported. |  [default to undefined]
 **preview** | `boolean` | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  | [optional] [default to false]
-**_options** | `Importoptions` |  | [optional] [default to undefined]
+**_options** | `ImportOptions` |  | [optional] [default to undefined]
 
 ### Return type
 
-`Spconfigjob`
+`SpConfigJob`
 
 ### HTTP request headers
 
@@ -260,13 +262,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { SPConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Importoptions } from 'sailpoint-api-client/dist/sp_config/api';
+import { ImportOptions } from 'sailpoint-api-client/dist/sp_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
 const data: File = BINARY_DATA_HERE; // JSON file containing the objects to be imported.
 const preview: boolean = true; // This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional)
-const _options: Importoptions = ; //  (optional)
+const _options: ImportOptions = ; //  (optional)
 const result = await apiInstance.importSpConfigV1({ data: data });
 console.log(result);
 ```
@@ -285,7 +287,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Array<Spconfigobject>`
+`Array<SpConfigObject>`
 
 ### HTTP request headers
 

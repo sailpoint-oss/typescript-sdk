@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Taskstatus>`
+`Array<TaskStatus>`
 
 ### HTTP request headers
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Taskstatus`
+`TaskStatus`
 
 ### HTTP request headers
 
@@ -115,11 +115,11 @@ Update a current task status by task ID. Use this API to clear a pending task by
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Task ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the object. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the object. | 
 
 ### Return type
 
-`Taskstatus`
+`TaskStatus`
 
 ### HTTP request headers
 
@@ -131,13 +131,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaskManagementApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/task_management/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/task_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaskManagementApi(configuration);
 const id: string = 00eebcf881994e419d72e757fd30dc0e; // Task ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // The JSONPatch payload used to update the object.
-const result = await apiInstance.updateTaskStatusV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the object.
+const result = await apiInstance.updateTaskStatusV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Entitlementconnectionsearchhit>`
+`Array<EntitlementConnectionSearchHit>`
 
 ### HTTP request headers
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Entitlementconnectionsearchhit>`
+`Array<EntitlementConnectionSearchHit>`
 
 ### HTTP request headers
 
@@ -137,11 +137,11 @@ Applies JSON Patch operations to an entitlement connection selected by `connecti
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **connectionId** | `string` | Connection ID (UUID with or without hyphens). |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 
 ### Return type
 
-`Entitlementconnection`
+`EntitlementConnection`
 
 ### HTTP request headers
 
@@ -153,13 +153,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementConnectionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/entitlement_connections/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/entitlement_connections/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);
 const connectionId: string = 6c692d9972f8400ca4560a68f62c4c5f; // Connection ID (UUID with or without hyphens).
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // 
-const result = await apiInstance.patchEntitlementConnectionByIdV1({ connectionId: connectionId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
+const result = await apiInstance.patchEntitlementConnectionByIdV1({ connectionId: connectionId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -181,11 +185,11 @@ Name | Type | Description  | Notes
 **entitlementId** | `string` | Entitlement ID (UUID with or without hyphens). |  [default to undefined]
 **identityId** | `string` | Identity ID (UUID with or without hyphens). |  [default to undefined]
 **accountId** | `string` | Account ID (UUID with or without hyphens). |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 
 ### Return type
 
-`Entitlementconnection`
+`EntitlementConnection`
 
 ### HTTP request headers
 
@@ -197,15 +201,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementConnectionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/entitlement_connections/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/entitlement_connections/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);
 const entitlementId: string = dcfd09e551644ad5aa162ce977862031; // Entitlement ID (UUID with or without hyphens).
 const identityId: string = 5470d8d4817a4207a8020bf533187da9; // Identity ID (UUID with or without hyphens).
 const accountId: string = 323bfddfb3dd4197b8f10f7735307d27; // Account ID (UUID with or without hyphens).
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // 
-const result = await apiInstance.patchEntitlementConnectionByQueryV1({ entitlementId: entitlementId, identityId: identityId, accountId: accountId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
+const result = await apiInstance.patchEntitlementConnectionByQueryV1({ entitlementId: entitlementId, identityId: identityId, accountId: accountId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -224,11 +232,11 @@ The API returns per-item results in a 207 Multi-Status response.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**entitlementconnectionbulkupdateitem** | `Array<Entitlementconnectionbulkupdateitem>` |  | 
+**entitlementConnectionBulkUpdateItem** | `Array<EntitlementConnectionBulkUpdateItem>` |  | 
 
 ### Return type
 
-`Array<Entitlementconnectionbulkupdateresultitem>`
+`Array<EntitlementConnectionBulkUpdateResultItem>`
 
 ### HTTP request headers
 
@@ -240,12 +248,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementConnectionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Entitlementconnectionbulkupdateitem } from 'sailpoint-api-client/dist/entitlement_connections/api';
+import { EntitlementConnectionBulkUpdateItem } from 'sailpoint-api-client/dist/entitlement_connections/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);
-const entitlementconnectionbulkupdateitem: Array<Entitlementconnectionbulkupdateitem> = [{"connectionId":"d532fa5cb15748e2873c6a01e5923ec4","type":"JIT"},{"connectionId":"57bdbfcab8a34afb91c0a9fb4dba52b8","type":"STANDING"},{"connectionId":"0f571cefc8a2411790e0ee09f77e25a3","type":"STANDING"},{"connectionId":"025542c7e42144258c6f2325b6feeba8","type":"JIT"},{"connectionId":"6bccbc42381f49028dac9bfe68dbad2e","type":"JIT"}]; // 
-const result = await apiInstance.updateEntitlementConnectionsBulkV1({ entitlementconnectionbulkupdateitem: entitlementconnectionbulkupdateitem });
+const entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem> = {
+  "connectionId" : "d532fa5cb15748e2873c6a01e5923ec4",
+  "type" : "JIT"
+}; // 
+const result = await apiInstance.updateEntitlementConnectionsBulkV1({ entitlementConnectionBulkUpdateItem: entitlementConnectionBulkUpdateItem });
 console.log(result);
 ```
 

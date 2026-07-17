@@ -1,10 +1,10 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-Errormessagedto.md
-Errorresponsedto.md
+ErrorMessageDto.md
+ErrorResponseDto.md
 Index.md
-Localeorigin.md
+LocaleOrigin.md
 MachineAccountClassifyApi.md
 MachineAccountClassifyApideveloperSite_code_examples.yaml
 README.md

@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Machineclassificationconfig`
+`MachineClassificationConfig`
 
 ### HTTP request headers
 
@@ -107,11 +107,11 @@ Use this API to update Classification Config for a Source. A token with ORG_ADMI
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | Source ID. |  [default to undefined]
-**machineclassificationconfig** | `Machineclassificationconfig` |  | 
+**machineClassificationConfig** | `MachineClassificationConfig` |  | 
 
 ### Return type
 
-`Machineclassificationconfig`
+`MachineClassificationConfig`
 
 ### HTTP request headers
 
@@ -123,13 +123,68 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineClassificationConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Machineclassificationconfig } from 'sailpoint-api-client/dist/machine_classification_config/api';
+import { MachineClassificationConfig } from 'sailpoint-api-client/dist/machine_classification_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineClassificationConfigApi(configuration);
 const sourceId: string = ef38f94347e94562b5bb8424a56397d8; // Source ID.
-const machineclassificationconfig: Machineclassificationconfig = ; // 
-const result = await apiInstance.setMachineClassificationConfigV1({ sourceId: sourceId, machineclassificationconfig: machineclassificationconfig });
+const machineClassificationConfig: MachineClassificationConfig = {
+  "criteria" : {
+    "children" : [ {
+      "children" : [ {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      }, {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      } ],
+      "caseSensitive" : false,
+      "dataType" : "dataType",
+      "attribute" : "employeeType",
+      "operation" : "EQUALS",
+      "value" : "SERVICE"
+    }, {
+      "children" : [ {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      }, {
+        "children" : [ "{}", "{}" ],
+        "caseSensitive" : false,
+        "dataType" : "dataType",
+        "attribute" : "sAMAccountName",
+        "operation" : "EQUALS",
+        "value" : "SVC"
+      } ],
+      "caseSensitive" : false,
+      "dataType" : "dataType",
+      "attribute" : "employeeType",
+      "operation" : "EQUALS",
+      "value" : "SERVICE"
+    } ],
+    "caseSensitive" : false,
+    "dataType" : "dataType",
+    "attribute" : "distinguishedName",
+    "operation" : "EQUALS",
+    "value" : "OU=Service Accounts"
+  },
+  "created" : "2017-07-11T18:45:37.098Z",
+  "modified" : "2018-06-25T20:22:28.104Z",
+  "classificationMethod" : "SOURCE",
+  "enabled" : true
+}; // 
+const result = await apiInstance.setMachineClassificationConfigV1({ sourceId: sourceId, machineClassificationConfig: machineClassificationConfig });
 console.log(result);
 ```
 

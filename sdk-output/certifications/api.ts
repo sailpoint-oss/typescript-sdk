@@ -26,49 +26,49 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Accessreviewitem
+ * @interface AccessReviewItem
  */
-export interface Accessreviewitem {
+export interface AccessReviewItem {
     /**
      * 
-     * @type {Accesssummary}
-     * @memberof Accessreviewitem
+     * @type {AccessSummary}
+     * @memberof AccessReviewItem
      */
-    'accessSummary'?: Accesssummary;
+    'accessSummary'?: AccessSummary;
     /**
      * 
-     * @type {Certificationidentitysummary}
-     * @memberof Accessreviewitem
+     * @type {CertificationIdentitySummary}
+     * @memberof AccessReviewItem
      */
-    'identitySummary'?: Certificationidentitysummary;
+    'identitySummary'?: CertificationIdentitySummary;
     /**
      * The review item\'s id
      * @type {string}
-     * @memberof Accessreviewitem
+     * @memberof AccessReviewItem
      */
     'id'?: string;
     /**
      * Whether the review item is complete
      * @type {boolean}
-     * @memberof Accessreviewitem
+     * @memberof AccessReviewItem
      */
     'completed'?: boolean;
     /**
      * Indicates whether the review item is for new access to a source
      * @type {boolean}
-     * @memberof Accessreviewitem
+     * @memberof AccessReviewItem
      */
     'newAccess'?: boolean;
     /**
      * 
-     * @type {Certificationdecision}
-     * @memberof Accessreviewitem
+     * @type {CertificationDecision}
+     * @memberof AccessReviewItem
      */
-    'decision'?: Certificationdecision;
+    'decision'?: CertificationDecision;
     /**
      * Comments for this review item
      * @type {string}
-     * @memberof Accessreviewitem
+     * @memberof AccessReviewItem
      */
     'comments'?: string | null;
 }
@@ -77,56 +77,56 @@ export interface Accessreviewitem {
 /**
  * An object holding the access that is being reviewed
  * @export
- * @interface Accesssummary
+ * @interface AccessSummary
  */
-export interface Accesssummary {
+export interface AccessSummary {
     /**
      * 
-     * @type {AccesssummaryAccess}
-     * @memberof Accesssummary
+     * @type {AccessSummaryAccess}
+     * @memberof AccessSummary
      */
-    'access'?: AccesssummaryAccess;
+    'access'?: AccessSummaryAccess;
     /**
      * 
-     * @type {Reviewableentitlement}
-     * @memberof Accesssummary
+     * @type {ReviewableEntitlement}
+     * @memberof AccessSummary
      */
-    'entitlement'?: Reviewableentitlement | null;
+    'entitlement'?: ReviewableEntitlement | null;
     /**
      * 
-     * @type {Reviewableaccessprofile}
-     * @memberof Accesssummary
+     * @type {ReviewableAccessProfile}
+     * @memberof AccessSummary
      */
-    'accessProfile'?: Reviewableaccessprofile;
+    'accessProfile'?: ReviewableAccessProfile;
     /**
      * 
-     * @type {Reviewablerole}
-     * @memberof Accesssummary
+     * @type {ReviewableRole}
+     * @memberof AccessSummary
      */
-    'role'?: Reviewablerole | null;
+    'role'?: ReviewableRole | null;
 }
 /**
  * 
  * @export
- * @interface AccesssummaryAccess
+ * @interface AccessSummaryAccess
  */
-export interface AccesssummaryAccess {
+export interface AccessSummaryAccess {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof AccesssummaryAccess
+     * @type {DtoType}
+     * @memberof AccessSummaryAccess
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The ID of the item being certified
      * @type {string}
-     * @memberof AccesssummaryAccess
+     * @memberof AccessSummaryAccess
      */
     'id'?: string;
     /**
      * The name of the item being certified
      * @type {string}
-     * @memberof AccesssummaryAccess
+     * @memberof AccessSummaryAccess
      */
     'name'?: string;
 }
@@ -135,92 +135,92 @@ export interface AccesssummaryAccess {
 /**
  * Insights into account activity
  * @export
- * @interface Activityinsights
+ * @interface ActivityInsights
  */
-export interface Activityinsights {
+export interface ActivityInsights {
     /**
      * UUID of the account
      * @type {string}
-     * @memberof Activityinsights
+     * @memberof ActivityInsights
      */
     'accountID'?: string;
     /**
      * The number of days of activity
      * @type {number}
-     * @memberof Activityinsights
+     * @memberof ActivityInsights
      */
     'usageDays'?: number;
     /**
      * Status indicating if the activity is complete or unknown
      * @type {string}
-     * @memberof Activityinsights
+     * @memberof ActivityInsights
      */
-    'usageDaysState'?: ActivityinsightsUsageDaysStateEnum;
+    'usageDaysState'?: ActivityInsightsUsageDaysStateEnum;
 }
 
-export const ActivityinsightsUsageDaysStateEnum = {
+export const ActivityInsightsUsageDaysStateEnum = {
     Complete: 'COMPLETE',
     Unknown: 'UNKNOWN'
 } as const;
 
-export type ActivityinsightsUsageDaysStateEnum = typeof ActivityinsightsUsageDaysStateEnum[keyof typeof ActivityinsightsUsageDaysStateEnum];
+export type ActivityInsightsUsageDaysStateEnum = typeof ActivityInsightsUsageDaysStateEnum[keyof typeof ActivityInsightsUsageDaysStateEnum];
 
 /**
  * 
  * @export
- * @interface Campaignreference
+ * @interface CampaignReference
  */
-export interface Campaignreference {
+export interface CampaignReference {
     /**
      * The unique ID of the campaign.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
     'id': string;
     /**
      * The name of the campaign.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
     'name': string;
     /**
      * The type of object that is being referenced.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'type': CampaignreferenceTypeEnum;
+    'type': CampaignReferenceTypeEnum;
     /**
      * The type of the campaign.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'campaignType': CampaignreferenceCampaignTypeEnum;
+    'campaignType': CampaignReferenceCampaignTypeEnum;
     /**
      * The description of the campaign set by the admin who created it.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
     'description': string | null;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'correlatedStatus': CampaignreferenceCorrelatedStatusEnum;
+    'correlatedStatus': CampaignReferenceCorrelatedStatusEnum;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
-     * @memberof Campaignreference
+     * @memberof CampaignReference
      */
-    'mandatoryCommentRequirement': CampaignreferenceMandatoryCommentRequirementEnum;
+    'mandatoryCommentRequirement': CampaignReferenceMandatoryCommentRequirementEnum;
 }
 
-export const CampaignreferenceTypeEnum = {
+export const CampaignReferenceTypeEnum = {
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CampaignreferenceTypeEnum = typeof CampaignreferenceTypeEnum[keyof typeof CampaignreferenceTypeEnum];
-export const CampaignreferenceCampaignTypeEnum = {
+export type CampaignReferenceTypeEnum = typeof CampaignReferenceTypeEnum[keyof typeof CampaignReferenceTypeEnum];
+export const CampaignReferenceCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
@@ -228,20 +228,20 @@ export const CampaignreferenceCampaignTypeEnum = {
     MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
-export type CampaignreferenceCampaignTypeEnum = typeof CampaignreferenceCampaignTypeEnum[keyof typeof CampaignreferenceCampaignTypeEnum];
-export const CampaignreferenceCorrelatedStatusEnum = {
+export type CampaignReferenceCampaignTypeEnum = typeof CampaignReferenceCampaignTypeEnum[keyof typeof CampaignReferenceCampaignTypeEnum];
+export const CampaignReferenceCorrelatedStatusEnum = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type CampaignreferenceCorrelatedStatusEnum = typeof CampaignreferenceCorrelatedStatusEnum[keyof typeof CampaignreferenceCorrelatedStatusEnum];
-export const CampaignreferenceMandatoryCommentRequirementEnum = {
+export type CampaignReferenceCorrelatedStatusEnum = typeof CampaignReferenceCorrelatedStatusEnum[keyof typeof CampaignReferenceCorrelatedStatusEnum];
+export const CampaignReferenceMandatoryCommentRequirementEnum = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type CampaignreferenceMandatoryCommentRequirementEnum = typeof CampaignreferenceMandatoryCommentRequirementEnum[keyof typeof CampaignreferenceMandatoryCommentRequirementEnum];
+export type CampaignReferenceMandatoryCommentRequirementEnum = typeof CampaignReferenceMandatoryCommentRequirementEnum[keyof typeof CampaignReferenceMandatoryCommentRequirementEnum];
 
 /**
  * The decision to approve or revoke the review item
@@ -249,42 +249,42 @@ export type CampaignreferenceMandatoryCommentRequirementEnum = typeof Campaignre
  * @enum {string}
  */
 
-export const Certificationdecision = {
+export const CertificationDecision = {
     Approve: 'APPROVE',
     Revoke: 'REVOKE'
 } as const;
 
-export type Certificationdecision = typeof Certificationdecision[keyof typeof Certificationdecision];
+export type CertificationDecision = typeof CertificationDecision[keyof typeof CertificationDecision];
 
 
 /**
  * 
  * @export
- * @interface Certificationidentitysummary
+ * @interface CertificationIdentitySummary
  */
-export interface Certificationidentitysummary {
+export interface CertificationIdentitySummary {
     /**
      * The ID of the identity summary
      * @type {string}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'id'?: string;
     /**
      * Name of the linked identity
      * @type {string}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'name'?: string;
     /**
      * The ID of the identity being certified
      * @type {string}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'identityId'?: string;
     /**
      * Indicates whether the review items for the linked identity\'s certification have been completed
      * @type {boolean}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'completed'?: boolean;
 }
@@ -294,110 +294,110 @@ export interface Certificationidentitysummary {
  * @enum {string}
  */
 
-export const Certificationphase = {
+export const CertificationPhase = {
     Staged: 'STAGED',
     Active: 'ACTIVE',
     Signed: 'SIGNED'
 } as const;
 
-export type Certificationphase = typeof Certificationphase[keyof typeof Certificationphase];
+export type CertificationPhase = typeof CertificationPhase[keyof typeof CertificationPhase];
 
 
 /**
  * 
  * @export
- * @interface Certificationreference
+ * @interface CertificationReference
  */
-export interface Certificationreference {
+export interface CertificationReference {
     /**
      * The id of the certification.
      * @type {string}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
     'id'?: string;
     /**
      * The name of the certification.
      * @type {string}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
-    'type'?: CertificationreferenceTypeEnum;
+    'type'?: CertificationReferenceTypeEnum;
     /**
      * 
      * @type {Reviewer}
-     * @memberof Certificationreference
+     * @memberof CertificationReference
      */
     'reviewer'?: Reviewer;
 }
 
-export const CertificationreferenceTypeEnum = {
+export const CertificationReferenceTypeEnum = {
     Certification: 'CERTIFICATION'
 } as const;
 
-export type CertificationreferenceTypeEnum = typeof CertificationreferenceTypeEnum[keyof typeof CertificationreferenceTypeEnum];
+export type CertificationReferenceTypeEnum = typeof CertificationReferenceTypeEnum[keyof typeof CertificationReferenceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Certificationtask
+ * @interface CertificationTask
  */
-export interface Certificationtask {
+export interface CertificationTask {
     /**
      * The ID of the certification task.
      * @type {string}
-     * @memberof Certificationtask
+     * @memberof CertificationTask
      */
     'id'?: string;
     /**
      * The type of the certification task. More values may be added in the future.
      * @type {string}
-     * @memberof Certificationtask
+     * @memberof CertificationTask
      */
-    'type'?: CertificationtaskTypeEnum;
+    'type'?: CertificationTaskTypeEnum;
     /**
      * The type of item that is being operated on by this task whose ID is stored in the targetId field.
      * @type {string}
-     * @memberof Certificationtask
+     * @memberof CertificationTask
      */
-    'targetType'?: CertificationtaskTargetTypeEnum;
+    'targetType'?: CertificationTaskTargetTypeEnum;
     /**
      * The ID of the item being operated on by this task.
      * @type {string}
-     * @memberof Certificationtask
+     * @memberof CertificationTask
      */
     'targetId'?: string;
     /**
      * The status of the task.
      * @type {string}
-     * @memberof Certificationtask
+     * @memberof CertificationTask
      */
-    'status'?: CertificationtaskStatusEnum;
+    'status'?: CertificationTaskStatusEnum;
     /**
      * List of error messages
-     * @type {Array<Errormessagedto>}
-     * @memberof Certificationtask
+     * @type {Array<ErrorMessageDto>}
+     * @memberof CertificationTask
      */
-    'errors'?: Array<Errormessagedto>;
+    'errors'?: Array<ErrorMessageDto>;
     /**
      * Reassignment trails that lead to self certification identity
-     * @type {Array<Reassignmenttraildto>}
-     * @memberof Certificationtask
+     * @type {Array<ReassignmentTrailDTO>}
+     * @memberof CertificationTask
      */
-    'reassignmentTrailDTOs'?: Array<Reassignmenttraildto>;
+    'reassignmentTrailDTOs'?: Array<ReassignmentTrailDTO>;
     /**
      * The date and time on which this task was created.
      * @type {string}
-     * @memberof Certificationtask
+     * @memberof CertificationTask
      */
     'created'?: string;
 }
 
-export const CertificationtaskTypeEnum = {
+export const CertificationTaskTypeEnum = {
     Reassign: 'REASSIGN',
     AdminReassign: 'ADMIN_REASSIGN',
     CompleteCertification: 'COMPLETE_CERTIFICATION',
@@ -408,89 +408,89 @@ export const CertificationtaskTypeEnum = {
     CampaignDelete: 'CAMPAIGN_DELETE'
 } as const;
 
-export type CertificationtaskTypeEnum = typeof CertificationtaskTypeEnum[keyof typeof CertificationtaskTypeEnum];
-export const CertificationtaskTargetTypeEnum = {
+export type CertificationTaskTypeEnum = typeof CertificationTaskTypeEnum[keyof typeof CertificationTaskTypeEnum];
+export const CertificationTaskTargetTypeEnum = {
     Certification: 'CERTIFICATION',
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CertificationtaskTargetTypeEnum = typeof CertificationtaskTargetTypeEnum[keyof typeof CertificationtaskTargetTypeEnum];
-export const CertificationtaskStatusEnum = {
+export type CertificationTaskTargetTypeEnum = typeof CertificationTaskTargetTypeEnum[keyof typeof CertificationTaskTargetTypeEnum];
+export const CertificationTaskStatusEnum = {
     Queued: 'QUEUED',
     InProgress: 'IN_PROGRESS',
     Success: 'SUCCESS',
     Error: 'ERROR'
 } as const;
 
-export type CertificationtaskStatusEnum = typeof CertificationtaskStatusEnum[keyof typeof CertificationtaskStatusEnum];
+export type CertificationTaskStatusEnum = typeof CertificationTaskStatusEnum[keyof typeof CertificationTaskStatusEnum];
 
 /**
  * DAS data for the entitlement
  * @export
- * @interface Dataaccess
+ * @interface DataAccess
  */
-export interface Dataaccess {
+export interface DataAccess {
     /**
      * List of classification policies that apply to resources the entitlement \\ groups has access to
-     * @type {Array<DataaccessPoliciesInner>}
-     * @memberof Dataaccess
+     * @type {Array<DataAccessPoliciesInner>}
+     * @memberof DataAccess
      */
-    'policies'?: Array<DataaccessPoliciesInner>;
+    'policies'?: Array<DataAccessPoliciesInner>;
     /**
      * List of classification categories that apply to resources the entitlement \\ groups has access to
-     * @type {Array<DataaccessCategoriesInner>}
-     * @memberof Dataaccess
+     * @type {Array<DataAccessCategoriesInner>}
+     * @memberof DataAccess
      */
-    'categories'?: Array<DataaccessCategoriesInner>;
+    'categories'?: Array<DataAccessCategoriesInner>;
     /**
      * 
-     * @type {DataaccessImpactScore}
-     * @memberof Dataaccess
+     * @type {DataAccessImpactScore}
+     * @memberof DataAccess
      */
-    'impactScore'?: DataaccessImpactScore;
+    'impactScore'?: DataAccessImpactScore;
 }
 /**
  * 
  * @export
- * @interface DataaccessCategoriesInner
+ * @interface DataAccessCategoriesInner
  */
-export interface DataaccessCategoriesInner {
+export interface DataAccessCategoriesInner {
     /**
      * Value of the category
      * @type {string}
-     * @memberof DataaccessCategoriesInner
+     * @memberof DataAccessCategoriesInner
      */
     'value'?: string;
     /**
      * Number of matched for each category
      * @type {number}
-     * @memberof DataaccessCategoriesInner
+     * @memberof DataAccessCategoriesInner
      */
     'matchCount'?: number;
 }
 /**
  * 
  * @export
- * @interface DataaccessImpactScore
+ * @interface DataAccessImpactScore
  */
-export interface DataaccessImpactScore {
+export interface DataAccessImpactScore {
     /**
      * Impact Score for this data
      * @type {string}
-     * @memberof DataaccessImpactScore
+     * @memberof DataAccessImpactScore
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface DataaccessPoliciesInner
+ * @interface DataAccessPoliciesInner
  */
-export interface DataaccessPoliciesInner {
+export interface DataAccessPoliciesInner {
     /**
      * Value of the policy
      * @type {string}
-     * @memberof DataaccessPoliciesInner
+     * @memberof DataAccessPoliciesInner
      */
     'value'?: string;
 }
@@ -500,7 +500,7 @@ export interface DataaccessPoliciesInner {
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -532,31 +532,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -565,173 +565,173 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
  * @export
- * @interface Identitycertificationdto
+ * @interface IdentityCertificationDto
  */
-export interface Identitycertificationdto {
+export interface IdentityCertificationDto {
     /**
      * id of the certification
      * @type {string}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'id'?: string;
     /**
      * name of the certification
      * @type {string}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'name'?: string;
     /**
      * 
-     * @type {Campaignreference}
-     * @memberof Identitycertificationdto
+     * @type {CampaignReference}
+     * @memberof IdentityCertificationDto
      */
-    'campaign'?: Campaignreference;
+    'campaign'?: CampaignReference;
     /**
      * Have all decisions been made?
      * @type {boolean}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'completed'?: boolean;
     /**
      * The number of identities for whom all decisions have been made and are complete.
      * @type {number}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'identitiesCompleted'?: number;
     /**
      * The total number of identities in the Certification, both complete and incomplete.
      * @type {number}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'identitiesTotal'?: number;
     /**
      * created date
      * @type {string}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'created'?: string;
     /**
      * modified date
      * @type {string}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'modified'?: string;
     /**
      * The number of approve/revoke/acknowledge decisions that have been made.
      * @type {number}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'decisionsMade'?: number;
     /**
      * The total number of approve/revoke/acknowledge decisions.
      * @type {number}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'decisionsTotal'?: number;
     /**
      * The due date of the certification.
      * @type {string}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'due'?: string | null;
     /**
      * The date the reviewer signed off on the Certification.
      * @type {string}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'signed'?: string | null;
     /**
      * 
      * @type {Reviewer}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'reviewer'?: Reviewer;
     /**
      * 
      * @type {Reassignment}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'reassignment'?: Reassignment | null;
     /**
      * Identifies if the certification has an error
      * @type {boolean}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'hasErrors'?: boolean;
     /**
      * Description of the certification error
      * @type {string}
-     * @memberof Identitycertificationdto
+     * @memberof IdentityCertificationDto
      */
     'errorMessage'?: string | null;
     /**
      * 
-     * @type {Certificationphase}
-     * @memberof Identitycertificationdto
+     * @type {CertificationPhase}
+     * @memberof IdentityCertificationDto
      */
-    'phase'?: Certificationphase;
+    'phase'?: CertificationPhase;
 }
 
 
 /**
  * 
  * @export
- * @interface Identityreferencewithnameandemail
+ * @interface IdentityReferenceWithNameAndEmail
  */
-export interface Identityreferencewithnameandemail {
+export interface IdentityReferenceWithNameAndEmail {
     /**
      * The type can only be IDENTITY. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'type'?: string;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'id'?: string;
     /**
      * Identity\'s human-readable display name. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'name'?: string;
     /**
      * Identity\'s email address. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'email'?: string | null;
 }
@@ -767,33 +767,61 @@ export interface ListIdentityCertificationsV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
  * @export
- * @interface Permissiondto
+ * @interface PermissionDTO
  */
-export interface Permissiondto {
+export interface PermissionDTO {
     /**
      * All the rights (e.g. actions) that this permission allows on the target
      * @type {Array<string>}
-     * @memberof Permissiondto
+     * @memberof PermissionDTO
      */
     'rights'?: Array<string>;
     /**
      * The target the permission would grants rights on.
      * @type {string}
-     * @memberof Permissiondto
+     * @memberof PermissionDTO
      */
     'target'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface ReassignReference
+ */
+export interface ReassignReference {
+    /**
+     * The ID of item or identity being reassigned.
+     * @type {string}
+     * @memberof ReassignReference
+     */
+    'id': string;
+    /**
+     * The type of item or identity being reassigned.
+     * @type {string}
+     * @memberof ReassignReference
+     */
+    'type': ReassignReferenceTypeEnum;
+}
+
+export const ReassignReferenceTypeEnum = {
+    TargetSummary: 'TARGET_SUMMARY',
+    Item: 'ITEM',
+    IdentitySummary: 'IDENTITY_SUMMARY'
+} as const;
+
+export type ReassignReferenceTypeEnum = typeof ReassignReferenceTypeEnum[keyof typeof ReassignReferenceTypeEnum];
+
 /**
  * 
  * @export
@@ -802,10 +830,10 @@ export interface Permissiondto {
 export interface Reassignment {
     /**
      * 
-     * @type {Certificationreference}
+     * @type {CertificationReference}
      * @memberof Reassignment
      */
-    'from'?: Certificationreference;
+    'from'?: CertificationReference;
     /**
      * The comment entered when the Certification was reassigned
      * @type {string}
@@ -816,457 +844,479 @@ export interface Reassignment {
 /**
  * 
  * @export
- * @interface Reassignmenttraildto
+ * @interface ReassignmentTrailDTO
  */
-export interface Reassignmenttraildto {
+export interface ReassignmentTrailDTO {
     /**
      * The ID of previous owner identity.
      * @type {string}
-     * @memberof Reassignmenttraildto
+     * @memberof ReassignmentTrailDTO
      */
     'previousOwner'?: string;
     /**
      * The ID of new owner identity.
      * @type {string}
-     * @memberof Reassignmenttraildto
+     * @memberof ReassignmentTrailDTO
      */
     'newOwner'?: string;
     /**
      * The type of reassignment.
      * @type {string}
-     * @memberof Reassignmenttraildto
+     * @memberof ReassignmentTrailDTO
      */
     'reassignmentType'?: string;
 }
 /**
  * 
  * @export
- * @interface Reassignreference
+ * @interface ReviewDecision
  */
-export interface Reassignreference {
+export interface ReviewDecision {
     /**
-     * The ID of item or identity being reassigned.
+     * The id of the review decision
      * @type {string}
-     * @memberof Reassignreference
+     * @memberof ReviewDecision
      */
     'id': string;
     /**
-     * The type of item or identity being reassigned.
-     * @type {string}
-     * @memberof Reassignreference
+     * 
+     * @type {CertificationDecision}
+     * @memberof ReviewDecision
      */
-    'type': ReassignreferenceTypeEnum;
+    'decision': CertificationDecision;
+    /**
+     * The date at which a user\'s access should be taken away. Should only be set for `REVOKE` decisions.
+     * @type {string}
+     * @memberof ReviewDecision
+     */
+    'proposedEndDate'?: string;
+    /**
+     * Indicates whether decision should be marked as part of a larger bulk decision
+     * @type {boolean}
+     * @memberof ReviewDecision
+     */
+    'bulk': boolean;
+    /**
+     * 
+     * @type {ReviewRecommendation}
+     * @memberof ReviewDecision
+     */
+    'recommendation'?: ReviewRecommendation;
+    /**
+     * Comments recorded when the decision was made
+     * @type {string}
+     * @memberof ReviewDecision
+     */
+    'comments'?: string;
 }
 
-export const ReassignreferenceTypeEnum = {
-    TargetSummary: 'TARGET_SUMMARY',
-    Item: 'ITEM',
-    IdentitySummary: 'IDENTITY_SUMMARY'
-} as const;
-
-export type ReassignreferenceTypeEnum = typeof ReassignreferenceTypeEnum[keyof typeof ReassignreferenceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Reviewableaccessprofile
+ * @interface ReviewReassign
  */
-export interface Reviewableaccessprofile {
+export interface ReviewReassign {
+    /**
+     * 
+     * @type {Array<ReassignReference>}
+     * @memberof ReviewReassign
+     */
+    'reassign': Array<ReassignReference>;
+    /**
+     * The ID of the identity to which the certification is reassigned
+     * @type {string}
+     * @memberof ReviewReassign
+     */
+    'reassignTo': string;
+    /**
+     * The reason comment for why the reassign was made
+     * @type {string}
+     * @memberof ReviewReassign
+     */
+    'reason': string;
+}
+/**
+ * 
+ * @export
+ * @interface ReviewRecommendation
+ */
+export interface ReviewRecommendation {
+    /**
+     * The recommendation from IAI at the time of the decision. This field will be null if no recommendation was made.
+     * @type {string}
+     * @memberof ReviewRecommendation
+     */
+    'recommendation'?: string | null;
+    /**
+     * A list of reasons for the recommendation.
+     * @type {Array<string>}
+     * @memberof ReviewRecommendation
+     */
+    'reasons'?: Array<string>;
+    /**
+     * The time at which the recommendation was recorded.
+     * @type {string}
+     * @memberof ReviewRecommendation
+     */
+    'timestamp'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ReviewableAccessProfile
+ */
+export interface ReviewableAccessProfile {
     /**
      * The id of the Access Profile
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'id'?: string;
     /**
      * Name of the Access Profile
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'name'?: string;
     /**
      * Information about the Access Profile
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'description'?: string;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'privileged'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'cloudGoverned'?: boolean;
     /**
      * The date at which a user\'s access expires
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'endDate'?: string | null;
     /**
      * 
-     * @type {Identityreferencewithnameandemail}
-     * @memberof Reviewableaccessprofile
+     * @type {IdentityReferenceWithNameAndEmail}
+     * @memberof ReviewableAccessProfile
      */
-    'owner'?: Identityreferencewithnameandemail | null;
+    'owner'?: IdentityReferenceWithNameAndEmail | null;
     /**
      * A list of entitlements associated with this Access Profile
-     * @type {Array<Reviewableentitlement>}
-     * @memberof Reviewableaccessprofile
+     * @type {Array<ReviewableEntitlement>}
+     * @memberof ReviewableAccessProfile
      */
-    'entitlements'?: Array<Reviewableentitlement>;
+    'entitlements'?: Array<ReviewableEntitlement>;
     /**
      * Date the Access Profile was created.
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'created'?: string;
     /**
      * Date the Access Profile was last modified.
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface Reviewableentitlement
+ * @interface ReviewableEntitlement
  */
-export interface Reviewableentitlement {
+export interface ReviewableEntitlement {
     /**
      * The id for the entitlement
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'id'?: string;
     /**
      * The name of the entitlement
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'name'?: string;
     /**
      * Information about the entitlement
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'description'?: string | null;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'privileged'?: boolean;
     /**
      * 
-     * @type {Identityreferencewithnameandemail}
-     * @memberof Reviewableentitlement
+     * @type {IdentityReferenceWithNameAndEmail}
+     * @memberof ReviewableEntitlement
      */
-    'owner'?: Identityreferencewithnameandemail | null;
+    'owner'?: IdentityReferenceWithNameAndEmail | null;
     /**
      * The name of the attribute on the source
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'attributeName'?: string;
     /**
      * The value of the attribute on the source
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'attributeValue'?: string;
     /**
      * The schema object type on the source used to represent the entitlement and its attributes
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceSchemaObjectType'?: string;
     /**
      * The name of the source for which this entitlement belongs
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceName'?: string;
     /**
      * The type of the source for which the entitlement belongs
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceType'?: string;
     /**
      * The ID of the source for which the entitlement belongs
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceId'?: string;
     /**
      * Indicates if the entitlement has permissions
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'hasPermissions'?: boolean;
     /**
      * Indicates if the entitlement is a representation of an account permission
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'isPermission'?: boolean;
     /**
      * Indicates whether the entitlement can be revoked
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'revocable'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'cloudGoverned'?: boolean;
     /**
      * True if the entitlement has DAS data
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'containsDataAccess'?: boolean;
     /**
      * 
-     * @type {Dataaccess}
-     * @memberof Reviewableentitlement
+     * @type {DataAccess}
+     * @memberof ReviewableEntitlement
      */
-    'dataAccess'?: Dataaccess | null;
+    'dataAccess'?: DataAccess | null;
     /**
      * 
-     * @type {ReviewableentitlementAccount}
-     * @memberof Reviewableentitlement
+     * @type {ReviewableEntitlementAccount}
+     * @memberof ReviewableEntitlement
      */
-    'account'?: ReviewableentitlementAccount | null;
+    'account'?: ReviewableEntitlementAccount | null;
 }
 /**
  * Information about the status of the entitlement
  * @export
- * @interface ReviewableentitlementAccount
+ * @interface ReviewableEntitlementAccount
  */
-export interface ReviewableentitlementAccount {
+export interface ReviewableEntitlementAccount {
     /**
      * The native identity for this account
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'nativeIdentity'?: string;
     /**
      * Indicates whether this account is currently disabled
      * @type {boolean}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'disabled'?: boolean;
     /**
      * Indicates whether this account is currently locked
      * @type {boolean}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'locked'?: boolean;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof ReviewableentitlementAccount
+     * @type {DtoType}
+     * @memberof ReviewableEntitlementAccount
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The id associated with the account
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'id'?: string | null;
     /**
      * The account name
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'name'?: string | null;
     /**
      * When the account was created
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'created'?: string | null;
     /**
      * When the account was last modified
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {Activityinsights}
-     * @memberof ReviewableentitlementAccount
+     * @type {ActivityInsights}
+     * @memberof ReviewableEntitlementAccount
      */
-    'activityInsights'?: Activityinsights;
+    'activityInsights'?: ActivityInsights;
     /**
      * Information about the account
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'description'?: string | null;
     /**
      * The id associated with the machine Account Governance Group
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'governanceGroupId'?: string | null;
     /**
      * 
-     * @type {ReviewableentitlementAccountOwner}
-     * @memberof ReviewableentitlementAccount
+     * @type {ReviewableEntitlementAccountOwner}
+     * @memberof ReviewableEntitlementAccount
      */
-    'owner'?: ReviewableentitlementAccountOwner | null;
+    'owner'?: ReviewableEntitlementAccountOwner | null;
 }
 
 
 /**
  * Information about the machine account owner
  * @export
- * @interface ReviewableentitlementAccountOwner
+ * @interface ReviewableEntitlementAccountOwner
  */
-export interface ReviewableentitlementAccountOwner {
+export interface ReviewableEntitlementAccountOwner {
     /**
      * The id associated with the machine account owner
      * @type {string}
-     * @memberof ReviewableentitlementAccountOwner
+     * @memberof ReviewableEntitlementAccountOwner
      */
     'id'?: string | null;
     /**
      * An enumeration of the types of Owner supported within the IdentityNow infrastructure.
      * @type {string}
-     * @memberof ReviewableentitlementAccountOwner
+     * @memberof ReviewableEntitlementAccountOwner
      */
-    'type'?: ReviewableentitlementAccountOwnerTypeEnum;
+    'type'?: ReviewableEntitlementAccountOwnerTypeEnum;
     /**
      * The machine account owner\'s display name
      * @type {string}
-     * @memberof ReviewableentitlementAccountOwner
+     * @memberof ReviewableEntitlementAccountOwner
      */
     'displayName'?: string | null;
 }
 
-export const ReviewableentitlementAccountOwnerTypeEnum = {
+export const ReviewableEntitlementAccountOwnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ReviewableentitlementAccountOwnerTypeEnum = typeof ReviewableentitlementAccountOwnerTypeEnum[keyof typeof ReviewableentitlementAccountOwnerTypeEnum];
+export type ReviewableEntitlementAccountOwnerTypeEnum = typeof ReviewableEntitlementAccountOwnerTypeEnum[keyof typeof ReviewableEntitlementAccountOwnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface Reviewablerole
+ * @interface ReviewableRole
  */
-export interface Reviewablerole {
+export interface ReviewableRole {
     /**
      * The id for the Role
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'id'?: string;
     /**
      * The name of the Role
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'name'?: string;
     /**
      * Information about the Role
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'description'?: string;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'privileged'?: boolean;
     /**
      * 
-     * @type {Identityreferencewithnameandemail}
-     * @memberof Reviewablerole
+     * @type {IdentityReferenceWithNameAndEmail}
+     * @memberof ReviewableRole
      */
-    'owner'?: Identityreferencewithnameandemail | null;
+    'owner'?: IdentityReferenceWithNameAndEmail | null;
     /**
      * Indicates whether the Role can be revoked or requested
      * @type {boolean}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'revocable'?: boolean;
     /**
      * The date when a user\'s access expires.
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'endDate'?: string;
     /**
      * The list of Access Profiles associated with this Role
-     * @type {Array<Reviewableaccessprofile>}
-     * @memberof Reviewablerole
+     * @type {Array<ReviewableAccessProfile>}
+     * @memberof ReviewableRole
      */
-    'accessProfiles'?: Array<Reviewableaccessprofile>;
+    'accessProfiles'?: Array<ReviewableAccessProfile>;
     /**
      * The list of entitlements associated with this Role
-     * @type {Array<Reviewableentitlement>}
-     * @memberof Reviewablerole
+     * @type {Array<ReviewableEntitlement>}
+     * @memberof ReviewableRole
      */
-    'entitlements'?: Array<Reviewableentitlement>;
+    'entitlements'?: Array<ReviewableEntitlement>;
 }
-/**
- * 
- * @export
- * @interface Reviewdecision
- */
-export interface Reviewdecision {
-    /**
-     * The id of the review decision
-     * @type {string}
-     * @memberof Reviewdecision
-     */
-    'id': string;
-    /**
-     * 
-     * @type {Certificationdecision}
-     * @memberof Reviewdecision
-     */
-    'decision': Certificationdecision;
-    /**
-     * The date at which a user\'s access should be taken away. Should only be set for `REVOKE` decisions.
-     * @type {string}
-     * @memberof Reviewdecision
-     */
-    'proposedEndDate'?: string;
-    /**
-     * Indicates whether decision should be marked as part of a larger bulk decision
-     * @type {boolean}
-     * @memberof Reviewdecision
-     */
-    'bulk': boolean;
-    /**
-     * 
-     * @type {Reviewrecommendation}
-     * @memberof Reviewdecision
-     */
-    'recommendation'?: Reviewrecommendation;
-    /**
-     * Comments recorded when the decision was made
-     * @type {string}
-     * @memberof Reviewdecision
-     */
-    'comments'?: string;
-}
-
-
 /**
  * 
  * @export
@@ -1318,56 +1368,6 @@ export const ReviewerTypeEnum = {
 
 export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerTypeEnum];
 
-/**
- * 
- * @export
- * @interface Reviewreassign
- */
-export interface Reviewreassign {
-    /**
-     * 
-     * @type {Array<Reassignreference>}
-     * @memberof Reviewreassign
-     */
-    'reassign': Array<Reassignreference>;
-    /**
-     * The ID of the identity to which the certification is reassigned
-     * @type {string}
-     * @memberof Reviewreassign
-     */
-    'reassignTo': string;
-    /**
-     * The reason comment for why the reassign was made
-     * @type {string}
-     * @memberof Reviewreassign
-     */
-    'reason': string;
-}
-/**
- * 
- * @export
- * @interface Reviewrecommendation
- */
-export interface Reviewrecommendation {
-    /**
-     * The recommendation from IAI at the time of the decision. This field will be null if no recommendation was made.
-     * @type {string}
-     * @memberof Reviewrecommendation
-     */
-    'recommendation'?: string | null;
-    /**
-     * A list of reasons for the recommendation.
-     * @type {Array<string>}
-     * @memberof Reviewrecommendation
-     */
-    'reasons'?: Array<string>;
-    /**
-     * The time at which the recommendation was recorded.
-     * @type {string}
-     * @memberof Reviewrecommendation
-     */
-    'timestamp'?: string;
-}
 
 /**
  * CertificationsApi - axios parameter creator
@@ -1753,15 +1753,15 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
          * The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
          * @summary Decide on a certification item
          * @param {string} id The ID of the identity campaign certification on which to make decisions
-         * @param {Array<Reviewdecision>} reviewdecision A non-empty array of decisions to be made.
+         * @param {Array<ReviewDecision>} reviewDecision A non-empty array of decisions to be made.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        makeIdentityDecisionV1: async (id: string, reviewdecision: Array<Reviewdecision>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        makeIdentityDecisionV1: async (id: string, reviewDecision: Array<ReviewDecision>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('makeIdentityDecisionV1', 'id', id)
-            // verify required parameter 'reviewdecision' is not null or undefined
-            assertParamExists('makeIdentityDecisionV1', 'reviewdecision', reviewdecision)
+            // verify required parameter 'reviewDecision' is not null or undefined
+            assertParamExists('makeIdentityDecisionV1', 'reviewDecision', reviewDecision)
             const localVarPath = `/certifications/v1/{id}/decide`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1782,7 +1782,7 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reviewdecision, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reviewDecision, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1793,15 +1793,15 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
          * This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
          * @summary Reassign identities or items
          * @param {string} id The identity campaign certification ID
-         * @param {Reviewreassign} reviewreassign 
+         * @param {ReviewReassign} reviewReassign 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        reassignIdentityCertificationsV1: async (id: string, reviewreassign: Reviewreassign, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        reassignIdentityCertificationsV1: async (id: string, reviewReassign: ReviewReassign, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('reassignIdentityCertificationsV1', 'id', id)
-            // verify required parameter 'reviewreassign' is not null or undefined
-            assertParamExists('reassignIdentityCertificationsV1', 'reviewreassign', reviewreassign)
+            // verify required parameter 'reviewReassign' is not null or undefined
+            assertParamExists('reassignIdentityCertificationsV1', 'reviewReassign', reviewReassign)
             const localVarPath = `/certifications/v1/{id}/reassign`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1822,7 +1822,7 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reviewreassign, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reviewReassign, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1867,15 +1867,15 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
          * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   Reviewers for this certification can also call this API. 
          * @summary Reassign certifications asynchronously
          * @param {string} id The identity campaign certification ID
-         * @param {Reviewreassign} reviewreassign 
+         * @param {ReviewReassign} reviewReassign 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitReassignCertsAsyncV1: async (id: string, reviewreassign: Reviewreassign, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        submitReassignCertsAsyncV1: async (id: string, reviewReassign: ReviewReassign, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('submitReassignCertsAsyncV1', 'id', id)
-            // verify required parameter 'reviewreassign' is not null or undefined
-            assertParamExists('submitReassignCertsAsyncV1', 'reviewreassign', reviewreassign)
+            // verify required parameter 'reviewReassign' is not null or undefined
+            assertParamExists('submitReassignCertsAsyncV1', 'reviewReassign', reviewReassign)
             const localVarPath = `/certifications/v1/{id}/reassign-async`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1896,7 +1896,7 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reviewreassign, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reviewReassign, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1920,7 +1920,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCertificationTaskV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Certificationtask>> {
+        async getCertificationTaskV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCertificationTaskV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.getCertificationTaskV1']?.[localVarOperationServerIndex]?.url;
@@ -1938,7 +1938,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityCertificationItemPermissionsV1(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Permissiondto>>> {
+        async getIdentityCertificationItemPermissionsV1(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDTO>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationItemPermissionsV1(certificationId, itemId, filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.getIdentityCertificationItemPermissionsV1']?.[localVarOperationServerIndex]?.url;
@@ -1951,7 +1951,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityCertificationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycertificationdto>> {
+        async getIdentityCertificationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.getIdentityCertificationV1']?.[localVarOperationServerIndex]?.url;
@@ -1968,7 +1968,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPendingCertificationTasksV1(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Certificationtask>>> {
+        async getPendingCertificationTasksV1(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationTask>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingCertificationTasksV1(reviewerIdentity, limit, offset, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.getPendingCertificationTasksV1']?.[localVarOperationServerIndex]?.url;
@@ -1986,7 +1986,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCertificationReviewersV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identityreferencewithnameandemail>>> {
+        async listCertificationReviewersV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityReferenceWithNameAndEmail>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCertificationReviewersV1(id, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.listCertificationReviewersV1']?.[localVarOperationServerIndex]?.url;
@@ -2007,7 +2007,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityAccessReviewItemsV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, entitlements?: string, accessProfiles?: string, roles?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessreviewitem>>> {
+        async listIdentityAccessReviewItemsV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, entitlements?: string, accessProfiles?: string, roles?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessReviewItem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAccessReviewItemsV1(id, limit, offset, count, filters, sorters, entitlements, accessProfiles, roles, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.listIdentityAccessReviewItemsV1']?.[localVarOperationServerIndex]?.url;
@@ -2025,7 +2025,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityCertificationsV1(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitycertificationdto>>> {
+        async listIdentityCertificationsV1(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCertificationDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityCertificationsV1(reviewerIdentity, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.listIdentityCertificationsV1']?.[localVarOperationServerIndex]?.url;
@@ -2035,12 +2035,12 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * The API makes a decision to approve or revoke one or more identity campaign certification items. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
          * @summary Decide on a certification item
          * @param {string} id The ID of the identity campaign certification on which to make decisions
-         * @param {Array<Reviewdecision>} reviewdecision A non-empty array of decisions to be made.
+         * @param {Array<ReviewDecision>} reviewDecision A non-empty array of decisions to be made.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async makeIdentityDecisionV1(id: string, reviewdecision: Array<Reviewdecision>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycertificationdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.makeIdentityDecisionV1(id, reviewdecision, axiosOptions);
+        async makeIdentityDecisionV1(id: string, reviewDecision: Array<ReviewDecision>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.makeIdentityDecisionV1(id, reviewDecision, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.makeIdentityDecisionV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2049,12 +2049,12 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
          * @summary Reassign identities or items
          * @param {string} id The identity campaign certification ID
-         * @param {Reviewreassign} reviewreassign 
+         * @param {ReviewReassign} reviewReassign 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async reassignIdentityCertificationsV1(id: string, reviewreassign: Reviewreassign, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycertificationdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reassignIdentityCertificationsV1(id, reviewreassign, axiosOptions);
+        async reassignIdentityCertificationsV1(id: string, reviewReassign: ReviewReassign, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reassignIdentityCertificationsV1(id, reviewReassign, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.reassignIdentityCertificationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2066,7 +2066,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async signOffIdentityCertificationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycertificationdto>> {
+        async signOffIdentityCertificationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.signOffIdentityCertificationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.signOffIdentityCertificationV1']?.[localVarOperationServerIndex]?.url;
@@ -2076,12 +2076,12 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   Reviewers for this certification can also call this API. 
          * @summary Reassign certifications asynchronously
          * @param {string} id The identity campaign certification ID
-         * @param {Reviewreassign} reviewreassign 
+         * @param {ReviewReassign} reviewReassign 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitReassignCertsAsyncV1(id: string, reviewreassign: Reviewreassign, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Certificationtask>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsyncV1(id, reviewreassign, axiosOptions);
+        async submitReassignCertsAsyncV1(id: string, reviewReassign: ReviewReassign, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsyncV1(id, reviewReassign, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationsApi.submitReassignCertsAsyncV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2103,7 +2103,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCertificationTaskV1(requestParameters: CertificationsApiGetCertificationTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Certificationtask> {
+        getCertificationTaskV1(requestParameters: CertificationsApiGetCertificationTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CertificationTask> {
             return localVarFp.getCertificationTaskV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2113,7 +2113,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityCertificationItemPermissionsV1(requestParameters: CertificationsApiGetIdentityCertificationItemPermissionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Permissiondto>> {
+        getIdentityCertificationItemPermissionsV1(requestParameters: CertificationsApiGetIdentityCertificationItemPermissionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PermissionDTO>> {
             return localVarFp.getIdentityCertificationItemPermissionsV1(requestParameters.certificationId, requestParameters.itemId, requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2123,7 +2123,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityCertificationV1(requestParameters: CertificationsApiGetIdentityCertificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycertificationdto> {
+        getIdentityCertificationV1(requestParameters: CertificationsApiGetIdentityCertificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityCertificationDto> {
             return localVarFp.getIdentityCertificationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2133,7 +2133,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPendingCertificationTasksV1(requestParameters: CertificationsApiGetPendingCertificationTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Certificationtask>> {
+        getPendingCertificationTasksV1(requestParameters: CertificationsApiGetPendingCertificationTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CertificationTask>> {
             return localVarFp.getPendingCertificationTasksV1(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2143,7 +2143,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listCertificationReviewersV1(requestParameters: CertificationsApiListCertificationReviewersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identityreferencewithnameandemail>> {
+        listCertificationReviewersV1(requestParameters: CertificationsApiListCertificationReviewersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentityReferenceWithNameAndEmail>> {
             return localVarFp.listCertificationReviewersV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2153,7 +2153,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentityAccessReviewItemsV1(requestParameters: CertificationsApiListIdentityAccessReviewItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessreviewitem>> {
+        listIdentityAccessReviewItemsV1(requestParameters: CertificationsApiListIdentityAccessReviewItemsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessReviewItem>> {
             return localVarFp.listIdentityAccessReviewItemsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.entitlements, requestParameters.accessProfiles, requestParameters.roles, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2163,7 +2163,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentityCertificationsV1(requestParameters: CertificationsApiListIdentityCertificationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitycertificationdto>> {
+        listIdentityCertificationsV1(requestParameters: CertificationsApiListIdentityCertificationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentityCertificationDto>> {
             return localVarFp.listIdentityCertificationsV1(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2173,8 +2173,8 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        makeIdentityDecisionV1(requestParameters: CertificationsApiMakeIdentityDecisionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycertificationdto> {
-            return localVarFp.makeIdentityDecisionV1(requestParameters.id, requestParameters.reviewdecision, axiosOptions).then((request) => request(axios, basePath));
+        makeIdentityDecisionV1(requestParameters: CertificationsApiMakeIdentityDecisionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityCertificationDto> {
+            return localVarFp.makeIdentityDecisionV1(requestParameters.id, requestParameters.reviewDecision, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
@@ -2183,8 +2183,8 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        reassignIdentityCertificationsV1(requestParameters: CertificationsApiReassignIdentityCertificationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycertificationdto> {
-            return localVarFp.reassignIdentityCertificationsV1(requestParameters.id, requestParameters.reviewreassign, axiosOptions).then((request) => request(axios, basePath));
+        reassignIdentityCertificationsV1(requestParameters: CertificationsApiReassignIdentityCertificationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityCertificationDto> {
+            return localVarFp.reassignIdentityCertificationsV1(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
@@ -2193,7 +2193,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        signOffIdentityCertificationV1(requestParameters: CertificationsApiSignOffIdentityCertificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycertificationdto> {
+        signOffIdentityCertificationV1(requestParameters: CertificationsApiSignOffIdentityCertificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityCertificationDto> {
             return localVarFp.signOffIdentityCertificationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2203,8 +2203,8 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitReassignCertsAsyncV1(requestParameters: CertificationsApiSubmitReassignCertsAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Certificationtask> {
-            return localVarFp.submitReassignCertsAsyncV1(requestParameters.id, requestParameters.reviewreassign, axiosOptions).then((request) => request(axios, basePath));
+        submitReassignCertsAsyncV1(requestParameters: CertificationsApiSubmitReassignCertsAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CertificationTask> {
+            return localVarFp.submitReassignCertsAsyncV1(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2511,10 +2511,10 @@ export interface CertificationsApiMakeIdentityDecisionV1Request {
 
     /**
      * A non-empty array of decisions to be made.
-     * @type {Array<Reviewdecision>}
+     * @type {Array<ReviewDecision>}
      * @memberof CertificationsApiMakeIdentityDecisionV1
      */
-    readonly reviewdecision: Array<Reviewdecision>
+    readonly reviewDecision: Array<ReviewDecision>
 }
 
 /**
@@ -2532,10 +2532,10 @@ export interface CertificationsApiReassignIdentityCertificationsV1Request {
 
     /**
      * 
-     * @type {Reviewreassign}
+     * @type {ReviewReassign}
      * @memberof CertificationsApiReassignIdentityCertificationsV1
      */
-    readonly reviewreassign: Reviewreassign
+    readonly reviewReassign: ReviewReassign
 }
 
 /**
@@ -2567,10 +2567,10 @@ export interface CertificationsApiSubmitReassignCertsAsyncV1Request {
 
     /**
      * 
-     * @type {Reviewreassign}
+     * @type {ReviewReassign}
      * @memberof CertificationsApiSubmitReassignCertsAsyncV1
      */
-    readonly reviewreassign: Reviewreassign
+    readonly reviewReassign: ReviewReassign
 }
 
 /**
@@ -2673,7 +2673,7 @@ export class CertificationsApi extends BaseAPI {
      * @memberof CertificationsApi
      */
     public makeIdentityDecisionV1(requestParameters: CertificationsApiMakeIdentityDecisionV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).makeIdentityDecisionV1(requestParameters.id, requestParameters.reviewdecision, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationsApiFp(this.configuration).makeIdentityDecisionV1(requestParameters.id, requestParameters.reviewDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2685,7 +2685,7 @@ export class CertificationsApi extends BaseAPI {
      * @memberof CertificationsApi
      */
     public reassignIdentityCertificationsV1(requestParameters: CertificationsApiReassignIdentityCertificationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).reassignIdentityCertificationsV1(requestParameters.id, requestParameters.reviewreassign, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationsApiFp(this.configuration).reassignIdentityCertificationsV1(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2709,7 +2709,7 @@ export class CertificationsApi extends BaseAPI {
      * @memberof CertificationsApi
      */
     public submitReassignCertsAsyncV1(requestParameters: CertificationsApiSubmitReassignCertsAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).submitReassignCertsAsyncV1(requestParameters.id, requestParameters.reviewreassign, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationsApiFp(this.configuration).submitReassignCertsAsyncV1(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

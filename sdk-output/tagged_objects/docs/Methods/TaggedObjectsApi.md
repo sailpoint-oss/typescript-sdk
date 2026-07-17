@@ -128,7 +128,7 @@ This API removes tags from multiple objects.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**bulkremovetaggedobject** | `Bulkremovetaggedobject` | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
+**bulkRemoveTaggedObject** | `BulkRemoveTaggedObject` | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
 
 ### Return type
 
@@ -144,12 +144,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Bulkremovetaggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { BulkRemoveTaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
-const bulkremovetaggedobject: Bulkremovetaggedobject = ; // Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-const result = await apiInstance.deleteTagsToManyObjectV1({ bulkremovetaggedobject: bulkremovetaggedobject });
+const bulkRemoveTaggedObject: BulkRemoveTaggedObject = {
+  "objectRefs" : [ {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  } ],
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}; // Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+const result = await apiInstance.deleteTagsToManyObjectV1({ bulkRemoveTaggedObject: bulkRemoveTaggedObject });
 console.log(result);
 ```
 
@@ -171,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Taggedobject`
+`TaggedObject`
 
 ### HTTP request headers
 
@@ -213,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Taggedobject>`
+`Array<TaggedObject>`
 
 ### HTTP request headers
 
@@ -257,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Taggedobject>`
+`Array<TaggedObject>`
 
 ### HTTP request headers
 
@@ -295,11 +306,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **type** | `'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'` | The type of tagged object to update. |  [default to undefined]
 **id** | `string` | The ID of the object reference to update. |  [default to undefined]
-**taggedobject** | `Taggedobject` |  | 
+**taggedObject** | `TaggedObject` |  | 
 
 ### Return type
 
-`Taggedobject`
+`TaggedObject`
 
 ### HTTP request headers
 
@@ -311,14 +322,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Taggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { TaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
 const type: string = ROLE; // The type of tagged object to update.
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The ID of the object reference to update.
-const taggedobject: Taggedobject = ; // 
-const result = await apiInstance.putTaggedObjectV1({ type: type, id: id, taggedobject: taggedobject });
+const taggedObject: TaggedObject = {
+  "objectRef" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}; // 
+const result = await apiInstance.putTaggedObjectV1({ type: type, id: id, taggedObject: taggedObject });
 console.log(result);
 ```
 
@@ -335,7 +353,7 @@ This adds a tag to an object.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**taggedobject** | `Taggedobject` |  | 
+**taggedObject** | `TaggedObject` |  | 
 
 ### Return type
 
@@ -351,12 +369,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Taggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { TaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
-const taggedobject: Taggedobject = ; // 
-const result = await apiInstance.setTagToObjectV1({ taggedobject: taggedobject });
+const taggedObject: TaggedObject = {
+  "objectRef" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}; // 
+const result = await apiInstance.setTagToObjectV1({ taggedObject: taggedObject });
 console.log(result);
 ```
 
@@ -373,11 +398,11 @@ This API adds tags to multiple objects.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**bulkaddtaggedobject** | `Bulkaddtaggedobject` | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
+**bulkAddTaggedObject** | `BulkAddTaggedObject` | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE. | 
 
 ### Return type
 
-`Array<Bulktaggedobjectresponse>`
+`Array<BulkTaggedObjectResponse>`
 
 ### HTTP request headers
 
@@ -389,12 +414,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { TaggedObjectsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Bulkaddtaggedobject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { BulkAddTaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
-const bulkaddtaggedobject: Bulkaddtaggedobject = ; // Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-const result = await apiInstance.setTagsToManyObjectsV1({ bulkaddtaggedobject: bulkaddtaggedobject });
+const bulkAddTaggedObject: BulkAddTaggedObject = {
+  "objectRefs" : [ {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  } ],
+  "operation" : "MERGE",
+  "tags" : [ "BU_FINANCE", "PCI" ]
+}; // Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+const result = await apiInstance.setTagsToManyObjectsV1({ bulkAddTaggedObject: bulkAddTaggedObject });
 console.log(result);
 ```
 

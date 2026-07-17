@@ -26,22 +26,36 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Aggregationresult
+ * @interface AggregationResult
  */
-export interface Aggregationresult {
+export interface AggregationResult {
     /**
      * The document containing the results of the aggregation. This document is controlled by Elasticsearch and depends on the type of aggregation query that is run.  See Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) documentation for information. 
      * @type {object}
-     * @memberof Aggregationresult
+     * @memberof AggregationResult
      */
     'aggregations'?: object;
     /**
      * The results of the aggregation search query. 
      * @type {Array<object>}
-     * @memberof Aggregationresult
+     * @memberof AggregationResult
      */
     'hits'?: Array<object>;
 }
+/**
+ * Enum representing the currently available query languages for aggregations, which are used to perform calculations or groupings on search results.  Additional values may be added in the future without notice. 
+ * @export
+ * @enum {string}
+ */
+
+export const AggregationType = {
+    Dsl: 'DSL',
+    Sailpoint: 'SAILPOINT'
+} as const;
+
+export type AggregationType = typeof AggregationType[keyof typeof AggregationType];
+
+
 /**
  * 
  * @export
@@ -50,43 +64,29 @@ export interface Aggregationresult {
 export interface Aggregations {
     /**
      * 
-     * @type {Nestedaggregation}
+     * @type {NestedAggregation}
      * @memberof Aggregations
      */
-    'nested'?: Nestedaggregation;
+    'nested'?: NestedAggregation;
     /**
      * 
-     * @type {Metricaggregation}
+     * @type {MetricAggregation}
      * @memberof Aggregations
      */
-    'metric'?: Metricaggregation;
+    'metric'?: MetricAggregation;
     /**
      * 
-     * @type {Filteraggregation}
+     * @type {FilterAggregation}
      * @memberof Aggregations
      */
-    'filter'?: Filteraggregation;
+    'filter'?: FilterAggregation;
     /**
      * 
-     * @type {Bucketaggregation}
+     * @type {BucketAggregation}
      * @memberof Aggregations
      */
-    'bucket'?: Bucketaggregation;
+    'bucket'?: BucketAggregation;
 }
-/**
- * Enum representing the currently available query languages for aggregations, which are used to perform calculations or groupings on search results.  Additional values may be added in the future without notice. 
- * @export
- * @enum {string}
- */
-
-export const Aggregationtype = {
-    Dsl: 'DSL',
-    Sailpoint: 'SAILPOINT'
-} as const;
-
-export type Aggregationtype = typeof Aggregationtype[keyof typeof Aggregationtype];
-
-
 /**
  * 
  * @export
@@ -109,37 +109,37 @@ export interface Bound {
 /**
  * The bucket to group the results of the aggregation query by.
  * @export
- * @interface Bucketaggregation
+ * @interface BucketAggregation
  */
-export interface Bucketaggregation {
+export interface BucketAggregation {
     /**
      * The name of the bucket aggregate to be included in the result.
      * @type {string}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'name': string;
     /**
      * 
-     * @type {Buckettype}
-     * @memberof Bucketaggregation
+     * @type {BucketType}
+     * @memberof BucketAggregation
      */
-    'type'?: Buckettype;
+    'type'?: BucketType;
     /**
      * The field to bucket on. Prefix the field name with \'@\' to reference a nested object.
      * @type {string}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'field': string;
     /**
      * Maximum number of buckets to include.
      * @type {number}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'size'?: number;
     /**
      * Minimum number of documents a bucket should have.
      * @type {number}
-     * @memberof Bucketaggregation
+     * @memberof BucketAggregation
      */
     'minDocCount'?: number;
 }
@@ -151,35 +151,35 @@ export interface Bucketaggregation {
  * @enum {string}
  */
 
-export const Buckettype = {
+export const BucketType = {
     Terms: 'TERMS'
 } as const;
 
-export type Buckettype = typeof Buckettype[keyof typeof Buckettype];
+export type BucketType = typeof BucketType[keyof typeof BucketType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -188,33 +188,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -224,10 +224,10 @@ export interface Errorresponsedto {
 export interface Filter {
     /**
      * 
-     * @type {Filtertype}
+     * @type {FilterType}
      * @memberof Filter
      */
-    'type'?: Filtertype;
+    'type'?: FilterType;
     /**
      * 
      * @type {Range}
@@ -252,31 +252,31 @@ export interface Filter {
 /**
  * An additional filter to constrain the results of the search query.
  * @export
- * @interface Filteraggregation
+ * @interface FilterAggregation
  */
-export interface Filteraggregation {
+export interface FilterAggregation {
     /**
      * The name of the filter aggregate to be included in the result.
      * @type {string}
-     * @memberof Filteraggregation
+     * @memberof FilterAggregation
      */
     'name': string;
     /**
      * 
-     * @type {Searchfiltertype}
-     * @memberof Filteraggregation
+     * @type {SearchFilterType}
+     * @memberof FilterAggregation
      */
-    'type'?: Searchfiltertype;
+    'type'?: SearchFilterType;
     /**
      * The search field to apply the filter to.  Prefix the field name with \'@\' to reference a nested object. 
      * @type {string}
-     * @memberof Filteraggregation
+     * @memberof FilterAggregation
      */
     'field': string;
     /**
      * The value to filter on.
      * @type {string}
-     * @memberof Filteraggregation
+     * @memberof FilterAggregation
      */
     'value': string;
 }
@@ -288,13 +288,13 @@ export interface Filteraggregation {
  * @enum {string}
  */
 
-export const Filtertype = {
+export const FilterType = {
     Exists: 'EXISTS',
     Range: 'RANGE',
     Terms: 'TERMS'
 } as const;
 
-export type Filtertype = typeof Filtertype[keyof typeof Filtertype];
+export type FilterType = typeof FilterType[keyof typeof FilterType];
 
 
 /**
@@ -319,19 +319,19 @@ export type Index = typeof Index[keyof typeof Index];
 /**
  * Inner Hit query object that will cause the specified nested type to be returned as the result matching the supplied query.
  * @export
- * @interface Innerhit
+ * @interface InnerHit
  */
-export interface Innerhit {
+export interface InnerHit {
     /**
      * The search query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
      * @type {string}
-     * @memberof Innerhit
+     * @memberof InnerHit
      */
     'query': string;
     /**
      * The nested type to use in the inner hits query.  The nested type [Nested Type](https://www.elastic.co/guide/en/elasticsearch/reference/current/nested.html) refers to a document \"nested\" within another document. For example, an identity can have nested documents for access, accounts, and apps.
      * @type {string}
-     * @memberof Innerhit
+     * @memberof InnerHit
      */
     'type': string;
 }
@@ -341,36 +341,36 @@ export interface Innerhit {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * The calculation done on the results of the query
  * @export
- * @interface Metricaggregation
+ * @interface MetricAggregation
  */
-export interface Metricaggregation {
+export interface MetricAggregation {
     /**
      * The name of the metric aggregate to be included in the result. If the metric aggregation is omitted, the resulting aggregation will be a count of the documents in the search results.
      * @type {string}
-     * @memberof Metricaggregation
+     * @memberof MetricAggregation
      */
     'name': string;
     /**
      * 
-     * @type {Metrictype}
-     * @memberof Metricaggregation
+     * @type {MetricType}
+     * @memberof MetricAggregation
      */
-    'type'?: Metrictype;
+    'type'?: MetricType;
     /**
      * The field the calculation is performed on.  Prefix the field name with \'@\' to reference a nested object. 
      * @type {string}
-     * @memberof Metricaggregation
+     * @memberof MetricAggregation
      */
     'field': string;
 }
@@ -382,7 +382,7 @@ export interface Metricaggregation {
  * @enum {string}
  */
 
-export const Metrictype = {
+export const MetricType = {
     Count: 'COUNT',
     UniqueCount: 'UNIQUE_COUNT',
     Avg: 'AVG',
@@ -392,25 +392,25 @@ export const Metrictype = {
     Max: 'MAX'
 } as const;
 
-export type Metrictype = typeof Metrictype[keyof typeof Metrictype];
+export type MetricType = typeof MetricType[keyof typeof MetricType];
 
 
 /**
  * The nested aggregation object.
  * @export
- * @interface Nestedaggregation
+ * @interface NestedAggregation
  */
-export interface Nestedaggregation {
+export interface NestedAggregation {
     /**
      * The name of the nested aggregate to be included in the result.
      * @type {string}
-     * @memberof Nestedaggregation
+     * @memberof NestedAggregation
      */
     'name': string;
     /**
      * The type of the nested object.
      * @type {string}
-     * @memberof Nestedaggregation
+     * @memberof NestedAggregation
      */
     'type': string;
 }
@@ -440,27 +440,27 @@ export interface Query {
     'timeZone'?: string;
     /**
      * 
-     * @type {Innerhit}
+     * @type {InnerHit}
      * @memberof Query
      */
-    'innerHit'?: Innerhit;
+    'innerHit'?: InnerHit;
 }
 /**
  * Allows the query results to be filtered by specifying a list of fields to include and/or exclude from the result documents.
  * @export
- * @interface Queryresultfilter
+ * @interface QueryResultFilter
  */
-export interface Queryresultfilter {
+export interface QueryResultFilter {
     /**
      * The list of field names to include in the result documents.
      * @type {Array<string>}
-     * @memberof Queryresultfilter
+     * @memberof QueryResultFilter
      */
     'includes'?: Array<string>;
     /**
      * The list of field names to exclude from the result documents.
      * @type {Array<string>}
-     * @memberof Queryresultfilter
+     * @memberof QueryResultFilter
      */
     'excludes'?: Array<string>;
 }
@@ -470,14 +470,14 @@ export interface Queryresultfilter {
  * @enum {string}
  */
 
-export const Querytype = {
+export const QueryType = {
     Dsl: 'DSL',
     Sailpoint: 'SAILPOINT',
     Text: 'TEXT',
     Typeahead: 'TYPEAHEAD'
 } as const;
 
-export type Querytype = typeof Querytype[keyof typeof Querytype];
+export type QueryType = typeof QueryType[keyof typeof QueryType];
 
 
 /**
@@ -513,10 +513,10 @@ export interface Search {
     'indices'?: Array<Index>;
     /**
      * 
-     * @type {Querytype}
+     * @type {QueryType}
      * @memberof Search
      */
-    'queryType'?: Querytype;
+    'queryType'?: QueryType;
     /**
      * 
      * @type {string}
@@ -537,16 +537,16 @@ export interface Search {
     'queryDsl'?: object;
     /**
      * 
-     * @type {Textquery}
+     * @type {TextQuery}
      * @memberof Search
      */
-    'textQuery'?: Textquery;
+    'textQuery'?: TextQuery;
     /**
      * 
-     * @type {Typeaheadquery}
+     * @type {TypeAheadQuery}
      * @memberof Search
      */
-    'typeAheadQuery'?: Typeaheadquery;
+    'typeAheadQuery'?: TypeAheadQuery;
     /**
      * Indicates whether nested objects from returned search results should be included.
      * @type {boolean}
@@ -555,16 +555,16 @@ export interface Search {
     'includeNested'?: boolean;
     /**
      * 
-     * @type {Queryresultfilter}
+     * @type {QueryResultFilter}
      * @memberof Search
      */
-    'queryResultFilter'?: Queryresultfilter;
+    'queryResultFilter'?: QueryResultFilter;
     /**
      * 
-     * @type {Aggregationtype}
+     * @type {AggregationType}
      * @memberof Search
      */
-    'aggregationType'?: Aggregationtype;
+    'aggregationType'?: AggregationType;
     /**
      * 
      * @type {string}
@@ -579,10 +579,10 @@ export interface Search {
     'aggregationsDsl'?: object;
     /**
      * 
-     * @type {Searchaggregationspecification}
+     * @type {SearchAggregationSpecification}
      * @memberof Search
      */
-    'aggregations'?: Searchaggregationspecification;
+    'aggregations'?: SearchAggregationSpecification;
     /**
      * The fields to be used to sort the search results. Use + or - to specify the sort direction.
      * @type {Array<string>}
@@ -602,6 +602,56 @@ export interface Search {
      */
     'filters'?: { [key: string]: Filter; };
 }
+
+
+/**
+ * 
+ * @export
+ * @interface SearchAggregationSpecification
+ */
+export interface SearchAggregationSpecification {
+    /**
+     * 
+     * @type {NestedAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'nested'?: NestedAggregation;
+    /**
+     * 
+     * @type {MetricAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'metric'?: MetricAggregation;
+    /**
+     * 
+     * @type {FilterAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'filter'?: FilterAggregation;
+    /**
+     * 
+     * @type {BucketAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'bucket'?: BucketAggregation;
+    /**
+     * 
+     * @type {SubSearchAggregationSpecification}
+     * @memberof SearchAggregationSpecification
+     */
+    'subAggregation'?: SubSearchAggregationSpecification;
+}
+/**
+ * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
+ * @export
+ * @enum {string}
+ */
+
+export const SearchFilterType = {
+    Term: 'TERM'
+} as const;
+
+export type SearchFilterType = typeof SearchFilterType[keyof typeof SearchFilterType];
 
 
 /**
@@ -633,167 +683,117 @@ export interface SearchPostV1429Response {
 /**
  * 
  * @export
- * @interface Searchaggregationspecification
+ * @interface SubSearchAggregationSpecification
  */
-export interface Searchaggregationspecification {
+export interface SubSearchAggregationSpecification {
     /**
      * 
-     * @type {Nestedaggregation}
-     * @memberof Searchaggregationspecification
+     * @type {NestedAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'nested'?: Nestedaggregation;
+    'nested'?: NestedAggregation;
     /**
      * 
-     * @type {Metricaggregation}
-     * @memberof Searchaggregationspecification
+     * @type {MetricAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'metric'?: Metricaggregation;
+    'metric'?: MetricAggregation;
     /**
      * 
-     * @type {Filteraggregation}
-     * @memberof Searchaggregationspecification
+     * @type {FilterAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'filter'?: Filteraggregation;
+    'filter'?: FilterAggregation;
     /**
      * 
-     * @type {Bucketaggregation}
-     * @memberof Searchaggregationspecification
+     * @type {BucketAggregation}
+     * @memberof SubSearchAggregationSpecification
      */
-    'bucket'?: Bucketaggregation;
-    /**
-     * 
-     * @type {Subsearchaggregationspecification}
-     * @memberof Searchaggregationspecification
-     */
-    'subAggregation'?: Subsearchaggregationspecification;
-}
-/**
- * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
- * @export
- * @enum {string}
- */
-
-export const Searchfiltertype = {
-    Term: 'TERM'
-} as const;
-
-export type Searchfiltertype = typeof Searchfiltertype[keyof typeof Searchfiltertype];
-
-
-/**
- * 
- * @export
- * @interface Subsearchaggregationspecification
- */
-export interface Subsearchaggregationspecification {
-    /**
-     * 
-     * @type {Nestedaggregation}
-     * @memberof Subsearchaggregationspecification
-     */
-    'nested'?: Nestedaggregation;
-    /**
-     * 
-     * @type {Metricaggregation}
-     * @memberof Subsearchaggregationspecification
-     */
-    'metric'?: Metricaggregation;
-    /**
-     * 
-     * @type {Filteraggregation}
-     * @memberof Subsearchaggregationspecification
-     */
-    'filter'?: Filteraggregation;
-    /**
-     * 
-     * @type {Bucketaggregation}
-     * @memberof Subsearchaggregationspecification
-     */
-    'bucket'?: Bucketaggregation;
+    'bucket'?: BucketAggregation;
     /**
      * 
      * @type {Aggregations}
-     * @memberof Subsearchaggregationspecification
+     * @memberof SubSearchAggregationSpecification
      */
     'subAggregation'?: Aggregations;
 }
 /**
  * Query parameters used to construct an Elasticsearch text query object.
  * @export
- * @interface Textquery
+ * @interface TextQuery
  */
-export interface Textquery {
+export interface TextQuery {
     /**
      * Words or characters that specify a particular thing to be searched for.
      * @type {Array<string>}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'terms': Array<string>;
     /**
      * The fields to be searched.
      * @type {Array<string>}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'fields': Array<string>;
     /**
      * Indicates that at least one of the terms must be found in the specified fields;  otherwise, all terms must be found.
      * @type {boolean}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'matchAny'?: boolean;
     /**
      * Indicates that the terms can be located anywhere in the specified fields;  otherwise, the fields must begin with the terms.
      * @type {boolean}
-     * @memberof Textquery
+     * @memberof TextQuery
      */
     'contains'?: boolean;
 }
 /**
  * Query parameters used to construct an Elasticsearch type ahead query object.  The typeAheadQuery performs a search for top values beginning with the typed values. For example, typing \"Jo\" results in top hits matching \"Jo.\" Typing \"Job\" results in top hits matching \"Job.\" 
  * @export
- * @interface Typeaheadquery
+ * @interface TypeAheadQuery
  */
-export interface Typeaheadquery {
+export interface TypeAheadQuery {
     /**
      * The type ahead query string used to construct a phrase prefix match query.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'query': string;
     /**
      * The field on which to perform the type ahead search.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'field': string;
     /**
      * The nested type.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'nestedType'?: string;
     /**
      * The number of suffixes the last term will be expanded into. Influences the performance of the query and the number results returned. Valid values: 1 to 1000.
      * @type {number}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'maxExpansions'?: number;
     /**
      * The max amount of records the search will return.
      * @type {number}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'size'?: number;
     /**
      * The sort order of the returned records.
      * @type {string}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'sort'?: string;
     /**
      * The flag that defines the sort type, by count or value.
      * @type {boolean}
-     * @memberof Typeaheadquery
+     * @memberof TypeAheadQuery
      */
     'sortByValue'?: boolean;
 }
@@ -1000,7 +1000,7 @@ export const SearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchAggregateV1(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Aggregationresult>> {
+        async searchAggregateV1(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AggregationResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchAggregateV1(search, offset, limit, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SearchApi.searchAggregateV1']?.[localVarOperationServerIndex]?.url;
@@ -1066,7 +1066,7 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchAggregateV1(requestParameters: SearchApiSearchAggregateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Aggregationresult> {
+        searchAggregateV1(requestParameters: SearchApiSearchAggregateV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AggregationResult> {
             return localVarFp.searchAggregateV1(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**

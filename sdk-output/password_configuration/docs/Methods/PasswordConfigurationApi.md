@@ -39,11 +39,11 @@ Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**passwordorgconfig** | `Passwordorgconfig` |  | 
+**passwordOrgConfig** | `PasswordOrgConfig` |  | 
 
 ### Return type
 
-`Passwordorgconfig`
+`PasswordOrgConfig`
 
 ### HTTP request headers
 
@@ -55,12 +55,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordorgconfig } from 'sailpoint-api-client/dist/password_configuration/api';
+import { PasswordOrgConfig } from 'sailpoint-api-client/dist/password_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordConfigurationApi(configuration);
-const passwordorgconfig: Passwordorgconfig = {"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}; // 
-const result = await apiInstance.createPasswordOrgConfigV1({ passwordorgconfig: passwordorgconfig });
+const passwordOrgConfig: PasswordOrgConfig = {
+  "digitTokenLength" : 9,
+  "digitTokenEnabled" : true,
+  "digitTokenDurationMinutes" : 10,
+  "customInstructionsEnabled" : true
+}; // 
+const result = await apiInstance.createPasswordOrgConfigV1({ passwordOrgConfig: passwordOrgConfig });
 console.log(result);
 ```
 
@@ -78,7 +83,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Passwordorgconfig`
+`PasswordOrgConfig`
 
 ### HTTP request headers
 
@@ -112,11 +117,11 @@ Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**passwordorgconfig** | `Passwordorgconfig` |  | 
+**passwordOrgConfig** | `PasswordOrgConfig` |  | 
 
 ### Return type
 
-`Passwordorgconfig`
+`PasswordOrgConfig`
 
 ### HTTP request headers
 
@@ -128,12 +133,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordConfigurationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordorgconfig } from 'sailpoint-api-client/dist/password_configuration/api';
+import { PasswordOrgConfig } from 'sailpoint-api-client/dist/password_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordConfigurationApi(configuration);
-const passwordorgconfig: Passwordorgconfig = {"digitTokenEnabled":true,"digitTokenDurationMinutes":12}; // 
-const result = await apiInstance.putPasswordOrgConfigV1({ passwordorgconfig: passwordorgconfig });
+const passwordOrgConfig: PasswordOrgConfig = {
+  "digitTokenLength" : 9,
+  "digitTokenEnabled" : true,
+  "digitTokenDurationMinutes" : 10,
+  "customInstructionsEnabled" : true
+}; // 
+const result = await apiInstance.putPasswordOrgConfigV1({ passwordOrgConfig: passwordOrgConfig });
 console.log(result);
 ```
 

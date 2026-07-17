@@ -46,12 +46,12 @@ Creates a new custom user level for the tenant.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**userlevelrequest** | `Userlevelrequest` | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case.  | 
+**userLevelRequest** | `UserLevelRequest` | Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case.  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Userlevelsummarydto`
+`UserLevelSummaryDTO`
 
 ### HTTP request headers
 
@@ -63,13 +63,39 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomUserLevelsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Userlevelrequest } from 'sailpoint-api-client/dist/custom_user_levels/api';
+import { UserLevelRequest } from 'sailpoint-api-client/dist/custom_user_levels/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
-const userlevelrequest: Userlevelrequest = {"name":"Identity And Access Management","description":"This is a description of the custom user level.","owner":{"id":"29b9da8273b441239238bc041c386817","name":"John Doe"},"rightSets":["idn:ui-identity-manage-example","idn:ui-identity-manage-child-one-example"]}; // Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+const userLevelRequest: UserLevelRequest = {
+  "owner" : {
+    "manager" : {
+      "name" : "Thomas Edison",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    },
+    "name" : "Alison Ferguso",
+    "alias" : "alison.ferguso",
+    "attributes" : [ {
+      "name" : "Country",
+      "value" : "US",
+      "key" : "country"
+    }, {
+      "name" : "Country",
+      "value" : "US",
+      "key" : "country"
+    } ],
+    "id" : "2c9180857182305e0171993735622948",
+    "identityState" : "ACTIVE",
+    "email" : "alison.ferguso@acme-solar.com",
+    "status" : "Active"
+  },
+  "rightSets" : [ "idn:ui-right-set-list-read-example", "idn:ui-right-set-write-example" ],
+  "name" : "Custom User Level Name",
+  "description" : "This is a description of the custom user level."
+}; // Payload containing the details of the user level to be created.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createCustomUserLevelV1({ userlevelrequest: userlevelrequest });
+const result = await apiInstance.createCustomUserLevelV1({ userLevelRequest: userLevelRequest });
 console.log(result);
 ```
 
@@ -136,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Userlevelsummarydto`
+`UserLevelSummaryDTO`
 
 ### HTTP request headers
 
@@ -181,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Hierarchicalrightset>`
+`Array<HierarchicalRightSet>`
 
 ### HTTP request headers
 
@@ -230,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Authuserslimresponse>`
+`Array<AuthUserSlimResponse>`
 
 ### HTTP request headers
 
@@ -280,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Userlevelsummarydto>`
+`Array<UserLevelSummaryDTO>`
 
 ### HTTP request headers
 
@@ -326,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Userlevelpublishsummary`
+`UserLevelPublishSummary`
 
 ### HTTP request headers
 
@@ -368,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Authuserlevelsidentitycount>`
+`Array<AuthUserLevelsIdentityCount>`
 
 ### HTTP request headers
 
@@ -406,12 +432,12 @@ Updates the details of a specific user level using JSON Patch.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The unique identifier of the user level. |  [default to undefined]
-**jsonpatch** | `Jsonpatch` | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case.  | 
+**jsonPatch** | `JsonPatch` | JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case.  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Userlevelsummarydto`
+`UserLevelSummaryDTO`
 
 ### HTTP request headers
 
@@ -423,14 +449,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomUserLevelsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatch } from 'sailpoint-api-client/dist/custom_user_levels/api';
+import { JsonPatch } from 'sailpoint-api-client/dist/custom_user_levels/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
 const id: string = 6e110911-5984-491b-be74-2707980a46a7; // The unique identifier of the user level.
-const jsonpatch: Jsonpatch = [{"op":"replace","path":"/rightSets","value":["idn:ui-identity-manage-example"]}]; // JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
+const jsonPatch: JsonPatch = {
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}; // JSON Patch payload for updating the user level.   - If only a parent right set id is included in the request body, all child right sets associated with that parent will be automatically assigned.   - If the request body includes both a parent right set and a subset of its children, only the explicitly listed right sets (parent and specified children) will be assigned. Implicit inheritance is not applied in this case. 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.updateUserLevelV1({ id: id, jsonpatch: jsonpatch });
+const result = await apiInstance.updateUserLevelV1({ id: id, jsonPatch: jsonPatch });
 console.log(result);
 ```
 

@@ -53,11 +53,11 @@ Add a new parameter.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**parameterstoragenewparameter** | `Parameterstoragenewparameter` | The parameter to add to the store. | [optional]
+**parameterStorageNewParameter** | `ParameterStorageNewParameter` | The parameter to add to the store. | [optional]
 
 ### Return type
 
-`Parameterstorageparameter`
+`ParameterStorageParameter`
 
 ### HTTP request headers
 
@@ -69,11 +69,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { ParameterStorageApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Parameterstoragenewparameter } from 'sailpoint-api-client/dist/parameter_storage/api';
+import { ParameterStorageNewParameter } from 'sailpoint-api-client/dist/parameter_storage/api';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
-const parameterstoragenewparameter: Parameterstoragenewparameter = ; // The parameter to add to the store. (optional)
+const parameterStorageNewParameter: ParameterStorageNewParameter = {
+  "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+  "name" : "Credentials for server.",
+  "description" : "Credentials for server.",
+  "publicFields" : "{\"username\": \"username\"}",
+  "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b",
+  "type" : "1.1"
+}; // The parameter to add to the store. (optional)
 const result = await apiInstance.createParameterV1({  });
 console.log(result);
 ```
@@ -132,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Parameterstorageattestationdocument`
+`ParameterStorageAttestationDocument`
 
 ### HTTP request headers
 
@@ -172,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Parameterstoragereference>`
+`Array<ParameterStorageReference>`
 
 ### HTTP request headers
 
@@ -252,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Parameterstorageparameter`
+`ParameterStorageParameter`
 
 ### HTTP request headers
 
@@ -292,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Parameterstorageparameter>`
+`Array<ParameterStorageParameter>`
 
 ### HTTP request headers
 
@@ -329,11 +336,11 @@ Update a parameter. You cannot change a parameter's type once set. Only the name
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the parameter to be updated. |  [default to undefined]
-**parameterstorageupdateparameter** | `Parameterstorageupdateparameter` | The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates. | [optional]
+**parameterStorageUpdateParameter** | `ParameterStorageUpdateParameter` | The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates. | [optional]
 
 ### Return type
 
-`Parameterstorageparameter`
+`ParameterStorageParameter`
 
 ### HTTP request headers
 
@@ -345,12 +352,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { ParameterStorageApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Parameterstorageupdateparameter } from 'sailpoint-api-client/dist/parameter_storage/api';
+import { ParameterStorageUpdateParameter } from 'sailpoint-api-client/dist/parameter_storage/api';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
 const id: string = 58de858b-83d9-4563-9e15-7393594c684a; // The ID of the parameter to be updated.
-const parameterstorageupdateparameter: Parameterstorageupdateparameter = ; // The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates. (optional)
+const parameterStorageUpdateParameter: ParameterStorageUpdateParameter = {
+  "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+  "name" : "Credentials for server.",
+  "description" : "Credentials for server.",
+  "publicFields" : "{\"username\": \"username\"}",
+  "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+}{
+  "privateFields" : "ZW5jcnlwdGVkIHBhc3N3b3JkIGhlcmUu",
+  "name" : "Credentials for server.",
+  "description" : "Credentials for server.",
+  "publicFields" : "{\"username\": \"username\"}",
+  "ownerId" : "c0b4568a4fe7458c434ee77d1fbt156b"
+}; // The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates. (optional)
 const result = await apiInstance.updateParameterV1({ id: id });
 console.log(result);
 ```

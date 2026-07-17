@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **created** | **(optional)** `string` | The time when the segment is created. | [default to undefined]
 **modified** | **(optional)** `string` | The time when the segment is modified. | [default to undefined]
 **description** | **(optional)** `string` | The segment\'s optional description. | [default to undefined]
-**owner** | **(optional)** `Ownerreferencesegments` |  | [default to undefined]
+**owner** | **(optional)** `OwnerReferenceSegments` |  | [default to undefined]
 **visibilityCriteria** | **(optional)** `SegmentVisibilityCriteria` |  | [default to undefined]
 **active** | **(optional)** `boolean` | This boolean indicates whether the segment is currently active. Inactive segments have no effect. | [default to false]
 

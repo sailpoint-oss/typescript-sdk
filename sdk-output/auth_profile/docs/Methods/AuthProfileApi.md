@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Authprofilesummary>`
+`Array<AuthProfileSummary>`
 
 ### HTTP request headers
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Authprofile`
+`AuthProfile`
 
 ### HTTP request headers
 
@@ -124,12 +124,12 @@ This API updates an existing Auth Profile. The following fields are patchable:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Auth Profile to patch. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Authprofile`
+`AuthProfile`
 
 ### HTTP request headers
 
@@ -141,14 +141,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { AuthProfileApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/auth_profile/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/auth_profile/api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthProfileApi(configuration);
 const id: string = 2c91808a7813090a017814121919ecca; // ID of the Auth Profile to patch.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // 
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.patchProfileConfigV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const result = await apiInstance.patchProfileConfigV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

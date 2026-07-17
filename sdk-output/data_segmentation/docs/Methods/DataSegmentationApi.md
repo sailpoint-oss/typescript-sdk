@@ -59,7 +59,43 @@ import { DataSegment } from 'sailpoint-api-client/dist/data_segmentation/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataSegmentationApi(configuration);
-const dataSegment: DataSegment = ; // 
+const dataSegment: DataSegment = {
+  "memberFilter" : {
+    "expression" : {
+      "children" : [ ],
+      "attribute" : "location",
+      "value" : {
+        "type" : "STRING",
+        "value" : "Austin"
+      },
+      "operator" : "EQUALS"
+    }
+  },
+  "memberSelection" : [ {
+    "type" : "IDENTITY",
+    "id" : "29cb6c061da843ea8be4b3125f248f2a"
+  }, {
+    "type" : "IDENTITY",
+    "id" : "f7b1b8a35fed4fd4ad2982014e137e19"
+  } ],
+  "created" : "2020-01-01T00:00:00Z",
+  "name" : "segment-xyz",
+  "modified" : "2020-01-01T00:00:00Z",
+  "description" : "This segment represents xyz",
+  "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "scopes" : [ {
+    "scope" : "ENTITLEMENT",
+    "visibility" : "SELECTION",
+    "scopeFilter" : null,
+    "scopeSelection" : [ {
+      "type" : "ENTITLEMENT",
+      "id" : "34d73f611449463ea4fdcf02cda0c397"
+    } ]
+  } ],
+  "membership" : "ALL",
+  "published" : true,
+  "enabled" : true
+}; // 
 const result = await apiInstance.createDataSegmentV1({ dataSegment: dataSegment });
 console.log(result);
 ```
@@ -129,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Segmentmembership>`
+`Array<SegmentMembership>`
 
 ### HTTP request headers
 

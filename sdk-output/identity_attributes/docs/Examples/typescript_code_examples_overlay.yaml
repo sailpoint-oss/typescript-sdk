@@ -6,12 +6,12 @@
       source: |
         import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Identityattribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
+        import { IdentityAttribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityAttributesApi(configuration);
-        const identityattribute2: Identityattribute2 = ; // Identityattribute2 | 
-        const result = await apiInstance.createIdentityAttributeV1({ identityattribute2: identityattribute2 });
+        const identityAttribute2: IdentityAttribute2 = ; // IdentityAttribute2 | 
+        const result = await apiInstance.createIdentityAttributeV1({ identityAttribute2: identityAttribute2 });
         console.log(result);
 - path: /identity-attributes/v1/{name}
   method: DELETE
@@ -35,12 +35,14 @@
       source: |
         import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Identityattributenames } from 'sailpoint-api-client/dist/identity_attributes/api';
+        import { IdentityAttributeNames } from 'sailpoint-api-client/dist/identity_attributes/api';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityAttributesApi(configuration);
-        const identityattributenames: Identityattributenames = ; // Identityattributenames | 
-        const result = await apiInstance.deleteIdentityAttributesInBulkV1({ identityattributenames: identityattributenames });
+        const identityAttributeNames: IdentityAttributeNames = {
+  "ids" : [ "name", "displayName" ]
+}; // IdentityAttributeNames | 
+        const result = await apiInstance.deleteIdentityAttributesInBulkV1({ identityAttributeNames: identityAttributeNames });
         console.log(result);
 - path: /identity-attributes/v1/{name}
   method: GET
@@ -81,11 +83,11 @@
       source: |
         import { IdentityAttributesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Identityattribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
+        import { IdentityAttribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityAttributesApi(configuration);
         const name: string = 'displayName'; // string | The attribute\'s technical name. (default to undefined)
-        const identityattribute2: Identityattribute2 = ; // Identityattribute2 | 
-        const result = await apiInstance.putIdentityAttributeV1({ name: name, identityattribute2: identityattribute2 });
+        const identityAttribute2: IdentityAttribute2 = ; // IdentityAttribute2 | 
+        const result = await apiInstance.putIdentityAttributeV1({ name: name, identityAttribute2: identityAttribute2 });
         console.log(result);

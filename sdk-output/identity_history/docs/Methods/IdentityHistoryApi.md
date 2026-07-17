@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessitemdiff>`
+`Array<AccessItemDiff>`
 
 ### HTTP request headers
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identitycompareresponse>`
+`Array<IdentityCompareResponse>`
 
 ### HTTP request headers
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identityhistoryresponse`
+`IdentityHistoryResponse`
 
 ### HTTP request headers
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Metricresponse>`
+`Array<MetricResponse>`
 
 ### HTTP request headers
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identityhistoryresponse`
+`IdentityHistoryResponse`
 
 ### HTTP request headers
 
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identitylistitem>`
+`Array<IdentityListItem>`
 
 ### HTTP request headers
 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identitysnapshotsummaryresponse>`
+`Array<IdentitySnapshotSummaryResponse>`
 
 ### HTTP request headers
 

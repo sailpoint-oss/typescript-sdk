@@ -50,11 +50,11 @@ Create a new Access Model Metadata Attribute.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**attributedto** | `Attributedto` | Attribute to create | 
+**attributeDTO** | `AttributeDTO` | Attribute to create | 
 
 ### Return type
 
-`Attributedto`
+`AttributeDTO`
 
 ### HTTP request headers
 
@@ -66,12 +66,29 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Attributedto } from 'sailpoint-api-client/dist/access_model_metadata/api';
+import { AttributeDTO } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
-const attributedto: Attributedto = ; // Attribute to create
-const result = await apiInstance.createAccessModelMetadataAttributeV1({ attributedto: attributedto });
+const attributeDTO: AttributeDTO = {
+  "multiselect" : false,
+  "values" : [ {
+    "name" : "Public",
+    "value" : "public",
+    "status" : "active"
+  }, {
+    "name" : "Public",
+    "value" : "public",
+    "status" : "active"
+  } ],
+  "name" : "Privacy",
+  "description" : "Specifies the level of privacy associated with an access item.",
+  "type" : "governance",
+  "objectTypes" : [ "entitlement" ],
+  "key" : "iscPrivacy",
+  "status" : "active"
+}; // Attribute to create
+const result = await apiInstance.createAccessModelMetadataAttributeV1({ attributeDTO: attributeDTO });
 console.log(result);
 ```
 
@@ -90,11 +107,11 @@ Create a new value for an existing Access Model Metadata Attribute.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **key** | `string` | Technical name of the Attribute. |  [default to undefined]
-**attributevaluedto** | `Attributevaluedto` | Attribute value to create | 
+**attributeValueDTO** | `AttributeValueDTO` | Attribute value to create | 
 
 ### Return type
 
-`Attributevaluedto`
+`AttributeValueDTO`
 
 ### HTTP request headers
 
@@ -106,13 +123,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Attributevaluedto } from 'sailpoint-api-client/dist/access_model_metadata/api';
+import { AttributeValueDTO } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
 const key: string = iscPrivacy; // Technical name of the Attribute.
-const attributevaluedto: Attributevaluedto = ; // Attribute value to create
-const result = await apiInstance.createAccessModelMetadataAttributeValueV1({ key: key, attributevaluedto: attributevaluedto });
+const attributeValueDTO: AttributeValueDTO = {
+  "name" : "Public",
+  "value" : "public",
+  "status" : "active"
+}; // Attribute value to create
+const result = await apiInstance.createAccessModelMetadataAttributeValueV1({ key: key, attributeValueDTO: attributeValueDTO });
 console.log(result);
 ```
 
@@ -133,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Attributedto`
+`AttributeDTO`
 
 ### HTTP request headers
 
@@ -171,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Attributevaluedto`
+`AttributeValueDTO`
 
 ### HTTP request headers
 
@@ -212,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Attributedto>`
+`Array<AttributeDTO>`
 
 ### HTTP request headers
 
@@ -254,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Attributevaluedto>`
+`Array<AttributeValueDTO>`
 
 ### HTTP request headers
 
@@ -292,11 +313,11 @@ The following fields are patchable: **name**, **description**, **multiselect**, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **key** | `string` | Technical name of the Attribute. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | JSON Patch array to apply | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | JSON Patch array to apply | 
 
 ### Return type
 
-`Attributedto`
+`AttributeDTO`
 
 ### HTTP request headers
 
@@ -308,13 +329,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
 const key: string = iscPrivacy; // Technical name of the Attribute.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSON Patch array to apply
-const result = await apiInstance.updateAccessModelMetadataAttributeV1({ key: key, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // JSON Patch array to apply
+const result = await apiInstance.updateAccessModelMetadataAttributeV1({ key: key, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -335,11 +360,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **key** | `string` | Technical name of the Attribute. |  [default to undefined]
 **value** | `string` | Technical name of the Attribute value. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | JSON Patch array to apply | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | JSON Patch array to apply | 
 
 ### Return type
 
-`Attributevaluedto`
+`AttributeValueDTO`
 
 ### HTTP request headers
 
@@ -351,14 +376,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
 const key: string = iscPrivacy; // Technical name of the Attribute.
 const value: string = public; // Technical name of the Attribute value.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSON Patch array to apply
-const result = await apiInstance.updateAccessModelMetadataAttributeValueV1({ key: key, value: value, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // JSON Patch array to apply
+const result = await apiInstance.updateAccessModelMetadataAttributeValueV1({ key: key, value: value, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -378,11 +407,11 @@ Bulk update Access Model Metadata Attribute Values using a filter
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**entitlementattributebulkupdatefilterrequest** | `Entitlementattributebulkupdatefilterrequest` | Attribute metadata bulk update request body. | 
+**entitlementAttributeBulkUpdateFilterRequest** | `EntitlementAttributeBulkUpdateFilterRequest` | Attribute metadata bulk update request body. | 
 
 ### Return type
 
-`Accessmodelmetadatabulkupdateresponse`
+`AccessModelMetadataBulkUpdateResponse`
 
 ### HTTP request headers
 
@@ -394,12 +423,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Entitlementattributebulkupdatefilterrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
+import { EntitlementAttributeBulkUpdateFilterRequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
-const entitlementattributebulkupdatefilterrequest: Entitlementattributebulkupdatefilterrequest = ; // Attribute metadata bulk update request body.
-const result = await apiInstance.updateAccessModelMetadataByFilterV1({ entitlementattributebulkupdatefilterrequest: entitlementattributebulkupdatefilterrequest });
+const entitlementAttributeBulkUpdateFilterRequest: EntitlementAttributeBulkUpdateFilterRequest = {
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+  "replaceScope" : "attribute",
+  "operation" : "add"
+}; // Attribute metadata bulk update request body.
+const result = await apiInstance.updateAccessModelMetadataByFilterV1({ entitlementAttributeBulkUpdateFilterRequest: entitlementAttributeBulkUpdateFilterRequest });
 console.log(result);
 ```
 
@@ -419,11 +456,11 @@ Bulk update Access Model Metadata Attribute Values using ids.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**entitlementattributebulkupdateidsrequest** | `Entitlementattributebulkupdateidsrequest` | Attribute metadata bulk update request body. | 
+**entitlementAttributeBulkUpdateIdsRequest** | `EntitlementAttributeBulkUpdateIdsRequest` | Attribute metadata bulk update request body. | 
 
 ### Return type
 
-`Accessmodelmetadatabulkupdateresponse`
+`AccessModelMetadataBulkUpdateResponse`
 
 ### HTTP request headers
 
@@ -435,12 +472,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Entitlementattributebulkupdateidsrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
+import { EntitlementAttributeBulkUpdateIdsRequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
-const entitlementattributebulkupdateidsrequest: Entitlementattributebulkupdateidsrequest = ; // Attribute metadata bulk update request body.
-const result = await apiInstance.updateAccessModelMetadataByIdsV1({ entitlementattributebulkupdateidsrequest: entitlementattributebulkupdateidsrequest });
+const entitlementAttributeBulkUpdateIdsRequest: EntitlementAttributeBulkUpdateIdsRequest = {
+  "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "attribute",
+  "operation" : "add"
+}; // Attribute metadata bulk update request body.
+const result = await apiInstance.updateAccessModelMetadataByIdsV1({ entitlementAttributeBulkUpdateIdsRequest: entitlementAttributeBulkUpdateIdsRequest });
 console.log(result);
 ```
 
@@ -460,11 +505,11 @@ Bulk update Access Model Metadata Attribute Values using a query
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**entitlementattributebulkupdatequeryrequest** | `Entitlementattributebulkupdatequeryrequest` | Attribute metadata bulk update request body. | 
+**entitlementAttributeBulkUpdateQueryRequest** | `EntitlementAttributeBulkUpdateQueryRequest` | Attribute metadata bulk update request body. | 
 
 ### Return type
 
-`Accessmodelmetadatabulkupdateresponse`
+`AccessModelMetadataBulkUpdateResponse`
 
 ### HTTP request headers
 
@@ -476,12 +521,136 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessModelMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Entitlementattributebulkupdatequeryrequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
+import { EntitlementAttributeBulkUpdateQueryRequest } from 'sailpoint-api-client/dist/access_model_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
-const entitlementattributebulkupdatequeryrequest: Entitlementattributebulkupdatequeryrequest = ; // Attribute metadata bulk update request body.
-const result = await apiInstance.updateAccessModelMetadataByQueryV1({ entitlementattributebulkupdatequeryrequest: entitlementattributebulkupdatequeryrequest });
+const entitlementAttributeBulkUpdateQueryRequest: EntitlementAttributeBulkUpdateQueryRequest = {
+  "query" : {
+    "queryDsl" : {
+      "match" : {
+        "name" : "john.doe"
+      }
+    },
+    "aggregationType" : "DSL",
+    "aggregationsVersion" : "",
+    "query" : {
+      "query" : "name:a*",
+      "timeZone" : "America/Chicago",
+      "fields" : "[\"firstName,lastName,email\"]",
+      "innerHit" : {
+        "query" : "source.name:\\\"Active Directory\\\"",
+        "type" : "access"
+      }
+    },
+    "aggregationsDsl" : { },
+    "sort" : [ "displayName", "+id" ],
+    "filters" : { },
+    "queryVersion" : "",
+    "queryType" : "SAILPOINT",
+    "includeNested" : true,
+    "queryResultFilter" : {
+      "excludes" : [ "stacktrace" ],
+      "includes" : [ "name", "displayName" ]
+    },
+    "indices" : [ "identities" ],
+    "typeAheadQuery" : {
+      "field" : "source.name",
+      "size" : 100,
+      "query" : "Work",
+      "sortByValue" : true,
+      "nestedType" : "access",
+      "sort" : "asc",
+      "maxExpansions" : 10
+    },
+    "textQuery" : {
+      "contains" : true,
+      "terms" : [ "The quick brown fox", "3141592", "7" ],
+      "matchAny" : false,
+      "fields" : [ "displayName", "employeeNumber", "roleCount" ]
+    },
+    "searchAfter" : [ "John Doe", "2c91808375d8e80a0175e1f88a575221" ],
+    "aggregations" : {
+      "filter" : {
+        "field" : "access.type",
+        "name" : "Entitlements",
+        "type" : "TERM",
+        "value" : "ENTITLEMENT"
+      },
+      "bucket" : {
+        "field" : "attributes.city",
+        "size" : 100,
+        "minDocCount" : 2,
+        "name" : "Identity Locations",
+        "type" : "TERMS"
+      },
+      "metric" : {
+        "field" : "@access.name",
+        "name" : "Access Name Count",
+        "type" : "COUNT"
+      },
+      "subAggregation" : {
+        "filter" : {
+          "field" : "access.type",
+          "name" : "Entitlements",
+          "type" : "TERM",
+          "value" : "ENTITLEMENT"
+        },
+        "bucket" : {
+          "field" : "attributes.city",
+          "size" : 100,
+          "minDocCount" : 2,
+          "name" : "Identity Locations",
+          "type" : "TERMS"
+        },
+        "metric" : {
+          "field" : "@access.name",
+          "name" : "Access Name Count",
+          "type" : "COUNT"
+        },
+        "subAggregation" : {
+          "filter" : {
+            "field" : "access.type",
+            "name" : "Entitlements",
+            "type" : "TERM",
+            "value" : "ENTITLEMENT"
+          },
+          "bucket" : {
+            "field" : "attributes.city",
+            "size" : 100,
+            "minDocCount" : 2,
+            "name" : "Identity Locations",
+            "type" : "TERMS"
+          },
+          "metric" : {
+            "field" : "@access.name",
+            "name" : "Access Name Count",
+            "type" : "COUNT"
+          },
+          "nested" : {
+            "name" : "id",
+            "type" : "access"
+          }
+        },
+        "nested" : {
+          "name" : "id",
+          "type" : "access"
+        }
+      },
+      "nested" : {
+        "name" : "id",
+        "type" : "access"
+      }
+    }
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "attribute",
+  "operation" : "add"
+}; // Attribute metadata bulk update request body.
+const result = await apiInstance.updateAccessModelMetadataByQueryV1({ entitlementAttributeBulkUpdateQueryRequest: entitlementAttributeBulkUpdateQueryRequest });
 console.log(result);
 ```
 

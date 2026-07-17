@@ -6,12 +6,19 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Bulkapproverequestdto } from 'sailpoint-api-client/dist/approvals/api';
+        import { BulkApproveRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
-        const bulkapproverequestdto: Bulkapproverequestdto = ; // Bulkapproverequestdto | 
-        const result = await apiInstance.approveApprovalInBulkV1({ bulkapproverequestdto: bulkapproverequestdto });
+        const bulkApproveRequestDTO: BulkApproveRequestDTO = {
+  "comment" : "Bulk approved by admin for monthly review",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ],
+  "additionalAttributes" : {
+    "source" : "automation",
+    "urgency" : "high"
+  }
+}; // BulkApproveRequestDTO | 
+        const result = await apiInstance.approveApprovalInBulkV1({ bulkApproveRequestDTO: bulkApproveRequestDTO });
         console.log(result);
 - path: /generic-approvals/v1/{id}/approve
   method: POST
@@ -21,12 +28,19 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Approvalapproverequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalApproveRequest } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
         const id: string = '38453251-6be2-5f8f-df93-5ce19e295837'; // string | Approval ID that correlates to an existing approval request that a user wants to approve. (default to undefined)
-        const approvalapproverequest: Approvalapproverequest = ; // Approvalapproverequest |  (optional)
+        const approvalApproveRequest: ApprovalApproveRequest = {
+  "comment" : "comment",
+  "additionalAttributes" : {
+    "additionalProp1" : "string",
+    "additionalProp2" : "string",
+    "additionalProp3" : "string"
+  }
+}; // ApprovalApproveRequest |  (optional)
         const result = await apiInstance.approveApprovalV1({ id: id });
         console.log(result);
 - path: /generic-approvals/v1/{id}/cancel
@@ -37,12 +51,14 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Approvalcancelrequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalCancelRequest } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
         const id: string = '38453251-6be2-5f8f-df93-5ce19e295837'; // string | ID of the approval request to cancel. (default to undefined)
-        const approvalcancelrequest: Approvalcancelrequest = ; // Approvalcancelrequest |  (optional)
+        const approvalCancelRequest: ApprovalCancelRequest = {
+  "comment" : "Cancelled by administrator"
+}; // ApprovalCancelRequest |  (optional)
         const result = await apiInstance.cancelApprovalByIdV1({ id: id });
         console.log(result);
 - path: /generic-approvals/v1/bulk-cancel
@@ -53,12 +69,15 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Bulkcancelrequestdto } from 'sailpoint-api-client/dist/approvals/api';
+        import { BulkCancelRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
-        const bulkcancelrequestdto: Bulkcancelrequestdto = ; // Bulkcancelrequestdto | 
-        const result = await apiInstance.cancelApprovalV1({ bulkcancelrequestdto: bulkcancelrequestdto });
+        const bulkCancelRequestDTO: BulkCancelRequestDTO = {
+  "comment" : "Bulk cancellation by admin",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}; // BulkCancelRequestDTO | 
+        const result = await apiInstance.cancelApprovalV1({ bulkCancelRequestDTO: bulkCancelRequestDTO });
         console.log(result);
 - path: /generic-approvals/v1/config/{id}/{scope}
   method: DELETE
@@ -137,12 +156,17 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Bulkreassignrequestdto } from 'sailpoint-api-client/dist/approvals/api';
+        import { BulkReassignRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
-        const bulkreassignrequestdto: Bulkreassignrequestdto = ; // Bulkreassignrequestdto | 
-        const result = await apiInstance.moveApprovalV1({ bulkreassignrequestdto: bulkreassignrequestdto });
+        const bulkReassignRequestDTO: BulkReassignRequestDTO = {
+  "reassignTo" : "32454251-6ce2-5d8f-df93-5ce19e295238",
+  "comment" : "Bulk reassignment by admin",
+  "reassignFrom" : "12353251-6be2-5f8f-df93-5ce19b6e5837",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}; // BulkReassignRequestDTO | 
+        const result = await apiInstance.moveApprovalV1({ bulkReassignRequestDTO: bulkReassignRequestDTO });
         console.log(result);
 - path: /generic-approvals/v1/config/{id}/{scope}
   method: PUT
@@ -152,14 +176,61 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Approvalconfig } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalConfig } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
         const id: string = 'ACCESS_REQUEST_APPROVAL'; // string | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT (default to undefined)
         const scope: string = 'APPROVAL_TYPE'; // 'DOMAIN_OBJECT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT' | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT (default to undefined)
-        const approvalconfig: Approvalconfig = ; // Approvalconfig | 
-        const result = await apiInstance.putApprovalsConfigV1({ id: id, scope: scope, approvalconfig: approvalconfig });
+        const approvalConfig: ApprovalConfig = {
+  "timeoutConfig" : {
+    "daysUntilTimeout" : 2,
+    "enabled" : true,
+    "timeoutResult" : "EXPIRED"
+  },
+  "requiresComment" : "ALL",
+  "cronTimezone" : {
+    "offset" : "",
+    "location" : "America/New_York"
+  },
+  "fallbackApprover" : {
+    "identityID" : "fdfda352157d4cc79bb749953131b457",
+    "type" : "MANAGER_OF"
+  },
+  "reminderConfig" : {
+    "reminderCronSchedule" : "1 1 1 1 1",
+    "daysUntilFirstReminder" : 0,
+    "maxReminders" : 5,
+    "enabled" : false
+  },
+  "circumventApprovalProcess" : false,
+  "escalationConfig" : {
+    "escalationCronSchedule" : "*/5 * * * *",
+    "escalationChain" : [ {
+      "tier" : 1,
+      "identityType" : "IDENTITY",
+      "identityId" : "fdfda352157d4cc79bb749953131b457"
+    }, {
+      "tier" : 1,
+      "identityType" : "IDENTITY",
+      "identityId" : "fdfda352157d4cc79bb749953131b457"
+    } ],
+    "daysUntilFirstEscalation" : 2,
+    "enabled" : true
+  },
+  "serialChain" : [ {
+    "tier" : 1,
+    "identityType" : "IDENTITY",
+    "identityId" : "2c9180858090ea8801809a0465e829da"
+  }, {
+    "tier" : 1,
+    "identityType" : "IDENTITY",
+    "identityId" : "2c9180858090ea8801809a0465e829da"
+  } ],
+  "machineIdentityManagerAssignment" : "MACHINE_IDENTITY_OWNER",
+  "autoApprove" : "OFF"
+}; // ApprovalConfig | 
+        const result = await apiInstance.putApprovalsConfigV1({ id: id, scope: scope, approvalConfig: approvalConfig });
         console.log(result);
 - path: /generic-approvals/v1/bulk-reject
   method: POST
@@ -169,12 +240,15 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Bulkrejectrequestdto } from 'sailpoint-api-client/dist/approvals/api';
+        import { BulkRejectRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
-        const bulkrejectrequestdto: Bulkrejectrequestdto = ; // Bulkrejectrequestdto | 
-        const result = await apiInstance.rejectApprovalInBulkV1({ bulkrejectrequestdto: bulkrejectrequestdto });
+        const bulkRejectRequestDTO: BulkRejectRequestDTO = {
+  "comment" : "Bulk reject by admin",
+  "approvalIds" : [ "38453251-6be2-5f8f-df93-5ce19e295837", "38453251-6be2-5f8f-df93-5ce19e295838" ]
+}; // BulkRejectRequestDTO | 
+        const result = await apiInstance.rejectApprovalInBulkV1({ bulkRejectRequestDTO: bulkRejectRequestDTO });
         console.log(result);
 - path: /generic-approvals/v1/{id}/reject
   method: POST
@@ -184,12 +258,14 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Approvalrejectrequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalRejectRequest } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
         const id: string = '38453251-6be2-5f8f-df93-5ce19e295837'; // string | Approval ID that correlates to an existing approval request that a user wants to reject. (default to undefined)
-        const approvalrejectrequest: Approvalrejectrequest = ; // Approvalrejectrequest |  (optional)
+        const approvalRejectRequest: ApprovalRejectRequest = {
+  "comment" : "string"
+}; // ApprovalRejectRequest |  (optional)
         const result = await apiInstance.rejectApprovalV1({ id: id });
         console.log(result);
 - path: /generic-approvals/v1/{id}/attributes
@@ -200,13 +276,21 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Approvalattributesrequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalAttributesRequest } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
         const id: string = '38453251-6be2-5f8f-df93-5ce19e295837'; // string | Approval ID that correlates to an existing approval request that a user wants to change the attributes of. (default to undefined)
-        const approvalattributesrequest: Approvalattributesrequest = ; // Approvalattributesrequest | 
-        const result = await apiInstance.updateApprovalsAttributesV1({ id: id, approvalattributesrequest: approvalattributesrequest });
+        const approvalAttributesRequest: ApprovalAttributesRequest = {
+  "removeAttributeKeys" : [ "string" ],
+  "comment" : "comment",
+  "additionalAttributes" : {
+    "additionalProp1" : "string",
+    "additionalProp2" : "string",
+    "additionalProp3" : "string"
+  }
+}; // ApprovalAttributesRequest | 
+        const result = await apiInstance.updateApprovalsAttributesV1({ id: id, approvalAttributesRequest: approvalAttributesRequest });
         console.log(result);
 - path: /generic-approvals/v1/{id}/comments
   method: POST
@@ -216,13 +300,15 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Approvalcommentsrequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalCommentsRequest } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
         const id: string = '38453251-6be2-5f8f-df93-5ce19e295837'; // string | Approval ID that correlates to an existing approval request that a user wants to add a comment to. (default to undefined)
-        const approvalcommentsrequest: Approvalcommentsrequest = ; // Approvalcommentsrequest | 
-        const result = await apiInstance.updateApprovalsCommentsV1({ id: id, approvalcommentsrequest: approvalcommentsrequest });
+        const approvalCommentsRequest: ApprovalCommentsRequest = {
+  "comment" : "Approval comment."
+}; // ApprovalCommentsRequest | 
+        const result = await apiInstance.updateApprovalsCommentsV1({ id: id, approvalCommentsRequest: approvalCommentsRequest });
         console.log(result);
 - path: /generic-approvals/v1/{id}/reassign
   method: POST
@@ -232,11 +318,15 @@
       source: |
         import { ApprovalsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Approvalreassignrequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalReassignRequest } from 'sailpoint-api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
         const id: string = '38453251-6be2-5f8f-df93-5ce19e295837'; // string | Approval ID that correlates to an existing approval request that a user wants to reassign. (default to undefined)
-        const approvalreassignrequest: Approvalreassignrequest = ; // Approvalreassignrequest | 
-        const result = await apiInstance.updateApprovalsReassignV1({ id: id, approvalreassignrequest: approvalreassignrequest });
+        const approvalReassignRequest: ApprovalReassignRequest = {
+  "reassignTo" : "152354832eb6f8f539fd738592e19ec5",
+  "comment" : "comment",
+  "reassignFrom" : "384532516be25f8fdf935ce19e295837"
+}; // ApprovalReassignRequest | 
+        const result = await apiInstance.updateApprovalsReassignV1({ id: id, approvalReassignRequest: approvalReassignRequest });
         console.log(result);

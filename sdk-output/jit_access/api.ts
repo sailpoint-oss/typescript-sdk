@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -108,37 +108,98 @@ export interface GetJitActivationConfigV1429Response {
     'message'?: any;
 }
 /**
+ * 
+ * @export
+ * @interface JITActivationConfigResponse
+ */
+export interface JITActivationConfigResponse {
+    /**
+     * Unique identifier of this JIT activation configuration instance (persisted config id). 
+     * @type {string}
+     * @memberof JITActivationConfigResponse
+     */
+    'id': string;
+    /**
+     * Entitlement IDs governed by JIT activation policy. May be a single-element array when only one entitlement is in scope. 
+     * @type {Array<string>}
+     * @memberof JITActivationConfigResponse
+     */
+    'entitlementIds'?: Array<string>;
+    /**
+     * Maximum allowed JIT activation duration for a single grant, in minutes; null if unset.
+     * @type {number}
+     * @memberof JITActivationConfigResponse
+     */
+    'maxActivationPeriodMins'?: number | null;
+    /**
+     * Maximum allowed extension of an active JIT activation, in minutes; null if unset.
+     * @type {number}
+     * @memberof JITActivationConfigResponse
+     */
+    'maxActivationPeriodExtensionMins'?: number | null;
+    /**
+     * Default activation duration offered when a user requests JIT access, in minutes; null if unset.
+     * @type {number}
+     * @memberof JITActivationConfigResponse
+     */
+    'defaultMaxActivationPeriodMins'?: number | null;
+    /**
+     * Default extension duration offered for an active JIT activation, in minutes; null if unset.
+     * @type {number}
+     * @memberof JITActivationConfigResponse
+     */
+    'defaultMaxActivationPeriodExtensionMins'?: number | null;
+    /**
+     * Email addresses notified for JIT activation events (for example policy owners or a shared mailbox). 
+     * @type {Array<string>}
+     * @memberof JITActivationConfigResponse
+     */
+    'notificationRecipients'?: Array<string>;
+    /**
+     * Name or key of the email template used for JIT activation notifications; null if unset.
+     * @type {string}
+     * @memberof JITActivationConfigResponse
+     */
+    'notificationTemplate'?: string | null;
+    /**
+     * Whether the policy applies to future entitlement assignments.
+     * @type {boolean}
+     * @memberof JITActivationConfigResponse
+     */
+    'applyToFutureAssignments': boolean;
+}
+/**
  * A single replace operation applied to JIT activation configuration. Only **replace** is supported. **path** must be one of the allowed JSON Pointer-style paths. 
  * @export
- * @interface Jitaccessoperationrequest
+ * @interface JitAccessOperationRequest
  */
-export interface Jitaccessoperationrequest {
+export interface JitAccessOperationRequest {
     /**
      * Operation type. Defaults to `replace` if omitted.
      * @type {string}
-     * @memberof Jitaccessoperationrequest
+     * @memberof JitAccessOperationRequest
      */
-    'op'?: JitaccessoperationrequestOpEnum;
+    'op'?: JitAccessOperationRequestOpEnum;
     /**
      * Path to replace. Only the following JSON Pointer-style paths are supported. 
      * @type {string}
-     * @memberof Jitaccessoperationrequest
+     * @memberof JitAccessOperationRequest
      */
-    'path': JitaccessoperationrequestPathEnum;
+    'path': JitAccessOperationRequestPathEnum;
     /**
      * 
-     * @type {JitaccessoperationrequestValue}
-     * @memberof Jitaccessoperationrequest
+     * @type {JitAccessOperationRequestValue}
+     * @memberof JitAccessOperationRequest
      */
-    'value': JitaccessoperationrequestValue | null;
+    'value': JitAccessOperationRequestValue | null;
 }
 
-export const JitaccessoperationrequestOpEnum = {
+export const JitAccessOperationRequestOpEnum = {
     Replace: 'replace'
 } as const;
 
-export type JitaccessoperationrequestOpEnum = typeof JitaccessoperationrequestOpEnum[keyof typeof JitaccessoperationrequestOpEnum];
-export const JitaccessoperationrequestPathEnum = {
+export type JitAccessOperationRequestOpEnum = typeof JitAccessOperationRequestOpEnum[keyof typeof JitAccessOperationRequestOpEnum];
+export const JitAccessOperationRequestPathEnum = {
     EntitlementIds: '/entitlementIds',
     MaxActivationPeriodMins: '/maxActivationPeriodMins',
     MaxActivationPeriodExtensionMins: '/maxActivationPeriodExtensionMins',
@@ -149,88 +210,27 @@ export const JitaccessoperationrequestPathEnum = {
     ApplyToFutureAssignments: '/applyToFutureAssignments'
 } as const;
 
-export type JitaccessoperationrequestPathEnum = typeof JitaccessoperationrequestPathEnum[keyof typeof JitaccessoperationrequestPathEnum];
+export type JitAccessOperationRequestPathEnum = typeof JitAccessOperationRequestPathEnum[keyof typeof JitAccessOperationRequestPathEnum];
 
 /**
- * @type JitaccessoperationrequestValue
+ * @type JitAccessOperationRequestValue
  * New value. Type depends on **path**: arrays of strings for `/entitlementIds` and `/notificationRecipients`, integer for `*Mins` paths, string for `/notificationTemplate`, boolean for `/applyToFutureAssignments`. Use `null` when clearing nullable fields (for example `/notificationTemplate` or `*Mins` paths). 
  * @export
  */
-export type JitaccessoperationrequestValue = Array<string> | boolean | number | string;
+export type JitAccessOperationRequestValue = Array<string> | boolean | number | string;
 
-/**
- * 
- * @export
- * @interface Jitactivationconfigresponse
- */
-export interface Jitactivationconfigresponse {
-    /**
-     * Unique identifier of this JIT activation configuration instance (persisted config id). 
-     * @type {string}
-     * @memberof Jitactivationconfigresponse
-     */
-    'id': string;
-    /**
-     * Entitlement IDs governed by JIT activation policy. May be a single-element array when only one entitlement is in scope. 
-     * @type {Array<string>}
-     * @memberof Jitactivationconfigresponse
-     */
-    'entitlementIds'?: Array<string>;
-    /**
-     * Maximum allowed JIT activation duration for a single grant, in minutes; null if unset.
-     * @type {number}
-     * @memberof Jitactivationconfigresponse
-     */
-    'maxActivationPeriodMins'?: number | null;
-    /**
-     * Maximum allowed extension of an active JIT activation, in minutes; null if unset.
-     * @type {number}
-     * @memberof Jitactivationconfigresponse
-     */
-    'maxActivationPeriodExtensionMins'?: number | null;
-    /**
-     * Default activation duration offered when a user requests JIT access, in minutes; null if unset.
-     * @type {number}
-     * @memberof Jitactivationconfigresponse
-     */
-    'defaultMaxActivationPeriodMins'?: number | null;
-    /**
-     * Default extension duration offered for an active JIT activation, in minutes; null if unset.
-     * @type {number}
-     * @memberof Jitactivationconfigresponse
-     */
-    'defaultMaxActivationPeriodExtensionMins'?: number | null;
-    /**
-     * Email addresses notified for JIT activation events (for example policy owners or a shared mailbox). 
-     * @type {Array<string>}
-     * @memberof Jitactivationconfigresponse
-     */
-    'notificationRecipients'?: Array<string>;
-    /**
-     * Name or key of the email template used for JIT activation notifications; null if unset.
-     * @type {string}
-     * @memberof Jitactivationconfigresponse
-     */
-    'notificationTemplate'?: string | null;
-    /**
-     * Whether the policy applies to future entitlement assignments.
-     * @type {boolean}
-     * @memberof Jitactivationconfigresponse
-     */
-    'applyToFutureAssignments': boolean;
-}
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -278,15 +278,15 @@ export const JITAccessApiAxiosParamCreator = function (configuration?: Configura
          * Updates the tenant\'s JIT activation policy configuration by applying one or more **replace** operations (same shape as JSON Patch: **op**, **path**, **value**). Use this to change entitlement lists, max/default activation and extension durations, notification recipients or template, and the apply-to-future-assignments flag.  The body must be a non-empty array. Only **replace** is supported; each **path** must be one of the values documented on the request item schema. The tenant is taken from the request context. **configType** selects which configuration to update. Returns **404** if the configuration does not exist, or **400** for an empty body, unknown **configType**, or invalid path/value.  **User level:** POLICY_ADMIN (policy administrator). 
          * @summary Update JIT activation policy configuration
          * @param {PatchJitActivationConfigV1ConfigTypeEnum} configType Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
-         * @param {Array<Jitaccessoperationrequest>} jitaccessoperationrequest 
+         * @param {Array<JitAccessOperationRequest>} jitAccessOperationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchJitActivationConfigV1: async (configType: PatchJitActivationConfigV1ConfigTypeEnum, jitaccessoperationrequest: Array<Jitaccessoperationrequest>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchJitActivationConfigV1: async (configType: PatchJitActivationConfigV1ConfigTypeEnum, jitAccessOperationRequest: Array<JitAccessOperationRequest>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'configType' is not null or undefined
             assertParamExists('patchJitActivationConfigV1', 'configType', configType)
-            // verify required parameter 'jitaccessoperationrequest' is not null or undefined
-            assertParamExists('patchJitActivationConfigV1', 'jitaccessoperationrequest', jitaccessoperationrequest)
+            // verify required parameter 'jitAccessOperationRequest' is not null or undefined
+            assertParamExists('patchJitActivationConfigV1', 'jitAccessOperationRequest', jitAccessOperationRequest)
             const localVarPath = `/jit-activation-config/v1/{configType}`
                 .replace(`{${"configType"}}`, encodeURIComponent(String(configType)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -307,7 +307,7 @@ export const JITAccessApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jitaccessoperationrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jitAccessOperationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -331,7 +331,7 @@ export const JITAccessApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getJitActivationConfigV1(configType: GetJitActivationConfigV1ConfigTypeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Jitactivationconfigresponse>> {
+        async getJitActivationConfigV1(configType: GetJitActivationConfigV1ConfigTypeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationConfigResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getJitActivationConfigV1(configType, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITAccessApi.getJitActivationConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -341,12 +341,12 @@ export const JITAccessApiFp = function(configuration?: Configuration) {
          * Updates the tenant\'s JIT activation policy configuration by applying one or more **replace** operations (same shape as JSON Patch: **op**, **path**, **value**). Use this to change entitlement lists, max/default activation and extension durations, notification recipients or template, and the apply-to-future-assignments flag.  The body must be a non-empty array. Only **replace** is supported; each **path** must be one of the values documented on the request item schema. The tenant is taken from the request context. **configType** selects which configuration to update. Returns **404** if the configuration does not exist, or **400** for an empty body, unknown **configType**, or invalid path/value.  **User level:** POLICY_ADMIN (policy administrator). 
          * @summary Update JIT activation policy configuration
          * @param {PatchJitActivationConfigV1ConfigTypeEnum} configType Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
-         * @param {Array<Jitaccessoperationrequest>} jitaccessoperationrequest 
+         * @param {Array<JitAccessOperationRequest>} jitAccessOperationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchJitActivationConfigV1(configType: PatchJitActivationConfigV1ConfigTypeEnum, jitaccessoperationrequest: Array<Jitaccessoperationrequest>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Jitactivationconfigresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchJitActivationConfigV1(configType, jitaccessoperationrequest, axiosOptions);
+        async patchJitActivationConfigV1(configType: PatchJitActivationConfigV1ConfigTypeEnum, jitAccessOperationRequest: Array<JitAccessOperationRequest>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationConfigResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchJitActivationConfigV1(configType, jitAccessOperationRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITAccessApi.patchJitActivationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -368,7 +368,7 @@ export const JITAccessApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getJitActivationConfigV1(requestParameters: JITAccessApiGetJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Jitactivationconfigresponse> {
+        getJitActivationConfigV1(requestParameters: JITAccessApiGetJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JITActivationConfigResponse> {
             return localVarFp.getJitActivationConfigV1(requestParameters.configType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -378,8 +378,8 @@ export const JITAccessApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchJitActivationConfigV1(requestParameters: JITAccessApiPatchJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Jitactivationconfigresponse> {
-            return localVarFp.patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitaccessoperationrequest, axiosOptions).then((request) => request(axios, basePath));
+        patchJitActivationConfigV1(requestParameters: JITAccessApiPatchJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JITActivationConfigResponse> {
+            return localVarFp.patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitAccessOperationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -413,10 +413,10 @@ export interface JITAccessApiPatchJitActivationConfigV1Request {
 
     /**
      * 
-     * @type {Array<Jitaccessoperationrequest>}
+     * @type {Array<JitAccessOperationRequest>}
      * @memberof JITAccessApiPatchJitActivationConfigV1
      */
-    readonly jitaccessoperationrequest: Array<Jitaccessoperationrequest>
+    readonly jitAccessOperationRequest: Array<JitAccessOperationRequest>
 }
 
 /**
@@ -447,7 +447,7 @@ export class JITAccessApi extends BaseAPI {
      * @memberof JITAccessApi
      */
     public patchJitActivationConfigV1(requestParameters: JITAccessApiPatchJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITAccessApiFp(this.configuration).patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitaccessoperationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITAccessApiFp(this.configuration).patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitAccessOperationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

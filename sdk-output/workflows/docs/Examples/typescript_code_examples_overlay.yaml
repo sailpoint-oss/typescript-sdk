@@ -225,13 +225,17 @@
       source: |
         import { WorkflowsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/workflows/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/workflows/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkflowsApi(configuration);
         const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the Workflow (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"Send Email"},{"op":"replace","path":"/owner","value":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"}},{"op":"replace","path":"/description","value":"Send an email to the identity who's attributes changed."},{"op":"replace","path":"/enabled","value":false},{"op":"replace","path":"/definition","value":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}}},{"op":"replace","path":"/trigger","value":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed"}}}]; // Array<Jsonpatchoperation> | 
-        const result = await apiInstance.patchWorkflowV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | 
+        const result = await apiInstance.patchWorkflowV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /workflows/v1/{id}
   method: PUT
@@ -241,13 +245,47 @@
       source: |
         import { WorkflowsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Workflowbody } from 'sailpoint-api-client/dist/workflows/api';
+        import { WorkflowBody } from 'sailpoint-api-client/dist/workflows/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkflowsApi(configuration);
         const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the Workflow (default to undefined)
-        const workflowbody: Workflowbody = ; // Workflowbody | 
-        const result = await apiInstance.putWorkflowV1({ id: id, workflowbody: workflowbody });
+        const workflowBody: WorkflowBody = {
+  "owner" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "name" : "Send Email",
+  "description" : "Send an email to the identity who's attributes changed.",
+  "definition" : {
+    "start" : "Send Email Test",
+    "steps" : {
+      "Send Email" : {
+        "actionId" : "sp:send-email",
+        "attributes" : {
+          "body" : "This is a test",
+          "from" : "sailpoint@sailpoint.com",
+          "recipientId.$" : "$.identity.id",
+          "subject" : "test"
+        },
+        "nextStep" : "success",
+        "selectResult" : null,
+        "type" : "ACTION"
+      },
+      "success" : {
+        "type" : "success"
+      }
+    }
+  },
+  "trigger" : {
+    "displayName" : "displayName",
+    "attributes" : "{}",
+    "type" : "EVENT"
+  },
+  "enabled" : false
+}; // WorkflowBody | 
+        const result = await apiInstance.putWorkflowV1({ id: id, workflowBody: workflowBody });
         console.log(result);
 - path: /workflows/v1/execute/external/{id}/test
   method: POST

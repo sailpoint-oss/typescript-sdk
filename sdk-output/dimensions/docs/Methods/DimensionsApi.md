@@ -62,7 +62,93 @@ import { Dimension } from 'sailpoint-api-client/dist/dimensions/api';
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
 const roleId: string = 6603fba3004f43c687610a29195252ce; // Parent Role Id of the dimension.
-const dimension: Dimension = ; // 
+const dimension: Dimension = {
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "entitlements" : [ {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  }, {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  } ],
+  "accessProfiles" : [ {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  }, {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  } ],
+  "created" : "2021-03-01T22:32:58.104Z",
+  "name" : "Dimension 2567",
+  "modified" : "2021-03-02T20:22:28.104Z",
+  "description" : "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.",
+  "id" : "2c918086749d78830174a1a40e121518",
+  "membership" : {
+    "criteria" : {
+      "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+      "children" : [ {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "property" : "attribute.email",
+          "type" : "IDENTITY"
+        }
+      }, {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "property" : "attribute.email",
+            "type" : "IDENTITY"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "property" : "attribute.email",
+          "type" : "IDENTITY"
+        }
+      } ],
+      "operation" : "EQUALS",
+      "key" : {
+        "property" : "attribute.email",
+        "type" : "IDENTITY"
+      }
+    },
+    "type" : "STANDARD"
+  },
+  "parentId" : "2c918086749d78830174a1a40e121518"
+}; // 
 const result = await apiInstance.createDimensionV1({ roleId: roleId, dimension: dimension });
 console.log(result);
 ```
@@ -84,11 +170,11 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **roleId** | `string` | Parent Role Id of the dimensions. |  [default to undefined]
-**dimensionbulkdeleterequest** | `Dimensionbulkdeleterequest` |  | 
+**dimensionBulkDeleteRequest** | `DimensionBulkDeleteRequest` |  | 
 
 ### Return type
 
-`Taskresultdto`
+`TaskResultDto`
 
 ### HTTP request headers
 
@@ -100,13 +186,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { DimensionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Dimensionbulkdeleterequest } from 'sailpoint-api-client/dist/dimensions/api';
+import { DimensionBulkDeleteRequest } from 'sailpoint-api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
 const roleId: string = 6603fba3004f43c687610a29195252ce; // Parent Role Id of the dimensions.
-const dimensionbulkdeleterequest: Dimensionbulkdeleterequest = {"dimensionIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}; // 
-const result = await apiInstance.deleteBulkDimensionsV1({ roleId: roleId, dimensionbulkdeleterequest: dimensionbulkdeleterequest });
+const dimensionBulkDeleteRequest: DimensionBulkDeleteRequest = {
+  "dimensionIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
+}; // 
+const result = await apiInstance.deleteBulkDimensionsV1({ roleId: roleId, dimensionBulkDeleteRequest: dimensionBulkDeleteRequest });
 console.log(result);
 ```
 
@@ -267,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessprofile>`
+`Array<AccessProfile>`
 
 ### HTTP request headers
 
@@ -363,7 +451,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **roleId** | `string` | Parent Role Id of the dimension. |  [default to undefined]
 **dimensionId** | `string` | Id of the Dimension |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 
 ### Return type
 
@@ -379,14 +467,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { DimensionsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/dimensions/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
 const roleId: string = 6603fba3004f43c687610a29195252ce; // Parent Role Id of the dimension.
 const dimensionId: string = 2c9180835d191a86015d28455b4a2329; // Id of the Dimension
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Test Description"},{"op":"replace","path":"/name","value":"new name"}]; // 
-const result = await apiInstance.patchDimensionV1({ roleId: roleId, dimensionId: dimensionId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
+const result = await apiInstance.patchDimensionV1({ roleId: roleId, dimensionId: dimensionId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

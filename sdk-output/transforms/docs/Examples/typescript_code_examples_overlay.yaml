@@ -10,7 +10,11 @@
 
         const configuration = new Configuration();
         const apiInstance = new TransformsApi(configuration);
-        const transform: Transform = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM dd yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // Transform | The transform to be created.
+        const transform: Transform = {
+  "name" : "Timestamp To Date",
+  "attributes" : "{}",
+  "type" : "dateFormat"
+}; // Transform | The transform to be created.
         const result = await apiInstance.createTransformV1({ transform: transform });
         console.log(result);
 - path: /transforms/v1/{id}
@@ -72,6 +76,10 @@
         const configuration = new Configuration();
         const apiInstance = new TransformsApi(configuration);
         const id: string = '2cd78adghjkja34jh2b1hkjhasuecd'; // string | ID of the transform to update (default to undefined)
-        const transform: Transform = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM-dd-yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // Transform | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified. (optional)
+        const transform: Transform = {
+  "name" : "Timestamp To Date",
+  "attributes" : "{}",
+  "type" : "dateFormat"
+}; // Transform | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified. (optional)
         const result = await apiInstance.updateTransformV1({ id: id });
         console.log(result);

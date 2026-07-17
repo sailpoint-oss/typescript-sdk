@@ -1,12 +1,12 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
-Errormessagedto.md
-Errorresponsedto.md
+ErrorMessageDto.md
+ErrorResponseDto.md
 IconsApi.md
 IconsApideveloperSite_code_examples.yaml
 Index.md
-Localeorigin.md
+LocaleOrigin.md
 README.md
 SetIconV1200Response.md
 SetIconV1401Response.md

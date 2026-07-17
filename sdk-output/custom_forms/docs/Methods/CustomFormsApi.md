@@ -54,11 +54,11 @@ Generate json schema dynamically.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**body** | `Formdefinitiondynamicschemarequest` | Body is the request payload to create a form definition dynamic schema | [optional]
+**body** | `FormDefinitionDynamicSchemaRequest` | Body is the request payload to create a form definition dynamic schema | [optional]
 
 ### Return type
 
-`Formdefinitiondynamicschemaresponse`
+`FormDefinitionDynamicSchemaResponse`
 
 ### HTTP request headers
 
@@ -70,11 +70,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Formdefinitiondynamicschemarequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { FormDefinitionDynamicSchemaRequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
-const body: Formdefinitiondynamicschemarequest = {"id":"sp:forms","attributes":{"formDefinitionId":"00000000-0000-0000-0000-000000000000"},"description":"AnotherDescription","type":"action","versionNumber":1}; // Body is the request payload to create a form definition dynamic schema (optional)
+const body: FormDefinitionDynamicSchemaRequest = {
+  "description" : "A description",
+  "attributes" : {
+    "formDefinitionId" : "00000000-0000-0000-0000-000000000000"
+  },
+  "id" : "00000000-0000-0000-0000-000000000000",
+  "type" : "action",
+  "versionNumber" : 1
+}; // Body is the request payload to create a form definition dynamic schema (optional)
 const result = await apiInstance.createFormDefinitionDynamicSchemaV1({  });
 console.log(result);
 ```
@@ -97,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Formdefinitionfileuploadresponse`
+`FormDefinitionFileUploadResponse`
 
 ### HTTP request headers
 
@@ -131,11 +139,11 @@ Creates a form definition.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**body** | `Createformdefinitionrequest` | Body is the request payload to create form definition request | [optional]
+**body** | `CreateFormDefinitionRequest` | Body is the request payload to create form definition request | [optional]
 
 ### Return type
 
-`Formdefinitionresponse`
+`FormDefinitionResponse`
 
 ### HTTP request headers
 
@@ -147,11 +155,121 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Createformdefinitionrequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { CreateFormDefinitionRequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
-const body: Createformdefinitionrequest = {"name":"my form","description":"my form description","owner":{"type":"IDENTITY","id":"00000000-0000-0000-0000-000000000000"},"formElements":[{"id":"000000000000","elementType":"SECTION","config":{"alignment":"LEFT","description":"elementType must be 'SECTION' for the root formElements,  child formElements must be within the 'config' attribute","label":"Section","labelStyle":"h2","showLabel":true,"formElements":[{"id":"0000000000000","key":"textField","elementType":"TEXT","config":{"default":"","description":"","helpText":"form element type text","label":"Text Field","placeholder":"","required":false},"validations":[]}]}}]}; // Body is the request payload to create form definition request (optional)
+const body: CreateFormDefinitionRequest = {
+  "owner" : {
+    "name" : "Grant Smith",
+    "id" : "2c9180867624cbd7017642d8c8c81f67",
+    "type" : "IDENTITY"
+  },
+  "formConditions" : [ {
+    "ruleOperator" : "AND",
+    "effects" : [ {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    }, {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    } ],
+    "rules" : [ {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    }, {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    } ]
+  }, {
+    "ruleOperator" : "AND",
+    "effects" : [ {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    }, {
+      "config" : {
+        "defaultValueLabel" : "Access to Remove",
+        "element" : "8110662963316867"
+      },
+      "effectType" : "HIDE"
+    } ],
+    "rules" : [ {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    }, {
+      "sourceType" : "ELEMENT",
+      "valueType" : "STRING",
+      "source" : "department",
+      "value" : "Engineering",
+      "operator" : "EQ"
+    } ]
+  } ],
+  "formInput" : [ {
+    "description" : "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic",
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "label" : "input1",
+    "type" : "STRING"
+  }, {
+    "description" : "A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic",
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "label" : "input1",
+    "type" : "STRING"
+  } ],
+  "name" : "My form",
+  "description" : "My form description",
+  "usedBy" : [ {
+    "name" : "Access Request Form",
+    "id" : "61940a92-5484-42bc-bc10-b9982b218cdf",
+    "type" : "WORKFLOW"
+  }, {
+    "name" : "Access Request Form",
+    "id" : "61940a92-5484-42bc-bc10-b9982b218cdf",
+    "type" : "WORKFLOW"
+  } ],
+  "formElements" : [ {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "validations" : [ {
+      "validationType" : "REQUIRED"
+    }, {
+      "validationType" : "REQUIRED"
+    } ],
+    "elementType" : "TEXT",
+    "config" : {
+      "label" : "Department"
+    },
+    "key" : "department"
+  }, {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "validations" : [ {
+      "validationType" : "REQUIRED"
+    }, {
+      "validationType" : "REQUIRED"
+    } ],
+    "elementType" : "TEXT",
+    "config" : {
+      "label" : "Department"
+    },
+    "key" : "department"
+  } ]
+}; // Body is the request payload to create form definition request (optional)
 const result = await apiInstance.createFormDefinitionV1({  });
 console.log(result);
 ```
@@ -169,11 +287,11 @@ Creates a form instance.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**body** | `Createforminstancerequest` | Body is the request payload to create a form instance | [optional]
+**body** | `CreateFormInstanceRequest` | Body is the request payload to create a form instance | [optional]
 
 ### Return type
 
-`Forminstanceresponse`
+`FormInstanceResponse`
 
 ### HTTP request headers
 
@@ -185,11 +303,31 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Createforminstancerequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { CreateFormInstanceRequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
-const body: Createforminstancerequest = {"expire":"2023-06-20T15:57:55.332882Z","formDefinitionId":"00000000-0000-0000-0000-000000000000","recipients":[{"type":"IDENTITY","id":"an-identity-id"}],"createdBy":{"type":"WORKFLOW_EXECUTION","id":"a-workflow-execution-id"}}; // Body is the request payload to create a form instance (optional)
+const body: CreateFormInstanceRequest = {
+  "formInput" : {
+    "input1" : "Sales"
+  },
+  "standAloneForm" : false,
+  "createdBy" : {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "type" : "WORKFLOW_EXECUTION"
+  },
+  "recipients" : [ {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "type" : "IDENTITY"
+  }, {
+    "id" : "00000000-0000-0000-0000-000000000000",
+    "type" : "IDENTITY"
+  } ],
+  "expire" : "2023-08-12T20:14:57.74486Z",
+  "formDefinitionId" : "00000000-0000-0000-0000-000000000000",
+  "state" : "ASSIGNED",
+  "ttl" : 1571827560
+}; // Body is the request payload to create a form instance (optional)
 const result = await apiInstance.createFormInstanceV1({  });
 console.log(result);
 ```
@@ -330,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Formdefinitionresponse`
+`FormDefinitionResponse`
 
 ### HTTP request headers
 
@@ -369,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Forminstanceresponse`
+`FormInstanceResponse`
 
 ### HTTP request headers
 
@@ -484,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Formdefinitionresponse`
+`FormDefinitionResponse`
 
 ### HTTP request headers
 
@@ -525,7 +663,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Forminstanceresponse`
+`FormInstanceResponse`
 
 ### HTTP request headers
 
@@ -566,7 +704,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Listformdefinitionsbytenantresponse`
+`ListFormDefinitionsByTenantResponse`
 
 ### HTTP request headers
 
@@ -611,7 +749,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Listformelementdatabyelementidresponse`
+`ListFormElementDataByElementIDResponse`
 
 ### HTTP request headers
 
@@ -654,7 +792,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Listforminstancesbytenantresponse>`
+`Array<ListFormInstancesByTenantResponse>`
 
 ### HTTP request headers
 
@@ -690,7 +828,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Listpredefinedselectoptionsresponse`
+`ListPredefinedSelectOptionsResponse`
 
 ### HTTP request headers
 
@@ -726,11 +864,11 @@ Name | Type | Description  | Notes
 **limit** | `number` | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. | [optional] [default to 10]
 **filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60; | [optional] [default to undefined]
 **query** | `string` | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields. | [optional] [default to undefined]
-**formelementpreviewrequest** | `Formelementpreviewrequest` | Body is the request payload to create a form definition dynamic schema | [optional]
+**formElementPreviewRequest** | `FormElementPreviewRequest` | Body is the request payload to create a form definition dynamic schema | [optional]
 
 ### Return type
 
-`Previewdatasourceresponse`
+`PreviewDataSourceResponse`
 
 ### HTTP request headers
 
@@ -742,7 +880,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { CustomFormsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Formelementpreviewrequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { FormElementPreviewRequest } from 'sailpoint-api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -750,7 +888,17 @@ const formDefinitionID: string = 00000000-0000-0000-0000-000000000000; // Form d
 const limit: number = 10; // Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional)
 const filters: string = value eq "ID01"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60; (optional)
 const query: string = ac; // String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields. (optional)
-const formelementpreviewrequest: Formelementpreviewrequest = ; // Body is the request payload to create a form definition dynamic schema (optional)
+const formElementPreviewRequest: FormElementPreviewRequest = {
+  "dataSource" : {
+    "config" : {
+      "indices" : [ "identities" ],
+      "query" : "*",
+      "aggregationBucketField" : "attributes.cloudStatus.exact",
+      "objectType" : "IDENTITY"
+    },
+    "dataSourceType" : "STATIC"
+  }
+}; // Body is the request payload to create a form definition dynamic schema (optional)
 const result = await apiInstance.showPreviewDataSourceV1({ formDefinitionID: formDefinitionID });
 console.log(result);
 ```

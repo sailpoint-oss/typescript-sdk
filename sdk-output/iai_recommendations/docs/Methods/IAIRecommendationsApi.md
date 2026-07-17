@@ -38,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Recommendationconfigdto`
+`RecommendationConfigDto`
 
 ### HTTP request headers
 
@@ -74,12 +74,12 @@ The getRecommendations API returns recommendations based on the requested object
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**recommendationrequestdto** | `Recommendationrequestdto` |  | 
+**recommendationRequestDto** | `RecommendationRequestDto` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Recommendationresponsedto`
+`RecommendationResponseDto`
 
 ### HTTP request headers
 
@@ -91,13 +91,31 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Recommendationrequestdto } from 'sailpoint-api-client/dist/iai_recommendations/api';
+import { RecommendationRequestDto } from 'sailpoint-api-client/dist/iai_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRecommendationsApi(configuration);
-const recommendationrequestdto: Recommendationrequestdto = ; // 
+const recommendationRequestDto: RecommendationRequestDto = {
+  "prescribeMode" : false,
+  "excludeInterpretations" : false,
+  "requests" : [ {
+    "item" : {
+      "id" : "2c938083633d259901633d2623ec0375",
+      "type" : "ENTITLEMENT"
+    },
+    "identityId" : "2c938083633d259901633d25c68c00fa"
+  }, {
+    "item" : {
+      "id" : "2c938083633d259901633d2623ec0375",
+      "type" : "ENTITLEMENT"
+    },
+    "identityId" : "2c938083633d259901633d25c68c00fa"
+  } ],
+  "includeTranslationMessages" : false,
+  "includeDebugInformation" : true
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.getRecommendationsV1({ recommendationrequestdto: recommendationrequestdto });
+const result = await apiInstance.getRecommendationsV1({ recommendationRequestDto: recommendationRequestDto });
 console.log(result);
 ```
 
@@ -117,12 +135,12 @@ Updates configuration attributes used by certification recommendations.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**recommendationconfigdto** | `Recommendationconfigdto` |  | 
+**recommendationConfigDto** | `RecommendationConfigDto` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Recommendationconfigdto`
+`RecommendationConfigDto`
 
 ### HTTP request headers
 
@@ -134,13 +152,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAIRecommendationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Recommendationconfigdto } from 'sailpoint-api-client/dist/iai_recommendations/api';
+import { RecommendationConfigDto } from 'sailpoint-api-client/dist/iai_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRecommendationsApi(configuration);
-const recommendationconfigdto: Recommendationconfigdto = ; // 
+const recommendationConfigDto: RecommendationConfigDto = {
+  "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
+  "peerGroupPercentageThreshold" : 0.5,
+  "runAutoSelectOnce" : false,
+  "onlyTuneThreshold" : false
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.updateRecommendationsConfigV1({ recommendationconfigdto: recommendationconfigdto });
+const result = await apiInstance.updateRecommendationsConfigV1({ recommendationConfigDto: recommendationConfigDto });
 console.log(result);
 ```
 

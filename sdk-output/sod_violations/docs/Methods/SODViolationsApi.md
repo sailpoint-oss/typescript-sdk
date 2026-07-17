@@ -48,11 +48,11 @@ This API is used to check if granting some additional accesses would cause the s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identitywithnewaccess** | `Identitywithnewaccess` |  | 
+**identityWithNewAccess** | `IdentityWithNewAccess` |  | 
 
 ### Return type
 
-`Violationprediction`
+`ViolationPrediction`
 
 ### HTTP request headers
 
@@ -64,12 +64,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODViolationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identitywithnewaccess } from 'sailpoint-api-client/dist/sod_violations/api';
+import { IdentityWithNewAccess } from 'sailpoint-api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
-const identitywithnewaccess: Identitywithnewaccess = {"identityId":"2c91808568c529c60168cca6f90c1313","accessRefs":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c050861ab1"},{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}; // 
-const result = await apiInstance.startPredictSodViolationsV1({ identitywithnewaccess: identitywithnewaccess });
+const identityWithNewAccess: IdentityWithNewAccess = {
+  "identityId" : "2c91808568c529c60168cca6f90c1313",
+  "accessRefs" : [ {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c050861ab1"
+  }, {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c0509c1ab2"
+  } ]
+}; // 
+const result = await apiInstance.startPredictSodViolationsV1({ identityWithNewAccess: identityWithNewAccess });
 console.log(result);
 ```
 
@@ -86,11 +95,11 @@ This API initiates a SOD policy verification asynchronously.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identitywithnewaccess** | `Identitywithnewaccess` |  | 
+**identityWithNewAccess** | `IdentityWithNewAccess` |  | 
 
 ### Return type
 
-`Sodviolationcheck`
+`SodViolationCheck`
 
 ### HTTP request headers
 
@@ -102,12 +111,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODViolationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identitywithnewaccess } from 'sailpoint-api-client/dist/sod_violations/api';
+import { IdentityWithNewAccess } from 'sailpoint-api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
-const identitywithnewaccess: Identitywithnewaccess = {"identityId":"2c91808568c529c60168cca6f90c1313","accessRefs":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c050861ab1"},{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}],"clientMetadata":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"}}; // 
-const result = await apiInstance.startViolationCheckV1({ identitywithnewaccess: identitywithnewaccess });
+const identityWithNewAccess: IdentityWithNewAccess = {
+  "identityId" : "2c91808568c529c60168cca6f90c1313",
+  "accessRefs" : [ {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c050861ab1"
+  }, {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c0509c1ab2"
+  } ]
+}; // 
+const result = await apiInstance.startViolationCheckV1({ identityWithNewAccess: identityWithNewAccess });
 console.log(result);
 ```
 

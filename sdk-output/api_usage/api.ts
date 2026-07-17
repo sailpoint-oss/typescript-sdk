@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,30 +113,30 @@ export interface GetTotalCountV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Summaryresponse
+ * @interface SummaryResponse
  */
-export interface Summaryresponse {
+export interface SummaryResponse {
     /**
      * The endpoint of a SailPoint API
      * @type {string}
-     * @memberof Summaryresponse
+     * @memberof SummaryResponse
      */
     'RequestedUri'?: string;
     /**
      * Number of calls made to a specific SailPoint API
      * @type {number}
-     * @memberof Summaryresponse
+     * @memberof SummaryResponse
      */
     'NumberOfCalls'?: number;
 }
@@ -277,7 +277,7 @@ export const ApiUsageApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listApiSummaryV1(xSailPointExperimental?: string, filters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Summaryresponse>>> {
+        async listApiSummaryV1(xSailPointExperimental?: string, filters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SummaryResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listApiSummaryV1(xSailPointExperimental, filters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApiUsageApi.listApiSummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -310,7 +310,7 @@ export const ApiUsageApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listApiSummaryV1(requestParameters: ApiUsageApiListApiSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Summaryresponse>> {
+        listApiSummaryV1(requestParameters: ApiUsageApiListApiSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SummaryResponse>> {
             return localVarFp.listApiSummaryV1(requestParameters.xSailPointExperimental, requestParameters.filters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
     };

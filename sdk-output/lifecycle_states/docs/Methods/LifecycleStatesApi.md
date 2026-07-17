@@ -73,11 +73,11 @@ Use this endpoint to create a lifecycle state.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **identityProfileId** | `string` | Identity profile ID. |  [default to undefined]
-**lifecyclestate** | `Lifecyclestate` | Lifecycle state to be created. | 
+**lifecycleState** | `LifecycleState` | Lifecycle state to be created. | 
 
 ### Return type
 
-`Lifecyclestate`
+`LifecycleState`
 
 ### HTTP request headers
 
@@ -89,13 +89,45 @@ Name | Type | Description  | Notes
 ```typescript
 import { LifecycleStatesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Lifecyclestate } from 'sailpoint-api-client/dist/lifecycle_states/api';
+import { LifecycleState } from 'sailpoint-api-client/dist/lifecycle_states/api';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);
 const identityProfileId: string = 2b838de9-db9b-abcf-e646-d4f274ad4238; // Identity profile ID.
-const lifecyclestate: Lifecyclestate = ; // Lifecycle state to be created.
-const result = await apiInstance.createLifecycleStateV1({ identityProfileId: identityProfileId, lifecyclestate: lifecyclestate });
+const lifecycleState: LifecycleState = {
+  "accessActionConfiguration" : {
+    "removeAllAccessEnabled" : true
+  },
+  "accessProfileIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ],
+  "emailNotificationOption" : {
+    "notifyManagers" : true,
+    "notifySpecificUsers" : true,
+    "emailAddressList" : [ "test@test.com", "test2@test.com" ],
+    "notifyAllAdmins" : true
+  },
+  "created" : "2015-05-28T14:07:17Z",
+  "description" : "Lifecycle description",
+  "identityCount" : 42,
+  "priority" : 10,
+  "technicalName" : "Technical Name",
+  "identityState" : "INACTIVE_LONG_TERM",
+  "enabled" : true,
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "accountActions" : [ {
+    "allSources" : true,
+    "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
+    "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+  }, {
+    "allSources" : true,
+    "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
+    "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+  } ],
+  "id" : "id12345"
+}; // Lifecycle state to be created.
+const result = await apiInstance.createLifecycleStateV1({ identityProfileId: identityProfileId, lifecycleState: lifecycleState });
 console.log(result);
 ```
 
@@ -117,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Lifecyclestatedeleted`
+`LifecyclestateDeleted`
 
 ### HTTP request headers
 
@@ -156,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Lifecyclestate`
+`LifecycleState`
 
 ### HTTP request headers
 
@@ -198,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Lifecyclestate>`
+`Array<LifecycleState>`
 
 ### HTTP request headers
 
@@ -277,11 +309,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **identityProfileId** | `string` | Identity profile ID. |  [default to undefined]
 **lifecycleStateId** | `string` | Lifecycle state ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority  | 
 
 ### Return type
 
-`Lifecyclestate`
+`LifecycleState`
 
 ### HTTP request headers
 
@@ -293,14 +325,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { LifecycleStatesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/lifecycle_states/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/lifecycle_states/api';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);
 const identityProfileId: string = 2b838de9-db9b-abcf-e646-d4f274ad4238; // Identity profile ID.
 const lifecycleStateId: string = ef38f94347e94562b5bb8424a56397d8; // Lifecycle state ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/accessProfileIds","value":["2c918087742bab150174407a80f3125e","2c918087742bab150174407a80f3124f"]},{"op":"replace","path":"/accountActions","value":[{"action":"ENABLE","sourceIds":["2c9180846a2f82fb016a481c1b1560c5","2c9180846a2f82fb016a481c1b1560cc"],"excludeSourceIds":null,"allSources":false},{"action":"DISABLE","sourceIds":null,"excludeSourceIds":["3b551ccf5566478b9b77f37de25303aa"],"allSources":true},{"action":"DELETE","sourceIds":["3c9180846a2f82fb016a481c1b1560c5","8n9180846a2f82fb016a481c1b1560cc"],"excludeSourceIds":null,"allSources":false}]},{"op":"replace","path":"/emailNotificationOption","value":{"notifyManagers":true,"notifyAllAdmins":false,"notifySpecificUsers":false,"emailAddressList":[]}},{"op":"replace","path":"/accessActionConfiguration","value":{"removeAllAccessEnabled":true}}]; // A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
-const result = await apiInstance.updateLifecycleStatesV1({ identityProfileId: identityProfileId, lifecycleStateId: lifecycleStateId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
+const result = await apiInstance.updateLifecycleStatesV1({ identityProfileId: identityProfileId, lifecycleStateId: lifecycleStateId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

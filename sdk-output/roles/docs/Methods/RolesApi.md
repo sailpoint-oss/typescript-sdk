@@ -107,7 +107,192 @@ import { Role } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
-const role: Role = ; // 
+const role: Role = {
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "entitlements" : [ {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  }, {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  } ],
+  "dimensional" : false,
+  "privilegeLevel" : "High",
+  "created" : "2021-03-01T22:32:58.104Z",
+  "dimensionRefs" : [ {
+    "name" : "Role 2",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "DIMENSION"
+  }, {
+    "name" : "Role 2",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "DIMENSION"
+  } ],
+  "description" : "Urna amet cursus pellentesque nisl orci maximus lorem nisl euismod fusce morbi placerat adipiscing maecenas nisi tristique et metus et lacus sed morbi nunc nisl maximus magna arcu varius sollicitudin elementum enim maecenas nisi id ipsum tempus fusce diam ipsum tortor.",
+  "membership" : {
+    "identities" : [ {
+      "aliasName" : "t.edison",
+      "name" : "Thomas Edison",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    }, {
+      "aliasName" : "t.edison",
+      "name" : "Thomas Edison",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    } ],
+    "criteria" : {
+      "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+      "children" : [ {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "sourceId" : "2c9180867427f3a301745aec18211519",
+          "property" : "attribute.email",
+          "type" : "ACCOUNT"
+        }
+      }, {
+        "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+        "children" : [ {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        }, {
+          "stringValue" : "carlee.cert1c9f9b6fd@mailinator.com",
+          "operation" : "EQUALS",
+          "key" : {
+            "sourceId" : "2c9180867427f3a301745aec18211519",
+            "property" : "attribute.email",
+            "type" : "ACCOUNT"
+          }
+        } ],
+        "operation" : "EQUALS",
+        "key" : {
+          "sourceId" : "2c9180867427f3a301745aec18211519",
+          "property" : "attribute.email",
+          "type" : "ACCOUNT"
+        }
+      } ],
+      "operation" : "EQUALS",
+      "key" : {
+        "sourceId" : "2c9180867427f3a301745aec18211519",
+        "property" : "attribute.email",
+        "type" : "ACCOUNT"
+      }
+    },
+    "type" : "IDENTITY_LIST"
+  },
+  "additionalOwners" : [ {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  } ],
+  "enabled" : true,
+  "revocationRequestConfig" : {
+    "commentsRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "denialCommentsRequired" : false
+  },
+  "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
+  "legacyMembershipInfo" : {
+    "type" : "IDENTITY_LIST"
+  },
+  "accessRequestConfig" : {
+    "dimensionSchema" : {
+      "dimensionAttributes" : [ {
+        "displayName" : "City",
+        "name" : "city",
+        "derived" : true
+      }, {
+        "displayName" : "City",
+        "name" : "city",
+        "derived" : true
+      } ]
+    },
+    "commentsRequired" : true,
+    "reauthorizationRequired" : true,
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "formDefinitionId" : "78258e80-e9e2-4e1a-a11f-ce0b7c62f25d",
+    "denialCommentsRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 6,
+      "timeUnit" : "MONTHS"
+    }
+  },
+  "accessProfiles" : [ {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  }, {
+    "name" : "Access Profile 2567",
+    "id" : "ff808081751e6e129f1518161919ecca",
+    "type" : "ACCESS_PROFILE"
+  } ],
+  "name" : "Role 2567",
+  "modified" : "2021-03-02T20:22:28.104Z",
+  "accessModelMetadata" : {
+    "attributes" : [ {
+      "key" : "iscPrivacy",
+      "name" : "Privacy",
+      "multiselect" : false,
+      "status" : "active",
+      "type" : "governance",
+      "objectTypes" : [ "all" ],
+      "description" : "Specifies the level of privacy associated with an access item.",
+      "values" : [ {
+        "value" : "public",
+        "name" : "Public",
+        "status" : "active"
+      } ]
+    } ]
+  },
+  "id" : "2c918086749d78830174a1a40e121518",
+  "requestable" : true
+}; // 
 const result = await apiInstance.createRoleV1({ role: role });
 console.log(result);
 ```
@@ -128,11 +313,11 @@ A user with ROLE_SUBADMIN authority can only call this endpoint if all roles inc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**rolebulkdeleterequest** | `Rolebulkdeleterequest` |  | 
+**roleBulkDeleteRequest** | `RoleBulkDeleteRequest` |  | 
 
 ### Return type
 
-`Taskresultdto`
+`TaskResultDto`
 
 ### HTTP request headers
 
@@ -144,12 +329,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Rolebulkdeleterequest } from 'sailpoint-api-client/dist/roles/api';
+import { RoleBulkDeleteRequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
-const rolebulkdeleterequest: Rolebulkdeleterequest = {"roleIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}; // 
-const result = await apiInstance.deleteBulkRolesV1({ rolebulkdeleterequest: rolebulkdeleterequest });
+const roleBulkDeleteRequest: RoleBulkDeleteRequest = {
+  "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
+}; // 
+const result = await apiInstance.deleteBulkRolesV1({ roleBulkDeleteRequest: roleBulkDeleteRequest });
 console.log(result);
 ```
 
@@ -252,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Rolebulkupdateresponse`
+`RoleBulkUpdateResponse`
 
 ### HTTP request headers
 
@@ -286,7 +473,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Array<Rolegetallbulkupdateresponse>`
+`Array<RoleGetAllBulkUpdateResponse>`
 
 ### HTTP request headers
 
@@ -327,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Roleidentity>`
+`Array<RoleIdentity>`
 
 ### HTTP request headers
 
@@ -530,7 +717,7 @@ When you use this API to modify a role's membership identities, you can only mod
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Role to patch |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 
 ### Return type
 
@@ -546,13 +733,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/roles/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // ID of the Role to patch
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/requestable","value":true},{"op":"replace","path":"/enabled","value":true}]; // 
-const result = await apiInstance.patchRoleV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
+const result = await apiInstance.patchRoleV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -577,7 +768,7 @@ Name | Type | Description  | Notes
 **sorters** | `string` | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** | [optional] [default to undefined]
 **forSegmentIds** | `string` | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. | [optional] [default to undefined]
 **includeUnsegmented** | `boolean` | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. | [optional] [default to true]
-**rolelistfilterdto** | `Rolelistfilterdto` |  | [optional]
+**roleListFilterDTO** | `RoleListFilterDTO` |  | [optional]
 
 ### Return type
 
@@ -593,7 +784,7 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Rolelistfilterdto } from 'sailpoint-api-client/dist/roles/api';
+import { RoleListFilterDTO } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -604,7 +795,13 @@ const count: boolean = true; // Boolean indicating whether a total count is retu
 const sorters: string = name,-modified; // Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 const forSegmentIds: string = 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d; // If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 const includeUnsegmented: boolean = false; // Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional)
-const rolelistfilterdto: Rolelistfilterdto = {"filters":"dimensional eq false","ammKeyValues":[{"attribute":"iscFederalClassifications","values":["secret"]}]}; //  (optional)
+const roleListFilterDTO: RoleListFilterDTO = {
+  "ammKeyValues" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "secret" ]
+  } ],
+  "filters" : "dimensional eq false"
+}; //  (optional)
 const result = await apiInstance.searchRolesByFilterV1({  });
 console.log(result);
 ```
@@ -666,11 +863,11 @@ Custom metadata update, including add, replace need suit licensed.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**rolemetadatabulkupdatebyfilterrequest** | `Rolemetadatabulkupdatebyfilterrequest` |  | 
+**roleMetadataBulkUpdateByFilterRequest** | `RoleMetadataBulkUpdateByFilterRequest` |  | 
 
 ### Return type
 
-`Rolebulkupdateresponse`
+`RoleBulkUpdateResponse`
 
 ### HTTP request headers
 
@@ -682,12 +879,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Rolemetadatabulkupdatebyfilterrequest } from 'sailpoint-api-client/dist/roles/api';
+import { RoleMetadataBulkUpdateByFilterRequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
-const rolemetadatabulkupdatebyfilterrequest: Rolemetadatabulkupdatebyfilterrequest = {"operation":"ADD","replaceScope":"ALL","filters":"requestable eq false","values":[{"attribute":"iscFederalClassifications","values":["topSecret"]}]}; // 
-const result = await apiInstance.updateRolesMetadataByFilterV1({ rolemetadatabulkupdatebyfilterrequest: rolemetadatabulkupdatebyfilterrequest });
+const roleMetadataBulkUpdateByFilterRequest: RoleMetadataBulkUpdateByFilterRequest = {
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : " requestable eq false",
+  "replaceScope" : "ALL",
+  "operation" : "REPLACE"
+}; // 
+const result = await apiInstance.updateRolesMetadataByFilterV1({ roleMetadataBulkUpdateByFilterRequest: roleMetadataBulkUpdateByFilterRequest });
 console.log(result);
 ```
 
@@ -707,11 +912,11 @@ Custom metadata update, including add, replace need suit licensed.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**rolemetadatabulkupdatebyidrequest** | `Rolemetadatabulkupdatebyidrequest` |  | 
+**roleMetadataBulkUpdateByIdRequest** | `RoleMetadataBulkUpdateByIdRequest` |  | 
 
 ### Return type
 
-`Rolebulkupdateresponse`
+`RoleBulkUpdateResponse`
 
 ### HTTP request headers
 
@@ -723,12 +928,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Rolemetadatabulkupdatebyidrequest } from 'sailpoint-api-client/dist/roles/api';
+import { RoleMetadataBulkUpdateByIdRequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
-const rolemetadatabulkupdatebyidrequest: Rolemetadatabulkupdatebyidrequest = ; // 
-const result = await apiInstance.updateRolesMetadataByIdsV1({ rolemetadatabulkupdatebyidrequest: rolemetadatabulkupdatebyidrequest });
+const roleMetadataBulkUpdateByIdRequest: RoleMetadataBulkUpdateByIdRequest = {
+  "roles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ALL",
+  "operation" : "REPLACE"
+}; // 
+const result = await apiInstance.updateRolesMetadataByIdsV1({ roleMetadataBulkUpdateByIdRequest: roleMetadataBulkUpdateByIdRequest });
 console.log(result);
 ```
 
@@ -748,11 +961,11 @@ Custom metadata update, including add, replace need suit licensed.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**rolemetadatabulkupdatebyqueryrequest** | `Rolemetadatabulkupdatebyqueryrequest` |  | 
+**roleMetadataBulkUpdateByQueryRequest** | `RoleMetadataBulkUpdateByQueryRequest` |  | 
 
 ### Return type
 
-`Rolebulkupdateresponse`
+`RoleBulkUpdateResponse`
 
 ### HTTP request headers
 
@@ -764,12 +977,35 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Rolemetadatabulkupdatebyqueryrequest } from 'sailpoint-api-client/dist/roles/api';
+import { RoleMetadataBulkUpdateByQueryRequest } from 'sailpoint-api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
-const rolemetadatabulkupdatebyqueryrequest: Rolemetadatabulkupdatebyqueryrequest = {"example of a success update":{"query":{"indices":["roles"],"queryType":"TEXT","textQuery":{"terms":["test123"],"fields":["id"],"matchAny":false,"contains":true},"includeNested":false},"operation":"REPLACE","replaceScope":"ALL","values":[{"attribute":"iscFederalClassifications","values":["secret"]}]}}; // 
-const result = await apiInstance.updateRolesMetadataByQueryV1({ rolemetadatabulkupdatebyqueryrequest: rolemetadatabulkupdatebyqueryrequest });
+const roleMetadataBulkUpdateByQueryRequest: RoleMetadataBulkUpdateByQueryRequest = {
+  "query" : {
+    "query\"" : {
+      "indices" : [ "roles" ],
+      "queryType" : "TEXT",
+      "textQuery" : {
+        "terms" : [ "test123" ],
+        "fields" : [ "id" ],
+        "matchAny" : false,
+        "contains" : true
+      },
+      "includeNested" : false
+    }
+  },
+  "values" : [ {
+    "attributeValue" : [ "topSecret" ],
+    "attributeKey" : "iscFederalClassifications"
+  }, {
+    "attributeValue" : [ "topSecret" ],
+    "attributeKey" : "iscFederalClassifications"
+  } ],
+  "replaceScope" : "ALL",
+  "operation" : "REPLACE"
+}; // 
+const result = await apiInstance.updateRolesMetadataByQueryV1({ roleMetadataBulkUpdateByQueryRequest: roleMetadataBulkUpdateByQueryRequest });
 console.log(result);
 ```
 

@@ -26,199 +26,199 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Connectorcustomizercreaterequest
+ * @interface ConnectorCustomizerCreateRequest
  */
-export interface Connectorcustomizercreaterequest {
+export interface ConnectorCustomizerCreateRequest {
     /**
      * Connector customizer name.
      * @type {string}
-     * @memberof Connectorcustomizercreaterequest
+     * @memberof ConnectorCustomizerCreateRequest
      */
     'name'?: string;
 }
 /**
  * ConnectorCustomizerResponse
  * @export
- * @interface Connectorcustomizercreateresponse
+ * @interface ConnectorCustomizerCreateResponse
  */
-export interface Connectorcustomizercreateresponse {
+export interface ConnectorCustomizerCreateResponse {
     /**
      * the ID of connector customizer.
      * @type {string}
-     * @memberof Connectorcustomizercreateresponse
+     * @memberof ConnectorCustomizerCreateResponse
      */
     'id'?: string;
     /**
      * name of the connector customizer.
      * @type {string}
-     * @memberof Connectorcustomizercreateresponse
+     * @memberof ConnectorCustomizerCreateResponse
      */
     'name'?: string;
     /**
      * Connector customizer tenant id.
      * @type {string}
-     * @memberof Connectorcustomizercreateresponse
+     * @memberof ConnectorCustomizerCreateResponse
      */
     'tenantID'?: string;
     /**
      * Date-time when the connector customizer was created.
      * @type {string}
-     * @memberof Connectorcustomizercreateresponse
-     */
-    'created'?: string;
-}
-/**
- * 
- * @export
- * @interface Connectorcustomizersresponse
- */
-export interface Connectorcustomizersresponse {
-    /**
-     * Connector customizer ID.
-     * @type {string}
-     * @memberof Connectorcustomizersresponse
-     */
-    'id'?: string;
-    /**
-     * Connector customizer name.
-     * @type {string}
-     * @memberof Connectorcustomizersresponse
-     */
-    'name'?: string;
-    /**
-     * Connector customizer image version.
-     * @type {number}
-     * @memberof Connectorcustomizersresponse
-     */
-    'imageVersion'?: number;
-    /**
-     * Connector customizer image id.
-     * @type {string}
-     * @memberof Connectorcustomizersresponse
-     */
-    'imageID'?: string;
-    /**
-     * Connector customizer tenant id.
-     * @type {string}
-     * @memberof Connectorcustomizersresponse
-     */
-    'tenantID'?: string;
-    /**
-     * Date-time when the connector customizer was created
-     * @type {string}
-     * @memberof Connectorcustomizersresponse
+     * @memberof ConnectorCustomizerCreateResponse
      */
     'created'?: string;
 }
 /**
  * ConnectorCustomizerUpdateRequest
  * @export
- * @interface Connectorcustomizerupdaterequest
+ * @interface ConnectorCustomizerUpdateRequest
  */
-export interface Connectorcustomizerupdaterequest {
+export interface ConnectorCustomizerUpdateRequest {
     /**
      * Connector customizer name.
      * @type {string}
-     * @memberof Connectorcustomizerupdaterequest
+     * @memberof ConnectorCustomizerUpdateRequest
      */
     'name'?: string;
 }
 /**
  * ConnectorCustomizerUpdateResponse
  * @export
- * @interface Connectorcustomizerupdateresponse
+ * @interface ConnectorCustomizerUpdateResponse
  */
-export interface Connectorcustomizerupdateresponse {
+export interface ConnectorCustomizerUpdateResponse {
     /**
      * the ID of connector customizer.
      * @type {string}
-     * @memberof Connectorcustomizerupdateresponse
+     * @memberof ConnectorCustomizerUpdateResponse
      */
     'id'?: string;
     /**
      * name of the connector customizer.
      * @type {string}
-     * @memberof Connectorcustomizerupdateresponse
+     * @memberof ConnectorCustomizerUpdateResponse
      */
     'name'?: string;
     /**
      * Connector customizer tenant id.
      * @type {string}
-     * @memberof Connectorcustomizerupdateresponse
+     * @memberof ConnectorCustomizerUpdateResponse
      */
     'tenantID'?: string;
     /**
      * Date-time when the connector customizer was created.
      * @type {string}
-     * @memberof Connectorcustomizerupdateresponse
+     * @memberof ConnectorCustomizerUpdateResponse
      */
     'created'?: string;
     /**
      * Connector customizer image version.
      * @type {number}
-     * @memberof Connectorcustomizerupdateresponse
+     * @memberof ConnectorCustomizerUpdateResponse
      */
     'imageVersion'?: number;
     /**
      * Connector customizer image id.
      * @type {string}
-     * @memberof Connectorcustomizerupdateresponse
+     * @memberof ConnectorCustomizerUpdateResponse
      */
     'imageID'?: string;
 }
 /**
  * ConnectorCustomizerVersionCreateResponse
  * @export
- * @interface Connectorcustomizerversioncreateresponse
+ * @interface ConnectorCustomizerVersionCreateResponse
  */
-export interface Connectorcustomizerversioncreateresponse {
+export interface ConnectorCustomizerVersionCreateResponse {
     /**
      * ID of connector customizer.
      * @type {string}
-     * @memberof Connectorcustomizerversioncreateresponse
+     * @memberof ConnectorCustomizerVersionCreateResponse
      */
     'customizerID'?: string;
     /**
      * ImageID of the connector customizer.
      * @type {string}
-     * @memberof Connectorcustomizerversioncreateresponse
+     * @memberof ConnectorCustomizerVersionCreateResponse
      */
     'imageID'?: string;
     /**
      * Image version of the connector customizer.
      * @type {number}
-     * @memberof Connectorcustomizerversioncreateresponse
+     * @memberof ConnectorCustomizerVersionCreateResponse
      */
     'version'?: number;
     /**
      * Date-time when the connector customizer version was created.
      * @type {string}
-     * @memberof Connectorcustomizerversioncreateresponse
+     * @memberof ConnectorCustomizerVersionCreateResponse
      */
     'created'?: string;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ConnectorCustomizersResponse
  */
-export interface Errormessagedto {
+export interface ConnectorCustomizersResponse {
+    /**
+     * Connector customizer ID.
+     * @type {string}
+     * @memberof ConnectorCustomizersResponse
+     */
+    'id'?: string;
+    /**
+     * Connector customizer name.
+     * @type {string}
+     * @memberof ConnectorCustomizersResponse
+     */
+    'name'?: string;
+    /**
+     * Connector customizer image version.
+     * @type {number}
+     * @memberof ConnectorCustomizersResponse
+     */
+    'imageVersion'?: number;
+    /**
+     * Connector customizer image id.
+     * @type {string}
+     * @memberof ConnectorCustomizersResponse
+     */
+    'imageID'?: string;
+    /**
+     * Connector customizer tenant id.
+     * @type {string}
+     * @memberof ConnectorCustomizersResponse
+     */
+    'tenantID'?: string;
+    /**
+     * Date-time when the connector customizer was created
+     * @type {string}
+     * @memberof ConnectorCustomizersResponse
+     */
+    'created'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ErrorMessageDto
+ */
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -227,33 +227,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -287,12 +287,12 @@ export interface ListConnectorCustomizersV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -305,13 +305,13 @@ export const ConnectorCustomizersApiAxiosParamCreator = function (configuration?
         /**
          * Create a connector customizer.
          * @summary Create connector customizer
-         * @param {Connectorcustomizercreaterequest} connectorcustomizercreaterequest Connector customizer to create.
+         * @param {ConnectorCustomizerCreateRequest} connectorCustomizerCreateRequest Connector customizer to create.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createConnectorCustomizerV1: async (connectorcustomizercreaterequest: Connectorcustomizercreaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'connectorcustomizercreaterequest' is not null or undefined
-            assertParamExists('createConnectorCustomizerV1', 'connectorcustomizercreaterequest', connectorcustomizercreaterequest)
+        createConnectorCustomizerV1: async (connectorCustomizerCreateRequest: ConnectorCustomizerCreateRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'connectorCustomizerCreateRequest' is not null or undefined
+            assertParamExists('createConnectorCustomizerV1', 'connectorCustomizerCreateRequest', connectorCustomizerCreateRequest)
             const localVarPath = `/connector-customizers/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -331,7 +331,7 @@ export const ConnectorCustomizersApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(connectorcustomizercreaterequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(connectorCustomizerCreateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -484,11 +484,11 @@ export const ConnectorCustomizersApiAxiosParamCreator = function (configuration?
          * Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
          * @summary Update connector customizer
          * @param {string} id ID of the connector customizer to update.
-         * @param {Connectorcustomizerupdaterequest} [connectorcustomizerupdaterequest] Connector rule with updated data.
+         * @param {ConnectorCustomizerUpdateRequest} [connectorCustomizerUpdateRequest] Connector rule with updated data.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorCustomizerV1: async (id: string, connectorcustomizerupdaterequest?: Connectorcustomizerupdaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putConnectorCustomizerV1: async (id: string, connectorCustomizerUpdateRequest?: ConnectorCustomizerUpdateRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putConnectorCustomizerV1', 'id', id)
             const localVarPath = `/connector-customizers/v1/{id}`
@@ -511,7 +511,7 @@ export const ConnectorCustomizersApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(connectorcustomizerupdaterequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(connectorCustomizerUpdateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -531,12 +531,12 @@ export const ConnectorCustomizersApiFp = function(configuration?: Configuration)
         /**
          * Create a connector customizer.
          * @summary Create connector customizer
-         * @param {Connectorcustomizercreaterequest} connectorcustomizercreaterequest Connector customizer to create.
+         * @param {ConnectorCustomizerCreateRequest} connectorCustomizerCreateRequest Connector customizer to create.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createConnectorCustomizerV1(connectorcustomizercreaterequest: Connectorcustomizercreaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorcustomizercreateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorCustomizerV1(connectorcustomizercreaterequest, axiosOptions);
+        async createConnectorCustomizerV1(connectorCustomizerCreateRequest: ConnectorCustomizerCreateRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorCustomizerCreateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorCustomizerV1(connectorCustomizerCreateRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorCustomizersApi.createConnectorCustomizerV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -548,7 +548,7 @@ export const ConnectorCustomizersApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createConnectorCustomizerVersionV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorcustomizerversioncreateresponse>> {
+        async createConnectorCustomizerVersionV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorCustomizerVersionCreateResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorCustomizerVersionV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorCustomizersApi.createConnectorCustomizerVersionV1']?.[localVarOperationServerIndex]?.url;
@@ -574,7 +574,7 @@ export const ConnectorCustomizersApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorCustomizerV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorcustomizersresponse>> {
+        async getConnectorCustomizerV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorCustomizersResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorCustomizerV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorCustomizersApi.getConnectorCustomizerV1']?.[localVarOperationServerIndex]?.url;
@@ -588,7 +588,7 @@ export const ConnectorCustomizersApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listConnectorCustomizersV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Connectorcustomizersresponse>>> {
+        async listConnectorCustomizersV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectorCustomizersResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConnectorCustomizersV1(offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorCustomizersApi.listConnectorCustomizersV1']?.[localVarOperationServerIndex]?.url;
@@ -598,12 +598,12 @@ export const ConnectorCustomizersApiFp = function(configuration?: Configuration)
          * Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
          * @summary Update connector customizer
          * @param {string} id ID of the connector customizer to update.
-         * @param {Connectorcustomizerupdaterequest} [connectorcustomizerupdaterequest] Connector rule with updated data.
+         * @param {ConnectorCustomizerUpdateRequest} [connectorCustomizerUpdateRequest] Connector rule with updated data.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putConnectorCustomizerV1(id: string, connectorcustomizerupdaterequest?: Connectorcustomizerupdaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Connectorcustomizerupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorCustomizerV1(id, connectorcustomizerupdaterequest, axiosOptions);
+        async putConnectorCustomizerV1(id: string, connectorCustomizerUpdateRequest?: ConnectorCustomizerUpdateRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorCustomizerUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorCustomizerV1(id, connectorCustomizerUpdateRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorCustomizersApi.putConnectorCustomizerV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -625,8 +625,8 @@ export const ConnectorCustomizersApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiCreateConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorcustomizercreateresponse> {
-            return localVarFp.createConnectorCustomizerV1(requestParameters.connectorcustomizercreaterequest, axiosOptions).then((request) => request(axios, basePath));
+        createConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiCreateConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorCustomizerCreateResponse> {
+            return localVarFp.createConnectorCustomizerV1(requestParameters.connectorCustomizerCreateRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Creates a new version for the customizer.
@@ -635,7 +635,7 @@ export const ConnectorCustomizersApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createConnectorCustomizerVersionV1(requestParameters: ConnectorCustomizersApiCreateConnectorCustomizerVersionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorcustomizerversioncreateresponse> {
+        createConnectorCustomizerVersionV1(requestParameters: ConnectorCustomizersApiCreateConnectorCustomizerVersionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorCustomizerVersionCreateResponse> {
             return localVarFp.createConnectorCustomizerVersionV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -655,7 +655,7 @@ export const ConnectorCustomizersApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiGetConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorcustomizersresponse> {
+        getConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiGetConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorCustomizersResponse> {
             return localVarFp.getConnectorCustomizerV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -665,7 +665,7 @@ export const ConnectorCustomizersApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listConnectorCustomizersV1(requestParameters: ConnectorCustomizersApiListConnectorCustomizersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Connectorcustomizersresponse>> {
+        listConnectorCustomizersV1(requestParameters: ConnectorCustomizersApiListConnectorCustomizersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ConnectorCustomizersResponse>> {
             return localVarFp.listConnectorCustomizersV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -675,8 +675,8 @@ export const ConnectorCustomizersApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiPutConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Connectorcustomizerupdateresponse> {
-            return localVarFp.putConnectorCustomizerV1(requestParameters.id, requestParameters.connectorcustomizerupdaterequest, axiosOptions).then((request) => request(axios, basePath));
+        putConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiPutConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ConnectorCustomizerUpdateResponse> {
+            return localVarFp.putConnectorCustomizerV1(requestParameters.id, requestParameters.connectorCustomizerUpdateRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -689,10 +689,10 @@ export const ConnectorCustomizersApiFactory = function (configuration?: Configur
 export interface ConnectorCustomizersApiCreateConnectorCustomizerV1Request {
     /**
      * Connector customizer to create.
-     * @type {Connectorcustomizercreaterequest}
+     * @type {ConnectorCustomizerCreateRequest}
      * @memberof ConnectorCustomizersApiCreateConnectorCustomizerV1
      */
-    readonly connectorcustomizercreaterequest: Connectorcustomizercreaterequest
+    readonly connectorCustomizerCreateRequest: ConnectorCustomizerCreateRequest
 }
 
 /**
@@ -773,10 +773,10 @@ export interface ConnectorCustomizersApiPutConnectorCustomizerV1Request {
 
     /**
      * Connector rule with updated data.
-     * @type {Connectorcustomizerupdaterequest}
+     * @type {ConnectorCustomizerUpdateRequest}
      * @memberof ConnectorCustomizersApiPutConnectorCustomizerV1
      */
-    readonly connectorcustomizerupdaterequest?: Connectorcustomizerupdaterequest
+    readonly connectorCustomizerUpdateRequest?: ConnectorCustomizerUpdateRequest
 }
 
 /**
@@ -795,7 +795,7 @@ export class ConnectorCustomizersApi extends BaseAPI {
      * @memberof ConnectorCustomizersApi
      */
     public createConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiCreateConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorCustomizersApiFp(this.configuration).createConnectorCustomizerV1(requestParameters.connectorcustomizercreaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ConnectorCustomizersApiFp(this.configuration).createConnectorCustomizerV1(requestParameters.connectorCustomizerCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -855,7 +855,7 @@ export class ConnectorCustomizersApi extends BaseAPI {
      * @memberof ConnectorCustomizersApi
      */
     public putConnectorCustomizerV1(requestParameters: ConnectorCustomizersApiPutConnectorCustomizerV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ConnectorCustomizersApiFp(this.configuration).putConnectorCustomizerV1(requestParameters.id, requestParameters.connectorcustomizerupdaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ConnectorCustomizersApiFp(this.configuration).putConnectorCustomizerV1(requestParameters.id, requestParameters.connectorCustomizerUpdateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

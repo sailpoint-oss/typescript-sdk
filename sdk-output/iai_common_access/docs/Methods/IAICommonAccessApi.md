@@ -34,12 +34,12 @@ This API is used to add roles/access profiles to the list of common access for a
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**commonaccessitemrequest** | `Commonaccessitemrequest` |  | 
+**commonAccessItemRequest** | `CommonAccessItemRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Commonaccessitemresponse`
+`CommonAccessItemResponse`
 
 ### HTTP request headers
 
@@ -51,13 +51,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAICommonAccessApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Commonaccessitemrequest } from 'sailpoint-api-client/dist/iai_common_access/api';
+import { CommonAccessItemRequest } from 'sailpoint-api-client/dist/iai_common_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAICommonAccessApi(configuration);
-const commonaccessitemrequest: Commonaccessitemrequest = ; // 
+const commonAccessItemRequest: CommonAccessItemRequest = {
+  "access" : {
+    "ownerName" : "ownerName",
+    "name" : "name",
+    "description" : "description",
+    "id" : "id",
+    "type" : "ACCESS_PROFILE",
+    "ownerId" : "ownerId"
+  },
+  "status" : "CONFIRMED"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createCommonAccessV1({ commonaccessitemrequest: commonaccessitemrequest });
+const result = await apiInstance.createCommonAccessV1({ commonAccessItemRequest: commonAccessItemRequest });
 console.log(result);
 ```
 
@@ -86,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Commonaccessresponse>`
+`Array<CommonAccessResponse>`
 
 ### HTTP request headers
 
@@ -127,7 +137,7 @@ This submits an update request to the common access application. At this time th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**commonaccessidstatus** | `Array<Commonaccessidstatus>` | Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access | 
+**commonAccessIDStatus** | `Array<CommonAccessIDStatus>` | Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
@@ -144,13 +154,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { IAICommonAccessApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Commonaccessidstatus } from 'sailpoint-api-client/dist/iai_common_access/api';
+import { CommonAccessIDStatus } from 'sailpoint-api-client/dist/iai_common_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAICommonAccessApi(configuration);
-const commonaccessidstatus: Array<Commonaccessidstatus> = ; // Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
+const commonAccessIDStatus: Array<CommonAccessIDStatus> = {
+  "confirmedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+  "deniedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ]
+}; // Confirm or deny in bulk the common access ids that are (or aren\&#39;t) common access
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.updateCommonAccessStatusInBulkV1({ commonaccessidstatus: commonaccessidstatus });
+const result = await apiInstance.updateCommonAccessStatusInBulkV1({ commonAccessIDStatus: commonAccessIDStatus });
 console.log(result);
 ```
 

@@ -6,13 +6,33 @@
       source: |
         import { MachineAccountMappingsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Attributemappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
+        import { AttributeMappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountMappingsApi(configuration);
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source ID. (default to undefined)
-        const attributemappings: Attributemappings = ; // Attributemappings | 
-        const result = await apiInstance.createMachineAccountMappingsV1({ sourceId: sourceId, attributemappings: attributemappings });
+        const attributeMappings: AttributeMappings = {
+  "transformDefinition" : {
+    "attributes" : {
+      "input" : {
+        "attributes" : {
+          "name" : "8d3e0094e99445de98eef6c75e25jc04",
+          "attributeName" : "givenName",
+          "sourceName" : "delimited-src"
+        },
+        "type" : "accountAttribute"
+      }
+    },
+    "id" : "ToUpper",
+    "type" : "reference"
+  },
+  "target" : {
+    "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+    "attributeName" : "businessApplication",
+    "type" : "IDENTITY"
+  }
+}; // AttributeMappings | 
+        const result = await apiInstance.createMachineAccountMappingsV1({ sourceId: sourceId, attributeMappings: attributeMappings });
         console.log(result);
 - path: /sources/v1/{sourceId}/machine-account-mappings
   method: DELETE
@@ -52,11 +72,31 @@
       source: |
         import { MachineAccountMappingsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Attributemappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
+        import { AttributeMappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountMappingsApi(configuration);
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source ID. (default to undefined)
-        const attributemappings: Attributemappings = ; // Attributemappings | 
-        const result = await apiInstance.setMachineAccountMappingsV1({ sourceId: sourceId, attributemappings: attributemappings });
+        const attributeMappings: AttributeMappings = {
+  "transformDefinition" : {
+    "attributes" : {
+      "input" : {
+        "attributes" : {
+          "name" : "8d3e0094e99445de98eef6c75e25jc04",
+          "attributeName" : "givenName",
+          "sourceName" : "delimited-src"
+        },
+        "type" : "accountAttribute"
+      }
+    },
+    "id" : "ToUpper",
+    "type" : "reference"
+  },
+  "target" : {
+    "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+    "attributeName" : "businessApplication",
+    "type" : "IDENTITY"
+  }
+}; // AttributeMappings | 
+        const result = await apiInstance.setMachineAccountMappingsV1({ sourceId: sourceId, attributeMappings: attributeMappings });
         console.log(result);

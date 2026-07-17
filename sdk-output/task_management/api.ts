@@ -33,25 +33,25 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -60,33 +60,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -117,30 +117,30 @@ export interface GetTaskStatusV1429Response {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -149,14 +149,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -164,30 +164,30 @@ export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | obj
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Localized error message to indicate a failed invocation or error if any.
  * @export
- * @interface Localizedmessage
+ * @interface LocalizedMessage
  */
-export interface Localizedmessage {
+export interface LocalizedMessage {
     /**
      * Message locale
      * @type {string}
-     * @memberof Localizedmessage
+     * @memberof LocalizedMessage
      */
     'locale': string;
     /**
      * Message text
      * @type {string}
-     * @memberof Localizedmessage
+     * @memberof LocalizedMessage
      */
     'message': string;
 }
@@ -227,189 +227,189 @@ export type TargetTypeEnum = typeof TargetTypeEnum[keyof typeof TargetTypeEnum];
 /**
  * Definition of a type of task, used to invoke tasks
  * @export
- * @interface Taskdefinitionsummary
+ * @interface TaskDefinitionSummary
  */
-export interface Taskdefinitionsummary {
+export interface TaskDefinitionSummary {
     /**
      * System-generated unique ID of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'id': string;
     /**
      * Name of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'uniqueName': string;
     /**
      * Description of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'description': string | null;
     /**
      * Name of the parent of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'parentName': string;
     /**
      * Executor of the TaskDefinition
      * @type {string}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'executor': string | null;
     /**
      * Formal parameters of the TaskDefinition, without values
      * @type {{ [key: string]: any; }}
-     * @memberof Taskdefinitionsummary
+     * @memberof TaskDefinitionSummary
      */
     'arguments': { [key: string]: any; };
 }
 /**
  * Task return details
  * @export
- * @interface Taskreturndetails
+ * @interface TaskReturnDetails
  */
-export interface Taskreturndetails {
+export interface TaskReturnDetails {
     /**
      * Display name of the TaskReturnDetails
      * @type {string}
-     * @memberof Taskreturndetails
+     * @memberof TaskReturnDetails
      */
     'name': string;
     /**
      * Attribute the TaskReturnDetails is for
      * @type {string}
-     * @memberof Taskreturndetails
+     * @memberof TaskReturnDetails
      */
     'attributeName': string;
 }
 /**
  * Details and current status of a specific task
  * @export
- * @interface Taskstatus
+ * @interface TaskStatus
  */
-export interface Taskstatus {
+export interface TaskStatus {
     /**
      * System-generated unique ID of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'id': string;
     /**
      * Type of task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
-    'type': TaskstatusTypeEnum;
+    'type': TaskStatusTypeEnum;
     /**
      * Name of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'uniqueName': string;
     /**
      * Description of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'description': string;
     /**
      * Name of the parent of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'parentName': string | null;
     /**
      * Service to execute the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'launcher': string;
     /**
      * 
      * @type {Target}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'target'?: Target | null;
     /**
      * Creation date of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'created': string;
     /**
      * Last modification date of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'modified': string | null;
     /**
      * Launch date of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'launched': string | null;
     /**
      * Completion date of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'completed': string | null;
     /**
      * Completion status of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
-    'completionStatus': TaskstatusCompletionStatusEnum | null;
+    'completionStatus': TaskStatusCompletionStatusEnum | null;
     /**
      * Messages associated with the task this TaskStatus represents
-     * @type {Array<Taskstatusmessage>}
-     * @memberof Taskstatus
+     * @type {Array<TaskStatusMessage>}
+     * @memberof TaskStatus
      */
-    'messages': Array<Taskstatusmessage>;
+    'messages': Array<TaskStatusMessage>;
     /**
      * Return values from the task this TaskStatus represents
-     * @type {Array<Taskreturndetails>}
-     * @memberof Taskstatus
+     * @type {Array<TaskReturnDetails>}
+     * @memberof TaskStatus
      */
-    'returns': Array<Taskreturndetails>;
+    'returns': Array<TaskReturnDetails>;
     /**
      * Attributes of the task this TaskStatus represents
      * @type {{ [key: string]: any; }}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'attributes': { [key: string]: any; };
     /**
      * Current progress of the task this TaskStatus represents
      * @type {string}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'progress': string | null;
     /**
      * Current percentage completion of the task this TaskStatus represents
      * @type {number}
-     * @memberof Taskstatus
+     * @memberof TaskStatus
      */
     'percentComplete': number;
     /**
      * 
-     * @type {Taskdefinitionsummary}
-     * @memberof Taskstatus
+     * @type {TaskDefinitionSummary}
+     * @memberof TaskStatus
      */
-    'taskDefinitionSummary'?: Taskdefinitionsummary;
+    'taskDefinitionSummary'?: TaskDefinitionSummary;
 }
 
-export const TaskstatusTypeEnum = {
+export const TaskStatusTypeEnum = {
     Quartz: 'QUARTZ',
     Qpoc: 'QPOC',
     QueuedTask: 'QUEUED_TASK'
 } as const;
 
-export type TaskstatusTypeEnum = typeof TaskstatusTypeEnum[keyof typeof TaskstatusTypeEnum];
-export const TaskstatusCompletionStatusEnum = {
+export type TaskStatusTypeEnum = typeof TaskStatusTypeEnum[keyof typeof TaskStatusTypeEnum];
+export const TaskStatusCompletionStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -417,54 +417,54 @@ export const TaskstatusCompletionStatusEnum = {
     Temperror: 'TEMPERROR'
 } as const;
 
-export type TaskstatusCompletionStatusEnum = typeof TaskstatusCompletionStatusEnum[keyof typeof TaskstatusCompletionStatusEnum];
+export type TaskStatusCompletionStatusEnum = typeof TaskStatusCompletionStatusEnum[keyof typeof TaskStatusCompletionStatusEnum];
 
 /**
  * TaskStatus Message
  * @export
- * @interface Taskstatusmessage
+ * @interface TaskStatusMessage
  */
-export interface Taskstatusmessage {
+export interface TaskStatusMessage {
     /**
      * Type of the message
      * @type {string}
-     * @memberof Taskstatusmessage
+     * @memberof TaskStatusMessage
      */
-    'type': TaskstatusmessageTypeEnum;
+    'type': TaskStatusMessageTypeEnum;
     /**
      * 
-     * @type {Localizedmessage}
-     * @memberof Taskstatusmessage
+     * @type {LocalizedMessage}
+     * @memberof TaskStatusMessage
      */
-    'localizedText': Localizedmessage | null;
+    'localizedText': LocalizedMessage | null;
     /**
      * Key of the message
      * @type {string}
-     * @memberof Taskstatusmessage
+     * @memberof TaskStatusMessage
      */
     'key': string;
     /**
      * Message parameters for internationalization
-     * @type {Array<TaskstatusmessageParametersInner>}
-     * @memberof Taskstatusmessage
+     * @type {Array<TaskStatusMessageParametersInner>}
+     * @memberof TaskStatusMessage
      */
-    'parameters': Array<TaskstatusmessageParametersInner> | null;
+    'parameters': Array<TaskStatusMessageParametersInner> | null;
 }
 
-export const TaskstatusmessageTypeEnum = {
+export const TaskStatusMessageTypeEnum = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type TaskstatusmessageTypeEnum = typeof TaskstatusmessageTypeEnum[keyof typeof TaskstatusmessageTypeEnum];
+export type TaskStatusMessageTypeEnum = typeof TaskStatusMessageTypeEnum[keyof typeof TaskStatusMessageTypeEnum];
 
 /**
  * 
  * @export
- * @interface TaskstatusmessageParametersInner
+ * @interface TaskStatusMessageParametersInner
  */
-export interface TaskstatusmessageParametersInner {
+export interface TaskStatusMessageParametersInner {
 }
 
 /**
@@ -566,15 +566,15 @@ export const TaskManagementApiAxiosParamCreator = function (configuration?: Conf
          * Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
          * @summary Update task status by id
          * @param {string} id Task ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTaskStatusV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTaskStatusV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateTaskStatusV1', 'id', id)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('updateTaskStatusV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateTaskStatusV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/task-status/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -595,7 +595,7 @@ export const TaskManagementApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -623,7 +623,7 @@ export const TaskManagementApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskStatusListV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Taskstatus>>> {
+        async getTaskStatusListV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatus>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatusListV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TaskManagementApi.getTaskStatusListV1']?.[localVarOperationServerIndex]?.url;
@@ -636,7 +636,7 @@ export const TaskManagementApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskstatus>> {
+        async getTaskStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatusV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TaskManagementApi.getTaskStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -646,12 +646,12 @@ export const TaskManagementApiFp = function(configuration?: Configuration) {
          * Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
          * @summary Update task status by id
          * @param {string} id Task ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTaskStatusV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskstatus>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTaskStatusV1(id, jsonpatchoperation, axiosOptions);
+        async updateTaskStatusV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTaskStatusV1(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TaskManagementApi.updateTaskStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -673,7 +673,7 @@ export const TaskManagementApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskStatusListV1(requestParameters: TaskManagementApiGetTaskStatusListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Taskstatus>> {
+        getTaskStatusListV1(requestParameters: TaskManagementApiGetTaskStatusListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TaskStatus>> {
             return localVarFp.getTaskStatusListV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -683,7 +683,7 @@ export const TaskManagementApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskStatusV1(requestParameters: TaskManagementApiGetTaskStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskstatus> {
+        getTaskStatusV1(requestParameters: TaskManagementApiGetTaskStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskStatus> {
             return localVarFp.getTaskStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -693,8 +693,8 @@ export const TaskManagementApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTaskStatusV1(requestParameters: TaskManagementApiUpdateTaskStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskstatus> {
-            return localVarFp.updateTaskStatusV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        updateTaskStatusV1(requestParameters: TaskManagementApiUpdateTaskStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskStatus> {
+            return localVarFp.updateTaskStatusV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -770,10 +770,10 @@ export interface TaskManagementApiUpdateTaskStatusV1Request {
 
     /**
      * The JSONPatch payload used to update the object.
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof TaskManagementApiUpdateTaskStatusV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -816,7 +816,7 @@ export class TaskManagementApi extends BaseAPI {
      * @memberof TaskManagementApi
      */
     public updateTaskStatusV1(requestParameters: TaskManagementApiUpdateTaskStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return TaskManagementApiFp(this.configuration).updateTaskStatusV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TaskManagementApiFp(this.configuration).updateTaskStatusV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

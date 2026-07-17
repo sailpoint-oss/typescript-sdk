@@ -38,11 +38,15 @@
       source: |
         import { TaskManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/task_management/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/task_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new TaskManagementApi(configuration);
         const id: string = '00eebcf881994e419d72e757fd30dc0e'; // string | Task ID. (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | The JSONPatch payload used to update the object.
-        const result = await apiInstance.updateTaskStatusV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | The JSONPatch payload used to update the object.
+        const result = await apiInstance.updateTaskStatusV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);

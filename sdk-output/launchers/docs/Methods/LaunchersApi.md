@@ -34,7 +34,7 @@ Create a Launcher with given information
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**launcherrequest** | `Launcherrequest` | Payload to create a Launcher | 
+**launcherRequest** | `LauncherRequest` | Payload to create a Launcher | 
 
 ### Return type
 
@@ -50,12 +50,22 @@ Name | Type | Description  | Notes
 ```typescript
 import { LaunchersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Launcherrequest } from 'sailpoint-api-client/dist/launchers/api';
+import { LauncherRequest } from 'sailpoint-api-client/dist/launchers/api';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);
-const launcherrequest: Launcherrequest = ; // Payload to create a Launcher
-const result = await apiInstance.createLauncherV1({ launcherrequest: launcherrequest });
+const launcherRequest: LauncherRequest = {
+  "reference" : {
+    "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+    "type" : "WORKFLOW"
+  },
+  "name" : "Group Create",
+  "description" : "Create a new Active Directory Group",
+  "disabled" : false,
+  "type" : "INTERACTIVE_PROCESS",
+  "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+}; // Payload to create a Launcher
+const result = await apiInstance.createLauncherV1({ launcherRequest: launcherRequest });
 console.log(result);
 ```
 
@@ -188,7 +198,7 @@ Replace the given Launcher ID with given payload
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **launcherID** | `string` | ID of the Launcher to be replaced |  [default to undefined]
-**launcherrequest** | `Launcherrequest` | Payload to replace Launcher | 
+**launcherRequest** | `LauncherRequest` | Payload to replace Launcher | 
 
 ### Return type
 
@@ -204,13 +214,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { LaunchersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Launcherrequest } from 'sailpoint-api-client/dist/launchers/api';
+import { LauncherRequest } from 'sailpoint-api-client/dist/launchers/api';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);
 const launcherID: string = e3012408-8b61-4564-ad41-c5ec131c325b; // ID of the Launcher to be replaced
-const launcherrequest: Launcherrequest = ; // Payload to replace Launcher
-const result = await apiInstance.putLauncherV1({ launcherID: launcherID, launcherrequest: launcherrequest });
+const launcherRequest: LauncherRequest = {
+  "reference" : {
+    "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+    "type" : "WORKFLOW"
+  },
+  "name" : "Group Create",
+  "description" : "Create a new Active Directory Group",
+  "disabled" : false,
+  "type" : "INTERACTIVE_PROCESS",
+  "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+}; // Payload to replace Launcher
+const result = await apiInstance.putLauncherV1({ launcherID: launcherID, launcherRequest: launcherRequest });
 console.log(result);
 ```
 

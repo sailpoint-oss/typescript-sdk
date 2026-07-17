@@ -36,11 +36,11 @@ The response is returned with HTTP 202 Accepted while the workflow initializes.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**jitactivationactivaterequest** | `Jitactivationactivaterequest` |  | 
+**jitActivationActivateRequest** | `JitActivationActivateRequest` |  | 
 
 ### Return type
 
-`Jitactivationactivateresponse`
+`JitActivationActivateResponse`
 
 ### HTTP request headers
 
@@ -52,12 +52,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITActivationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jitactivationactivaterequest } from 'sailpoint-api-client/dist/jit_activations/api';
+import { JitActivationActivateRequest } from 'sailpoint-api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
-const jitactivationactivaterequest: Jitactivationactivaterequest = ; // 
-const result = await apiInstance.startActivateWorkflowV1({ jitactivationactivaterequest: jitactivationactivaterequest });
+const jitActivationActivateRequest: JitActivationActivateRequest = {
+  "activationPeriodMins" : 120,
+  "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+}; // 
+const result = await apiInstance.startActivateWorkflowV1({ jitActivationActivateRequest: jitActivationActivateRequest });
 console.log(result);
 ```
 
@@ -80,11 +83,11 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**jitactivationdeactivaterequest** | `Jitactivationdeactivaterequest` |  | 
+**jitActivationDeactivateRequest** | `JitActivationDeactivateRequest` |  | 
 
 ### Return type
 
-`Jitactivationdeactivateresponse`
+`JitActivationDeactivateResponse`
 
 ### HTTP request headers
 
@@ -96,12 +99,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITActivationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jitactivationdeactivaterequest } from 'sailpoint-api-client/dist/jit_activations/api';
+import { JitActivationDeactivateRequest } from 'sailpoint-api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
-const jitactivationdeactivaterequest: Jitactivationdeactivaterequest = ; // 
-const result = await apiInstance.startDeactivateWorkflowV1({ jitactivationdeactivaterequest: jitactivationdeactivaterequest });
+const jitActivationDeactivateRequest: JitActivationDeactivateRequest = {
+  "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+}; // 
+const result = await apiInstance.startDeactivateWorkflowV1({ jitActivationDeactivateRequest: jitActivationDeactivateRequest });
 console.log(result);
 ```
 
@@ -125,11 +130,11 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**jitactivationextendrequest** | `Jitactivationextendrequest` |  | 
+**jitActivationExtendRequest** | `JitActivationExtendRequest` |  | 
 
 ### Return type
 
-`Jitactivationextendresponse`
+`JitActivationExtendResponse`
 
 ### HTTP request headers
 
@@ -141,12 +146,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { JITActivationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jitactivationextendrequest } from 'sailpoint-api-client/dist/jit_activations/api';
+import { JitActivationExtendRequest } from 'sailpoint-api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
-const jitactivationextendrequest: Jitactivationextendrequest = ; // 
-const result = await apiInstance.startExtendWorkflowV1({ jitactivationextendrequest: jitactivationextendrequest });
+const jitActivationExtendRequest: JitActivationExtendRequest = {
+  "activationPeriodExtensionMins" : 120,
+  "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
+}; // 
+const result = await apiInstance.startExtendWorkflowV1({ jitActivationExtendRequest: jitActivationExtendRequest });
 console.log(result);
 ```
 

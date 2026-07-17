@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **created** | **(optional)** `string` | Created time of the campaign | [readonly] [default to undefined]
 **totalCertifications** | **(optional)** `number` | The total number of certifications in this campaign. | [readonly] [default to undefined]
 **completedCertifications** | **(optional)** `number` | The number of completed certifications in this campaign. | [readonly] [default to undefined]
-**alerts** | **(optional)** `Array<Campaignalert>` | A list of errors and warnings that have accumulated. | [readonly] [default to undefined]
+**alerts** | **(optional)** `Array<CampaignAlert>` | A list of errors and warnings that have accumulated. | [readonly] [default to undefined]
 **modified** | **(optional)** `string` | Modified time of the campaign | [readonly] [default to undefined]
 **filter** | **(optional)** `Campaign2AllOfFilter` |  | [default to undefined]
 **sunsetCommentsRequired** | **(optional)** `boolean` | Determines if comments on sunset date changes are required. | [default to true]

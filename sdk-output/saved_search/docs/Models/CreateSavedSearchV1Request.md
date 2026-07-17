@@ -25,5 +25,5 @@ Name | Type | Description | Notes
 **fields** | **(optional)** `Array<string>` | The fields to be searched against in a multi-field query.  | [default to undefined]
 **orderBy** | **(optional)**  | Sort by index. This takes precedence over the `sort` property.  | [default to undefined]
 **sort** | **(optional)** `Array<string>` | The fields to be used to sort the search results.  | [default to undefined]
-**filters** | **(optional)** `SavedsearchdetailFilters` |  | [default to undefined]
+**filters** | **(optional)** `SavedSearchDetailFilters` |  | [default to undefined]
 

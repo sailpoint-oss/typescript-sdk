@@ -33,381 +33,381 @@ export interface ArrayInner {
 /**
  * Entitlement connection entity returned by patch APIs.
  * @export
- * @interface Entitlementconnection
+ * @interface EntitlementConnection
  */
-export interface Entitlementconnection {
+export interface EntitlementConnection {
     /**
      * Tenant identifier that owns the connection.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'tenantId'?: string;
     /**
      * Entitlement connection identifier.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'connectionId'?: string;
     /**
      * Identity identifier associated with the connection.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'identityId'?: string;
     /**
      * Machine identity identifier when the connection is machine-backed.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'machineIdentityId'?: string;
     /**
      * Account identifier for the connected source account.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'accountId'?: string;
     /**
      * Entitlement identifier on the source.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'entitlementId'?: string;
     /**
      * Source identifier that provides the account and entitlement.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'sourceId'?: string;
     /**
      * Indicates whether the connection is marked as standalone.
      * @type {boolean}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'standalone'?: boolean;
     /**
      * Entitlement attribute name on the source.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'attributeName'?: string;
     /**
      * Entitlement attribute value on the source.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'attributeValue'?: string;
     /**
      * Connection type classification.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
-    'type'?: EntitlementconnectionTypeEnum;
+    'type'?: EntitlementConnectionTypeEnum;
     /**
      * Current lifecycle state of the connection.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'state'?: string;
     /**
      * Time the connection state was last updated.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'stateChanged'?: string;
     /**
      * Identifier of the actor that last changed state.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'stateChangedBy'?: string;
     /**
      * Time JIT activation occurred.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'jitActivation'?: string;
     /**
      * Time provisioning completed for JIT activation.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'jitProvision'?: string;
     /**
      * Time JIT deactivation occurred.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'jitDeactivation'?: string;
     /**
      * Time deprovisioning completed after JIT deactivation.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'jitDeprovision'?: string;
     /**
      * Time when JIT access expires.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'jitExpiration'?: string;
     /**
      * Time after which the connection is eligible for deletion.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'deleteAfter'?: string;
     /**
      * Time when the connection was created.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'created'?: string;
     /**
      * Time when the connection was last modified.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'modified'?: string;
     /**
      * Display value for the actor associated with the latest change.
      * @type {string}
-     * @memberof Entitlementconnection
+     * @memberof EntitlementConnection
      */
     'actorName'?: string;
 }
 
-export const EntitlementconnectionTypeEnum = {
+export const EntitlementConnectionTypeEnum = {
     Jit: 'JIT',
     Standing: 'STANDING',
     Na: 'NA'
 } as const;
 
-export type EntitlementconnectionTypeEnum = typeof EntitlementconnectionTypeEnum[keyof typeof EntitlementconnectionTypeEnum];
+export type EntitlementConnectionTypeEnum = typeof EntitlementConnectionTypeEnum[keyof typeof EntitlementConnectionTypeEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementconnectionbulkupdateitem
+ * @interface EntitlementConnectionBulkUpdateItem
  */
-export interface Entitlementconnectionbulkupdateitem {
+export interface EntitlementConnectionBulkUpdateItem {
     /**
      * Connection ID to update.
      * @type {string}
-     * @memberof Entitlementconnectionbulkupdateitem
+     * @memberof EntitlementConnectionBulkUpdateItem
      */
     'connectionId': string;
     /**
      * Target connection type.
      * @type {string}
-     * @memberof Entitlementconnectionbulkupdateitem
+     * @memberof EntitlementConnectionBulkUpdateItem
      */
-    'type': EntitlementconnectionbulkupdateitemTypeEnum;
+    'type': EntitlementConnectionBulkUpdateItemTypeEnum;
 }
 
-export const EntitlementconnectionbulkupdateitemTypeEnum = {
+export const EntitlementConnectionBulkUpdateItemTypeEnum = {
     Jit: 'JIT',
     Standing: 'STANDING'
 } as const;
 
-export type EntitlementconnectionbulkupdateitemTypeEnum = typeof EntitlementconnectionbulkupdateitemTypeEnum[keyof typeof EntitlementconnectionbulkupdateitemTypeEnum];
+export type EntitlementConnectionBulkUpdateItemTypeEnum = typeof EntitlementConnectionBulkUpdateItemTypeEnum[keyof typeof EntitlementConnectionBulkUpdateItemTypeEnum];
 
 /**
  * 
  * @export
- * @interface Entitlementconnectionbulkupdateresultitem
+ * @interface EntitlementConnectionBulkUpdateResultItem
  */
-export interface Entitlementconnectionbulkupdateresultitem {
+export interface EntitlementConnectionBulkUpdateResultItem {
     /**
      * Connection ID processed in this row.
      * @type {string}
-     * @memberof Entitlementconnectionbulkupdateresultitem
+     * @memberof EntitlementConnectionBulkUpdateResultItem
      */
     'connectionId'?: string;
     /**
      * Requested or resulting connection type for the row.
      * @type {string}
-     * @memberof Entitlementconnectionbulkupdateresultitem
+     * @memberof EntitlementConnectionBulkUpdateResultItem
      */
     'type'?: string;
     /**
      * Item-level result status code.
      * @type {number}
-     * @memberof Entitlementconnectionbulkupdateresultitem
+     * @memberof EntitlementConnectionBulkUpdateResultItem
      */
     'status'?: number;
     /**
      * Item-level result message.
      * @type {string}
-     * @memberof Entitlementconnectionbulkupdateresultitem
+     * @memberof EntitlementConnectionBulkUpdateResultItem
      */
     'description'?: string;
 }
 /**
  * Entitlement connection record returned by search-backed list endpoints.
  * @export
- * @interface Entitlementconnectionsearchhit
+ * @interface EntitlementConnectionSearchHit
  */
-export interface Entitlementconnectionsearchhit {
+export interface EntitlementConnectionSearchHit {
     /**
      * Connection ID as represented in search results.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'id'?: string;
     /**
      * Identity summary object from search index.
      * @type {{ [key: string]: any; }}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'identity'?: { [key: string]: any; };
     /**
      * Machine identity summary object when available.
      * @type {{ [key: string]: any; }}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'machineIdentity'?: { [key: string]: any; };
     /**
      * Account summary object.
      * @type {{ [key: string]: any; }}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'account'?: { [key: string]: any; };
     /**
      * 
-     * @type {Entitlementconnectionsearchhitentitlement}
-     * @memberof Entitlementconnectionsearchhit
+     * @type {EntitlementConnectionSearchHitEntitlement}
+     * @memberof EntitlementConnectionSearchHit
      */
-    'entitlement'?: Entitlementconnectionsearchhitentitlement;
+    'entitlement'?: EntitlementConnectionSearchHitEntitlement;
     /**
      * Source summary object.
      * @type {{ [key: string]: any; }}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'source'?: { [key: string]: any; };
     /**
      * Connection state object.
      * @type {{ [key: string]: any; }}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'state'?: { [key: string]: any; };
     /**
      * JIT timestamps for lifecycle events.
      * @type {{ [key: string]: any; }}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'jit'?: { [key: string]: any; };
     /**
      * Indicates whether the connection is marked as standalone.
      * @type {boolean}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
     'standalone'?: boolean;
     /**
      * Connection type classification.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhit
+     * @memberof EntitlementConnectionSearchHit
      */
-    'type'?: EntitlementconnectionsearchhitTypeEnum;
+    'type'?: EntitlementConnectionSearchHitTypeEnum;
 }
 
-export const EntitlementconnectionsearchhitTypeEnum = {
+export const EntitlementConnectionSearchHitTypeEnum = {
     Jit: 'JIT',
     Standing: 'STANDING',
     Na: 'NA'
 } as const;
 
-export type EntitlementconnectionsearchhitTypeEnum = typeof EntitlementconnectionsearchhitTypeEnum[keyof typeof EntitlementconnectionsearchhitTypeEnum];
+export type EntitlementConnectionSearchHitTypeEnum = typeof EntitlementConnectionSearchHitTypeEnum[keyof typeof EntitlementConnectionSearchHitTypeEnum];
 
 /**
  * Entitlement object embedded in entitlement connection search responses.
  * @export
- * @interface Entitlementconnectionsearchhitentitlement
+ * @interface EntitlementConnectionSearchHitEntitlement
  */
-export interface Entitlementconnectionsearchhitentitlement {
+export interface EntitlementConnectionSearchHitEntitlement {
     /**
      * Entitlement identifier.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
     'id'?: string;
     /**
      * Entitlement name.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
     'name'?: string;
     /**
      * Human-readable entitlement label.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
     'displayName'?: string;
     /**
      * Entitlement description.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
     'description'?: string;
     /**
      * Source attribute carrying entitlement values.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
     'attribute'?: string;
     /**
      * Source entitlement value.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
     'value'?: string;
     /**
      * Source schema object type for the entitlement.
      * @type {string}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
     'sourceSchemaObjectType'?: string;
     /**
      * 
-     * @type {EntitlementconnectionsearchhitentitlementPrivilegeLevel}
-     * @memberof Entitlementconnectionsearchhitentitlement
+     * @type {EntitlementConnectionSearchHitEntitlementPrivilegeLevel}
+     * @memberof EntitlementConnectionSearchHitEntitlement
      */
-    'privilegeLevel'?: EntitlementconnectionsearchhitentitlementPrivilegeLevel;
+    'privilegeLevel'?: EntitlementConnectionSearchHitEntitlementPrivilegeLevel;
 }
 /**
  * Privilege classification details for the entitlement.
  * @export
- * @interface EntitlementconnectionsearchhitentitlementPrivilegeLevel
+ * @interface EntitlementConnectionSearchHitEntitlementPrivilegeLevel
  */
-export interface EntitlementconnectionsearchhitentitlementPrivilegeLevel {
+export interface EntitlementConnectionSearchHitEntitlementPrivilegeLevel {
     /**
      * Effective privilege level.
      * @type {string}
-     * @memberof EntitlementconnectionsearchhitentitlementPrivilegeLevel
+     * @memberof EntitlementConnectionSearchHitEntitlementPrivilegeLevel
      */
     'effective'?: string;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -416,61 +416,61 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -479,14 +479,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
@@ -533,12 +533,12 @@ export interface ListEntitlementConnectionsV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -672,15 +672,15 @@ export const EntitlementConnectionsApiAxiosParamCreator = function (configuratio
          * Applies JSON Patch operations to an entitlement connection selected by `connectionId`. 
          * @summary Update entitlement connection
          * @param {string} connectionId Connection ID (UUID with or without hyphens).
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementConnectionByIdV1: async (connectionId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchEntitlementConnectionByIdV1: async (connectionId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'connectionId' is not null or undefined
             assertParamExists('patchEntitlementConnectionByIdV1', 'connectionId', connectionId)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchEntitlementConnectionByIdV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchEntitlementConnectionByIdV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/entitlement-connections/v1/{connectionId}`
                 .replace(`{${"connectionId"}}`, encodeURIComponent(String(connectionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -701,7 +701,7 @@ export const EntitlementConnectionsApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -714,19 +714,19 @@ export const EntitlementConnectionsApiAxiosParamCreator = function (configuratio
          * @param {string} entitlementId Entitlement ID (UUID with or without hyphens).
          * @param {string} identityId Identity ID (UUID with or without hyphens).
          * @param {string} accountId Account ID (UUID with or without hyphens).
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementConnectionByQueryV1: async (entitlementId: string, identityId: string, accountId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchEntitlementConnectionByQueryV1: async (entitlementId: string, identityId: string, accountId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'entitlementId' is not null or undefined
             assertParamExists('patchEntitlementConnectionByQueryV1', 'entitlementId', entitlementId)
             // verify required parameter 'identityId' is not null or undefined
             assertParamExists('patchEntitlementConnectionByQueryV1', 'identityId', identityId)
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('patchEntitlementConnectionByQueryV1', 'accountId', accountId)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchEntitlementConnectionByQueryV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchEntitlementConnectionByQueryV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/entitlement-connections/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -758,7 +758,7 @@ export const EntitlementConnectionsApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -768,13 +768,13 @@ export const EntitlementConnectionsApiAxiosParamCreator = function (configuratio
         /**
          * Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
          * @summary Update connections in bulk
-         * @param {Array<Entitlementconnectionbulkupdateitem>} entitlementconnectionbulkupdateitem 
+         * @param {Array<EntitlementConnectionBulkUpdateItem>} entitlementConnectionBulkUpdateItem 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateEntitlementConnectionsBulkV1: async (entitlementconnectionbulkupdateitem: Array<Entitlementconnectionbulkupdateitem>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementconnectionbulkupdateitem' is not null or undefined
-            assertParamExists('updateEntitlementConnectionsBulkV1', 'entitlementconnectionbulkupdateitem', entitlementconnectionbulkupdateitem)
+        updateEntitlementConnectionsBulkV1: async (entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementConnectionBulkUpdateItem' is not null or undefined
+            assertParamExists('updateEntitlementConnectionsBulkV1', 'entitlementConnectionBulkUpdateItem', entitlementConnectionBulkUpdateItem)
             const localVarPath = `/entitlement-connections/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -794,7 +794,7 @@ export const EntitlementConnectionsApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementconnectionbulkupdateitem, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementConnectionBulkUpdateItem, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -823,7 +823,7 @@ export const EntitlementConnectionsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementConnectionsForCurrentIdentityV1(offset?: number, limit?: number, count?: boolean, searchAfter?: string, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementconnectionsearchhit>>> {
+        async listEntitlementConnectionsForCurrentIdentityV1(offset?: number, limit?: number, count?: boolean, searchAfter?: string, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementConnectionSearchHit>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementConnectionsForCurrentIdentityV1(offset, limit, count, searchAfter, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.listEntitlementConnectionsForCurrentIdentityV1']?.[localVarOperationServerIndex]?.url;
@@ -841,7 +841,7 @@ export const EntitlementConnectionsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementConnectionsV1(offset?: number, limit?: number, count?: boolean, searchAfter?: string, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementconnectionsearchhit>>> {
+        async listEntitlementConnectionsV1(offset?: number, limit?: number, count?: boolean, searchAfter?: string, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementConnectionSearchHit>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementConnectionsV1(offset, limit, count, searchAfter, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.listEntitlementConnectionsV1']?.[localVarOperationServerIndex]?.url;
@@ -851,12 +851,12 @@ export const EntitlementConnectionsApiFp = function(configuration?: Configuratio
          * Applies JSON Patch operations to an entitlement connection selected by `connectionId`. 
          * @summary Update entitlement connection
          * @param {string} connectionId Connection ID (UUID with or without hyphens).
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchEntitlementConnectionByIdV1(connectionId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementconnection>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementConnectionByIdV1(connectionId, jsonpatchoperation, axiosOptions);
+        async patchEntitlementConnectionByIdV1(connectionId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementConnection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementConnectionByIdV1(connectionId, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.patchEntitlementConnectionByIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -867,12 +867,12 @@ export const EntitlementConnectionsApiFp = function(configuration?: Configuratio
          * @param {string} entitlementId Entitlement ID (UUID with or without hyphens).
          * @param {string} identityId Identity ID (UUID with or without hyphens).
          * @param {string} accountId Account ID (UUID with or without hyphens).
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchEntitlementConnectionByQueryV1(entitlementId: string, identityId: string, accountId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementconnection>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementConnectionByQueryV1(entitlementId, identityId, accountId, jsonpatchoperation, axiosOptions);
+        async patchEntitlementConnectionByQueryV1(entitlementId: string, identityId: string, accountId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementConnection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementConnectionByQueryV1(entitlementId, identityId, accountId, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.patchEntitlementConnectionByQueryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -880,12 +880,12 @@ export const EntitlementConnectionsApiFp = function(configuration?: Configuratio
         /**
          * Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
          * @summary Update connections in bulk
-         * @param {Array<Entitlementconnectionbulkupdateitem>} entitlementconnectionbulkupdateitem 
+         * @param {Array<EntitlementConnectionBulkUpdateItem>} entitlementConnectionBulkUpdateItem 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEntitlementConnectionsBulkV1(entitlementconnectionbulkupdateitem: Array<Entitlementconnectionbulkupdateitem>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlementconnectionbulkupdateresultitem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementConnectionsBulkV1(entitlementconnectionbulkupdateitem, axiosOptions);
+        async updateEntitlementConnectionsBulkV1(entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementConnectionBulkUpdateResultItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementConnectionsBulkV1(entitlementConnectionBulkUpdateItem, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.updateEntitlementConnectionsBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -907,7 +907,7 @@ export const EntitlementConnectionsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementConnectionsForCurrentIdentityV1(requestParameters: EntitlementConnectionsApiListEntitlementConnectionsForCurrentIdentityV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementconnectionsearchhit>> {
+        listEntitlementConnectionsForCurrentIdentityV1(requestParameters: EntitlementConnectionsApiListEntitlementConnectionsForCurrentIdentityV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementConnectionSearchHit>> {
             return localVarFp.listEntitlementConnectionsForCurrentIdentityV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.searchAfter, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -917,7 +917,7 @@ export const EntitlementConnectionsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementConnectionsV1(requestParameters: EntitlementConnectionsApiListEntitlementConnectionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementconnectionsearchhit>> {
+        listEntitlementConnectionsV1(requestParameters: EntitlementConnectionsApiListEntitlementConnectionsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementConnectionSearchHit>> {
             return localVarFp.listEntitlementConnectionsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.searchAfter, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -927,8 +927,8 @@ export const EntitlementConnectionsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementConnectionByIdV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementconnection> {
-            return localVarFp.patchEntitlementConnectionByIdV1(requestParameters.connectionId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        patchEntitlementConnectionByIdV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementConnection> {
+            return localVarFp.patchEntitlementConnectionByIdV1(requestParameters.connectionId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Applies JSON Patch operations to a single entitlement connection selected by `entitlementId`, `identityId`, and `accountId`. 
@@ -937,8 +937,8 @@ export const EntitlementConnectionsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementConnectionByQueryV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementconnection> {
-            return localVarFp.patchEntitlementConnectionByQueryV1(requestParameters.entitlementId, requestParameters.identityId, requestParameters.accountId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        patchEntitlementConnectionByQueryV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementConnection> {
+            return localVarFp.patchEntitlementConnectionByQueryV1(requestParameters.entitlementId, requestParameters.identityId, requestParameters.accountId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
@@ -947,8 +947,8 @@ export const EntitlementConnectionsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateEntitlementConnectionsBulkV1(requestParameters: EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Entitlementconnectionbulkupdateresultitem>> {
-            return localVarFp.updateEntitlementConnectionsBulkV1(requestParameters.entitlementconnectionbulkupdateitem, axiosOptions).then((request) => request(axios, basePath));
+        updateEntitlementConnectionsBulkV1(requestParameters: EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementConnectionBulkUpdateResultItem>> {
+            return localVarFp.updateEntitlementConnectionsBulkV1(requestParameters.entitlementConnectionBulkUpdateItem, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1066,10 +1066,10 @@ export interface EntitlementConnectionsApiPatchEntitlementConnectionByIdV1Reques
 
     /**
      * 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof EntitlementConnectionsApiPatchEntitlementConnectionByIdV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -1101,10 +1101,10 @@ export interface EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Req
 
     /**
      * 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -1115,10 +1115,10 @@ export interface EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Req
 export interface EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request {
     /**
      * 
-     * @type {Array<Entitlementconnectionbulkupdateitem>}
+     * @type {Array<EntitlementConnectionBulkUpdateItem>}
      * @memberof EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1
      */
-    readonly entitlementconnectionbulkupdateitem: Array<Entitlementconnectionbulkupdateitem>
+    readonly entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem>
 }
 
 /**
@@ -1161,7 +1161,7 @@ export class EntitlementConnectionsApi extends BaseAPI {
      * @memberof EntitlementConnectionsApi
      */
     public patchEntitlementConnectionByIdV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementConnectionsApiFp(this.configuration).patchEntitlementConnectionByIdV1(requestParameters.connectionId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return EntitlementConnectionsApiFp(this.configuration).patchEntitlementConnectionByIdV1(requestParameters.connectionId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1173,7 +1173,7 @@ export class EntitlementConnectionsApi extends BaseAPI {
      * @memberof EntitlementConnectionsApi
      */
     public patchEntitlementConnectionByQueryV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementConnectionsApiFp(this.configuration).patchEntitlementConnectionByQueryV1(requestParameters.entitlementId, requestParameters.identityId, requestParameters.accountId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return EntitlementConnectionsApiFp(this.configuration).patchEntitlementConnectionByQueryV1(requestParameters.entitlementId, requestParameters.identityId, requestParameters.accountId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1185,7 +1185,7 @@ export class EntitlementConnectionsApi extends BaseAPI {
      * @memberof EntitlementConnectionsApi
      */
     public updateEntitlementConnectionsBulkV1(requestParameters: EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementConnectionsApiFp(this.configuration).updateEntitlementConnectionsBulkV1(requestParameters.entitlementconnectionbulkupdateitem, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return EntitlementConnectionsApiFp(this.configuration).updateEntitlementConnectionsBulkV1(requestParameters.entitlementConnectionBulkUpdateItem, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

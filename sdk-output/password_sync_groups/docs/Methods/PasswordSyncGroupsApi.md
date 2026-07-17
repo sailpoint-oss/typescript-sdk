@@ -65,11 +65,11 @@ This API creates a password sync group based on the specifications provided.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**passwordsyncgroup** | `Passwordsyncgroup` |  | 
+**passwordSyncGroup** | `PasswordSyncGroup` |  | 
 
 ### Return type
 
-`Passwordsyncgroup`
+`PasswordSyncGroup`
 
 ### HTTP request headers
 
@@ -81,12 +81,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordsyncgroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
+import { PasswordSyncGroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);
-const passwordsyncgroup: Passwordsyncgroup = {"name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}; // 
-const result = await apiInstance.createPasswordSyncGroupV1({ passwordsyncgroup: passwordsyncgroup });
+const passwordSyncGroup: PasswordSyncGroup = {
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}; // 
+const result = await apiInstance.createPasswordSyncGroupV1({ passwordSyncGroup: passwordSyncGroup });
 console.log(result);
 ```
 
@@ -144,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Passwordsyncgroup`
+`PasswordSyncGroup`
 
 ### HTTP request headers
 
@@ -183,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Passwordsyncgroup>`
+`Array<PasswordSyncGroup>`
 
 ### HTTP request headers
 
@@ -219,11 +226,11 @@ This API updates the specified password sync group.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of password sync group to update. |  [default to undefined]
-**passwordsyncgroup** | `Passwordsyncgroup` |  | 
+**passwordSyncGroup** | `PasswordSyncGroup` |  | 
 
 ### Return type
 
-`Passwordsyncgroup`
+`PasswordSyncGroup`
 
 ### HTTP request headers
 
@@ -235,13 +242,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Passwordsyncgroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
+import { PasswordSyncGroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);
 const id: string = 6881f631-3bd5-4213-9c75-8e05cc3e35dd; // The ID of password sync group to update.
-const passwordsyncgroup: Passwordsyncgroup = {"id":"6881f631-3bd5-4213-9c75-8e05cc3e35dd","name":"Password Sync Group 2","passwordPolicyId":"2c91808d744ba0ce01746f93b6204501","sourceIds":["2c918084660f45d6016617daa9210584","2c918084660f45d6016617daa9210500"]}; // 
-const result = await apiInstance.updatePasswordSyncGroupV1({ id: id, passwordsyncgroup: passwordsyncgroup });
+const passwordSyncGroup: PasswordSyncGroup = {
+  "created" : "2023-03-16T04:00:00Z",
+  "name" : "Password Sync Group 1",
+  "modified" : "2023-03-16T04:00:00Z",
+  "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
+  "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
+  "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
+}; // 
+const result = await apiInstance.updatePasswordSyncGroupV1({ id: id, passwordSyncGroup: passwordSyncGroup });
 console.log(result);
 ```
 

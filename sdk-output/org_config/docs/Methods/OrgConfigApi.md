@@ -34,7 +34,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Orgconfig`
+`OrgConfig`
 
 ### HTTP request headers
 
@@ -112,11 +112,11 @@ Patch the current organization's configuration, using http://jsonpatch.com/ synt
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type
 
-`Orgconfig`
+`OrgConfig`
 
 ### HTTP request headers
 
@@ -128,12 +128,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { OrgConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/org_config/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/org_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new OrgConfigApi(configuration);
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/timeZone","value":"America/Toronto"}]; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-const result = await apiInstance.patchOrgConfigV1({ jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const result = await apiInstance.patchOrgConfigV1({ jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

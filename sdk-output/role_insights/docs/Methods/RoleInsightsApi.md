@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Roleinsightsresponse`
+`RoleInsightsResponse`
 
 ### HTTP request headers
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Roleinsightsidentities>`
+`Array<RoleInsightsIdentities>`
 
 ### HTTP request headers
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Roleinsight`
+`RoleInsight`
 
 ### HTTP request headers
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Roleinsightsentitlement>`
+`Array<RoleInsightsEntitlement>`
 
 ### HTTP request headers
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Roleinsightsentitlementchanges>`
+`Array<RoleInsightsEntitlementChanges>`
 
 ### HTTP request headers
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Roleinsightsresponse`
+`RoleInsightsResponse`
 
 ### HTTP request headers
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Roleinsightssummary`
+`RoleInsightsSummary`
 
 ### HTTP request headers
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Roleinsight>`
+`Array<RoleInsight>`
 
 ### HTTP request headers
 

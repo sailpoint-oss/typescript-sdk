@@ -15,5 +15,5 @@ tags: ['SDK', 'Software Development Kit', 'Revocability', 'v1Revocability']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**approvalSchemes** | **(optional)** `Array<Accessprofileapprovalscheme>` | List describing the steps involved in approving the revocation request. | [default to undefined]
+**approvalSchemes** | **(optional)** `Array<AccessProfileApprovalScheme>` | List describing the steps involved in approving the revocation request. | [default to undefined]
 

@@ -49,11 +49,11 @@ Creates an identity profile.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identityprofile** | `Identityprofile` |  | 
+**identityProfile** | `IdentityProfile` |  | 
 
 ### Return type
 
-`Identityprofile`
+`IdentityProfile`
 
 ### HTTP request headers
 
@@ -65,12 +65,60 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identityprofile } from 'sailpoint-api-client/dist/identity_profiles/api';
+import { IdentityProfile } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
-const identityprofile: Identityprofile = ; // 
-const result = await apiInstance.createIdentityProfileV1({ identityprofile: identityprofile });
+const identityProfile: IdentityProfile = {
+  "owner" : {
+    "name" : "William Wilson",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "type" : "IDENTITY"
+  },
+  "identityExceptionReportReference" : {
+    "reportName" : "My annual report",
+    "taskResultId" : "2b838de9-db9b-abcf-e646-d4f274ad4238"
+  },
+  "authoritativeSource" : {
+    "name" : "HR Active Directory",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "type" : "SOURCE"
+  },
+  "hasTimeBasedAttr" : true,
+  "created" : "2015-05-28T14:07:17Z",
+  "description" : "My custom flat file profile",
+  "identityRefreshRequired" : true,
+  "identityCount" : 8,
+  "priority" : 10,
+  "identityAttributeConfig" : {
+    "attributeTransforms" : [ {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    }, {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    } ],
+    "enabled" : true
+  },
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "id" : "id12345"
+}; // 
+const result = await apiInstance.createIdentityProfileV1({ identityProfile: identityProfile });
 console.log(result);
 ```
 
@@ -92,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Taskresultsimplified`
+`TaskResultSimplified`
 
 ### HTTP request headers
 
@@ -133,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Taskresultsimplified`
+`TaskResultSimplified`
 
 ### HTTP request headers
 
@@ -174,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identityprofileexportedobject>`
+`Array<IdentityProfileExportedObject>`
 
 ### HTTP request headers
 
@@ -211,11 +259,11 @@ This generates a non-persisted IdentityDetails object that will represent as the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identitypreviewrequest** | `Identitypreviewrequest` | Identity Preview request body. | 
+**identityPreviewRequest** | `IdentityPreviewRequest` | Identity Preview request body. | 
 
 ### Return type
 
-`Identitypreviewresponse`
+`IdentityPreviewResponse`
 
 ### HTTP request headers
 
@@ -227,12 +275,38 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identitypreviewrequest } from 'sailpoint-api-client/dist/identity_profiles/api';
+import { IdentityPreviewRequest } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
-const identitypreviewrequest: Identitypreviewrequest = ; // Identity Preview request body.
-const result = await apiInstance.generateIdentityPreviewV1({ identitypreviewrequest: identitypreviewrequest });
+const identityPreviewRequest: IdentityPreviewRequest = {
+  "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "identityAttributeConfig" : {
+    "attributeTransforms" : [ {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    }, {
+      "transformDefinition" : {
+        "attributes" : {
+          "attributeName" : "e-mail",
+          "sourceName" : "MySource",
+          "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+        },
+        "type" : "accountAttribute"
+      },
+      "identityAttributeName" : "email"
+    } ],
+    "enabled" : true
+  }
+}; // Identity Preview request body.
+const result = await apiInstance.generateIdentityPreviewV1({ identityPreviewRequest: identityPreviewRequest });
 console.log(result);
 ```
 
@@ -253,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identityattributeconfig`
+`IdentityAttributeConfig`
 
 ### HTTP request headers
 
@@ -290,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identityprofile`
+`IdentityProfile`
 
 ### HTTP request headers
 
@@ -323,11 +397,11 @@ This imports previously exported identity profiles.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identityprofileexportedobject** | `Array<Identityprofileexportedobject>` | Previously exported Identity Profiles. | 
+**identityProfileExportedObject** | `Array<IdentityProfileExportedObject>` | Previously exported Identity Profiles. | 
 
 ### Return type
 
-`Objectimportresult`
+`ObjectImportResult`
 
 ### HTTP request headers
 
@@ -339,12 +413,68 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identityprofileexportedobject } from 'sailpoint-api-client/dist/identity_profiles/api';
+import { IdentityProfileExportedObject } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
-const identityprofileexportedobject: Array<Identityprofileexportedobject> = ; // Previously exported Identity Profiles.
-const result = await apiInstance.importIdentityProfilesV1({ identityprofileexportedobject: identityprofileexportedobject });
+const identityProfileExportedObject: Array<IdentityProfileExportedObject> = {
+  "self" : {
+    "name" : "HR Active Directory",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "type" : "SOURCE"
+  },
+  "version" : 1,
+  "object" : {
+    "owner" : {
+      "name" : "William Wilson",
+      "id" : "2c9180835d191a86015d28455b4b232a",
+      "type" : "IDENTITY"
+    },
+    "identityExceptionReportReference" : {
+      "reportName" : "My annual report",
+      "taskResultId" : "2b838de9-db9b-abcf-e646-d4f274ad4238"
+    },
+    "authoritativeSource" : {
+      "name" : "HR Active Directory",
+      "id" : "2c9180835d191a86015d28455b4b232a",
+      "type" : "SOURCE"
+    },
+    "hasTimeBasedAttr" : true,
+    "created" : "2015-05-28T14:07:17Z",
+    "description" : "My custom flat file profile",
+    "identityRefreshRequired" : true,
+    "identityCount" : 8,
+    "priority" : 10,
+    "identityAttributeConfig" : {
+      "attributeTransforms" : [ {
+        "transformDefinition" : {
+          "attributes" : {
+            "attributeName" : "e-mail",
+            "sourceName" : "MySource",
+            "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+          },
+          "type" : "accountAttribute"
+        },
+        "identityAttributeName" : "email"
+      }, {
+        "transformDefinition" : {
+          "attributes" : {
+            "attributeName" : "e-mail",
+            "sourceName" : "MySource",
+            "sourceId" : "2c9180877a826e68017a8c0b03da1a53"
+          },
+          "type" : "accountAttribute"
+        },
+        "identityAttributeName" : "email"
+      } ],
+      "enabled" : true
+    },
+    "name" : "aName",
+    "modified" : "2015-05-28T14:07:17Z",
+    "id" : "id12345"
+  }
+}; // Previously exported Identity Profiles.
+const result = await apiInstance.importIdentityProfilesV1({ identityProfileExportedObject: identityProfileExportedObject });
 console.log(result);
 ```
 
@@ -369,7 +499,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identityprofile>`
+`Array<IdentityProfile>`
 
 ### HTTP request headers
 
@@ -456,11 +586,11 @@ You cannot update these fields:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **identityProfileId** | `string` | Identity profile ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type
 
-`Identityprofile`
+`IdentityProfile`
 
 ### HTTP request headers
 
@@ -472,13 +602,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/identity_profiles/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
 const identityProfileId: string = ef38f94347e94562b5bb8424a56397d8; // Identity profile ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/identityAttributeConfig/attributeTransforms/0","value":{"identityAttributeName":"location","transformDefinition":{"type":"accountAttribute","attributes":{"sourceName":"Employees","attributeName":"location","sourceId":"2c91808878b7d63b0178c66ffcdc4ce4"}}}}]; // List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-const result = await apiInstance.updateIdentityProfileV1({ identityProfileId: identityProfileId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const result = await apiInstance.updateIdentityProfileV1({ identityProfileId: identityProfileId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

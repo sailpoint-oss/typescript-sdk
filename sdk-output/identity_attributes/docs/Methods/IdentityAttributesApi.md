@@ -34,11 +34,11 @@ Use this API to create a new identity attribute.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identityattribute2** | `Identityattribute2` |  | 
+**identityAttribute2** | `IdentityAttribute2` |  | 
 
 ### Return type
 
-`Identityattribute2`
+`IdentityAttribute2`
 
 ### HTTP request headers
 
@@ -50,12 +50,12 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityAttributesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identityattribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
+import { IdentityAttribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
-const identityattribute2: Identityattribute2 = ; // 
-const result = await apiInstance.createIdentityAttributeV1({ identityattribute2: identityattribute2 });
+const identityAttribute2: IdentityAttribute2 = ; // 
+const result = await apiInstance.createIdentityAttributeV1({ identityAttribute2: identityAttribute2 });
 console.log(result);
 ```
 
@@ -109,7 +109,7 @@ Use this API to bulk delete identity attributes for a given set of names. Attrib
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**identityattributenames** | `Identityattributenames` |  | 
+**identityAttributeNames** | `IdentityAttributeNames` |  | 
 
 ### Return type
 
@@ -125,12 +125,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityAttributesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identityattributenames } from 'sailpoint-api-client/dist/identity_attributes/api';
+import { IdentityAttributeNames } from 'sailpoint-api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
-const identityattributenames: Identityattributenames = ; // 
-const result = await apiInstance.deleteIdentityAttributesInBulkV1({ identityattributenames: identityattributenames });
+const identityAttributeNames: IdentityAttributeNames = {
+  "ids" : [ "name", "displayName" ]
+}; // 
+const result = await apiInstance.deleteIdentityAttributesInBulkV1({ identityAttributeNames: identityAttributeNames });
 console.log(result);
 ```
 
@@ -151,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identityattribute2`
+`IdentityAttribute2`
 
 ### HTTP request headers
 
@@ -191,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identityattribute2>`
+`Array<IdentityAttribute2>`
 
 ### HTTP request headers
 
@@ -228,11 +230,11 @@ This updates an existing identity attribute.  Making an attribute searchable req
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | `string` | The attribute\&#39;s technical name. |  [default to undefined]
-**identityattribute2** | `Identityattribute2` |  | 
+**identityAttribute2** | `IdentityAttribute2` |  | 
 
 ### Return type
 
-`Identityattribute2`
+`IdentityAttribute2`
 
 ### HTTP request headers
 
@@ -244,13 +246,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { IdentityAttributesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Identityattribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
+import { IdentityAttribute2 } from 'sailpoint-api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
 const name: string = displayName; // The attribute\&#39;s technical name.
-const identityattribute2: Identityattribute2 = ; // 
-const result = await apiInstance.putIdentityAttributeV1({ name: name, identityattribute2: identityattribute2 });
+const identityAttribute2: IdentityAttribute2 = ; // 
+const result = await apiInstance.putIdentityAttributeV1({ name: name, identityAttribute2: identityAttribute2 });
 console.log(result);
 ```
 

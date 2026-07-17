@@ -1,13 +1,13 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
+CustomPasswordInstruction.md
 CustomPasswordInstructionsApi.md
 CustomPasswordInstructionsApideveloperSite_code_examples.yaml
-Custompasswordinstruction.md
-Errormessagedto.md
-Errorresponsedto.md
+ErrorMessageDto.md
+ErrorResponseDto.md
 Index.md
-Localeorigin.md
+LocaleOrigin.md
 README.md
 api.ts
 base.ts

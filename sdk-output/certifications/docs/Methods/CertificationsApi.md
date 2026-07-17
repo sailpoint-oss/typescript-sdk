@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Certificationtask`
+`CertificationTask`
 
 ### HTTP request headers
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Permissiondto>`
+`Array<PermissionDTO>`
 
 ### HTTP request headers
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identitycertificationdto`
+`IdentityCertificationDto`
 
 ### HTTP request headers
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Certificationtask>`
+`Array<CertificationTask>`
 
 ### HTTP request headers
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identityreferencewithnameandemail>`
+`Array<IdentityReferenceWithNameAndEmail>`
 
 ### HTTP request headers
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessreviewitem>`
+`Array<AccessReviewItem>`
 
 ### HTTP request headers
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Identitycertificationdto>`
+`Array<IdentityCertificationDto>`
 
 ### HTTP request headers
 
@@ -376,11 +376,11 @@ The API makes a decision to approve or revoke one or more identity campaign cert
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the identity campaign certification on which to make decisions |  [default to undefined]
-**reviewdecision** | `Array<Reviewdecision>` | A non-empty array of decisions to be made. | 
+**reviewDecision** | `Array<ReviewDecision>` | A non-empty array of decisions to be made. | 
 
 ### Return type
 
-`Identitycertificationdto`
+`IdentityCertificationDto`
 
 ### HTTP request headers
 
@@ -392,13 +392,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Reviewdecision } from 'sailpoint-api-client/dist/certifications/api';
+import { ReviewDecision } from 'sailpoint-api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The ID of the identity campaign certification on which to make decisions
-const reviewdecision: Array<Reviewdecision> = [{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]; // A non-empty array of decisions to be made.
-const result = await apiInstance.makeIdentityDecisionV1({ id: id, reviewdecision: reviewdecision });
+const reviewDecision: Array<ReviewDecision> = {
+  "comments" : "This user no longer needs access to this source",
+  "decision" : "APPROVE",
+  "proposedEndDate" : "2017-07-11T18:45:37.098Z",
+  "recommendation" : {
+    "reasons" : [ "Reason 1", "Reason 2" ],
+    "recommendation" : "recommendation",
+    "timestamp" : "2020-06-01T13:49:37.385Z"
+  },
+  "id" : "ef38f94347e94562b5bb8424a56397d8",
+  "bulk" : true
+}; // A non-empty array of decisions to be made.
+const result = await apiInstance.makeIdentityDecisionV1({ id: id, reviewDecision: reviewDecision });
 console.log(result);
 ```
 
@@ -416,11 +427,11 @@ This API reassigns up to 50 identities or items in an identity campaign certific
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The identity campaign certification ID |  [default to undefined]
-**reviewreassign** | `Reviewreassign` |  | 
+**reviewReassign** | `ReviewReassign` |  | 
 
 ### Return type
 
-`Identitycertificationdto`
+`IdentityCertificationDto`
 
 ### HTTP request headers
 
@@ -432,13 +443,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Reviewreassign } from 'sailpoint-api-client/dist/certifications/api';
+import { ReviewReassign } from 'sailpoint-api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The identity campaign certification ID
-const reviewreassign: Reviewreassign = ; // 
-const result = await apiInstance.reassignIdentityCertificationsV1({ id: id, reviewreassign: reviewreassign });
+const reviewReassign: ReviewReassign = {
+  "reason" : "reassigned for some reason",
+  "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  }, {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}; // 
+const result = await apiInstance.reassignIdentityCertificationsV1({ id: id, reviewReassign: reviewReassign });
 console.log(result);
 ```
 
@@ -459,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identitycertificationdto`
+`IdentityCertificationDto`
 
 ### HTTP request headers
 
@@ -498,11 +519,11 @@ Reviewers for this certification can also call this API.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The identity campaign certification ID |  [default to undefined]
-**reviewreassign** | `Reviewreassign` |  | 
+**reviewReassign** | `ReviewReassign` |  | 
 
 ### Return type
 
-`Certificationtask`
+`CertificationTask`
 
 ### HTTP request headers
 
@@ -514,13 +535,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Reviewreassign } from 'sailpoint-api-client/dist/certifications/api';
+import { ReviewReassign } from 'sailpoint-api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The identity campaign certification ID
-const reviewreassign: Reviewreassign = ; // 
-const result = await apiInstance.submitReassignCertsAsyncV1({ id: id, reviewreassign: reviewreassign });
+const reviewReassign: ReviewReassign = {
+  "reason" : "reassigned for some reason",
+  "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  }, {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}; // 
+const result = await apiInstance.submitReassignCertsAsyncV1({ id: id, reviewReassign: reviewReassign });
 console.log(result);
 ```
 

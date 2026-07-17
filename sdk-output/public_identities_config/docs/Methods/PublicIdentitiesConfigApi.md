@@ -41,7 +41,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Publicidentityconfig`
+`PublicIdentityConfig`
 
 ### HTTP request headers
 
@@ -73,11 +73,11 @@ Updates the publicly visible attributes of an identity available to request appr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**publicidentityconfig** | `Publicidentityconfig` |  | 
+**publicIdentityConfig** | `PublicIdentityConfig` |  | 
 
 ### Return type
 
-`Publicidentityconfig`
+`PublicIdentityConfig`
 
 ### HTTP request headers
 
@@ -89,12 +89,26 @@ Name | Type | Description  | Notes
 ```typescript
 import { PublicIdentitiesConfigApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Publicidentityconfig } from 'sailpoint-api-client/dist/public_identities_config/api';
+import { PublicIdentityConfig } from 'sailpoint-api-client/dist/public_identities_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new PublicIdentitiesConfigApi(configuration);
-const publicidentityconfig: Publicidentityconfig = ; // 
-const result = await apiInstance.updatePublicIdentityConfigV1({ publicidentityconfig: publicidentityconfig });
+const publicIdentityConfig: PublicIdentityConfig = {
+  "modified" : "2018-06-25T20:22:28.104Z",
+  "attributes" : [ {
+    "name" : "Country",
+    "key" : "country"
+  }, {
+    "name" : "Country",
+    "key" : "country"
+  } ],
+  "modifiedBy" : {
+    "name" : "Thomas Edison",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  }
+}; // 
+const result = await apiInstance.updatePublicIdentityConfigV1({ publicIdentityConfig: publicIdentityConfig });
 console.log(result);
 ```
 

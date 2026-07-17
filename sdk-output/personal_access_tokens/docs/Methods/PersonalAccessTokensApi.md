@@ -51,11 +51,11 @@ The valid values for `expirationDate` depend on the value provided for `userAwar
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**createpersonalaccesstokenrequest** | `Createpersonalaccesstokenrequest` | Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. | 
+**createPersonalAccessTokenRequest** | `CreatePersonalAccessTokenRequest` | Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. | 
 
 ### Return type
 
-`Createpersonalaccesstokenresponse`
+`CreatePersonalAccessTokenResponse`
 
 ### HTTP request headers
 
@@ -67,12 +67,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { PersonalAccessTokensApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Createpersonalaccesstokenrequest } from 'sailpoint-api-client/dist/personal_access_tokens/api';
+import { CreatePersonalAccessTokenRequest } from 'sailpoint-api-client/dist/personal_access_tokens/api';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
-const createpersonalaccesstokenrequest: Createpersonalaccesstokenrequest = ; // Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.
-const result = await apiInstance.createPersonalAccessTokenV1({ createpersonalaccesstokenrequest: createpersonalaccesstokenrequest });
+const createPersonalAccessTokenRequest: CreatePersonalAccessTokenRequest = {
+  "scope" : [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ],
+  "accessTokenValiditySeconds" : 36900,
+  "name" : "NodeJS Integration",
+  "userAwareTokenNeverExpires" : false,
+  "expirationDate" : "2026-12-31T23:59:59.999Z"
+}; // Configuration for creating a personal access token, including name, scope, expiration settings, and user acknowledgment of never-expiring tokens. **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.
+const result = await apiInstance.createPersonalAccessTokenV1({ createPersonalAccessTokenRequest: createPersonalAccessTokenRequest });
 console.log(result);
 ```
 
@@ -131,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Getpersonalaccesstokenresponse>`
+`Array<GetPersonalAccessTokenResponse>`
 
 ### HTTP request headers
 
@@ -175,11 +181,11 @@ When patching `expirationDate` and `userAwareTokenNeverExpires`, the valid value
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The Personal Access Token id |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;.  | 
 
 ### Return type
 
-`Getpersonalaccesstokenresponse`
+`GetPersonalAccessTokenResponse`
 
 ### HTTP request headers
 
@@ -191,13 +197,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { PersonalAccessTokensApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/personal_access_tokens/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/personal_access_tokens/api';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The Personal Access Token id
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"New name"},{"op":"replace","path":"/scope","value":["sp:scopes:all"]},{"op":"replace","path":"/expirationDate","value":"2027-12-31T23:59:59.999Z"}]; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
-const result = await apiInstance.patchPersonalAccessTokenV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between &#x60;expirationDate&#x60; and &#x60;userAwareTokenNeverExpires&#x60;. 
+const result = await apiInstance.patchPersonalAccessTokenV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

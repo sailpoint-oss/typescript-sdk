@@ -26,132 +26,132 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Authorization scheme supported by the transmitter.
  * @export
- * @interface Authorizationscheme
+ * @interface AuthorizationScheme
  */
-export interface Authorizationscheme {
+export interface AuthorizationScheme {
     /**
      * URN describing the authorization specification. OAuth 2.0: `urn:ietf:rfc:6749`; Bearer token: `urn:ietf:rfc:6750`. 
      * @type {string}
-     * @memberof Authorizationscheme
+     * @memberof AuthorizationScheme
      */
     'spec_urn'?: string;
 }
 /**
  * Full delivery configuration. method and endpoint_url are required.
  * @export
- * @interface Createstreamdeliveryrequest
+ * @interface CreateStreamDeliveryRequest
  */
-export interface Createstreamdeliveryrequest {
+export interface CreateStreamDeliveryRequest {
     /**
      * Delivery method (only push is supported).
      * @type {string}
-     * @memberof Createstreamdeliveryrequest
+     * @memberof CreateStreamDeliveryRequest
      */
     'method': string;
     /**
      * Receiver endpoint URL for push delivery.
      * @type {string}
-     * @memberof Createstreamdeliveryrequest
+     * @memberof CreateStreamDeliveryRequest
      */
     'endpoint_url': string;
     /**
      * Authorization header value for delivery requests.
      * @type {string}
-     * @memberof Createstreamdeliveryrequest
+     * @memberof CreateStreamDeliveryRequest
      */
     'authorization_header'?: string;
 }
 /**
  * Request body for POST /ssf/streams (create stream).
  * @export
- * @interface Createstreamrequest
+ * @interface CreateStreamRequest
  */
-export interface Createstreamrequest {
+export interface CreateStreamRequest {
     /**
      * 
-     * @type {Createstreamdeliveryrequest}
-     * @memberof Createstreamrequest
+     * @type {CreateStreamDeliveryRequest}
+     * @memberof CreateStreamRequest
      */
-    'delivery': Createstreamdeliveryrequest;
+    'delivery': CreateStreamDeliveryRequest;
     /**
      * Optional list of event types the receiver wants. Use CAEP event-type URIs in the form: `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session revoke). 
      * @type {Array<string>}
-     * @memberof Createstreamrequest
+     * @memberof CreateStreamRequest
      */
     'events_requested'?: Array<string>;
     /**
      * Optional human-readable description of the stream.
      * @type {string}
-     * @memberof Createstreamrequest
+     * @memberof CreateStreamRequest
      */
     'description'?: string;
 }
 /**
  * Delivery configuration for PATCH /ssf/streams (partial update). All fields are optional; only provided fields are updated.
  * @export
- * @interface Deliveryrequest
+ * @interface DeliveryRequest
  */
-export interface Deliveryrequest {
+export interface DeliveryRequest {
     /**
      * Delivery method (optional for PATCH).
      * @type {string}
-     * @memberof Deliveryrequest
+     * @memberof DeliveryRequest
      */
     'method'?: string;
     /**
      * Receiver endpoint URL (optional for PATCH).
      * @type {string}
-     * @memberof Deliveryrequest
+     * @memberof DeliveryRequest
      */
     'endpoint_url'?: string;
     /**
      * Optional authorization header value.
      * @type {string}
-     * @memberof Deliveryrequest
+     * @memberof DeliveryRequest
      */
     'authorization_header'?: string;
 }
 /**
  * Delivery configuration returned in stream responses.
  * @export
- * @interface Deliveryresponse
+ * @interface DeliveryResponse
  */
-export interface Deliveryresponse {
+export interface DeliveryResponse {
     /**
      * Delivery method.
      * @type {string}
-     * @memberof Deliveryresponse
+     * @memberof DeliveryResponse
      */
     'method'?: string;
     /**
      * Receiver endpoint URL.
      * @type {string}
-     * @memberof Deliveryresponse
+     * @memberof DeliveryResponse
      */
     'endpoint_url'?: string;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -160,33 +160,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -218,63 +218,63 @@ export interface GetSSFConfigurationV1429Response {
  * @type GetStreamV1200Response
  * @export
  */
-export type GetStreamV1200Response = Array<Streamconfigresponse> | Streamconfigresponse;
+export type GetStreamV1200Response = Array<StreamConfigResponse> | StreamConfigResponse;
 
 /**
  * A single JSON Web Key used for verifying signed delivery requests.
  * @export
- * @interface Jwk
+ * @interface JWK
  */
-export interface Jwk {
+export interface JWK {
     /**
      * Algorithm intended for use with the key (e.g. RS256).
      * @type {string}
-     * @memberof Jwk
+     * @memberof JWK
      */
     'alg'?: string;
     /**
      * RSA public exponent (Base64url encoded).
      * @type {string}
-     * @memberof Jwk
+     * @memberof JWK
      */
     'e'?: string;
     /**
      * Key ID - unique identifier for the key.
      * @type {string}
-     * @memberof Jwk
+     * @memberof JWK
      */
     'kid'?: string;
     /**
      * Key type (e.g. RSA).
      * @type {string}
-     * @memberof Jwk
+     * @memberof JWK
      */
     'kty'?: string;
     /**
      * RSA modulus (Base64url encoded).
      * @type {string}
-     * @memberof Jwk
+     * @memberof JWK
      */
     'n'?: string;
     /**
      * Intended use of the key (e.g. sig for signature verification).
      * @type {string}
-     * @memberof Jwk
+     * @memberof JWK
      */
     'use'?: string;
 }
 /**
  * JSON Web Key Set containing the transmitter\'s public keys for verifying signed delivery requests.
  * @export
- * @interface Jwks
+ * @interface JWKS
  */
-export interface Jwks {
+export interface JWKS {
     /**
      * Array of JSON Web Keys.
-     * @type {Array<Jwk>}
-     * @memberof Jwks
+     * @type {Array<JWK>}
+     * @memberof JWKS
      */
-    'keys': Array<Jwk>;
+    'keys': Array<JWK>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -282,380 +282,380 @@ export interface Jwks {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Request body for PUT /ssf/streams (full replace).
  * @export
- * @interface Replacestreamconfigurationrequest
+ * @interface ReplaceStreamConfigurationRequest
  */
-export interface Replacestreamconfigurationrequest {
+export interface ReplaceStreamConfigurationRequest {
     /**
      * ID of the stream to replace.
      * @type {string}
-     * @memberof Replacestreamconfigurationrequest
+     * @memberof ReplaceStreamConfigurationRequest
      */
     'stream_id': string;
     /**
      * 
-     * @type {ReplacestreamconfigurationrequestDelivery}
-     * @memberof Replacestreamconfigurationrequest
+     * @type {ReplaceStreamConfigurationRequestDelivery}
+     * @memberof ReplaceStreamConfigurationRequest
      */
-    'delivery': ReplacestreamconfigurationrequestDelivery;
+    'delivery': ReplaceStreamConfigurationRequestDelivery;
     /**
      * Event types the receiver wants. Use CAEP event-type URIs.
      * @type {Array<string>}
-     * @memberof Replacestreamconfigurationrequest
+     * @memberof ReplaceStreamConfigurationRequest
      */
     'events_requested'?: Array<string>;
     /**
      * Optional human-readable description of the stream.
      * @type {string}
-     * @memberof Replacestreamconfigurationrequest
+     * @memberof ReplaceStreamConfigurationRequest
      */
     'description'?: string;
 }
 /**
  * 
  * @export
- * @interface ReplacestreamconfigurationrequestDelivery
+ * @interface ReplaceStreamConfigurationRequestDelivery
  */
-export interface ReplacestreamconfigurationrequestDelivery {
+export interface ReplaceStreamConfigurationRequestDelivery {
     /**
      * Delivery method (only push is supported).
      * @type {string}
-     * @memberof ReplacestreamconfigurationrequestDelivery
+     * @memberof ReplaceStreamConfigurationRequestDelivery
      */
     'method': string;
     /**
      * Receiver endpoint URL for push delivery.
      * @type {string}
-     * @memberof ReplacestreamconfigurationrequestDelivery
+     * @memberof ReplaceStreamConfigurationRequestDelivery
      */
     'endpoint_url': string;
     /**
      * Authorization header value for delivery requests.
      * @type {string}
-     * @memberof ReplacestreamconfigurationrequestDelivery
+     * @memberof ReplaceStreamConfigurationRequestDelivery
      */
     'authorization_header'?: string;
 }
 /**
  * Full stream configuration returned by create/get/update/replace.
  * @export
- * @interface Streamconfigresponse
+ * @interface StreamConfigResponse
  */
-export interface Streamconfigresponse {
+export interface StreamConfigResponse {
     /**
      * Unique stream identifier.
      * @type {string}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'stream_id'?: string;
     /**
      * Issuer (transmitter) URL.
      * @type {string}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'iss'?: string;
     /**
      * Audience for the stream.
      * @type {string}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'aud'?: string;
     /**
      * 
-     * @type {Deliveryresponse}
-     * @memberof Streamconfigresponse
+     * @type {DeliveryResponse}
+     * @memberof StreamConfigResponse
      */
-    'delivery'?: Deliveryresponse;
+    'delivery'?: DeliveryResponse;
     /**
      * Event types supported by the transmitter. Use CAEP event-type URIs in the form: `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session-revoked). 
      * @type {Array<string>}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'events_supported'?: Array<string>;
     /**
      * Event types requested by the receiver. Use CAEP event-type URIs in the form: `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session revoke). 
      * @type {Array<string>}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'events_requested'?: Array<string>;
     /**
      * Event types currently being delivered (intersection of supported and requested).
      * @type {Array<string>}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'events_delivered'?: Array<string>;
     /**
      * Optional stream description.
      * @type {string}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'description'?: string;
     /**
      * Inactivity timeout in seconds (optional).
      * @type {number}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'inactivity_timeout'?: number;
     /**
      * Minimum verification interval in seconds (optional).
      * @type {number}
-     * @memberof Streamconfigresponse
+     * @memberof StreamConfigResponse
      */
     'min_verification_interval'?: number;
 }
 /**
  * Stream status returned by GET/POST /ssf/streams/status.
  * @export
- * @interface Streamstatusresponse
+ * @interface StreamStatusResponse
  */
-export interface Streamstatusresponse {
+export interface StreamStatusResponse {
     /**
      * Stream identifier.
      * @type {string}
-     * @memberof Streamstatusresponse
+     * @memberof StreamStatusResponse
      */
     'stream_id'?: string;
     /**
      * Operational status of the stream (enabled, paused, or disabled).
      * @type {string}
-     * @memberof Streamstatusresponse
+     * @memberof StreamStatusResponse
      */
-    'status'?: StreamstatusresponseStatusEnum;
+    'status'?: StreamStatusResponseStatusEnum;
     /**
      * Optional reason for the current status (e.g. set when status is updated).
      * @type {string}
-     * @memberof Streamstatusresponse
+     * @memberof StreamStatusResponse
      */
     'reason'?: string;
 }
 
-export const StreamstatusresponseStatusEnum = {
+export const StreamStatusResponseStatusEnum = {
     Enabled: 'enabled',
     Paused: 'paused',
     Disabled: 'disabled'
 } as const;
 
-export type StreamstatusresponseStatusEnum = typeof StreamstatusresponseStatusEnum[keyof typeof StreamstatusresponseStatusEnum];
+export type StreamStatusResponseStatusEnum = typeof StreamStatusResponseStatusEnum[keyof typeof StreamStatusResponseStatusEnum];
 
 /**
  * SSF transmitter discovery metadata per the SSF specification.
  * @export
- * @interface Transmittermetadata
+ * @interface TransmitterMetadata
  */
-export interface Transmittermetadata {
+export interface TransmitterMetadata {
     /**
      * Version of the SSF specification supported.
      * @type {string}
-     * @memberof Transmittermetadata
+     * @memberof TransmitterMetadata
      */
     'spec_version'?: string;
     /**
      * Base URL of the transmitter (issuer).
      * @type {string}
-     * @memberof Transmittermetadata
+     * @memberof TransmitterMetadata
      */
     'issuer'?: string;
     /**
      * URL of the transmitter\'s JSON Web Key Set.
      * @type {string}
-     * @memberof Transmittermetadata
+     * @memberof TransmitterMetadata
      */
     'jwks_uri'?: string;
     /**
      * Supported delivery methods (e.g. push URN).
      * @type {Array<string>}
-     * @memberof Transmittermetadata
+     * @memberof TransmitterMetadata
      */
     'delivery_methods_supported'?: Array<string>;
     /**
      * Endpoint for stream configuration (create, read, update, replace, delete).
      * @type {string}
-     * @memberof Transmittermetadata
+     * @memberof TransmitterMetadata
      */
     'configuration_endpoint'?: string;
     /**
      * Endpoint for reading and updating stream status.
      * @type {string}
-     * @memberof Transmittermetadata
+     * @memberof TransmitterMetadata
      */
     'status_endpoint'?: string;
     /**
      * Endpoint for receiver verification.
      * @type {string}
-     * @memberof Transmittermetadata
+     * @memberof TransmitterMetadata
      */
     'verification_endpoint'?: string;
     /**
      * Supported authorization schemes (e.g. OAuth2, Bearer).
-     * @type {Array<Authorizationscheme>}
-     * @memberof Transmittermetadata
+     * @type {Array<AuthorizationScheme>}
+     * @memberof TransmitterMetadata
      */
-    'authorization_schemes'?: Array<Authorizationscheme>;
+    'authorization_schemes'?: Array<AuthorizationScheme>;
 }
 /**
  * Stream configuration response including updatedAt (for PATCH/PUT). Same JSON shape as GET single stream plus updatedAt.
  * @export
- * @interface Updatestreamconfigresponse
+ * @interface UpdateStreamConfigResponse
  */
-export interface Updatestreamconfigresponse {
+export interface UpdateStreamConfigResponse {
     /**
      * Unique stream identifier.
      * @type {string}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'stream_id'?: string;
     /**
      * Issuer (transmitter) URL.
      * @type {string}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'iss'?: string;
     /**
      * Audience for the stream.
      * @type {string}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'aud'?: string;
     /**
      * 
-     * @type {Deliveryresponse}
-     * @memberof Updatestreamconfigresponse
+     * @type {DeliveryResponse}
+     * @memberof UpdateStreamConfigResponse
      */
-    'delivery'?: Deliveryresponse;
+    'delivery'?: DeliveryResponse;
     /**
      * Event types supported by the transmitter. Use CAEP event-type URIs in the form: `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session-revoked). 
      * @type {Array<string>}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'events_supported'?: Array<string>;
     /**
      * Event types requested by the receiver. Use CAEP event-type URIs in the form: `https://schemas.openid.net/secevent/caep/event-type/{event-type}` (e.g. session revoke). 
      * @type {Array<string>}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'events_requested'?: Array<string>;
     /**
      * Event types currently being delivered (intersection of supported and requested).
      * @type {Array<string>}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'events_delivered'?: Array<string>;
     /**
      * Optional stream description.
      * @type {string}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'description'?: string;
     /**
      * Inactivity timeout in seconds (optional).
      * @type {number}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'inactivity_timeout'?: number;
     /**
      * Minimum verification interval in seconds (optional).
      * @type {number}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'min_verification_interval'?: number;
     /**
      * Timestamp of the last configuration update.
      * @type {string}
-     * @memberof Updatestreamconfigresponse
+     * @memberof UpdateStreamConfigResponse
      */
     'updatedAt'?: string;
 }
 /**
  * Request body for PATCH /ssf/streams (partial update).
  * @export
- * @interface Updatestreamconfigurationrequest
+ * @interface UpdateStreamConfigurationRequest
  */
-export interface Updatestreamconfigurationrequest {
+export interface UpdateStreamConfigurationRequest {
     /**
      * ID of the stream to update.
      * @type {string}
-     * @memberof Updatestreamconfigurationrequest
+     * @memberof UpdateStreamConfigurationRequest
      */
     'stream_id': string;
     /**
      * 
-     * @type {Deliveryrequest}
-     * @memberof Updatestreamconfigurationrequest
+     * @type {DeliveryRequest}
+     * @memberof UpdateStreamConfigurationRequest
      */
-    'delivery'?: Deliveryrequest;
+    'delivery'?: DeliveryRequest;
     /**
      * Event types the receiver wants. Use CAEP event-type URIs.
      * @type {Array<string>}
-     * @memberof Updatestreamconfigurationrequest
+     * @memberof UpdateStreamConfigurationRequest
      */
     'events_requested'?: Array<string>;
     /**
      * Optional human-readable description of the stream.
      * @type {string}
-     * @memberof Updatestreamconfigurationrequest
+     * @memberof UpdateStreamConfigurationRequest
      */
     'description'?: string;
 }
 /**
  * Request body for POST /ssf/streams/status.
  * @export
- * @interface Updatestreamstatusrequest
+ * @interface UpdateStreamStatusRequest
  */
-export interface Updatestreamstatusrequest {
+export interface UpdateStreamStatusRequest {
     /**
      * ID of the stream whose status to update.
      * @type {string}
-     * @memberof Updatestreamstatusrequest
+     * @memberof UpdateStreamStatusRequest
      */
     'stream_id': string;
     /**
      * Desired stream status.
      * @type {string}
-     * @memberof Updatestreamstatusrequest
+     * @memberof UpdateStreamStatusRequest
      */
-    'status': UpdatestreamstatusrequestStatusEnum;
+    'status': UpdateStreamStatusRequestStatusEnum;
     /**
      * Optional reason for the status change.
      * @type {string}
-     * @memberof Updatestreamstatusrequest
+     * @memberof UpdateStreamStatusRequest
      */
     'reason'?: string;
 }
 
-export const UpdatestreamstatusrequestStatusEnum = {
+export const UpdateStreamStatusRequestStatusEnum = {
     Enabled: 'enabled',
     Paused: 'paused',
     Disabled: 'disabled'
 } as const;
 
-export type UpdatestreamstatusrequestStatusEnum = typeof UpdatestreamstatusrequestStatusEnum[keyof typeof UpdatestreamstatusrequestStatusEnum];
+export type UpdateStreamStatusRequestStatusEnum = typeof UpdateStreamStatusRequestStatusEnum[keyof typeof UpdateStreamStatusRequestStatusEnum];
 
 /**
  * Request body for POST /ssf/streams/verify (receiver verification).
  * @export
- * @interface Verificationrequest
+ * @interface VerificationRequest
  */
-export interface Verificationrequest {
+export interface VerificationRequest {
     /**
      * Stream ID for verification.
      * @type {string}
-     * @memberof Verificationrequest
+     * @memberof VerificationRequest
      */
     'stream_id': string;
     /**
      * Optional state value for verification challenge.
      * @type {string}
-     * @memberof Verificationrequest
+     * @memberof VerificationRequest
      */
     'state'?: string;
 }
@@ -669,13 +669,13 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
         /**
          * An SSF stream is associated with the client ID of the OAuth 2.0 access token used to create the stream. One SSF stream is allowed for each client ID.  You can create a maximum of 10 SSF stream configurations for one org. 
          * @summary Create stream
-         * @param {Createstreamrequest} createstreamrequest 
+         * @param {CreateStreamRequest} createStreamRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createStreamV1: async (createstreamrequest: Createstreamrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createstreamrequest' is not null or undefined
-            assertParamExists('createStreamV1', 'createstreamrequest', createstreamrequest)
+        createStreamV1: async (createStreamRequest: CreateStreamRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createStreamRequest' is not null or undefined
+            assertParamExists('createStreamV1', 'createStreamRequest', createStreamRequest)
             const localVarPath = `/ssf/v1/streams`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -695,7 +695,7 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createstreamrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createStreamRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -874,13 +874,13 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
         /**
          * Verifies an SSF stream by publishing a verification event requested by a security events provider.
          * @summary Verify stream
-         * @param {Verificationrequest} verificationrequest 
+         * @param {VerificationRequest} verificationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendStreamVerificationV1: async (verificationrequest: Verificationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'verificationrequest' is not null or undefined
-            assertParamExists('sendStreamVerificationV1', 'verificationrequest', verificationrequest)
+        sendStreamVerificationV1: async (verificationRequest: VerificationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'verificationRequest' is not null or undefined
+            assertParamExists('sendStreamVerificationV1', 'verificationRequest', verificationRequest)
             const localVarPath = `/ssf/v1/streams/verify`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -900,7 +900,7 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(verificationrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(verificationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -910,13 +910,13 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
         /**
          * Replaces a stream\'s configuration (PUT). stream_id and delivery are required; full receiver-supplied properties.  The associated stream with the client ID (through the request OAuth 2.0 access token) is replaced. 
          * @summary Replace stream configuration
-         * @param {Replacestreamconfigurationrequest} replacestreamconfigurationrequest 
+         * @param {ReplaceStreamConfigurationRequest} replaceStreamConfigurationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setStreamConfigurationV1: async (replacestreamconfigurationrequest: Replacestreamconfigurationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'replacestreamconfigurationrequest' is not null or undefined
-            assertParamExists('setStreamConfigurationV1', 'replacestreamconfigurationrequest', replacestreamconfigurationrequest)
+        setStreamConfigurationV1: async (replaceStreamConfigurationRequest: ReplaceStreamConfigurationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'replaceStreamConfigurationRequest' is not null or undefined
+            assertParamExists('setStreamConfigurationV1', 'replaceStreamConfigurationRequest', replaceStreamConfigurationRequest)
             const localVarPath = `/ssf/v1/streams`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -936,7 +936,7 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(replacestreamconfigurationrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(replaceStreamConfigurationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -946,13 +946,13 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
         /**
          * Partially updates a stream\'s configuration (PATCH). Only provided fields are updated.  The associated stream with the client ID (through the request OAuth 2.0 access token) is updated. 
          * @summary Update stream configuration
-         * @param {Updatestreamconfigurationrequest} updatestreamconfigurationrequest 
+         * @param {UpdateStreamConfigurationRequest} updateStreamConfigurationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateStreamConfigurationV1: async (updatestreamconfigurationrequest: Updatestreamconfigurationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'updatestreamconfigurationrequest' is not null or undefined
-            assertParamExists('updateStreamConfigurationV1', 'updatestreamconfigurationrequest', updatestreamconfigurationrequest)
+        updateStreamConfigurationV1: async (updateStreamConfigurationRequest: UpdateStreamConfigurationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'updateStreamConfigurationRequest' is not null or undefined
+            assertParamExists('updateStreamConfigurationV1', 'updateStreamConfigurationRequest', updateStreamConfigurationRequest)
             const localVarPath = `/ssf/v1/streams`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -972,7 +972,7 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updatestreamconfigurationrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateStreamConfigurationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -982,13 +982,13 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
         /**
          * Updates the operational status (enabled, paused, disabled) with an optional reason for the stream associated with the client ID of the request\'s OAuth 2.0 access token.
          * @summary Update stream status
-         * @param {Updatestreamstatusrequest} updatestreamstatusrequest 
+         * @param {UpdateStreamStatusRequest} updateStreamStatusRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateStreamStatusV1: async (updatestreamstatusrequest: Updatestreamstatusrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'updatestreamstatusrequest' is not null or undefined
-            assertParamExists('updateStreamStatusV1', 'updatestreamstatusrequest', updatestreamstatusrequest)
+        updateStreamStatusV1: async (updateStreamStatusRequest: UpdateStreamStatusRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'updateStreamStatusRequest' is not null or undefined
+            assertParamExists('updateStreamStatusV1', 'updateStreamStatusRequest', updateStreamStatusRequest)
             const localVarPath = `/ssf/v1/streams/status`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1008,7 +1008,7 @@ export const SharedSignalsFrameworkSSFApiAxiosParamCreator = function (configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updatestreamstatusrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateStreamStatusRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1028,12 +1028,12 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
         /**
          * An SSF stream is associated with the client ID of the OAuth 2.0 access token used to create the stream. One SSF stream is allowed for each client ID.  You can create a maximum of 10 SSF stream configurations for one org. 
          * @summary Create stream
-         * @param {Createstreamrequest} createstreamrequest 
+         * @param {CreateStreamRequest} createStreamRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createStreamV1(createstreamrequest: Createstreamrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Streamconfigresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createStreamV1(createstreamrequest, axiosOptions);
+        async createStreamV1(createStreamRequest: CreateStreamRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StreamConfigResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createStreamV1(createStreamRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.createStreamV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1057,7 +1057,7 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getJWKSDataV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Jwks>> {
+        async getJWKSDataV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JWKS>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getJWKSDataV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.getJWKSDataV1']?.[localVarOperationServerIndex]?.url;
@@ -1069,7 +1069,7 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSSFConfigurationV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transmittermetadata>> {
+        async getSSFConfigurationV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransmitterMetadata>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSSFConfigurationV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.getSSFConfigurationV1']?.[localVarOperationServerIndex]?.url;
@@ -1082,7 +1082,7 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStreamStatusV1(streamId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Streamstatusresponse>> {
+        async getStreamStatusV1(streamId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StreamStatusResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStreamStatusV1(streamId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.getStreamStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -1104,12 +1104,12 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
         /**
          * Verifies an SSF stream by publishing a verification event requested by a security events provider.
          * @summary Verify stream
-         * @param {Verificationrequest} verificationrequest 
+         * @param {VerificationRequest} verificationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendStreamVerificationV1(verificationrequest: Verificationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendStreamVerificationV1(verificationrequest, axiosOptions);
+        async sendStreamVerificationV1(verificationRequest: VerificationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendStreamVerificationV1(verificationRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.sendStreamVerificationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1117,12 +1117,12 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
         /**
          * Replaces a stream\'s configuration (PUT). stream_id and delivery are required; full receiver-supplied properties.  The associated stream with the client ID (through the request OAuth 2.0 access token) is replaced. 
          * @summary Replace stream configuration
-         * @param {Replacestreamconfigurationrequest} replacestreamconfigurationrequest 
+         * @param {ReplaceStreamConfigurationRequest} replaceStreamConfigurationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setStreamConfigurationV1(replacestreamconfigurationrequest: Replacestreamconfigurationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatestreamconfigresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setStreamConfigurationV1(replacestreamconfigurationrequest, axiosOptions);
+        async setStreamConfigurationV1(replaceStreamConfigurationRequest: ReplaceStreamConfigurationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateStreamConfigResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setStreamConfigurationV1(replaceStreamConfigurationRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.setStreamConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1130,12 +1130,12 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
         /**
          * Partially updates a stream\'s configuration (PATCH). Only provided fields are updated.  The associated stream with the client ID (through the request OAuth 2.0 access token) is updated. 
          * @summary Update stream configuration
-         * @param {Updatestreamconfigurationrequest} updatestreamconfigurationrequest 
+         * @param {UpdateStreamConfigurationRequest} updateStreamConfigurationRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateStreamConfigurationV1(updatestreamconfigurationrequest: Updatestreamconfigurationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Updatestreamconfigresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStreamConfigurationV1(updatestreamconfigurationrequest, axiosOptions);
+        async updateStreamConfigurationV1(updateStreamConfigurationRequest: UpdateStreamConfigurationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateStreamConfigResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStreamConfigurationV1(updateStreamConfigurationRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.updateStreamConfigurationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1143,12 +1143,12 @@ export const SharedSignalsFrameworkSSFApiFp = function(configuration?: Configura
         /**
          * Updates the operational status (enabled, paused, disabled) with an optional reason for the stream associated with the client ID of the request\'s OAuth 2.0 access token.
          * @summary Update stream status
-         * @param {Updatestreamstatusrequest} updatestreamstatusrequest 
+         * @param {UpdateStreamStatusRequest} updateStreamStatusRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateStreamStatusV1(updatestreamstatusrequest: Updatestreamstatusrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Streamstatusresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStreamStatusV1(updatestreamstatusrequest, axiosOptions);
+        async updateStreamStatusV1(updateStreamStatusRequest: UpdateStreamStatusRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StreamStatusResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStreamStatusV1(updateStreamStatusRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SharedSignalsFrameworkSSFApi.updateStreamStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1170,8 +1170,8 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createStreamV1(requestParameters: SharedSignalsFrameworkSSFApiCreateStreamV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Streamconfigresponse> {
-            return localVarFp.createStreamV1(requestParameters.createstreamrequest, axiosOptions).then((request) => request(axios, basePath));
+        createStreamV1(requestParameters: SharedSignalsFrameworkSSFApiCreateStreamV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StreamConfigResponse> {
+            return localVarFp.createStreamV1(requestParameters.createStreamRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes a stream by its ID. There is no request body; the stream is identified by the required query parameter `stream_id`. On success the response has no body (204 No Content).  The associated stream with the client ID (through the request OAuth 2.0 access token) is deleted. 
@@ -1189,7 +1189,7 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getJWKSDataV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Jwks> {
+        getJWKSDataV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JWKS> {
             return localVarFp.getJWKSDataV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1198,7 +1198,7 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSSFConfigurationV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Transmittermetadata> {
+        getSSFConfigurationV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TransmitterMetadata> {
             return localVarFp.getSSFConfigurationV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1208,7 +1208,7 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getStreamStatusV1(requestParameters: SharedSignalsFrameworkSSFApiGetStreamStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Streamstatusresponse> {
+        getStreamStatusV1(requestParameters: SharedSignalsFrameworkSSFApiGetStreamStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StreamStatusResponse> {
             return localVarFp.getStreamStatusV1(requestParameters.streamId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1229,7 +1229,7 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @throws {RequiredError}
          */
         sendStreamVerificationV1(requestParameters: SharedSignalsFrameworkSSFApiSendStreamVerificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.sendStreamVerificationV1(requestParameters.verificationrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.sendStreamVerificationV1(requestParameters.verificationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces a stream\'s configuration (PUT). stream_id and delivery are required; full receiver-supplied properties.  The associated stream with the client ID (through the request OAuth 2.0 access token) is replaced. 
@@ -1238,8 +1238,8 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setStreamConfigurationV1(requestParameters: SharedSignalsFrameworkSSFApiSetStreamConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatestreamconfigresponse> {
-            return localVarFp.setStreamConfigurationV1(requestParameters.replacestreamconfigurationrequest, axiosOptions).then((request) => request(axios, basePath));
+        setStreamConfigurationV1(requestParameters: SharedSignalsFrameworkSSFApiSetStreamConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdateStreamConfigResponse> {
+            return localVarFp.setStreamConfigurationV1(requestParameters.replaceStreamConfigurationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Partially updates a stream\'s configuration (PATCH). Only provided fields are updated.  The associated stream with the client ID (through the request OAuth 2.0 access token) is updated. 
@@ -1248,8 +1248,8 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateStreamConfigurationV1(requestParameters: SharedSignalsFrameworkSSFApiUpdateStreamConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Updatestreamconfigresponse> {
-            return localVarFp.updateStreamConfigurationV1(requestParameters.updatestreamconfigurationrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateStreamConfigurationV1(requestParameters: SharedSignalsFrameworkSSFApiUpdateStreamConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UpdateStreamConfigResponse> {
+            return localVarFp.updateStreamConfigurationV1(requestParameters.updateStreamConfigurationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates the operational status (enabled, paused, disabled) with an optional reason for the stream associated with the client ID of the request\'s OAuth 2.0 access token.
@@ -1258,8 +1258,8 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateStreamStatusV1(requestParameters: SharedSignalsFrameworkSSFApiUpdateStreamStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Streamstatusresponse> {
-            return localVarFp.updateStreamStatusV1(requestParameters.updatestreamstatusrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateStreamStatusV1(requestParameters: SharedSignalsFrameworkSSFApiUpdateStreamStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<StreamStatusResponse> {
+            return localVarFp.updateStreamStatusV1(requestParameters.updateStreamStatusRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1272,10 +1272,10 @@ export const SharedSignalsFrameworkSSFApiFactory = function (configuration?: Con
 export interface SharedSignalsFrameworkSSFApiCreateStreamV1Request {
     /**
      * 
-     * @type {Createstreamrequest}
+     * @type {CreateStreamRequest}
      * @memberof SharedSignalsFrameworkSSFApiCreateStreamV1
      */
-    readonly createstreamrequest: Createstreamrequest
+    readonly createStreamRequest: CreateStreamRequest
 }
 
 /**
@@ -1328,10 +1328,10 @@ export interface SharedSignalsFrameworkSSFApiGetStreamV1Request {
 export interface SharedSignalsFrameworkSSFApiSendStreamVerificationV1Request {
     /**
      * 
-     * @type {Verificationrequest}
+     * @type {VerificationRequest}
      * @memberof SharedSignalsFrameworkSSFApiSendStreamVerificationV1
      */
-    readonly verificationrequest: Verificationrequest
+    readonly verificationRequest: VerificationRequest
 }
 
 /**
@@ -1342,10 +1342,10 @@ export interface SharedSignalsFrameworkSSFApiSendStreamVerificationV1Request {
 export interface SharedSignalsFrameworkSSFApiSetStreamConfigurationV1Request {
     /**
      * 
-     * @type {Replacestreamconfigurationrequest}
+     * @type {ReplaceStreamConfigurationRequest}
      * @memberof SharedSignalsFrameworkSSFApiSetStreamConfigurationV1
      */
-    readonly replacestreamconfigurationrequest: Replacestreamconfigurationrequest
+    readonly replaceStreamConfigurationRequest: ReplaceStreamConfigurationRequest
 }
 
 /**
@@ -1356,10 +1356,10 @@ export interface SharedSignalsFrameworkSSFApiSetStreamConfigurationV1Request {
 export interface SharedSignalsFrameworkSSFApiUpdateStreamConfigurationV1Request {
     /**
      * 
-     * @type {Updatestreamconfigurationrequest}
+     * @type {UpdateStreamConfigurationRequest}
      * @memberof SharedSignalsFrameworkSSFApiUpdateStreamConfigurationV1
      */
-    readonly updatestreamconfigurationrequest: Updatestreamconfigurationrequest
+    readonly updateStreamConfigurationRequest: UpdateStreamConfigurationRequest
 }
 
 /**
@@ -1370,10 +1370,10 @@ export interface SharedSignalsFrameworkSSFApiUpdateStreamConfigurationV1Request 
 export interface SharedSignalsFrameworkSSFApiUpdateStreamStatusV1Request {
     /**
      * 
-     * @type {Updatestreamstatusrequest}
+     * @type {UpdateStreamStatusRequest}
      * @memberof SharedSignalsFrameworkSSFApiUpdateStreamStatusV1
      */
-    readonly updatestreamstatusrequest: Updatestreamstatusrequest
+    readonly updateStreamStatusRequest: UpdateStreamStatusRequest
 }
 
 /**
@@ -1392,7 +1392,7 @@ export class SharedSignalsFrameworkSSFApi extends BaseAPI {
      * @memberof SharedSignalsFrameworkSSFApi
      */
     public createStreamV1(requestParameters: SharedSignalsFrameworkSSFApiCreateStreamV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SharedSignalsFrameworkSSFApiFp(this.configuration).createStreamV1(requestParameters.createstreamrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SharedSignalsFrameworkSSFApiFp(this.configuration).createStreamV1(requestParameters.createStreamRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1462,7 +1462,7 @@ export class SharedSignalsFrameworkSSFApi extends BaseAPI {
      * @memberof SharedSignalsFrameworkSSFApi
      */
     public sendStreamVerificationV1(requestParameters: SharedSignalsFrameworkSSFApiSendStreamVerificationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SharedSignalsFrameworkSSFApiFp(this.configuration).sendStreamVerificationV1(requestParameters.verificationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SharedSignalsFrameworkSSFApiFp(this.configuration).sendStreamVerificationV1(requestParameters.verificationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1474,7 +1474,7 @@ export class SharedSignalsFrameworkSSFApi extends BaseAPI {
      * @memberof SharedSignalsFrameworkSSFApi
      */
     public setStreamConfigurationV1(requestParameters: SharedSignalsFrameworkSSFApiSetStreamConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SharedSignalsFrameworkSSFApiFp(this.configuration).setStreamConfigurationV1(requestParameters.replacestreamconfigurationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SharedSignalsFrameworkSSFApiFp(this.configuration).setStreamConfigurationV1(requestParameters.replaceStreamConfigurationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1486,7 +1486,7 @@ export class SharedSignalsFrameworkSSFApi extends BaseAPI {
      * @memberof SharedSignalsFrameworkSSFApi
      */
     public updateStreamConfigurationV1(requestParameters: SharedSignalsFrameworkSSFApiUpdateStreamConfigurationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SharedSignalsFrameworkSSFApiFp(this.configuration).updateStreamConfigurationV1(requestParameters.updatestreamconfigurationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SharedSignalsFrameworkSSFApiFp(this.configuration).updateStreamConfigurationV1(requestParameters.updateStreamConfigurationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1498,7 +1498,7 @@ export class SharedSignalsFrameworkSSFApi extends BaseAPI {
      * @memberof SharedSignalsFrameworkSSFApi
      */
     public updateStreamStatusV1(requestParameters: SharedSignalsFrameworkSSFApiUpdateStreamStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SharedSignalsFrameworkSSFApiFp(this.configuration).updateStreamStatusV1(requestParameters.updatestreamstatusrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SharedSignalsFrameworkSSFApiFp(this.configuration).updateStreamStatusV1(requestParameters.updateStreamStatusRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1,0 +1,27 @@
+---
+id: v1-connector-rule-response
+title: ConnectorRuleResponse
+pagination_label: ConnectorRuleResponse
+sidebar_label: ConnectorRuleResponse
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'ConnectorRuleResponse', 'v1ConnectorRuleResponse']
+slug: /tools/sdk/typescript/connector_rule_management/models/connector-rule-response
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleResponse', 'v1ConnectorRuleResponse']
+---
+
+# ConnectorRuleResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | `string` | the name of the rule | [default to undefined]
+**description** | **(optional)** `string` | a description of the rule\'s purpose | [default to undefined]
+**type** | `string` | the type of rule | [default to undefined]
+**signature** | **(optional)** `ConnectorRuleCreateRequestSignature` |  | [default to undefined]
+**sourceCode** | `SourceCode` |  | [default to undefined]
+**attributes** | **(optional)** `object` | a map of string to objects | [default to undefined]
+**id** | `string` | the ID of the rule | [default to undefined]
+**created** | `string` | an ISO 8601 UTC timestamp when this rule was created | [default to undefined]
+**modified** | **(optional)** `string` | an ISO 8601 UTC timestamp when this rule was last modified | [default to undefined]
+

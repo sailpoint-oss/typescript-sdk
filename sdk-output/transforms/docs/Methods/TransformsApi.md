@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Transformread`
+`TransformRead`
 
 ### HTTP request headers
 
@@ -58,7 +58,11 @@ import { Transform } from 'sailpoint-api-client/dist/transforms/api';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);
-const transform: Transform = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM dd yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // The transform to be created.
+const transform: Transform = {
+  "name" : "Timestamp To Date",
+  "attributes" : "{}",
+  "type" : "dateFormat"
+}; // The transform to be created.
 const result = await apiInstance.createTransformV1({ transform: transform });
 console.log(result);
 ```
@@ -117,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Transformread`
+`TransformRead`
 
 ### HTTP request headers
 
@@ -158,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Transformread>`
+`Array<TransformRead>`
 
 ### HTTP request headers
 
@@ -200,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Transformread`
+`TransformRead`
 
 ### HTTP request headers
 
@@ -217,7 +221,11 @@ import { Transform } from 'sailpoint-api-client/dist/transforms/api';
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);
 const id: string = 2cd78adghjkja34jh2b1hkjhasuecd; // ID of the transform to update
-const transform: Transform = {"name":"Timestamp To Date","type":"dateFormat","attributes":{"inputFormat":"MMM-dd-yyyy, HH:mm:ss.SSS","outputFormat":"yyyy/dd/MM"}}; // The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified. (optional)
+const transform: Transform = {
+  "name" : "Timestamp To Date",
+  "attributes" : "{}",
+  "type" : "dateFormat"
+}; // The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified. (optional)
 const result = await apiInstance.updateTransformV1({ id: id });
 console.log(result);
 ```

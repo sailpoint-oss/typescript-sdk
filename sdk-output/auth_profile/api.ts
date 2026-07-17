@@ -33,103 +33,103 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Authprofile
+ * @interface AuthProfile
  */
-export interface Authprofile {
+export interface AuthProfile {
     /**
      * Authentication Profile name.
      * @type {string}
-     * @memberof Authprofile
+     * @memberof AuthProfile
      */
     'name'?: string;
     /**
      * Use it to block access from off network.
      * @type {boolean}
-     * @memberof Authprofile
+     * @memberof AuthProfile
      */
     'offNetwork'?: boolean;
     /**
      * Use it to block access from untrusted geoographies.
      * @type {boolean}
-     * @memberof Authprofile
+     * @memberof AuthProfile
      */
     'untrustedGeography'?: boolean;
     /**
      * Application ID.
      * @type {string}
-     * @memberof Authprofile
+     * @memberof AuthProfile
      */
     'applicationId'?: string | null;
     /**
      * Application name.
      * @type {string}
-     * @memberof Authprofile
+     * @memberof AuthProfile
      */
     'applicationName'?: string | null;
     /**
      * Type of the Authentication Profile.
      * @type {string}
-     * @memberof Authprofile
+     * @memberof AuthProfile
      */
-    'type'?: AuthprofileTypeEnum;
+    'type'?: AuthProfileTypeEnum;
     /**
      * Use it to enable strong authentication.
      * @type {boolean}
-     * @memberof Authprofile
+     * @memberof AuthProfile
      */
     'strongAuthLogin'?: boolean;
 }
 
-export const AuthprofileTypeEnum = {
+export const AuthProfileTypeEnum = {
     Block: 'BLOCK',
     Mfa: 'MFA',
     NonPta: 'NON_PTA',
     Pta: 'PTA'
 } as const;
 
-export type AuthprofileTypeEnum = typeof AuthprofileTypeEnum[keyof typeof AuthprofileTypeEnum];
+export type AuthProfileTypeEnum = typeof AuthProfileTypeEnum[keyof typeof AuthProfileTypeEnum];
 
 /**
  * 
  * @export
- * @interface Authprofilesummary
+ * @interface AuthProfileSummary
  */
-export interface Authprofilesummary {
+export interface AuthProfileSummary {
     /**
      * Tenant name.
      * @type {string}
-     * @memberof Authprofilesummary
+     * @memberof AuthProfileSummary
      */
     'tenant'?: string;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof Authprofilesummary
+     * @memberof AuthProfileSummary
      */
     'id'?: string;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -138,33 +138,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -195,30 +195,30 @@ export interface GetProfileConfigListV1429Response {
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -227,14 +227,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -242,12 +242,12 @@ export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | obj
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -341,16 +341,16 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
          * This API updates an existing Auth Profile. The following fields are patchable: **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
          * @summary Patch a specified auth profile
          * @param {string} id ID of the Auth Profile to patch.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchProfileConfigV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchProfileConfigV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchProfileConfigV1', 'id', id)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchProfileConfigV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchProfileConfigV1', 'jsonPatchOperation', jsonPatchOperation)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -378,7 +378,7 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -402,7 +402,7 @@ export const AuthProfileApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getProfileConfigListV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Authprofilesummary>>> {
+        async getProfileConfigListV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthProfileSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProfileConfigListV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AuthProfileApi.getProfileConfigListV1']?.[localVarOperationServerIndex]?.url;
@@ -416,7 +416,7 @@ export const AuthProfileApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getProfileConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Authprofile>> {
+        async getProfileConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthProfile>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProfileConfigV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AuthProfileApi.getProfileConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -426,13 +426,13 @@ export const AuthProfileApiFp = function(configuration?: Configuration) {
          * This API updates an existing Auth Profile. The following fields are patchable: **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
          * @summary Patch a specified auth profile
          * @param {string} id ID of the Auth Profile to patch.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchProfileConfigV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Authprofile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchProfileConfigV1(id, jsonpatchoperation, xSailPointExperimental, axiosOptions);
+        async patchProfileConfigV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchProfileConfigV1(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AuthProfileApi.patchProfileConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -454,7 +454,7 @@ export const AuthProfileApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getProfileConfigListV1(requestParameters: AuthProfileApiGetProfileConfigListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Authprofilesummary>> {
+        getProfileConfigListV1(requestParameters: AuthProfileApiGetProfileConfigListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AuthProfileSummary>> {
             return localVarFp.getProfileConfigListV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -464,7 +464,7 @@ export const AuthProfileApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getProfileConfigV1(requestParameters: AuthProfileApiGetProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Authprofile> {
+        getProfileConfigV1(requestParameters: AuthProfileApiGetProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AuthProfile> {
             return localVarFp.getProfileConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -474,8 +474,8 @@ export const AuthProfileApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchProfileConfigV1(requestParameters: AuthProfileApiPatchProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Authprofile> {
-            return localVarFp.patchProfileConfigV1(requestParameters.id, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        patchProfileConfigV1(requestParameters: AuthProfileApiPatchProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AuthProfile> {
+            return localVarFp.patchProfileConfigV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -530,10 +530,10 @@ export interface AuthProfileApiPatchProfileConfigV1Request {
 
     /**
      * 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof AuthProfileApiPatchProfileConfigV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 
     /**
      * Use this header to enable this experimental API.
@@ -583,7 +583,7 @@ export class AuthProfileApi extends BaseAPI {
      * @memberof AuthProfileApi
      */
     public patchProfileConfigV1(requestParameters: AuthProfileApiPatchProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AuthProfileApiFp(this.configuration).patchProfileConfigV1(requestParameters.id, requestParameters.jsonpatchoperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AuthProfileApiFp(this.configuration).patchProfileConfigV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

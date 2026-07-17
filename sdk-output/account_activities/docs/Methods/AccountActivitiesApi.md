@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accountactivity`
+`AccountActivity`
 
 ### HTTP request headers
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accountactivity>`
+`Array<AccountActivity>`
 
 ### HTTP request headers
 

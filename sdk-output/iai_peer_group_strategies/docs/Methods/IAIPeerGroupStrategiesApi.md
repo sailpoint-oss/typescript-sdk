@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Peergroupmember>`
+`Array<PeerGroupMember>`
 
 ### HTTP request headers
 

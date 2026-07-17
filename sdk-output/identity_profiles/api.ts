@@ -33,56 +33,56 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Basecommondto
+ * @interface BaseCommonDto
  */
-export interface Basecommondto {
+export interface BaseCommonDto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -91,393 +91,393 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
  * @export
- * @interface Identityattributeconfig
+ * @interface IdentityAttributeConfig
  */
-export interface Identityattributeconfig {
+export interface IdentityAttributeConfig {
     /**
      * Backend will only promote values if the profile/mapping is enabled.
      * @type {boolean}
-     * @memberof Identityattributeconfig
+     * @memberof IdentityAttributeConfig
      */
     'enabled'?: boolean;
     /**
      * 
-     * @type {Array<Identityattributetransform>}
-     * @memberof Identityattributeconfig
+     * @type {Array<IdentityAttributeTransform>}
+     * @memberof IdentityAttributeConfig
      */
-    'attributeTransforms'?: Array<Identityattributetransform>;
+    'attributeTransforms'?: Array<IdentityAttributeTransform>;
 }
 /**
  * 
  * @export
- * @interface Identityattributepreview
+ * @interface IdentityAttributePreview
  */
-export interface Identityattributepreview {
+export interface IdentityAttributePreview {
     /**
      * Name of the attribute that is being previewed.
      * @type {string}
-     * @memberof Identityattributepreview
+     * @memberof IdentityAttributePreview
      */
     'name'?: string;
     /**
      * Value that was derived during the preview.
      * @type {string}
-     * @memberof Identityattributepreview
+     * @memberof IdentityAttributePreview
      */
     'value'?: string;
     /**
      * The value of the attribute before the preview.
      * @type {string}
-     * @memberof Identityattributepreview
+     * @memberof IdentityAttributePreview
      */
     'previousValue'?: string;
     /**
      * List of error messages
-     * @type {Array<Errormessagedto>}
-     * @memberof Identityattributepreview
+     * @type {Array<ErrorMessageDto>}
+     * @memberof IdentityAttributePreview
      */
-    'errorMessages'?: Array<Errormessagedto>;
+    'errorMessages'?: Array<ErrorMessageDto>;
 }
 /**
  * Transform definition for an identity attribute.
  * @export
- * @interface Identityattributetransform
+ * @interface IdentityAttributeTransform
  */
-export interface Identityattributetransform {
+export interface IdentityAttributeTransform {
     /**
      * Identity attribute\'s name.
      * @type {string}
-     * @memberof Identityattributetransform
+     * @memberof IdentityAttributeTransform
      */
     'identityAttributeName'?: string;
     /**
      * 
-     * @type {Transformdefinition}
-     * @memberof Identityattributetransform
+     * @type {TransformDefinition}
+     * @memberof IdentityAttributeTransform
      */
-    'transformDefinition'?: Transformdefinition;
+    'transformDefinition'?: TransformDefinition;
 }
 /**
  * 
  * @export
- * @interface Identityexceptionreportreference
+ * @interface IdentityExceptionReportReference
  */
-export interface Identityexceptionreportreference {
+export interface IdentityExceptionReportReference {
     /**
      * Task result ID.
      * @type {string}
-     * @memberof Identityexceptionreportreference
+     * @memberof IdentityExceptionReportReference
      */
     'taskResultId'?: string;
     /**
      * Report name.
      * @type {string}
-     * @memberof Identityexceptionreportreference
+     * @memberof IdentityExceptionReportReference
      */
     'reportName'?: string;
 }
 /**
  * 
  * @export
- * @interface Identitypreviewrequest
+ * @interface IdentityPreviewRequest
  */
-export interface Identitypreviewrequest {
+export interface IdentityPreviewRequest {
     /**
      * The Identity id
      * @type {string}
-     * @memberof Identitypreviewrequest
+     * @memberof IdentityPreviewRequest
      */
     'identityId'?: string;
     /**
      * 
-     * @type {Identityattributeconfig}
-     * @memberof Identitypreviewrequest
+     * @type {IdentityAttributeConfig}
+     * @memberof IdentityPreviewRequest
      */
-    'identityAttributeConfig'?: Identityattributeconfig;
+    'identityAttributeConfig'?: IdentityAttributeConfig;
 }
 /**
  * 
  * @export
- * @interface Identitypreviewresponse
+ * @interface IdentityPreviewResponse
  */
-export interface Identitypreviewresponse {
+export interface IdentityPreviewResponse {
     /**
      * 
-     * @type {IdentitypreviewresponseIdentity}
-     * @memberof Identitypreviewresponse
+     * @type {IdentityPreviewResponseIdentity}
+     * @memberof IdentityPreviewResponse
      */
-    'identity'?: IdentitypreviewresponseIdentity;
+    'identity'?: IdentityPreviewResponseIdentity;
     /**
      * 
-     * @type {Array<Identityattributepreview>}
-     * @memberof Identitypreviewresponse
+     * @type {Array<IdentityAttributePreview>}
+     * @memberof IdentityPreviewResponse
      */
-    'previewAttributes'?: Array<Identityattributepreview>;
+    'previewAttributes'?: Array<IdentityAttributePreview>;
 }
 /**
  * Identity\'s basic details.
  * @export
- * @interface IdentitypreviewresponseIdentity
+ * @interface IdentityPreviewResponseIdentity
  */
-export interface IdentitypreviewresponseIdentity {
+export interface IdentityPreviewResponseIdentity {
     /**
      * Identity\'s DTO type.
      * @type {string}
-     * @memberof IdentitypreviewresponseIdentity
+     * @memberof IdentityPreviewResponseIdentity
      */
-    'type'?: IdentitypreviewresponseIdentityTypeEnum;
+    'type'?: IdentityPreviewResponseIdentityTypeEnum;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof IdentitypreviewresponseIdentity
+     * @memberof IdentityPreviewResponseIdentity
      */
     'id'?: string;
     /**
      * Identity\'s display name.
      * @type {string}
-     * @memberof IdentitypreviewresponseIdentity
+     * @memberof IdentityPreviewResponseIdentity
      */
     'name'?: string;
 }
 
-export const IdentitypreviewresponseIdentityTypeEnum = {
+export const IdentityPreviewResponseIdentityTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentitypreviewresponseIdentityTypeEnum = typeof IdentitypreviewresponseIdentityTypeEnum[keyof typeof IdentitypreviewresponseIdentityTypeEnum];
+export type IdentityPreviewResponseIdentityTypeEnum = typeof IdentityPreviewResponseIdentityTypeEnum[keyof typeof IdentityPreviewResponseIdentityTypeEnum];
 
 /**
  * 
  * @export
- * @interface Identityprofile
+ * @interface IdentityProfile
  */
-export interface Identityprofile {
+export interface IdentityProfile {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'modified'?: string;
     /**
      * Identity profile\'s description.
      * @type {string}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'description'?: string | null;
     /**
      * 
-     * @type {IdentityprofileAllOfOwner}
-     * @memberof Identityprofile
+     * @type {IdentityProfileAllOfOwner}
+     * @memberof IdentityProfile
      */
-    'owner'?: IdentityprofileAllOfOwner | null;
+    'owner'?: IdentityProfileAllOfOwner | null;
     /**
      * Identity profile\'s priority.
      * @type {number}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'priority'?: number;
     /**
      * 
-     * @type {IdentityprofileAllOfAuthoritativeSource}
-     * @memberof Identityprofile
+     * @type {IdentityProfileAllOfAuthoritativeSource}
+     * @memberof IdentityProfile
      */
-    'authoritativeSource': IdentityprofileAllOfAuthoritativeSource;
+    'authoritativeSource': IdentityProfileAllOfAuthoritativeSource;
     /**
      * Set this value to \'True\' if an identity refresh is necessary. You would typically want to trigger an identity refresh when a change has been made on the source.
      * @type {boolean}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'identityRefreshRequired'?: boolean;
     /**
      * Number of identities belonging to the identity profile.
      * @type {number}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'identityCount'?: number;
     /**
      * 
-     * @type {Identityattributeconfig}
-     * @memberof Identityprofile
+     * @type {IdentityAttributeConfig}
+     * @memberof IdentityProfile
      */
-    'identityAttributeConfig'?: Identityattributeconfig;
+    'identityAttributeConfig'?: IdentityAttributeConfig;
     /**
      * 
-     * @type {Identityexceptionreportreference}
-     * @memberof Identityprofile
+     * @type {IdentityExceptionReportReference}
+     * @memberof IdentityProfile
      */
-    'identityExceptionReportReference'?: Identityexceptionreportreference | null;
+    'identityExceptionReportReference'?: IdentityExceptionReportReference | null;
     /**
      * Indicates the value of `requiresPeriodicRefresh` attribute for the identity profile.
      * @type {boolean}
-     * @memberof Identityprofile
+     * @memberof IdentityProfile
      */
     'hasTimeBasedAttr'?: boolean;
 }
 /**
  * 
  * @export
- * @interface IdentityprofileAllOfAuthoritativeSource
+ * @interface IdentityProfileAllOfAuthoritativeSource
  */
-export interface IdentityprofileAllOfAuthoritativeSource {
+export interface IdentityProfileAllOfAuthoritativeSource {
     /**
      * Authoritative source\'s object type.
      * @type {string}
-     * @memberof IdentityprofileAllOfAuthoritativeSource
+     * @memberof IdentityProfileAllOfAuthoritativeSource
      */
-    'type'?: IdentityprofileAllOfAuthoritativeSourceTypeEnum;
+    'type'?: IdentityProfileAllOfAuthoritativeSourceTypeEnum;
     /**
      * Authoritative source\'s ID.
      * @type {string}
-     * @memberof IdentityprofileAllOfAuthoritativeSource
+     * @memberof IdentityProfileAllOfAuthoritativeSource
      */
     'id'?: string;
     /**
      * Authoritative source\'s name.
      * @type {string}
-     * @memberof IdentityprofileAllOfAuthoritativeSource
+     * @memberof IdentityProfileAllOfAuthoritativeSource
      */
     'name'?: string;
 }
 
-export const IdentityprofileAllOfAuthoritativeSourceTypeEnum = {
+export const IdentityProfileAllOfAuthoritativeSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type IdentityprofileAllOfAuthoritativeSourceTypeEnum = typeof IdentityprofileAllOfAuthoritativeSourceTypeEnum[keyof typeof IdentityprofileAllOfAuthoritativeSourceTypeEnum];
+export type IdentityProfileAllOfAuthoritativeSourceTypeEnum = typeof IdentityProfileAllOfAuthoritativeSourceTypeEnum[keyof typeof IdentityProfileAllOfAuthoritativeSourceTypeEnum];
 
 /**
  * Identity profile\'s owner.
  * @export
- * @interface IdentityprofileAllOfOwner
+ * @interface IdentityProfileAllOfOwner
  */
-export interface IdentityprofileAllOfOwner {
+export interface IdentityProfileAllOfOwner {
     /**
      * Owner\'s object type.
      * @type {string}
-     * @memberof IdentityprofileAllOfOwner
+     * @memberof IdentityProfileAllOfOwner
      */
-    'type'?: IdentityprofileAllOfOwnerTypeEnum;
+    'type'?: IdentityProfileAllOfOwnerTypeEnum;
     /**
      * Owner\'s ID.
      * @type {string}
-     * @memberof IdentityprofileAllOfOwner
+     * @memberof IdentityProfileAllOfOwner
      */
     'id'?: string;
     /**
      * Owner\'s name.
      * @type {string}
-     * @memberof IdentityprofileAllOfOwner
+     * @memberof IdentityProfileAllOfOwner
      */
     'name'?: string;
 }
 
-export const IdentityprofileAllOfOwnerTypeEnum = {
+export const IdentityProfileAllOfOwnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentityprofileAllOfOwnerTypeEnum = typeof IdentityprofileAllOfOwnerTypeEnum[keyof typeof IdentityprofileAllOfOwnerTypeEnum];
+export type IdentityProfileAllOfOwnerTypeEnum = typeof IdentityProfileAllOfOwnerTypeEnum[keyof typeof IdentityProfileAllOfOwnerTypeEnum];
 
 /**
  * Identity profile exported object.
  * @export
- * @interface Identityprofileexportedobject
+ * @interface IdentityProfileExportedObject
  */
-export interface Identityprofileexportedobject {
+export interface IdentityProfileExportedObject {
     /**
      * Version or object from the target service.
      * @type {number}
-     * @memberof Identityprofileexportedobject
+     * @memberof IdentityProfileExportedObject
      */
     'version'?: number;
     /**
      * 
-     * @type {IdentityprofileexportedobjectSelf}
-     * @memberof Identityprofileexportedobject
+     * @type {IdentityProfileExportedObjectSelf}
+     * @memberof IdentityProfileExportedObject
      */
-    'self'?: IdentityprofileexportedobjectSelf;
+    'self'?: IdentityProfileExportedObjectSelf;
     /**
      * 
-     * @type {Identityprofile}
-     * @memberof Identityprofileexportedobject
+     * @type {IdentityProfile}
+     * @memberof IdentityProfileExportedObject
      */
-    'object'?: Identityprofile;
+    'object'?: IdentityProfile;
 }
 /**
  * Self block for exported object.
  * @export
- * @interface IdentityprofileexportedobjectSelf
+ * @interface IdentityProfileExportedObjectSelf
  */
-export interface IdentityprofileexportedobjectSelf {
+export interface IdentityProfileExportedObjectSelf {
     /**
      * Exported object\'s DTO type.
      * @type {string}
-     * @memberof IdentityprofileexportedobjectSelf
+     * @memberof IdentityProfileExportedObjectSelf
      */
-    'type'?: IdentityprofileexportedobjectSelfTypeEnum;
+    'type'?: IdentityProfileExportedObjectSelfTypeEnum;
     /**
      * Exported object\'s ID.
      * @type {string}
-     * @memberof IdentityprofileexportedobjectSelf
+     * @memberof IdentityProfileExportedObjectSelf
      */
     'id'?: string;
     /**
      * Exported object\'s display name.
      * @type {string}
-     * @memberof IdentityprofileexportedobjectSelf
+     * @memberof IdentityProfileExportedObjectSelf
      */
     'name'?: string;
 }
 
-export const IdentityprofileexportedobjectSelfTypeEnum = {
+export const IdentityProfileExportedObjectSelfTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -504,35 +504,35 @@ export const IdentityprofileexportedobjectSelfTypeEnum = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type IdentityprofileexportedobjectSelfTypeEnum = typeof IdentityprofileexportedobjectSelfTypeEnum[keyof typeof IdentityprofileexportedobjectSelfTypeEnum];
+export type IdentityProfileExportedObjectSelfTypeEnum = typeof IdentityProfileExportedObjectSelfTypeEnum[keyof typeof IdentityProfileExportedObjectSelfTypeEnum];
 
 /**
  * Object created or updated by import.
  * @export
- * @interface Importobject
+ * @interface ImportObject
  */
-export interface Importobject {
+export interface ImportObject {
     /**
      * DTO type of object created or updated by import.
      * @type {string}
-     * @memberof Importobject
+     * @memberof ImportObject
      */
-    'type'?: ImportobjectTypeEnum;
+    'type'?: ImportObjectTypeEnum;
     /**
      * ID of object created or updated by import.
      * @type {string}
-     * @memberof Importobject
+     * @memberof ImportObject
      */
     'id'?: string;
     /**
      * Display name of object created or updated by import.
      * @type {string}
-     * @memberof Importobject
+     * @memberof ImportObject
      */
     'name'?: string;
 }
 
-export const ImportobjectTypeEnum = {
+export const ImportObjectTypeEnum = {
     ConnectorRule: 'CONNECTOR_RULE',
     IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
@@ -542,35 +542,35 @@ export const ImportobjectTypeEnum = {
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
-export type ImportobjectTypeEnum = typeof ImportobjectTypeEnum[keyof typeof ImportobjectTypeEnum];
+export type ImportObjectTypeEnum = typeof ImportObjectTypeEnum[keyof typeof ImportObjectTypeEnum];
 
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -579,14 +579,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
@@ -620,121 +620,121 @@ export interface ListIdentityProfilesV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Response model for import of a single object.
  * @export
- * @interface Objectimportresult
+ * @interface ObjectImportResult
  */
-export interface Objectimportresult {
+export interface ObjectImportResult {
     /**
      * Informational messages returned from the target service on import.
-     * @type {Array<Spconfigmessage>}
-     * @memberof Objectimportresult
+     * @type {Array<SpConfigMessage>}
+     * @memberof ObjectImportResult
      */
-    'infos': Array<Spconfigmessage>;
+    'infos': Array<SpConfigMessage>;
     /**
      * Warning messages returned from the target service on import.
-     * @type {Array<Spconfigmessage>}
-     * @memberof Objectimportresult
+     * @type {Array<SpConfigMessage>}
+     * @memberof ObjectImportResult
      */
-    'warnings': Array<Spconfigmessage>;
+    'warnings': Array<SpConfigMessage>;
     /**
      * Error messages returned from the target service on import.
-     * @type {Array<Spconfigmessage>}
-     * @memberof Objectimportresult
+     * @type {Array<SpConfigMessage>}
+     * @memberof ObjectImportResult
      */
-    'errors': Array<Spconfigmessage>;
+    'errors': Array<SpConfigMessage>;
     /**
      * References to objects that were created or updated by the import.
-     * @type {Array<Importobject>}
-     * @memberof Objectimportresult
+     * @type {Array<ImportObject>}
+     * @memberof ObjectImportResult
      */
-    'importedObjects': Array<Importobject>;
+    'importedObjects': Array<ImportObject>;
 }
 /**
  * Message model for Config Import/Export.
  * @export
- * @interface Spconfigmessage
+ * @interface SpConfigMessage
  */
-export interface Spconfigmessage {
+export interface SpConfigMessage {
     /**
      * Message key.
      * @type {string}
-     * @memberof Spconfigmessage
+     * @memberof SpConfigMessage
      */
     'key': string;
     /**
      * Message text.
      * @type {string}
-     * @memberof Spconfigmessage
+     * @memberof SpConfigMessage
      */
     'text': string;
     /**
      * Message details if any, in key:value pairs.
      * @type {{ [key: string]: any; }}
-     * @memberof Spconfigmessage
+     * @memberof SpConfigMessage
      */
     'details': { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface Taskresultsimplified
+ * @interface TaskResultSimplified
  */
-export interface Taskresultsimplified {
+export interface TaskResultSimplified {
     /**
      * Task identifier
      * @type {string}
-     * @memberof Taskresultsimplified
+     * @memberof TaskResultSimplified
      */
     'id'?: string;
     /**
      * Task name
      * @type {string}
-     * @memberof Taskresultsimplified
+     * @memberof TaskResultSimplified
      */
     'name'?: string;
     /**
      * Task description
      * @type {string}
-     * @memberof Taskresultsimplified
+     * @memberof TaskResultSimplified
      */
     'description'?: string;
     /**
      * User or process who launched the task
      * @type {string}
-     * @memberof Taskresultsimplified
+     * @memberof TaskResultSimplified
      */
     'launcher'?: string;
     /**
      * Date time of completion
      * @type {string}
-     * @memberof Taskresultsimplified
+     * @memberof TaskResultSimplified
      */
     'completed'?: string;
     /**
      * Date time when the task was launched
      * @type {string}
-     * @memberof Taskresultsimplified
+     * @memberof TaskResultSimplified
      */
     'launched'?: string;
     /**
      * Task result status
      * @type {string}
-     * @memberof Taskresultsimplified
+     * @memberof TaskResultSimplified
      */
-    'completionStatus'?: TaskresultsimplifiedCompletionStatusEnum;
+    'completionStatus'?: TaskResultSimplifiedCompletionStatusEnum;
 }
 
-export const TaskresultsimplifiedCompletionStatusEnum = {
+export const TaskResultSimplifiedCompletionStatusEnum = {
     Success: 'Success',
     Warning: 'Warning',
     Error: 'Error',
@@ -742,24 +742,24 @@ export const TaskresultsimplifiedCompletionStatusEnum = {
     TempError: 'TempError'
 } as const;
 
-export type TaskresultsimplifiedCompletionStatusEnum = typeof TaskresultsimplifiedCompletionStatusEnum[keyof typeof TaskresultsimplifiedCompletionStatusEnum];
+export type TaskResultSimplifiedCompletionStatusEnum = typeof TaskResultSimplifiedCompletionStatusEnum[keyof typeof TaskResultSimplifiedCompletionStatusEnum];
 
 /**
  * 
  * @export
- * @interface Transformdefinition
+ * @interface TransformDefinition
  */
-export interface Transformdefinition {
+export interface TransformDefinition {
     /**
      * Transform definition type.
      * @type {string}
-     * @memberof Transformdefinition
+     * @memberof TransformDefinition
      */
     'type'?: string;
     /**
      * Arbitrary key-value pairs to store any metadata for the object
      * @type {{ [key: string]: any; }}
-     * @memberof Transformdefinition
+     * @memberof TransformDefinition
      */
     'attributes'?: { [key: string]: any; };
 }
@@ -773,13 +773,13 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
         /**
          * Creates an identity profile.    
          * @summary Create identity profile
-         * @param {Identityprofile} identityprofile 
+         * @param {IdentityProfile} identityProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createIdentityProfileV1: async (identityprofile: Identityprofile, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identityprofile' is not null or undefined
-            assertParamExists('createIdentityProfileV1', 'identityprofile', identityprofile)
+        createIdentityProfileV1: async (identityProfile: IdentityProfile, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfile' is not null or undefined
+            assertParamExists('createIdentityProfileV1', 'identityProfile', identityProfile)
             const localVarPath = `/identity-profiles/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -799,7 +799,7 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identityprofile, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityProfile, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -934,13 +934,13 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
         /**
          * This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy\'\'s attribute config is applied.
          * @summary Generate identity profile preview
-         * @param {Identitypreviewrequest} identitypreviewrequest Identity Preview request body.
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        generateIdentityPreviewV1: async (identitypreviewrequest: Identitypreviewrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identitypreviewrequest' is not null or undefined
-            assertParamExists('generateIdentityPreviewV1', 'identitypreviewrequest', identitypreviewrequest)
+        generateIdentityPreviewV1: async (identityPreviewRequest: IdentityPreviewRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityPreviewRequest' is not null or undefined
+            assertParamExists('generateIdentityPreviewV1', 'identityPreviewRequest', identityPreviewRequest)
             const localVarPath = `/identity-profiles/v1/identity-preview`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -960,7 +960,7 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identitypreviewrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityPreviewRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1038,13 +1038,13 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
         /**
          * This imports previously exported identity profiles.
          * @summary Import identity profiles
-         * @param {Array<Identityprofileexportedobject>} identityprofileexportedobject Previously exported Identity Profiles.
+         * @param {Array<IdentityProfileExportedObject>} identityProfileExportedObject Previously exported Identity Profiles.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importIdentityProfilesV1: async (identityprofileexportedobject: Array<Identityprofileexportedobject>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identityprofileexportedobject' is not null or undefined
-            assertParamExists('importIdentityProfilesV1', 'identityprofileexportedobject', identityprofileexportedobject)
+        importIdentityProfilesV1: async (identityProfileExportedObject: Array<IdentityProfileExportedObject>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfileExportedObject' is not null or undefined
+            assertParamExists('importIdentityProfilesV1', 'identityProfileExportedObject', identityProfileExportedObject)
             const localVarPath = `/identity-profiles/v1/import`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1064,7 +1064,7 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(identityprofileexportedobject, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityProfileExportedObject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1164,15 +1164,15 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
          * Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
          * @summary Update identity profile
          * @param {string} identityProfileId Identity profile ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateIdentityProfileV1: async (identityProfileId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateIdentityProfileV1: async (identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityProfileId' is not null or undefined
             assertParamExists('updateIdentityProfileV1', 'identityProfileId', identityProfileId)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('updateIdentityProfileV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateIdentityProfileV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/identity-profiles/v1/{identity-profile-id}`
                 .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1193,7 +1193,7 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1213,12 +1213,12 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
         /**
          * Creates an identity profile.    
          * @summary Create identity profile
-         * @param {Identityprofile} identityprofile 
+         * @param {IdentityProfile} identityProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createIdentityProfileV1(identityprofile: Identityprofile, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityprofile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityProfileV1(identityprofile, axiosOptions);
+        async createIdentityProfileV1(identityProfile: IdentityProfile, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityProfileV1(identityProfile, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.createIdentityProfileV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1230,7 +1230,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfileV1(identityProfileId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskresultsimplified>> {
+        async deleteIdentityProfileV1(identityProfileId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfileV1(identityProfileId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.deleteIdentityProfileV1']?.[localVarOperationServerIndex]?.url;
@@ -1243,7 +1243,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfilesV1(requestBody: Array<string>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskresultsimplified>> {
+        async deleteIdentityProfilesV1(requestBody: Array<string>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfilesV1(requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.deleteIdentityProfilesV1']?.[localVarOperationServerIndex]?.url;
@@ -1260,7 +1260,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportIdentityProfilesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identityprofileexportedobject>>> {
+        async exportIdentityProfilesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileExportedObject>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportIdentityProfilesV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.exportIdentityProfilesV1']?.[localVarOperationServerIndex]?.url;
@@ -1269,12 +1269,12 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
         /**
          * This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy\'\'s attribute config is applied.
          * @summary Generate identity profile preview
-         * @param {Identitypreviewrequest} identitypreviewrequest Identity Preview request body.
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async generateIdentityPreviewV1(identitypreviewrequest: Identitypreviewrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitypreviewresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateIdentityPreviewV1(identitypreviewrequest, axiosOptions);
+        async generateIdentityPreviewV1(identityPreviewRequest: IdentityPreviewRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityPreviewResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateIdentityPreviewV1(identityPreviewRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.generateIdentityPreviewV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1286,7 +1286,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDefaultIdentityAttributeConfigV1(identityProfileId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityattributeconfig>> {
+        async getDefaultIdentityAttributeConfigV1(identityProfileId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeConfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultIdentityAttributeConfigV1(identityProfileId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.getDefaultIdentityAttributeConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -1299,7 +1299,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityProfileV1(identityProfileId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityprofile>> {
+        async getIdentityProfileV1(identityProfileId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProfileV1(identityProfileId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.getIdentityProfileV1']?.[localVarOperationServerIndex]?.url;
@@ -1308,12 +1308,12 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
         /**
          * This imports previously exported identity profiles.
          * @summary Import identity profiles
-         * @param {Array<Identityprofileexportedobject>} identityprofileexportedobject Previously exported Identity Profiles.
+         * @param {Array<IdentityProfileExportedObject>} identityProfileExportedObject Previously exported Identity Profiles.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importIdentityProfilesV1(identityprofileexportedobject: Array<Identityprofileexportedobject>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Objectimportresult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importIdentityProfilesV1(identityprofileexportedobject, axiosOptions);
+        async importIdentityProfilesV1(identityProfileExportedObject: Array<IdentityProfileExportedObject>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectImportResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importIdentityProfilesV1(identityProfileExportedObject, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.importIdentityProfilesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1329,7 +1329,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityProfilesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identityprofile>>> {
+        async listIdentityProfilesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfile>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityProfilesV1(limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.listIdentityProfilesV1']?.[localVarOperationServerIndex]?.url;
@@ -1352,12 +1352,12 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * Update a specified identity profile with this PATCH request.    You cannot update these fields: * id * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at the same time.
          * @summary Update identity profile
          * @param {string} identityProfileId Identity profile ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateIdentityProfileV1(identityProfileId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityprofile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateIdentityProfileV1(identityProfileId, jsonpatchoperation, axiosOptions);
+        async updateIdentityProfileV1(identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateIdentityProfileV1(identityProfileId, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityProfilesApi.updateIdentityProfileV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1379,8 +1379,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createIdentityProfileV1(requestParameters: IdentityProfilesApiCreateIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityprofile> {
-            return localVarFp.createIdentityProfileV1(requestParameters.identityprofile, axiosOptions).then((request) => request(axios, basePath));
+        createIdentityProfileV1(requestParameters: IdentityProfilesApiCreateIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityProfile> {
+            return localVarFp.createIdentityProfileV1(requestParameters.identityProfile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete an identity profile by ID. On success, this endpoint will return a reference to the bulk delete task result.
@@ -1389,7 +1389,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityProfileV1(requestParameters: IdentityProfilesApiDeleteIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskresultsimplified> {
+        deleteIdentityProfileV1(requestParameters: IdentityProfilesApiDeleteIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskResultSimplified> {
             return localVarFp.deleteIdentityProfileV1(requestParameters.identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1399,7 +1399,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityProfilesV1(requestParameters: IdentityProfilesApiDeleteIdentityProfilesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskresultsimplified> {
+        deleteIdentityProfilesV1(requestParameters: IdentityProfilesApiDeleteIdentityProfilesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskResultSimplified> {
             return localVarFp.deleteIdentityProfilesV1(requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1409,7 +1409,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportIdentityProfilesV1(requestParameters: IdentityProfilesApiExportIdentityProfilesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identityprofileexportedobject>> {
+        exportIdentityProfilesV1(requestParameters: IdentityProfilesApiExportIdentityProfilesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentityProfileExportedObject>> {
             return localVarFp.exportIdentityProfilesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1419,8 +1419,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        generateIdentityPreviewV1(requestParameters: IdentityProfilesApiGenerateIdentityPreviewV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitypreviewresponse> {
-            return localVarFp.generateIdentityPreviewV1(requestParameters.identitypreviewrequest, axiosOptions).then((request) => request(axios, basePath));
+        generateIdentityPreviewV1(requestParameters: IdentityProfilesApiGenerateIdentityPreviewV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityPreviewResponse> {
+            return localVarFp.generateIdentityPreviewV1(requestParameters.identityPreviewRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This returns the default identity attribute config.
@@ -1429,7 +1429,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDefaultIdentityAttributeConfigV1(requestParameters: IdentityProfilesApiGetDefaultIdentityAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityattributeconfig> {
+        getDefaultIdentityAttributeConfigV1(requestParameters: IdentityProfilesApiGetDefaultIdentityAttributeConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityAttributeConfig> {
             return localVarFp.getDefaultIdentityAttributeConfigV1(requestParameters.identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1439,7 +1439,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityProfileV1(requestParameters: IdentityProfilesApiGetIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityprofile> {
+        getIdentityProfileV1(requestParameters: IdentityProfilesApiGetIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityProfile> {
             return localVarFp.getIdentityProfileV1(requestParameters.identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1449,8 +1449,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importIdentityProfilesV1(requestParameters: IdentityProfilesApiImportIdentityProfilesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Objectimportresult> {
-            return localVarFp.importIdentityProfilesV1(requestParameters.identityprofileexportedobject, axiosOptions).then((request) => request(axios, basePath));
+        importIdentityProfilesV1(requestParameters: IdentityProfilesApiImportIdentityProfilesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ObjectImportResult> {
+            return localVarFp.importIdentityProfilesV1(requestParameters.identityProfileExportedObject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of identity profiles, based on the specified query parameters.
@@ -1459,7 +1459,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentityProfilesV1(requestParameters: IdentityProfilesApiListIdentityProfilesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identityprofile>> {
+        listIdentityProfilesV1(requestParameters: IdentityProfilesApiListIdentityProfilesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentityProfile>> {
             return localVarFp.listIdentityProfilesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1479,8 +1479,8 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateIdentityProfileV1(requestParameters: IdentityProfilesApiUpdateIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityprofile> {
-            return localVarFp.updateIdentityProfileV1(requestParameters.identityProfileId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        updateIdentityProfileV1(requestParameters: IdentityProfilesApiUpdateIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityProfile> {
+            return localVarFp.updateIdentityProfileV1(requestParameters.identityProfileId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1493,10 +1493,10 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
 export interface IdentityProfilesApiCreateIdentityProfileV1Request {
     /**
      * 
-     * @type {Identityprofile}
+     * @type {IdentityProfile}
      * @memberof IdentityProfilesApiCreateIdentityProfileV1
      */
-    readonly identityprofile: Identityprofile
+    readonly identityProfile: IdentityProfile
 }
 
 /**
@@ -1577,10 +1577,10 @@ export interface IdentityProfilesApiExportIdentityProfilesV1Request {
 export interface IdentityProfilesApiGenerateIdentityPreviewV1Request {
     /**
      * Identity Preview request body.
-     * @type {Identitypreviewrequest}
+     * @type {IdentityPreviewRequest}
      * @memberof IdentityProfilesApiGenerateIdentityPreviewV1
      */
-    readonly identitypreviewrequest: Identitypreviewrequest
+    readonly identityPreviewRequest: IdentityPreviewRequest
 }
 
 /**
@@ -1619,10 +1619,10 @@ export interface IdentityProfilesApiGetIdentityProfileV1Request {
 export interface IdentityProfilesApiImportIdentityProfilesV1Request {
     /**
      * Previously exported Identity Profiles.
-     * @type {Array<Identityprofileexportedobject>}
+     * @type {Array<IdentityProfileExportedObject>}
      * @memberof IdentityProfilesApiImportIdentityProfilesV1
      */
-    readonly identityprofileexportedobject: Array<Identityprofileexportedobject>
+    readonly identityProfileExportedObject: Array<IdentityProfileExportedObject>
 }
 
 /**
@@ -1696,10 +1696,10 @@ export interface IdentityProfilesApiUpdateIdentityProfileV1Request {
 
     /**
      * List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof IdentityProfilesApiUpdateIdentityProfileV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -1718,7 +1718,7 @@ export class IdentityProfilesApi extends BaseAPI {
      * @memberof IdentityProfilesApi
      */
     public createIdentityProfileV1(requestParameters: IdentityProfilesApiCreateIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).createIdentityProfileV1(requestParameters.identityprofile, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IdentityProfilesApiFp(this.configuration).createIdentityProfileV1(requestParameters.identityProfile, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1766,7 +1766,7 @@ export class IdentityProfilesApi extends BaseAPI {
      * @memberof IdentityProfilesApi
      */
     public generateIdentityPreviewV1(requestParameters: IdentityProfilesApiGenerateIdentityPreviewV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).generateIdentityPreviewV1(requestParameters.identitypreviewrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IdentityProfilesApiFp(this.configuration).generateIdentityPreviewV1(requestParameters.identityPreviewRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1802,7 +1802,7 @@ export class IdentityProfilesApi extends BaseAPI {
      * @memberof IdentityProfilesApi
      */
     public importIdentityProfilesV1(requestParameters: IdentityProfilesApiImportIdentityProfilesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).importIdentityProfilesV1(requestParameters.identityprofileexportedobject, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IdentityProfilesApiFp(this.configuration).importIdentityProfilesV1(requestParameters.identityProfileExportedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1838,7 +1838,7 @@ export class IdentityProfilesApi extends BaseAPI {
      * @memberof IdentityProfilesApi
      */
     public updateIdentityProfileV1(requestParameters: IdentityProfilesApiUpdateIdentityProfileV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).updateIdentityProfileV1(requestParameters.identityProfileId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IdentityProfilesApiFp(this.configuration).updateIdentityProfileV1(requestParameters.identityProfileId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

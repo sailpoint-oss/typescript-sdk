@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Savedsearch`
+`SavedSearch`
 
 ### HTTP request headers
 
@@ -123,7 +123,7 @@ Executes the specified saved search.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the requested document. |  [default to undefined]
-**searcharguments** | `Searcharguments` | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided.  | 
+**searchArguments** | `SearchArguments` | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided.  | 
 
 ### Return type
 
@@ -139,13 +139,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { SavedSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Searcharguments } from 'sailpoint-api-client/dist/saved_search/api';
+import { SearchArguments } from 'sailpoint-api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
 const id: string = 2c91808568c529c60168cca6f90c1313; // ID of the requested document.
-const searcharguments: Searcharguments = ; // When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
-const result = await apiInstance.executeSavedSearchV1({ id: id, searcharguments: searcharguments });
+const searchArguments: SearchArguments = {
+  "owner" : "",
+  "recipients" : [ {
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  }, {
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  } ],
+  "scheduleId" : "7a724640-0c17-4ce9-a8c3-4a89738459c8"
+}; // When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
+const result = await apiInstance.executeSavedSearchV1({ id: id, searchArguments: searchArguments });
 console.log(result);
 ```
 
@@ -167,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Savedsearch`
+`SavedSearch`
 
 ### HTTP request headers
 
@@ -208,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Savedsearch>`
+`Array<SavedSearch>`
 
 ### HTTP request headers
 
@@ -248,11 +258,11 @@ Updates an existing saved search.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the requested document. |  [default to undefined]
-**savedsearch** | `Savedsearch` | The saved search to persist. | 
+**savedSearch** | `SavedSearch` | The saved search to persist. | 
 
 ### Return type
 
-`Savedsearch`
+`SavedSearch`
 
 ### HTTP request headers
 
@@ -264,13 +274,57 @@ Name | Type | Description  | Notes
 ```typescript
 import { SavedSearchApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Savedsearch } from 'sailpoint-api-client/dist/saved_search/api';
+import { SavedSearch } from 'sailpoint-api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
 const id: string = 2c91808568c529c60168cca6f90c1313; // ID of the requested document.
-const savedsearch: Savedsearch = ; // The saved search to persist.
-const result = await apiInstance.putSavedSearchV1({ id: id, savedsearch: savedsearch });
+const savedSearch: SavedSearch = {
+  "owner" : {
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "created" : "2018-06-25T20:22:28.104Z",
+  "columns" : {
+    "identity" : [ {
+      "field" : "displayName",
+      "header" : "Display Name"
+    }, {
+      "field" : "e-mail",
+      "header" : "Work Email"
+    } ]
+  },
+  "query" : "@accounts(disabled:true)",
+  "description" : "Disabled accounts",
+  "orderBy" : {
+    "identity" : [ "lastName", "firstName" ],
+    "role" : [ "name" ]
+  },
+  "sort" : [ "displayName" ],
+  "filters" : {
+    "terms" : [ "account_count", "account_count" ],
+    "range" : {
+      "lower" : {
+        "inclusive" : false,
+        "value" : "1"
+      },
+      "upper" : {
+        "inclusive" : false,
+        "value" : "1"
+      }
+    },
+    "exclude" : false,
+    "type" : "RANGE"
+  },
+  "ownerId" : "2c91808568c529c60168cca6f90c1313",
+  "indices" : [ "identities" ],
+  "public" : false,
+  "name" : "Disabled accounts",
+  "modified" : "2018-06-25T20:22:28.104Z",
+  "id" : "0de46054-fe90-434a-b84e-c6b3359d0c64",
+  "fields" : [ "disabled" ]
+}; // The saved search to persist.
+const result = await apiInstance.putSavedSearchV1({ id: id, savedSearch: savedSearch });
 console.log(result);
 ```
 

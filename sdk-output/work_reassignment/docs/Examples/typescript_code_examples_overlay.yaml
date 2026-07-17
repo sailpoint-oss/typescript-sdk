@@ -6,13 +6,19 @@
       source: |
         import { WorkReassignmentApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Configurationitemrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+        import { ConfigurationItemRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
-        const configurationitemrequest: Configurationitemrequest = ; // Configurationitemrequest | 
+        const configurationItemRequest: ConfigurationItemRequest = {
+  "endDate" : "2022-07-30T17:00:00Z",
+  "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+  "configType" : "ACCESS_REQUESTS",
+  "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+  "startDate" : "2022-07-21T11:13:12.345Z"
+}; // ConfigurationItemRequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createReassignmentConfigurationV1({ configurationitemrequest: configurationitemrequest });
+        const result = await apiInstance.createReassignmentConfigurationV1({ configurationItemRequest: configurationItemRequest });
         console.log(result);
 - path: /reassignment-configurations/v1/{identityId}/{configType}
   method: DELETE
@@ -26,7 +32,7 @@
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
         const identityId: string = '2c91808781a71ddb0181b9090b5c504e'; // string | unique identity id (default to undefined)
-        const configType: Configtypeenum = ; // Configtypeenum |  (default to undefined)
+        const configType: ConfigTypeEnum = ; // ConfigTypeEnum |  (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteReassignmentConfigurationV1({ identityId: identityId, configType: configType });
         console.log(result);
@@ -42,7 +48,7 @@
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
         const identityId: string = '2c91808781a71ddb0181b9090b5c504e'; // string | unique identity id (default to undefined)
-        const configType: Configtypeenum = accessRequests; // Configtypeenum | Reassignment work type (default to undefined)
+        const configType: ConfigTypeEnum = accessRequests; // ConfigTypeEnum | Reassignment work type (default to undefined)
         const exclusionFilters: Array<string> = SELF_REVIEW_DELEGATION; // Array<string> | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getEvaluateReassignmentConfigurationV1({ identityId: identityId, configType: configType });
@@ -112,14 +118,20 @@
       source: |
         import { WorkReassignmentApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Configurationitemrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+        import { ConfigurationItemRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
         const identityId: string = '2c91808781a71ddb0181b9090b5c504e'; // string | unique identity id (default to undefined)
-        const configurationitemrequest: Configurationitemrequest = ; // Configurationitemrequest | 
+        const configurationItemRequest: ConfigurationItemRequest = {
+  "endDate" : "2022-07-30T17:00:00Z",
+  "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+  "configType" : "ACCESS_REQUESTS",
+  "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+  "startDate" : "2022-07-21T11:13:12.345Z"
+}; // ConfigurationItemRequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.putReassignmentConfigV1({ identityId: identityId, configurationitemrequest: configurationitemrequest });
+        const result = await apiInstance.putReassignmentConfigV1({ identityId: identityId, configurationItemRequest: configurationItemRequest });
         console.log(result);
 - path: /reassignment-configurations/v1/tenant-config
   method: PUT
@@ -129,11 +141,15 @@
       source: |
         import { WorkReassignmentApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Tenantconfigurationrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+        import { TenantConfigurationRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
-        const tenantconfigurationrequest: Tenantconfigurationrequest = ; // Tenantconfigurationrequest | 
+        const tenantConfigurationRequest: TenantConfigurationRequest = {
+  "configDetails" : {
+    "disabled" : true
+  }
+}; // TenantConfigurationRequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.putTenantConfigurationV1({ tenantconfigurationrequest: tenantconfigurationrequest });
+        const result = await apiInstance.putTenantConfigurationV1({ tenantConfigurationRequest: tenantConfigurationRequest });
         console.log(result);

@@ -71,7 +71,30 @@ import { Segment } from 'sailpoint-api-client/dist/segments/api';
 
 const configuration = new Configuration();
 const apiInstance = new SegmentsApi(configuration);
-const segment: Segment = ; // 
+const segment: Segment = {
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "created" : "2020-01-01T00:00:00Z",
+  "visibilityCriteria" : {
+    "expression" : {
+      "children" : [ ],
+      "attribute" : "location",
+      "value" : {
+        "type" : "STRING",
+        "value" : "Austin"
+      },
+      "operator" : "EQUALS"
+    }
+  },
+  "name" : "segment-xyz",
+  "modified" : "2020-01-01T00:00:00Z",
+  "description" : "This segment represents xyz",
+  "active" : true,
+  "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+}; // 
 const result = await apiInstance.createSegmentV1({ segment: segment });
 console.log(result);
 ```

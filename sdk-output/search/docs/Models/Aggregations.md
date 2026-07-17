@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'Aggregations', 'v1Aggregations']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nested** | **(optional)** `Nestedaggregation` |  | [default to undefined]
-**metric** | **(optional)** `Metricaggregation` |  | [default to undefined]
-**filter** | **(optional)** `Filteraggregation` |  | [default to undefined]
-**bucket** | **(optional)** `Bucketaggregation` |  | [default to undefined]
+**nested** | **(optional)** `NestedAggregation` |  | [default to undefined]
+**metric** | **(optional)** `MetricAggregation` |  | [default to undefined]
+**filter** | **(optional)** `FilterAggregation` |  | [default to undefined]
+**bucket** | **(optional)** `BucketAggregation` |  | [default to undefined]
 

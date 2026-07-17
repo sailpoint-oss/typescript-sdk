@@ -33,25 +33,25 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -60,33 +60,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -117,98 +117,98 @@ export interface GetManagedClientsV1429Response {
 /**
  * Individual error or warning event
  * @export
- * @interface Healthevent
+ * @interface HealthEvent
  */
-export interface Healthevent {
+export interface HealthEvent {
     /**
      * Description of the issue
      * @type {string}
-     * @memberof Healthevent
+     * @memberof HealthEvent
      */
     'detailedMessage'?: string;
     /**
      * Unique identifier for the health event
      * @type {string}
-     * @memberof Healthevent
+     * @memberof HealthEvent
      */
     'uuid'?: string;
     /**
      * Optional URL associated with the issue
      * @type {string}
-     * @memberof Healthevent
+     * @memberof HealthEvent
      */
     'url'?: string | null;
     /**
      * Time when the event occurred
      * @type {string}
-     * @memberof Healthevent
+     * @memberof HealthEvent
      */
     'timestamp'?: string;
     /**
      * Last time notification was sent for this issue
      * @type {string}
-     * @memberof Healthevent
+     * @memberof HealthEvent
      */
     'lastNotifiedTimeStamp'?: string;
     /**
      * CPU usage percentage
      * @type {number}
-     * @memberof Healthevent
+     * @memberof HealthEvent
      */
     'cpuUtilizationPercentage'?: number | null;
     /**
      * Free memory percentage
      * @type {number}
-     * @memberof Healthevent
+     * @memberof HealthEvent
      */
     'freeSpacePercentage'?: number | null;
 }
 /**
  * Health indicator category data with errors and warnings
  * @export
- * @interface Healthindicatorcategory
+ * @interface HealthIndicatorCategory
  */
-export interface Healthindicatorcategory {
+export interface HealthIndicatorCategory {
     /**
      * List of error events for this category
-     * @type {Array<Healthevent>}
-     * @memberof Healthindicatorcategory
+     * @type {Array<HealthEvent>}
+     * @memberof HealthIndicatorCategory
      */
-    'errors'?: Array<Healthevent>;
+    'errors'?: Array<HealthEvent>;
     /**
      * List of warning events for this category
-     * @type {Array<Healthevent>}
-     * @memberof Healthindicatorcategory
+     * @type {Array<HealthEvent>}
+     * @memberof HealthIndicatorCategory
      */
-    'warnings'?: Array<Healthevent>;
+    'warnings'?: Array<HealthEvent>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -217,14 +217,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -232,149 +232,149 @@ export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | obj
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Managed Client
  * @export
- * @interface Managedclient
+ * @interface ManagedClient
  */
-export interface Managedclient {
+export interface ManagedClient {
     /**
      * ManagedClient ID
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'id'?: string | null;
     /**
      * ManagedClient alert key
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'alertKey'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'apiGatewayBaseUrl'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'cookbook'?: string | null;
     /**
      * Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
      * @type {number}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'ccId'?: number | null;
     /**
      * The client ID used in API management
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'clientId': string;
     /**
      * Cluster ID that the ManagedClient is linked to
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'clusterId': string;
     /**
      * ManagedClient description
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'description': string;
     /**
      * The public IP address of the ManagedClient
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'ipAddress'?: string | null;
     /**
      * When the ManagedClient was last seen by the server
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'lastSeen'?: string | null;
     /**
      * ManagedClient name
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'name'?: string | null;
     /**
      * Milliseconds since the ManagedClient has polled the server
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'sinceLastSeen'?: string | null;
     /**
      * Status of the ManagedClient
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
-    'status'?: ManagedclientStatusEnum | null;
+    'status'?: ManagedClientStatusEnum | null;
     /**
      * Type of the ManagedClient (VA, CCG)
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'type': string;
     /**
      * Cluster Type of the ManagedClient
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
-    'clusterType'?: ManagedclientClusterTypeEnum | null;
+    'clusterType'?: ManagedClientClusterTypeEnum | null;
     /**
      * ManagedClient VA download URL
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'vaDownloadUrl'?: string | null;
     /**
      * Version that the ManagedClient\'s VA is running
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'vaVersion'?: string | null;
     /**
      * Client\'s apiKey
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'secret'?: string | null;
     /**
      * The date/time this ManagedClient was created
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'createdAt'?: string | null;
     /**
      * The date/time this ManagedClient was last updated
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
     'updatedAt'?: string | null;
     /**
      * The provisioning status of the ManagedClient
      * @type {string}
-     * @memberof Managedclient
+     * @memberof ManagedClient
      */
-    'provisionStatus'?: ManagedclientProvisionStatusEnum | null;
+    'provisionStatus'?: ManagedClientProvisionStatusEnum | null;
 }
 
-export const ManagedclientStatusEnum = {
+export const ManagedClientStatusEnum = {
     Normal: 'NORMAL',
     Undefined: 'UNDEFINED',
     NotConfigured: 'NOT_CONFIGURED',
@@ -384,8 +384,8 @@ export const ManagedclientStatusEnum = {
     Failed: 'FAILED'
 } as const;
 
-export type ManagedclientStatusEnum = typeof ManagedclientStatusEnum[keyof typeof ManagedclientStatusEnum];
-export const ManagedclientClusterTypeEnum = {
+export type ManagedClientStatusEnum = typeof ManagedClientStatusEnum[keyof typeof ManagedClientStatusEnum];
+export const ManagedClientClusterTypeEnum = {
     Idn: 'idn',
     Iai: 'iai',
     SpConnectCluster: 'spConnectCluster',
@@ -395,47 +395,47 @@ export const ManagedclientClusterTypeEnum = {
     DasDc: 'das-dc'
 } as const;
 
-export type ManagedclientClusterTypeEnum = typeof ManagedclientClusterTypeEnum[keyof typeof ManagedclientClusterTypeEnum];
-export const ManagedclientProvisionStatusEnum = {
+export type ManagedClientClusterTypeEnum = typeof ManagedClientClusterTypeEnum[keyof typeof ManagedClientClusterTypeEnum];
+export const ManagedClientProvisionStatusEnum = {
     Provisioned: 'PROVISIONED',
     Draft: 'DRAFT'
 } as const;
 
-export type ManagedclientProvisionStatusEnum = typeof ManagedclientProvisionStatusEnum[keyof typeof ManagedclientProvisionStatusEnum];
+export type ManagedClientProvisionStatusEnum = typeof ManagedClientProvisionStatusEnum[keyof typeof ManagedClientProvisionStatusEnum];
 
 /**
  * Health Indicators for a Managed Client
  * @export
- * @interface Managedclienthealthindicators
+ * @interface ManagedClientHealthIndicators
  */
-export interface Managedclienthealthindicators {
+export interface ManagedClientHealthIndicators {
     /**
      * 
-     * @type {ManagedclienthealthindicatorsBody}
-     * @memberof Managedclienthealthindicators
+     * @type {ManagedClientHealthIndicatorsBody}
+     * @memberof ManagedClientHealthIndicators
      */
-    'body': ManagedclienthealthindicatorsBody;
+    'body': ManagedClientHealthIndicatorsBody;
     /**
      * Top-level status of the Managed Client
      * @type {string}
-     * @memberof Managedclienthealthindicators
+     * @memberof ManagedClientHealthIndicators
      */
-    'status': ManagedclienthealthindicatorsStatusEnum;
+    'status': ManagedClientHealthIndicatorsStatusEnum;
     /**
      * Type of the Managed Client
      * @type {string}
-     * @memberof Managedclienthealthindicators
+     * @memberof ManagedClientHealthIndicators
      */
-    'type': ManagedclienthealthindicatorsTypeEnum;
+    'type': ManagedClientHealthIndicatorsTypeEnum;
     /**
      * Timestamp when this report was generated
      * @type {string}
-     * @memberof Managedclienthealthindicators
+     * @memberof ManagedClientHealthIndicators
      */
     'timestamp': string;
 }
 
-export const ManagedclienthealthindicatorsStatusEnum = {
+export const ManagedClientHealthIndicatorsStatusEnum = {
     Normal: 'NORMAL',
     Undefined: 'UNDEFINED',
     Warning: 'WARNING',
@@ -443,185 +443,185 @@ export const ManagedclienthealthindicatorsStatusEnum = {
     Failed: 'FAILED'
 } as const;
 
-export type ManagedclienthealthindicatorsStatusEnum = typeof ManagedclienthealthindicatorsStatusEnum[keyof typeof ManagedclienthealthindicatorsStatusEnum];
-export const ManagedclienthealthindicatorsTypeEnum = {
+export type ManagedClientHealthIndicatorsStatusEnum = typeof ManagedClientHealthIndicatorsStatusEnum[keyof typeof ManagedClientHealthIndicatorsStatusEnum];
+export const ManagedClientHealthIndicatorsTypeEnum = {
     Va: 'VA',
     Ccg: 'CCG'
 } as const;
 
-export type ManagedclienthealthindicatorsTypeEnum = typeof ManagedclienthealthindicatorsTypeEnum[keyof typeof ManagedclienthealthindicatorsTypeEnum];
+export type ManagedClientHealthIndicatorsTypeEnum = typeof ManagedClientHealthIndicatorsTypeEnum[keyof typeof ManagedClientHealthIndicatorsTypeEnum];
 
 /**
  * Health indicator details from the Managed Client
  * @export
- * @interface ManagedclienthealthindicatorsBody
+ * @interface ManagedClientHealthIndicatorsBody
  */
-export interface ManagedclienthealthindicatorsBody {
+export interface ManagedClientHealthIndicatorsBody {
     /**
      * Health indicator alert key
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'alertKey'?: string | null;
     /**
      * Unique identifier for the health report
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'id': string;
     /**
      * Cluster ID the health report belongs to
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'clusterId': string;
     /**
      * API user ID sending the health data
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'apiUser': string;
     /**
      * ETag value for CCG version control
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'ccg_etag'?: string | null;
     /**
      * PIN value for CCG validation
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'ccg_pin'?: string | null;
     /**
      * ETag for cookbook version
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'cookbook_etag'?: string | null;
     /**
      * Hostname of the Managed Client
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'hostname': string;
     /**
      * Internal IP address of the Managed Client
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'internal_ip'?: string;
     /**
      * Epoch timestamp (in millis) when last seen
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'lastSeen'?: string;
     /**
      * Seconds since last seen
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'sinceSeen'?: string;
     /**
      * Milliseconds since last seen
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'sinceSeenMillis'?: string;
     /**
      * Indicates if this is a local development instance
      * @type {boolean}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'localDev'?: boolean;
     /**
      * Stacktrace associated with any error, if available
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'stacktrace'?: string | null;
     /**
      * Optional state value from the client
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'state'?: string | null;
     /**
      * Status of the client at the time of report
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
-    'status': ManagedclienthealthindicatorsBodyStatusEnum;
+    'status': ManagedClientHealthIndicatorsBodyStatusEnum;
     /**
      * Optional UUID from the client
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'uuid'?: string | null;
     /**
      * Product type (e.g., idn)
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'product': string;
     /**
      * VA version installed on the client
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'va_version'?: string | null;
     /**
      * Version of the platform on which VA is running
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'platform_version': string;
     /**
      * Operating system version
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'os_version': string;
     /**
      * Operating system type
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'os_type': string;
     /**
      * Virtualization platform used
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'hypervisor': string;
     /**
      * Consolidated health indicator status
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
-    'consolidatedHealthIndicatorsStatus': ManagedclienthealthindicatorsBodyConsolidatedHealthIndicatorsStatusEnum;
+    'consolidatedHealthIndicatorsStatus': ManagedClientHealthIndicatorsBodyConsolidatedHealthIndicatorsStatusEnum;
     /**
      * The last CCG version for which notification was sent
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'lastNotifiedCcgVersion'?: string;
     /**
      * Information about deployed processes
      * @type {string}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @memberof ManagedClientHealthIndicatorsBody
      */
     'deployed_processes'?: string | null;
     /**
      * 
-     * @type {ManagedclienthealthindicatorsBodyHealthIndicators}
-     * @memberof ManagedclienthealthindicatorsBody
+     * @type {ManagedClientHealthIndicatorsBodyHealthIndicators}
+     * @memberof ManagedClientHealthIndicatorsBody
      */
-    'health_indicators': ManagedclienthealthindicatorsBodyHealthIndicators;
+    'health_indicators': ManagedClientHealthIndicatorsBodyHealthIndicators;
 }
 
-export const ManagedclienthealthindicatorsBodyStatusEnum = {
+export const ManagedClientHealthIndicatorsBodyStatusEnum = {
     Normal: 'NORMAL',
     Undefined: 'UNDEFINED',
     Warning: 'WARNING',
@@ -629,99 +629,99 @@ export const ManagedclienthealthindicatorsBodyStatusEnum = {
     Failed: 'FAILED'
 } as const;
 
-export type ManagedclienthealthindicatorsBodyStatusEnum = typeof ManagedclienthealthindicatorsBodyStatusEnum[keyof typeof ManagedclienthealthindicatorsBodyStatusEnum];
-export const ManagedclienthealthindicatorsBodyConsolidatedHealthIndicatorsStatusEnum = {
+export type ManagedClientHealthIndicatorsBodyStatusEnum = typeof ManagedClientHealthIndicatorsBodyStatusEnum[keyof typeof ManagedClientHealthIndicatorsBodyStatusEnum];
+export const ManagedClientHealthIndicatorsBodyConsolidatedHealthIndicatorsStatusEnum = {
     Normal: 'NORMAL',
     Warning: 'WARNING',
     Error: 'ERROR'
 } as const;
 
-export type ManagedclienthealthindicatorsBodyConsolidatedHealthIndicatorsStatusEnum = typeof ManagedclienthealthindicatorsBodyConsolidatedHealthIndicatorsStatusEnum[keyof typeof ManagedclienthealthindicatorsBodyConsolidatedHealthIndicatorsStatusEnum];
+export type ManagedClientHealthIndicatorsBodyConsolidatedHealthIndicatorsStatusEnum = typeof ManagedClientHealthIndicatorsBodyConsolidatedHealthIndicatorsStatusEnum[keyof typeof ManagedClientHealthIndicatorsBodyConsolidatedHealthIndicatorsStatusEnum];
 
 /**
  * Health indicators grouped by category
  * @export
- * @interface ManagedclienthealthindicatorsBodyHealthIndicators
+ * @interface ManagedClientHealthIndicatorsBodyHealthIndicators
  */
-export interface ManagedclienthealthindicatorsBodyHealthIndicators {
+export interface ManagedClientHealthIndicatorsBodyHealthIndicators {
     /**
      * 
-     * @type {Healthindicatorcategory}
-     * @memberof ManagedclienthealthindicatorsBodyHealthIndicators
+     * @type {HealthIndicatorCategory}
+     * @memberof ManagedClientHealthIndicatorsBodyHealthIndicators
      */
-    'container'?: Healthindicatorcategory;
+    'container'?: HealthIndicatorCategory;
     /**
      * 
-     * @type {Healthindicatorcategory}
-     * @memberof ManagedclienthealthindicatorsBodyHealthIndicators
+     * @type {HealthIndicatorCategory}
+     * @memberof ManagedClientHealthIndicatorsBodyHealthIndicators
      */
-    'memory'?: Healthindicatorcategory;
+    'memory'?: HealthIndicatorCategory;
     /**
      * 
-     * @type {Healthindicatorcategory}
-     * @memberof ManagedclienthealthindicatorsBodyHealthIndicators
+     * @type {HealthIndicatorCategory}
+     * @memberof ManagedClientHealthIndicatorsBodyHealthIndicators
      */
-    'cpu'?: Healthindicatorcategory;
+    'cpu'?: HealthIndicatorCategory;
 }
 /**
  * Managed Client Request
  * @export
- * @interface Managedclientrequest
+ * @interface ManagedClientRequest
  */
-export interface Managedclientrequest {
+export interface ManagedClientRequest {
     /**
      * Cluster ID that the ManagedClient is linked to
      * @type {string}
-     * @memberof Managedclientrequest
+     * @memberof ManagedClientRequest
      */
     'clusterId': string;
     /**
      * description for the ManagedClient to create
      * @type {string}
-     * @memberof Managedclientrequest
+     * @memberof ManagedClientRequest
      */
     'description'?: string | null;
     /**
      * name for the ManagedClient to create
      * @type {string}
-     * @memberof Managedclientrequest
+     * @memberof ManagedClientRequest
      */
     'name'?: string | null;
     /**
      * Type of the ManagedClient (VA, CCG) to create
      * @type {string}
-     * @memberof Managedclientrequest
+     * @memberof ManagedClientRequest
      */
     'type'?: string | null;
 }
 /**
  * Managed Client Status
  * @export
- * @interface Managedclientstatus
+ * @interface ManagedClientStatus
  */
-export interface Managedclientstatus {
+export interface ManagedClientStatus {
     /**
      * ManagedClientStatus body information
      * @type {object}
-     * @memberof Managedclientstatus
+     * @memberof ManagedClientStatus
      */
     'body': object;
     /**
      * 
-     * @type {Managedclientstatuscode}
-     * @memberof Managedclientstatus
+     * @type {ManagedClientStatusCode}
+     * @memberof ManagedClientStatus
      */
-    'status': Managedclientstatuscode;
+    'status': ManagedClientStatusCode;
     /**
      * 
-     * @type {Managedclienttype}
-     * @memberof Managedclientstatus
+     * @type {ManagedClientType}
+     * @memberof ManagedClientStatus
      */
-    'type': Managedclienttype | null;
+    'type': ManagedClientType | null;
     /**
      * timestamp on the Client Status update
      * @type {string}
-     * @memberof Managedclientstatus
+     * @memberof ManagedClientStatus
      */
     'timestamp': string;
 }
@@ -733,7 +733,7 @@ export interface Managedclientstatus {
  * @enum {string}
  */
 
-export const Managedclientstatuscode = {
+export const ManagedClientStatusCode = {
     Normal: 'NORMAL',
     Undefined: 'UNDEFINED',
     NotConfigured: 'NOT_CONFIGURED',
@@ -743,7 +743,7 @@ export const Managedclientstatuscode = {
     Failed: 'FAILED'
 } as const;
 
-export type Managedclientstatuscode = typeof Managedclientstatuscode[keyof typeof Managedclientstatuscode];
+export type ManagedClientStatusCode = typeof ManagedClientStatusCode[keyof typeof ManagedClientStatusCode];
 
 
 /**
@@ -752,14 +752,14 @@ export type Managedclientstatuscode = typeof Managedclientstatuscode[keyof typeo
  * @enum {string}
  */
 
-export const Managedclienttype = {
+export const ManagedClientType = {
     Ccg: 'CCG',
     Va: 'VA',
     Internal: 'INTERNAL',
     IiqHarvester: 'IIQ_HARVESTER'
 } as const;
 
-export type Managedclienttype = typeof Managedclienttype[keyof typeof Managedclienttype];
+export type ManagedClientType = typeof ManagedClientType[keyof typeof ManagedClientType];
 
 
 
@@ -772,13 +772,13 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Create a new managed client. The API returns a result that includes the managed client ID.
          * @summary Create managed client
-         * @param {Managedclientrequest} managedclientrequest 
+         * @param {ManagedClientRequest} managedClientRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createManagedClientV1: async (managedclientrequest: Managedclientrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'managedclientrequest' is not null or undefined
-            assertParamExists('createManagedClientV1', 'managedclientrequest', managedclientrequest)
+        createManagedClientV1: async (managedClientRequest: ManagedClientRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'managedClientRequest' is not null or undefined
+            assertParamExists('createManagedClientV1', 'managedClientRequest', managedClientRequest)
             const localVarPath = `/managed-clients/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -798,7 +798,7 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(managedclientrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(managedClientRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -877,11 +877,11 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
          * Get a managed client\'s status, using its ID.
          * @summary Get managed client status
          * @param {string} id Managed client ID to get status for.
-         * @param {Managedclienttype} type Managed client type to get status for.
+         * @param {ManagedClientType} type Managed client type to get status for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClientStatusV1: async (id: string, type: Managedclienttype, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getManagedClientStatusV1: async (id: string, type: ManagedClientType, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getManagedClientStatusV1', 'id', id)
             // verify required parameter 'type' is not null or undefined
@@ -1002,15 +1002,15 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
          * Update an existing managed client.
          * @summary Update managed client
          * @param {string} id Managed client ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSONPatch payload used to update the object.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClientV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateManagedClientV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateManagedClientV1', 'id', id)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('updateManagedClientV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateManagedClientV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/managed-clients/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1031,7 +1031,7 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1051,12 +1051,12 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
         /**
          * Create a new managed client. The API returns a result that includes the managed client ID.
          * @summary Create managed client
-         * @param {Managedclientrequest} managedclientrequest 
+         * @param {ManagedClientRequest} managedClientRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createManagedClientV1(managedclientrequest: Managedclientrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclient>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedClientV1(managedclientrequest, axiosOptions);
+        async createManagedClientV1(managedClientRequest: ManagedClientRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedClientV1(managedClientRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ManagedClientsApi.createManagedClientV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1081,7 +1081,7 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClientHealthIndicatorsV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclienthealthindicators>> {
+        async getManagedClientHealthIndicatorsV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientHealthIndicators>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientHealthIndicatorsV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ManagedClientsApi.getManagedClientHealthIndicatorsV1']?.[localVarOperationServerIndex]?.url;
@@ -1091,11 +1091,11 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
          * Get a managed client\'s status, using its ID.
          * @summary Get managed client status
          * @param {string} id Managed client ID to get status for.
-         * @param {Managedclienttype} type Managed client type to get status for.
+         * @param {ManagedClientType} type Managed client type to get status for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClientStatusV1(id: string, type: Managedclienttype, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclientstatus>> {
+        async getManagedClientStatusV1(id: string, type: ManagedClientType, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientStatusV1(id, type, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ManagedClientsApi.getManagedClientStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -1108,7 +1108,7 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClientV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclient>> {
+        async getManagedClientV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ManagedClientsApi.getManagedClientV1']?.[localVarOperationServerIndex]?.url;
@@ -1124,7 +1124,7 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClientsV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Managedclient>>> {
+        async getManagedClientsV1(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedClient>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientsV1(offset, limit, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ManagedClientsApi.getManagedClientsV1']?.[localVarOperationServerIndex]?.url;
@@ -1134,12 +1134,12 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
          * Update an existing managed client.
          * @summary Update managed client
          * @param {string} id Managed client ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation JSONPatch payload used to update the object.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateManagedClientV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Managedclient>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClientV1(id, jsonpatchoperation, axiosOptions);
+        async updateManagedClientV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClientV1(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ManagedClientsApi.updateManagedClientV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1161,8 +1161,8 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createManagedClientV1(requestParameters: ManagedClientsApiCreateManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclient> {
-            return localVarFp.createManagedClientV1(requestParameters.managedclientrequest, axiosOptions).then((request) => request(axios, basePath));
+        createManagedClientV1(requestParameters: ManagedClientsApiCreateManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedClient> {
+            return localVarFp.createManagedClientV1(requestParameters.managedClientRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete an existing managed client.
@@ -1181,7 +1181,7 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClientHealthIndicatorsV1(requestParameters: ManagedClientsApiGetManagedClientHealthIndicatorsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclienthealthindicators> {
+        getManagedClientHealthIndicatorsV1(requestParameters: ManagedClientsApiGetManagedClientHealthIndicatorsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedClientHealthIndicators> {
             return localVarFp.getManagedClientHealthIndicatorsV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1191,7 +1191,7 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClientStatusV1(requestParameters: ManagedClientsApiGetManagedClientStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclientstatus> {
+        getManagedClientStatusV1(requestParameters: ManagedClientsApiGetManagedClientStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedClientStatus> {
             return localVarFp.getManagedClientStatusV1(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1201,7 +1201,7 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClientV1(requestParameters: ManagedClientsApiGetManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclient> {
+        getManagedClientV1(requestParameters: ManagedClientsApiGetManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedClient> {
             return localVarFp.getManagedClientV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1211,7 +1211,7 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getManagedClientsV1(requestParameters: ManagedClientsApiGetManagedClientsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Managedclient>> {
+        getManagedClientsV1(requestParameters: ManagedClientsApiGetManagedClientsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ManagedClient>> {
             return localVarFp.getManagedClientsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1221,8 +1221,8 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClientV1(requestParameters: ManagedClientsApiUpdateManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Managedclient> {
-            return localVarFp.updateManagedClientV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        updateManagedClientV1(requestParameters: ManagedClientsApiUpdateManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ManagedClient> {
+            return localVarFp.updateManagedClientV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1235,10 +1235,10 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
 export interface ManagedClientsApiCreateManagedClientV1Request {
     /**
      * 
-     * @type {Managedclientrequest}
+     * @type {ManagedClientRequest}
      * @memberof ManagedClientsApiCreateManagedClientV1
      */
-    readonly managedclientrequest: Managedclientrequest
+    readonly managedClientRequest: ManagedClientRequest
 }
 
 /**
@@ -1284,10 +1284,10 @@ export interface ManagedClientsApiGetManagedClientStatusV1Request {
 
     /**
      * Managed client type to get status for.
-     * @type {Managedclienttype}
+     * @type {ManagedClientType}
      * @memberof ManagedClientsApiGetManagedClientStatusV1
      */
-    readonly type: Managedclienttype
+    readonly type: ManagedClientType
 }
 
 /**
@@ -1354,10 +1354,10 @@ export interface ManagedClientsApiUpdateManagedClientV1Request {
 
     /**
      * JSONPatch payload used to update the object.
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof ManagedClientsApiUpdateManagedClientV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -1376,7 +1376,7 @@ export class ManagedClientsApi extends BaseAPI {
      * @memberof ManagedClientsApi
      */
     public createManagedClientV1(requestParameters: ManagedClientsApiCreateManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClientsApiFp(this.configuration).createManagedClientV1(requestParameters.managedclientrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ManagedClientsApiFp(this.configuration).createManagedClientV1(requestParameters.managedClientRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1448,7 +1448,7 @@ export class ManagedClientsApi extends BaseAPI {
      * @memberof ManagedClientsApi
      */
     public updateManagedClientV1(requestParameters: ManagedClientsApiUpdateManagedClientV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ManagedClientsApiFp(this.configuration).updateManagedClientV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ManagedClientsApiFp(this.configuration).updateManagedClientV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

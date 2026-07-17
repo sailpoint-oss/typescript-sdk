@@ -6,12 +6,18 @@
       source: |
         import { ManagedClusterTypesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Managedclustertype } from 'sailpoint-api-client/dist/managed_cluster_types/api';
+        import { ManagedClusterType } from 'sailpoint-api-client/dist/managed_cluster_types/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClusterTypesApi(configuration);
-        const managedclustertype: Managedclustertype = ; // Managedclustertype | 
-        const result = await apiInstance.createManagedClusterTypeV1({ managedclustertype: managedclustertype });
+        const managedClusterType: ManagedClusterType = {
+  "managedProcessIds" : [ "someId", "someId2" ],
+  "pod" : "megapod-useast1",
+  "org" : "denali-cjh",
+  "id" : "aClusterTypeId",
+  "type" : "idn"
+}; // ManagedClusterType | 
+        const result = await apiInstance.createManagedClusterTypeV1({ managedClusterType: managedClusterType });
         console.log(result);
 - path: /managed-cluster-types/v1/{id}
   method: DELETE
@@ -67,11 +73,21 @@
       source: |
         import { ManagedClusterTypesApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatch } from 'sailpoint-api-client/dist/managed_cluster_types/api';
+        import { JsonPatch } from 'sailpoint-api-client/dist/managed_cluster_types/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClusterTypesApi(configuration);
         const id: string = 'aClusterTypeId'; // string | The Managed Cluster Type ID (default to undefined)
-        const jsonpatch: Jsonpatch = ; // Jsonpatch | The JSONPatch payload used to update the schema.
-        const result = await apiInstance.updateManagedClusterTypeV1({ id: id, jsonpatch: jsonpatch });
+        const jsonPatch: JsonPatch = {
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}; // JsonPatch | The JSONPatch payload used to update the schema.
+        const result = await apiInstance.updateManagedClusterTypeV1({ id: id, jsonPatch: jsonPatch });
         console.log(result);

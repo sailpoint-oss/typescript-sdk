@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Reportresults`
+`ReportResults`
 
 ### HTTP request headers
 
@@ -154,11 +154,11 @@ Use this API to run a report according to report input details. If non-concurren
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**reportdetails** | `Reportdetails` |  | 
+**reportDetails** | `ReportDetails` |  | 
 
 ### Return type
 
-`Taskresultdetails`
+`TaskResultDetails`
 
 ### HTTP request headers
 
@@ -170,12 +170,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { ReportsDataExtractionApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Reportdetails } from 'sailpoint-api-client/dist/reports_data_extraction/api';
+import { ReportDetails } from 'sailpoint-api-client/dist/reports_data_extraction/api';
 
 const configuration = new Configuration();
 const apiInstance = new ReportsDataExtractionApi(configuration);
-const reportdetails: Reportdetails = ; // 
-const result = await apiInstance.startReportV1({ reportdetails: reportdetails });
+const reportDetails: ReportDetails = {
+  "reportType" : "ACCOUNTS",
+  "arguments" : {
+    "application" : "2c9180897e7742b2017e781782f705b9",
+    "sourceName" : "Active Directory"
+  }
+}; // 
+const result = await apiInstance.startReportV1({ reportDetails: reportDetails });
 console.log(result);
 ```
 

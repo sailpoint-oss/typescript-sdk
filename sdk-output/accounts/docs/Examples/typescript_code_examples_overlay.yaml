@@ -6,12 +6,21 @@
       source: |
         import { AccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Accountattributescreate } from 'sailpoint-api-client/dist/accounts/api';
+        import { AccountAttributesCreate } from 'sailpoint-api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
-        const accountattributescreate: Accountattributescreate = ; // Accountattributescreate | 
-        const result = await apiInstance.createAccountV1({ accountattributescreate: accountattributescreate });
+        const accountAttributesCreate: AccountAttributesCreate = {
+  "attributes" : {
+    "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
+    "city" : "Austin",
+    "displayName" : "John Doe",
+    "userName" : "jdoe",
+    "sAMAccountName" : "jDoe",
+    "mail" : "john.doe@sailpoint.com"
+  }
+}; // AccountAttributesCreate | 
+        const result = await apiInstance.createAccountV1({ accountAttributesCreate: accountAttributesCreate });
         console.log(result);
 - path: /accounts/v1/{id}/remove
   method: POST
@@ -63,13 +72,16 @@
       source: |
         import { AccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Accounttogglerequest } from 'sailpoint-api-client/dist/accounts/api';
+        import { AccountToggleRequest } from 'sailpoint-api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The account id (default to undefined)
-        const accounttogglerequest: Accounttogglerequest = ; // Accounttogglerequest | 
-        const result = await apiInstance.disableAccountV1({ id: id, accounttogglerequest: accounttogglerequest });
+        const accountToggleRequest: AccountToggleRequest = {
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+}; // AccountToggleRequest | 
+        const result = await apiInstance.disableAccountV1({ id: id, accountToggleRequest: accountToggleRequest });
         console.log(result);
 - path: /identities-accounts/v1/disable
   method: POST
@@ -79,12 +91,14 @@
       source: |
         import { AccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Identitiesaccountsbulkrequest } from 'sailpoint-api-client/dist/accounts/api';
+        import { IdentitiesAccountsBulkRequest } from 'sailpoint-api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
-        const identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest = ; // Identitiesaccountsbulkrequest | 
-        const result = await apiInstance.disableAccountsForIdentitiesV1({ identitiesaccountsbulkrequest: identitiesaccountsbulkrequest });
+        const identitiesAccountsBulkRequest: IdentitiesAccountsBulkRequest = {
+  "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+}; // IdentitiesAccountsBulkRequest | 
+        const result = await apiInstance.disableAccountsForIdentitiesV1({ identitiesAccountsBulkRequest: identitiesAccountsBulkRequest });
         console.log(result);
 - path: /identities-accounts/v1/{id}/enable
   method: POST
@@ -108,13 +122,16 @@
       source: |
         import { AccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Accounttogglerequest } from 'sailpoint-api-client/dist/accounts/api';
+        import { AccountToggleRequest } from 'sailpoint-api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The account id (default to undefined)
-        const accounttogglerequest: Accounttogglerequest = ; // Accounttogglerequest | 
-        const result = await apiInstance.enableAccountV1({ id: id, accounttogglerequest: accounttogglerequest });
+        const accountToggleRequest: AccountToggleRequest = {
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
+}; // AccountToggleRequest | 
+        const result = await apiInstance.enableAccountV1({ id: id, accountToggleRequest: accountToggleRequest });
         console.log(result);
 - path: /identities-accounts/v1/enable
   method: POST
@@ -124,12 +141,14 @@
       source: |
         import { AccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Identitiesaccountsbulkrequest } from 'sailpoint-api-client/dist/accounts/api';
+        import { IdentitiesAccountsBulkRequest } from 'sailpoint-api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
-        const identitiesaccountsbulkrequest: Identitiesaccountsbulkrequest = ; // Identitiesaccountsbulkrequest | 
-        const result = await apiInstance.enableAccountsForIdentitiesV1({ identitiesaccountsbulkrequest: identitiesaccountsbulkrequest });
+        const identitiesAccountsBulkRequest: IdentitiesAccountsBulkRequest = {
+  "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
+}; // IdentitiesAccountsBulkRequest | 
+        const result = await apiInstance.enableAccountsForIdentitiesV1({ identitiesAccountsBulkRequest: identitiesAccountsBulkRequest });
         console.log(result);
 - path: /accounts/v1/{id}/entitlements
   method: GET
@@ -189,13 +208,21 @@
       source: |
         import { AccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Accountattributes } from 'sailpoint-api-client/dist/accounts/api';
+        import { AccountAttributes } from 'sailpoint-api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Account ID. (default to undefined)
-        const accountattributes: Accountattributes = ; // Accountattributes | 
-        const result = await apiInstance.putAccountV1({ id: id, accountattributes: accountattributes });
+        const accountAttributes: AccountAttributes = {
+  "attributes" : {
+    "city" : "Austin",
+    "displayName" : "John Doe",
+    "userName" : "jdoe",
+    "sAMAccountName" : "jDoe",
+    "mail" : "john.doe@sailpoint.com"
+  }
+}; // AccountAttributes | 
+        const result = await apiInstance.putAccountV1({ id: id, accountAttributes: accountAttributes });
         console.log(result);
 - path: /accounts/v1/{id}/reload
   method: POST
@@ -219,13 +246,17 @@
       source: |
         import { AccountsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Accountunlockrequest } from 'sailpoint-api-client/dist/accounts/api';
+        import { AccountUnlockRequest } from 'sailpoint-api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The account ID. (default to undefined)
-        const accountunlockrequest: Accountunlockrequest = ; // Accountunlockrequest | 
-        const result = await apiInstance.unlockAccountV1({ id: id, accountunlockrequest: accountunlockrequest });
+        const accountUnlockRequest: AccountUnlockRequest = {
+  "forceProvisioning" : false,
+  "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
+  "unlockIDNAccount" : false
+}; // AccountUnlockRequest | 
+        const result = await apiInstance.unlockAccountV1({ id: id, accountUnlockRequest: accountUnlockRequest });
         console.log(result);
 - path: /accounts/v1/{id}
   method: PATCH

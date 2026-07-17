@@ -34,11 +34,11 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | Source ID. |  [default to undefined]
-**attributemappings** | `Attributemappings` |  | 
+**attributeMappings** | `AttributeMappings` |  | 
 
 ### Return type
 
-`Array<Attributemappings>`
+`Array<AttributeMappings>`
 
 ### HTTP request headers
 
@@ -50,13 +50,33 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountMappingsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Attributemappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
+import { AttributeMappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);
 const sourceId: string = ef38f94347e94562b5bb8424a56397d8; // Source ID.
-const attributemappings: Attributemappings = ; // 
-const result = await apiInstance.createMachineAccountMappingsV1({ sourceId: sourceId, attributemappings: attributemappings });
+const attributeMappings: AttributeMappings = {
+  "transformDefinition" : {
+    "attributes" : {
+      "input" : {
+        "attributes" : {
+          "name" : "8d3e0094e99445de98eef6c75e25jc04",
+          "attributeName" : "givenName",
+          "sourceName" : "delimited-src"
+        },
+        "type" : "accountAttribute"
+      }
+    },
+    "id" : "ToUpper",
+    "type" : "reference"
+  },
+  "target" : {
+    "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+    "attributeName" : "businessApplication",
+    "type" : "IDENTITY"
+  }
+}; // 
+const result = await apiInstance.createMachineAccountMappingsV1({ sourceId: sourceId, attributeMappings: attributeMappings });
 console.log(result);
 ```
 
@@ -117,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Attributemappings>`
+`Array<AttributeMappings>`
 
 ### HTTP request headers
 
@@ -153,11 +173,11 @@ Use this API to update Machine Account Attribute Mapping for a Source. A token w
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | Source ID. |  [default to undefined]
-**attributemappings** | `Attributemappings` |  | 
+**attributeMappings** | `AttributeMappings` |  | 
 
 ### Return type
 
-`Array<Attributemappings>`
+`Array<AttributeMappings>`
 
 ### HTTP request headers
 
@@ -169,13 +189,33 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineAccountMappingsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Attributemappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
+import { AttributeMappings } from 'sailpoint-api-client/dist/machine_account_mappings/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);
 const sourceId: string = ef38f94347e94562b5bb8424a56397d8; // Source ID.
-const attributemappings: Attributemappings = ; // 
-const result = await apiInstance.setMachineAccountMappingsV1({ sourceId: sourceId, attributemappings: attributemappings });
+const attributeMappings: AttributeMappings = {
+  "transformDefinition" : {
+    "attributes" : {
+      "input" : {
+        "attributes" : {
+          "name" : "8d3e0094e99445de98eef6c75e25jc04",
+          "attributeName" : "givenName",
+          "sourceName" : "delimited-src"
+        },
+        "type" : "accountAttribute"
+      }
+    },
+    "id" : "ToUpper",
+    "type" : "reference"
+  },
+  "target" : {
+    "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+    "attributeName" : "businessApplication",
+    "type" : "IDENTITY"
+  }
+}; // 
+const result = await apiInstance.setMachineAccountMappingsV1({ sourceId: sourceId, attributeMappings: attributeMappings });
 console.log(result);
 ```
 

@@ -26,24 +26,24 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Effect produced by a condition.
  * @export
- * @interface Conditioneffect
+ * @interface ConditionEffect
  */
-export interface Conditioneffect {
+export interface ConditionEffect {
     /**
      * Type of effect to perform when the conditions are evaluated for this logic block. HIDE ConditionEffectTypeHide  Disables validations. SHOW ConditionEffectTypeShow  Enables validations. DISABLE ConditionEffectTypeDisable  Disables validations. ENABLE ConditionEffectTypeEnable  Enables validations. REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose.
      * @type {string}
-     * @memberof Conditioneffect
+     * @memberof ConditionEffect
      */
-    'effectType'?: ConditioneffectEffectTypeEnum;
+    'effectType'?: ConditionEffectEffectTypeEnum;
     /**
      * 
-     * @type {ConditioneffectConfig}
-     * @memberof Conditioneffect
+     * @type {ConditionEffectConfig}
+     * @memberof ConditionEffect
      */
-    'config'?: ConditioneffectConfig;
+    'config'?: ConditionEffectConfig;
 }
 
-export const ConditioneffectEffectTypeEnum = {
+export const ConditionEffectEffectTypeEnum = {
     Hide: 'HIDE',
     Show: 'SHOW',
     Disable: 'DISABLE',
@@ -55,72 +55,72 @@ export const ConditioneffectEffectTypeEnum = {
     SetDefaultValue: 'SET_DEFAULT_VALUE'
 } as const;
 
-export type ConditioneffectEffectTypeEnum = typeof ConditioneffectEffectTypeEnum[keyof typeof ConditioneffectEffectTypeEnum];
+export type ConditionEffectEffectTypeEnum = typeof ConditionEffectEffectTypeEnum[keyof typeof ConditionEffectEffectTypeEnum];
 
 /**
  * Arbitrary map containing a configuration based on the EffectType.
  * @export
- * @interface ConditioneffectConfig
+ * @interface ConditionEffectConfig
  */
-export interface ConditioneffectConfig {
+export interface ConditionEffectConfig {
     /**
      * Effect type\'s label.
      * @type {string}
-     * @memberof ConditioneffectConfig
+     * @memberof ConditionEffectConfig
      */
     'defaultValueLabel'?: string;
     /**
      * Element\'s identifier.
      * @type {string}
-     * @memberof ConditioneffectConfig
+     * @memberof ConditionEffectConfig
      */
     'element'?: string;
 }
 /**
  * 
  * @export
- * @interface Conditionrule
+ * @interface ConditionRule
  */
-export interface Conditionrule {
+export interface ConditionRule {
     /**
      * Defines the type of object being selected. It will be either a reference to a form input (by input name) or a form element (by technical key). INPUT ConditionRuleSourceTypeInput ELEMENT ConditionRuleSourceTypeElement
      * @type {string}
-     * @memberof Conditionrule
+     * @memberof ConditionRule
      */
-    'sourceType'?: ConditionruleSourceTypeEnum;
+    'sourceType'?: ConditionRuleSourceTypeEnum;
     /**
      * Source - if the sourceType is ConditionRuleSourceTypeInput, the source type is the name of the form input to accept. However, if the sourceType is ConditionRuleSourceTypeElement, the source is the name of a technical key of an element to retrieve its value.
      * @type {string}
-     * @memberof Conditionrule
+     * @memberof ConditionRule
      */
     'source'?: string;
     /**
      * ConditionRuleComparisonOperatorType value. EQ ConditionRuleComparisonOperatorTypeEquals  This comparison operator compares the source and target for equality. NE ConditionRuleComparisonOperatorTypeNotEquals  This comparison operator compares the source and target for inequality. CO ConditionRuleComparisonOperatorTypeContains  This comparison operator searches the source to see whether it contains the value. NOT_CO ConditionRuleComparisonOperatorTypeNotContains IN ConditionRuleComparisonOperatorTypeIncludes  This comparison operator searches the source if it equals any of the values. NOT_IN ConditionRuleComparisonOperatorTypeNotIncludes EM ConditionRuleComparisonOperatorTypeEmpty NOT_EM ConditionRuleComparisonOperatorTypeNotEmpty SW ConditionRuleComparisonOperatorTypeStartsWith  Checks whether a string starts with another substring of the same string. This operator is case-sensitive. NOT_SW ConditionRuleComparisonOperatorTypeNotStartsWith EW ConditionRuleComparisonOperatorTypeEndsWith  Checks whether a string ends with another substring of the same string. This operator is case-sensitive. NOT_EW ConditionRuleComparisonOperatorTypeNotEndsWith
      * @type {string}
-     * @memberof Conditionrule
+     * @memberof ConditionRule
      */
-    'operator'?: ConditionruleOperatorEnum;
+    'operator'?: ConditionRuleOperatorEnum;
     /**
      * ConditionRuleValueType type. STRING ConditionRuleValueTypeString  This value is a static string. STRING_LIST ConditionRuleValueTypeStringList  This value is an array of string values. INPUT ConditionRuleValueTypeInput  This value is a reference to a form input. ELEMENT ConditionRuleValueTypeElement  This value is a reference to a form element (by technical key). LIST ConditionRuleValueTypeList BOOLEAN ConditionRuleValueTypeBoolean
      * @type {string}
-     * @memberof Conditionrule
+     * @memberof ConditionRule
      */
-    'valueType'?: ConditionruleValueTypeEnum;
+    'valueType'?: ConditionRuleValueTypeEnum;
     /**
      * Based on the ValueType.
      * @type {string}
-     * @memberof Conditionrule
+     * @memberof ConditionRule
      */
     'value'?: string;
 }
 
-export const ConditionruleSourceTypeEnum = {
+export const ConditionRuleSourceTypeEnum = {
     Input: 'INPUT',
     Element: 'ELEMENT'
 } as const;
 
-export type ConditionruleSourceTypeEnum = typeof ConditionruleSourceTypeEnum[keyof typeof ConditionruleSourceTypeEnum];
-export const ConditionruleOperatorEnum = {
+export type ConditionRuleSourceTypeEnum = typeof ConditionRuleSourceTypeEnum[keyof typeof ConditionRuleSourceTypeEnum];
+export const ConditionRuleOperatorEnum = {
     Eq: 'EQ',
     Ne: 'NE',
     Co: 'CO',
@@ -135,8 +135,8 @@ export const ConditionruleOperatorEnum = {
     NotEw: 'NOT_EW'
 } as const;
 
-export type ConditionruleOperatorEnum = typeof ConditionruleOperatorEnum[keyof typeof ConditionruleOperatorEnum];
-export const ConditionruleValueTypeEnum = {
+export type ConditionRuleOperatorEnum = typeof ConditionRuleOperatorEnum[keyof typeof ConditionRuleOperatorEnum];
+export const ConditionRuleValueTypeEnum = {
     String: 'STRING',
     StringList: 'STRING_LIST',
     Input: 'INPUT',
@@ -145,7 +145,7 @@ export const ConditionruleValueTypeEnum = {
     Boolean: 'BOOLEAN'
 } as const;
 
-export type ConditionruleValueTypeEnum = typeof ConditionruleValueTypeEnum[keyof typeof ConditionruleValueTypeEnum];
+export type ConditionRuleValueTypeEnum = typeof ConditionRuleValueTypeEnum[keyof typeof ConditionRuleValueTypeEnum];
 
 /**
  * 
@@ -163,109 +163,109 @@ export interface CreateFormDefinitionFileRequestV1Request {
 /**
  * 
  * @export
- * @interface Createformdefinitionrequest
+ * @interface CreateFormDefinitionRequest
  */
-export interface Createformdefinitionrequest {
+export interface CreateFormDefinitionRequest {
     /**
      * Description is the form definition description
      * @type {string}
-     * @memberof Createformdefinitionrequest
+     * @memberof CreateFormDefinitionRequest
      */
     'description'?: string;
     /**
      * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
-     * @type {Array<Formcondition>}
-     * @memberof Createformdefinitionrequest
+     * @type {Array<FormCondition>}
+     * @memberof CreateFormDefinitionRequest
      */
-    'formConditions'?: Array<Formcondition>;
+    'formConditions'?: Array<FormCondition>;
     /**
      * FormElements is a list of nested form elements
-     * @type {Array<Formelement>}
-     * @memberof Createformdefinitionrequest
+     * @type {Array<FormElement>}
+     * @memberof CreateFormDefinitionRequest
      */
-    'formElements'?: Array<Formelement>;
+    'formElements'?: Array<FormElement>;
     /**
      * FormInput is a list of form inputs that are required when creating a form-instance object
-     * @type {Array<Formdefinitioninput>}
-     * @memberof Createformdefinitionrequest
+     * @type {Array<FormDefinitionInput>}
+     * @memberof CreateFormDefinitionRequest
      */
-    'formInput'?: Array<Formdefinitioninput>;
+    'formInput'?: Array<FormDefinitionInput>;
     /**
      * Name is the form definition name
      * @type {string}
-     * @memberof Createformdefinitionrequest
+     * @memberof CreateFormDefinitionRequest
      */
     'name': string;
     /**
      * 
-     * @type {Formowner}
-     * @memberof Createformdefinitionrequest
+     * @type {FormOwner}
+     * @memberof CreateFormDefinitionRequest
      */
-    'owner': Formowner;
+    'owner': FormOwner;
     /**
      * UsedBy is a list of objects where when any system uses a particular form it reaches out to the form service to record it is currently being used
-     * @type {Array<Formusedby>}
-     * @memberof Createformdefinitionrequest
+     * @type {Array<FormUsedBy>}
+     * @memberof CreateFormDefinitionRequest
      */
-    'usedBy'?: Array<Formusedby>;
+    'usedBy'?: Array<FormUsedBy>;
 }
 /**
  * 
  * @export
- * @interface Createforminstancerequest
+ * @interface CreateFormInstanceRequest
  */
-export interface Createforminstancerequest {
+export interface CreateFormInstanceRequest {
     /**
      * 
-     * @type {Forminstancecreatedby}
-     * @memberof Createforminstancerequest
+     * @type {FormInstanceCreatedBy}
+     * @memberof CreateFormInstanceRequest
      */
-    'createdBy': Forminstancecreatedby;
+    'createdBy': FormInstanceCreatedBy;
     /**
      * Expire is required
      * @type {string}
-     * @memberof Createforminstancerequest
+     * @memberof CreateFormInstanceRequest
      */
     'expire': string;
     /**
      * FormDefinitionID is the id of the form definition that created this form
      * @type {string}
-     * @memberof Createforminstancerequest
+     * @memberof CreateFormInstanceRequest
      */
     'formDefinitionId': string;
     /**
      * FormInput is an object of form input labels to value
      * @type {{ [key: string]: any; }}
-     * @memberof Createforminstancerequest
+     * @memberof CreateFormInstanceRequest
      */
     'formInput'?: { [key: string]: any; };
     /**
      * Recipients is required
-     * @type {Array<Forminstancerecipient>}
-     * @memberof Createforminstancerequest
+     * @type {Array<FormInstanceRecipient>}
+     * @memberof CreateFormInstanceRequest
      */
-    'recipients': Array<Forminstancerecipient>;
+    'recipients': Array<FormInstanceRecipient>;
     /**
      * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
      * @type {boolean}
-     * @memberof Createforminstancerequest
+     * @memberof CreateFormInstanceRequest
      */
     'standAloneForm'?: boolean;
     /**
      * State is required, if not present initial state is FormInstanceStateAssigned ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
      * @type {string}
-     * @memberof Createforminstancerequest
+     * @memberof CreateFormInstanceRequest
      */
-    'state'?: CreateforminstancerequestStateEnum;
+    'state'?: CreateFormInstanceRequestStateEnum;
     /**
      * TTL an epoch timestamp in seconds, it most be in seconds or dynamodb will ignore it SEE: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-before-you-start.html
      * @type {number}
-     * @memberof Createforminstancerequest
+     * @memberof CreateFormInstanceRequest
      */
     'ttl'?: number;
 }
 
-export const CreateforminstancerequestStateEnum = {
+export const CreateFormInstanceRequestStateEnum = {
     Assigned: 'ASSIGNED',
     InProgress: 'IN_PROGRESS',
     Submitted: 'SUBMITTED',
@@ -273,30 +273,30 @@ export const CreateforminstancerequestStateEnum = {
     Cancelled: 'CANCELLED'
 } as const;
 
-export type CreateforminstancerequestStateEnum = typeof CreateforminstancerequestStateEnum[keyof typeof CreateforminstancerequestStateEnum];
+export type CreateFormInstanceRequestStateEnum = typeof CreateFormInstanceRequestStateEnum[keyof typeof CreateFormInstanceRequestStateEnum];
 
 /**
  * 
  * @export
- * @interface Errormessage
+ * @interface ErrorMessage
  */
-export interface Errormessage {
+export interface ErrorMessage {
     /**
      * Locale is the current Locale
      * @type {string}
-     * @memberof Errormessage
+     * @memberof ErrorMessage
      */
     'locale'?: string;
     /**
      * LocaleOrigin holds possible values of how the locale was selected
      * @type {string}
-     * @memberof Errormessage
+     * @memberof ErrorMessage
      */
     'localeOrigin'?: string;
     /**
      * Text is the actual text of the error message
      * @type {string}
-     * @memberof Errormessage
+     * @memberof ErrorMessage
      */
     'text'?: string;
 }
@@ -308,10 +308,10 @@ export interface Errormessage {
 export interface ExportFormDefinitionsByTenantV1200ResponseInner {
     /**
      * 
-     * @type {Formdefinitionresponse}
+     * @type {FormDefinitionResponse}
      * @memberof ExportFormDefinitionsByTenantV1200ResponseInner
      */
-    'object'?: Formdefinitionresponse;
+    'object'?: FormDefinitionResponse;
     /**
      * 
      * @type {ExportFormDefinitionsByTenantV1200ResponseInnerSelf}
@@ -333,309 +333,309 @@ export interface ExportFormDefinitionsByTenantV1200ResponseInner {
 export interface ExportFormDefinitionsByTenantV1200ResponseInnerSelf {
     /**
      * 
-     * @type {Formdefinitionselfimportexportdto}
+     * @type {FormDefinitionSelfImportExportDto}
      * @memberof ExportFormDefinitionsByTenantV1200ResponseInnerSelf
      */
-    'object'?: Formdefinitionselfimportexportdto;
+    'object'?: FormDefinitionSelfImportExportDto;
 }
 /**
  * Represent a form conditional.
  * @export
- * @interface Formcondition
+ * @interface FormCondition
  */
-export interface Formcondition {
+export interface FormCondition {
     /**
      * ConditionRuleLogicalOperatorType value. AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr
      * @type {string}
-     * @memberof Formcondition
+     * @memberof FormCondition
      */
-    'ruleOperator'?: FormconditionRuleOperatorEnum;
+    'ruleOperator'?: FormConditionRuleOperatorEnum;
     /**
      * List of rules.
-     * @type {Array<Conditionrule>}
-     * @memberof Formcondition
+     * @type {Array<ConditionRule>}
+     * @memberof FormCondition
      */
-    'rules'?: Array<Conditionrule>;
+    'rules'?: Array<ConditionRule>;
     /**
      * List of effects.
-     * @type {Array<Conditioneffect>}
-     * @memberof Formcondition
+     * @type {Array<ConditionEffect>}
+     * @memberof FormCondition
      */
-    'effects'?: Array<Conditioneffect>;
+    'effects'?: Array<ConditionEffect>;
 }
 
-export const FormconditionRuleOperatorEnum = {
+export const FormConditionRuleOperatorEnum = {
     And: 'AND',
     Or: 'OR'
 } as const;
 
-export type FormconditionRuleOperatorEnum = typeof FormconditionRuleOperatorEnum[keyof typeof FormconditionRuleOperatorEnum];
+export type FormConditionRuleOperatorEnum = typeof FormConditionRuleOperatorEnum[keyof typeof FormConditionRuleOperatorEnum];
 
 /**
  * 
  * @export
- * @interface Formdefinitiondynamicschemarequest
+ * @interface FormDefinitionDynamicSchemaRequest
  */
-export interface Formdefinitiondynamicschemarequest {
+export interface FormDefinitionDynamicSchemaRequest {
     /**
      * 
-     * @type {FormdefinitiondynamicschemarequestAttributes}
-     * @memberof Formdefinitiondynamicschemarequest
+     * @type {FormDefinitionDynamicSchemaRequestAttributes}
+     * @memberof FormDefinitionDynamicSchemaRequest
      */
-    'attributes'?: FormdefinitiondynamicschemarequestAttributes;
+    'attributes'?: FormDefinitionDynamicSchemaRequestAttributes;
     /**
      * Description is the form definition dynamic schema description text
      * @type {string}
-     * @memberof Formdefinitiondynamicschemarequest
+     * @memberof FormDefinitionDynamicSchemaRequest
      */
     'description'?: string;
     /**
      * ID is a unique identifier
      * @type {string}
-     * @memberof Formdefinitiondynamicschemarequest
+     * @memberof FormDefinitionDynamicSchemaRequest
      */
     'id'?: string;
     /**
      * Type is the form definition dynamic schema type
      * @type {string}
-     * @memberof Formdefinitiondynamicschemarequest
+     * @memberof FormDefinitionDynamicSchemaRequest
      */
     'type'?: string;
     /**
      * VersionNumber is the form definition dynamic schema version number
      * @type {number}
-     * @memberof Formdefinitiondynamicschemarequest
+     * @memberof FormDefinitionDynamicSchemaRequest
      */
     'versionNumber'?: number;
 }
 /**
  * 
  * @export
- * @interface FormdefinitiondynamicschemarequestAttributes
+ * @interface FormDefinitionDynamicSchemaRequestAttributes
  */
-export interface FormdefinitiondynamicschemarequestAttributes {
+export interface FormDefinitionDynamicSchemaRequestAttributes {
     /**
      * FormDefinitionID is a unique guid identifying this form definition
      * @type {string}
-     * @memberof FormdefinitiondynamicschemarequestAttributes
+     * @memberof FormDefinitionDynamicSchemaRequestAttributes
      */
     'formDefinitionId'?: string;
 }
 /**
  * 
  * @export
- * @interface Formdefinitiondynamicschemaresponse
+ * @interface FormDefinitionDynamicSchemaResponse
  */
-export interface Formdefinitiondynamicschemaresponse {
+export interface FormDefinitionDynamicSchemaResponse {
     /**
      * OutputSchema holds a JSON schema generated dynamically
      * @type {{ [key: string]: any; }}
-     * @memberof Formdefinitiondynamicschemaresponse
+     * @memberof FormDefinitionDynamicSchemaResponse
      */
     'outputSchema'?: { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface Formdefinitionfileuploadresponse
+ * @interface FormDefinitionFileUploadResponse
  */
-export interface Formdefinitionfileuploadresponse {
+export interface FormDefinitionFileUploadResponse {
     /**
      * Created is the date the file was uploaded
      * @type {string}
-     * @memberof Formdefinitionfileuploadresponse
+     * @memberof FormDefinitionFileUploadResponse
      */
     'created'?: string;
     /**
      * fileId is a unique ULID that serves as an identifier for the form definition file
      * @type {string}
-     * @memberof Formdefinitionfileuploadresponse
+     * @memberof FormDefinitionFileUploadResponse
      */
     'fileId'?: string;
     /**
      * FormDefinitionID is a unique guid identifying this form definition
      * @type {string}
-     * @memberof Formdefinitionfileuploadresponse
+     * @memberof FormDefinitionFileUploadResponse
      */
     'formDefinitionId'?: string;
 }
 /**
  * 
  * @export
- * @interface Formdefinitioninput
+ * @interface FormDefinitionInput
  */
-export interface Formdefinitioninput {
+export interface FormDefinitionInput {
     /**
      * Unique identifier for the form input.
      * @type {string}
-     * @memberof Formdefinitioninput
+     * @memberof FormDefinitionInput
      */
     'id'?: string;
     /**
      * FormDefinitionInputType value. STRING FormDefinitionInputTypeString
      * @type {string}
-     * @memberof Formdefinitioninput
+     * @memberof FormDefinitionInput
      */
-    'type'?: FormdefinitioninputTypeEnum;
+    'type'?: FormDefinitionInputTypeEnum;
     /**
      * Name for the form input.
      * @type {string}
-     * @memberof Formdefinitioninput
+     * @memberof FormDefinitionInput
      */
     'label'?: string;
     /**
      * Form input\'s description.
      * @type {string}
-     * @memberof Formdefinitioninput
+     * @memberof FormDefinitionInput
      */
     'description'?: string;
 }
 
-export const FormdefinitioninputTypeEnum = {
+export const FormDefinitionInputTypeEnum = {
     String: 'STRING',
     Array: 'ARRAY'
 } as const;
 
-export type FormdefinitioninputTypeEnum = typeof FormdefinitioninputTypeEnum[keyof typeof FormdefinitioninputTypeEnum];
+export type FormDefinitionInputTypeEnum = typeof FormDefinitionInputTypeEnum[keyof typeof FormDefinitionInputTypeEnum];
 
 /**
  * 
  * @export
- * @interface Formdefinitionresponse
+ * @interface FormDefinitionResponse
  */
-export interface Formdefinitionresponse {
+export interface FormDefinitionResponse {
     /**
      * Unique guid identifying the form definition.
      * @type {string}
-     * @memberof Formdefinitionresponse
+     * @memberof FormDefinitionResponse
      */
     'id'?: string;
     /**
      * Name of the form definition.
      * @type {string}
-     * @memberof Formdefinitionresponse
+     * @memberof FormDefinitionResponse
      */
     'name'?: string;
     /**
      * Form definition\'s description.
      * @type {string}
-     * @memberof Formdefinitionresponse
+     * @memberof FormDefinitionResponse
      */
     'description'?: string;
     /**
      * 
-     * @type {Formowner}
-     * @memberof Formdefinitionresponse
+     * @type {FormOwner}
+     * @memberof FormDefinitionResponse
      */
-    'owner'?: Formowner;
+    'owner'?: FormOwner;
     /**
      * List of objects using the form definition. Whenever a system uses a form, the API reaches out to the form service to record that the system is currently using it.
-     * @type {Array<Formusedby>}
-     * @memberof Formdefinitionresponse
+     * @type {Array<FormUsedBy>}
+     * @memberof FormDefinitionResponse
      */
-    'usedBy'?: Array<Formusedby>;
+    'usedBy'?: Array<FormUsedBy>;
     /**
      * List of form inputs required to create a form-instance object.
-     * @type {Array<Formdefinitioninput>}
-     * @memberof Formdefinitionresponse
+     * @type {Array<FormDefinitionInput>}
+     * @memberof FormDefinitionResponse
      */
-    'formInput'?: Array<Formdefinitioninput>;
+    'formInput'?: Array<FormDefinitionInput>;
     /**
      * List of nested form elements.
-     * @type {Array<Formelement>}
-     * @memberof Formdefinitionresponse
+     * @type {Array<FormElement>}
+     * @memberof FormDefinitionResponse
      */
-    'formElements'?: Array<Formelement>;
+    'formElements'?: Array<FormElement>;
     /**
      * Conditional logic that can dynamically modify the form as the recipient is interacting with it.
-     * @type {Array<Formcondition>}
-     * @memberof Formdefinitionresponse
+     * @type {Array<FormCondition>}
+     * @memberof FormDefinitionResponse
      */
-    'formConditions'?: Array<Formcondition>;
+    'formConditions'?: Array<FormCondition>;
     /**
      * Created is the date the form definition was created
      * @type {string}
-     * @memberof Formdefinitionresponse
+     * @memberof FormDefinitionResponse
      */
     'created'?: string;
     /**
      * Modified is the last date the form definition was modified
      * @type {string}
-     * @memberof Formdefinitionresponse
+     * @memberof FormDefinitionResponse
      */
     'modified'?: string;
 }
 /**
  * Self block for imported/exported object.
  * @export
- * @interface Formdefinitionselfimportexportdto
+ * @interface FormDefinitionSelfImportExportDto
  */
-export interface Formdefinitionselfimportexportdto {
+export interface FormDefinitionSelfImportExportDto {
     /**
      * Imported/exported object\'s DTO type.
      * @type {string}
-     * @memberof Formdefinitionselfimportexportdto
+     * @memberof FormDefinitionSelfImportExportDto
      */
-    'type'?: FormdefinitionselfimportexportdtoTypeEnum;
+    'type'?: FormDefinitionSelfImportExportDtoTypeEnum;
     /**
      * Imported/exported object\'s ID.
      * @type {string}
-     * @memberof Formdefinitionselfimportexportdto
+     * @memberof FormDefinitionSelfImportExportDto
      */
     'id'?: string;
     /**
      * Imported/exported object\'s display name.
      * @type {string}
-     * @memberof Formdefinitionselfimportexportdto
+     * @memberof FormDefinitionSelfImportExportDto
      */
     'name'?: string;
 }
 
-export const FormdefinitionselfimportexportdtoTypeEnum = {
+export const FormDefinitionSelfImportExportDtoTypeEnum = {
     FormDefinition: 'FORM_DEFINITION'
 } as const;
 
-export type FormdefinitionselfimportexportdtoTypeEnum = typeof FormdefinitionselfimportexportdtoTypeEnum[keyof typeof FormdefinitionselfimportexportdtoTypeEnum];
+export type FormDefinitionSelfImportExportDtoTypeEnum = typeof FormDefinitionSelfImportExportDtoTypeEnum[keyof typeof FormDefinitionSelfImportExportDtoTypeEnum];
 
 /**
  * 
  * @export
- * @interface Formelement
+ * @interface FormElement
  */
-export interface Formelement {
+export interface FormElement {
     /**
      * Form element identifier.
      * @type {string}
-     * @memberof Formelement
+     * @memberof FormElement
      */
     'id'?: string;
     /**
      * FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMN_SET FormElementTypeColumns IMAGE FormElementTypeImage DESCRIPTION FormElementTypeDescription
      * @type {string}
-     * @memberof Formelement
+     * @memberof FormElement
      */
-    'elementType'?: FormelementElementTypeEnum;
+    'elementType'?: FormElementElementTypeEnum;
     /**
      * Config object.
      * @type {{ [key: string]: any; }}
-     * @memberof Formelement
+     * @memberof FormElement
      */
     'config'?: { [key: string]: any; };
     /**
      * Technical key.
      * @type {string}
-     * @memberof Formelement
+     * @memberof FormElement
      */
     'key'?: string;
     /**
      * 
-     * @type {Array<Formelementvalidationsset>}
-     * @memberof Formelement
+     * @type {Array<FormElementValidationsSet>}
+     * @memberof FormElement
      */
-    'validations'?: Array<Formelementvalidationsset> | null;
+    'validations'?: Array<FormElementValidationsSet> | null;
 }
 
-export const FormelementElementTypeEnum = {
+export const FormElementElementTypeEnum = {
     Text: 'TEXT',
     Toggle: 'TOGGLE',
     Textarea: 'TEXTAREA',
@@ -650,95 +650,95 @@ export const FormelementElementTypeEnum = {
     Description: 'DESCRIPTION'
 } as const;
 
-export type FormelementElementTypeEnum = typeof FormelementElementTypeEnum[keyof typeof FormelementElementTypeEnum];
+export type FormElementElementTypeEnum = typeof FormElementElementTypeEnum[keyof typeof FormElementElementTypeEnum];
 
 /**
  * 
  * @export
- * @interface Formelementdatasourceconfigoptions
+ * @interface FormElementDataSourceConfigOptions
  */
-export interface Formelementdatasourceconfigoptions {
+export interface FormElementDataSourceConfigOptions {
     /**
      * Label is the main label to display to the user when selecting this option
      * @type {string}
-     * @memberof Formelementdatasourceconfigoptions
+     * @memberof FormElementDataSourceConfigOptions
      */
     'label'?: string;
     /**
      * SubLabel is the sub label to display below the label in diminutive styling to help describe or identify this option
      * @type {string}
-     * @memberof Formelementdatasourceconfigoptions
+     * @memberof FormElementDataSourceConfigOptions
      */
     'subLabel'?: string;
     /**
      * Value is the value to save as an entry when the user selects this option
      * @type {string}
-     * @memberof Formelementdatasourceconfigoptions
+     * @memberof FormElementDataSourceConfigOptions
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface Formelementdynamicdatasource
+ * @interface FormElementDynamicDataSource
  */
-export interface Formelementdynamicdatasource {
+export interface FormElementDynamicDataSource {
     /**
      * 
-     * @type {Formelementdynamicdatasourceconfig}
-     * @memberof Formelementdynamicdatasource
+     * @type {FormElementDynamicDataSourceConfig}
+     * @memberof FormElementDynamicDataSource
      */
-    'config'?: Formelementdynamicdatasourceconfig;
+    'config'?: FormElementDynamicDataSourceConfig;
     /**
      * DataSourceType is a FormElementDataSourceType value STATIC FormElementDataSourceTypeStatic INTERNAL FormElementDataSourceTypeInternal SEARCH FormElementDataSourceTypeSearch FORM_INPUT FormElementDataSourceTypeFormInput
      * @type {string}
-     * @memberof Formelementdynamicdatasource
+     * @memberof FormElementDynamicDataSource
      */
-    'dataSourceType'?: FormelementdynamicdatasourceDataSourceTypeEnum;
+    'dataSourceType'?: FormElementDynamicDataSourceDataSourceTypeEnum;
 }
 
-export const FormelementdynamicdatasourceDataSourceTypeEnum = {
+export const FormElementDynamicDataSourceDataSourceTypeEnum = {
     Static: 'STATIC',
     Internal: 'INTERNAL',
     Search: 'SEARCH',
     FormInput: 'FORM_INPUT'
 } as const;
 
-export type FormelementdynamicdatasourceDataSourceTypeEnum = typeof FormelementdynamicdatasourceDataSourceTypeEnum[keyof typeof FormelementdynamicdatasourceDataSourceTypeEnum];
+export type FormElementDynamicDataSourceDataSourceTypeEnum = typeof FormElementDynamicDataSourceDataSourceTypeEnum[keyof typeof FormElementDynamicDataSourceDataSourceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Formelementdynamicdatasourceconfig
+ * @interface FormElementDynamicDataSourceConfig
  */
-export interface Formelementdynamicdatasourceconfig {
+export interface FormElementDynamicDataSourceConfig {
     /**
      * AggregationBucketField is the aggregation bucket field name
      * @type {string}
-     * @memberof Formelementdynamicdatasourceconfig
+     * @memberof FormElementDynamicDataSourceConfig
      */
     'aggregationBucketField'?: string;
     /**
      * Indices is a list of indices to use
      * @type {Array<string>}
-     * @memberof Formelementdynamicdatasourceconfig
+     * @memberof FormElementDynamicDataSourceConfig
      */
-    'indices'?: Array<FormelementdynamicdatasourceconfigIndicesEnum>;
+    'indices'?: Array<FormElementDynamicDataSourceConfigIndicesEnum>;
     /**
      * ObjectType is a PreDefinedSelectOption value IDENTITY PreDefinedSelectOptionIdentity ACCESS_PROFILE PreDefinedSelectOptionAccessProfile SOURCES PreDefinedSelectOptionSources ROLE PreDefinedSelectOptionRole ENTITLEMENT PreDefinedSelectOptionEntitlement
      * @type {string}
-     * @memberof Formelementdynamicdatasourceconfig
+     * @memberof FormElementDynamicDataSourceConfig
      */
-    'objectType'?: FormelementdynamicdatasourceconfigObjectTypeEnum;
+    'objectType'?: FormElementDynamicDataSourceConfigObjectTypeEnum;
     /**
      * Query is a text
      * @type {string}
-     * @memberof Formelementdynamicdatasourceconfig
+     * @memberof FormElementDynamicDataSourceConfig
      */
     'query'?: string;
 }
 
-export const FormelementdynamicdatasourceconfigIndicesEnum = {
+export const FormElementDynamicDataSourceConfigIndicesEnum = {
     Accessprofiles: 'accessprofiles',
     Accountactivities: 'accountactivities',
     Entitlements: 'entitlements',
@@ -748,8 +748,8 @@ export const FormelementdynamicdatasourceconfigIndicesEnum = {
     Star: '*'
 } as const;
 
-export type FormelementdynamicdatasourceconfigIndicesEnum = typeof FormelementdynamicdatasourceconfigIndicesEnum[keyof typeof FormelementdynamicdatasourceconfigIndicesEnum];
-export const FormelementdynamicdatasourceconfigObjectTypeEnum = {
+export type FormElementDynamicDataSourceConfigIndicesEnum = typeof FormElementDynamicDataSourceConfigIndicesEnum[keyof typeof FormElementDynamicDataSourceConfigIndicesEnum];
+export const FormElementDynamicDataSourceConfigObjectTypeEnum = {
     Identity: 'IDENTITY',
     AccessProfile: 'ACCESS_PROFILE',
     Sources: 'SOURCES',
@@ -757,36 +757,36 @@ export const FormelementdynamicdatasourceconfigObjectTypeEnum = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type FormelementdynamicdatasourceconfigObjectTypeEnum = typeof FormelementdynamicdatasourceconfigObjectTypeEnum[keyof typeof FormelementdynamicdatasourceconfigObjectTypeEnum];
+export type FormElementDynamicDataSourceConfigObjectTypeEnum = typeof FormElementDynamicDataSourceConfigObjectTypeEnum[keyof typeof FormElementDynamicDataSourceConfigObjectTypeEnum];
 
 /**
  * 
  * @export
- * @interface Formelementpreviewrequest
+ * @interface FormElementPreviewRequest
  */
-export interface Formelementpreviewrequest {
+export interface FormElementPreviewRequest {
     /**
      * 
-     * @type {Formelementdynamicdatasource}
-     * @memberof Formelementpreviewrequest
+     * @type {FormElementDynamicDataSource}
+     * @memberof FormElementPreviewRequest
      */
-    'dataSource'?: Formelementdynamicdatasource;
+    'dataSource'?: FormElementDynamicDataSource;
 }
 /**
  * Set of FormElementValidation items.
  * @export
- * @interface Formelementvalidationsset
+ * @interface FormElementValidationsSet
  */
-export interface Formelementvalidationsset {
+export interface FormElementValidationsSet {
     /**
      * The type of data validation that you wish to enforce, e.g., a required field, a minimum length, etc.
      * @type {string}
-     * @memberof Formelementvalidationsset
+     * @memberof FormElementValidationsSet
      */
-    'validationType'?: FormelementvalidationssetValidationTypeEnum;
+    'validationType'?: FormElementValidationsSetValidationTypeEnum;
 }
 
-export const FormelementvalidationssetValidationTypeEnum = {
+export const FormElementValidationsSetValidationTypeEnum = {
     Required: 'REQUIRED',
     MinLength: 'MIN_LENGTH',
     MaxLength: 'MAX_LENGTH',
@@ -801,185 +801,185 @@ export const FormelementvalidationssetValidationTypeEnum = {
     Textarea: 'TEXTAREA'
 } as const;
 
-export type FormelementvalidationssetValidationTypeEnum = typeof FormelementvalidationssetValidationTypeEnum[keyof typeof FormelementvalidationssetValidationTypeEnum];
+export type FormElementValidationsSetValidationTypeEnum = typeof FormElementValidationsSetValidationTypeEnum[keyof typeof FormElementValidationsSetValidationTypeEnum];
 
 /**
  * 
  * @export
- * @interface Formerror
+ * @interface FormError
  */
-export interface Formerror {
+export interface FormError {
     /**
      * Key is the technical key
      * @type {string}
-     * @memberof Formerror
+     * @memberof FormError
      */
     'key'?: string;
     /**
      * Messages is a list of web.ErrorMessage items
-     * @type {Array<Errormessage>}
-     * @memberof Formerror
+     * @type {Array<ErrorMessage>}
+     * @memberof FormError
      */
-    'messages'?: Array<Errormessage>;
+    'messages'?: Array<ErrorMessage>;
     /**
      * Value is the value associated with a Key
      * @type {any}
-     * @memberof Formerror
+     * @memberof FormError
      */
     'value'?: any;
 }
 /**
  * 
  * @export
- * @interface Forminstancecreatedby
+ * @interface FormInstanceCreatedBy
  */
-export interface Forminstancecreatedby {
+export interface FormInstanceCreatedBy {
     /**
      * ID is a unique identifier
      * @type {string}
-     * @memberof Forminstancecreatedby
+     * @memberof FormInstanceCreatedBy
      */
     'id'?: string;
     /**
      * Type is a form instance created by type enum value WORKFLOW_EXECUTION FormInstanceCreatedByTypeWorkflowExecution SOURCE FormInstanceCreatedByTypeSource
      * @type {string}
-     * @memberof Forminstancecreatedby
+     * @memberof FormInstanceCreatedBy
      */
-    'type'?: ForminstancecreatedbyTypeEnum;
+    'type'?: FormInstanceCreatedByTypeEnum;
 }
 
-export const ForminstancecreatedbyTypeEnum = {
+export const FormInstanceCreatedByTypeEnum = {
     WorkflowExecution: 'WORKFLOW_EXECUTION',
     Source: 'SOURCE'
 } as const;
 
-export type ForminstancecreatedbyTypeEnum = typeof ForminstancecreatedbyTypeEnum[keyof typeof ForminstancecreatedbyTypeEnum];
+export type FormInstanceCreatedByTypeEnum = typeof FormInstanceCreatedByTypeEnum[keyof typeof FormInstanceCreatedByTypeEnum];
 
 /**
  * 
  * @export
- * @interface Forminstancerecipient
+ * @interface FormInstanceRecipient
  */
-export interface Forminstancerecipient {
+export interface FormInstanceRecipient {
     /**
      * ID is a unique identifier
      * @type {string}
-     * @memberof Forminstancerecipient
+     * @memberof FormInstanceRecipient
      */
     'id'?: string;
     /**
      * Type is a FormInstanceRecipientType value IDENTITY FormInstanceRecipientIdentity
      * @type {string}
-     * @memberof Forminstancerecipient
+     * @memberof FormInstanceRecipient
      */
-    'type'?: ForminstancerecipientTypeEnum;
+    'type'?: FormInstanceRecipientTypeEnum;
 }
 
-export const ForminstancerecipientTypeEnum = {
+export const FormInstanceRecipientTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ForminstancerecipientTypeEnum = typeof ForminstancerecipientTypeEnum[keyof typeof ForminstancerecipientTypeEnum];
+export type FormInstanceRecipientTypeEnum = typeof FormInstanceRecipientTypeEnum[keyof typeof FormInstanceRecipientTypeEnum];
 
 /**
  * 
  * @export
- * @interface Forminstanceresponse
+ * @interface FormInstanceResponse
  */
-export interface Forminstanceresponse {
+export interface FormInstanceResponse {
     /**
      * Unique guid identifying this form instance
      * @type {string}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'id'?: string;
     /**
      * Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record
      * @type {string}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'expire'?: string;
     /**
      * State the state of the form instance ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
      * @type {string}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
-    'state'?: ForminstanceresponseStateEnum;
+    'state'?: FormInstanceResponseStateEnum;
     /**
      * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
      * @type {boolean}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'standAloneForm'?: boolean;
     /**
      * StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI
      * @type {string}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'standAloneFormUrl'?: string;
     /**
      * 
-     * @type {Forminstancecreatedby}
-     * @memberof Forminstanceresponse
+     * @type {FormInstanceCreatedBy}
+     * @memberof FormInstanceResponse
      */
-    'createdBy'?: Forminstancecreatedby;
+    'createdBy'?: FormInstanceCreatedBy;
     /**
      * FormDefinitionID is the id of the form definition that created this form
      * @type {string}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'formDefinitionId'?: string;
     /**
      * FormInput is an object of form input labels to value
      * @type {{ [key: string]: any; }}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'formInput'?: { [key: string]: any; } | null;
     /**
      * FormElements is the configuration of the form, this would be a repeat of the fields from the form-config
-     * @type {Array<Formelement>}
-     * @memberof Forminstanceresponse
+     * @type {Array<FormElement>}
+     * @memberof FormInstanceResponse
      */
-    'formElements'?: Array<Formelement>;
+    'formElements'?: Array<FormElement>;
     /**
      * FormData is the data provided by the form on submit. The data is in a key -> value map
      * @type {{ [key: string]: any; }}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'formData'?: { [key: string]: any; } | null;
     /**
      * FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors
-     * @type {Array<Formerror>}
-     * @memberof Forminstanceresponse
+     * @type {Array<FormError>}
+     * @memberof FormInstanceResponse
      */
-    'formErrors'?: Array<Formerror>;
+    'formErrors'?: Array<FormError>;
     /**
      * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
-     * @type {Array<Formcondition>}
-     * @memberof Forminstanceresponse
+     * @type {Array<FormCondition>}
+     * @memberof FormInstanceResponse
      */
-    'formConditions'?: Array<Formcondition>;
+    'formConditions'?: Array<FormCondition>;
     /**
      * Created is the date the form instance was assigned
      * @type {string}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'created'?: string;
     /**
      * Modified is the last date the form instance was modified
      * @type {string}
-     * @memberof Forminstanceresponse
+     * @memberof FormInstanceResponse
      */
     'modified'?: string;
     /**
      * Recipients references to the recipient of a form. The recipients are those who are responsible for filling out a form and completing it
-     * @type {Array<Forminstancerecipient>}
-     * @memberof Forminstanceresponse
+     * @type {Array<FormInstanceRecipient>}
+     * @memberof FormInstanceResponse
      */
-    'recipients'?: Array<Forminstancerecipient>;
+    'recipients'?: Array<FormInstanceRecipient>;
 }
 
-export const ForminstanceresponseStateEnum = {
+export const FormInstanceResponseStateEnum = {
     Assigned: 'ASSIGNED',
     InProgress: 'IN_PROGRESS',
     Submitted: 'SUBMITTED',
@@ -987,73 +987,73 @@ export const ForminstanceresponseStateEnum = {
     Cancelled: 'CANCELLED'
 } as const;
 
-export type ForminstanceresponseStateEnum = typeof ForminstanceresponseStateEnum[keyof typeof ForminstanceresponseStateEnum];
+export type FormInstanceResponseStateEnum = typeof FormInstanceResponseStateEnum[keyof typeof FormInstanceResponseStateEnum];
 
 /**
  * 
  * @export
- * @interface Formowner
+ * @interface FormOwner
  */
-export interface Formowner {
+export interface FormOwner {
     /**
      * FormOwnerType value. IDENTITY FormOwnerTypeIdentity
      * @type {string}
-     * @memberof Formowner
+     * @memberof FormOwner
      */
-    'type'?: FormownerTypeEnum;
+    'type'?: FormOwnerTypeEnum;
     /**
      * Unique identifier of the form\'s owner.
      * @type {string}
-     * @memberof Formowner
+     * @memberof FormOwner
      */
     'id'?: string;
     /**
      * Name of the form\'s owner.
      * @type {string}
-     * @memberof Formowner
+     * @memberof FormOwner
      */
     'name'?: string;
 }
 
-export const FormownerTypeEnum = {
+export const FormOwnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type FormownerTypeEnum = typeof FormownerTypeEnum[keyof typeof FormownerTypeEnum];
+export type FormOwnerTypeEnum = typeof FormOwnerTypeEnum[keyof typeof FormOwnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface Formusedby
+ * @interface FormUsedBy
  */
-export interface Formusedby {
+export interface FormUsedBy {
     /**
      * FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource MySailPoint FormUsedByType
      * @type {string}
-     * @memberof Formusedby
+     * @memberof FormUsedBy
      */
-    'type'?: FormusedbyTypeEnum;
+    'type'?: FormUsedByTypeEnum;
     /**
      * Unique identifier of the system using the form.
      * @type {string}
-     * @memberof Formusedby
+     * @memberof FormUsedBy
      */
     'id'?: string;
     /**
      * Name of the system using the form.
      * @type {string}
-     * @memberof Formusedby
+     * @memberof FormUsedBy
      */
     'name'?: string;
 }
 
-export const FormusedbyTypeEnum = {
+export const FormUsedByTypeEnum = {
     Workflow: 'WORKFLOW',
     Source: 'SOURCE',
     MySailPoint: 'MySailPoint'
 } as const;
 
-export type FormusedbyTypeEnum = typeof FormusedbyTypeEnum[keyof typeof FormusedbyTypeEnum];
+export type FormUsedByTypeEnum = typeof FormUsedByTypeEnum[keyof typeof FormUsedByTypeEnum];
 
 /**
  * 
@@ -1119,10 +1119,10 @@ export interface ImportFormDefinitionsV1202ResponseErrorsInner {
 export interface ImportFormDefinitionsV1RequestInner {
     /**
      * 
-     * @type {Formdefinitionresponse}
+     * @type {FormDefinitionResponse}
      * @memberof ImportFormDefinitionsV1RequestInner
      */
-    'object'?: Formdefinitionresponse;
+    'object'?: FormDefinitionResponse;
     /**
      * 
      * @type {string}
@@ -1139,134 +1139,134 @@ export interface ImportFormDefinitionsV1RequestInner {
 /**
  * 
  * @export
- * @interface Listformdefinitionsbytenantresponse
+ * @interface ListFormDefinitionsByTenantResponse
  */
-export interface Listformdefinitionsbytenantresponse {
+export interface ListFormDefinitionsByTenantResponse {
     /**
      * Count number of results.
      * @type {number}
-     * @memberof Listformdefinitionsbytenantresponse
+     * @memberof ListFormDefinitionsByTenantResponse
      */
     'count'?: number;
     /**
      * List of FormDefinitionResponse items.
-     * @type {Array<Formdefinitionresponse>}
-     * @memberof Listformdefinitionsbytenantresponse
+     * @type {Array<FormDefinitionResponse>}
+     * @memberof ListFormDefinitionsByTenantResponse
      */
-    'results'?: Array<Formdefinitionresponse>;
+    'results'?: Array<FormDefinitionResponse>;
 }
 /**
  * 
  * @export
- * @interface Listformelementdatabyelementidresponse
+ * @interface ListFormElementDataByElementIDResponse
  */
-export interface Listformelementdatabyelementidresponse {
+export interface ListFormElementDataByElementIDResponse {
     /**
      * Results holds a list of FormElementDataSourceConfigOptions items
-     * @type {Array<Formelementdatasourceconfigoptions>}
-     * @memberof Listformelementdatabyelementidresponse
+     * @type {Array<FormElementDataSourceConfigOptions>}
+     * @memberof ListFormElementDataByElementIDResponse
      */
-    'results'?: Array<Formelementdatasourceconfigoptions>;
+    'results'?: Array<FormElementDataSourceConfigOptions>;
 }
 /**
  * List of FormInstanceResponse items
  * @export
- * @interface Listforminstancesbytenantresponse
+ * @interface ListFormInstancesByTenantResponse
  */
-export interface Listforminstancesbytenantresponse {
+export interface ListFormInstancesByTenantResponse {
     /**
      * Unique guid identifying this form instance
      * @type {string}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'id'?: string;
     /**
      * Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record
      * @type {string}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'expire'?: string;
     /**
      * State the state of the form instance ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
      * @type {string}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
-    'state'?: ListforminstancesbytenantresponseStateEnum;
+    'state'?: ListFormInstancesByTenantResponseStateEnum;
     /**
      * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
      * @type {boolean}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'standAloneForm'?: boolean;
     /**
      * StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI
      * @type {string}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'standAloneFormUrl'?: string;
     /**
      * 
-     * @type {Forminstancecreatedby}
-     * @memberof Listforminstancesbytenantresponse
+     * @type {FormInstanceCreatedBy}
+     * @memberof ListFormInstancesByTenantResponse
      */
-    'createdBy'?: Forminstancecreatedby;
+    'createdBy'?: FormInstanceCreatedBy;
     /**
      * FormDefinitionID is the id of the form definition that created this form
      * @type {string}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'formDefinitionId'?: string;
     /**
      * FormInput is an object of form input labels to value
      * @type {{ [key: string]: any; }}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'formInput'?: { [key: string]: any; } | null;
     /**
      * FormElements is the configuration of the form, this would be a repeat of the fields from the form-config
-     * @type {Array<Formelement>}
-     * @memberof Listforminstancesbytenantresponse
+     * @type {Array<FormElement>}
+     * @memberof ListFormInstancesByTenantResponse
      */
-    'formElements'?: Array<Formelement>;
+    'formElements'?: Array<FormElement>;
     /**
      * FormData is the data provided by the form on submit. The data is in a key -> value map
      * @type {{ [key: string]: any; }}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'formData'?: { [key: string]: any; } | null;
     /**
      * FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors
-     * @type {Array<Formerror>}
-     * @memberof Listforminstancesbytenantresponse
+     * @type {Array<FormError>}
+     * @memberof ListFormInstancesByTenantResponse
      */
-    'formErrors'?: Array<Formerror>;
+    'formErrors'?: Array<FormError>;
     /**
      * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
-     * @type {Array<Formcondition>}
-     * @memberof Listforminstancesbytenantresponse
+     * @type {Array<FormCondition>}
+     * @memberof ListFormInstancesByTenantResponse
      */
-    'formConditions'?: Array<Formcondition>;
+    'formConditions'?: Array<FormCondition>;
     /**
      * Created is the date the form instance was assigned
      * @type {string}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'created'?: string;
     /**
      * Modified is the last date the form instance was modified
      * @type {string}
-     * @memberof Listforminstancesbytenantresponse
+     * @memberof ListFormInstancesByTenantResponse
      */
     'modified'?: string;
     /**
      * Recipients references to the recipient of a form. The recipients are those who are responsible for filling out a form and completing it
-     * @type {Array<Forminstancerecipient>}
-     * @memberof Listforminstancesbytenantresponse
+     * @type {Array<FormInstanceRecipient>}
+     * @memberof ListFormInstancesByTenantResponse
      */
-    'recipients'?: Array<Forminstancerecipient>;
+    'recipients'?: Array<FormInstanceRecipient>;
 }
 
-export const ListforminstancesbytenantresponseStateEnum = {
+export const ListFormInstancesByTenantResponseStateEnum = {
     Assigned: 'ASSIGNED',
     InProgress: 'IN_PROGRESS',
     Submitted: 'SUBMITTED',
@@ -1274,18 +1274,18 @@ export const ListforminstancesbytenantresponseStateEnum = {
     Cancelled: 'CANCELLED'
 } as const;
 
-export type ListforminstancesbytenantresponseStateEnum = typeof ListforminstancesbytenantresponseStateEnum[keyof typeof ListforminstancesbytenantresponseStateEnum];
+export type ListFormInstancesByTenantResponseStateEnum = typeof ListFormInstancesByTenantResponseStateEnum[keyof typeof ListFormInstancesByTenantResponseStateEnum];
 
 /**
  * 
  * @export
- * @interface Listpredefinedselectoptionsresponse
+ * @interface ListPredefinedSelectOptionsResponse
  */
-export interface Listpredefinedselectoptionsresponse {
+export interface ListPredefinedSelectOptionsResponse {
     /**
      * Results holds a list of PreDefinedSelectOption items
      * @type {Array<string>}
-     * @memberof Listpredefinedselectoptionsresponse
+     * @memberof ListPredefinedSelectOptionsResponse
      */
     'results'?: Array<string>;
 }
@@ -1303,10 +1303,10 @@ export interface ModelError {
     'detailCode'?: string;
     /**
      * 
-     * @type {Array<Errormessage>}
+     * @type {Array<ErrorMessage>}
      * @memberof ModelError
      */
-    'messages'?: Array<Errormessage>;
+    'messages'?: Array<ErrorMessage>;
     /**
      * TrackingID is the request tracking unique identifier
      * @type {string}
@@ -1317,15 +1317,15 @@ export interface ModelError {
 /**
  * PreviewDataSourceResponse is the response sent by `/form-definitions/{formDefinitionID}/data-source` endpoint
  * @export
- * @interface Previewdatasourceresponse
+ * @interface PreviewDataSourceResponse
  */
-export interface Previewdatasourceresponse {
+export interface PreviewDataSourceResponse {
     /**
      * Results holds a list of FormElementDataSourceConfigOptions items
-     * @type {Array<Formelementdatasourceconfigoptions>}
-     * @memberof Previewdatasourceresponse
+     * @type {Array<FormElementDataSourceConfigOptions>}
+     * @memberof PreviewDataSourceResponse
      */
-    'results'?: Array<Formelementdatasourceconfigoptions>;
+    'results'?: Array<FormElementDataSourceConfigOptions>;
 }
 /**
  * 
@@ -1341,10 +1341,10 @@ export interface SearchFormDefinitionsByTenantV1400Response {
     'detailCode'?: string;
     /**
      * 
-     * @type {Array<Errormessage>}
+     * @type {Array<ErrorMessage>}
      * @memberof SearchFormDefinitionsByTenantV1400Response
      */
-    'messages'?: Array<Errormessage>;
+    'messages'?: Array<ErrorMessage>;
     /**
      * 
      * @type {number}
@@ -1368,11 +1368,11 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
         /**
          * 
          * @summary Generate json schema dynamically.
-         * @param {Formdefinitiondynamicschemarequest} [body] Body is the request payload to create a form definition dynamic schema
+         * @param {FormDefinitionDynamicSchemaRequest} [body] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionDynamicSchemaV1: async (body?: Formdefinitiondynamicschemarequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createFormDefinitionDynamicSchemaV1: async (body?: FormDefinitionDynamicSchemaRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-definitions/v1/forms-action-dynamic-schema`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1447,11 +1447,11 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
         /**
          * 
          * @summary Creates a form definition.
-         * @param {Createformdefinitionrequest} [body] Body is the request payload to create form definition request
+         * @param {CreateFormDefinitionRequest} [body] Body is the request payload to create form definition request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionV1: async (body?: Createformdefinitionrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createFormDefinitionV1: async (body?: CreateFormDefinitionRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-definitions/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1481,11 +1481,11 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
         /**
          * 
          * @summary Creates a form instance.
-         * @param {Createforminstancerequest} [body] Body is the request payload to create a form instance
+         * @param {CreateFormInstanceRequest} [body] Body is the request payload to create a form instance
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormInstanceV1: async (body?: Createforminstancerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createFormInstanceV1: async (body?: CreateFormInstanceRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-instances/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2035,11 +2035,11 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
-         * @param {Formelementpreviewrequest} [formelementpreviewrequest] Body is the request payload to create a form definition dynamic schema
+         * @param {FormElementPreviewRequest} [formElementPreviewRequest] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        showPreviewDataSourceV1: async (formDefinitionID: string, limit?: number, filters?: string, query?: string, formelementpreviewrequest?: Formelementpreviewrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        showPreviewDataSourceV1: async (formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequest?: FormElementPreviewRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'formDefinitionID' is not null or undefined
             assertParamExists('showPreviewDataSourceV1', 'formDefinitionID', formDefinitionID)
             const localVarPath = `/form-definitions/v1/{formDefinitionID}/data-source`
@@ -2074,7 +2074,7 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(formelementpreviewrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(formElementPreviewRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2094,11 +2094,11 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Generate json schema dynamically.
-         * @param {Formdefinitiondynamicschemarequest} [body] Body is the request payload to create a form definition dynamic schema
+         * @param {FormDefinitionDynamicSchemaRequest} [body] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionDynamicSchemaV1(body?: Formdefinitiondynamicschemarequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitiondynamicschemaresponse>> {
+        async createFormDefinitionDynamicSchemaV1(body?: FormDefinitionDynamicSchemaRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionDynamicSchemaResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionDynamicSchemaV1(body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormDefinitionDynamicSchemaV1']?.[localVarOperationServerIndex]?.url;
@@ -2112,7 +2112,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionFileRequestV1(formDefinitionID: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionfileuploadresponse>> {
+        async createFormDefinitionFileRequestV1(formDefinitionID: string, file: File, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionFileUploadResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionFileRequestV1(formDefinitionID, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormDefinitionFileRequestV1']?.[localVarOperationServerIndex]?.url;
@@ -2121,11 +2121,11 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Creates a form definition.
-         * @param {Createformdefinitionrequest} [body] Body is the request payload to create form definition request
+         * @param {CreateFormDefinitionRequest} [body] Body is the request payload to create form definition request
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionV1(body?: Createformdefinitionrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionresponse>> {
+        async createFormDefinitionV1(body?: CreateFormDefinitionRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionV1(body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
@@ -2134,11 +2134,11 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Creates a form instance.
-         * @param {Createforminstancerequest} [body] Body is the request payload to create a form instance
+         * @param {CreateFormInstanceRequest} [body] Body is the request payload to create a form instance
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormInstanceV1(body?: Createforminstancerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Forminstanceresponse>> {
+        async createFormInstanceV1(body?: CreateFormInstanceRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormInstanceV1(body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.createFormInstanceV1']?.[localVarOperationServerIndex]?.url;
@@ -2194,7 +2194,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormDefinitionByKeyV1(formDefinitionID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionresponse>> {
+        async getFormDefinitionByKeyV1(formDefinitionID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormDefinitionByKeyV1(formDefinitionID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.getFormDefinitionByKeyV1']?.[localVarOperationServerIndex]?.url;
@@ -2207,7 +2207,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormInstanceByKeyV1(formInstanceID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Forminstanceresponse>> {
+        async getFormInstanceByKeyV1(formInstanceID: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceByKeyV1(formInstanceID, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.getFormInstanceByKeyV1']?.[localVarOperationServerIndex]?.url;
@@ -2248,7 +2248,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchFormDefinitionV1(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Formdefinitionresponse>> {
+        async patchFormDefinitionV1(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormDefinitionV1(formDefinitionID, body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.patchFormDefinitionV1']?.[localVarOperationServerIndex]?.url;
@@ -2262,7 +2262,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchFormInstanceV1(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Forminstanceresponse>> {
+        async patchFormInstanceV1(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormInstanceV1(formInstanceID, body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.patchFormInstanceV1']?.[localVarOperationServerIndex]?.url;
@@ -2278,7 +2278,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Listformdefinitionsbytenantresponse>> {
+        async searchFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormDefinitionsByTenantResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormDefinitionsByTenantV1(offset, limit, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchFormDefinitionsByTenantV1']?.[localVarOperationServerIndex]?.url;
@@ -2295,7 +2295,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormElementDataByElementIDV1(formInstanceID: string, formElementID: string, limit?: number, filters?: string, query?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Listformelementdatabyelementidresponse>> {
+        async searchFormElementDataByElementIDV1(formInstanceID: string, formElementID: string, limit?: number, filters?: string, query?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormElementDataByElementIDResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormElementDataByElementIDV1(formInstanceID, formElementID, limit, filters, query, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchFormElementDataByElementIDV1']?.[localVarOperationServerIndex]?.url;
@@ -2310,7 +2310,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormInstancesByTenantV1(offset?: number, limit?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Listforminstancesbytenantresponse>>> {
+        async searchFormInstancesByTenantV1(offset?: number, limit?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListFormInstancesByTenantResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenantV1(offset, limit, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchFormInstancesByTenantV1']?.[localVarOperationServerIndex]?.url;
@@ -2322,7 +2322,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Listpredefinedselectoptionsresponse>> {
+        async searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListPredefinedSelectOptionsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchPreDefinedSelectOptionsV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchPreDefinedSelectOptionsV1']?.[localVarOperationServerIndex]?.url;
@@ -2335,12 +2335,12 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
-         * @param {Formelementpreviewrequest} [formelementpreviewrequest] Body is the request payload to create a form definition dynamic schema
+         * @param {FormElementPreviewRequest} [formElementPreviewRequest] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async showPreviewDataSourceV1(formDefinitionID: string, limit?: number, filters?: string, query?: string, formelementpreviewrequest?: Formelementpreviewrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Previewdatasourceresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSourceV1(formDefinitionID, limit, filters, query, formelementpreviewrequest, axiosOptions);
+        async showPreviewDataSourceV1(formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequest?: FormElementPreviewRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreviewDataSourceResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSourceV1(formDefinitionID, limit, filters, query, formElementPreviewRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.showPreviewDataSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2362,7 +2362,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionDynamicSchemaV1(requestParameters: CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitiondynamicschemaresponse> {
+        createFormDefinitionDynamicSchemaV1(requestParameters: CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormDefinitionDynamicSchemaResponse> {
             return localVarFp.createFormDefinitionDynamicSchemaV1(requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2372,7 +2372,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionFileRequestV1(requestParameters: CustomFormsApiCreateFormDefinitionFileRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionfileuploadresponse> {
+        createFormDefinitionFileRequestV1(requestParameters: CustomFormsApiCreateFormDefinitionFileRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormDefinitionFileUploadResponse> {
             return localVarFp.createFormDefinitionFileRequestV1(requestParameters.formDefinitionID, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2382,7 +2382,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormDefinitionV1(requestParameters: CustomFormsApiCreateFormDefinitionV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionresponse> {
+        createFormDefinitionV1(requestParameters: CustomFormsApiCreateFormDefinitionV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormDefinitionResponse> {
             return localVarFp.createFormDefinitionV1(requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2392,7 +2392,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createFormInstanceV1(requestParameters: CustomFormsApiCreateFormInstanceV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Forminstanceresponse> {
+        createFormInstanceV1(requestParameters: CustomFormsApiCreateFormInstanceV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormInstanceResponse> {
             return localVarFp.createFormInstanceV1(requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2432,7 +2432,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getFormDefinitionByKeyV1(requestParameters: CustomFormsApiGetFormDefinitionByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionresponse> {
+        getFormDefinitionByKeyV1(requestParameters: CustomFormsApiGetFormDefinitionByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormDefinitionResponse> {
             return localVarFp.getFormDefinitionByKeyV1(requestParameters.formDefinitionID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2442,7 +2442,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getFormInstanceByKeyV1(requestParameters: CustomFormsApiGetFormInstanceByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Forminstanceresponse> {
+        getFormInstanceByKeyV1(requestParameters: CustomFormsApiGetFormInstanceByKeyV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormInstanceResponse> {
             return localVarFp.getFormInstanceByKeyV1(requestParameters.formInstanceID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2472,7 +2472,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchFormDefinitionV1(requestParameters: CustomFormsApiPatchFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Formdefinitionresponse> {
+        patchFormDefinitionV1(requestParameters: CustomFormsApiPatchFormDefinitionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormDefinitionResponse> {
             return localVarFp.patchFormDefinitionV1(requestParameters.formDefinitionID, requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2482,7 +2482,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchFormInstanceV1(requestParameters: CustomFormsApiPatchFormInstanceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Forminstanceresponse> {
+        patchFormInstanceV1(requestParameters: CustomFormsApiPatchFormInstanceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<FormInstanceResponse> {
             return localVarFp.patchFormInstanceV1(requestParameters.formInstanceID, requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2492,7 +2492,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchFormDefinitionsByTenantV1(requestParameters: CustomFormsApiSearchFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Listformdefinitionsbytenantresponse> {
+        searchFormDefinitionsByTenantV1(requestParameters: CustomFormsApiSearchFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListFormDefinitionsByTenantResponse> {
             return localVarFp.searchFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2502,7 +2502,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchFormElementDataByElementIDV1(requestParameters: CustomFormsApiSearchFormElementDataByElementIDV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Listformelementdatabyelementidresponse> {
+        searchFormElementDataByElementIDV1(requestParameters: CustomFormsApiSearchFormElementDataByElementIDV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListFormElementDataByElementIDResponse> {
             return localVarFp.searchFormElementDataByElementIDV1(requestParameters.formInstanceID, requestParameters.formElementID, requestParameters.limit, requestParameters.filters, requestParameters.query, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2512,7 +2512,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchFormInstancesByTenantV1(requestParameters: CustomFormsApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Listforminstancesbytenantresponse>> {
+        searchFormInstancesByTenantV1(requestParameters: CustomFormsApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListFormInstancesByTenantResponse>> {
             return localVarFp.searchFormInstancesByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2521,7 +2521,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Listpredefinedselectoptionsresponse> {
+        searchPreDefinedSelectOptionsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListPredefinedSelectOptionsResponse> {
             return localVarFp.searchPreDefinedSelectOptionsV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2531,8 +2531,8 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        showPreviewDataSourceV1(requestParameters: CustomFormsApiShowPreviewDataSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Previewdatasourceresponse> {
-            return localVarFp.showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formelementpreviewrequest, axiosOptions).then((request) => request(axios, basePath));
+        showPreviewDataSourceV1(requestParameters: CustomFormsApiShowPreviewDataSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PreviewDataSourceResponse> {
+            return localVarFp.showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formElementPreviewRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2545,10 +2545,10 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
 export interface CustomFormsApiCreateFormDefinitionDynamicSchemaV1Request {
     /**
      * Body is the request payload to create a form definition dynamic schema
-     * @type {Formdefinitiondynamicschemarequest}
+     * @type {FormDefinitionDynamicSchemaRequest}
      * @memberof CustomFormsApiCreateFormDefinitionDynamicSchemaV1
      */
-    readonly body?: Formdefinitiondynamicschemarequest
+    readonly body?: FormDefinitionDynamicSchemaRequest
 }
 
 /**
@@ -2580,10 +2580,10 @@ export interface CustomFormsApiCreateFormDefinitionFileRequestV1Request {
 export interface CustomFormsApiCreateFormDefinitionV1Request {
     /**
      * Body is the request payload to create form definition request
-     * @type {Createformdefinitionrequest}
+     * @type {CreateFormDefinitionRequest}
      * @memberof CustomFormsApiCreateFormDefinitionV1
      */
-    readonly body?: Createformdefinitionrequest
+    readonly body?: CreateFormDefinitionRequest
 }
 
 /**
@@ -2594,10 +2594,10 @@ export interface CustomFormsApiCreateFormDefinitionV1Request {
 export interface CustomFormsApiCreateFormInstanceV1Request {
     /**
      * Body is the request payload to create a form instance
-     * @type {Createforminstancerequest}
+     * @type {CreateFormInstanceRequest}
      * @memberof CustomFormsApiCreateFormInstanceV1
      */
-    readonly body?: Createforminstancerequest
+    readonly body?: CreateFormInstanceRequest
 }
 
 /**
@@ -2916,10 +2916,10 @@ export interface CustomFormsApiShowPreviewDataSourceV1Request {
 
     /**
      * Body is the request payload to create a form definition dynamic schema
-     * @type {Formelementpreviewrequest}
+     * @type {FormElementPreviewRequest}
      * @memberof CustomFormsApiShowPreviewDataSourceV1
      */
-    readonly formelementpreviewrequest?: Formelementpreviewrequest
+    readonly formElementPreviewRequest?: FormElementPreviewRequest
 }
 
 /**
@@ -3141,7 +3141,7 @@ export class CustomFormsApi extends BaseAPI {
      * @memberof CustomFormsApi
      */
     public showPreviewDataSourceV1(requestParameters: CustomFormsApiShowPreviewDataSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsApiFp(this.configuration).showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formelementpreviewrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CustomFormsApiFp(this.configuration).showPreviewDataSourceV1(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formElementPreviewRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

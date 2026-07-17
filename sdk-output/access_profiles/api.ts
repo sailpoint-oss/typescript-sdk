@@ -26,236 +26,236 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Accessduration
+ * @interface AccessDuration
  */
-export interface Accessduration {
+export interface AccessDuration {
     /**
      * The numeric value representing the amount of time, which is defined in the **timeUnit**.
      * @type {number}
-     * @memberof Accessduration
+     * @memberof AccessDuration
      */
     'value'?: number;
     /**
      * The unit of time that corresponds to the **value**. It defines the scale of the time period.
      * @type {string}
-     * @memberof Accessduration
+     * @memberof AccessDuration
      */
-    'timeUnit'?: AccessdurationTimeUnitEnum;
+    'timeUnit'?: AccessDurationTimeUnitEnum;
 }
 
-export const AccessdurationTimeUnitEnum = {
+export const AccessDurationTimeUnitEnum = {
     Hours: 'HOURS',
     Days: 'DAYS',
     Weeks: 'WEEKS',
     Months: 'MONTHS'
 } as const;
 
-export type AccessdurationTimeUnitEnum = typeof AccessdurationTimeUnitEnum[keyof typeof AccessdurationTimeUnitEnum];
+export type AccessDurationTimeUnitEnum = typeof AccessDurationTimeUnitEnum[keyof typeof AccessDurationTimeUnitEnum];
 
 /**
  * Metadata that describes an access item
  * @export
- * @interface Accessmodelmetadata
+ * @interface AccessModelMetadata
  */
-export interface Accessmodelmetadata {
+export interface AccessModelMetadata {
     /**
      * Unique identifier for the metadata type
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'key'?: string;
     /**
      * Human readable name of the metadata type
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'name'?: string;
     /**
      * Allows selecting multiple values
      * @type {boolean}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'multiselect'?: boolean;
     /**
      * The state of the metadata item
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'status'?: string;
     /**
      * The type of the metadata item
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'type'?: string;
     /**
      * The types of objects
      * @type {Array<string>}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'objectTypes'?: Array<string>;
     /**
      * Describes the metadata item
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'description'?: string;
     /**
      * The value to assign to the metadata item
-     * @type {Array<AccessmodelmetadataValuesInner>}
-     * @memberof Accessmodelmetadata
+     * @type {Array<AccessModelMetadataValuesInner>}
+     * @memberof AccessModelMetadata
      */
-    'values'?: Array<AccessmodelmetadataValuesInner>;
+    'values'?: Array<AccessModelMetadataValuesInner>;
 }
 /**
  * An individual value to assign to the metadata item
  * @export
- * @interface AccessmodelmetadataValuesInner
+ * @interface AccessModelMetadataValuesInner
  */
-export interface AccessmodelmetadataValuesInner {
+export interface AccessModelMetadataValuesInner {
     /**
      * The value to assign to the metdata item
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInner
+     * @memberof AccessModelMetadataValuesInner
      */
     'value'?: string;
     /**
      * Display name of the value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInner
+     * @memberof AccessModelMetadataValuesInner
      */
     'name'?: string;
     /**
      * The status of the individual value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInner
+     * @memberof AccessModelMetadataValuesInner
      */
     'status'?: string;
 }
 /**
  * Access profile.
  * @export
- * @interface Accessprofile
+ * @interface AccessProfile
  */
-export interface Accessprofile {
+export interface AccessProfile {
     /**
      * Access profile ID.
      * @type {string}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'id'?: string;
     /**
      * Access profile name.
      * @type {string}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'name': string;
     /**
      * Access profile description.
      * @type {string}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'description'?: string | null;
     /**
      * Date and time when the access profile was created.
      * @type {string}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'created'?: string;
     /**
      * Date and time when the access profile was last modified.
      * @type {string}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'modified'?: string;
     /**
      * Indicates whether the access profile is enabled. If it\'s enabled, you must include at least one entitlement.
      * @type {boolean}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'enabled'?: boolean;
     /**
      * 
-     * @type {Ownerreference}
-     * @memberof Accessprofile
+     * @type {OwnerReference}
+     * @memberof AccessProfile
      */
-    'owner': Ownerreference | null;
+    'owner': OwnerReference | null;
     /**
      * 
-     * @type {Accessprofilesourceref}
-     * @memberof Accessprofile
+     * @type {AccessProfileSourceRef}
+     * @memberof AccessProfile
      */
-    'source': Accessprofilesourceref;
+    'source': AccessProfileSourceRef;
     /**
      * List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement.
-     * @type {Array<Entitlementref>}
-     * @memberof Accessprofile
+     * @type {Array<EntitlementRef>}
+     * @memberof AccessProfile
      */
-    'entitlements'?: Array<Entitlementref> | null;
+    'entitlements'?: Array<EntitlementRef> | null;
     /**
      * Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value  **false** in this field results in a 400 error.
      * @type {boolean}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'requestable'?: boolean;
     /**
      * 
      * @type {Requestability}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'accessRequestConfig'?: Requestability | null;
     /**
      * 
      * @type {Revocability}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'revocationRequestConfig'?: Revocability | null;
     /**
      * List of segment IDs, if any, that the access profile is assigned to.
      * @type {Array<string>}
-     * @memberof Accessprofile
+     * @memberof AccessProfile
      */
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {Attributedtolist}
-     * @memberof Accessprofile
+     * @type {AttributeDTOList}
+     * @memberof AccessProfile
      */
-    'accessModelMetadata'?: Attributedtolist;
+    'accessModelMetadata'?: AttributeDTOList;
     /**
      * 
-     * @type {Provisioningcriterialevel1}
-     * @memberof Accessprofile
+     * @type {ProvisioningCriteriaLevel1}
+     * @memberof AccessProfile
      */
-    'provisioningCriteria'?: Provisioningcriterialevel1 | null;
+    'provisioningCriteria'?: ProvisioningCriteriaLevel1 | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<Additionalownerref>}
-     * @memberof Accessprofile
+     * @type {Array<AdditionalOwnerRef>}
+     * @memberof AccessProfile
      */
-    'additionalOwners'?: Array<Additionalownerref> | null;
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
 }
 /**
  * 
  * @export
- * @interface Accessprofileapprovalscheme
+ * @interface AccessProfileApprovalScheme
  */
-export interface Accessprofileapprovalscheme {
+export interface AccessProfileApprovalScheme {
     /**
      * Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.  **ALL_OWNERS**: All owners of the Access Profile, including the primary owner and any secondary owners  **ADDITIONAL_OWNER**: An additional owner of the Access Profile, the ID of which is specified by the **approverId** field  **ADDITIONAL_GOVERNANCE_GROUP**: An additional Governance Group, the ID of which is specified by the **approverId** field
      * @type {string}
-     * @memberof Accessprofileapprovalscheme
+     * @memberof AccessProfileApprovalScheme
      */
-    'approverType'?: AccessprofileapprovalschemeApproverTypeEnum;
+    'approverType'?: AccessProfileApprovalSchemeApproverTypeEnum;
     /**
      * Id of the specific approver, used when approverType is GOVERNANCE_GROUP, WORKFLOW, or ADDITIONAL_GOVERNANCE_GROUP.
      * @type {string}
-     * @memberof Accessprofileapprovalscheme
+     * @memberof AccessProfileApprovalScheme
      */
     'approverId'?: string | null;
 }
 
-export const AccessprofileapprovalschemeApproverTypeEnum = {
+export const AccessProfileApprovalSchemeApproverTypeEnum = {
     AppOwner: 'APP_OWNER',
     Owner: 'OWNER',
     SourceOwner: 'SOURCE_OWNER',
@@ -267,217 +267,217 @@ export const AccessprofileapprovalschemeApproverTypeEnum = {
     AdditionalGovernanceGroup: 'ADDITIONAL_GOVERNANCE_GROUP'
 } as const;
 
-export type AccessprofileapprovalschemeApproverTypeEnum = typeof AccessprofileapprovalschemeApproverTypeEnum[keyof typeof AccessprofileapprovalschemeApproverTypeEnum];
+export type AccessProfileApprovalSchemeApproverTypeEnum = typeof AccessProfileApprovalSchemeApproverTypeEnum[keyof typeof AccessProfileApprovalSchemeApproverTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessprofilebulkdeleterequest
+ * @interface AccessProfileBulkDeleteRequest
  */
-export interface Accessprofilebulkdeleterequest {
+export interface AccessProfileBulkDeleteRequest {
     /**
      * List of IDs of Access Profiles to be deleted.
      * @type {Array<string>}
-     * @memberof Accessprofilebulkdeleterequest
+     * @memberof AccessProfileBulkDeleteRequest
      */
     'accessProfileIds'?: Array<string>;
     /**
      * If **true**, silently skip over any of the specified Access Profiles if they cannot be deleted because they are in use. If **false**, no deletions will be attempted if any of the Access Profiles are in use.
      * @type {boolean}
-     * @memberof Accessprofilebulkdeleterequest
+     * @memberof AccessProfileBulkDeleteRequest
      */
     'bestEffortOnly'?: boolean;
 }
 /**
  * 
  * @export
- * @interface Accessprofilebulkdeleteresponse
+ * @interface AccessProfileBulkDeleteResponse
  */
-export interface Accessprofilebulkdeleteresponse {
+export interface AccessProfileBulkDeleteResponse {
     /**
      * ID of the task which is executing the bulk deletion. This can be passed to the **_/task-status** API to track status.
      * @type {string}
-     * @memberof Accessprofilebulkdeleteresponse
+     * @memberof AccessProfileBulkDeleteResponse
      */
     'taskId'?: string;
     /**
      * List of IDs of Access Profiles which are pending deletion.
      * @type {Array<string>}
-     * @memberof Accessprofilebulkdeleteresponse
+     * @memberof AccessProfileBulkDeleteResponse
      */
     'pending'?: Array<string>;
     /**
      * List of usages of Access Profiles targeted for deletion.
-     * @type {Array<Accessprofileusage>}
-     * @memberof Accessprofilebulkdeleteresponse
+     * @type {Array<AccessProfileUsage>}
+     * @memberof AccessProfileBulkDeleteResponse
      */
-    'inUse'?: Array<Accessprofileusage>;
+    'inUse'?: Array<AccessProfileUsage>;
 }
 /**
  * Access Profile\'s basic details.
  * @export
- * @interface AccessprofilebulkupdaterequestInner
+ * @interface AccessProfileBulkUpdateRequestInner
  */
-export interface AccessprofilebulkupdaterequestInner {
+export interface AccessProfileBulkUpdateRequestInner {
     /**
      * Access Profile ID.
      * @type {string}
-     * @memberof AccessprofilebulkupdaterequestInner
+     * @memberof AccessProfileBulkUpdateRequestInner
      */
     'id'?: string;
     /**
      * Access Profile is requestable or not.
      * @type {boolean}
-     * @memberof AccessprofilebulkupdaterequestInner
+     * @memberof AccessProfileBulkUpdateRequestInner
      */
     'requestable'?: boolean;
 }
 /**
  * 
  * @export
- * @interface Accessprofilesourceref
+ * @interface AccessProfileSourceRef
  */
-export interface Accessprofilesourceref {
+export interface AccessProfileSourceRef {
     /**
      * ID of the source the access profile is associated with.
      * @type {string}
-     * @memberof Accessprofilesourceref
+     * @memberof AccessProfileSourceRef
      */
     'id'?: string;
     /**
      * Source\'s DTO type.
      * @type {string}
-     * @memberof Accessprofilesourceref
+     * @memberof AccessProfileSourceRef
      */
-    'type'?: AccessprofilesourcerefTypeEnum;
+    'type'?: AccessProfileSourceRefTypeEnum;
     /**
      * Source name.
      * @type {string}
-     * @memberof Accessprofilesourceref
+     * @memberof AccessProfileSourceRef
      */
     'name'?: string;
 }
 
-export const AccessprofilesourcerefTypeEnum = {
+export const AccessProfileSourceRefTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type AccessprofilesourcerefTypeEnum = typeof AccessprofilesourcerefTypeEnum[keyof typeof AccessprofilesourcerefTypeEnum];
+export type AccessProfileSourceRefTypeEnum = typeof AccessProfileSourceRefTypeEnum[keyof typeof AccessProfileSourceRefTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessprofileupdateitem
+ * @interface AccessProfileUpdateItem
  */
-export interface Accessprofileupdateitem {
+export interface AccessProfileUpdateItem {
     /**
      * Identifier of Access Profile in bulk update request.
      * @type {string}
-     * @memberof Accessprofileupdateitem
+     * @memberof AccessProfileUpdateItem
      */
     'id': string;
     /**
      * Access Profile requestable or not.
      * @type {boolean}
-     * @memberof Accessprofileupdateitem
+     * @memberof AccessProfileUpdateItem
      */
     'requestable': boolean;
     /**
      *  The HTTP response status code returned for an individual Access Profile that is requested for update during a bulk update operation.  > 201   - Access profile is updated successfully.  > 404   - Access profile not found. 
      * @type {string}
-     * @memberof Accessprofileupdateitem
+     * @memberof AccessProfileUpdateItem
      */
     'status': string;
     /**
      * Human readable status description and containing additional context information about success or failures etc. 
      * @type {string}
-     * @memberof Accessprofileupdateitem
+     * @memberof AccessProfileUpdateItem
      */
     'description'?: string;
 }
 /**
  * 
  * @export
- * @interface Accessprofileusage
+ * @interface AccessProfileUsage
  */
-export interface Accessprofileusage {
+export interface AccessProfileUsage {
     /**
      * ID of the Access Profile that is in use
      * @type {string}
-     * @memberof Accessprofileusage
+     * @memberof AccessProfileUsage
      */
     'accessProfileId'?: string;
     /**
      * List of references to objects which are using the indicated Access Profile
-     * @type {Array<AccessprofileusageUsedByInner>}
-     * @memberof Accessprofileusage
+     * @type {Array<AccessProfileUsageUsedByInner>}
+     * @memberof AccessProfileUsage
      */
-    'usedBy'?: Array<AccessprofileusageUsedByInner>;
+    'usedBy'?: Array<AccessProfileUsageUsedByInner>;
 }
 /**
  * Role using the access profile.
  * @export
- * @interface AccessprofileusageUsedByInner
+ * @interface AccessProfileUsageUsedByInner
  */
-export interface AccessprofileusageUsedByInner {
+export interface AccessProfileUsageUsedByInner {
     /**
      * DTO type of role using the access profile.
      * @type {string}
-     * @memberof AccessprofileusageUsedByInner
+     * @memberof AccessProfileUsageUsedByInner
      */
-    'type'?: AccessprofileusageUsedByInnerTypeEnum;
+    'type'?: AccessProfileUsageUsedByInnerTypeEnum;
     /**
      * ID of role using the access profile.
      * @type {string}
-     * @memberof AccessprofileusageUsedByInner
+     * @memberof AccessProfileUsageUsedByInner
      */
     'id'?: string;
     /**
      * Display name of role using the access profile.
      * @type {string}
-     * @memberof AccessprofileusageUsedByInner
+     * @memberof AccessProfileUsageUsedByInner
      */
     'name'?: string;
 }
 
-export const AccessprofileusageUsedByInnerTypeEnum = {
+export const AccessProfileUsageUsedByInnerTypeEnum = {
     Role: 'ROLE'
 } as const;
 
-export type AccessprofileusageUsedByInnerTypeEnum = typeof AccessprofileusageUsedByInnerTypeEnum[keyof typeof AccessprofileusageUsedByInnerTypeEnum];
+export type AccessProfileUsageUsedByInnerTypeEnum = typeof AccessProfileUsageUsedByInnerTypeEnum[keyof typeof AccessProfileUsageUsedByInnerTypeEnum];
 
 /**
  * Reference to an additional owner (identity or governance group).
  * @export
- * @interface Additionalownerref
+ * @interface AdditionalOwnerRef
  */
-export interface Additionalownerref {
+export interface AdditionalOwnerRef {
     /**
      * Type of the additional owner; IDENTITY for an identity, GOVERNANCE_GROUP for a governance group.
      * @type {string}
-     * @memberof Additionalownerref
+     * @memberof AdditionalOwnerRef
      */
-    'type'?: AdditionalownerrefTypeEnum;
+    'type'?: AdditionalOwnerRefTypeEnum;
     /**
      * ID of the identity or governance group.
      * @type {string}
-     * @memberof Additionalownerref
+     * @memberof AdditionalOwnerRef
      */
     'id'?: string;
     /**
      * Display name. It may be left null or omitted on input. If set, it must match the current display name of the identity or governance group, otherwise a 400 Bad Request error may result.
      * @type {string}
-     * @memberof Additionalownerref
+     * @memberof AdditionalOwnerRef
      */
     'name'?: string | null;
 }
 
-export const AdditionalownerrefTypeEnum = {
+export const AdditionalOwnerRefTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type AdditionalownerrefTypeEnum = typeof AdditionalownerrefTypeEnum[keyof typeof AdditionalownerrefTypeEnum];
+export type AdditionalOwnerRefTypeEnum = typeof AdditionalOwnerRefTypeEnum[keyof typeof AdditionalOwnerRefTypeEnum];
 
 /**
  * 
@@ -489,93 +489,93 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Attributedto
+ * @interface AttributeDTO
  */
-export interface Attributedto {
+export interface AttributeDTO {
     /**
      * Technical name of the Attribute. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'key'?: string;
     /**
      * The display name of the key.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'name'?: string;
     /**
      * Indicates whether the attribute can have multiple values.
      * @type {boolean}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'multiselect'?: boolean;
     /**
      * The status of the Attribute.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'status'?: string;
     /**
      * The type of the Attribute. This can be either \"custom\" or \"governance\".
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'type'?: string;
     /**
      * An array of object types this attributes values can be applied to. Possible values are \"all\" or \"entitlement\". Value \"all\" means this attribute can be used with all object types that are supported.
      * @type {Array<string>}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'objectTypes'?: Array<string> | null;
     /**
      * The description of the Attribute.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'description'?: string;
     /**
      * 
-     * @type {Array<Attributevaluedto>}
-     * @memberof Attributedto
+     * @type {Array<AttributeValueDTO>}
+     * @memberof AttributeDTO
      */
-    'values'?: Array<Attributevaluedto> | null;
+    'values'?: Array<AttributeValueDTO> | null;
 }
 /**
  * 
  * @export
- * @interface Attributedtolist
+ * @interface AttributeDTOList
  */
-export interface Attributedtolist {
+export interface AttributeDTOList {
     /**
      * 
-     * @type {Array<Attributedto>}
-     * @memberof Attributedtolist
+     * @type {Array<AttributeDTO>}
+     * @memberof AttributeDTOList
      */
-    'attributes'?: Array<Attributedto> | null;
+    'attributes'?: Array<AttributeDTO> | null;
 }
 /**
  * 
  * @export
- * @interface Attributevaluedto
+ * @interface AttributeValueDTO
  */
-export interface Attributevaluedto {
+export interface AttributeValueDTO {
     /**
      * Technical name of the Attribute value. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'value'?: string;
     /**
      * The display name of the Attribute value.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'name'?: string;
     /**
      * The status of the Attribute value.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'status'?: string;
 }
@@ -647,10 +647,10 @@ export interface Entitlement {
     'owner'?: EntitlementOwner | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<Additionalownerref>}
+     * @type {Array<AdditionalOwnerRef>}
      * @memberof Entitlement
      */
-    'additionalOwners'?: Array<Additionalownerref> | null;
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
     /**
      * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
      * @type {{ [key: string]: any; }}
@@ -695,10 +695,10 @@ export interface Entitlement {
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {Array<Permissiondto>}
+     * @type {Array<PermissionDTO>}
      * @memberof Entitlement
      */
-    'directPermissions'?: Array<Permissiondto>;
+    'directPermissions'?: Array<PermissionDTO>;
 }
 /**
  * Additional data to classify the entitlement
@@ -708,10 +708,10 @@ export interface Entitlement {
 export interface EntitlementAccessModelMetadata {
     /**
      * 
-     * @type {Array<Accessmodelmetadata>}
+     * @type {Array<AccessModelMetadata>}
      * @memberof EntitlementAccessModelMetadata
      */
-    'attributes'?: Array<Accessmodelmetadata>;
+    'attributes'?: Array<AccessModelMetadata>;
 }
 /**
  * The identity that owns the entitlement
@@ -746,6 +746,38 @@ export const EntitlementOwnerTypeEnum = {
 export type EntitlementOwnerTypeEnum = typeof EntitlementOwnerTypeEnum[keyof typeof EntitlementOwnerTypeEnum];
 
 /**
+ * Entitlement including a specific set of access.
+ * @export
+ * @interface EntitlementRef
+ */
+export interface EntitlementRef {
+    /**
+     * Entitlement\'s DTO type.
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'type'?: EntitlementRefTypeEnum;
+    /**
+     * Entitlement\'s ID.
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'id'?: string;
+    /**
+     * Entitlement\'s display name.
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'name'?: string | null;
+}
+
+export const EntitlementRefTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type EntitlementRefTypeEnum = typeof EntitlementRefTypeEnum[keyof typeof EntitlementRefTypeEnum];
+
+/**
  * 
  * @export
  * @interface EntitlementSource
@@ -771,59 +803,27 @@ export interface EntitlementSource {
     'name'?: string;
 }
 /**
- * Entitlement including a specific set of access.
- * @export
- * @interface Entitlementref
- */
-export interface Entitlementref {
-    /**
-     * Entitlement\'s DTO type.
-     * @type {string}
-     * @memberof Entitlementref
-     */
-    'type'?: EntitlementrefTypeEnum;
-    /**
-     * Entitlement\'s ID.
-     * @type {string}
-     * @memberof Entitlementref
-     */
-    'id'?: string;
-    /**
-     * Entitlement\'s display name.
-     * @type {string}
-     * @memberof Entitlementref
-     */
-    'name'?: string | null;
-}
-
-export const EntitlementrefTypeEnum = {
-    Entitlement: 'ENTITLEMENT'
-} as const;
-
-export type EntitlementrefTypeEnum = typeof EntitlementrefTypeEnum[keyof typeof EntitlementrefTypeEnum];
-
-/**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -832,61 +832,61 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -895,14 +895,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
@@ -936,159 +936,159 @@ export interface ListAccessProfilesV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Owner of the object.
  * @export
- * @interface Ownerreference
+ * @interface OwnerReference
  */
-export interface Ownerreference {
+export interface OwnerReference {
     /**
      * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof Ownerreference
+     * @memberof OwnerReference
      */
-    'type'?: OwnerreferenceTypeEnum;
+    'type'?: OwnerReferenceTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof Ownerreference
+     * @memberof OwnerReference
      */
     'id'?: string;
     /**
      * Owner\'s name. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof Ownerreference
+     * @memberof OwnerReference
      */
     'name'?: string;
 }
 
-export const OwnerreferenceTypeEnum = {
+export const OwnerReferenceTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerreferenceTypeEnum = typeof OwnerreferenceTypeEnum[keyof typeof OwnerreferenceTypeEnum];
+export type OwnerReferenceTypeEnum = typeof OwnerReferenceTypeEnum[keyof typeof OwnerReferenceTypeEnum];
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
  * @export
- * @interface Permissiondto
+ * @interface PermissionDTO
  */
-export interface Permissiondto {
+export interface PermissionDTO {
     /**
      * All the rights (e.g. actions) that this permission allows on the target
      * @type {Array<string>}
-     * @memberof Permissiondto
+     * @memberof PermissionDTO
      */
     'rights'?: Array<string>;
     /**
      * The target the permission would grants rights on.
      * @type {string}
-     * @memberof Permissiondto
+     * @memberof PermissionDTO
      */
     'target'?: string;
 }
 /**
  * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
- * @interface Provisioningcriterialevel1
+ * @interface ProvisioningCriteriaLevel1
  */
-export interface Provisioningcriterialevel1 {
+export interface ProvisioningCriteriaLevel1 {
     /**
      * 
-     * @type {Provisioningcriteriaoperation}
-     * @memberof Provisioningcriterialevel1
+     * @type {ProvisioningCriteriaOperation}
+     * @memberof ProvisioningCriteriaLevel1
      */
-    'operation'?: Provisioningcriteriaoperation;
+    'operation'?: ProvisioningCriteriaOperation;
     /**
      * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
-     * @memberof Provisioningcriterialevel1
+     * @memberof ProvisioningCriteriaLevel1
      */
     'attribute'?: string | null;
     /**
      * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
-     * @memberof Provisioningcriterialevel1
+     * @memberof ProvisioningCriteriaLevel1
      */
     'value'?: string | null;
     /**
      * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
-     * @type {Array<Provisioningcriterialevel2>}
-     * @memberof Provisioningcriterialevel1
+     * @type {Array<ProvisioningCriteriaLevel2>}
+     * @memberof ProvisioningCriteriaLevel1
      */
-    'children'?: Array<Provisioningcriterialevel2> | null;
+    'children'?: Array<ProvisioningCriteriaLevel2> | null;
 }
 
 
 /**
  * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
- * @interface Provisioningcriterialevel2
+ * @interface ProvisioningCriteriaLevel2
  */
-export interface Provisioningcriterialevel2 {
+export interface ProvisioningCriteriaLevel2 {
     /**
      * 
-     * @type {Provisioningcriteriaoperation}
-     * @memberof Provisioningcriterialevel2
+     * @type {ProvisioningCriteriaOperation}
+     * @memberof ProvisioningCriteriaLevel2
      */
-    'operation'?: Provisioningcriteriaoperation;
+    'operation'?: ProvisioningCriteriaOperation;
     /**
      * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
-     * @memberof Provisioningcriterialevel2
+     * @memberof ProvisioningCriteriaLevel2
      */
     'attribute'?: string | null;
     /**
      * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
-     * @memberof Provisioningcriterialevel2
+     * @memberof ProvisioningCriteriaLevel2
      */
     'value'?: string | null;
     /**
      * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
-     * @type {Array<Provisioningcriterialevel3>}
-     * @memberof Provisioningcriterialevel2
+     * @type {Array<ProvisioningCriteriaLevel3>}
+     * @memberof ProvisioningCriteriaLevel2
      */
-    'children'?: Array<Provisioningcriterialevel3> | null;
+    'children'?: Array<ProvisioningCriteriaLevel3> | null;
 }
 
 
 /**
  * Defines matching criteria for an account to be provisioned with a specific access profile.
  * @export
- * @interface Provisioningcriterialevel3
+ * @interface ProvisioningCriteriaLevel3
  */
-export interface Provisioningcriterialevel3 {
+export interface ProvisioningCriteriaLevel3 {
     /**
      * 
-     * @type {Provisioningcriteriaoperation}
-     * @memberof Provisioningcriterialevel3
+     * @type {ProvisioningCriteriaOperation}
+     * @memberof ProvisioningCriteriaLevel3
      */
-    'operation'?: Provisioningcriteriaoperation;
+    'operation'?: ProvisioningCriteriaOperation;
     /**
      * Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error.
      * @type {string}
-     * @memberof Provisioningcriterialevel3
+     * @memberof ProvisioningCriteriaLevel3
      */
     'attribute'?: string | null;
     /**
      * String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type.
      * @type {string}
-     * @memberof Provisioningcriterialevel3
+     * @memberof ProvisioningCriteriaLevel3
      */
     'value'?: string | null;
     /**
      * Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
      * @type {string}
-     * @memberof Provisioningcriterialevel3
+     * @memberof ProvisioningCriteriaLevel3
      */
     'children'?: string | null;
 }
@@ -1100,7 +1100,7 @@ export interface Provisioningcriterialevel3 {
  * @enum {string}
  */
 
-export const Provisioningcriteriaoperation = {
+export const ProvisioningCriteriaOperation = {
     Equals: 'EQUALS',
     NotEquals: 'NOT_EQUALS',
     Contains: 'CONTAINS',
@@ -1109,7 +1109,7 @@ export const Provisioningcriteriaoperation = {
     Or: 'OR'
 } as const;
 
-export type Provisioningcriteriaoperation = typeof Provisioningcriteriaoperation[keyof typeof Provisioningcriteriaoperation];
+export type ProvisioningCriteriaOperation = typeof ProvisioningCriteriaOperation[keyof typeof ProvisioningCriteriaOperation];
 
 
 /**
@@ -1144,16 +1144,16 @@ export interface Requestability {
     'requireEndDate'?: boolean | null;
     /**
      * 
-     * @type {Accessduration}
+     * @type {AccessDuration}
      * @memberof Requestability
      */
-    'maxPermittedAccessDuration'?: Accessduration | null;
+    'maxPermittedAccessDuration'?: AccessDuration | null;
     /**
      * List describing the steps involved in approving the request.
-     * @type {Array<Accessprofileapprovalscheme>}
+     * @type {Array<AccessProfileApprovalScheme>}
      * @memberof Requestability
      */
-    'approvalSchemes'?: Array<Accessprofileapprovalscheme> | null;
+    'approvalSchemes'?: Array<AccessProfileApprovalScheme> | null;
 }
 /**
  * 
@@ -1163,10 +1163,10 @@ export interface Requestability {
 export interface Revocability {
     /**
      * List describing the steps involved in approving the revocation request.
-     * @type {Array<Accessprofileapprovalscheme>}
+     * @type {Array<AccessProfileApprovalScheme>}
      * @memberof Revocability
      */
-    'approvalSchemes'?: Array<Accessprofileapprovalscheme> | null;
+    'approvalSchemes'?: Array<AccessProfileApprovalScheme> | null;
 }
 /**
  * 
@@ -1191,13 +1191,13 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes.
          * @summary Create access profile
-         * @param {Accessprofile} accessprofile 
+         * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessProfileV1: async (accessprofile: Accessprofile, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessprofile' is not null or undefined
-            assertParamExists('createAccessProfileV1', 'accessprofile', accessprofile)
+        createAccessProfileV1: async (accessProfile: AccessProfile, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfile' is not null or undefined
+            assertParamExists('createAccessProfileV1', 'accessProfile', accessProfile)
             const localVarPath = `/access-profiles/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1217,7 +1217,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessprofile, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfile, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1261,13 +1261,13 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
          * @summary Delete access profile(s)
-         * @param {Accessprofilebulkdeleterequest} accessprofilebulkdeleterequest 
+         * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccessProfilesInBulkV1: async (accessprofilebulkdeleterequest: Accessprofilebulkdeleterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessprofilebulkdeleterequest' is not null or undefined
-            assertParamExists('deleteAccessProfilesInBulkV1', 'accessprofilebulkdeleterequest', accessprofilebulkdeleterequest)
+        deleteAccessProfilesInBulkV1: async (accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileBulkDeleteRequest' is not null or undefined
+            assertParamExists('deleteAccessProfilesInBulkV1', 'accessProfileBulkDeleteRequest', accessProfileBulkDeleteRequest)
             const localVarPath = `/access-profiles/v1/bulk-delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1287,7 +1287,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessprofilebulkdeleterequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileBulkDeleteRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1461,15 +1461,15 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
          * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {string} id ID of the Access Profile to patch
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAccessProfileV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchAccessProfileV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchAccessProfileV1', 'id', id)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchAccessProfileV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchAccessProfileV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/access-profiles/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1490,7 +1490,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1500,14 +1500,14 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
-         * @param {Array<AccessprofilebulkupdaterequestInner>} accessprofilebulkupdaterequestInner 
+         * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesInBulkV1: async (accessprofilebulkupdaterequestInner: Array<AccessprofilebulkupdaterequestInner>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessprofilebulkupdaterequestInner' is not null or undefined
-            assertParamExists('updateAccessProfilesInBulkV1', 'accessprofilebulkupdaterequestInner', accessprofilebulkupdaterequestInner)
+        updateAccessProfilesInBulkV1: async (accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileBulkUpdateRequestInner' is not null or undefined
+            assertParamExists('updateAccessProfilesInBulkV1', 'accessProfileBulkUpdateRequestInner', accessProfileBulkUpdateRequestInner)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -1534,7 +1534,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessprofilebulkupdaterequestInner, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileBulkUpdateRequestInner, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1554,12 +1554,12 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
         /**
          * Create an access profile. A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes.
          * @summary Create access profile
-         * @param {Accessprofile} accessprofile 
+         * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessProfileV1(accessprofile: Accessprofile, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfileV1(accessprofile, axiosOptions);
+        async createAccessProfileV1(accessProfile: AccessProfile, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfileV1(accessProfile, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.createAccessProfileV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1580,12 +1580,12 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
          * @summary Delete access profile(s)
-         * @param {Accessprofilebulkdeleterequest} accessprofilebulkdeleterequest 
+         * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccessProfilesInBulkV1(accessprofilebulkdeleterequest: Accessprofilebulkdeleterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofilebulkdeleteresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulkV1(accessprofilebulkdeleterequest, axiosOptions);
+        async deleteAccessProfilesInBulkV1(accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulkV1(accessProfileBulkDeleteRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.deleteAccessProfilesInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1615,7 +1615,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessProfileV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofile>> {
+        async getAccessProfileV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.getAccessProfileV1']?.[localVarOperationServerIndex]?.url;
@@ -1635,7 +1635,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessProfilesV1(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofile>>> {
+        async listAccessProfilesV1(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfile>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfilesV1(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.listAccessProfilesV1']?.[localVarOperationServerIndex]?.url;
@@ -1645,12 +1645,12 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {string} id ID of the Access Profile to patch
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAccessProfileV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfileV1(id, jsonpatchoperation, axiosOptions);
+        async patchAccessProfileV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfileV1(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.patchAccessProfileV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1658,13 +1658,13 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
-         * @param {Array<AccessprofilebulkupdaterequestInner>} accessprofilebulkupdaterequestInner 
+         * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessProfilesInBulkV1(accessprofilebulkupdaterequestInner: Array<AccessprofilebulkupdaterequestInner>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofileupdateitem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesInBulkV1(accessprofilebulkupdaterequestInner, xSailPointExperimental, axiosOptions);
+        async updateAccessProfilesInBulkV1(accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileUpdateItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesInBulkV1(accessProfileBulkUpdateRequestInner, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.updateAccessProfilesInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1686,8 +1686,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessProfileV1(requestParameters: AccessProfilesApiCreateAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofile> {
-            return localVarFp.createAccessProfileV1(requestParameters.accessprofile, axiosOptions).then((request) => request(axios, basePath));
+        createAccessProfileV1(requestParameters: AccessProfilesApiCreateAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfile> {
+            return localVarFp.createAccessProfileV1(requestParameters.accessProfile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
@@ -1706,8 +1706,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccessProfilesInBulkV1(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofilebulkdeleteresponse> {
-            return localVarFp.deleteAccessProfilesInBulkV1(requestParameters.accessprofilebulkdeleterequest, axiosOptions).then((request) => request(axios, basePath));
+        deleteAccessProfilesInBulkV1(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfileBulkDeleteResponse> {
+            return localVarFp.deleteAccessProfilesInBulkV1(requestParameters.accessProfileBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a list of an access profile\'s entitlements.  A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile. >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
@@ -1726,7 +1726,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessProfileV1(requestParameters: AccessProfilesApiGetAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofile> {
+        getAccessProfileV1(requestParameters: AccessProfilesApiGetAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfile> {
             return localVarFp.getAccessProfileV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1736,7 +1736,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessProfilesV1(requestParameters: AccessProfilesApiListAccessProfilesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofile>> {
+        listAccessProfilesV1(requestParameters: AccessProfilesApiListAccessProfilesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessProfile>> {
             return localVarFp.listAccessProfilesV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1746,8 +1746,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchAccessProfileV1(requestParameters: AccessProfilesApiPatchAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofile> {
-            return localVarFp.patchAccessProfileV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        patchAccessProfileV1(requestParameters: AccessProfilesApiPatchAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfile> {
+            return localVarFp.patchAccessProfileV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
@@ -1756,8 +1756,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesInBulkV1(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofileupdateitem>> {
-            return localVarFp.updateAccessProfilesInBulkV1(requestParameters.accessprofilebulkupdaterequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessProfilesInBulkV1(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessProfileUpdateItem>> {
+            return localVarFp.updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1770,10 +1770,10 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
 export interface AccessProfilesApiCreateAccessProfileV1Request {
     /**
      * 
-     * @type {Accessprofile}
+     * @type {AccessProfile}
      * @memberof AccessProfilesApiCreateAccessProfileV1
      */
-    readonly accessprofile: Accessprofile
+    readonly accessProfile: AccessProfile
 }
 
 /**
@@ -1798,10 +1798,10 @@ export interface AccessProfilesApiDeleteAccessProfileV1Request {
 export interface AccessProfilesApiDeleteAccessProfilesInBulkV1Request {
     /**
      * 
-     * @type {Accessprofilebulkdeleterequest}
+     * @type {AccessProfileBulkDeleteRequest}
      * @memberof AccessProfilesApiDeleteAccessProfilesInBulkV1
      */
-    readonly accessprofilebulkdeleterequest: Accessprofilebulkdeleterequest
+    readonly accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest
 }
 
 /**
@@ -1945,10 +1945,10 @@ export interface AccessProfilesApiPatchAccessProfileV1Request {
 
     /**
      * 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof AccessProfilesApiPatchAccessProfileV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -1959,10 +1959,10 @@ export interface AccessProfilesApiPatchAccessProfileV1Request {
 export interface AccessProfilesApiUpdateAccessProfilesInBulkV1Request {
     /**
      * 
-     * @type {Array<AccessprofilebulkupdaterequestInner>}
+     * @type {Array<AccessProfileBulkUpdateRequestInner>}
      * @memberof AccessProfilesApiUpdateAccessProfilesInBulkV1
      */
-    readonly accessprofilebulkupdaterequestInner: Array<AccessprofilebulkupdaterequestInner>
+    readonly accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>
 
     /**
      * Use this header to enable this experimental API.
@@ -1988,7 +1988,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public createAccessProfileV1(requestParameters: AccessProfilesApiCreateAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).createAccessProfileV1(requestParameters.accessprofile, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).createAccessProfileV1(requestParameters.accessProfile, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2012,7 +2012,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public deleteAccessProfilesInBulkV1(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).deleteAccessProfilesInBulkV1(requestParameters.accessprofilebulkdeleterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).deleteAccessProfilesInBulkV1(requestParameters.accessProfileBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2060,7 +2060,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public patchAccessProfileV1(requestParameters: AccessProfilesApiPatchAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).patchAccessProfileV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).patchAccessProfileV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2072,7 +2072,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public updateAccessProfilesInBulkV1(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).updateAccessProfilesInBulkV1(requestParameters.accessprofilebulkupdaterequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

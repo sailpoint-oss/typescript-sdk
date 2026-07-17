@@ -6,12 +6,37 @@
       source: |
         import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Connectorrulecreaterequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+        import { ConnectorRuleCreateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
-        const connectorrulecreaterequest: Connectorrulecreaterequest = ; // Connectorrulecreaterequest | Connector rule to create.
-        const result = await apiInstance.createConnectorRuleV1({ connectorrulecreaterequest: connectorrulecreaterequest });
+        const connectorRuleCreateRequest: ConnectorRuleCreateRequest = {
+  "sourceCode" : {
+    "version" : "1.0",
+    "script" : "return \"Mr. \" + firstName;"
+  },
+  "signature" : {
+    "output" : {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    },
+    "input" : [ {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    }, {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    } ]
+  },
+  "name" : "WebServiceBeforeOperationRule",
+  "description" : "This rule does that",
+  "attributes" : { },
+  "type" : "BuildMap"
+}; // ConnectorRuleCreateRequest | Connector rule to create.
+        const result = await apiInstance.createConnectorRuleV1({ connectorRuleCreateRequest: connectorRuleCreateRequest });
         console.log(result);
 - path: /connector-rules/v1/{id}
   method: DELETE
@@ -65,12 +90,38 @@
       source: |
         import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Connectorruleupdaterequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+        import { ConnectorRuleUpdateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | ID of the connector rule to update. (default to undefined)
-        const connectorruleupdaterequest: Connectorruleupdaterequest = ; // Connectorruleupdaterequest | Connector rule with updated data. (optional)
+        const connectorRuleUpdateRequest: ConnectorRuleUpdateRequest = {
+  "sourceCode" : {
+    "version" : "1.0",
+    "script" : "return \"Mr. \" + firstName;"
+  },
+  "signature" : {
+    "output" : {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    },
+    "input" : [ {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    }, {
+      "name" : "firstName",
+      "description" : "the first name of the identity",
+      "type" : "String"
+    } ]
+  },
+  "name" : "WebServiceBeforeOperationRule",
+  "description" : "This rule does that",
+  "attributes" : { },
+  "id" : "8113d48c0b914f17b4c6072d4dcb9dfe",
+  "type" : "BuildMap"
+}; // ConnectorRuleUpdateRequest | Connector rule with updated data. (optional)
         const result = await apiInstance.putConnectorRuleV1({ id: id });
         console.log(result);
 - path: /connector-rules/v1/validate
@@ -81,10 +132,13 @@
       source: |
         import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Sourcecode } from 'sailpoint-api-client/dist/connector_rule_management/api';
+        import { SourceCode } from 'sailpoint-api-client/dist/connector_rule_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
-        const sourcecode: Sourcecode = ; // Sourcecode | Code to validate.
-        const result = await apiInstance.testConnectorRuleV1({ sourcecode: sourcecode });
+        const sourceCode: SourceCode = {
+  "version" : "1.0",
+  "script" : "return \"Mr. \" + firstName;"
+}; // SourceCode | Code to validate.
+        const result = await apiInstance.testConnectorRuleV1({ sourceCode: sourceCode });
         console.log(result);

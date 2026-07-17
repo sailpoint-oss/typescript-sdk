@@ -15,6 +15,6 @@ tags: ['SDK', 'Software Development Kit', 'Ref', 'v1Ref']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** `Dtotype` |  | [default to undefined]
+**type** | **(optional)** `DtoType` |  | [default to undefined]
 **id** | **(optional)** `string` | ID of the object to which this reference applies | [default to undefined]
 

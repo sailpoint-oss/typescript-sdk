@@ -131,13 +131,24 @@
       source: |
         import { CertificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Reviewdecision } from 'sailpoint-api-client/dist/certifications/api';
+        import { ReviewDecision } from 'sailpoint-api-client/dist/certifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The ID of the identity campaign certification on which to make decisions (default to undefined)
-        const reviewdecision: Array<Reviewdecision> = [{"id":"ef38f94347e94562b5bb8424a56396b5","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source."},{"id":"ef38f94347e94562b5bb8424a56397d8","decision":"APPROVE","bulk":true,"comments":"This user still needs access to this source too."}]; // Array<Reviewdecision> | A non-empty array of decisions to be made.
-        const result = await apiInstance.makeIdentityDecisionV1({ id: id, reviewdecision: reviewdecision });
+        const reviewDecision: Array<ReviewDecision> = {
+  "comments" : "This user no longer needs access to this source",
+  "decision" : "APPROVE",
+  "proposedEndDate" : "2017-07-11T18:45:37.098Z",
+  "recommendation" : {
+    "reasons" : [ "Reason 1", "Reason 2" ],
+    "recommendation" : "recommendation",
+    "timestamp" : "2020-06-01T13:49:37.385Z"
+  },
+  "id" : "ef38f94347e94562b5bb8424a56397d8",
+  "bulk" : true
+}; // Array<ReviewDecision> | A non-empty array of decisions to be made.
+        const result = await apiInstance.makeIdentityDecisionV1({ id: id, reviewDecision: reviewDecision });
         console.log(result);
 - path: /certifications/v1/{id}/reassign
   method: POST
@@ -147,13 +158,23 @@
       source: |
         import { CertificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Reviewreassign } from 'sailpoint-api-client/dist/certifications/api';
+        import { ReviewReassign } from 'sailpoint-api-client/dist/certifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The identity campaign certification ID (default to undefined)
-        const reviewreassign: Reviewreassign = ; // Reviewreassign | 
-        const result = await apiInstance.reassignIdentityCertificationsV1({ id: id, reviewreassign: reviewreassign });
+        const reviewReassign: ReviewReassign = {
+  "reason" : "reassigned for some reason",
+  "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  }, {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}; // ReviewReassign | 
+        const result = await apiInstance.reassignIdentityCertificationsV1({ id: id, reviewReassign: reviewReassign });
         console.log(result);
 - path: /certifications/v1/{id}/sign-off
   method: POST
@@ -177,11 +198,21 @@
       source: |
         import { CertificationsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Reviewreassign } from 'sailpoint-api-client/dist/certifications/api';
+        import { ReviewReassign } from 'sailpoint-api-client/dist/certifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The identity campaign certification ID (default to undefined)
-        const reviewreassign: Reviewreassign = ; // Reviewreassign | 
-        const result = await apiInstance.submitReassignCertsAsyncV1({ id: id, reviewreassign: reviewreassign });
+        const reviewReassign: ReviewReassign = {
+  "reason" : "reassigned for some reason",
+  "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  }, {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}; // ReviewReassign | 
+        const result = await apiInstance.submitReassignCertsAsyncV1({ id: id, reviewReassign: reviewReassign });
         console.log(result);

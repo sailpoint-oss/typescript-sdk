@@ -26,198 +26,198 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Accessduration
+ * @interface AccessDuration
  */
-export interface Accessduration {
+export interface AccessDuration {
     /**
      * The numeric value representing the amount of time, which is defined in the **timeUnit**.
      * @type {number}
-     * @memberof Accessduration
+     * @memberof AccessDuration
      */
     'value'?: number;
     /**
      * The unit of time that corresponds to the **value**. It defines the scale of the time period.
      * @type {string}
-     * @memberof Accessduration
+     * @memberof AccessDuration
      */
-    'timeUnit'?: AccessdurationTimeUnitEnum;
+    'timeUnit'?: AccessDurationTimeUnitEnum;
 }
 
-export const AccessdurationTimeUnitEnum = {
+export const AccessDurationTimeUnitEnum = {
     Hours: 'HOURS',
     Days: 'DAYS',
     Weeks: 'WEEKS',
     Months: 'MONTHS'
 } as const;
 
-export type AccessdurationTimeUnitEnum = typeof AccessdurationTimeUnitEnum[keyof typeof AccessdurationTimeUnitEnum];
+export type AccessDurationTimeUnitEnum = typeof AccessDurationTimeUnitEnum[keyof typeof AccessDurationTimeUnitEnum];
 
 /**
  * Metadata that describes an access item
  * @export
- * @interface Accessmodelmetadata
+ * @interface AccessModelMetadata
  */
-export interface Accessmodelmetadata {
+export interface AccessModelMetadata {
     /**
      * Unique identifier for the metadata type
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'key'?: string;
     /**
      * Human readable name of the metadata type
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'name'?: string;
     /**
      * Allows selecting multiple values
      * @type {boolean}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'multiselect'?: boolean;
     /**
      * The state of the metadata item
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'status'?: string;
     /**
      * The type of the metadata item
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'type'?: string;
     /**
      * The types of objects
      * @type {Array<string>}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'objectTypes'?: Array<string>;
     /**
      * Describes the metadata item
      * @type {string}
-     * @memberof Accessmodelmetadata
+     * @memberof AccessModelMetadata
      */
     'description'?: string;
     /**
      * The value to assign to the metadata item
-     * @type {Array<AccessmodelmetadataValuesInner>}
-     * @memberof Accessmodelmetadata
+     * @type {Array<AccessModelMetadataValuesInner>}
+     * @memberof AccessModelMetadata
      */
-    'values'?: Array<AccessmodelmetadataValuesInner>;
+    'values'?: Array<AccessModelMetadataValuesInner>;
 }
 /**
  * An individual value to assign to the metadata item
  * @export
- * @interface AccessmodelmetadataValuesInner
+ * @interface AccessModelMetadataValuesInner
  */
-export interface AccessmodelmetadataValuesInner {
+export interface AccessModelMetadataValuesInner {
     /**
      * The value to assign to the metdata item
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInner
+     * @memberof AccessModelMetadataValuesInner
      */
     'value'?: string;
     /**
      * Display name of the value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInner
+     * @memberof AccessModelMetadataValuesInner
      */
     'name'?: string;
     /**
      * The status of the individual value
      * @type {string}
-     * @memberof AccessmodelmetadataValuesInner
+     * @memberof AccessModelMetadataValuesInner
      */
     'status'?: string;
 }
 /**
  * 
  * @export
- * @interface Accessprofileref
+ * @interface AccessProfileRef
  */
-export interface Accessprofileref {
+export interface AccessProfileRef {
     /**
      * ID of the Access Profile
      * @type {string}
-     * @memberof Accessprofileref
+     * @memberof AccessProfileRef
      */
     'id'?: string;
     /**
      * Type of requested object. This field must be either left null or set to \'ACCESS_PROFILE\' when creating an Access Profile, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof Accessprofileref
+     * @memberof AccessProfileRef
      */
-    'type'?: AccessprofilerefTypeEnum;
+    'type'?: AccessProfileRefTypeEnum;
     /**
      * Human-readable display name of the Access Profile. This field is ignored on input.
      * @type {string}
-     * @memberof Accessprofileref
+     * @memberof AccessProfileRef
      */
     'name'?: string;
 }
 
-export const AccessprofilerefTypeEnum = {
+export const AccessProfileRefTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE'
 } as const;
 
-export type AccessprofilerefTypeEnum = typeof AccessprofilerefTypeEnum[keyof typeof AccessprofilerefTypeEnum];
+export type AccessProfileRefTypeEnum = typeof AccessProfileRefTypeEnum[keyof typeof AccessProfileRefTypeEnum];
 
 /**
  * Reference to an additional owner (identity or governance group).
  * @export
- * @interface Additionalownerref
+ * @interface AdditionalOwnerRef
  */
-export interface Additionalownerref {
+export interface AdditionalOwnerRef {
     /**
      * Type of the additional owner; IDENTITY for an identity, GOVERNANCE_GROUP for a governance group.
      * @type {string}
-     * @memberof Additionalownerref
+     * @memberof AdditionalOwnerRef
      */
-    'type'?: AdditionalownerrefTypeEnum;
+    'type'?: AdditionalOwnerRefTypeEnum;
     /**
      * ID of the identity or governance group.
      * @type {string}
-     * @memberof Additionalownerref
+     * @memberof AdditionalOwnerRef
      */
     'id'?: string;
     /**
      * Display name. It may be left null or omitted on input. If set, it must match the current display name of the identity or governance group, otherwise a 400 Bad Request error may result.
      * @type {string}
-     * @memberof Additionalownerref
+     * @memberof AdditionalOwnerRef
      */
     'name'?: string | null;
 }
 
-export const AdditionalownerrefTypeEnum = {
+export const AdditionalOwnerRefTypeEnum = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type AdditionalownerrefTypeEnum = typeof AdditionalownerrefTypeEnum[keyof typeof AdditionalownerrefTypeEnum];
+export type AdditionalOwnerRefTypeEnum = typeof AdditionalOwnerRefTypeEnum[keyof typeof AdditionalOwnerRefTypeEnum];
 
 /**
  * 
  * @export
- * @interface Approvalschemeforrole
+ * @interface ApprovalSchemeForRole
  */
-export interface Approvalschemeforrole {
+export interface ApprovalSchemeForRole {
     /**
      * Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.  **ALL_OWNERS**: All owners of the Role, including the primary owner and any secondary owners  **ADDITIONAL_OWNER**: An additional owner of the Role, the ID of which is specified by the **approverId** field  **ADDITIONAL_GOVERNANCE_GROUP**: An additional Governance Group, the ID of which is specified by the **approverId** field
      * @type {string}
-     * @memberof Approvalschemeforrole
+     * @memberof ApprovalSchemeForRole
      */
-    'approverType'?: ApprovalschemeforroleApproverTypeEnum;
+    'approverType'?: ApprovalSchemeForRoleApproverTypeEnum;
     /**
      * Id of the specific approver, used when approverType is GOVERNANCE_GROUP, WORKFLOW, or ADDITIONAL_GOVERNANCE_GROUP.
      * @type {string}
-     * @memberof Approvalschemeforrole
+     * @memberof ApprovalSchemeForRole
      */
     'approverId'?: string | null;
 }
 
-export const ApprovalschemeforroleApproverTypeEnum = {
+export const ApprovalSchemeForRoleApproverTypeEnum = {
     Owner: 'OWNER',
     Manager: 'MANAGER',
     GovernanceGroup: 'GOVERNANCE_GROUP',
@@ -227,7 +227,7 @@ export const ApprovalschemeforroleApproverTypeEnum = {
     AdditionalGovernanceGroup: 'ADDITIONAL_GOVERNANCE_GROUP'
 } as const;
 
-export type ApprovalschemeforroleApproverTypeEnum = typeof ApprovalschemeforroleApproverTypeEnum[keyof typeof ApprovalschemeforroleApproverTypeEnum];
+export type ApprovalSchemeForRoleApproverTypeEnum = typeof ApprovalSchemeForRoleApproverTypeEnum[keyof typeof ApprovalSchemeForRoleApproverTypeEnum];
 
 /**
  * 
@@ -239,165 +239,165 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Attributedto
+ * @interface AttributeDTO
  */
-export interface Attributedto {
+export interface AttributeDTO {
     /**
      * Technical name of the Attribute. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'key'?: string;
     /**
      * The display name of the key.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'name'?: string;
     /**
      * Indicates whether the attribute can have multiple values.
      * @type {boolean}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'multiselect'?: boolean;
     /**
      * The status of the Attribute.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'status'?: string;
     /**
      * The type of the Attribute. This can be either \"custom\" or \"governance\".
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'type'?: string;
     /**
      * An array of object types this attributes values can be applied to. Possible values are \"all\" or \"entitlement\". Value \"all\" means this attribute can be used with all object types that are supported.
      * @type {Array<string>}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'objectTypes'?: Array<string> | null;
     /**
      * The description of the Attribute.
      * @type {string}
-     * @memberof Attributedto
+     * @memberof AttributeDTO
      */
     'description'?: string;
     /**
      * 
-     * @type {Array<Attributevaluedto>}
-     * @memberof Attributedto
+     * @type {Array<AttributeValueDTO>}
+     * @memberof AttributeDTO
      */
-    'values'?: Array<Attributevaluedto> | null;
+    'values'?: Array<AttributeValueDTO> | null;
 }
 /**
  * 
  * @export
- * @interface Attributedtolist
+ * @interface AttributeDTOList
  */
-export interface Attributedtolist {
+export interface AttributeDTOList {
     /**
      * 
-     * @type {Array<Attributedto>}
-     * @memberof Attributedtolist
+     * @type {Array<AttributeDTO>}
+     * @memberof AttributeDTOList
      */
-    'attributes'?: Array<Attributedto> | null;
+    'attributes'?: Array<AttributeDTO> | null;
 }
 /**
  * 
  * @export
- * @interface Attributevaluedto
+ * @interface AttributeValueDTO
  */
-export interface Attributevaluedto {
+export interface AttributeValueDTO {
     /**
      * Technical name of the Attribute value. This is unique and cannot be changed after creation.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'value'?: string;
     /**
      * The display name of the Attribute value.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'name'?: string;
     /**
      * The status of the Attribute value.
      * @type {string}
-     * @memberof Attributevaluedto
+     * @memberof AttributeValueDTO
      */
     'status'?: string;
 }
 /**
  * A dimension attribute
  * @export
- * @interface Dimensionattribute
+ * @interface DimensionAttribute
  */
-export interface Dimensionattribute {
+export interface DimensionAttribute {
     /**
      * Name of the attribute
      * @type {string}
-     * @memberof Dimensionattribute
+     * @memberof DimensionAttribute
      */
     'name'?: string;
     /**
      * Display name of the attribute
      * @type {string}
-     * @memberof Dimensionattribute
+     * @memberof DimensionAttribute
      */
     'displayName'?: string;
     /**
      * If an attribute is derived, its value comes from the identity. Otherwise, it can be provided with access request
      * @type {boolean}
-     * @memberof Dimensionattribute
+     * @memberof DimensionAttribute
      */
     'derived'?: boolean;
 }
 /**
  * 
  * @export
- * @interface Dimensionref
+ * @interface DimensionRef
  */
-export interface Dimensionref {
+export interface DimensionRef {
     /**
      * The type of the object to which this reference applies
      * @type {string}
-     * @memberof Dimensionref
+     * @memberof DimensionRef
      */
-    'type'?: DimensionrefTypeEnum;
+    'type'?: DimensionRefTypeEnum;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof Dimensionref
+     * @memberof DimensionRef
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof Dimensionref
+     * @memberof DimensionRef
      */
     'name'?: string;
 }
 
-export const DimensionrefTypeEnum = {
+export const DimensionRefTypeEnum = {
     Dimension: 'DIMENSION'
 } as const;
 
-export type DimensionrefTypeEnum = typeof DimensionrefTypeEnum[keyof typeof DimensionrefTypeEnum];
+export type DimensionRefTypeEnum = typeof DimensionRefTypeEnum[keyof typeof DimensionRefTypeEnum];
 
 /**
  * Contains a list of dimension attributes. Required only for Dynamic Roles
  * @export
- * @interface Dimensionschema
+ * @interface DimensionSchema
  */
-export interface Dimensionschema {
+export interface DimensionSchema {
     /**
      * 
-     * @type {Array<Dimensionattribute>}
-     * @memberof Dimensionschema
+     * @type {Array<DimensionAttribute>}
+     * @memberof DimensionSchema
      */
-    'dimensionAttributes'?: Array<Dimensionattribute>;
+    'dimensionAttributes'?: Array<DimensionAttribute>;
 }
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -405,7 +405,7 @@ export interface Dimensionschema {
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -437,7 +437,7 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
@@ -508,10 +508,10 @@ export interface Entitlement {
     'owner'?: EntitlementOwner | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<Additionalownerref>}
+     * @type {Array<AdditionalOwnerRef>}
      * @memberof Entitlement
      */
-    'additionalOwners'?: Array<Additionalownerref> | null;
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
     /**
      * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
      * @type {{ [key: string]: any; }}
@@ -556,10 +556,10 @@ export interface Entitlement {
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {Array<Permissiondto>}
+     * @type {Array<PermissionDTO>}
      * @memberof Entitlement
      */
-    'directPermissions'?: Array<Permissiondto>;
+    'directPermissions'?: Array<PermissionDTO>;
 }
 /**
  * Additional data to classify the entitlement
@@ -569,10 +569,10 @@ export interface Entitlement {
 export interface EntitlementAccessModelMetadata {
     /**
      * 
-     * @type {Array<Accessmodelmetadata>}
+     * @type {Array<AccessModelMetadata>}
      * @memberof EntitlementAccessModelMetadata
      */
-    'attributes'?: Array<Accessmodelmetadata>;
+    'attributes'?: Array<AccessModelMetadata>;
 }
 /**
  * The identity that owns the entitlement
@@ -607,6 +607,38 @@ export const EntitlementOwnerTypeEnum = {
 export type EntitlementOwnerTypeEnum = typeof EntitlementOwnerTypeEnum[keyof typeof EntitlementOwnerTypeEnum];
 
 /**
+ * Entitlement including a specific set of access.
+ * @export
+ * @interface EntitlementRef
+ */
+export interface EntitlementRef {
+    /**
+     * Entitlement\'s DTO type.
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'type'?: EntitlementRefTypeEnum;
+    /**
+     * Entitlement\'s ID.
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'id'?: string;
+    /**
+     * Entitlement\'s display name.
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'name'?: string | null;
+}
+
+export const EntitlementRefTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type EntitlementRefTypeEnum = typeof EntitlementRefTypeEnum[keyof typeof EntitlementRefTypeEnum];
+
+/**
  * 
  * @export
  * @interface EntitlementSource
@@ -632,59 +664,27 @@ export interface EntitlementSource {
     'name'?: string;
 }
 /**
- * Entitlement including a specific set of access.
- * @export
- * @interface Entitlementref
- */
-export interface Entitlementref {
-    /**
-     * Entitlement\'s DTO type.
-     * @type {string}
-     * @memberof Entitlementref
-     */
-    'type'?: EntitlementrefTypeEnum;
-    /**
-     * Entitlement\'s ID.
-     * @type {string}
-     * @memberof Entitlementref
-     */
-    'id'?: string;
-    /**
-     * Entitlement\'s display name.
-     * @type {string}
-     * @memberof Entitlementref
-     */
-    'name'?: string | null;
-}
-
-export const EntitlementrefTypeEnum = {
-    Entitlement: 'ENTITLEMENT'
-} as const;
-
-export type EntitlementrefTypeEnum = typeof EntitlementrefTypeEnum[keyof typeof EntitlementrefTypeEnum];
-
-/**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -693,61 +693,61 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -756,14 +756,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
@@ -797,144 +797,144 @@ export interface ListRolesV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Owner of the object.
  * @export
- * @interface Ownerreference
+ * @interface OwnerReference
  */
-export interface Ownerreference {
+export interface OwnerReference {
     /**
      * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof Ownerreference
+     * @memberof OwnerReference
      */
-    'type'?: OwnerreferenceTypeEnum;
+    'type'?: OwnerReferenceTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof Ownerreference
+     * @memberof OwnerReference
      */
     'id'?: string;
     /**
      * Owner\'s name. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof Ownerreference
+     * @memberof OwnerReference
      */
     'name'?: string;
 }
 
-export const OwnerreferenceTypeEnum = {
+export const OwnerReferenceTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerreferenceTypeEnum = typeof OwnerreferenceTypeEnum[keyof typeof OwnerreferenceTypeEnum];
+export type OwnerReferenceTypeEnum = typeof OwnerReferenceTypeEnum[keyof typeof OwnerReferenceTypeEnum];
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
  * @export
- * @interface Permissiondto
+ * @interface PermissionDTO
  */
-export interface Permissiondto {
+export interface PermissionDTO {
     /**
      * All the rights (e.g. actions) that this permission allows on the target
      * @type {Array<string>}
-     * @memberof Permissiondto
+     * @memberof PermissionDTO
      */
     'rights'?: Array<string>;
     /**
      * The target the permission would grants rights on.
      * @type {string}
-     * @memberof Permissiondto
+     * @memberof PermissionDTO
      */
     'target'?: string;
 }
 /**
  * 
  * @export
- * @interface Requestabilityforrole
+ * @interface RequestabilityForRole
  */
-export interface Requestabilityforrole {
+export interface RequestabilityForRole {
     /**
      * Whether the requester of the containing object must provide comments justifying the request
      * @type {boolean}
-     * @memberof Requestabilityforrole
+     * @memberof RequestabilityForRole
      */
     'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
-     * @memberof Requestabilityforrole
+     * @memberof RequestabilityForRole
      */
     'denialCommentsRequired'?: boolean | null;
     /**
      * Indicates whether reauthorization is required for the request.
      * @type {boolean}
-     * @memberof Requestabilityforrole
+     * @memberof RequestabilityForRole
      */
     'reauthorizationRequired'?: boolean | null;
     /**
      * Indicates whether the requester of the containing object must provide access end date.
      * @type {boolean}
-     * @memberof Requestabilityforrole
+     * @memberof RequestabilityForRole
      */
     'requireEndDate'?: boolean;
     /**
      * 
-     * @type {Accessduration}
-     * @memberof Requestabilityforrole
+     * @type {AccessDuration}
+     * @memberof RequestabilityForRole
      */
-    'maxPermittedAccessDuration'?: Accessduration | null;
+    'maxPermittedAccessDuration'?: AccessDuration | null;
     /**
      * List describing the steps in approving the request
-     * @type {Array<Approvalschemeforrole>}
-     * @memberof Requestabilityforrole
+     * @type {Array<ApprovalSchemeForRole>}
+     * @memberof RequestabilityForRole
      */
-    'approvalSchemes'?: Array<Approvalschemeforrole>;
+    'approvalSchemes'?: Array<ApprovalSchemeForRole>;
     /**
      * 
-     * @type {Dimensionschema}
-     * @memberof Requestabilityforrole
+     * @type {DimensionSchema}
+     * @memberof RequestabilityForRole
      */
-    'dimensionSchema'?: Dimensionschema;
+    'dimensionSchema'?: DimensionSchema;
     /**
      * The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
      * @type {string}
-     * @memberof Requestabilityforrole
+     * @memberof RequestabilityForRole
      */
     'formDefinitionId'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Revocabilityforrole
+ * @interface RevocabilityForRole
  */
-export interface Revocabilityforrole {
+export interface RevocabilityForRole {
     /**
      * Whether the requester of the containing object must provide comments justifying the request
      * @type {boolean}
-     * @memberof Revocabilityforrole
+     * @memberof RevocabilityForRole
      */
     'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
-     * @memberof Revocabilityforrole
+     * @memberof RevocabilityForRole
      */
     'denialCommentsRequired'?: boolean | null;
     /**
      * List describing the steps in approving the revocation request
-     * @type {Array<Approvalschemeforrole>}
-     * @memberof Revocabilityforrole
+     * @type {Array<ApprovalSchemeForRole>}
+     * @memberof RevocabilityForRole
      */
-    'approvalSchemes'?: Array<Approvalschemeforrole>;
+    'approvalSchemes'?: Array<ApprovalSchemeForRole>;
 }
 /**
  * A Role
@@ -974,34 +974,34 @@ export interface Role {
     'description'?: string | null;
     /**
      * 
-     * @type {Ownerreference}
+     * @type {OwnerReference}
      * @memberof Role
      */
-    'owner': Ownerreference | null;
+    'owner': OwnerReference | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
-     * @type {Array<Additionalownerref>}
+     * @type {Array<AdditionalOwnerRef>}
      * @memberof Role
      */
-    'additionalOwners'?: Array<Additionalownerref> | null;
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
     /**
      * 
-     * @type {Array<Accessprofileref>}
+     * @type {Array<AccessProfileRef>}
      * @memberof Role
      */
-    'accessProfiles'?: Array<Accessprofileref> | null;
+    'accessProfiles'?: Array<AccessProfileRef> | null;
     /**
      * 
-     * @type {Array<Entitlementref>}
+     * @type {Array<EntitlementRef>}
      * @memberof Role
      */
-    'entitlements'?: Array<Entitlementref>;
+    'entitlements'?: Array<EntitlementRef>;
     /**
      * 
-     * @type {Rolemembershipselector}
+     * @type {RoleMembershipSelector}
      * @memberof Role
      */
-    'membership'?: Rolemembershipselector | null;
+    'membership'?: RoleMembershipSelector | null;
     /**
      * This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration.
      * @type {{ [key: string]: any; }}
@@ -1022,16 +1022,16 @@ export interface Role {
     'requestable'?: boolean;
     /**
      * 
-     * @type {Requestabilityforrole}
+     * @type {RequestabilityForRole}
      * @memberof Role
      */
-    'accessRequestConfig'?: Requestabilityforrole;
+    'accessRequestConfig'?: RequestabilityForRole;
     /**
      * 
-     * @type {Revocabilityforrole}
+     * @type {RevocabilityForRole}
      * @memberof Role
      */
-    'revocationRequestConfig'?: Revocabilityforrole;
+    'revocationRequestConfig'?: RevocabilityForRole;
     /**
      * List of IDs of segments, if any, to which this Role is assigned.
      * @type {Array<string>}
@@ -1046,16 +1046,16 @@ export interface Role {
     'dimensional'?: boolean | null;
     /**
      * List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
-     * @type {Array<Dimensionref>}
+     * @type {Array<DimensionRef>}
      * @memberof Role
      */
-    'dimensionRefs'?: Array<Dimensionref> | null;
+    'dimensionRefs'?: Array<DimensionRef> | null;
     /**
      * 
-     * @type {Attributedtolist}
+     * @type {AttributeDTOList}
      * @memberof Role
      */
-    'accessModelMetadata'?: Attributedtolist;
+    'accessModelMetadata'?: AttributeDTOList;
     /**
      * The privilege level of the role, if applicable.
      * @type {string}
@@ -1069,60 +1069,60 @@ export interface Role {
  * @enum {string}
  */
 
-export const Roleassignmentsourcetype = {
+export const RoleAssignmentSourceType = {
     AccessRequest: 'ACCESS_REQUEST',
     RoleMembership: 'ROLE_MEMBERSHIP'
 } as const;
 
-export type Roleassignmentsourcetype = typeof Roleassignmentsourcetype[keyof typeof Roleassignmentsourcetype];
+export type RoleAssignmentSourceType = typeof RoleAssignmentSourceType[keyof typeof RoleAssignmentSourceType];
 
 
 /**
  * 
  * @export
- * @interface Rolebulkdeleterequest
+ * @interface RoleBulkDeleteRequest
  */
-export interface Rolebulkdeleterequest {
+export interface RoleBulkDeleteRequest {
     /**
      * List of IDs of Roles to be deleted.
      * @type {Array<string>}
-     * @memberof Rolebulkdeleterequest
+     * @memberof RoleBulkDeleteRequest
      */
     'roleIds': Array<string>;
 }
 /**
  * 
  * @export
- * @interface Rolebulkupdateresponse
+ * @interface RoleBulkUpdateResponse
  */
-export interface Rolebulkupdateresponse {
+export interface RoleBulkUpdateResponse {
     /**
      * ID of the task which is executing the bulk update. This also used in to the bulk-update/_** API to track status.
      * @type {string}
-     * @memberof Rolebulkupdateresponse
+     * @memberof RoleBulkUpdateResponse
      */
     'id'?: string;
     /**
      * Type of the bulk update object.
      * @type {string}
-     * @memberof Rolebulkupdateresponse
+     * @memberof RoleBulkUpdateResponse
      */
     'type'?: string;
     /**
      * The status of the bulk update request, could also checked by getBulkUpdateStatus API
      * @type {string}
-     * @memberof Rolebulkupdateresponse
+     * @memberof RoleBulkUpdateResponse
      */
-    'status'?: RolebulkupdateresponseStatusEnum;
+    'status'?: RoleBulkUpdateResponseStatusEnum;
     /**
      * Time when the bulk update request was created
      * @type {string}
-     * @memberof Rolebulkupdateresponse
+     * @memberof RoleBulkUpdateResponse
      */
     'created'?: string;
 }
 
-export const RolebulkupdateresponseStatusEnum = {
+export const RoleBulkUpdateResponseStatusEnum = {
     Created: 'CREATED',
     PreProcess: 'PRE_PROCESS',
     PreProcessCompleted: 'PRE_PROCESS_COMPLETED',
@@ -1132,30 +1132,30 @@ export const RolebulkupdateresponseStatusEnum = {
     ChunkProcessing: 'CHUNK_PROCESSING'
 } as const;
 
-export type RolebulkupdateresponseStatusEnum = typeof RolebulkupdateresponseStatusEnum[keyof typeof RolebulkupdateresponseStatusEnum];
+export type RoleBulkUpdateResponseStatusEnum = typeof RoleBulkUpdateResponseStatusEnum[keyof typeof RoleBulkUpdateResponseStatusEnum];
 
 /**
  * Refers to a specific Identity attribute, Account attibute, or Entitlement used in Role membership criteria
  * @export
- * @interface Rolecriteriakey
+ * @interface RoleCriteriaKey
  */
-export interface Rolecriteriakey {
+export interface RoleCriteriaKey {
     /**
      * 
-     * @type {Rolecriteriakeytype}
-     * @memberof Rolecriteriakey
+     * @type {RoleCriteriaKeyType}
+     * @memberof RoleCriteriaKey
      */
-    'type': Rolecriteriakeytype;
+    'type': RoleCriteriaKeyType;
     /**
      * The name of the attribute or entitlement to which the associated criteria applies.
      * @type {string}
-     * @memberof Rolecriteriakey
+     * @memberof RoleCriteriaKey
      */
     'property': string;
     /**
      * ID of the Source from which an account attribute or entitlement is drawn. Required if type is ACCOUNT or ENTITLEMENT
      * @type {string}
-     * @memberof Rolecriteriakey
+     * @memberof RoleCriteriaKey
      */
     'sourceId'?: string | null;
 }
@@ -1167,103 +1167,103 @@ export interface Rolecriteriakey {
  * @enum {string}
  */
 
-export const Rolecriteriakeytype = {
+export const RoleCriteriaKeyType = {
     Identity: 'IDENTITY',
     Account: 'ACCOUNT',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type Rolecriteriakeytype = typeof Rolecriteriakeytype[keyof typeof Rolecriteriakeytype];
+export type RoleCriteriaKeyType = typeof RoleCriteriaKeyType[keyof typeof RoleCriteriaKeyType];
 
 
 /**
  * Defines STANDARD type Role membership
  * @export
- * @interface Rolecriterialevel1
+ * @interface RoleCriteriaLevel1
  */
-export interface Rolecriterialevel1 {
+export interface RoleCriteriaLevel1 {
     /**
      * 
-     * @type {Rolecriteriaoperation}
-     * @memberof Rolecriterialevel1
+     * @type {RoleCriteriaOperation}
+     * @memberof RoleCriteriaLevel1
      */
-    'operation'?: Rolecriteriaoperation;
+    'operation'?: RoleCriteriaOperation;
     /**
      * 
-     * @type {Rolecriteriakey}
-     * @memberof Rolecriterialevel1
+     * @type {RoleCriteriaKey}
+     * @memberof RoleCriteriaLevel1
      */
-    'key'?: Rolecriteriakey | null;
+    'key'?: RoleCriteriaKey | null;
     /**
      * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
      * @type {string}
-     * @memberof Rolecriterialevel1
+     * @memberof RoleCriteriaLevel1
      */
     'stringValue'?: string | null;
     /**
      * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa.
-     * @type {Array<Rolecriterialevel2>}
-     * @memberof Rolecriterialevel1
+     * @type {Array<RoleCriteriaLevel2>}
+     * @memberof RoleCriteriaLevel1
      */
-    'children'?: Array<Rolecriterialevel2> | null;
+    'children'?: Array<RoleCriteriaLevel2> | null;
 }
 
 
 /**
  * Defines STANDARD type Role membership
  * @export
- * @interface Rolecriterialevel2
+ * @interface RoleCriteriaLevel2
  */
-export interface Rolecriterialevel2 {
+export interface RoleCriteriaLevel2 {
     /**
      * 
-     * @type {Rolecriteriaoperation}
-     * @memberof Rolecriterialevel2
+     * @type {RoleCriteriaOperation}
+     * @memberof RoleCriteriaLevel2
      */
-    'operation'?: Rolecriteriaoperation;
+    'operation'?: RoleCriteriaOperation;
     /**
      * 
-     * @type {Rolecriteriakey}
-     * @memberof Rolecriterialevel2
+     * @type {RoleCriteriaKey}
+     * @memberof RoleCriteriaLevel2
      */
-    'key'?: Rolecriteriakey | null;
+    'key'?: RoleCriteriaKey | null;
     /**
      * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
      * @type {string}
-     * @memberof Rolecriterialevel2
+     * @memberof RoleCriteriaLevel2
      */
     'stringValue'?: string | null;
     /**
      * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa.
-     * @type {Array<Rolecriterialevel3>}
-     * @memberof Rolecriterialevel2
+     * @type {Array<RoleCriteriaLevel3>}
+     * @memberof RoleCriteriaLevel2
      */
-    'children'?: Array<Rolecriterialevel3> | null;
+    'children'?: Array<RoleCriteriaLevel3> | null;
 }
 
 
 /**
  * Defines STANDARD type Role membership
  * @export
- * @interface Rolecriterialevel3
+ * @interface RoleCriteriaLevel3
  */
-export interface Rolecriterialevel3 {
+export interface RoleCriteriaLevel3 {
     /**
      * 
-     * @type {Rolecriteriaoperation}
-     * @memberof Rolecriterialevel3
+     * @type {RoleCriteriaOperation}
+     * @memberof RoleCriteriaLevel3
      */
-    'operation'?: Rolecriteriaoperation;
+    'operation'?: RoleCriteriaOperation;
     /**
      * 
-     * @type {Rolecriteriakey}
-     * @memberof Rolecriterialevel3
+     * @type {RoleCriteriaKey}
+     * @memberof RoleCriteriaLevel3
      */
-    'key'?: Rolecriteriakey | null;
+    'key'?: RoleCriteriaKey | null;
     /**
      * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, DOES_NOT_CONTAIN, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
      * @type {string}
-     * @memberof Rolecriterialevel3
+     * @memberof RoleCriteriaLevel3
      */
     'stringValue'?: string | null;
 }
@@ -1275,7 +1275,7 @@ export interface Rolecriterialevel3 {
  * @enum {string}
  */
 
-export const Rolecriteriaoperation = {
+export const RoleCriteriaOperation = {
     Equals: 'EQUALS',
     NotEquals: 'NOT_EQUALS',
     Contains: 'CONTAINS',
@@ -1290,42 +1290,42 @@ export const Rolecriteriaoperation = {
     Or: 'OR'
 } as const;
 
-export type Rolecriteriaoperation = typeof Rolecriteriaoperation[keyof typeof Rolecriteriaoperation];
+export type RoleCriteriaOperation = typeof RoleCriteriaOperation[keyof typeof RoleCriteriaOperation];
 
 
 /**
  * 
  * @export
- * @interface Rolegetallbulkupdateresponse
+ * @interface RoleGetAllBulkUpdateResponse
  */
-export interface Rolegetallbulkupdateresponse {
+export interface RoleGetAllBulkUpdateResponse {
     /**
      * ID of the task which is executing the bulk update. This also used in to the bulk-update/_** API to track status.
      * @type {string}
-     * @memberof Rolegetallbulkupdateresponse
+     * @memberof RoleGetAllBulkUpdateResponse
      */
     'id'?: string;
     /**
      * Type of the bulk update object.
      * @type {string}
-     * @memberof Rolegetallbulkupdateresponse
+     * @memberof RoleGetAllBulkUpdateResponse
      */
     'type'?: string;
     /**
      * The status of the bulk update request, only list unfinished request\'s status, the status could also checked by getBulkUpdateStatus API
      * @type {string}
-     * @memberof Rolegetallbulkupdateresponse
+     * @memberof RoleGetAllBulkUpdateResponse
      */
-    'status'?: RolegetallbulkupdateresponseStatusEnum;
+    'status'?: RoleGetAllBulkUpdateResponseStatusEnum;
     /**
      * Time when the bulk update request was created
      * @type {string}
-     * @memberof Rolegetallbulkupdateresponse
+     * @memberof RoleGetAllBulkUpdateResponse
      */
     'created'?: string;
 }
 
-export const RolegetallbulkupdateresponseStatusEnum = {
+export const RoleGetAllBulkUpdateResponseStatusEnum = {
     Created: 'CREATED',
     PreProcess: 'PRE_PROCESS',
     PostProcess: 'POST_PROCESS',
@@ -1333,113 +1333,113 @@ export const RolegetallbulkupdateresponseStatusEnum = {
     ChunkProcessing: 'CHUNK_PROCESSING'
 } as const;
 
-export type RolegetallbulkupdateresponseStatusEnum = typeof RolegetallbulkupdateresponseStatusEnum[keyof typeof RolegetallbulkupdateresponseStatusEnum];
+export type RoleGetAllBulkUpdateResponseStatusEnum = typeof RoleGetAllBulkUpdateResponseStatusEnum[keyof typeof RoleGetAllBulkUpdateResponseStatusEnum];
 
 /**
  * A subset of the fields of an Identity which is a member of a Role.
  * @export
- * @interface Roleidentity
+ * @interface RoleIdentity
  */
-export interface Roleidentity {
+export interface RoleIdentity {
     /**
      * The ID of the Identity
      * @type {string}
-     * @memberof Roleidentity
+     * @memberof RoleIdentity
      */
     'id'?: string;
     /**
      * The alias / username of the Identity
      * @type {string}
-     * @memberof Roleidentity
+     * @memberof RoleIdentity
      */
     'aliasName'?: string;
     /**
      * The human-readable display name of the Identity
      * @type {string}
-     * @memberof Roleidentity
+     * @memberof RoleIdentity
      */
     'name'?: string;
     /**
      * Email address of the Identity
      * @type {string}
-     * @memberof Roleidentity
+     * @memberof RoleIdentity
      */
     'email'?: string;
     /**
      * 
-     * @type {Roleassignmentsourcetype}
-     * @memberof Roleidentity
+     * @type {RoleAssignmentSourceType}
+     * @memberof RoleIdentity
      */
-    'roleAssignmentSource'?: Roleassignmentsourcetype;
+    'roleAssignmentSource'?: RoleAssignmentSourceType;
 }
 
 
 /**
  * AMMFilterValues
  * @export
- * @interface Rolelistfilterdto
+ * @interface RoleListFilterDTO
  */
-export interface Rolelistfilterdto {
+export interface RoleListFilterDTO {
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*
      * @type {string}
-     * @memberof Rolelistfilterdto
+     * @memberof RoleListFilterDTO
      */
     'filters'?: string | null;
     /**
      * 
-     * @type {Array<RolelistfilterdtoAmmKeyValuesInner>}
-     * @memberof Rolelistfilterdto
+     * @type {Array<RoleListFilterDTOAmmKeyValuesInner>}
+     * @memberof RoleListFilterDTO
      */
-    'ammKeyValues'?: Array<RolelistfilterdtoAmmKeyValuesInner> | null;
+    'ammKeyValues'?: Array<RoleListFilterDTOAmmKeyValuesInner> | null;
 }
 /**
  * 
  * @export
- * @interface RolelistfilterdtoAmmKeyValuesInner
+ * @interface RoleListFilterDTOAmmKeyValuesInner
  */
-export interface RolelistfilterdtoAmmKeyValuesInner {
+export interface RoleListFilterDTOAmmKeyValuesInner {
     /**
      * attribute key of a metadata.
      * @type {string}
-     * @memberof RolelistfilterdtoAmmKeyValuesInner
+     * @memberof RoleListFilterDTOAmmKeyValuesInner
      */
     'attribute'?: string;
     /**
      * A list of attribute key names to filter roles. If the values is empty, will only filter by attribute key.
      * @type {Array<string>}
-     * @memberof RolelistfilterdtoAmmKeyValuesInner
+     * @memberof RoleListFilterDTOAmmKeyValuesInner
      */
     'values'?: Array<string>;
 }
 /**
  * A reference to an Identity in an IDENTITY_LIST role membership criteria.
  * @export
- * @interface Rolemembershipidentity
+ * @interface RoleMembershipIdentity
  */
-export interface Rolemembershipidentity {
+export interface RoleMembershipIdentity {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Rolemembershipidentity
+     * @type {DtoType}
+     * @memberof RoleMembershipIdentity
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * Identity id
      * @type {string}
-     * @memberof Rolemembershipidentity
+     * @memberof RoleMembershipIdentity
      */
     'id'?: string;
     /**
      * Human-readable display name of the Identity.
      * @type {string}
-     * @memberof Rolemembershipidentity
+     * @memberof RoleMembershipIdentity
      */
     'name'?: string | null;
     /**
      * User name of the Identity
      * @type {string}
-     * @memberof Rolemembershipidentity
+     * @memberof RoleMembershipIdentity
      */
     'aliasName'?: string | null;
 }
@@ -1448,27 +1448,27 @@ export interface Rolemembershipidentity {
 /**
  * When present, specifies that the Role is to be granted to Identities which either satisfy specific criteria or which are members of a given list of Identities.
  * @export
- * @interface Rolemembershipselector
+ * @interface RoleMembershipSelector
  */
-export interface Rolemembershipselector {
+export interface RoleMembershipSelector {
     /**
      * 
-     * @type {Rolemembershipselectortype}
-     * @memberof Rolemembershipselector
+     * @type {RoleMembershipSelectorType}
+     * @memberof RoleMembershipSelector
      */
-    'type'?: Rolemembershipselectortype;
+    'type'?: RoleMembershipSelectorType;
     /**
      * 
-     * @type {Rolecriterialevel1}
-     * @memberof Rolemembershipselector
+     * @type {RoleCriteriaLevel1}
+     * @memberof RoleMembershipSelector
      */
-    'criteria'?: Rolecriterialevel1 | null;
+    'criteria'?: RoleCriteriaLevel1 | null;
     /**
      * Defines role membership as being exclusive to the specified Identities, when type is IDENTITY_LIST.
-     * @type {Array<Rolemembershipidentity>}
-     * @memberof Rolemembershipselector
+     * @type {Array<RoleMembershipIdentity>}
+     * @memberof RoleMembershipSelector
      */
-    'identities'?: Array<Rolemembershipidentity> | null;
+    'identities'?: Array<RoleMembershipIdentity> | null;
 }
 
 
@@ -1478,240 +1478,240 @@ export interface Rolemembershipselector {
  * @enum {string}
  */
 
-export const Rolemembershipselectortype = {
+export const RoleMembershipSelectorType = {
     Standard: 'STANDARD',
     IdentityList: 'IDENTITY_LIST'
 } as const;
 
-export type Rolemembershipselectortype = typeof Rolemembershipselectortype[keyof typeof Rolemembershipselectortype];
+export type RoleMembershipSelectorType = typeof RoleMembershipSelectorType[keyof typeof RoleMembershipSelectorType];
 
 
 /**
  * This API initialize a a Bulk update by filter request of Role metadata. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed.
  * @export
- * @interface Rolemetadatabulkupdatebyfilterrequest
+ * @interface RoleMetadataBulkUpdateByFilterRequest
  */
-export interface Rolemetadatabulkupdatebyfilterrequest {
+export interface RoleMetadataBulkUpdateByFilterRequest {
     /**
      * Filtering is supported for the following fields and operators:  **id** : *eq, in*  **name** : *eq, sw*  **created** : *gt, lt, ge, le*  **modified** : *gt, lt, ge, le*  **owner.id** : *eq, in*  **requestable** : *eq*
      * @type {string}
-     * @memberof Rolemetadatabulkupdatebyfilterrequest
+     * @memberof RoleMetadataBulkUpdateByFilterRequest
      */
     'filters': string;
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Rolemetadatabulkupdatebyfilterrequest
+     * @memberof RoleMetadataBulkUpdateByFilterRequest
      */
-    'operation': RolemetadatabulkupdatebyfilterrequestOperationEnum;
+    'operation': RoleMetadataBulkUpdateByFilterRequestOperationEnum;
     /**
      * The choice of update scope.
      * @type {string}
-     * @memberof Rolemetadatabulkupdatebyfilterrequest
+     * @memberof RoleMetadataBulkUpdateByFilterRequest
      */
-    'replaceScope'?: RolemetadatabulkupdatebyfilterrequestReplaceScopeEnum;
+    'replaceScope'?: RoleMetadataBulkUpdateByFilterRequestReplaceScopeEnum;
     /**
      * The metadata to be updated, including attribute key and value.
-     * @type {Array<RolemetadatabulkupdatebyfilterrequestValuesInner>}
-     * @memberof Rolemetadatabulkupdatebyfilterrequest
+     * @type {Array<RoleMetadataBulkUpdateByFilterRequestValuesInner>}
+     * @memberof RoleMetadataBulkUpdateByFilterRequest
      */
-    'values': Array<RolemetadatabulkupdatebyfilterrequestValuesInner>;
+    'values': Array<RoleMetadataBulkUpdateByFilterRequestValuesInner>;
 }
 
-export const RolemetadatabulkupdatebyfilterrequestOperationEnum = {
+export const RoleMetadataBulkUpdateByFilterRequestOperationEnum = {
     Add: 'ADD',
     Remove: 'REMOVE',
     Replace: 'REPLACE'
 } as const;
 
-export type RolemetadatabulkupdatebyfilterrequestOperationEnum = typeof RolemetadatabulkupdatebyfilterrequestOperationEnum[keyof typeof RolemetadatabulkupdatebyfilterrequestOperationEnum];
-export const RolemetadatabulkupdatebyfilterrequestReplaceScopeEnum = {
+export type RoleMetadataBulkUpdateByFilterRequestOperationEnum = typeof RoleMetadataBulkUpdateByFilterRequestOperationEnum[keyof typeof RoleMetadataBulkUpdateByFilterRequestOperationEnum];
+export const RoleMetadataBulkUpdateByFilterRequestReplaceScopeEnum = {
     All: 'ALL',
     Attribute: 'ATTRIBUTE'
 } as const;
 
-export type RolemetadatabulkupdatebyfilterrequestReplaceScopeEnum = typeof RolemetadatabulkupdatebyfilterrequestReplaceScopeEnum[keyof typeof RolemetadatabulkupdatebyfilterrequestReplaceScopeEnum];
+export type RoleMetadataBulkUpdateByFilterRequestReplaceScopeEnum = typeof RoleMetadataBulkUpdateByFilterRequestReplaceScopeEnum[keyof typeof RoleMetadataBulkUpdateByFilterRequestReplaceScopeEnum];
 
 /**
  * 
  * @export
- * @interface RolemetadatabulkupdatebyfilterrequestValuesInner
+ * @interface RoleMetadataBulkUpdateByFilterRequestValuesInner
  */
-export interface RolemetadatabulkupdatebyfilterrequestValuesInner {
+export interface RoleMetadataBulkUpdateByFilterRequestValuesInner {
     /**
      * the key of metadata attribute
      * @type {string}
-     * @memberof RolemetadatabulkupdatebyfilterrequestValuesInner
+     * @memberof RoleMetadataBulkUpdateByFilterRequestValuesInner
      */
     'attributeKey'?: string;
     /**
      * the values of attribute to be updated
      * @type {Array<string>}
-     * @memberof RolemetadatabulkupdatebyfilterrequestValuesInner
+     * @memberof RoleMetadataBulkUpdateByFilterRequestValuesInner
      */
     'values': Array<string> | null;
 }
 /**
  * This API initialize a Bulk update by Id request of Role metadata. The maximum role count in a single update request is 3000. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed.
  * @export
- * @interface Rolemetadatabulkupdatebyidrequest
+ * @interface RoleMetadataBulkUpdateByIdRequest
  */
-export interface Rolemetadatabulkupdatebyidrequest {
+export interface RoleMetadataBulkUpdateByIdRequest {
     /**
      * Roles\' Id to be updated
      * @type {Array<string>}
-     * @memberof Rolemetadatabulkupdatebyidrequest
+     * @memberof RoleMetadataBulkUpdateByIdRequest
      */
     'roles': Array<string>;
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Rolemetadatabulkupdatebyidrequest
+     * @memberof RoleMetadataBulkUpdateByIdRequest
      */
-    'operation': RolemetadatabulkupdatebyidrequestOperationEnum;
+    'operation': RoleMetadataBulkUpdateByIdRequestOperationEnum;
     /**
      * The choice of update scope.
      * @type {string}
-     * @memberof Rolemetadatabulkupdatebyidrequest
+     * @memberof RoleMetadataBulkUpdateByIdRequest
      */
-    'replaceScope'?: RolemetadatabulkupdatebyidrequestReplaceScopeEnum;
+    'replaceScope'?: RoleMetadataBulkUpdateByIdRequestReplaceScopeEnum;
     /**
      * The metadata to be updated, including attribute key and value.
-     * @type {Array<RolemetadatabulkupdatebyidrequestValuesInner>}
-     * @memberof Rolemetadatabulkupdatebyidrequest
+     * @type {Array<RoleMetadataBulkUpdateByIdRequestValuesInner>}
+     * @memberof RoleMetadataBulkUpdateByIdRequest
      */
-    'values': Array<RolemetadatabulkupdatebyidrequestValuesInner>;
+    'values': Array<RoleMetadataBulkUpdateByIdRequestValuesInner>;
 }
 
-export const RolemetadatabulkupdatebyidrequestOperationEnum = {
+export const RoleMetadataBulkUpdateByIdRequestOperationEnum = {
     Add: 'ADD',
     Remove: 'REMOVE',
     Replace: 'REPLACE'
 } as const;
 
-export type RolemetadatabulkupdatebyidrequestOperationEnum = typeof RolemetadatabulkupdatebyidrequestOperationEnum[keyof typeof RolemetadatabulkupdatebyidrequestOperationEnum];
-export const RolemetadatabulkupdatebyidrequestReplaceScopeEnum = {
+export type RoleMetadataBulkUpdateByIdRequestOperationEnum = typeof RoleMetadataBulkUpdateByIdRequestOperationEnum[keyof typeof RoleMetadataBulkUpdateByIdRequestOperationEnum];
+export const RoleMetadataBulkUpdateByIdRequestReplaceScopeEnum = {
     All: 'ALL',
     Attribute: 'ATTRIBUTE'
 } as const;
 
-export type RolemetadatabulkupdatebyidrequestReplaceScopeEnum = typeof RolemetadatabulkupdatebyidrequestReplaceScopeEnum[keyof typeof RolemetadatabulkupdatebyidrequestReplaceScopeEnum];
+export type RoleMetadataBulkUpdateByIdRequestReplaceScopeEnum = typeof RoleMetadataBulkUpdateByIdRequestReplaceScopeEnum[keyof typeof RoleMetadataBulkUpdateByIdRequestReplaceScopeEnum];
 
 /**
  * 
  * @export
- * @interface RolemetadatabulkupdatebyidrequestValuesInner
+ * @interface RoleMetadataBulkUpdateByIdRequestValuesInner
  */
-export interface RolemetadatabulkupdatebyidrequestValuesInner {
+export interface RoleMetadataBulkUpdateByIdRequestValuesInner {
     /**
      * the key of metadata attribute
      * @type {string}
-     * @memberof RolemetadatabulkupdatebyidrequestValuesInner
+     * @memberof RoleMetadataBulkUpdateByIdRequestValuesInner
      */
     'attribute': string;
     /**
      * the values of attribute to be updated
      * @type {Array<string>}
-     * @memberof RolemetadatabulkupdatebyidrequestValuesInner
+     * @memberof RoleMetadataBulkUpdateByIdRequestValuesInner
      */
     'values': Array<string> | null;
 }
 /**
  * Bulk update by query request of Role metadata. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed. For more information about the query could refer to  [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post)
  * @export
- * @interface Rolemetadatabulkupdatebyqueryrequest
+ * @interface RoleMetadataBulkUpdateByQueryRequest
  */
-export interface Rolemetadatabulkupdatebyqueryrequest {
+export interface RoleMetadataBulkUpdateByQueryRequest {
     /**
      * query the identities to be updated
      * @type {object}
-     * @memberof Rolemetadatabulkupdatebyqueryrequest
+     * @memberof RoleMetadataBulkUpdateByQueryRequest
      */
     'query': object;
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Rolemetadatabulkupdatebyqueryrequest
+     * @memberof RoleMetadataBulkUpdateByQueryRequest
      */
-    'operation': RolemetadatabulkupdatebyqueryrequestOperationEnum;
+    'operation': RoleMetadataBulkUpdateByQueryRequestOperationEnum;
     /**
      * The choice of update scope.
      * @type {string}
-     * @memberof Rolemetadatabulkupdatebyqueryrequest
+     * @memberof RoleMetadataBulkUpdateByQueryRequest
      */
-    'replaceScope'?: RolemetadatabulkupdatebyqueryrequestReplaceScopeEnum;
+    'replaceScope'?: RoleMetadataBulkUpdateByQueryRequestReplaceScopeEnum;
     /**
      * The metadata to be updated, including attribute key and value.
-     * @type {Array<RolemetadatabulkupdatebyqueryrequestValuesInner>}
-     * @memberof Rolemetadatabulkupdatebyqueryrequest
+     * @type {Array<RoleMetadataBulkUpdateByQueryRequestValuesInner>}
+     * @memberof RoleMetadataBulkUpdateByQueryRequest
      */
-    'values': Array<RolemetadatabulkupdatebyqueryrequestValuesInner>;
+    'values': Array<RoleMetadataBulkUpdateByQueryRequestValuesInner>;
 }
 
-export const RolemetadatabulkupdatebyqueryrequestOperationEnum = {
+export const RoleMetadataBulkUpdateByQueryRequestOperationEnum = {
     Add: 'ADD',
     Remove: 'REMOVE',
     Replace: 'REPLACE'
 } as const;
 
-export type RolemetadatabulkupdatebyqueryrequestOperationEnum = typeof RolemetadatabulkupdatebyqueryrequestOperationEnum[keyof typeof RolemetadatabulkupdatebyqueryrequestOperationEnum];
-export const RolemetadatabulkupdatebyqueryrequestReplaceScopeEnum = {
+export type RoleMetadataBulkUpdateByQueryRequestOperationEnum = typeof RoleMetadataBulkUpdateByQueryRequestOperationEnum[keyof typeof RoleMetadataBulkUpdateByQueryRequestOperationEnum];
+export const RoleMetadataBulkUpdateByQueryRequestReplaceScopeEnum = {
     All: 'ALL',
     Attribute: 'ATTRIBUTE'
 } as const;
 
-export type RolemetadatabulkupdatebyqueryrequestReplaceScopeEnum = typeof RolemetadatabulkupdatebyqueryrequestReplaceScopeEnum[keyof typeof RolemetadatabulkupdatebyqueryrequestReplaceScopeEnum];
+export type RoleMetadataBulkUpdateByQueryRequestReplaceScopeEnum = typeof RoleMetadataBulkUpdateByQueryRequestReplaceScopeEnum[keyof typeof RoleMetadataBulkUpdateByQueryRequestReplaceScopeEnum];
 
 /**
  * 
  * @export
- * @interface RolemetadatabulkupdatebyqueryrequestValuesInner
+ * @interface RoleMetadataBulkUpdateByQueryRequestValuesInner
  */
-export interface RolemetadatabulkupdatebyqueryrequestValuesInner {
+export interface RoleMetadataBulkUpdateByQueryRequestValuesInner {
     /**
      * the key of metadata attribute
      * @type {string}
-     * @memberof RolemetadatabulkupdatebyqueryrequestValuesInner
+     * @memberof RoleMetadataBulkUpdateByQueryRequestValuesInner
      */
     'attributeKey'?: string;
     /**
      * the values of attribute to be updated
      * @type {Array<string>}
-     * @memberof RolemetadatabulkupdatebyqueryrequestValuesInner
+     * @memberof RoleMetadataBulkUpdateByQueryRequestValuesInner
      */
     'attributeValue'?: Array<string>;
 }
 /**
  * Task result.
  * @export
- * @interface Taskresultdto
+ * @interface TaskResultDto
  */
-export interface Taskresultdto {
+export interface TaskResultDto {
     /**
      * Task result DTO type.
      * @type {string}
-     * @memberof Taskresultdto
+     * @memberof TaskResultDto
      */
-    'type'?: TaskresultdtoTypeEnum;
+    'type'?: TaskResultDtoTypeEnum;
     /**
      * Task result ID.
      * @type {string}
-     * @memberof Taskresultdto
+     * @memberof TaskResultDto
      */
     'id'?: string;
     /**
      * Task result display name.
      * @type {string}
-     * @memberof Taskresultdto
+     * @memberof TaskResultDto
      */
     'name'?: string | null;
 }
 
-export const TaskresultdtoTypeEnum = {
+export const TaskResultDtoTypeEnum = {
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type TaskresultdtoTypeEnum = typeof TaskresultdtoTypeEnum[keyof typeof TaskresultdtoTypeEnum];
+export type TaskResultDtoTypeEnum = typeof TaskResultDtoTypeEnum[keyof typeof TaskResultDtoTypeEnum];
 
 
 /**
@@ -1759,13 +1759,13 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete role(s)
-         * @param {Rolebulkdeleterequest} rolebulkdeleterequest 
+         * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteBulkRolesV1: async (rolebulkdeleterequest: Rolebulkdeleterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'rolebulkdeleterequest' is not null or undefined
-            assertParamExists('deleteBulkRolesV1', 'rolebulkdeleterequest', rolebulkdeleterequest)
+        deleteBulkRolesV1: async (roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roleBulkDeleteRequest' is not null or undefined
+            assertParamExists('deleteBulkRolesV1', 'roleBulkDeleteRequest', roleBulkDeleteRequest)
             const localVarPath = `/roles/v1/bulk-delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1785,7 +1785,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(rolebulkdeleterequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleBulkDeleteRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2166,15 +2166,15 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:  * name * description * enabled * owner * additionalOwners * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time.
          * @summary Patch a specified role
          * @param {string} id ID of the Role to patch
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchRoleV1: async (id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchRoleV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchRoleV1', 'id', id)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('patchRoleV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchRoleV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/roles/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2195,7 +2195,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2212,11 +2212,11 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
          * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
          * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
-         * @param {Rolelistfilterdto} [rolelistfilterdto] 
+         * @param {RoleListFilterDTO} [roleListFilterDTO] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchRolesByFilterV1: async (forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, rolelistfilterdto?: Rolelistfilterdto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        searchRolesByFilterV1: async (forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, roleListFilterDTO?: RoleListFilterDTO, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/roles/v1/filter`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2264,7 +2264,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(rolelistfilterdto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleListFilterDTO, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2316,13 +2316,13 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * This API initiates a bulk update of metadata for one or more Roles by filter. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
          * @summary Bulk-update roles\' metadata by filters
-         * @param {Rolemetadatabulkupdatebyfilterrequest} rolemetadatabulkupdatebyfilterrequest 
+         * @param {RoleMetadataBulkUpdateByFilterRequest} roleMetadataBulkUpdateByFilterRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRolesMetadataByFilterV1: async (rolemetadatabulkupdatebyfilterrequest: Rolemetadatabulkupdatebyfilterrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'rolemetadatabulkupdatebyfilterrequest' is not null or undefined
-            assertParamExists('updateRolesMetadataByFilterV1', 'rolemetadatabulkupdatebyfilterrequest', rolemetadatabulkupdatebyfilterrequest)
+        updateRolesMetadataByFilterV1: async (roleMetadataBulkUpdateByFilterRequest: RoleMetadataBulkUpdateByFilterRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roleMetadataBulkUpdateByFilterRequest' is not null or undefined
+            assertParamExists('updateRolesMetadataByFilterV1', 'roleMetadataBulkUpdateByFilterRequest', roleMetadataBulkUpdateByFilterRequest)
             const localVarPath = `/roles/v1/access-model-metadata/bulk-update/filter`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2342,7 +2342,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(rolemetadatabulkupdatebyfilterrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleMetadataBulkUpdateByFilterRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2352,13 +2352,13 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
          * @summary Bulk-update roles\' metadata by id
-         * @param {Rolemetadatabulkupdatebyidrequest} rolemetadatabulkupdatebyidrequest 
+         * @param {RoleMetadataBulkUpdateByIdRequest} roleMetadataBulkUpdateByIdRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRolesMetadataByIdsV1: async (rolemetadatabulkupdatebyidrequest: Rolemetadatabulkupdatebyidrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'rolemetadatabulkupdatebyidrequest' is not null or undefined
-            assertParamExists('updateRolesMetadataByIdsV1', 'rolemetadatabulkupdatebyidrequest', rolemetadatabulkupdatebyidrequest)
+        updateRolesMetadataByIdsV1: async (roleMetadataBulkUpdateByIdRequest: RoleMetadataBulkUpdateByIdRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roleMetadataBulkUpdateByIdRequest' is not null or undefined
+            assertParamExists('updateRolesMetadataByIdsV1', 'roleMetadataBulkUpdateByIdRequest', roleMetadataBulkUpdateByIdRequest)
             const localVarPath = `/roles/v1/access-model-metadata/bulk-update/ids`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2378,7 +2378,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(rolemetadatabulkupdatebyidrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleMetadataBulkUpdateByIdRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2388,13 +2388,13 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * This API initiates a bulk update of metadata for one or more Roles by query. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
          * @summary Bulk-update roles\' metadata by query
-         * @param {Rolemetadatabulkupdatebyqueryrequest} rolemetadatabulkupdatebyqueryrequest 
+         * @param {RoleMetadataBulkUpdateByQueryRequest} roleMetadataBulkUpdateByQueryRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRolesMetadataByQueryV1: async (rolemetadatabulkupdatebyqueryrequest: Rolemetadatabulkupdatebyqueryrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'rolemetadatabulkupdatebyqueryrequest' is not null or undefined
-            assertParamExists('updateRolesMetadataByQueryV1', 'rolemetadatabulkupdatebyqueryrequest', rolemetadatabulkupdatebyqueryrequest)
+        updateRolesMetadataByQueryV1: async (roleMetadataBulkUpdateByQueryRequest: RoleMetadataBulkUpdateByQueryRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roleMetadataBulkUpdateByQueryRequest' is not null or undefined
+            assertParamExists('updateRolesMetadataByQueryV1', 'roleMetadataBulkUpdateByQueryRequest', roleMetadataBulkUpdateByQueryRequest)
             const localVarPath = `/roles/v1/access-model-metadata/bulk-update/query`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2414,7 +2414,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(rolemetadatabulkupdatebyqueryrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(roleMetadataBulkUpdateByQueryRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2447,12 +2447,12 @@ export const RolesApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete role(s)
-         * @param {Rolebulkdeleterequest} rolebulkdeleterequest 
+         * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteBulkRolesV1(rolebulkdeleterequest: Rolebulkdeleterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskresultdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkRolesV1(rolebulkdeleterequest, axiosOptions);
+        async deleteBulkRolesV1(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkRolesV1(roleBulkDeleteRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.deleteBulkRolesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2492,7 +2492,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getBulkUpdateStatusByIdV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rolebulkupdateresponse>> {
+        async getBulkUpdateStatusByIdV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBulkUpdateResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBulkUpdateStatusByIdV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.getBulkUpdateStatusByIdV1']?.[localVarOperationServerIndex]?.url;
@@ -2504,7 +2504,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getBulkUpdateStatusV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Rolegetallbulkupdateresponse>>> {
+        async getBulkUpdateStatusV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleGetAllBulkUpdateResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBulkUpdateStatusV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.getBulkUpdateStatusV1']?.[localVarOperationServerIndex]?.url;
@@ -2522,7 +2522,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleAssignedIdentitiesV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleidentity>>> {
+        async getRoleAssignedIdentitiesV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentity>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignedIdentitiesV1(id, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.getRoleAssignedIdentitiesV1']?.[localVarOperationServerIndex]?.url;
@@ -2584,12 +2584,12 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:  * name * description * enabled * owner * additionalOwners * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time.
          * @summary Patch a specified role
          * @param {string} id ID of the Role to patch
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchRoleV1(id: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRoleV1(id, jsonpatchoperation, axiosOptions);
+        async patchRoleV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRoleV1(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.patchRoleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2604,12 +2604,12 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
          * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
          * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
-         * @param {Rolelistfilterdto} [rolelistfilterdto] 
+         * @param {RoleListFilterDTO} [roleListFilterDTO] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchRolesByFilterV1(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, rolelistfilterdto?: Rolelistfilterdto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Role>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchRolesByFilterV1(forSubadmin, limit, offset, count, sorters, forSegmentIds, includeUnsegmented, rolelistfilterdto, axiosOptions);
+        async searchRolesByFilterV1(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, roleListFilterDTO?: RoleListFilterDTO, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Role>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchRolesByFilterV1(forSubadmin, limit, offset, count, sorters, forSegmentIds, includeUnsegmented, roleListFilterDTO, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.searchRolesByFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2632,12 +2632,12 @@ export const RolesApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a bulk update of metadata for one or more Roles by filter. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
          * @summary Bulk-update roles\' metadata by filters
-         * @param {Rolemetadatabulkupdatebyfilterrequest} rolemetadatabulkupdatebyfilterrequest 
+         * @param {RoleMetadataBulkUpdateByFilterRequest} roleMetadataBulkUpdateByFilterRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRolesMetadataByFilterV1(rolemetadatabulkupdatebyfilterrequest: Rolemetadatabulkupdatebyfilterrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rolebulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolesMetadataByFilterV1(rolemetadatabulkupdatebyfilterrequest, axiosOptions);
+        async updateRolesMetadataByFilterV1(roleMetadataBulkUpdateByFilterRequest: RoleMetadataBulkUpdateByFilterRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolesMetadataByFilterV1(roleMetadataBulkUpdateByFilterRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.updateRolesMetadataByFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2645,12 +2645,12 @@ export const RolesApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
          * @summary Bulk-update roles\' metadata by id
-         * @param {Rolemetadatabulkupdatebyidrequest} rolemetadatabulkupdatebyidrequest 
+         * @param {RoleMetadataBulkUpdateByIdRequest} roleMetadataBulkUpdateByIdRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRolesMetadataByIdsV1(rolemetadatabulkupdatebyidrequest: Rolemetadatabulkupdatebyidrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rolebulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolesMetadataByIdsV1(rolemetadatabulkupdatebyidrequest, axiosOptions);
+        async updateRolesMetadataByIdsV1(roleMetadataBulkUpdateByIdRequest: RoleMetadataBulkUpdateByIdRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolesMetadataByIdsV1(roleMetadataBulkUpdateByIdRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.updateRolesMetadataByIdsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2658,12 +2658,12 @@ export const RolesApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a bulk update of metadata for one or more Roles by query. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
          * @summary Bulk-update roles\' metadata by query
-         * @param {Rolemetadatabulkupdatebyqueryrequest} rolemetadatabulkupdatebyqueryrequest 
+         * @param {RoleMetadataBulkUpdateByQueryRequest} roleMetadataBulkUpdateByQueryRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRolesMetadataByQueryV1(rolemetadatabulkupdatebyqueryrequest: Rolemetadatabulkupdatebyqueryrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Rolebulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolesMetadataByQueryV1(rolemetadatabulkupdatebyqueryrequest, axiosOptions);
+        async updateRolesMetadataByQueryV1(roleMetadataBulkUpdateByQueryRequest: RoleMetadataBulkUpdateByQueryRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRolesMetadataByQueryV1(roleMetadataBulkUpdateByQueryRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.updateRolesMetadataByQueryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2695,8 +2695,8 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteBulkRolesV1(requestParameters: RolesApiDeleteBulkRolesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskresultdto> {
-            return localVarFp.deleteBulkRolesV1(requestParameters.rolebulkdeleterequest, axiosOptions).then((request) => request(axios, basePath));
+        deleteBulkRolesV1(requestParameters: RolesApiDeleteBulkRolesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskResultDto> {
+            return localVarFp.deleteBulkRolesV1(requestParameters.roleBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initialize a request to remove a single Access Model Metadata from a role by attribute key and value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
@@ -2725,7 +2725,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getBulkUpdateStatusByIdV1(requestParameters: RolesApiGetBulkUpdateStatusByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Rolebulkupdateresponse> {
+        getBulkUpdateStatusByIdV1(requestParameters: RolesApiGetBulkUpdateStatusByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleBulkUpdateResponse> {
             return localVarFp.getBulkUpdateStatusByIdV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2734,7 +2734,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getBulkUpdateStatusV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Rolegetallbulkupdateresponse>> {
+        getBulkUpdateStatusV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleGetAllBulkUpdateResponse>> {
             return localVarFp.getBulkUpdateStatusV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2744,7 +2744,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleAssignedIdentitiesV1(requestParameters: RolesApiGetRoleAssignedIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleidentity>> {
+        getRoleAssignedIdentitiesV1(requestParameters: RolesApiGetRoleAssignedIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleIdentity>> {
             return localVarFp.getRoleAssignedIdentitiesV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2785,7 +2785,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         patchRoleV1(requestParameters: RolesApiPatchRoleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Role> {
-            return localVarFp.patchRoleV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchRoleV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of Role that filter by metadata and filter, it support filter by  both path parameter and attribute key and values. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, HELPDESK, CERT_ADMIN, REPORT_ADMIN or SOURCE_ADMIN  authority is required to call this API. 
@@ -2795,7 +2795,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         searchRolesByFilterV1(requestParameters: RolesApiSearchRolesByFilterV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Role>> {
-            return localVarFp.searchRolesByFilterV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.rolelistfilterdto, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.searchRolesByFilterV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.roleListFilterDTO, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
@@ -2814,8 +2814,8 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRolesMetadataByFilterV1(requestParameters: RolesApiUpdateRolesMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Rolebulkupdateresponse> {
-            return localVarFp.updateRolesMetadataByFilterV1(requestParameters.rolemetadatabulkupdatebyfilterrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateRolesMetadataByFilterV1(requestParameters: RolesApiUpdateRolesMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleBulkUpdateResponse> {
+            return localVarFp.updateRolesMetadataByFilterV1(requestParameters.roleMetadataBulkUpdateByFilterRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
@@ -2824,8 +2824,8 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRolesMetadataByIdsV1(requestParameters: RolesApiUpdateRolesMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Rolebulkupdateresponse> {
-            return localVarFp.updateRolesMetadataByIdsV1(requestParameters.rolemetadatabulkupdatebyidrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateRolesMetadataByIdsV1(requestParameters: RolesApiUpdateRolesMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleBulkUpdateResponse> {
+            return localVarFp.updateRolesMetadataByIdsV1(requestParameters.roleMetadataBulkUpdateByIdRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initiates a bulk update of metadata for one or more Roles by query. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum metadata value count for a single role is 25. Custom metadata update, including add, replace need suit licensed.
@@ -2834,8 +2834,8 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateRolesMetadataByQueryV1(requestParameters: RolesApiUpdateRolesMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Rolebulkupdateresponse> {
-            return localVarFp.updateRolesMetadataByQueryV1(requestParameters.rolemetadatabulkupdatebyqueryrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateRolesMetadataByQueryV1(requestParameters: RolesApiUpdateRolesMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleBulkUpdateResponse> {
+            return localVarFp.updateRolesMetadataByQueryV1(requestParameters.roleMetadataBulkUpdateByQueryRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2862,10 +2862,10 @@ export interface RolesApiCreateRoleV1Request {
 export interface RolesApiDeleteBulkRolesV1Request {
     /**
      * 
-     * @type {Rolebulkdeleterequest}
+     * @type {RoleBulkDeleteRequest}
      * @memberof RolesApiDeleteBulkRolesV1
      */
-    readonly rolebulkdeleterequest: Rolebulkdeleterequest
+    readonly roleBulkDeleteRequest: RoleBulkDeleteRequest
 }
 
 /**
@@ -3121,10 +3121,10 @@ export interface RolesApiPatchRoleV1Request {
 
     /**
      * 
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof RolesApiPatchRoleV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -3184,10 +3184,10 @@ export interface RolesApiSearchRolesByFilterV1Request {
 
     /**
      * 
-     * @type {Rolelistfilterdto}
+     * @type {RoleListFilterDTO}
      * @memberof RolesApiSearchRolesByFilterV1
      */
-    readonly rolelistfilterdto?: Rolelistfilterdto
+    readonly roleListFilterDTO?: RoleListFilterDTO
 }
 
 /**
@@ -3226,10 +3226,10 @@ export interface RolesApiUpdateAttributeKeyAndValueToRoleV1Request {
 export interface RolesApiUpdateRolesMetadataByFilterV1Request {
     /**
      * 
-     * @type {Rolemetadatabulkupdatebyfilterrequest}
+     * @type {RoleMetadataBulkUpdateByFilterRequest}
      * @memberof RolesApiUpdateRolesMetadataByFilterV1
      */
-    readonly rolemetadatabulkupdatebyfilterrequest: Rolemetadatabulkupdatebyfilterrequest
+    readonly roleMetadataBulkUpdateByFilterRequest: RoleMetadataBulkUpdateByFilterRequest
 }
 
 /**
@@ -3240,10 +3240,10 @@ export interface RolesApiUpdateRolesMetadataByFilterV1Request {
 export interface RolesApiUpdateRolesMetadataByIdsV1Request {
     /**
      * 
-     * @type {Rolemetadatabulkupdatebyidrequest}
+     * @type {RoleMetadataBulkUpdateByIdRequest}
      * @memberof RolesApiUpdateRolesMetadataByIdsV1
      */
-    readonly rolemetadatabulkupdatebyidrequest: Rolemetadatabulkupdatebyidrequest
+    readonly roleMetadataBulkUpdateByIdRequest: RoleMetadataBulkUpdateByIdRequest
 }
 
 /**
@@ -3254,10 +3254,10 @@ export interface RolesApiUpdateRolesMetadataByIdsV1Request {
 export interface RolesApiUpdateRolesMetadataByQueryV1Request {
     /**
      * 
-     * @type {Rolemetadatabulkupdatebyqueryrequest}
+     * @type {RoleMetadataBulkUpdateByQueryRequest}
      * @memberof RolesApiUpdateRolesMetadataByQueryV1
      */
-    readonly rolemetadatabulkupdatebyqueryrequest: Rolemetadatabulkupdatebyqueryrequest
+    readonly roleMetadataBulkUpdateByQueryRequest: RoleMetadataBulkUpdateByQueryRequest
 }
 
 /**
@@ -3288,7 +3288,7 @@ export class RolesApi extends BaseAPI {
      * @memberof RolesApi
      */
     public deleteBulkRolesV1(requestParameters: RolesApiDeleteBulkRolesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return RolesApiFp(this.configuration).deleteBulkRolesV1(requestParameters.rolebulkdeleterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return RolesApiFp(this.configuration).deleteBulkRolesV1(requestParameters.roleBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3395,7 +3395,7 @@ export class RolesApi extends BaseAPI {
      * @memberof RolesApi
      */
     public patchRoleV1(requestParameters: RolesApiPatchRoleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return RolesApiFp(this.configuration).patchRoleV1(requestParameters.id, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return RolesApiFp(this.configuration).patchRoleV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3407,7 +3407,7 @@ export class RolesApi extends BaseAPI {
      * @memberof RolesApi
      */
     public searchRolesByFilterV1(requestParameters: RolesApiSearchRolesByFilterV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return RolesApiFp(this.configuration).searchRolesByFilterV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.rolelistfilterdto, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return RolesApiFp(this.configuration).searchRolesByFilterV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.roleListFilterDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3431,7 +3431,7 @@ export class RolesApi extends BaseAPI {
      * @memberof RolesApi
      */
     public updateRolesMetadataByFilterV1(requestParameters: RolesApiUpdateRolesMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return RolesApiFp(this.configuration).updateRolesMetadataByFilterV1(requestParameters.rolemetadatabulkupdatebyfilterrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return RolesApiFp(this.configuration).updateRolesMetadataByFilterV1(requestParameters.roleMetadataBulkUpdateByFilterRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3443,7 +3443,7 @@ export class RolesApi extends BaseAPI {
      * @memberof RolesApi
      */
     public updateRolesMetadataByIdsV1(requestParameters: RolesApiUpdateRolesMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return RolesApiFp(this.configuration).updateRolesMetadataByIdsV1(requestParameters.rolemetadatabulkupdatebyidrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return RolesApiFp(this.configuration).updateRolesMetadataByIdsV1(requestParameters.roleMetadataBulkUpdateByIdRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3455,7 +3455,7 @@ export class RolesApi extends BaseAPI {
      * @memberof RolesApi
      */
     public updateRolesMetadataByQueryV1(requestParameters: RolesApiUpdateRolesMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return RolesApiFp(this.configuration).updateRolesMetadataByQueryV1(requestParameters.rolemetadatabulkupdatebyqueryrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return RolesApiFp(this.configuration).updateRolesMetadataByQueryV1(requestParameters.roleMetadataBulkUpdateByQueryRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

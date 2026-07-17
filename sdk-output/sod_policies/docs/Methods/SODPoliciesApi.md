@@ -72,11 +72,11 @@ Requires role of ORG_ADMIN.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**sodpolicy** | `Sodpolicy` |  | 
+**sodPolicy** | `SodPolicy` |  | 
 
 ### Return type
 
-`Sodpolicy`
+`SodPolicy`
 
 ### HTTP request headers
 
@@ -88,12 +88,67 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sodpolicy } from 'sailpoint-api-client/dist/sod_policies/api';
+import { SodPolicy } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
-const sodpolicy: Sodpolicy = {"name":"Conflicting-Policy-Name","description":"This policy ensures compliance of xyz","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Owner Name"},"externalPolicyReference":"XYZ policy","compensatingControls":"Have a manager review the transaction decisions for their \"out of compliance\" employee","correctionAdvice":"Based on the role of the employee, managers should remove access that is not required for their job function.","state":"ENFORCED","tags":["string"],"creatorId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","modifierId":"0f11f2a4-7c94-4bf3-a2bd-742580fe3bde","violationOwnerAssignmentConfig":{"assignmentRule":"MANAGER","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Violation Owner Name"}},"scheduled":true,"type":"CONFLICTING_ACCESS_BASED","conflictingAccessCriteria":{"leftCriteria":{"name":"money-in","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a66"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a67"}]},"rightCriteria":{"name":"money-out","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a68"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a69"}]}}}; // 
-const result = await apiInstance.createSodPolicyV1({ sodpolicy: sodpolicy });
+const sodPolicy: SodPolicy = {
+  "conflictingAccessCriteria" : {
+    "leftCriteria" : {
+      "name" : "money-in",
+      "criteriaList" : [ {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a66",
+        "name" : "Administrator"
+      }, {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a67",
+        "name" : "Administrator"
+      } ]
+    },
+    "rightCriteria" : {
+      "name" : "money-in",
+      "criteriaList" : [ {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a66",
+        "name" : "Administrator"
+      }, {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a67",
+        "name" : "Administrator"
+      } ]
+    }
+  },
+  "ownerRef" : {
+    "name" : "Support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "created" : "2020-01-01T00:00:00Z",
+  "scheduled" : true,
+  "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "description" : "This policy ensures compliance of xyz",
+  "violationOwnerAssignmentConfig" : {
+    "assignmentRule" : "MANAGER",
+    "ownerRef" : {
+      "name" : "Support",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    }
+  },
+  "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+  "type" : "GENERAL",
+  "tags" : [ "TAG1", "TAG2" ],
+  "name" : "policy-xyz",
+  "modified" : "2020-01-01T00:00:00Z",
+  "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
+  "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
+  "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "state" : "ENFORCED",
+  "externalPolicyReference" : "XYZ policy"
+}; // 
+const result = await apiInstance.createSodPolicyV1({ sodPolicy: sodPolicy });
 console.log(result);
 ```
 
@@ -264,7 +319,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Reportresultreference`
+`ReportResultReference`
 
 ### HTTP request headers
 
@@ -300,7 +355,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sodpolicyschedule`
+`SodPolicySchedule`
 
 ### HTTP request headers
 
@@ -338,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sodpolicy`
+`SodPolicy`
 
 ### HTTP request headers
 
@@ -375,7 +430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Reportresultreference`
+`ReportResultReference`
 
 ### HTTP request headers
 
@@ -412,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Reportresultreference`
+`ReportResultReference`
 
 ### HTTP request headers
 
@@ -454,7 +509,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sodpolicy>`
+`Array<SodPolicy>`
 
 ### HTTP request headers
 
@@ -494,11 +549,11 @@ This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the SOD policy being modified. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria  | 
 
 ### Return type
 
-`Sodpolicy`
+`SodPolicy`
 
 ### HTTP request headers
 
@@ -510,13 +565,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sod_policies/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
 const id: string = 2c918083-5d19-1a86-015d-28455b4a2329; // The ID of the SOD policy being modified.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Modified description"},{"op":"replace","path":"/conflictingAccessCriteria/leftCriteria/name","value":"money-in-modified"},{"op":"replace","path":"/conflictingAccessCriteria/rightCriteria","value":{"name":"money-out-modified","criteriaList":[{"type":"ENTITLEMENT","id":"2c918087682f9a86016839c0509c1ab2"}]}}]; // A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
-const result = await apiInstance.patchSodPolicyV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+const result = await apiInstance.patchSodPolicyV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -534,11 +593,11 @@ This updates schedule for a specified SOD policy.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the SOD policy to update its schedule. |  [default to undefined]
-**sodpolicyschedule** | `Sodpolicyschedule` |  | 
+**sodPolicySchedule** | `SodPolicySchedule` |  | 
 
 ### Return type
 
-`Sodpolicyschedule`
+`SodPolicySchedule`
 
 ### HTTP request headers
 
@@ -550,13 +609,50 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sodpolicyschedule } from 'sailpoint-api-client/dist/sod_policies/api';
+import { SodPolicySchedule } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
 const id: string = ef38f943-47e9-4562-b5bb-8424a56397d8; // The ID of the SOD policy to update its schedule.
-const sodpolicyschedule: Sodpolicyschedule = ; // 
-const result = await apiInstance.putPolicyScheduleV1({ id: id, sodpolicyschedule: sodpolicyschedule });
+const sodPolicySchedule: SodPolicySchedule = {
+  "schedule" : {
+    "hours" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "months" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "timeZoneId" : "America/Chicago",
+    "days" : {
+      "values" : [ "MON", "WED" ],
+      "interval" : 3,
+      "type" : "LIST"
+    },
+    "expiration" : "2018-06-25T20:22:28.104Z",
+    "type" : "WEEKLY"
+  },
+  "created" : "2020-01-01T00:00:00Z",
+  "recipients" : [ {
+    "name" : "Michael Michaels",
+    "id" : "2c7180a46faadee4016fb4e018c20642",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "Michael Michaels",
+    "id" : "2c7180a46faadee4016fb4e018c20642",
+    "type" : "IDENTITY"
+  } ],
+  "name" : "SCH-1584312283015",
+  "creatorId" : "0f11f2a47c944bf3a2bd742580fe3bde",
+  "modifierId" : "0f11f2a47c944bf3a2bd742580fe3bde",
+  "modified" : "2020-01-01T00:00:00Z",
+  "description" : "Schedule for policy xyz",
+  "emailEmptyResults" : false
+}; // 
+const result = await apiInstance.putPolicyScheduleV1({ id: id, sodPolicySchedule: sodPolicySchedule });
 console.log(result);
 ```
 
@@ -575,11 +671,11 @@ Requires role of ORG_ADMIN.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the SOD policy to update. |  [default to undefined]
-**sodpolicy** | `Sodpolicy` |  | 
+**sodPolicy** | `SodPolicy` |  | 
 
 ### Return type
 
-`Sodpolicy`
+`SodPolicy`
 
 ### HTTP request headers
 
@@ -591,13 +687,68 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sodpolicy } from 'sailpoint-api-client/dist/sod_policies/api';
+import { SodPolicy } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
 const id: string = ef38f943-47e9-4562-b5bb-8424a56397d8; // The ID of the SOD policy to update.
-const sodpolicy: Sodpolicy = {"name":"Conflicting-Policy-Name","description":"Modified Description","externalPolicyReference":"XYZ policy","compensatingControls":"Have a manager review the transaction decisions for their \"out of compliance\" employee","correctionAdvice":"Based on the role of the employee, managers should remove access that is not required for their job function.","state":"ENFORCED","tags":["string"],"violationOwnerAssignmentConfig":{"assignmentRule":"MANAGER","ownerRef":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"Violation Owner Name"}},"scheduled":true,"type":"CONFLICTING_ACCESS_BASED","conflictingAccessCriteria":{"leftCriteria":{"name":"money-in","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a66"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a67"}]},"rightCriteria":{"name":"money-out","criteriaList":[{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a68"},{"type":"ENTITLEMENT","id":"2c9180866166b5b0016167c32ef31a69"}]}}}; // 
-const result = await apiInstance.putSodPolicyV1({ id: id, sodpolicy: sodpolicy });
+const sodPolicy: SodPolicy = {
+  "conflictingAccessCriteria" : {
+    "leftCriteria" : {
+      "name" : "money-in",
+      "criteriaList" : [ {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a66",
+        "name" : "Administrator"
+      }, {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a67",
+        "name" : "Administrator"
+      } ]
+    },
+    "rightCriteria" : {
+      "name" : "money-in",
+      "criteriaList" : [ {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a66",
+        "name" : "Administrator"
+      }, {
+        "type" : "ENTITLEMENT",
+        "id" : "2c9180866166b5b0016167c32ef31a67",
+        "name" : "Administrator"
+      } ]
+    }
+  },
+  "ownerRef" : {
+    "name" : "Support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "created" : "2020-01-01T00:00:00Z",
+  "scheduled" : true,
+  "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "description" : "This policy ensures compliance of xyz",
+  "violationOwnerAssignmentConfig" : {
+    "assignmentRule" : "MANAGER",
+    "ownerRef" : {
+      "name" : "Support",
+      "id" : "2c9180a46faadee4016fb4e018c20639",
+      "type" : "IDENTITY"
+    }
+  },
+  "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+  "type" : "GENERAL",
+  "tags" : [ "TAG1", "TAG2" ],
+  "name" : "policy-xyz",
+  "modified" : "2020-01-01T00:00:00Z",
+  "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
+  "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
+  "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+  "state" : "ENFORCED",
+  "externalPolicyReference" : "XYZ policy"
+}; // 
+const result = await apiInstance.putSodPolicyV1({ id: id, sodPolicy: sodPolicy });
 console.log(result);
 ```
 
@@ -618,7 +769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Reportresultreference`
+`ReportResultReference`
 
 ### HTTP request headers
 
@@ -651,11 +802,11 @@ Runs multi-policy report for the org. If a policy reports more than 5000 violati
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**multipolicyrequest** | `Multipolicyrequest` |  | [optional]
+**multiPolicyRequest** | `MultiPolicyRequest` |  | [optional]
 
 ### Return type
 
-`Reportresultreference`
+`ReportResultReference`
 
 ### HTTP request headers
 
@@ -667,11 +818,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { SODPoliciesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Multipolicyrequest } from 'sailpoint-api-client/dist/sod_policies/api';
+import { MultiPolicyRequest } from 'sailpoint-api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
-const multipolicyrequest: Multipolicyrequest = {"filteredPolicyList":["b868cd40-ffa4-4337-9c07-1a51846cfa94","63a07a7b-39a4-48aa-956d-50c827deba2a"]}; //  (optional)
+const multiPolicyRequest: MultiPolicyRequest = {
+  "filteredPolicyList" : [ "[\"b868cd40-ffa4-4337-9c07-1a51846cfa94\",\"63a07a7b-39a4-48aa-956d-50c827deba2a\"]", "[\"b868cd40-ffa4-4337-9c07-1a51846cfa94\",\"63a07a7b-39a4-48aa-956d-50c827deba2a\"]" ]
+}; //  (optional)
 const result = await apiInstance.startSodAllPoliciesForOrgV1({  });
 console.log(result);
 ```
@@ -693,7 +846,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Reportresultreference`
+`ReportResultReference`
 
 ### HTTP request headers
 

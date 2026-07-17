@@ -26,91 +26,91 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Accountactivity
+ * @interface AccountActivity
  */
-export interface Accountactivity {
+export interface AccountActivity {
     /**
      * Id of the account activity
      * @type {string}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'id'?: string;
     /**
      * The name of the activity
      * @type {string}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'name'?: string;
     /**
      * When the activity was first created
      * @type {string}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'created'?: string;
     /**
      * When the activity was last modified
      * @type {string}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'modified'?: string | null;
     /**
      * When the activity was completed
      * @type {string}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'completed'?: string | null;
     /**
      * 
-     * @type {Completionstatus}
-     * @memberof Accountactivity
+     * @type {CompletionStatus}
+     * @memberof AccountActivity
      */
-    'completionStatus'?: Completionstatus | null;
+    'completionStatus'?: CompletionStatus | null;
     /**
      * The type of action the activity performed.  Please see the following list of types.  This list may grow over time.  - CloudAutomated - IdentityAttributeUpdate - appRequest - LifecycleStateChange - AccountStateUpdate - AccountAttributeUpdate - CloudPasswordRequest - Attribute Synchronization Refresh - Certification - Identity Refresh - Lifecycle Change Refresh   [Learn more here](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html#searching-account-activity-data). 
      * @type {string}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'type'?: string | null;
     /**
      * 
-     * @type {Identitysummary}
-     * @memberof Accountactivity
+     * @type {IdentitySummary}
+     * @memberof AccountActivity
      */
-    'requesterIdentitySummary'?: Identitysummary | null;
+    'requesterIdentitySummary'?: IdentitySummary | null;
     /**
      * 
-     * @type {Identitysummary}
-     * @memberof Accountactivity
+     * @type {IdentitySummary}
+     * @memberof AccountActivity
      */
-    'targetIdentitySummary'?: Identitysummary | null;
+    'targetIdentitySummary'?: IdentitySummary | null;
     /**
      * A list of error messages, if any, that were encountered.
      * @type {Array<string>}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'errors'?: Array<string> | null;
     /**
      * A list of warning messages, if any, that were encountered.
      * @type {Array<string>}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'warnings'?: Array<string> | null;
     /**
      * Individual actions performed as part of this account activity
-     * @type {Array<Accountactivityitem>}
-     * @memberof Accountactivity
+     * @type {Array<AccountActivityItem>}
+     * @memberof AccountActivity
      */
-    'items'?: Array<Accountactivityitem> | null;
+    'items'?: Array<AccountActivityItem> | null;
     /**
      * 
-     * @type {Executionstatus}
-     * @memberof Accountactivity
+     * @type {ExecutionStatus}
+     * @memberof AccountActivity
      */
-    'executionStatus'?: Executionstatus;
+    'executionStatus'?: ExecutionStatus;
     /**
      * Arbitrary key-value pairs, if any were included in the corresponding access request
      * @type {{ [key: string]: string; }}
-     * @memberof Accountactivity
+     * @memberof AccountActivity
      */
     'clientMetadata'?: { [key: string]: string; } | null;
 }
@@ -122,7 +122,7 @@ export interface Accountactivity {
  * @enum {string}
  */
 
-export const Accountactivityapprovalstatus = {
+export const AccountActivityApprovalStatus = {
     Finished: 'FINISHED',
     Rejected: 'REJECTED',
     Returned: 'RETURNED',
@@ -131,109 +131,109 @@ export const Accountactivityapprovalstatus = {
     Canceled: 'CANCELED'
 } as const;
 
-export type Accountactivityapprovalstatus = typeof Accountactivityapprovalstatus[keyof typeof Accountactivityapprovalstatus];
+export type AccountActivityApprovalStatus = typeof AccountActivityApprovalStatus[keyof typeof AccountActivityApprovalStatus];
 
 
 /**
  * 
  * @export
- * @interface Accountactivityitem
+ * @interface AccountActivityItem
  */
-export interface Accountactivityitem {
+export interface AccountActivityItem {
     /**
      * Item id
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'id'?: string;
     /**
      * Human-readable display name of item
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'name'?: string;
     /**
      * Date and time item was requested
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'requested'?: string;
     /**
      * 
-     * @type {Accountactivityapprovalstatus}
-     * @memberof Accountactivityitem
+     * @type {AccountActivityApprovalStatus}
+     * @memberof AccountActivityItem
      */
-    'approvalStatus'?: Accountactivityapprovalstatus | null;
+    'approvalStatus'?: AccountActivityApprovalStatus | null;
     /**
      * 
-     * @type {Provisioningstate}
-     * @memberof Accountactivityitem
+     * @type {ProvisioningState}
+     * @memberof AccountActivityItem
      */
-    'provisioningStatus'?: Provisioningstate;
+    'provisioningStatus'?: ProvisioningState;
     /**
      * 
      * @type {Comment}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'requesterComment'?: Comment | null;
     /**
      * 
-     * @type {Identitysummary}
-     * @memberof Accountactivityitem
+     * @type {IdentitySummary}
+     * @memberof AccountActivityItem
      */
-    'reviewerIdentitySummary'?: Identitysummary | null;
+    'reviewerIdentitySummary'?: IdentitySummary | null;
     /**
      * 
      * @type {Comment}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'reviewerComment'?: Comment | null;
     /**
      * 
-     * @type {Accountactivityitemoperation}
-     * @memberof Accountactivityitem
+     * @type {AccountActivityItemOperation}
+     * @memberof AccountActivityItem
      */
-    'operation'?: Accountactivityitemoperation | null;
+    'operation'?: AccountActivityItemOperation | null;
     /**
      * Attribute to which account activity applies
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'attribute'?: string | null;
     /**
      * Value of attribute
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'value'?: string | null;
     /**
      * Native identity in the target system to which the account activity applies
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'nativeIdentity'?: string | null;
     /**
      * Id of Source to which account activity applies
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'sourceId'?: string;
     /**
      * 
-     * @type {Accountrequestinfo}
-     * @memberof Accountactivityitem
+     * @type {AccountRequestInfo}
+     * @memberof AccountActivityItem
      */
-    'accountRequestInfo'?: Accountrequestinfo | null;
+    'accountRequestInfo'?: AccountRequestInfo | null;
     /**
      * Arbitrary key-value pairs, if any were included in the corresponding access request item
      * @type {{ [key: string]: string; }}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * The date the role or access profile or entitlement is no longer assigned to the specified identity.
      * @type {string}
-     * @memberof Accountactivityitem
+     * @memberof AccountActivityItem
      */
     'removeDate'?: string | null;
 }
@@ -245,7 +245,7 @@ export interface Accountactivityitem {
  * @enum {string}
  */
 
-export const Accountactivityitemoperation = {
+export const AccountActivityItemOperation = {
     Add: 'ADD',
     Create: 'CREATE',
     Modify: 'MODIFY',
@@ -258,33 +258,33 @@ export const Accountactivityitemoperation = {
     Set: 'SET'
 } as const;
 
-export type Accountactivityitemoperation = typeof Accountactivityitemoperation[keyof typeof Accountactivityitemoperation];
+export type AccountActivityItemOperation = typeof AccountActivityItemOperation[keyof typeof AccountActivityItemOperation];
 
 
 /**
  * If an account activity item is associated with an access request, captures details of that request.
  * @export
- * @interface Accountrequestinfo
+ * @interface AccountRequestInfo
  */
-export interface Accountrequestinfo {
+export interface AccountRequestInfo {
     /**
      * Id of requested object
      * @type {string}
-     * @memberof Accountrequestinfo
+     * @memberof AccountRequestInfo
      */
     'requestedObjectId'?: string;
     /**
      * Human-readable name of requested object
      * @type {string}
-     * @memberof Accountrequestinfo
+     * @memberof AccountRequestInfo
      */
     'requestedObjectName'?: string;
     /**
      * 
-     * @type {Requestableobjecttype}
-     * @memberof Accountrequestinfo
+     * @type {RequestableObjectType}
+     * @memberof AccountRequestInfo
      */
-    'requestedObjectType'?: Requestableobjecttype;
+    'requestedObjectType'?: RequestableObjectType;
 }
 
 
@@ -325,38 +325,38 @@ export interface Comment {
  * @enum {string}
  */
 
-export const Completionstatus = {
+export const CompletionStatus = {
     Success: 'SUCCESS',
     Failure: 'FAILURE',
     Incomplete: 'INCOMPLETE',
     Pending: 'PENDING'
 } as const;
 
-export type Completionstatus = typeof Completionstatus[keyof typeof Completionstatus];
+export type CompletionStatus = typeof CompletionStatus[keyof typeof CompletionStatus];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -365,33 +365,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * The current state of execution.
@@ -399,44 +399,44 @@ export interface Errorresponsedto {
  * @enum {string}
  */
 
-export const Executionstatus = {
+export const ExecutionStatus = {
     Executing: 'EXECUTING',
     Verifying: 'VERIFYING',
     Terminated: 'TERMINATED',
     Completed: 'COMPLETED'
 } as const;
 
-export type Executionstatus = typeof Executionstatus[keyof typeof Executionstatus];
+export type ExecutionStatus = typeof ExecutionStatus[keyof typeof ExecutionStatus];
 
 
 /**
  * 
  * @export
- * @interface Identitysummary
+ * @interface IdentitySummary
  */
-export interface Identitysummary {
+export interface IdentitySummary {
     /**
      * ID of this identity summary
      * @type {string}
-     * @memberof Identitysummary
+     * @memberof IdentitySummary
      */
     'id'?: string;
     /**
      * Human-readable display name of identity
      * @type {string}
-     * @memberof Identitysummary
+     * @memberof IdentitySummary
      */
     'name'?: string;
     /**
      * ID of the identity that this summary represents
      * @type {string}
-     * @memberof Identitysummary
+     * @memberof IdentitySummary
      */
     'identityId'?: string;
     /**
      * Indicates if all access items for this summary have been decided on
      * @type {boolean}
-     * @memberof Identitysummary
+     * @memberof IdentitySummary
      */
     'completed'?: boolean;
 }
@@ -472,12 +472,12 @@ export interface ListAccountActivitiesV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -486,7 +486,7 @@ export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
  * @enum {string}
  */
 
-export const Provisioningstate = {
+export const ProvisioningState = {
     Pending: 'PENDING',
     Finished: 'FINISHED',
     Unverifiable: 'UNVERIFIABLE',
@@ -495,7 +495,7 @@ export const Provisioningstate = {
     Retry: 'RETRY'
 } as const;
 
-export type Provisioningstate = typeof Provisioningstate[keyof typeof Provisioningstate];
+export type ProvisioningState = typeof ProvisioningState[keyof typeof ProvisioningState];
 
 
 /**
@@ -504,13 +504,13 @@ export type Provisioningstate = typeof Provisioningstate[keyof typeof Provisioni
  * @enum {string}
  */
 
-export const Requestableobjecttype = {
+export const RequestableObjectType = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type Requestableobjecttype = typeof Requestableobjecttype[keyof typeof Requestableobjecttype];
+export type RequestableObjectType = typeof RequestableObjectType[keyof typeof RequestableObjectType];
 
 
 
@@ -641,7 +641,7 @@ export const AccountActivitiesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountActivityV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountactivity>> {
+        async getAccountActivityV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountActivity>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountActivityV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccountActivitiesApi.getAccountActivityV1']?.[localVarOperationServerIndex]?.url;
@@ -661,7 +661,7 @@ export const AccountActivitiesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccountActivitiesV1(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accountactivity>>> {
+        async listAccountActivitiesV1(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountActivity>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountActivitiesV1(requestedFor, requestedBy, regardingIdentity, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccountActivitiesApi.listAccountActivitiesV1']?.[localVarOperationServerIndex]?.url;
@@ -684,7 +684,7 @@ export const AccountActivitiesApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountActivityV1(requestParameters: AccountActivitiesApiGetAccountActivityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountactivity> {
+        getAccountActivityV1(requestParameters: AccountActivitiesApiGetAccountActivityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountActivity> {
             return localVarFp.getAccountActivityV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -694,7 +694,7 @@ export const AccountActivitiesApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccountActivitiesV1(requestParameters: AccountActivitiesApiListAccountActivitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accountactivity>> {
+        listAccountActivitiesV1(requestParameters: AccountActivitiesApiListAccountActivitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccountActivity>> {
             return localVarFp.listAccountActivitiesV1(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };

@@ -6,12 +6,17 @@
       source: |
         import { PasswordConfigurationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Passwordorgconfig } from 'sailpoint-api-client/dist/password_configuration/api';
+        import { PasswordOrgConfig } from 'sailpoint-api-client/dist/password_configuration/api';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordConfigurationApi(configuration);
-        const passwordorgconfig: Passwordorgconfig = {"customInstructionsEnabled":true,"digitTokenEnabled":true,"digitTokenDurationMinutes":12,"digitTokenLength":9}; // Passwordorgconfig | 
-        const result = await apiInstance.createPasswordOrgConfigV1({ passwordorgconfig: passwordorgconfig });
+        const passwordOrgConfig: PasswordOrgConfig = {
+  "digitTokenLength" : 9,
+  "digitTokenEnabled" : true,
+  "digitTokenDurationMinutes" : 10,
+  "customInstructionsEnabled" : true
+}; // PasswordOrgConfig | 
+        const result = await apiInstance.createPasswordOrgConfigV1({ passwordOrgConfig: passwordOrgConfig });
         console.log(result);
 - path: /password-org-config/v1
   method: GET
@@ -34,10 +39,15 @@
       source: |
         import { PasswordConfigurationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Passwordorgconfig } from 'sailpoint-api-client/dist/password_configuration/api';
+        import { PasswordOrgConfig } from 'sailpoint-api-client/dist/password_configuration/api';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordConfigurationApi(configuration);
-        const passwordorgconfig: Passwordorgconfig = {"digitTokenEnabled":true,"digitTokenDurationMinutes":12}; // Passwordorgconfig | 
-        const result = await apiInstance.putPasswordOrgConfigV1({ passwordorgconfig: passwordorgconfig });
+        const passwordOrgConfig: PasswordOrgConfig = {
+  "digitTokenLength" : 9,
+  "digitTokenEnabled" : true,
+  "digitTokenDurationMinutes" : 10,
+  "customInstructionsEnabled" : true
+}; // PasswordOrgConfig | 
+        const result = await apiInstance.putPasswordOrgConfigV1({ passwordOrgConfig: passwordOrgConfig });
         console.log(result);

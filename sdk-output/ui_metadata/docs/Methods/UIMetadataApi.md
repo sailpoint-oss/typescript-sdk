@@ -38,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Tenantuimetadataitemresponse`
+`TenantUiMetadataItemResponse`
 
 ### HTTP request headers
 
@@ -74,12 +74,12 @@ This API endpoint updates UI metadata for your tenant. These changes may require
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**tenantuimetadataitemupdaterequest** | `Tenantuimetadataitemupdaterequest` |  | 
+**tenantUiMetadataItemUpdateRequest** | `TenantUiMetadataItemUpdateRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Tenantuimetadataitemresponse`
+`TenantUiMetadataItemResponse`
 
 ### HTTP request headers
 
@@ -91,13 +91,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { UIMetadataApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Tenantuimetadataitemupdaterequest } from 'sailpoint-api-client/dist/ui_metadata/api';
+import { TenantUiMetadataItemUpdateRequest } from 'sailpoint-api-client/dist/ui_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new UIMetadataApi(configuration);
-const tenantuimetadataitemupdaterequest: Tenantuimetadataitemupdaterequest = ; // 
+const tenantUiMetadataItemUpdateRequest: TenantUiMetadataItemUpdateRequest = {
+  "usernameEmptyText" : "Please provide your work email address...",
+  "usernameLabel" : "Email",
+  "iframeWhiteList" : "http://example.com http://example2.com"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.setTenantUiMetadataV1({ tenantuimetadataitemupdaterequest: tenantuimetadataitemupdaterequest });
+const result = await apiInstance.setTenantUiMetadataV1({ tenantUiMetadataItemUpdateRequest: tenantUiMetadataItemUpdateRequest });
 console.log(result);
 ```
 

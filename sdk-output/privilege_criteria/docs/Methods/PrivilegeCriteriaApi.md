@@ -34,11 +34,11 @@ Use this API to create a custom privilege criteria
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**createprivilegecriteriarequest** | `Createprivilegecriteriarequest` | Create custom privilege criteria request body. | 
+**createPrivilegeCriteriaRequest** | `CreatePrivilegeCriteriaRequest` | Create custom privilege criteria request body. | 
 
 ### Return type
 
-`Privilegecriteriadto`
+`PrivilegeCriteriaDTO`
 
 ### HTTP request headers
 
@@ -50,12 +50,44 @@ Name | Type | Description  | Notes
 ```typescript
 import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Createprivilegecriteriarequest } from 'sailpoint-api-client/dist/privilege_criteria/api';
+import { CreatePrivilegeCriteriaRequest } from 'sailpoint-api-client/dist/privilege_criteria/api';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);
-const createprivilegecriteriarequest: Createprivilegecriteriarequest = ; // Create custom privilege criteria request body.
-const result = await apiInstance.createCustomPrivilegeCriteriaV1({ createprivilegecriteriarequest: createprivilegecriteriarequest });
+const createPrivilegeCriteriaRequest: CreatePrivilegeCriteriaRequest = {
+  "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+  "privilegeLevel" : "HIGH",
+  "groups" : [ {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    } ],
+    "operator" : "AND"
+  }, {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "targetType" : "group",
+      "operator" : "displayName"
+    } ],
+    "operator" : "AND"
+  } ],
+  "type" : "CUSTOM",
+  "operator" : "AND"
+}; // Create custom privilege criteria request body.
+const result = await apiInstance.createCustomPrivilegeCriteriaV1({ createPrivilegeCriteriaRequest: createPrivilegeCriteriaRequest });
 console.log(result);
 ```
 
@@ -113,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Privilegecriteriadto`
+`PrivilegeCriteriaDTO`
 
 ### HTTP request headers
 
@@ -150,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Privilegecriteriadto>`
+`Array<PrivilegeCriteriaDTO>`
 
 ### HTTP request headers
 
@@ -184,11 +216,11 @@ Use this API to update a specific custom privilege criteria by overwriting the i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **criteriaId** | `string` | The Id of the privilege criteria record to return. |  [default to undefined]
-**privilegecriteriadto** | `Privilegecriteriadto` | The new version of the custom privilege criteria. This overwrites the existing privilege criteria. | 
+**privilegeCriteriaDTO** | `PrivilegeCriteriaDTO` | The new version of the custom privilege criteria. This overwrites the existing privilege criteria. | 
 
 ### Return type
 
-`Privilegecriteriadto`
+`PrivilegeCriteriaDTO`
 
 ### HTTP request headers
 
@@ -200,13 +232,50 @@ Name | Type | Description  | Notes
 ```typescript
 import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Privilegecriteriadto } from 'sailpoint-api-client/dist/privilege_criteria/api';
+import { PrivilegeCriteriaDTO } from 'sailpoint-api-client/dist/privilege_criteria/api';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);
 const criteriaId: string = 6d123044-5834-4e8d-a49f-9c70089b0de1; // The Id of the privilege criteria record to return.
-const privilegecriteriadto: Privilegecriteriadto = ; // The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
-const result = await apiInstance.putCustomPrivilegeCriteriaValueV1({ criteriaId: criteriaId, privilegecriteriadto: privilegecriteriadto });
+const privilegeCriteriaDTO: PrivilegeCriteriaDTO = {
+  "sourceId" : "c42c45d8d7c04d2da64d215cd8c32f21",
+  "privilegeLevel" : "HIGH",
+  "groups" : [ {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    } ],
+    "operator" : "AND"
+  }, {
+    "criteriaItems" : [ {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    }, {
+      "ignoreCase" : true,
+      "values" : [ "admin", "superuser" ],
+      "property" : "displayName",
+      "targetType" : "group",
+      "operator" : "IN"
+    } ],
+    "operator" : "AND"
+  } ],
+  "id" : "2c9180867817ac4d017817c491119a20",
+  "type" : "CUSTOM",
+  "operator" : "AND"
+}; // The new version of the custom privilege criteria. This overwrites the existing privilege criteria.
+const result = await apiInstance.putCustomPrivilegeCriteriaValueV1({ criteriaId: criteriaId, privilegeCriteriaDTO: privilegeCriteriaDTO });
 console.log(result);
 ```
 

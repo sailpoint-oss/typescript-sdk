@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'ScheduleDays', 'v1ScheduleDays']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | `Selectortype` |  | [default to undefined]
+**type** | `SelectorType` |  | [default to undefined]
 **values** | `Array<string>` | The selected values.  | [default to undefined]
 **interval** | **(optional)** `number` | The selected interval for RANGE selectors.  | [default to undefined]
 

@@ -37,11 +37,11 @@ Create a connector customizer.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**connectorcustomizercreaterequest** | `Connectorcustomizercreaterequest` | Connector customizer to create. | 
+**connectorCustomizerCreateRequest** | `ConnectorCustomizerCreateRequest` | Connector customizer to create. | 
 
 ### Return type
 
-`Connectorcustomizercreateresponse`
+`ConnectorCustomizerCreateResponse`
 
 ### HTTP request headers
 
@@ -53,12 +53,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorCustomizersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Connectorcustomizercreaterequest } from 'sailpoint-api-client/dist/connector_customizers/api';
+import { ConnectorCustomizerCreateRequest } from 'sailpoint-api-client/dist/connector_customizers/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorCustomizersApi(configuration);
-const connectorcustomizercreaterequest: Connectorcustomizercreaterequest = ; // Connector customizer to create.
-const result = await apiInstance.createConnectorCustomizerV1({ connectorcustomizercreaterequest: connectorcustomizercreaterequest });
+const connectorCustomizerCreateRequest: ConnectorCustomizerCreateRequest = {
+  "name" : "My Custom Connector"
+}; // Connector customizer to create.
+const result = await apiInstance.createConnectorCustomizerV1({ connectorCustomizerCreateRequest: connectorCustomizerCreateRequest });
 console.log(result);
 ```
 
@@ -79,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Connectorcustomizerversioncreateresponse`
+`ConnectorCustomizerVersionCreateResponse`
 
 ### HTTP request headers
 
@@ -153,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Connectorcustomizersresponse`
+`ConnectorCustomizersResponse`
 
 ### HTTP request headers
 
@@ -191,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Connectorcustomizersresponse>`
+`Array<ConnectorCustomizersResponse>`
 
 ### HTTP request headers
 
@@ -226,11 +228,11 @@ Update an existing connector customizer with the one provided in the request bod
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the connector customizer to update. |  [default to undefined]
-**connectorcustomizerupdaterequest** | `Connectorcustomizerupdaterequest` | Connector rule with updated data. | [optional]
+**connectorCustomizerUpdateRequest** | `ConnectorCustomizerUpdateRequest` | Connector rule with updated data. | [optional]
 
 ### Return type
 
-`Connectorcustomizerupdateresponse`
+`ConnectorCustomizerUpdateResponse`
 
 ### HTTP request headers
 
@@ -242,12 +244,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorCustomizersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Connectorcustomizerupdaterequest } from 'sailpoint-api-client/dist/connector_customizers/api';
+import { ConnectorCustomizerUpdateRequest } from 'sailpoint-api-client/dist/connector_customizers/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorCustomizersApi(configuration);
 const id: string = b07dc46a-1498-4de8-bfbb-259a68e70c8a; // ID of the connector customizer to update.
-const connectorcustomizerupdaterequest: Connectorcustomizerupdaterequest = ; // Connector rule with updated data. (optional)
+const connectorCustomizerUpdateRequest: ConnectorCustomizerUpdateRequest = {
+  "name" : "My Custom Connector"
+}; // Connector rule with updated data. (optional)
 const result = await apiInstance.putConnectorCustomizerV1({ id: id });
 console.log(result);
 ```

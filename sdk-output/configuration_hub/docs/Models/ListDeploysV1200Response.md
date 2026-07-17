@@ -15,5 +15,5 @@ tags: ['SDK', 'Software Development Kit', 'ListDeploysV1200Response', 'v1ListDep
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | **(optional)** `Array<Deployresponse>` | list of deployments | [default to undefined]
+**items** | **(optional)** `Array<DeployResponse>` | list of deployments | [default to undefined]
 

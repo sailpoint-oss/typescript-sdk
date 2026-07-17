@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workflowoauthclient`
+`WorkflowOAuthClient`
 
 ### HTTP request headers
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workflowexecutionevent>`
+`Array<WorkflowExecutionEvent>`
 
 ### HTTP request headers
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workflowexecutionhistory`
+`WorkflowExecutionHistory`
 
 ### HTTP request headers
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workflowexecution>`
+`Array<WorkflowExecution>`
 
 ### HTTP request headers
 
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workflowexecution>`
+`Array<WorkflowExecution>`
 
 ### HTTP request headers
 
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workflowlibraryaction>`
+`Array<WorkflowLibraryAction>`
 
 ### HTTP request headers
 
@@ -522,7 +522,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Array<Workflowlibraryoperator>`
+`Array<WorkflowLibraryOperator>`
 
 ### HTTP request headers
 
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workflowlibrarytrigger>`
+`Array<WorkflowLibraryTrigger>`
 
 ### HTTP request headers
 
@@ -629,7 +629,7 @@ Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Id of the Workflow |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 
 ### Return type
 
@@ -645,13 +645,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkflowsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/workflows/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
 const id: string = c17bea3a-574d-453c-9e04-4365fbf5af0b; // Id of the Workflow
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"Send Email"},{"op":"replace","path":"/owner","value":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"}},{"op":"replace","path":"/description","value":"Send an email to the identity who's attributes changed."},{"op":"replace","path":"/enabled","value":false},{"op":"replace","path":"/definition","value":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}}},{"op":"replace","path":"/trigger","value":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed"}}}]; // 
-const result = await apiInstance.patchWorkflowV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
+const result = await apiInstance.patchWorkflowV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -669,7 +673,7 @@ Perform a full update of a workflow.  The updated workflow object is returned in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Id of the Workflow |  [default to undefined]
-**workflowbody** | `Workflowbody` |  | 
+**workflowBody** | `WorkflowBody` |  | 
 
 ### Return type
 
@@ -685,13 +689,47 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkflowsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Workflowbody } from 'sailpoint-api-client/dist/workflows/api';
+import { WorkflowBody } from 'sailpoint-api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
 const id: string = c17bea3a-574d-453c-9e04-4365fbf5af0b; // Id of the Workflow
-const workflowbody: Workflowbody = ; // 
-const result = await apiInstance.putWorkflowV1({ id: id, workflowbody: workflowbody });
+const workflowBody: WorkflowBody = {
+  "owner" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "name" : "Send Email",
+  "description" : "Send an email to the identity who's attributes changed.",
+  "definition" : {
+    "start" : "Send Email Test",
+    "steps" : {
+      "Send Email" : {
+        "actionId" : "sp:send-email",
+        "attributes" : {
+          "body" : "This is a test",
+          "from" : "sailpoint@sailpoint.com",
+          "recipientId.$" : "$.identity.id",
+          "subject" : "test"
+        },
+        "nextStep" : "success",
+        "selectResult" : null,
+        "type" : "ACTION"
+      },
+      "success" : {
+        "type" : "success"
+      }
+    }
+  },
+  "trigger" : {
+    "displayName" : "displayName",
+    "attributes" : "{}",
+    "type" : "EVENT"
+  },
+  "enabled" : false
+}; // 
+const result = await apiInstance.putWorkflowV1({ id: id, workflowBody: workflowBody });
 console.log(result);
 ```
 

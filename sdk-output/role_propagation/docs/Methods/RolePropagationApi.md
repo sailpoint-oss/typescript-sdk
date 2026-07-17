@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`RolePropagationOngoingResponse`
+`Rolepropagationongoingresponse`
 
 ### HTTP request headers
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`RolePropagationConfigResponse`
+`Rolepropagationconfigresponse`
 
 ### HTTP request headers
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`RolePropagationStatusResponse`
+`Rolepropagationstatusresponse`
 
 ### HTTP request headers
 
@@ -209,12 +209,12 @@ This endpoint enables or disables the Role Change Propagation Process for the te
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**rolePropagationConfigInput** | `RolePropagationConfigInput` |  | 
+**rolepropagationconfiginput** | `Rolepropagationconfiginput` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`RolePropagationConfigResponse`
+`Rolepropagationconfigresponse`
 
 ### HTTP request headers
 
@@ -226,13 +226,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { RolePropagationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { RolePropagationConfigInput } from 'sailpoint-api-client/dist/role_propagation/api';
+import { Rolepropagationconfiginput } from 'sailpoint-api-client/dist/role_propagation/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolePropagationApi(configuration);
-const rolePropagationConfigInput: RolePropagationConfigInput = ; // 
+const rolepropagationconfiginput: Rolepropagationconfiginput = {
+  "enabled" : true
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.setRolePropagationConfigV1({ rolePropagationConfigInput: rolePropagationConfigInput });
+const result = await apiInstance.setRolePropagationConfigV1({ rolepropagationconfiginput: rolepropagationconfiginput });
 console.log(result);
 ```
 
@@ -258,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`RolePropagationResponse`
+`Rolepropagationresponse`
 
 ### HTTP request headers
 

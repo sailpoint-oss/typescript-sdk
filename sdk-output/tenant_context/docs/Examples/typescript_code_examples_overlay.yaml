@@ -19,10 +19,14 @@
       source: |
         import { TenantContextApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/tenant_context/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/tenant_context/api';
 
         const configuration = new Configuration();
         const apiInstance = new TenantContextApi(configuration);
-        const jsonpatchoperation: Jsonpatchoperation = [{"op":"add","path":"/Key/IAS","value":"Integrated Automation System"},{"op":"replace","path":"/Key/IAS","value":"International Accounting Standards"},{"op":"remove","path":"/Key/NDR"}]; // Jsonpatchoperation | 
-        const result = await apiInstance.patchTenantContextV1({ jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: JsonPatchOperation = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // JsonPatchOperation | 
+        const result = await apiInstance.patchTenantContextV1({ jsonPatchOperation: jsonPatchOperation });
         console.log(result);

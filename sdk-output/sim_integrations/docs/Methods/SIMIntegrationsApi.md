@@ -45,12 +45,12 @@ Create a new SIM Integrations.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**simintegrationdetails** | `Simintegrationdetails` | DTO containing the details of the SIM integration | 
+**simIntegrationDetails** | `SimIntegrationDetails` | DTO containing the details of the SIM integration | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -62,13 +62,30 @@ Name | Type | Description  | Notes
 ```typescript
 import { SIMIntegrationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Simintegrationdetails } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { SimIntegrationDetails } from 'sailpoint-api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
-const simintegrationdetails: Simintegrationdetails = ; // DTO containing the details of the SIM integration
+const simIntegrationDetails: SimIntegrationDetails = {
+  "cluster" : "xyzzy999",
+  "statusMap" : "{\"closed_cancelled\":\"Failed\",\"closed_complete\":\"Committed\",\"closed_incomplete\":\"Failed\",\"closed_rejected\":\"Failed\",\"in_process\":\"Queued\",\"requested\":\"Queued\"}",
+  "request" : "{\"description\":\"SailPoint Access Request,\",\"req_description\":\"The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,\",\"req_short_description\":\"SailPoint New Access Request Created from IdentityNow,\",\"short_description\":\"SailPoint Access Request $!plan.arguments.identityRequestId\"}",
+  "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "created" : "2015-05-28T14:07:17Z",
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "description" : "Integration description",
+  "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
+  "id" : "id12345",
+  "type" : "ServiceNow Service Desk",
+  "beforeProvisioningRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "IDENTITY"
+  }
+}; // DTO containing the details of the SIM integration
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createSIMIntegrationV1({ simintegrationdetails: simintegrationdetails });
+const result = await apiInstance.createSIMIntegrationV1({ simIntegrationDetails: simIntegrationDetails });
 console.log(result);
 ```
 
@@ -135,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -176,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Servicedeskintegrationdto>`
+`Array<ServiceDeskIntegrationDto>`
 
 ### HTTP request headers
 
@@ -213,12 +230,12 @@ Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | SIM integration id |  [default to undefined]
-**jsonpatch** | `Jsonpatch` | The JsonPatch object that describes the changes of SIM beforeProvisioningRule. | 
+**jsonPatch** | `JsonPatch` | The JsonPatch object that describes the changes of SIM beforeProvisioningRule. | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -230,14 +247,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { SIMIntegrationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatch } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { JsonPatch } from 'sailpoint-api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
 const id: string = 12345; // SIM integration id
-const jsonpatch: Jsonpatch = ; // The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+const jsonPatch: JsonPatch = {
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}; // The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.patchBeforeProvisioningRuleV1({ id: id, jsonpatch: jsonpatch });
+const result = await apiInstance.patchBeforeProvisioningRuleV1({ id: id, jsonPatch: jsonPatch });
 console.log(result);
 ```
 
@@ -258,12 +285,12 @@ Patch a SIM attribute given a JsonPatch object.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | SIM integration id |  [default to undefined]
-**jsonpatch** | `Jsonpatch` | The JsonPatch object that describes the changes of SIM | 
+**jsonPatch** | `JsonPatch` | The JsonPatch object that describes the changes of SIM | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -275,14 +302,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { SIMIntegrationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatch } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { JsonPatch } from 'sailpoint-api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
 const id: string = 12345; // SIM integration id
-const jsonpatch: Jsonpatch = ; // The JsonPatch object that describes the changes of SIM
+const jsonPatch: JsonPatch = {
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}; // The JsonPatch object that describes the changes of SIM
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.patchSIMAttributesV1({ id: id, jsonpatch: jsonpatch });
+const result = await apiInstance.patchSIMAttributesV1({ id: id, jsonPatch: jsonPatch });
 console.log(result);
 ```
 
@@ -303,12 +340,12 @@ Update an existing SIM integration.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The id of the integration. |  [default to undefined]
-**simintegrationdetails** | `Simintegrationdetails` | The full DTO of the integration containing the updated model | 
+**simIntegrationDetails** | `SimIntegrationDetails` | The full DTO of the integration containing the updated model | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Servicedeskintegrationdto`
+`ServiceDeskIntegrationDto`
 
 ### HTTP request headers
 
@@ -320,14 +357,31 @@ Name | Type | Description  | Notes
 ```typescript
 import { SIMIntegrationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Simintegrationdetails } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { SimIntegrationDetails } from 'sailpoint-api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
 const id: string = 12345; // The id of the integration.
-const simintegrationdetails: Simintegrationdetails = ; // The full DTO of the integration containing the updated model
+const simIntegrationDetails: SimIntegrationDetails = {
+  "cluster" : "xyzzy999",
+  "statusMap" : "{\"closed_cancelled\":\"Failed\",\"closed_complete\":\"Committed\",\"closed_incomplete\":\"Failed\",\"closed_rejected\":\"Failed\",\"in_process\":\"Queued\",\"requested\":\"Queued\"}",
+  "request" : "{\"description\":\"SailPoint Access Request,\",\"req_description\":\"The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,\",\"req_short_description\":\"SailPoint New Access Request Created from IdentityNow,\",\"short_description\":\"SailPoint Access Request $!plan.arguments.identityRequestId\"}",
+  "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+  "created" : "2015-05-28T14:07:17Z",
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "description" : "Integration description",
+  "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
+  "id" : "id12345",
+  "type" : "ServiceNow Service Desk",
+  "beforeProvisioningRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "IDENTITY"
+  }
+}; // The full DTO of the integration containing the updated model
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.putSIMIntegrationV1({ id: id, simintegrationdetails: simintegrationdetails });
+const result = await apiInstance.putSIMIntegrationV1({ id: id, simIntegrationDetails: simIntegrationDetails });
 console.log(result);
 ```
 

@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Entitlementrequestconfig`
+`EntitlementRequestConfig`
 
 ### HTTP request headers
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Entitlementv2`
+`EntitlementV2`
 
 ### HTTP request headers
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Loadentitlementtask`
+`LoadEntitlementTask`
 
 ### HTTP request headers
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Entitlementv2>`
+`Array<EntitlementV2>`
 
 ### HTTP request headers
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Entitlementv2>`
+`Array<EntitlementV2>`
 
 ### HTTP request headers
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Entitlementv2>`
+`Array<EntitlementV2>`
 
 ### HTTP request headers
 
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Entitlementv2>`
+`Array<EntitlementV2>`
 
 ### HTTP request headers
 
@@ -446,11 +446,11 @@ When you're patching owner, only owner type and owner id must be provided. Owner
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the entitlement to patch |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | [optional]
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | [optional]
 
 ### Return type
 
-`Entitlementv2`
+`EntitlementV2`
 
 ### HTTP request headers
 
@@ -462,12 +462,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/entitlements/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/entitlements/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementsApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // ID of the entitlement to patch
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/segments/-","value":"f7b1b8a3-5fed-4fd4-ad29-82014e137e19"}]; //  (optional)
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; //  (optional)
 const result = await apiInstance.patchEntitlementV1({ id: id });
 console.log(result);
 ```
@@ -486,11 +490,11 @@ This API replaces the entitlement request config for a specified entitlement.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Entitlement ID |  [default to undefined]
-**entitlementrequestconfig** | `Entitlementrequestconfig` |  | 
+**entitlementRequestConfig** | `EntitlementRequestConfig` |  | 
 
 ### Return type
 
-`Entitlementrequestconfig`
+`EntitlementRequestConfig`
 
 ### HTTP request headers
 
@@ -502,13 +506,40 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Entitlementrequestconfig } from 'sailpoint-api-client/dist/entitlements/api';
+import { EntitlementRequestConfig } from 'sailpoint-api-client/dist/entitlements/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementsApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // Entitlement ID
-const entitlementrequestconfig: Entitlementrequestconfig = ; // 
-const result = await apiInstance.putEntitlementRequestConfigV1({ id: id, entitlementrequestconfig: entitlementrequestconfig });
+const entitlementRequestConfig: EntitlementRequestConfig = {
+  "accessRequestConfig" : {
+    "denialCommentRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "reauthorizationRequired" : false,
+    "requestCommentRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 5,
+      "timeUnit" : "DAYS"
+    }
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  }
+}; // 
+const result = await apiInstance.putEntitlementRequestConfigV1({ id: id, entitlementRequestConfig: entitlementRequestConfig });
 console.log(result);
 ```
 
@@ -530,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Entitlementsourceresetbasereferencedto`
+`EntitlementSourceResetBaseReferenceDto`
 
 ### HTTP request headers
 
@@ -575,7 +606,7 @@ A token with ORG_ADMIN or API authority is required to call this API.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**entitlementbulkupdaterequest** | `Entitlementbulkupdaterequest` |  | 
+**entitlementBulkUpdateRequest** | `EntitlementBulkUpdateRequest` |  | 
 
 ### Return type
 
@@ -591,12 +622,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { EntitlementsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Entitlementbulkupdaterequest } from 'sailpoint-api-client/dist/entitlements/api';
+import { EntitlementBulkUpdateRequest } from 'sailpoint-api-client/dist/entitlements/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementsApi(configuration);
-const entitlementbulkupdaterequest: Entitlementbulkupdaterequest = ; // 
-const result = await apiInstance.updateEntitlementsInBulkV1({ entitlementbulkupdaterequest: entitlementbulkupdaterequest });
+const entitlementBulkUpdateRequest: EntitlementBulkUpdateRequest = {
+  "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
+  "jsonPatch" : [ {
+    "op" : "replace",
+    "path" : "/requestable",
+    "value" : false
+  }, {
+    "op" : "replace",
+    "path" : "/privilegeOverride/level",
+    "value" : "HIGH"
+  } ]
+}; // 
+const result = await apiInstance.updateEntitlementsInBulkV1({ entitlementBulkUpdateRequest: entitlementBulkUpdateRequest });
 console.log(result);
 ```
 

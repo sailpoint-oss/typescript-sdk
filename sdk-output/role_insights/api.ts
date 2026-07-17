@@ -52,25 +52,25 @@ export interface CreateRoleInsightRequestsV1429Response {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -79,33 +79,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -113,341 +113,341 @@ export interface Errorresponsedto {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Roleinsight
+ * @interface RoleInsight
  */
-export interface Roleinsight {
+export interface RoleInsight {
     /**
      * Insight id
      * @type {string}
-     * @memberof Roleinsight
+     * @memberof RoleInsight
      */
     'id'?: string;
     /**
      * Total number of updates for this role
      * @type {number}
-     * @memberof Roleinsight
+     * @memberof RoleInsight
      */
     'numberOfUpdates'?: number;
     /**
      * The date-time insights were last created for this role.
      * @type {string}
-     * @memberof Roleinsight
+     * @memberof RoleInsight
      */
     'createdDate'?: string;
     /**
      * The date-time insights were last modified for this role.
      * @type {string}
-     * @memberof Roleinsight
+     * @memberof RoleInsight
      */
     'modifiedDate'?: string | null;
     /**
      * 
-     * @type {Roleinsightsrole}
-     * @memberof Roleinsight
+     * @type {RoleInsightsRole}
+     * @memberof RoleInsight
      */
-    'role'?: Roleinsightsrole;
+    'role'?: RoleInsightsRole;
     /**
      * 
-     * @type {Roleinsightsinsight}
-     * @memberof Roleinsight
+     * @type {RoleInsightsInsight}
+     * @memberof RoleInsight
      */
-    'insight'?: Roleinsightsinsight;
+    'insight'?: RoleInsightsInsight;
 }
 /**
  * 
  * @export
- * @interface Roleinsightsentitlement
+ * @interface RoleInsightsEntitlement
  */
-export interface Roleinsightsentitlement {
+export interface RoleInsightsEntitlement {
     /**
      * Name of the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlement
+     * @memberof RoleInsightsEntitlement
      */
     'name'?: string;
     /**
      * Id of the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlement
+     * @memberof RoleInsightsEntitlement
      */
     'id'?: string;
     /**
      * Description for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlement
+     * @memberof RoleInsightsEntitlement
      */
     'description'?: string | null;
     /**
      * Source or the application for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlement
+     * @memberof RoleInsightsEntitlement
      */
     'source'?: string;
     /**
      * Attribute for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlement
+     * @memberof RoleInsightsEntitlement
      */
     'attribute'?: string;
     /**
      * Attribute value for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlement
+     * @memberof RoleInsightsEntitlement
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface Roleinsightsentitlementchanges
+ * @interface RoleInsightsEntitlementChanges
  */
-export interface Roleinsightsentitlementchanges {
+export interface RoleInsightsEntitlementChanges {
     /**
      * Name of the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlementchanges
+     * @memberof RoleInsightsEntitlementChanges
      */
     'name'?: string;
     /**
      * Id of the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlementchanges
+     * @memberof RoleInsightsEntitlementChanges
      */
     'id'?: string;
     /**
      * Description for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlementchanges
+     * @memberof RoleInsightsEntitlementChanges
      */
     'description'?: string | null;
     /**
      * Attribute for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlementchanges
+     * @memberof RoleInsightsEntitlementChanges
      */
     'attribute'?: string;
     /**
      * Attribute value for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlementchanges
+     * @memberof RoleInsightsEntitlementChanges
      */
     'value'?: string;
     /**
      * Source or the application for the entitlement
      * @type {string}
-     * @memberof Roleinsightsentitlementchanges
+     * @memberof RoleInsightsEntitlementChanges
      */
     'source'?: string;
     /**
      * 
-     * @type {Roleinsightsinsight}
-     * @memberof Roleinsightsentitlementchanges
+     * @type {RoleInsightsInsight}
+     * @memberof RoleInsightsEntitlementChanges
      */
-    'insight'?: Roleinsightsinsight;
+    'insight'?: RoleInsightsInsight;
 }
 /**
  * 
  * @export
- * @interface Roleinsightsidentities
+ * @interface RoleInsightsIdentities
  */
-export interface Roleinsightsidentities {
+export interface RoleInsightsIdentities {
     /**
      * Id for identity
      * @type {string}
-     * @memberof Roleinsightsidentities
+     * @memberof RoleInsightsIdentities
      */
     'id'?: string;
     /**
      * Name for identity
      * @type {string}
-     * @memberof Roleinsightsidentities
+     * @memberof RoleInsightsIdentities
      */
     'name'?: string;
     /**
      * 
      * @type {{ [key: string]: string; }}
-     * @memberof Roleinsightsidentities
+     * @memberof RoleInsightsIdentities
      */
     'attributes'?: { [key: string]: string; };
 }
 /**
  * 
  * @export
- * @interface Roleinsightsinsight
+ * @interface RoleInsightsInsight
  */
-export interface Roleinsightsinsight {
+export interface RoleInsightsInsight {
     /**
      * The number of identities in this role with the entitlement.
      * @type {string}
-     * @memberof Roleinsightsinsight
+     * @memberof RoleInsightsInsight
      */
     'type'?: string;
     /**
      * The number of identities in this role with the entitlement.
      * @type {number}
-     * @memberof Roleinsightsinsight
+     * @memberof RoleInsightsInsight
      */
     'identitiesWithAccess'?: number;
     /**
      * The number of identities in this role that do not have the specified entitlement.
      * @type {number}
-     * @memberof Roleinsightsinsight
+     * @memberof RoleInsightsInsight
      */
     'identitiesImpacted'?: number;
     /**
      * The total number of identities.
      * @type {number}
-     * @memberof Roleinsightsinsight
+     * @memberof RoleInsightsInsight
      */
     'totalNumberOfIdentities'?: number;
     /**
      * 
      * @type {string}
-     * @memberof Roleinsightsinsight
+     * @memberof RoleInsightsInsight
      */
     'impactedIdentityNames'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Roleinsightsresponse
+ * @interface RoleInsightsResponse
  */
-export interface Roleinsightsresponse {
+export interface RoleInsightsResponse {
     /**
      * Request Id for a role insight generation request
      * @type {string}
-     * @memberof Roleinsightsresponse
+     * @memberof RoleInsightsResponse
      */
     'id'?: string;
     /**
      * The date-time role insights request was created.
      * @type {string}
-     * @memberof Roleinsightsresponse
+     * @memberof RoleInsightsResponse
      */
     'createdDate'?: string;
     /**
      * The date-time role insights request was completed.
      * @type {string}
-     * @memberof Roleinsightsresponse
+     * @memberof RoleInsightsResponse
      */
     'lastGenerated'?: string;
     /**
      * Total number of updates for this request. Starts with 0 and will have correct number when request is COMPLETED.
      * @type {number}
-     * @memberof Roleinsightsresponse
+     * @memberof RoleInsightsResponse
      */
     'numberOfUpdates'?: number;
     /**
      * The role IDs that are in this request.
      * @type {Array<string>}
-     * @memberof Roleinsightsresponse
+     * @memberof RoleInsightsResponse
      */
     'roleIds'?: Array<string>;
     /**
      * Request status
      * @type {string}
-     * @memberof Roleinsightsresponse
+     * @memberof RoleInsightsResponse
      */
-    'status'?: RoleinsightsresponseStatusEnum;
+    'status'?: RoleInsightsResponseStatusEnum;
 }
 
-export const RoleinsightsresponseStatusEnum = {
+export const RoleInsightsResponseStatusEnum = {
     Created: 'CREATED',
     InProgress: 'IN PROGRESS',
     Completed: 'COMPLETED',
     Failed: 'FAILED'
 } as const;
 
-export type RoleinsightsresponseStatusEnum = typeof RoleinsightsresponseStatusEnum[keyof typeof RoleinsightsresponseStatusEnum];
+export type RoleInsightsResponseStatusEnum = typeof RoleInsightsResponseStatusEnum[keyof typeof RoleInsightsResponseStatusEnum];
 
 /**
  * 
  * @export
- * @interface Roleinsightsrole
+ * @interface RoleInsightsRole
  */
-export interface Roleinsightsrole {
+export interface RoleInsightsRole {
     /**
      * Role name
      * @type {string}
-     * @memberof Roleinsightsrole
+     * @memberof RoleInsightsRole
      */
     'name'?: string;
     /**
      * Role id
      * @type {string}
-     * @memberof Roleinsightsrole
+     * @memberof RoleInsightsRole
      */
     'id'?: string;
     /**
      * Role description
      * @type {string}
-     * @memberof Roleinsightsrole
+     * @memberof RoleInsightsRole
      */
     'description'?: string;
     /**
      * Role owner name
      * @type {string}
-     * @memberof Roleinsightsrole
+     * @memberof RoleInsightsRole
      */
     'ownerName'?: string;
     /**
      * Role owner id
      * @type {string}
-     * @memberof Roleinsightsrole
+     * @memberof RoleInsightsRole
      */
     'ownerId'?: string;
 }
 /**
  * 
  * @export
- * @interface Roleinsightssummary
+ * @interface RoleInsightsSummary
  */
-export interface Roleinsightssummary {
+export interface RoleInsightsSummary {
     /**
      * Total number of roles with updates
      * @type {number}
-     * @memberof Roleinsightssummary
+     * @memberof RoleInsightsSummary
      */
     'numberOfUpdates'?: number;
     /**
      * The date-time role insights were last found.
      * @type {string}
-     * @memberof Roleinsightssummary
+     * @memberof RoleInsightsSummary
      */
     'lastGenerated'?: string;
     /**
      * The number of entitlements included in roles (vs free radicals).
      * @type {number}
-     * @memberof Roleinsightssummary
+     * @memberof RoleInsightsSummary
      */
     'entitlementsIncludedInRoles'?: number;
     /**
      * The total number of entitlements.
      * @type {number}
-     * @memberof Roleinsightssummary
+     * @memberof RoleInsightsSummary
      */
     'totalNumberOfEntitlements'?: number;
     /**
      * The number of identities in roles vs. identities with just entitlements and not in roles.
      * @type {number}
-     * @memberof Roleinsightssummary
+     * @memberof RoleInsightsSummary
      */
     'identitiesWithAccessViaRoles'?: number;
     /**
      * The total number of identities.
      * @type {number}
-     * @memberof Roleinsightssummary
+     * @memberof RoleInsightsSummary
      */
     'totalNumberOfIdentities'?: number;
 }
@@ -928,7 +928,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async createRoleInsightRequestsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleinsightsresponse>> {
+        async createRoleInsightRequestsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleInsightRequestsV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.createRoleInsightRequestsV1']?.[localVarOperationServerIndex]?.url;
@@ -965,7 +965,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementChangesIdentitiesV1(insightId: string, entitlementId: string, hasEntitlement?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleinsightsidentities>>> {
+        async getEntitlementChangesIdentitiesV1(insightId: string, entitlementId: string, hasEntitlement?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsIdentities>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementChangesIdentitiesV1(insightId, entitlementId, hasEntitlement, offset, limit, count, sorters, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.getEntitlementChangesIdentitiesV1']?.[localVarOperationServerIndex]?.url;
@@ -979,7 +979,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightV1(insightId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleinsight>> {
+        async getRoleInsightV1(insightId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsight>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightV1(insightId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.getRoleInsightV1']?.[localVarOperationServerIndex]?.url;
@@ -994,7 +994,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightsCurrentEntitlementsV1(insightId: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleinsightsentitlement>>> {
+        async getRoleInsightsCurrentEntitlementsV1(insightId: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlement>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsCurrentEntitlementsV1(insightId, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.getRoleInsightsCurrentEntitlementsV1']?.[localVarOperationServerIndex]?.url;
@@ -1010,7 +1010,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightsEntitlementsChangesV1(insightId: string, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleinsightsentitlementchanges>>> {
+        async getRoleInsightsEntitlementsChangesV1(insightId: string, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlementChanges>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsEntitlementsChangesV1(insightId, sorters, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.getRoleInsightsEntitlementsChangesV1']?.[localVarOperationServerIndex]?.url;
@@ -1025,7 +1025,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getRoleInsightsRequestsV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleinsightsresponse>> {
+        async getRoleInsightsRequestsV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsRequestsV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.getRoleInsightsRequestsV1']?.[localVarOperationServerIndex]?.url;
@@ -1038,7 +1038,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightsSummaryV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Roleinsightssummary>> {
+        async getRoleInsightsSummaryV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsSummaryV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.getRoleInsightsSummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -1056,7 +1056,7 @@ export const RoleInsightsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightsV1(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Roleinsight>>> {
+        async getRoleInsightsV1(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsight>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsV1(offset, limit, count, sorters, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoleInsightsApi.getRoleInsightsV1']?.[localVarOperationServerIndex]?.url;
@@ -1080,7 +1080,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @deprecated
          * @throws {RequiredError}
          */
-        createRoleInsightRequestsV1(requestParameters: RoleInsightsApiCreateRoleInsightRequestsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleinsightsresponse> {
+        createRoleInsightRequestsV1(requestParameters: RoleInsightsApiCreateRoleInsightRequestsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleInsightsResponse> {
             return localVarFp.createRoleInsightRequestsV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1100,7 +1100,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEntitlementChangesIdentitiesV1(requestParameters: RoleInsightsApiGetEntitlementChangesIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleinsightsidentities>> {
+        getEntitlementChangesIdentitiesV1(requestParameters: RoleInsightsApiGetEntitlementChangesIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleInsightsIdentities>> {
             return localVarFp.getEntitlementChangesIdentitiesV1(requestParameters.insightId, requestParameters.entitlementId, requestParameters.hasEntitlement, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1110,7 +1110,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleInsightV1(requestParameters: RoleInsightsApiGetRoleInsightV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleinsight> {
+        getRoleInsightV1(requestParameters: RoleInsightsApiGetRoleInsightV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleInsight> {
             return localVarFp.getRoleInsightV1(requestParameters.insightId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1120,7 +1120,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleInsightsCurrentEntitlementsV1(requestParameters: RoleInsightsApiGetRoleInsightsCurrentEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleinsightsentitlement>> {
+        getRoleInsightsCurrentEntitlementsV1(requestParameters: RoleInsightsApiGetRoleInsightsCurrentEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleInsightsEntitlement>> {
             return localVarFp.getRoleInsightsCurrentEntitlementsV1(requestParameters.insightId, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1130,7 +1130,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleInsightsEntitlementsChangesV1(requestParameters: RoleInsightsApiGetRoleInsightsEntitlementsChangesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleinsightsentitlementchanges>> {
+        getRoleInsightsEntitlementsChangesV1(requestParameters: RoleInsightsApiGetRoleInsightsEntitlementsChangesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleInsightsEntitlementChanges>> {
             return localVarFp.getRoleInsightsEntitlementsChangesV1(requestParameters.insightId, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1141,7 +1141,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @deprecated
          * @throws {RequiredError}
          */
-        getRoleInsightsRequestsV1(requestParameters: RoleInsightsApiGetRoleInsightsRequestsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleinsightsresponse> {
+        getRoleInsightsRequestsV1(requestParameters: RoleInsightsApiGetRoleInsightsRequestsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleInsightsResponse> {
             return localVarFp.getRoleInsightsRequestsV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1151,7 +1151,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleInsightsSummaryV1(requestParameters: RoleInsightsApiGetRoleInsightsSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Roleinsightssummary> {
+        getRoleInsightsSummaryV1(requestParameters: RoleInsightsApiGetRoleInsightsSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleInsightsSummary> {
             return localVarFp.getRoleInsightsSummaryV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1161,7 +1161,7 @@ export const RoleInsightsApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleInsightsV1(requestParameters: RoleInsightsApiGetRoleInsightsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Roleinsight>> {
+        getRoleInsightsV1(requestParameters: RoleInsightsApiGetRoleInsightsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleInsight>> {
             return localVarFp.getRoleInsightsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };

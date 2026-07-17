@@ -6,12 +6,18 @@
       source: |
         import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { V3createconnectordto } from 'sailpoint-api-client/dist/connectors/api';
+        import { V3CreateConnectorDto } from 'sailpoint-api-client/dist/connectors/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorsApi(configuration);
-        const v3createconnectordto: V3createconnectordto = ; // V3createconnectordto | 
-        const result = await apiInstance.createCustomConnectorV1({ v3createconnectordto: v3createconnectordto });
+        const v3CreateConnectorDto: V3CreateConnectorDto = {
+  "name" : "custom connector",
+  "directConnect" : true,
+  "className" : "sailpoint.connector.OpenConnectorAdapter",
+  "type" : "custom connector type",
+  "status" : "RELEASED"
+}; // V3CreateConnectorDto | 
+        const result = await apiInstance.createCustomConnectorV1({ v3CreateConnectorDto: v3CreateConnectorDto });
         console.log(result);
 - path: /connectors/v1/{scriptName}
   method: DELETE
@@ -185,11 +191,15 @@
       source: |
         import { ConnectorsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/connectors/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/connectors/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorsApi(configuration);
         const scriptName: string = 'aScriptName'; // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = ; // Array<Jsonpatchoperation> | A list of connector detail update operations 
-        const result = await apiInstance.updateConnectorV1({ scriptName: scriptName, jsonpatchoperation: jsonpatchoperation });
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of connector detail update operations 
+        const result = await apiInstance.updateConnectorV1({ scriptName: scriptName, jsonPatchOperation: jsonPatchOperation });
         console.log(result);

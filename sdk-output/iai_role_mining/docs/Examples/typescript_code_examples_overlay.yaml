@@ -6,7 +6,7 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Roleminingpotentialroleprovisionrequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
+        import { RoleMiningPotentialRoleProvisionRequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
@@ -15,7 +15,13 @@
         const minEntitlementPopularity: number = 56; // number | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0)
         const includeCommonAccess: boolean = true; // boolean | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to true)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const roleminingpotentialroleprovisionrequest: Roleminingpotentialroleprovisionrequest = ; // Roleminingpotentialroleprovisionrequest | Required information to create a new role (optional)
+        const roleMiningPotentialRoleProvisionRequest: RoleMiningPotentialRoleProvisionRequest = {
+  "includeIdentities" : true,
+  "roleName" : "Finance - Accounting",
+  "ownerId" : "2b568c65bc3c4c57a43bd97e3a8e41",
+  "roleDescription" : "General access for accounting department",
+  "directlyAssignedEntitlements" : false
+}; // RoleMiningPotentialRoleProvisionRequest | Required information to create a new role (optional)
         const result = await apiInstance.createPotentialRoleProvisionRequestV1({ sessionId: sessionId, potentialRoleId: potentialRoleId });
         console.log(result);
 - path: /role-mining-sessions/v1
@@ -26,13 +32,44 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Roleminingsessiondto } from 'sailpoint-api-client/dist/iai_role_mining/api';
+        import { RoleMiningSessionDto } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
-        const roleminingsessiondto: Roleminingsessiondto = ; // Roleminingsessiondto | Role mining session parameters
+        const roleMiningSessionDto: RoleMiningSessionDto = {
+  "emailRecipientId" : "2c918090761a5aac0176215c46a62d58",
+  "prescribedPruneThreshold" : 10,
+  "pruneThreshold" : 50,
+  "saved" : true,
+  "potentialRolesReadyCount" : 0,
+  "scope" : {
+    "identityIds" : [ "2c918090761a5aac0176215c46a62d58", "2c918090761a5aac01722015c46a62d42" ],
+    "attributeFilterCriteria" : {
+      "displayName" : {
+        "untranslated" : "Location: Miami"
+      },
+      "ariaLabel" : {
+        "untranslated" : "Location: Miami"
+      },
+      "data" : {
+        "displayName" : {
+          "translateKey" : "IDN.IDENTITY_ATTRIBUTES.LOCATION"
+        },
+        "name" : "location",
+        "operator" : "EQUALS",
+        "values" : [ "Miami" ]
+      }
+    },
+    "criteria" : "source.name:DataScienceDataset"
+  },
+  "potentialRoleCount" : 0,
+  "name" : "Saved RM Session - 07/10",
+  "minNumIdentitiesInPotentialRole" : 20,
+  "identityCount" : 0,
+  "type" : "SPECIALIZED"
+}; // RoleMiningSessionDto | Role mining session parameters
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createRoleMiningSessionsV1({ roleminingsessiondto: roleminingsessiondto });
+        const result = await apiInstance.createRoleMiningSessionsV1({ roleMiningSessionDto: roleMiningSessionDto });
         console.log(result);
 - path: /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download
   method: GET
@@ -59,14 +96,17 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Roleminingpotentialroleexportrequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
+        import { RoleMiningPotentialRoleExportRequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id (default to undefined)
         const potentialRoleId: string = '278359a6-04b7-4669-9468-924cf580964a'; // string | A potential role id in a role mining session (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const roleminingpotentialroleexportrequest: Roleminingpotentialroleexportrequest = ; // Roleminingpotentialroleexportrequest |  (optional)
+        const roleMiningPotentialRoleExportRequest: RoleMiningPotentialRoleExportRequest = {
+  "minEntitlementPopularity" : 0,
+  "includeCommonAccess" : true
+}; // RoleMiningPotentialRoleExportRequest |  (optional)
         const result = await apiInstance.exportRoleMiningPotentialRoleAsyncV1({ sessionId: sessionId, potentialRoleId: potentialRoleId });
         console.log(result);
 - path: /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}
@@ -388,15 +428,19 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperationrolemining } from 'sailpoint-api-client/dist/iai_role_mining/api';
+        import { JsonPatchOperationRoleMining } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id (default to undefined)
         const potentialRoleId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The potential role summary id (default to undefined)
-        const jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining> = [{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]; // Array<Jsonpatchoperationrolemining> | 
+        const jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperationRoleMining> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.patchPotentialRoleSessionV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, jsonpatchoperationrolemining: jsonpatchoperationrolemining });
+        const result = await apiInstance.patchPotentialRoleSessionV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, jsonPatchOperationRoleMining: jsonPatchOperationRoleMining });
         console.log(result);
 - path: /role-mining-potential-roles/v1/{potentialRoleId}
   method: PATCH
@@ -406,15 +450,19 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperationrolemining } from 'sailpoint-api-client/dist/iai_role_mining/api';
+        import { JsonPatchOperationRoleMining } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id (default to undefined)
         const potentialRoleId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The potential role summary id (default to undefined)
-        const jsonpatchoperationrolemining: Array<Jsonpatchoperationrolemining> = [{"op":"remove","path":"/description"},{"op":"replace","path":"/description","value":"Acct I - Potential Role"},{"op":"remove","path":"/saved"},{"op":"replace","path":"/saved","value":"false"},{"op":"remove","path":"/name"},{"op":"replace","path":"/name","value":"Potential Role Accounting"}]; // Array<Jsonpatchoperationrolemining> | 
+        const jsonPatchOperationRoleMining: Array<JsonPatchOperationRoleMining> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperationRoleMining> | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.patchPotentialRoleV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, jsonpatchoperationrolemining: jsonpatchoperationrolemining });
+        const result = await apiInstance.patchPotentialRoleV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, jsonPatchOperationRoleMining: jsonPatchOperationRoleMining });
         console.log(result);
 - path: /role-mining-sessions/v1/{sessionId}
   method: PATCH
@@ -424,14 +472,18 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Jsonpatchoperation } from 'sailpoint-api-client/dist/iai_role_mining/api';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id to be patched (default to undefined)
-        const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/pruneThreshold","value":"83"},{"op":"replace","path":"/minNumIdentitiesInPotentialRole","value":"10"},{"op":"replace","path":"/saved","value":"false"},{"op":"replace","path":"/name","value":"RM Session - 07/10/22"},{"op":"add","path":"/name","value":"RM Session - 07/10/22"}]; // Array<Jsonpatchoperation> | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.patchRoleMiningSessionV1({ sessionId: sessionId, jsonpatchoperation: jsonpatchoperation });
+        const result = await apiInstance.patchRoleMiningSessionV1({ sessionId: sessionId, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /role-mining-sessions/v1/{sessionId}/potential-roles/{potentialRoleId}/edit-entitlements
   method: POST
@@ -441,13 +493,16 @@
       source: |
         import { IAIRoleMiningApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Roleminingpotentialroleeditentitlements } from 'sailpoint-api-client/dist/iai_role_mining/api';
+        import { RoleMiningPotentialRoleEditEntitlements } from 'sailpoint-api-client/dist/iai_role_mining/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIRoleMiningApi(configuration);
         const sessionId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | The role mining session id (default to undefined)
         const potentialRoleId: string = '8c190e67-87aa-4ed9-a90b-d9d5344523fb'; // string | A potential role id in a role mining session (default to undefined)
-        const roleminingpotentialroleeditentitlements: Roleminingpotentialroleeditentitlements = ; // Roleminingpotentialroleeditentitlements | Role mining session parameters
+        const roleMiningPotentialRoleEditEntitlements: RoleMiningPotentialRoleEditEntitlements = {
+  "ids" : [ "entId1", "entId2" ],
+  "exclude" : true
+}; // RoleMiningPotentialRoleEditEntitlements | Role mining session parameters
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.updateEntitlementsPotentialRoleV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, roleminingpotentialroleeditentitlements: roleminingpotentialroleeditentitlements });
+        const result = await apiInstance.updateEntitlementsPotentialRoleV1({ sessionId: sessionId, potentialRoleId: potentialRoleId, roleMiningPotentialRoleEditEntitlements: roleMiningPotentialRoleEditEntitlements });
         console.log(result);

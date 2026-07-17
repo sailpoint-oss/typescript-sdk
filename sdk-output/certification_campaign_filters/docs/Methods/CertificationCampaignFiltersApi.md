@@ -60,11 +60,11 @@ Use this API to create a campaign filter based on filter details and criteria.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**campaignfilterdetails** | `Campaignfilterdetails` |  | 
+**campaignFilterDetails** | `CampaignFilterDetails` |  | 
 
 ### Return type
 
-`Campaignfilterdetails`
+`CampaignFilterDetails`
 
 ### HTTP request headers
 
@@ -76,12 +76,31 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Campaignfilterdetails } from 'sailpoint-api-client/dist/certification_campaign_filters/api';
+import { CampaignFilterDetails } from 'sailpoint-api-client/dist/certification_campaign_filters/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignFiltersApi(configuration);
-const campaignfilterdetails: Campaignfilterdetails = ; // 
-const result = await apiInstance.createCampaignFilterV1({ campaignfilterdetails: campaignfilterdetails });
+const campaignFilterDetails: CampaignFilterDetails = {
+  "owner" : "SailPoint Support",
+  "mode" : "INCLUSION",
+  "isSystemFilter" : false,
+  "name" : "Identity Attribute Campaign Filter",
+  "description" : "Campaign filter to certify data based on an identity attribute's specified property.",
+  "id" : "5ec18cef39020d6fd7a60ad3970aba61",
+  "criteriaList" : [ {
+    "type" : "IDENTITY_ATTRIBUTE",
+    "property" : "displayName",
+    "value" : "support",
+    "operation" : "CONTAINS",
+    "negateResult" : false,
+    "shortCircuit" : false,
+    "recordChildMatches" : false,
+    "id" : null,
+    "suppressMatchedItems" : false,
+    "children" : null
+  } ]
+}; // 
+const result = await apiInstance.createCampaignFilterV1({ campaignFilterDetails: campaignFilterDetails });
 console.log(result);
 ```
 
@@ -139,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Campaignfilterdetails`
+`CampaignFilterDetails`
 
 ### HTTP request headers
 
@@ -214,11 +233,11 @@ Updates an existing campaign filter using the filter's ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the campaign filter being modified. |  [default to undefined]
-**campaignfilterdetails** | `Campaignfilterdetails` | A campaign filter details with updated field values. | 
+**campaignFilterDetails** | `CampaignFilterDetails` | A campaign filter details with updated field values. | 
 
 ### Return type
 
-`Campaignfilterdetails`
+`CampaignFilterDetails`
 
 ### HTTP request headers
 
@@ -230,13 +249,32 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignFiltersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Campaignfilterdetails } from 'sailpoint-api-client/dist/certification_campaign_filters/api';
+import { CampaignFilterDetails } from 'sailpoint-api-client/dist/certification_campaign_filters/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignFiltersApi(configuration);
 const id: string = e9f9a1397b842fd5a65842087040d3ac; // The ID of the campaign filter being modified.
-const campaignfilterdetails: Campaignfilterdetails = ; // A campaign filter details with updated field values.
-const result = await apiInstance.updateCampaignFilterV1({ id: id, campaignfilterdetails: campaignfilterdetails });
+const campaignFilterDetails: CampaignFilterDetails = {
+  "owner" : "SailPoint Support",
+  "mode" : "INCLUSION",
+  "isSystemFilter" : false,
+  "name" : "Identity Attribute Campaign Filter",
+  "description" : "Campaign filter to certify data based on an identity attribute's specified property.",
+  "id" : "5ec18cef39020d6fd7a60ad3970aba61",
+  "criteriaList" : [ {
+    "type" : "IDENTITY_ATTRIBUTE",
+    "property" : "displayName",
+    "value" : "support",
+    "operation" : "CONTAINS",
+    "negateResult" : false,
+    "shortCircuit" : false,
+    "recordChildMatches" : false,
+    "id" : null,
+    "suppressMatchedItems" : false,
+    "children" : null
+  } ]
+}; // A campaign filter details with updated field values.
+const result = await apiInstance.updateCampaignFilterV1({ id: id, campaignFilterDetails: campaignFilterDetails });
 console.log(result);
 ```
 

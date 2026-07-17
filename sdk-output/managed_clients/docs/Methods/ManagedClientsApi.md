@@ -38,11 +38,11 @@ The API returns a result that includes the managed client ID.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**managedclientrequest** | `Managedclientrequest` |  | 
+**managedClientRequest** | `ManagedClientRequest` |  | 
 
 ### Return type
 
-`Managedclient`
+`ManagedClient`
 
 ### HTTP request headers
 
@@ -54,12 +54,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Managedclientrequest } from 'sailpoint-api-client/dist/managed_clients/api';
+import { ManagedClientRequest } from 'sailpoint-api-client/dist/managed_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
-const managedclientrequest: Managedclientrequest = ; // 
-const result = await apiInstance.createManagedClientV1({ managedclientrequest: managedclientrequest });
+const managedClientRequest: ManagedClientRequest = {
+  "name" : "aName",
+  "description" : "A short description of the ManagedClient",
+  "clusterId" : "aClusterId",
+  "type" : "VA"
+}; // 
+const result = await apiInstance.createManagedClientV1({ managedClientRequest: managedClientRequest });
 console.log(result);
 ```
 
@@ -117,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Managedclienthealthindicators`
+`ManagedClientHealthIndicators`
 
 ### HTTP request headers
 
@@ -151,11 +156,11 @@ Get a managed client's status, using its ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Managed client ID to get status for. |  [default to undefined]
-**type** | `Managedclienttype` | Managed client type to get status for. |  [default to undefined]
+**type** | `ManagedClientType` | Managed client type to get status for. |  [default to undefined]
 
 ### Return type
 
-`Managedclientstatus`
+`ManagedClientStatus`
 
 ### HTTP request headers
 
@@ -171,7 +176,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
 const id: string = aClientId; // Managed client ID to get status for.
-const type: Managedclienttype = ; // Managed client type to get status for.
+const type: ManagedClientType = ; // Managed client type to get status for.
 const result = await apiInstance.getManagedClientStatusV1({ id: id, type: type });
 console.log(result);
 ```
@@ -193,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Managedclient`
+`ManagedClient`
 
 ### HTTP request headers
 
@@ -233,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Managedclient>`
+`Array<ManagedClient>`
 
 ### HTTP request headers
 
@@ -270,11 +275,11 @@ Update an existing managed client.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Managed client ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | JSONPatch payload used to update the object. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | JSONPatch payload used to update the object. | 
 
 ### Return type
 
-`Managedclient`
+`ManagedClient`
 
 ### HTTP request headers
 
@@ -286,13 +291,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClientsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/managed_clients/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/managed_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
 const id: string = 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7; // Managed client ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSONPatch payload used to update the object.
-const result = await apiInstance.updateManagedClientV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // JSONPatch payload used to update the object.
+const result = await apiInstance.updateManagedClientV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

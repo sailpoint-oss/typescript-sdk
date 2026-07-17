@@ -44,11 +44,11 @@ Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**domainaddress** | `Domainaddress` |  | 
+**domainAddress** | `DomainAddress` |  | 
 
 ### Return type
 
-`Domainstatusdto`
+`DomainStatusDto`
 
 ### HTTP request headers
 
@@ -60,12 +60,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { NotificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Domainaddress } from 'sailpoint-api-client/dist/notifications/api';
+import { DomainAddress } from 'sailpoint-api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
-const domainaddress: Domainaddress = ; // 
-const result = await apiInstance.createDomainDkimV1({ domainaddress: domainaddress });
+const domainAddress: DomainAddress = {
+  "domain" : "sailpoint.com"
+}; // 
+const result = await apiInstance.createDomainDkimV1({ domainAddress: domainAddress });
 console.log(result);
 ```
 
@@ -85,11 +87,11 @@ Modify the fields you want to change and submit the POST request when ready.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**templatedto** | `Templatedto` |  | 
+**templateDto** | `TemplateDto` |  | 
 
 ### Return type
 
-`Templatedto`
+`TemplateDto`
 
 ### HTTP request headers
 
@@ -101,12 +103,75 @@ Name | Type | Description  | Notes
 ```typescript
 import { NotificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Templatedto } from 'sailpoint-api-client/dist/notifications/api';
+import { TemplateDto } from 'sailpoint-api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
-const templatedto: Templatedto = ; // 
-const result = await apiInstance.createNotificationTemplateV1({ templatedto: templatedto });
+const templateDto: TemplateDto = {
+  "slackTemplate" : {
+    "isSubscription" : false,
+    "attachments" : "[]",
+    "blocks" : "blocks",
+    "requestId" : "requestId",
+    "autoApprovalData" : {
+      "itemId" : "itemId",
+      "itemType" : "itemType",
+      "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+      "isAutoApproved" : "isAutoApproved",
+      "autoApprovalTitle" : "autoApprovalTitle"
+    },
+    "customFields" : {
+      "requestType" : "requestType",
+      "campaignId" : "campaignId",
+      "campaignStatus" : "campaignStatus",
+      "containsDeny" : "containsDeny"
+    },
+    "requestedById" : "requestedById",
+    "approvalId" : "approvalId",
+    "text" : "You have a new approval request",
+    "notificationType" : "notificationType",
+    "key" : "key"
+  },
+  "footer" : "footer",
+  "teamsTemplate" : {
+    "isSubscription" : false,
+    "requestId" : "requestId",
+    "autoApprovalData" : {
+      "itemId" : "itemId",
+      "itemType" : "itemType",
+      "autoApprovalMessageJSON" : "autoApprovalMessageJSON",
+      "isAutoApproved" : "isAutoApproved",
+      "autoApprovalTitle" : "autoApprovalTitle"
+    },
+    "customFields" : {
+      "requestType" : "requestType",
+      "campaignId" : "campaignId",
+      "campaignStatus" : "campaignStatus",
+      "containsDeny" : "containsDeny"
+    },
+    "requestedById" : "requestedById",
+    "approvalId" : "approvalId",
+    "text" : "You have a new approval request",
+    "notificationType" : "notificationType",
+    "title" : "title",
+    "key" : "key",
+    "messageJSON" : "messageJSON"
+  },
+  "subject" : "You have $numberOfPendingTasks $taskTasks to complete in ${__global.productName}.",
+  "created" : "2020-01-01T00:00:00Z",
+  "description" : "Daily digest - sent if number of outstanding tasks for task owner > 0",
+  "medium" : "EMAIL",
+  "locale" : "en",
+  "body" : "Please go to the task manager",
+  "name" : "Task Manager Subscription",
+  "replyTo" : "$__global.emailFromAddress",
+  "header" : "header",
+  "modified" : "2020-01-01T00:00:00Z",
+  "from" : "$__global.emailFromAddress",
+  "id" : "c17bea3a-574d-453c-9e04-4365fbf5af0b",
+  "key" : "cloud_manual_work_item_summary"
+}; // 
+const result = await apiInstance.createNotificationTemplateV1({ templateDto: templateDto });
 console.log(result);
 ```
 
@@ -123,11 +188,11 @@ Create a new sender email address and initiate verification process.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**emailstatusdto** | `Emailstatusdto` |  | 
+**emailStatusDto** | `EmailStatusDto` |  | 
 
 ### Return type
 
-`Emailstatusdto`
+`EmailStatusDto`
 
 ### HTTP request headers
 
@@ -139,12 +204,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { NotificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Emailstatusdto } from 'sailpoint-api-client/dist/notifications/api';
+import { EmailStatusDto } from 'sailpoint-api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
-const emailstatusdto: Emailstatusdto = {"email":"sender@example.com"}; // 
-const result = await apiInstance.createVerifiedFromAddressV1({ emailstatusdto: emailstatusdto });
+const emailStatusDto: EmailStatusDto = {
+  "isVerifiedByDomain" : false,
+  "verificationStatus" : "SUCCESS",
+  "id" : "id",
+  "region" : "us-east-1",
+  "email" : "sender@example.com"
+}; // 
+const result = await apiInstance.createVerifiedFromAddressV1({ emailStatusDto: emailStatusDto });
 console.log(result);
 ```
 
@@ -161,7 +232,7 @@ This lets you bulk delete templates that you previously created for your site.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**templatebulkdeletedto** | `Array<Templatebulkdeletedto>` |  | 
+**templateBulkDeleteDto** | `Array<TemplateBulkDeleteDto>` |  | 
 
 ### Return type
 
@@ -177,12 +248,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { NotificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Templatebulkdeletedto } from 'sailpoint-api-client/dist/notifications/api';
+import { TemplateBulkDeleteDto } from 'sailpoint-api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
-const templatebulkdeletedto: Array<Templatebulkdeletedto> = ; // 
-const result = await apiInstance.deleteNotificationTemplatesInBulkV1({ templatebulkdeletedto: templatebulkdeletedto });
+const templateBulkDeleteDto: Array<TemplateBulkDeleteDto> = {
+  "medium" : "EMAIL",
+  "locale" : "en",
+  "key" : "cloud_manual_work_item_summary"
+}; // 
+const result = await apiInstance.deleteNotificationTemplatesInBulkV1({ templateBulkDeleteDto: templateBulkDeleteDto });
 console.log(result);
 ```
 
@@ -241,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Dkimattributes>`
+`Array<DkimAttributes>`
 
 ### HTTP request headers
 
@@ -279,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Mailfromattributes`
+`MailFromAttributes`
 
 ### HTTP request headers
 
@@ -316,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Preferencesdto`
+`PreferencesDto`
 
 ### HTTP request headers
 
@@ -353,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Templatedto`
+`TemplateDto`
 
 ### HTTP request headers
 
@@ -395,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Templatevariablesdto`
+`TemplateVariablesDto`
 
 ### HTTP request headers
 
@@ -432,7 +507,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Notificationtemplatecontext`
+`NotificationTemplateContext`
 
 ### HTTP request headers
 
@@ -472,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Emailstatusdto>`
+`Array<EmailStatusDto>`
 
 ### HTTP request headers
 
@@ -515,7 +590,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Templatedtodefault>`
+`Array<TemplateDtoDefault>`
 
 ### HTTP request headers
 
@@ -557,7 +632,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Templatedto>`
+`Array<TemplateDto>`
 
 ### HTTP request headers
 
@@ -593,11 +668,11 @@ Change the MAIL FROM domain of an AWS SES email identity and provide the MX and 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**mailfromattributesdto** | `Mailfromattributesdto` |  | 
+**mailFromAttributesDto** | `MailFromAttributesDto` |  | 
 
 ### Return type
 
-`Mailfromattributes`
+`MailFromAttributes`
 
 ### HTTP request headers
 
@@ -609,12 +684,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { NotificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Mailfromattributesdto } from 'sailpoint-api-client/dist/notifications/api';
+import { MailFromAttributesDto } from 'sailpoint-api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
-const mailfromattributesdto: Mailfromattributesdto = {"identity":"BobSmith@sailpoint.com","mailFromDomain":"example.sailpoint.com"}; // 
-const result = await apiInstance.putMailFromAttributesV1({ mailfromattributesdto: mailfromattributesdto });
+const mailFromAttributesDto: MailFromAttributesDto = {
+  "identity" : "BobSmith@sailpoint.com",
+  "mailFromDomain" : "example.sailpoint.com"
+}; // 
+const result = await apiInstance.putMailFromAttributesV1({ mailFromAttributesDto: mailFromAttributesDto });
 console.log(result);
 ```
 
@@ -631,7 +709,7 @@ Send a Test Notification
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**sendtestnotificationrequestdto** | `Sendtestnotificationrequestdto` |  | 
+**sendTestNotificationRequestDto** | `SendTestNotificationRequestDto` |  | 
 
 ### Return type
 
@@ -647,12 +725,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { NotificationsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sendtestnotificationrequestdto } from 'sailpoint-api-client/dist/notifications/api';
+import { SendTestNotificationRequestDto } from 'sailpoint-api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
-const sendtestnotificationrequestdto: Sendtestnotificationrequestdto = {"key":"cloud_manual_work_item_summary","medium":"EMAIL","context":{"numberOfPendingTasks":"4","ownerId":"201327fda1c44704ac01181e963d463c"}}; // 
-const result = await apiInstance.sendTestNotificationV1({ sendtestnotificationrequestdto: sendtestnotificationrequestdto });
+const sendTestNotificationRequestDto: SendTestNotificationRequestDto = {
+  "carbonCopy" : [ "cc@example.com" ],
+  "context" : {
+    "numberOfPendingTasks" : "4",
+    "taskTasks" : "tasks"
+  },
+  "blindCarbonCopy" : [ "bcc@example.com" ],
+  "medium" : "EMAIL",
+  "locale" : "en",
+  "recipientEmailList" : [ "test@example.com" ],
+  "key" : "cloud_manual_work_item_summary"
+}; // 
+const result = await apiInstance.sendTestNotificationV1({ sendTestNotificationRequestDto: sendTestNotificationRequestDto });
 console.log(result);
 ```
 

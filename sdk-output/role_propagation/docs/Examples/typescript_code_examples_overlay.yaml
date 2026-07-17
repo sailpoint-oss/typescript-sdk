@@ -63,13 +63,15 @@
       source: |
         import { RolePropagationApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { RolePropagationConfigInput } from 'sailpoint-api-client/dist/role_propagation/api';
+        import { Rolepropagationconfiginput } from 'sailpoint-api-client/dist/role_propagation/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolePropagationApi(configuration);
-        const rolePropagationConfigInput: RolePropagationConfigInput = ; // RolePropagationConfigInput | 
+        const rolepropagationconfiginput: Rolepropagationconfiginput = {
+  "enabled" : true
+}; // Rolepropagationconfiginput | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.setRolePropagationConfigV1({ rolePropagationConfigInput: rolePropagationConfigInput });
+        const result = await apiInstance.setRolePropagationConfigV1({ rolepropagationconfiginput: rolepropagationconfiginput });
         console.log(result);
 - path: /role-propagation/v1
   method: POST

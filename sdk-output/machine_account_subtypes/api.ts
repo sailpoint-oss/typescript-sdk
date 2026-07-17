@@ -70,25 +70,25 @@ export interface CreateSourceSubtypeV1Request {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -97,61 +97,61 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -160,14 +160,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
@@ -201,233 +201,233 @@ export interface LoadBulkSourceSubtypesV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Contains comprehensive configuration details for machine account subtype approval, including creation and deletion approval requirements, approver lists, form and entitlement references, and approval status options.
  * @export
- * @interface Machineaccountsubtypeconfigdto
+ * @interface MachineAccountSubtypeConfigDto
  */
-export interface Machineaccountsubtypeconfigdto {
+export interface MachineAccountSubtypeConfigDto {
     /**
      * Unique identifier representing the specific subtype of the machine account, used to distinguish between different machine account categories.
      * @type {string}
-     * @memberof Machineaccountsubtypeconfigdto
+     * @memberof MachineAccountSubtypeConfigDto
      */
     'subtypeId'?: string;
     /**
      * 
-     * @type {MachineaccountsubtypeconfigdtoMachineAccountCreate}
-     * @memberof Machineaccountsubtypeconfigdto
+     * @type {MachineAccountSubtypeConfigDtoMachineAccountCreate}
+     * @memberof MachineAccountSubtypeConfigDto
      */
-    'machineAccountCreate'?: MachineaccountsubtypeconfigdtoMachineAccountCreate;
+    'machineAccountCreate'?: MachineAccountSubtypeConfigDtoMachineAccountCreate;
     /**
      * 
-     * @type {MachineaccountsubtypeconfigdtoMachineAccountDelete}
-     * @memberof Machineaccountsubtypeconfigdto
+     * @type {MachineAccountSubtypeConfigDtoMachineAccountDelete}
+     * @memberof MachineAccountSubtypeConfigDto
      */
-    'machineAccountDelete'?: MachineaccountsubtypeconfigdtoMachineAccountDelete;
+    'machineAccountDelete'?: MachineAccountSubtypeConfigDtoMachineAccountDelete;
 }
 /**
  * Configuration options for machine account creation, including whether creation is enabled, if approval is required, associated form and entitlement IDs, and detailed approval settings such as approvers and allowed comment types.
  * @export
- * @interface MachineaccountsubtypeconfigdtoMachineAccountCreate
+ * @interface MachineAccountSubtypeConfigDtoMachineAccountCreate
  */
-export interface MachineaccountsubtypeconfigdtoMachineAccountCreate {
+export interface MachineAccountSubtypeConfigDtoMachineAccountCreate {
     /**
      * Specifies if the creation of machine accounts is allowed for this subtype.
      * @type {boolean}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountCreate
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountCreate
      */
     'accountCreateEnabled'?: boolean;
     /**
      * Specifies if approval is required for machine account creation requests for this subtype.
      * @type {boolean}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountCreate
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountCreate
      */
     'approvalRequired'?: boolean;
     /**
      * Id of the form linked to subtype.
      * @type {string}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountCreate
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountCreate
      */
     'formId'?: string;
     /**
      * Id of the system created entitlement entitlement upon enabling account creation for this subtype.
      * @type {string}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountCreate
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountCreate
      */
     'entitlementId'?: string;
     /**
      * This is required before enabling the account creation to true. Default value will be null.
      * @type {string}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountCreate
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountCreate
      */
-    'passwordSetting'?: MachineaccountsubtypeconfigdtoMachineAccountCreatePasswordSettingEnum;
+    'passwordSetting'?: MachineAccountSubtypeConfigDtoMachineAccountCreatePasswordSettingEnum;
     /**
      * Name of the account attribute from the source\'s schema or new custom attribute to use when password settings is enabled.
      * @type {string}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountCreate
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountCreate
      */
     'passwordAttribute'?: string;
     /**
      * 
-     * @type {Machinesubtypeapprovalconfig}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountCreate
+     * @type {MachineSubtypeApprovalConfig}
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountCreate
      */
-    'approvalConfig'?: Machinesubtypeapprovalconfig;
+    'approvalConfig'?: MachineSubtypeApprovalConfig;
 }
 
-export const MachineaccountsubtypeconfigdtoMachineAccountCreatePasswordSettingEnum = {
+export const MachineAccountSubtypeConfigDtoMachineAccountCreatePasswordSettingEnum = {
     DoNotSetPassword: 'DO_NOT_SET_PASSWORD',
     SetToExistingAttribute: 'SET_TO_EXISTING_ATTRIBUTE',
     SetToNewAttribute: 'SET_TO_NEW_ATTRIBUTE'
 } as const;
 
-export type MachineaccountsubtypeconfigdtoMachineAccountCreatePasswordSettingEnum = typeof MachineaccountsubtypeconfigdtoMachineAccountCreatePasswordSettingEnum[keyof typeof MachineaccountsubtypeconfigdtoMachineAccountCreatePasswordSettingEnum];
+export type MachineAccountSubtypeConfigDtoMachineAccountCreatePasswordSettingEnum = typeof MachineAccountSubtypeConfigDtoMachineAccountCreatePasswordSettingEnum[keyof typeof MachineAccountSubtypeConfigDtoMachineAccountCreatePasswordSettingEnum];
 
 /**
  * Configuration options for machine account deletion, including whether approval is required, the list of authorized approvers, and the types of comments permitted during the approval workflow.
  * @export
- * @interface MachineaccountsubtypeconfigdtoMachineAccountDelete
+ * @interface MachineAccountSubtypeConfigDtoMachineAccountDelete
  */
-export interface MachineaccountsubtypeconfigdtoMachineAccountDelete {
+export interface MachineAccountSubtypeConfigDtoMachineAccountDelete {
     /**
      * Indicates whether approval is required for an account deletion request.
      * @type {boolean}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountDelete
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountDelete
      */
     'approvalRequired'?: boolean;
     /**
      * 
-     * @type {Machinesubtypeapprovalconfig}
-     * @memberof MachineaccountsubtypeconfigdtoMachineAccountDelete
+     * @type {MachineSubtypeApprovalConfig}
+     * @memberof MachineAccountSubtypeConfigDtoMachineAccountDelete
      */
-    'approvalConfig'?: Machinesubtypeapprovalconfig;
+    'approvalConfig'?: MachineSubtypeApprovalConfig;
 }
 /**
  * 
  * @export
- * @interface Machinesubtypeapprovalconfig
+ * @interface MachineSubtypeApprovalConfig
  */
-export interface Machinesubtypeapprovalconfig {
+export interface MachineSubtypeApprovalConfig {
     /**
      * Comma separated string of approvers.  Following are the options for approver types: manager, sourceOwner, accountOwner, workgroup:[workgroupId] (Governance group).  Approval request will be assigned based on the order of the approvers passed.  Multiple workgroups(governance groups) can be selected as an approver.  >**Note:** accountOwner approver type is only for machine account delete approval settings.
      * @type {string}
-     * @memberof Machinesubtypeapprovalconfig
+     * @memberof MachineSubtypeApprovalConfig
      */
     'approvers'?: string;
     /**
      * Comment configurations for the approval request.  Following are the options for comments: ALL, OFF, APPROVAL, REJECT.
      * @type {string}
-     * @memberof Machinesubtypeapprovalconfig
+     * @memberof MachineSubtypeApprovalConfig
      */
     'comments'?: string;
 }
 /**
  * 
  * @export
- * @interface Sourcesubtypewithsource
+ * @interface SourceSubtypeWithSource
  */
-export interface Sourcesubtypewithsource {
+export interface SourceSubtypeWithSource {
     /**
      * Unique identifier for the subtype.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'id'?: string;
     /**
      * The ID of the source.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'sourceId'?: string;
     /**
      * Technical name of the subtype.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'technicalName'?: string;
     /**
      * Display name of the subtype.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'displayName'?: string;
     /**
      * Description of the subtype.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'description'?: string;
     /**
      * Creation timestamp.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'created'?: string;
     /**
      * Last modified timestamp.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'modified'?: string;
     /**
      * Type of the subtype. Either MACHINE OR null.
      * @type {string}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'type'?: string;
     /**
      * 
-     * @type {SourcesubtypewithsourceSource}
-     * @memberof Sourcesubtypewithsource
+     * @type {SourceSubtypeWithSourceSource}
+     * @memberof SourceSubtypeWithSource
      */
-    'source'?: SourcesubtypewithsourceSource;
+    'source'?: SourceSubtypeWithSourceSource;
     /**
      * Indicates if the subtype is managed by the system.
      * @type {boolean}
-     * @memberof Sourcesubtypewithsource
+     * @memberof SourceSubtypeWithSource
      */
     'systemManaged'?: boolean;
 }
 /**
  * Source reference of the subtype.
  * @export
- * @interface SourcesubtypewithsourceSource
+ * @interface SourceSubtypeWithSourceSource
  */
-export interface SourcesubtypewithsourceSource {
+export interface SourceSubtypeWithSourceSource {
     /**
      * Type of the reference object.
      * @type {string}
-     * @memberof SourcesubtypewithsourceSource
+     * @memberof SourceSubtypeWithSourceSource
      */
-    'type'?: SourcesubtypewithsourceSourceTypeEnum;
+    'type'?: SourceSubtypeWithSourceSourceTypeEnum;
     /**
      * Unique identifier for the source.
      * @type {string}
-     * @memberof SourcesubtypewithsourceSource
+     * @memberof SourceSubtypeWithSourceSource
      */
     'id'?: string;
     /**
      * Name of the source.
      * @type {string}
-     * @memberof SourcesubtypewithsourceSource
+     * @memberof SourceSubtypeWithSourceSource
      */
     'name'?: string;
 }
 
-export const SourcesubtypewithsourceSourceTypeEnum = {
+export const SourceSubtypeWithSourceSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type SourcesubtypewithsourceSourceTypeEnum = typeof SourcesubtypewithsourceSourceTypeEnum[keyof typeof SourcesubtypewithsourceSourceTypeEnum];
+export type SourceSubtypeWithSourceSourceTypeEnum = typeof SourceSubtypeWithSourceSourceTypeEnum[keyof typeof SourceSubtypeWithSourceSourceTypeEnum];
 
 
 /**
@@ -770,11 +770,11 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
          * @summary Machine Subtype Approval Config
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
          * @param {string} subtypeId machine account subtype ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateMachineAccountSubtypeApprovalConfigV1: async (xSailPointExperimental: string, subtypeId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateMachineAccountSubtypeApprovalConfigV1: async (xSailPointExperimental: string, subtypeId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -783,8 +783,8 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
             assertParamExists('updateMachineAccountSubtypeApprovalConfigV1', 'xSailPointExperimental', xSailPointExperimental)
             // verify required parameter 'subtypeId' is not null or undefined
             assertParamExists('updateMachineAccountSubtypeApprovalConfigV1', 'subtypeId', subtypeId)
-            // verify required parameter 'jsonpatchoperation' is not null or undefined
-            assertParamExists('updateMachineAccountSubtypeApprovalConfigV1', 'jsonpatchoperation', jsonpatchoperation)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateMachineAccountSubtypeApprovalConfigV1', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/source-subtypes/v1/{subtypeId}/machine-config`
                 .replace(`{${"subtypeId"}}`, encodeURIComponent(String(subtypeId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -808,7 +808,7 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatchoperation, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -833,7 +833,7 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourceSubtypeV1(createSourceSubtypeV1Request: CreateSourceSubtypeV1Request, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesubtypewithsource>> {
+        async createSourceSubtypeV1(createSourceSubtypeV1Request: CreateSourceSubtypeV1Request, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSubtypeWithSource>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSubtypeV1(createSourceSubtypeV1Request, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.createSourceSubtypeV1']?.[localVarOperationServerIndex]?.url;
@@ -861,7 +861,7 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineAccountSubtypeApprovalConfigV1(xSailPointExperimental: string, subtypeId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineaccountsubtypeconfigdto>> {
+        async getMachineAccountSubtypeApprovalConfigV1(xSailPointExperimental: string, subtypeId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountSubtypeConfigDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountSubtypeApprovalConfigV1(xSailPointExperimental, subtypeId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.getMachineAccountSubtypeApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -875,7 +875,7 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSubtypeByIdV1(subtypeId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesubtypewithsource>> {
+        async getSourceSubtypeByIdV1(subtypeId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSubtypeWithSource>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSubtypeByIdV1(subtypeId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.getSourceSubtypeByIdV1']?.[localVarOperationServerIndex]?.url;
@@ -893,7 +893,7 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSourceSubtypesV1(filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourcesubtypewithsource>>> {
+        async listSourceSubtypesV1(filters?: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceSubtypeWithSource>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSubtypesV1(filters, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.listSourceSubtypesV1']?.[localVarOperationServerIndex]?.url;
@@ -907,7 +907,7 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async loadBulkSourceSubtypesV1(xSailPointExperimental: string, requestBody: Array<string>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourcesubtypewithsource>>> {
+        async loadBulkSourceSubtypesV1(xSailPointExperimental: string, requestBody: Array<string>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceSubtypeWithSource>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.loadBulkSourceSubtypesV1(xSailPointExperimental, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.loadBulkSourceSubtypesV1']?.[localVarOperationServerIndex]?.url;
@@ -922,7 +922,7 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchMachineAccountSubtypeV1(subtypeId: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourcesubtypewithsource>> {
+        async patchMachineAccountSubtypeV1(subtypeId: string, requestBody: Array<object>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSubtypeWithSource>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchMachineAccountSubtypeV1(subtypeId, requestBody, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.patchMachineAccountSubtypeV1']?.[localVarOperationServerIndex]?.url;
@@ -933,12 +933,12 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
          * @summary Machine Subtype Approval Config
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
          * @param {string} subtypeId machine account subtype ID.
-         * @param {Array<Jsonpatchoperation>} jsonpatchoperation The JSONPatch payload used to update the object.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMachineAccountSubtypeApprovalConfigV1(xSailPointExperimental: string, subtypeId: string, jsonpatchoperation: Array<Jsonpatchoperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineaccountsubtypeconfigdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountSubtypeApprovalConfigV1(xSailPointExperimental, subtypeId, jsonpatchoperation, axiosOptions);
+        async updateMachineAccountSubtypeApprovalConfigV1(xSailPointExperimental: string, subtypeId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountSubtypeConfigDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountSubtypeApprovalConfigV1(xSailPointExperimental, subtypeId, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.updateMachineAccountSubtypeApprovalConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -960,7 +960,7 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSourceSubtypeV1(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesubtypewithsource> {
+        createSourceSubtypeV1(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceSubtypeWithSource> {
             return localVarFp.createSourceSubtypeV1(requestParameters.createSourceSubtypeV1Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -980,7 +980,7 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineAccountSubtypeApprovalConfigV1(requestParameters: MachineAccountSubtypesApiGetMachineAccountSubtypeApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineaccountsubtypeconfigdto> {
+        getMachineAccountSubtypeApprovalConfigV1(requestParameters: MachineAccountSubtypesApiGetMachineAccountSubtypeApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountSubtypeConfigDto> {
             return localVarFp.getMachineAccountSubtypeApprovalConfigV1(requestParameters.xSailPointExperimental, requestParameters.subtypeId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -990,7 +990,7 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSubtypeByIdV1(requestParameters: MachineAccountSubtypesApiGetSourceSubtypeByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesubtypewithsource> {
+        getSourceSubtypeByIdV1(requestParameters: MachineAccountSubtypesApiGetSourceSubtypeByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceSubtypeWithSource> {
             return localVarFp.getSourceSubtypeByIdV1(requestParameters.subtypeId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1000,7 +1000,7 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSourceSubtypesV1(requestParameters: MachineAccountSubtypesApiListSourceSubtypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourcesubtypewithsource>> {
+        listSourceSubtypesV1(requestParameters: MachineAccountSubtypesApiListSourceSubtypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceSubtypeWithSource>> {
             return localVarFp.listSourceSubtypesV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1010,7 +1010,7 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadBulkSourceSubtypesV1(requestParameters: MachineAccountSubtypesApiLoadBulkSourceSubtypesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourcesubtypewithsource>> {
+        loadBulkSourceSubtypesV1(requestParameters: MachineAccountSubtypesApiLoadBulkSourceSubtypesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceSubtypeWithSource>> {
             return localVarFp.loadBulkSourceSubtypesV1(requestParameters.xSailPointExperimental, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1020,7 +1020,7 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchMachineAccountSubtypeV1(requestParameters: MachineAccountSubtypesApiPatchMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourcesubtypewithsource> {
+        patchMachineAccountSubtypeV1(requestParameters: MachineAccountSubtypesApiPatchMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceSubtypeWithSource> {
             return localVarFp.patchMachineAccountSubtypeV1(requestParameters.subtypeId, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1030,8 +1030,8 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateMachineAccountSubtypeApprovalConfigV1(requestParameters: MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineaccountsubtypeconfigdto> {
-            return localVarFp.updateMachineAccountSubtypeApprovalConfigV1(requestParameters.xSailPointExperimental, requestParameters.subtypeId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(axios, basePath));
+        updateMachineAccountSubtypeApprovalConfigV1(requestParameters: MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountSubtypeConfigDto> {
+            return localVarFp.updateMachineAccountSubtypeApprovalConfigV1(requestParameters.xSailPointExperimental, requestParameters.subtypeId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1240,10 +1240,10 @@ export interface MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalCon
 
     /**
      * The JSONPatch payload used to update the object.
-     * @type {Array<Jsonpatchoperation>}
+     * @type {Array<JsonPatchOperation>}
      * @memberof MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalConfigV1
      */
-    readonly jsonpatchoperation: Array<Jsonpatchoperation>
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -1346,7 +1346,7 @@ export class MachineAccountSubtypesApi extends BaseAPI {
      * @memberof MachineAccountSubtypesApi
      */
     public updateMachineAccountSubtypeApprovalConfigV1(requestParameters: MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountSubtypesApiFp(this.configuration).updateMachineAccountSubtypeApprovalConfigV1(requestParameters.xSailPointExperimental, requestParameters.subtypeId, requestParameters.jsonpatchoperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineAccountSubtypesApiFp(this.configuration).updateMachineAccountSubtypeApprovalConfigV1(requestParameters.xSailPointExperimental, requestParameters.subtypeId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

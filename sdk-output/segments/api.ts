@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -191,45 +191,45 @@ export interface ListSegmentsV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * The owner of this object.
  * @export
- * @interface Ownerreferencesegments
+ * @interface OwnerReferenceSegments
  */
-export interface Ownerreferencesegments {
+export interface OwnerReferenceSegments {
     /**
      * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof Ownerreferencesegments
+     * @memberof OwnerReferenceSegments
      */
-    'type'?: OwnerreferencesegmentsTypeEnum;
+    'type'?: OwnerReferenceSegmentsTypeEnum;
     /**
      * Identity id
      * @type {string}
-     * @memberof Ownerreferencesegments
+     * @memberof OwnerReferenceSegments
      */
     'id'?: string;
     /**
      * Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
      * @type {string}
-     * @memberof Ownerreferencesegments
+     * @memberof OwnerReferenceSegments
      */
     'name'?: string;
 }
 
-export const OwnerreferencesegmentsTypeEnum = {
+export const OwnerReferenceSegmentsTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerreferencesegmentsTypeEnum = typeof OwnerreferencesegmentsTypeEnum[keyof typeof OwnerreferencesegmentsTypeEnum];
+export type OwnerReferenceSegmentsTypeEnum = typeof OwnerReferenceSegmentsTypeEnum[keyof typeof OwnerReferenceSegmentsTypeEnum];
 
 /**
  * 
@@ -269,10 +269,10 @@ export interface Segment {
     'description'?: string;
     /**
      * 
-     * @type {Ownerreferencesegments}
+     * @type {OwnerReferenceSegments}
      * @memberof Segment
      */
-    'owner'?: Ownerreferencesegments | null;
+    'owner'?: OwnerReferenceSegments | null;
     /**
      * 
      * @type {SegmentVisibilityCriteria}
@@ -321,13 +321,13 @@ export interface Value {
 /**
  * 
  * @export
- * @interface Visibilitycriteria
+ * @interface VisibilityCriteria
  */
-export interface Visibilitycriteria {
+export interface VisibilityCriteria {
     /**
      * 
      * @type {Expression}
-     * @memberof Visibilitycriteria
+     * @memberof VisibilityCriteria
      */
     'expression'?: Expression;
 }

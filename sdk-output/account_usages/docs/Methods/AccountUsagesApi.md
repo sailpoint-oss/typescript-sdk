@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accountusage>`
+`Array<AccountUsage>`
 
 ### HTTP request headers
 

@@ -150,11 +150,11 @@ Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id |  [default to undefined]
-**provisioningpolicydto** | `Provisioningpolicydto` |  | 
+**provisioningPolicyDto** | `ProvisioningPolicyDto` |  | 
 
 ### Return type
 
-`Provisioningpolicydto`
+`ProvisioningPolicyDto`
 
 ### HTTP request headers
 
@@ -166,13 +166,52 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Provisioningpolicydto } from 'sailpoint-api-client/dist/sources/api';
+import { ProvisioningPolicyDto } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id
-const provisioningpolicydto: Provisioningpolicydto = {"name":"Account","description":"Account Provisioning Policy","usageType":"CREATE","fields":[{"name":"displayName","transform":{"type":"identityAttribute","attributes":{"name":"displayName"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false},{"name":"distinguishedName","transform":{"type":"usernameGenerator","attributes":{"sourceCheck":true,"patterns":["CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn$ln${uniqueCounter},OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"],"fn":{"type":"identityAttribute","attributes":{"name":"firstname"}},"ln":{"type":"identityAttribute","attributes":{"name":"lastname"}},"fi":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":1}},"fti":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":2}}}},"attributes":{"cloudMaxUniqueChecks":"5","cloudMaxSize":"100","cloudRequired":"true"},"isRequired":false,"type":"","isMultiValued":false},{"name":"description","transform":{"type":"static","attributes":{"value":""}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}]}; // 
-const result = await apiInstance.createProvisioningPolicyV1({ sourceId: sourceId, provisioningpolicydto: provisioningpolicydto });
+const provisioningPolicyDto: ProvisioningPolicyDto = {
+  "name" : "example provisioning policy for inactive identities",
+  "description" : "this provisioning policy creates access based on an identity going inactive",
+  "fields" : [ {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  }, {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  } ],
+  "usageType" : "CREATE"
+}; // 
+const result = await apiInstance.createProvisioningPolicyV1({ sourceId: sourceId, provisioningPolicyDto: provisioningPolicyDto });
 console.log(result);
 ```
 
@@ -197,13 +236,13 @@ Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id |  [default to undefined]
-**provisioningpolicydtov2** | `Provisioningpolicydtov2` |  | 
+**provisioningPolicyDtoV2** | `ProvisioningPolicyDtoV2` |  | 
 **useDefaultFields** | `boolean` | If passed as true, then it uses default fields from the connector template. | [optional] [default to false]
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Provisioningpolicydtov2`
+`ProvisioningPolicyDtoV2`
 
 ### HTTP request headers
 
@@ -215,15 +254,56 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Provisioningpolicydtov2 } from 'sailpoint-api-client/dist/sources/api';
+import { ProvisioningPolicyDtoV2 } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id
-const provisioningpolicydtov2: Provisioningpolicydtov2 = {"name":"Account","description":"Account Provisioning Policy","usageType":"CREATE","fields":[{"name":"displayName","transform":{"type":"identityAttribute","attributes":{"name":"displayName"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false},{"name":"distinguishedName","transform":{"type":"usernameGenerator","attributes":{"sourceCheck":true,"patterns":["CN=$fi $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fti $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn $ln,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com","CN=$fn$ln<uniqueCounter>,OU=zzUsers,OU=Demo,DC=seri,DC=sailpointdemo,DC=com"],"fn":{"type":"identityAttribute","attributes":{"name":"firstname"}},"ln":{"type":"identityAttribute","attributes":{"name":"lastname"}},"fi":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":1}},"fti":{"type":"substring","attributes":{"input":{"type":"identityAttribute","attributes":{"name":"firstname"}},"begin":0,"end":2}}}},"attributes":{"cloudMaxUniqueChecks":"5","cloudMaxSize":"100","cloudRequired":"true"},"isRequired":false,"type":"","isMultiValued":false},{"name":"description","transform":{"type":"static","attributes":{"value":""}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}]}; // 
+const provisioningPolicyDtoV2: ProvisioningPolicyDtoV2 = {
+  "name" : "example provisioning policy for inactive identities",
+  "description" : "this provisioning policy creates access based on an identity going inactive",
+  "id" : "d7ae9ea3-507f-4d00-9d4f-b4464b344b88",
+  "subtypeId" : "d7ae9ea3-507f-4d00-9d4f-b4464b344b88",
+  "fields" : [ {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "firstname.lastname.uniqueCounter",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  }, {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "firstname.lastname.uniqueCounter",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  } ],
+  "usageType" : "CREATE"
+}; // 
 const useDefaultFields: boolean = false; // If passed as true, then it uses default fields from the connector template. (optional)
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createProvisioningPolicyV2({ sourceId: sourceId, provisioningpolicydtov2: provisioningpolicydtov2 });
+const result = await apiInstance.createProvisioningPolicyV2({ sourceId: sourceId, provisioningPolicyDtoV2: provisioningPolicyDtoV2 });
 console.log(result);
 ```
 
@@ -304,7 +384,40 @@ import { Schema } from 'sailpoint-api-client/dist/sources/api';
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
-const schema: Schema = ; // 
+const schema: Schema = {
+  "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+  "nativeObjectType" : "User",
+  "configuration" : {
+    "groupMemberAttribute" : "member"
+  },
+  "created" : "2019-12-24T22:32:58.104Z",
+  "includePermissions" : false,
+  "name" : "account",
+  "hierarchyAttribute" : "memberOf",
+  "modified" : "2019-12-31T20:22:28.104Z",
+  "attributes" : [ {
+    "name" : "sAMAccountName",
+    "type" : "STRING",
+    "isMultiValued" : false,
+    "isEntitlement" : false,
+    "isGroup" : false
+  }, {
+    "name" : "memberOf",
+    "type" : "STRING",
+    "schema" : {
+      "type" : "CONNECTOR_SCHEMA",
+      "id" : "2c9180887671ff8c01767b4671fc7d60",
+      "name" : "group"
+    },
+    "description" : "Group membership",
+    "isMultiValued" : true,
+    "isEntitlement" : true,
+    "isGroup" : true
+  } ],
+  "id" : "2c9180835d191a86015d28455b4a2329",
+  "displayAttribute" : "distinguishedName",
+  "identityAttribute" : "sAMAccountName"
+}; // 
 const result = await apiInstance.createSourceSchemaV1({ sourceId: sourceId, schema: schema });
 console.log(result);
 ```
@@ -343,7 +456,89 @@ import { Source } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
-const source: Source = ; // 
+const source: Source = {
+  "cluster" : {
+    "name" : "Corporate Cluster",
+    "id" : "2c9180866166b5b0016167c32ef31a66",
+    "type" : "CLUSTER"
+  },
+  "deleteThreshold" : 10,
+  "connectorId" : "active-directory",
+  "description" : "This is the corporate directory.",
+  "type" : "OpenLDAP - Direct",
+  "connectorClass" : "sailpoint.connector.LDAPConnector",
+  "connectionType" : "file",
+  "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+  "passwordPolicies" : [ {
+    "type" : "PASSWORD_POLICY",
+    "id" : "2c9180855d191c59015d291ceb053980",
+    "name" : "Corporate Password Policy"
+  }, {
+    "type" : "PASSWORD_POLICY",
+    "id" : "2c9180855d191c59015d291ceb057777",
+    "name" : "Vendor Password Policy"
+  } ],
+  "modified" : "2024-01-23T18:08:50.897Z",
+  "id" : "2c91808568c529c60168cca6f90c1324",
+  "connectorImplementationId" : "delimited-file",
+  "managerCorrelationRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "RULE"
+  },
+  "owner" : {
+    "name" : "MyName",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "managementWorkgroup" : {
+    "name" : "My Management Workgroup",
+    "id" : "2c91808568c529c60168cca6f90c2222",
+    "type" : "GOVERNANCE_GROUP"
+  },
+  "accountCorrelationRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "RULE"
+  },
+  "authoritative" : false,
+  "connectorAttributes" : {
+    "healthCheckTimeout" : 30,
+    "authSearchAttributes" : [ "cn", "uid", "mail" ]
+  },
+  "created" : "2022-02-08T14:50:03.827Z",
+  "managerCorrelationMapping" : {
+    "accountAttributeName" : "manager",
+    "identityAttributeName" : "manager"
+  },
+  "credentialProviderEnabled" : false,
+  "accountCorrelationConfig" : {
+    "name" : "Directory [source-62867] Account Correlation",
+    "id" : "2c9180855d191c59015d28583727245a",
+    "type" : "ACCOUNT_CORRELATION_CONFIG"
+  },
+  "connector" : "active-directory",
+  "healthy" : true,
+  "schemas" : [ {
+    "type" : "CONNECTOR_SCHEMA",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "name" : "account"
+  }, {
+    "type" : "CONNECTOR_SCHEMA",
+    "id" : "2c9180835d191a86015d28455b4b232b",
+    "name" : "group"
+  } ],
+  "name" : "My Source",
+  "connectorName" : "Active Directory",
+  "category" : "CredentialProvider",
+  "beforeProvisioningRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "RULE"
+  },
+  "status" : "SOURCE_STATE_HEALTHY",
+  "since" : "2021-09-28T15:48:29.3801666300Z"
+}; // 
 const provisionAsCsv: boolean = false; // If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.   (optional)
 const result = await apiInstance.createSourceV1({ source: source });
 console.log(result);
@@ -372,7 +567,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Taskresultdto`
+`TaskResultDto`
 
 ### HTTP request headers
 
@@ -443,7 +638,7 @@ Deletes the provisioning policy with the specified usage on an application.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source ID. |  [default to undefined]
-**usageType** | `Usagetype` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
+**usageType** | `UsageType` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
 
 ### Return type
 
@@ -463,7 +658,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
-const usageType: Usagetype = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+const usageType: UsageType = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
 const result = await apiInstance.deleteProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType });
 console.log(result);
 ```
@@ -646,7 +841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accountdeleteconfigdto`
+`AccountDeleteConfigDto`
 
 ### HTTP request headers
 
@@ -721,7 +916,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Correlationconfig`
+`CorrelationConfig`
 
 ### HTTP request headers
 
@@ -799,7 +994,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accountdeleteconfigdto`
+`AccountDeleteConfigDto`
 
 ### HTTP request headers
 
@@ -836,7 +1031,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Nativechangedetectionconfig`
+`NativeChangeDetectionConfig`
 
 ### HTTP request headers
 
@@ -870,11 +1065,11 @@ This end-point retrieves the ProvisioningPolicy with the specified usage on the 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source ID. |  [default to undefined]
-**usageType** | `Usagetype` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
+**usageType** | `UsageType` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
 
 ### Return type
 
-`Provisioningpolicydto`
+`ProvisioningPolicyDto`
 
 ### HTTP request headers
 
@@ -890,7 +1085,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
-const usageType: Usagetype = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+const usageType: UsageType = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
 const result = await apiInstance.getProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType });
 console.log(result);
 ```
@@ -917,7 +1112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Provisioningpolicydtov2`
+`ProvisioningPolicyDtoV2`
 
 ### HTTP request headers
 
@@ -960,7 +1155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Attrsyncsourceconfig`
+`AttrSyncSourceConfig`
 
 ### HTTP request headers
 
@@ -999,7 +1194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Connectordetail`
+`ConnectorDetail`
 
 ### HTTP request headers
 
@@ -1037,7 +1232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourceconnectionsdto`
+`SourceConnectionsDto`
 
 ### HTTP request headers
 
@@ -1082,7 +1277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourceentitlementrequestconfig`
+`SourceEntitlementRequestConfig`
 
 ### HTTP request headers
 
@@ -1120,7 +1315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourcehealthdto`
+`SourceHealthDto`
 
 ### HTTP request headers
 
@@ -1409,7 +1604,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Loadaccountstask`
+`LoadAccountsTask`
 
 ### HTTP request headers
 
@@ -1538,7 +1733,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Loadentitlementtask`
+`LoadEntitlementTask`
 
 ### HTTP request headers
 
@@ -1577,7 +1772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Loaduncorrelatedaccountstask`
+`LoadUncorrelatedAccountsTask`
 
 ### HTTP request headers
 
@@ -1620,7 +1815,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<PasswordpolicyholdersdtoInner>`
+`Array<PasswordPolicyHoldersDtoInner>`
 
 ### HTTP request headers
 
@@ -1662,7 +1857,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Provisioningpolicydto>`
+`Array<ProvisioningPolicyDto>`
 
 ### HTTP request headers
 
@@ -1708,7 +1903,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Provisioningpolicydtov2>`
+`Array<ProvisioningPolicyDtoV2>`
 
 ### HTTP request headers
 
@@ -1798,7 +1993,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Statusresponse`
+`StatusResponse`
 
 ### HTTP request headers
 
@@ -1832,11 +2027,11 @@ Replaces the correlation configuration for the source specified by the given ID 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The source id |  [default to undefined]
-**correlationconfig** | `Correlationconfig` |  | 
+**correlationConfig** | `CorrelationConfig` |  | 
 
 ### Return type
 
-`Correlationconfig`
+`CorrelationConfig`
 
 ### HTTP request headers
 
@@ -1848,13 +2043,33 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Correlationconfig } from 'sailpoint-api-client/dist/sources/api';
+import { CorrelationConfig } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const id: string = 2c9180835d191a86015d28455b4a2329; // The source id
-const correlationconfig: Correlationconfig = ; // 
-const result = await apiInstance.putCorrelationConfigV1({ id: id, correlationconfig: correlationconfig });
+const correlationConfig: CorrelationConfig = {
+  "attributeAssignments" : [ {
+    "filterString" : "first_name == \"John\"",
+    "ignoreCase" : false,
+    "complex" : false,
+    "property" : "first_name",
+    "value" : "firstName",
+    "operation" : "EQ",
+    "matchMode" : "ANYWHERE"
+  }, {
+    "filterString" : "first_name == \"John\"",
+    "ignoreCase" : false,
+    "complex" : false,
+    "property" : "first_name",
+    "value" : "firstName",
+    "operation" : "EQ",
+    "matchMode" : "ANYWHERE"
+  } ],
+  "name" : "Source [source] Account Correlation",
+  "id" : "2c9180835d191a86015d28455b4a2329"
+}; // 
+const result = await apiInstance.putCorrelationConfigV1({ id: id, correlationConfig: correlationConfig });
 console.log(result);
 ```
 
@@ -1872,11 +2087,11 @@ Replaces the native change detection configuration for the source specified by t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The source id |  [default to undefined]
-**nativechangedetectionconfig** | `Nativechangedetectionconfig` |  | 
+**nativeChangeDetectionConfig** | `NativeChangeDetectionConfig` |  | 
 
 ### Return type
 
-`Nativechangedetectionconfig`
+`NativeChangeDetectionConfig`
 
 ### HTTP request headers
 
@@ -1888,13 +2103,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Nativechangedetectionconfig } from 'sailpoint-api-client/dist/sources/api';
+import { NativeChangeDetectionConfig } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The source id
-const nativechangedetectionconfig: Nativechangedetectionconfig = ; // 
-const result = await apiInstance.putNativeChangeDetectionConfigV1({ sourceId: sourceId, nativechangedetectionconfig: nativechangedetectionconfig });
+const nativeChangeDetectionConfig: NativeChangeDetectionConfig = {
+  "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
+  "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
+  "selectedNonEntitlementAttributes" : [ "lastName", "phoneNumber", "objectType", "servicePrincipalName" ],
+  "allNonEntitlementAttributes" : false,
+  "allEntitlements" : false,
+  "enabled" : true
+}; // 
+const result = await apiInstance.putNativeChangeDetectionConfigV1({ sourceId: sourceId, nativeChangeDetectionConfig: nativeChangeDetectionConfig });
 console.log(result);
 ```
 
@@ -1914,12 +2136,12 @@ Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source ID. |  [default to undefined]
-**usageType** | `Usagetype` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
-**provisioningpolicydto** | `Provisioningpolicydto` |  | 
+**usageType** | `UsageType` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
+**provisioningPolicyDto** | `ProvisioningPolicyDto` |  | 
 
 ### Return type
 
-`Provisioningpolicydto`
+`ProvisioningPolicyDto`
 
 ### HTTP request headers
 
@@ -1931,14 +2153,53 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Provisioningpolicydto } from 'sailpoint-api-client/dist/sources/api';
+import { ProvisioningPolicyDto } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
-const usageType: Usagetype = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-const provisioningpolicydto: Provisioningpolicydto = ; // 
-const result = await apiInstance.putProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType, provisioningpolicydto: provisioningpolicydto });
+const usageType: UsageType = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+const provisioningPolicyDto: ProvisioningPolicyDto = {
+  "name" : "example provisioning policy for inactive identities",
+  "description" : "this provisioning policy creates access based on an identity going inactive",
+  "fields" : [ {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  }, {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  } ],
+  "usageType" : "CREATE"
+}; // 
+const result = await apiInstance.putProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType, provisioningPolicyDto: provisioningPolicyDto });
 console.log(result);
 ```
 
@@ -1962,12 +2223,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source ID. |  [default to undefined]
 **id** | `string` | The provisioning policy ID. |  [default to undefined]
-**provisioningpolicydtov2** | `Provisioningpolicydtov2` |  | 
+**provisioningPolicyDtoV2** | `ProvisioningPolicyDtoV2` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Provisioningpolicydtov2`
+`ProvisioningPolicyDtoV2`
 
 ### HTTP request headers
 
@@ -1979,15 +2240,56 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Provisioningpolicydtov2 } from 'sailpoint-api-client/dist/sources/api';
+import { ProvisioningPolicyDtoV2 } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
 const id: string = f5dd23fe-3414-42b7-bb1c-869400ad7a10; // The provisioning policy ID.
-const provisioningpolicydtov2: Provisioningpolicydtov2 = ; // 
+const provisioningPolicyDtoV2: ProvisioningPolicyDtoV2 = {
+  "name" : "example provisioning policy for inactive identities",
+  "description" : "this provisioning policy creates access based on an identity going inactive",
+  "id" : "d7ae9ea3-507f-4d00-9d4f-b4464b344b88",
+  "subtypeId" : "d7ae9ea3-507f-4d00-9d4f-b4464b344b88",
+  "fields" : [ {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "firstname.lastname.uniqueCounter",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  }, {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "firstname.lastname.uniqueCounter",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  } ],
+  "usageType" : "CREATE"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.putProvisioningPolicyV2({ sourceId: sourceId, id: id, provisioningpolicydtov2: provisioningpolicydtov2 });
+const result = await apiInstance.putProvisioningPolicyV2({ sourceId: sourceId, id: id, provisioningPolicyDtoV2: provisioningPolicyDtoV2 });
 console.log(result);
 ```
 
@@ -2009,12 +2311,12 @@ Replaces the attribute synchronization configuration for the source specified by
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The source id |  [default to undefined]
-**attrsyncsourceconfig** | `Attrsyncsourceconfig` |  | 
+**attrSyncSourceConfig** | `AttrSyncSourceConfig` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Attrsyncsourceconfig`
+`AttrSyncSourceConfig`
 
 ### HTTP request headers
 
@@ -2026,14 +2328,31 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Attrsyncsourceconfig } from 'sailpoint-api-client/dist/sources/api';
+import { AttrSyncSourceConfig } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const id: string = 2c9180835d191a86015d28455b4a2329; // The source id
-const attrsyncsourceconfig: Attrsyncsourceconfig = ; // 
+const attrSyncSourceConfig: AttrSyncSourceConfig = {
+  "attributes" : [ {
+    "name" : "email",
+    "displayName" : "Email",
+    "enabled" : true,
+    "target" : "mail"
+  }, {
+    "name" : "firstname",
+    "displayName" : "First Name",
+    "enabled" : false,
+    "target" : "givenName"
+  } ],
+  "source" : {
+    "name" : "HR Active Directory",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "type" : "SOURCE"
+  }
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.putSourceAttrSyncConfigV1({ id: id, attrsyncsourceconfig: attrsyncsourceconfig });
+const result = await apiInstance.putSourceAttrSyncConfigV1({ id: id, attrSyncSourceConfig: attrSyncSourceConfig });
 console.log(result);
 ```
 
@@ -2084,7 +2403,40 @@ const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id.
 const schemaId: string = 2c9180835d191a86015d28455b4a2329; // The Schema id.
-const schema: Schema = ; // 
+const schema: Schema = {
+  "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+  "nativeObjectType" : "User",
+  "configuration" : {
+    "groupMemberAttribute" : "member"
+  },
+  "created" : "2019-12-24T22:32:58.104Z",
+  "includePermissions" : false,
+  "name" : "account",
+  "hierarchyAttribute" : "memberOf",
+  "modified" : "2019-12-31T20:22:28.104Z",
+  "attributes" : [ {
+    "name" : "sAMAccountName",
+    "type" : "STRING",
+    "isMultiValued" : false,
+    "isEntitlement" : false,
+    "isGroup" : false
+  }, {
+    "name" : "memberOf",
+    "type" : "STRING",
+    "schema" : {
+      "type" : "CONNECTOR_SCHEMA",
+      "id" : "2c9180887671ff8c01767b4671fc7d60",
+      "name" : "group"
+    },
+    "description" : "Group membership",
+    "isMultiValued" : true,
+    "isEntitlement" : true,
+    "isGroup" : true
+  } ],
+  "id" : "2c9180835d191a86015d28455b4a2329",
+  "displayAttribute" : "distinguishedName",
+  "identityAttribute" : "sAMAccountName"
+}; // 
 const result = await apiInstance.putSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId, schema: schema });
 console.log(result);
 ```
@@ -2136,7 +2488,89 @@ import { Source } from 'sailpoint-api-client/dist/sources/api';
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const id: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
-const source: Source = ; // 
+const source: Source = {
+  "cluster" : {
+    "name" : "Corporate Cluster",
+    "id" : "2c9180866166b5b0016167c32ef31a66",
+    "type" : "CLUSTER"
+  },
+  "deleteThreshold" : 10,
+  "connectorId" : "active-directory",
+  "description" : "This is the corporate directory.",
+  "type" : "OpenLDAP - Direct",
+  "connectorClass" : "sailpoint.connector.LDAPConnector",
+  "connectionType" : "file",
+  "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+  "passwordPolicies" : [ {
+    "type" : "PASSWORD_POLICY",
+    "id" : "2c9180855d191c59015d291ceb053980",
+    "name" : "Corporate Password Policy"
+  }, {
+    "type" : "PASSWORD_POLICY",
+    "id" : "2c9180855d191c59015d291ceb057777",
+    "name" : "Vendor Password Policy"
+  } ],
+  "modified" : "2024-01-23T18:08:50.897Z",
+  "id" : "2c91808568c529c60168cca6f90c1324",
+  "connectorImplementationId" : "delimited-file",
+  "managerCorrelationRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "RULE"
+  },
+  "owner" : {
+    "name" : "MyName",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "managementWorkgroup" : {
+    "name" : "My Management Workgroup",
+    "id" : "2c91808568c529c60168cca6f90c2222",
+    "type" : "GOVERNANCE_GROUP"
+  },
+  "accountCorrelationRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "RULE"
+  },
+  "authoritative" : false,
+  "connectorAttributes" : {
+    "healthCheckTimeout" : 30,
+    "authSearchAttributes" : [ "cn", "uid", "mail" ]
+  },
+  "created" : "2022-02-08T14:50:03.827Z",
+  "managerCorrelationMapping" : {
+    "accountAttributeName" : "manager",
+    "identityAttributeName" : "manager"
+  },
+  "credentialProviderEnabled" : false,
+  "accountCorrelationConfig" : {
+    "name" : "Directory [source-62867] Account Correlation",
+    "id" : "2c9180855d191c59015d28583727245a",
+    "type" : "ACCOUNT_CORRELATION_CONFIG"
+  },
+  "connector" : "active-directory",
+  "healthy" : true,
+  "schemas" : [ {
+    "type" : "CONNECTOR_SCHEMA",
+    "id" : "2c9180835d191a86015d28455b4b232a",
+    "name" : "account"
+  }, {
+    "type" : "CONNECTOR_SCHEMA",
+    "id" : "2c9180835d191a86015d28455b4b232b",
+    "name" : "group"
+  } ],
+  "name" : "My Source",
+  "connectorName" : "Active Directory",
+  "category" : "CredentialProvider",
+  "beforeProvisioningRule" : {
+    "name" : "Example Rule",
+    "id" : "2c918085708c274401708c2a8a760001",
+    "type" : "RULE"
+  },
+  "status" : "SOURCE_STATE_HEALTHY",
+  "since" : "2021-09-28T15:48:29.3801666300Z"
+}; // 
 const result = await apiInstance.putSourceV1({ id: id, source: source });
 console.log(result);
 ```
@@ -2155,11 +2589,11 @@ Retrieves a sample of data returned from account and group aggregation requests.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The ID of the Source |  [default to undefined]
-**resourceobjectsrequest** | `Resourceobjectsrequest` |  | 
+**resourceObjectsRequest** | `ResourceObjectsRequest` |  | 
 
 ### Return type
 
-`Resourceobjectsresponse`
+`ResourceObjectsResponse`
 
 ### HTTP request headers
 
@@ -2171,13 +2605,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Resourceobjectsrequest } from 'sailpoint-api-client/dist/sources/api';
+import { ResourceObjectsRequest } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = cef3ee201db947c5912551015ba0c679; // The ID of the Source
-const resourceobjectsrequest: Resourceobjectsrequest = ; // 
-const result = await apiInstance.searchResourceObjectsV1({ sourceId: sourceId, resourceobjectsrequest: resourceobjectsrequest });
+const resourceObjectsRequest: ResourceObjectsRequest = {
+  "maxCount" : 100,
+  "objectType" : "group"
+}; // 
+const result = await apiInstance.searchResourceObjectsV1({ sourceId: sourceId, resourceObjectsRequest: resourceObjectsRequest });
 console.log(result);
 ```
 
@@ -2202,7 +2639,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourcesyncjob`
+`SourceSyncJob`
 
 ### HTTP request headers
 
@@ -2240,7 +2677,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Statusresponse`
+`StatusResponse`
 
 ### HTTP request headers
 
@@ -2277,7 +2714,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Statusresponse`
+`StatusResponse`
 
 ### HTTP request headers
 
@@ -2312,11 +2749,11 @@ Updates the approval configuration for deleting human accounts for a specific so
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | Human account source ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the object. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the object. | 
 
 ### Return type
 
-`Accountdeleteconfigdto`
+`AccountDeleteConfigDto`
 
 ### HTTP request headers
 
@@ -2328,13 +2765,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 00eebcf881994e419d72e757fd30dc0e; // Human account source ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // The JSONPatch payload used to update the object.
-const result = await apiInstance.updateAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the object.
+const result = await apiInstance.updateAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -2356,11 +2797,11 @@ The endpoint expects the source ID as a path parameter and a valid JSON Patch ar
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | machine account source ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the object. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the object. | 
 
 ### Return type
 
-`Accountdeleteconfigdto`
+`AccountDeleteConfigDto`
 
 ### HTTP request headers
 
@@ -2372,13 +2813,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 00eebcf881994e419d72e757fd30dc0e; // machine account source ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // The JSONPatch payload used to update the object.
-const result = await apiInstance.updateMachineAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the object.
+const result = await apiInstance.updateMachineAccountDeletionApprovalConfigV1({ sourceId: sourceId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -2398,11 +2843,11 @@ Source must support PASSWORD feature.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id |  [default to undefined]
-**passwordpolicyholdersdtoInner** | `Array<PasswordpolicyholdersdtoInner>` |  | 
+**passwordPolicyHoldersDtoInner** | `Array<PasswordPolicyHoldersDtoInner>` |  | 
 
 ### Return type
 
-`Array<PasswordpolicyholdersdtoInner>`
+`Array<PasswordPolicyHoldersDtoInner>`
 
 ### HTTP request headers
 
@@ -2414,13 +2859,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { PasswordpolicyholdersdtoInner } from 'sailpoint-api-client/dist/sources/api';
+import { PasswordPolicyHoldersDtoInner } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 8c190e6787aa4ed9a90bd9d5344523fb; // The Source id
-const passwordpolicyholdersdtoInner: Array<PasswordpolicyholdersdtoInner> = ; // 
-const result = await apiInstance.updatePasswordPolicyHoldersV1({ sourceId: sourceId, passwordpolicyholdersdtoInner: passwordpolicyholdersdtoInner });
+const passwordPolicyHoldersDtoInner: Array<PasswordPolicyHoldersDtoInner> = ; // 
+const result = await apiInstance.updatePasswordPolicyHoldersV1({ sourceId: sourceId, passwordPolicyHoldersDtoInner: passwordPolicyHoldersDtoInner });
 console.log(result);
 ```
 
@@ -2438,11 +2883,11 @@ This end-point updates a list of provisioning policies on the specified source i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id. |  [default to undefined]
-**provisioningpolicydto** | `Array<Provisioningpolicydto>` |  | 
+**provisioningPolicyDto** | `Array<ProvisioningPolicyDto>` |  | 
 
 ### Return type
 
-`Array<Provisioningpolicydto>`
+`Array<ProvisioningPolicyDto>`
 
 ### HTTP request headers
 
@@ -2454,13 +2899,52 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Provisioningpolicydto } from 'sailpoint-api-client/dist/sources/api';
+import { ProvisioningPolicyDto } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id.
-const provisioningpolicydto: Array<Provisioningpolicydto> = ; // 
-const result = await apiInstance.updateProvisioningPoliciesInBulkV1({ sourceId: sourceId, provisioningpolicydto: provisioningpolicydto });
+const provisioningPolicyDto: Array<ProvisioningPolicyDto> = {
+  "name" : "example provisioning policy for inactive identities",
+  "description" : "this provisioning policy creates access based on an identity going inactive",
+  "fields" : [ {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  }, {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  } ],
+  "usageType" : "CREATE"
+}; // 
+const result = await apiInstance.updateProvisioningPoliciesInBulkV1({ sourceId: sourceId, provisioningPolicyDto: provisioningPolicyDto });
 console.log(result);
 ```
 
@@ -2480,12 +2964,12 @@ Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id. |  [default to undefined]
-**usageType** | `Usagetype` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the schema. | 
+**usageType** | `UsageType` | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. |  [default to undefined]
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the schema. | 
 
 ### Return type
 
-`Provisioningpolicydto`
+`ProvisioningPolicyDto`
 
 ### HTTP request headers
 
@@ -2497,14 +2981,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id.
-const usageType: Usagetype = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // The JSONPatch payload used to update the schema.
-const result = await apiInstance.updateProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType, jsonpatchoperation: jsonpatchoperation });
+const usageType: UsageType = CREATE; // The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \&#39;Create Account Profile\&#39;, the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \&#39;Update Account Profile\&#39;, the provisioning template for the \&#39;Update\&#39; connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \&#39;Enable Account Profile\&#39;, the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\&#39;s account is created.  DISABLE - This usage type relates to \&#39;Disable Account Profile\&#39;, the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the schema.
+const result = await apiInstance.updateProvisioningPolicyV1({ sourceId: sourceId, usageType: usageType, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -2528,12 +3016,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id. |  [default to undefined]
 **id** | `string` | The provisioning policy ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the schema. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the schema. | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Provisioningpolicydtov2`
+`ProvisioningPolicyDtoV2`
 
 ### HTTP request headers
 
@@ -2545,15 +3033,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id.
 const id: string = f5dd23fe-3414-42b7-bb1c-869400ad7a10; // The provisioning policy ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/fields/0","value":{"name":"email","transform":{"type":"identityAttribute","attributes":{"name":"email"}},"attributes":{},"isRequired":false,"type":"string","isMultiValued":false}}]; // The JSONPatch payload used to update the schema.
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the schema.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.updateProvisioningPolicyV2({ sourceId: sourceId, id: id, jsonpatchoperation: jsonpatchoperation });
+const result = await apiInstance.updateProvisioningPolicyV2({ sourceId: sourceId, id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -2578,12 +3070,12 @@ Access request to any entitlements in the source should follow this configuratio
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The Source id |  [default to undefined]
-**sourceentitlementrequestconfig** | `Sourceentitlementrequestconfig` |  | 
+**sourceEntitlementRequestConfig** | `SourceEntitlementRequestConfig` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Sourceentitlementrequestconfig`
+`SourceEntitlementRequestConfig`
 
 ### HTTP request headers
 
@@ -2595,14 +3087,41 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Sourceentitlementrequestconfig } from 'sailpoint-api-client/dist/sources/api';
+import { SourceEntitlementRequestConfig } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const id: string = 8c190e6787aa4ed9a90bd9d5344523fb; // The Source id
-const sourceentitlementrequestconfig: Sourceentitlementrequestconfig = {"accessRequestConfig":{"approvalSchemes":[]}}; // 
+const sourceEntitlementRequestConfig: SourceEntitlementRequestConfig = {
+  "accessRequestConfig" : {
+    "denialCommentRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "reauthorizationRequired" : false,
+    "requestCommentRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 5,
+      "timeUnit" : "DAYS"
+    }
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  }
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.updateSourceEntitlementRequestConfigV1({ id: id, sourceentitlementrequestconfig: sourceentitlementrequestconfig });
+const result = await apiInstance.updateSourceEntitlementRequestConfigV1({ id: id, sourceEntitlementRequestConfig: sourceEntitlementRequestConfig });
 console.log(result);
 ```
 
@@ -2626,7 +3145,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id. |  [default to undefined]
 **scheduleType** | `'ACCOUNT_AGGREGATION' | 'GROUP_AGGREGATION'` | The Schedule type. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the schedule. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the schedule. | 
 
 ### Return type
 
@@ -2642,14 +3161,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id.
 const scheduleType: string = ACCOUNT_AGGREGATION; // The Schedule type.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/cronExpression","value":"0 0 6 * * ?"}]; // The JSONPatch payload used to update the schedule.
-const result = await apiInstance.updateSourceScheduleV1({ sourceId: sourceId, scheduleType: scheduleType, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the schedule.
+const result = await apiInstance.updateSourceScheduleV1({ sourceId: sourceId, scheduleType: scheduleType, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -2697,7 +3220,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The Source id. |  [default to undefined]
 **schemaId** | `string` | The Schema id. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the schema. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the schema. | 
 
 ### Return type
 
@@ -2713,14 +3236,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id.
 const schemaId: string = 2c9180835d191a86015d28455b4a2329; // The Schema id.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/attributes/-","value":{"name":"location","type":"STRING","schema":null,"description":"Employee location","isMulti":false,"isEntitlement":false,"isGroup":false}}]; // The JSONPatch payload used to update the schema.
-const result = await apiInstance.updateSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the schema.
+const result = await apiInstance.updateSourceSchemaV1({ sourceId: sourceId, schemaId: schemaId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -2753,7 +3280,7 @@ Attempts to modify these fields will result in a 400 error.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Source ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC). | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC). | 
 
 ### Return type
 
@@ -2769,13 +3296,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { SourcesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/sources/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const id: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"new description"}]; // A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
-const result = await apiInstance.updateSourceV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+const result = await apiInstance.updateSourceV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

@@ -55,11 +55,11 @@ Create custom connector.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**v3createconnectordto** | `V3createconnectordto` |  | 
+**v3CreateConnectorDto** | `V3CreateConnectorDto` |  | 
 
 ### Return type
 
-`V3connectordto`
+`V3ConnectorDto`
 
 ### HTTP request headers
 
@@ -71,12 +71,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { V3createconnectordto } from 'sailpoint-api-client/dist/connectors/api';
+import { V3CreateConnectorDto } from 'sailpoint-api-client/dist/connectors/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
-const v3createconnectordto: V3createconnectordto = ; // 
-const result = await apiInstance.createCustomConnectorV1({ v3createconnectordto: v3createconnectordto });
+const v3CreateConnectorDto: V3CreateConnectorDto = {
+  "name" : "custom connector",
+  "directConnect" : true,
+  "className" : "sailpoint.connector.OpenConnectorAdapter",
+  "type" : "custom connector type",
+  "status" : "RELEASED"
+}; // 
+const result = await apiInstance.createCustomConnectorV1({ v3CreateConnectorDto: v3CreateConnectorDto });
 console.log(result);
 ```
 
@@ -175,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<V3connectordto>`
+`Array<V3ConnectorDto>`
 
 ### HTTP request headers
 
@@ -330,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Connectordetail`
+`ConnectorDetail`
 
 ### HTTP request headers
 
@@ -369,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Updatedetail`
+`UpdateDetail`
 
 ### HTTP request headers
 
@@ -408,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Updatedetail`
+`UpdateDetail`
 
 ### HTTP request headers
 
@@ -447,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Updatedetail`
+`UpdateDetail`
 
 ### HTTP request headers
 
@@ -486,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Updatedetail`
+`UpdateDetail`
 
 ### HTTP request headers
 
@@ -533,11 +539,11 @@ The following fields are patchable:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **scriptName** | `string` | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of connector detail update operations  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of connector detail update operations  | 
 
 ### Return type
 
-`Connectordetail`
+`ConnectorDetail`
 
 ### HTTP request headers
 
@@ -549,13 +555,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConnectorsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/connectors/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/connectors/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
 const scriptName: string = aScriptName; // The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // A list of connector detail update operations 
-const result = await apiInstance.updateConnectorV1({ scriptName: scriptName, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of connector detail update operations 
+const result = await apiInstance.updateConnectorV1({ scriptName: scriptName, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

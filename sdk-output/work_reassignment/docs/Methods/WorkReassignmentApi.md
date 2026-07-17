@@ -50,12 +50,12 @@ Creates a new Reassignment Configuration for the specified identity.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**configurationitemrequest** | `Configurationitemrequest` |  | 
+**configurationItemRequest** | `ConfigurationItemRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Configurationitemresponse`
+`ConfigurationItemResponse`
 
 ### HTTP request headers
 
@@ -67,13 +67,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkReassignmentApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Configurationitemrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+import { ConfigurationItemRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
-const configurationitemrequest: Configurationitemrequest = ; // 
+const configurationItemRequest: ConfigurationItemRequest = {
+  "endDate" : "2022-07-30T17:00:00Z",
+  "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+  "configType" : "ACCESS_REQUESTS",
+  "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+  "startDate" : "2022-07-21T11:13:12.345Z"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createReassignmentConfigurationV1({ configurationitemrequest: configurationitemrequest });
+const result = await apiInstance.createReassignmentConfigurationV1({ configurationItemRequest: configurationItemRequest });
 console.log(result);
 ```
 
@@ -94,7 +100,7 @@ Deletes a single reassignment configuration for the specified identity
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **identityId** | `string` | unique identity id |  [default to undefined]
-**configType** | `Configtypeenum` |  |  [default to undefined]
+**configType** | `ConfigTypeEnum` |  |  [default to undefined]
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
@@ -115,7 +121,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
 const identityId: string = 2c91808781a71ddb0181b9090b5c504e; // unique identity id
-const configType: Configtypeenum = ; // 
+const configType: ConfigTypeEnum = ; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.deleteReassignmentConfigurationV1({ identityId: identityId, configType: configType });
 console.log(result);
@@ -138,13 +144,13 @@ Evaluates the Reassignment Configuration for an `Identity` to determine if work 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **identityId** | `string` | unique identity id |  [default to undefined]
-**configType** | `Configtypeenum` | Reassignment work type |  [default to undefined]
+**configType** | `ConfigTypeEnum` | Reassignment work type |  [default to undefined]
 **exclusionFilters** | `Array<string>` | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments | [optional] [default to undefined]
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Array<Evaluateresponse>`
+`Array<EvaluateResponse>`
 
 ### HTTP request headers
 
@@ -160,7 +166,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
 const identityId: string = 2c91808781a71ddb0181b9090b5c504e; // unique identity id
-const configType: Configtypeenum = accessRequests; // Reassignment work type
+const configType: ConfigTypeEnum = accessRequests; // Reassignment work type
 const exclusionFilters: Array<string> = SELF_REVIEW_DELEGATION; // Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments (optional)
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getEvaluateReassignmentConfigurationV1({ identityId: identityId, configType: configType });
@@ -187,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Configtype>`
+`Array<ConfigType>`
 
 ### HTTP request headers
 
@@ -228,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Configurationresponse`
+`ConfigurationResponse`
 
 ### HTTP request headers
 
@@ -269,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Tenantconfigurationresponse`
+`TenantConfigurationResponse`
 
 ### HTTP request headers
 
@@ -309,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Configurationresponse>`
+`Array<ConfigurationResponse>`
 
 ### HTTP request headers
 
@@ -346,12 +352,12 @@ Replaces existing Reassignment configuration for an identity with the newly prov
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **identityId** | `string` | unique identity id |  [default to undefined]
-**configurationitemrequest** | `Configurationitemrequest` |  | 
+**configurationItemRequest** | `ConfigurationItemRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Configurationitemresponse`
+`ConfigurationItemResponse`
 
 ### HTTP request headers
 
@@ -363,14 +369,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkReassignmentApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Configurationitemrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+import { ConfigurationItemRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
 const identityId: string = 2c91808781a71ddb0181b9090b5c504e; // unique identity id
-const configurationitemrequest: Configurationitemrequest = ; // 
+const configurationItemRequest: ConfigurationItemRequest = {
+  "endDate" : "2022-07-30T17:00:00Z",
+  "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+  "configType" : "ACCESS_REQUESTS",
+  "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+  "startDate" : "2022-07-21T11:13:12.345Z"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.putReassignmentConfigV1({ identityId: identityId, configurationitemrequest: configurationitemrequest });
+const result = await apiInstance.putReassignmentConfigV1({ identityId: identityId, configurationItemRequest: configurationItemRequest });
 console.log(result);
 ```
 
@@ -390,12 +402,12 @@ Replaces existing Tenant-wide Reassignment Configuration settings with the newly
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**tenantconfigurationrequest** | `Tenantconfigurationrequest` |  | 
+**tenantConfigurationRequest** | `TenantConfigurationRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Tenantconfigurationresponse`
+`TenantConfigurationResponse`
 
 ### HTTP request headers
 
@@ -407,13 +419,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkReassignmentApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Tenantconfigurationrequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+import { TenantConfigurationRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
-const tenantconfigurationrequest: Tenantconfigurationrequest = ; // 
+const tenantConfigurationRequest: TenantConfigurationRequest = {
+  "configDetails" : {
+    "disabled" : true
+  }
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.putTenantConfigurationV1({ tenantconfigurationrequest: tenantconfigurationrequest });
+const result = await apiInstance.putTenantConfigurationV1({ tenantConfigurationRequest: tenantConfigurationRequest });
 console.log(result);
 ```
 

@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,12 +113,12 @@ export interface ListTransformsV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -190,42 +190,42 @@ export type TransformTypeEnum = typeof TransformTypeEnum[keyof typeof TransformT
 /**
  * 
  * @export
- * @interface Transformread
+ * @interface TransformRead
  */
-export interface Transformread {
+export interface TransformRead {
     /**
      * Unique name of this transform
      * @type {string}
-     * @memberof Transformread
+     * @memberof TransformRead
      */
     'name': string;
     /**
      * The type of transform operation
      * @type {string}
-     * @memberof Transformread
+     * @memberof TransformRead
      */
-    'type': TransformreadTypeEnum;
+    'type': TransformReadTypeEnum;
     /**
      * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
      * @type {object}
-     * @memberof Transformread
+     * @memberof TransformRead
      */
     'attributes': object | null;
     /**
      * Unique ID of this transform
      * @type {string}
-     * @memberof Transformread
+     * @memberof TransformRead
      */
     'id': string;
     /**
      * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
      * @type {boolean}
-     * @memberof Transformread
+     * @memberof TransformRead
      */
     'internal': boolean;
 }
 
-export const TransformreadTypeEnum = {
+export const TransformReadTypeEnum = {
     AccountAttribute: 'accountAttribute',
     Base64Decode: 'base64Decode',
     Base64Encode: 'base64Encode',
@@ -263,7 +263,7 @@ export const TransformreadTypeEnum = {
     Rfc5646: 'rfc5646'
 } as const;
 
-export type TransformreadTypeEnum = typeof TransformreadTypeEnum[keyof typeof TransformreadTypeEnum];
+export type TransformReadTypeEnum = typeof TransformReadTypeEnum[keyof typeof TransformReadTypeEnum];
 
 
 /**
@@ -486,7 +486,7 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createTransformV1(transform: Transform, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transformread>> {
+        async createTransformV1(transform: Transform, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createTransformV1(transform, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TransformsApi.createTransformV1']?.[localVarOperationServerIndex]?.url;
@@ -512,7 +512,7 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransformV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transformread>> {
+        async getTransformV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTransformV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TransformsApi.getTransformV1']?.[localVarOperationServerIndex]?.url;
@@ -529,7 +529,7 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTransformsV1(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Transformread>>> {
+        async listTransformsV1(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformRead>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTransformsV1(offset, limit, count, name, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TransformsApi.listTransformsV1']?.[localVarOperationServerIndex]?.url;
@@ -543,7 +543,7 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransformV1(id: string, transform?: Transform, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transformread>> {
+        async updateTransformV1(id: string, transform?: Transform, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransformV1(id, transform, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TransformsApi.updateTransformV1']?.[localVarOperationServerIndex]?.url;
@@ -566,7 +566,7 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createTransformV1(requestParameters: TransformsApiCreateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Transformread> {
+        createTransformV1(requestParameters: TransformsApiCreateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TransformRead> {
             return localVarFp.createTransformV1(requestParameters.transform, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -586,7 +586,7 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTransformV1(requestParameters: TransformsApiGetTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Transformread> {
+        getTransformV1(requestParameters: TransformsApiGetTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TransformRead> {
             return localVarFp.getTransformV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -596,7 +596,7 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTransformsV1(requestParameters: TransformsApiListTransformsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Transformread>> {
+        listTransformsV1(requestParameters: TransformsApiListTransformsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TransformRead>> {
             return localVarFp.listTransformsV1(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -606,7 +606,7 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransformV1(requestParameters: TransformsApiUpdateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Transformread> {
+        updateTransformV1(requestParameters: TransformsApiUpdateTransformV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TransformRead> {
             return localVarFp.updateTransformV1(requestParameters.id, requestParameters.transform, axiosOptions).then((request) => request(axios, basePath));
         },
     };

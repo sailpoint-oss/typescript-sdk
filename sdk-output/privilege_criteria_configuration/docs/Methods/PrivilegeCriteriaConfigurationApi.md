@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Privilegecriteriaconfigdto`
+`PrivilegeCriteriaConfigDTO`
 
 ### HTTP request headers
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Privilegecriteriaconfigdto>`
+`Array<PrivilegeCriteriaConfigDTO>`
 
 ### HTTP request headers
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Privilegecriteriaconfigdto`
+`PrivilegeCriteriaConfigDTO`
 
 ### HTTP request headers
 

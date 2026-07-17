@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -110,535 +110,535 @@ export interface GetIdentityIntelligenceV1429Response {
 /**
  * 
  * @export
- * @interface Intelaccessaccountwire
+ * @interface IntelAccessAccountWire
  */
-export interface Intelaccessaccountwire {
+export interface IntelAccessAccountWire {
     /**
      * Unique account identifier in Identity Security Cloud.
      * @type {string}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'id': string;
     /**
      * Account name or login value on the correlated source.
      * @type {string}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'name': string;
     /**
      * Source metadata for the account as returned by List Accounts wire format.
-     * @type {Intelaccesssourcewire}
-     * @memberof Intelaccessaccountwire
+     * @type {IntelAccessSourceWire}
+     * @memberof IntelAccessAccountWire
      */
-    'source'?: Intelaccesssourcewire;
+    'source'?: IntelAccessSourceWire;
     /**
      * True when the account is administratively disabled on the source.
      * @type {boolean}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'disabled': boolean;
     /**
      * True when the account is locked from interactive sign-in on the source.
      * @type {boolean}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'locked': boolean;
     /**
      * True when the account is treated as authoritative for attribute synchronization.
      * @type {boolean}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'authoritative': boolean;
     /**
      * True when the account represents a non-interactive or system principal.
      * @type {boolean}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'systemAccount': boolean;
     /**
      * True when the account belongs to a machine or service identity.
      * @type {boolean}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'isMachine': boolean;
     /**
      * True when an administrator manually correlated the account to an identity.
      * @type {boolean}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'manuallyCorrelated': boolean;
     /**
      * Native identifier string on the source directory or application.
      * @type {string}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'nativeIdentity'?: string | null;
     /**
      * Timestamp when the account record was created in Identity Security Cloud.
      * @type {string}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'created': string;
     /**
      * Timestamp when the account record was last modified in Identity Security Cloud.
      * @type {string}
-     * @memberof Intelaccessaccountwire
+     * @memberof IntelAccessAccountWire
      */
     'modified': string;
 }
 /**
  * Access-history split into two independently paged categories. accessItems carries grant, remove, and account-status events. certifications carries identity-certified events. 
  * @export
- * @interface Intelaccesshistory
+ * @interface IntelAccessHistory
  */
-export interface Intelaccesshistory {
+export interface IntelAccessHistory {
     /**
      * First page of access-item history events for the identity.
-     * @type {Intelaccesshistoryaccessitemsslice}
-     * @memberof Intelaccesshistory
+     * @type {IntelAccessHistoryAccessItemsSlice}
+     * @memberof IntelAccessHistory
      */
-    'accessItems': Intelaccesshistoryaccessitemsslice;
+    'accessItems': IntelAccessHistoryAccessItemsSlice;
     /**
      * First page of certification history events for the identity.
-     * @type {Intelaccesshistorycertificationsslice}
-     * @memberof Intelaccesshistory
+     * @type {IntelAccessHistoryCertificationsSlice}
+     * @memberof IntelAccessHistory
      */
-    'certifications': Intelaccesshistorycertificationsslice;
+    'certifications': IntelAccessHistoryCertificationsSlice;
 }
 /**
  * Access-item history slice embedded in the aggregate identity response.
  * @export
- * @interface Intelaccesshistoryaccessitemsslice
+ * @interface IntelAccessHistoryAccessItemsSlice
  */
-export interface Intelaccesshistoryaccessitemsslice {
+export interface IntelAccessHistoryAccessItemsSlice {
     /**
      * First page of access-item history events for the identity.
-     * @type {Array<Intelaccessitemhistoryevent>}
-     * @memberof Intelaccesshistoryaccessitemsslice
+     * @type {Array<IntelAccessItemHistoryEvent>}
+     * @memberof IntelAccessHistoryAccessItemsSlice
      */
-    'items': Array<Intelaccessitemhistoryevent>;
+    'items': Array<IntelAccessItemHistoryEvent>;
     /**
      * Absolute URL to the next access-items page; present only when more results exist.
      * @type {string}
-     * @memberof Intelaccesshistoryaccessitemsslice
+     * @memberof IntelAccessHistoryAccessItemsSlice
      */
     'next'?: string;
 }
 /**
  * Certification history slice embedded in the aggregate identity response.
  * @export
- * @interface Intelaccesshistorycertificationsslice
+ * @interface IntelAccessHistoryCertificationsSlice
  */
-export interface Intelaccesshistorycertificationsslice {
+export interface IntelAccessHistoryCertificationsSlice {
     /**
      * First page of certification history events for the identity.
-     * @type {Array<Intelcertificationhistoryevent>}
-     * @memberof Intelaccesshistorycertificationsslice
+     * @type {Array<IntelCertificationHistoryEvent>}
+     * @memberof IntelAccessHistoryCertificationsSlice
      */
-    'items': Array<Intelcertificationhistoryevent>;
+    'items': Array<IntelCertificationHistoryEvent>;
     /**
      * Absolute URL to the next certifications page; present only when more results exist.
      * @type {string}
-     * @memberof Intelaccesshistorycertificationsslice
+     * @memberof IntelAccessHistoryCertificationsSlice
      */
     'next'?: string;
 }
 /**
  * Access-item history event. Supported eventTypes are AccessItemAssociated, AccessItemRemoved, and AccountStatusChanged. 
  * @export
- * @interface Intelaccessitemhistoryevent
+ * @interface IntelAccessItemHistoryEvent
  */
-export interface Intelaccessitemhistoryevent {
+export interface IntelAccessItemHistoryEvent {
     [key: string]: any;
 
     /**
      * Type of access-item history event.
      * @type {string}
-     * @memberof Intelaccessitemhistoryevent
+     * @memberof IntelAccessItemHistoryEvent
      */
-    'eventType': IntelaccessitemhistoryeventEventTypeEnum;
+    'eventType': IntelAccessItemHistoryEventEventTypeEnum;
     /**
      * Event timestamp.
      * @type {string}
-     * @memberof Intelaccessitemhistoryevent
+     * @memberof IntelAccessItemHistoryEvent
      */
     'dateTime'?: string;
 }
 
-export const IntelaccessitemhistoryeventEventTypeEnum = {
+export const IntelAccessItemHistoryEventEventTypeEnum = {
     AccessItemAssociated: 'AccessItemAssociated',
     AccessItemRemoved: 'AccessItemRemoved',
     AccountStatusChanged: 'AccountStatusChanged'
 } as const;
 
-export type IntelaccessitemhistoryeventEventTypeEnum = typeof IntelaccessitemhistoryeventEventTypeEnum[keyof typeof IntelaccessitemhistoryeventEventTypeEnum];
+export type IntelAccessItemHistoryEventEventTypeEnum = typeof IntelAccessItemHistoryEventEventTypeEnum[keyof typeof IntelAccessItemHistoryEventEventTypeEnum];
 
 /**
  * 
  * @export
- * @interface Intelaccesssourcewire
+ * @interface IntelAccessSourceWire
  */
-export interface Intelaccesssourcewire {
+export interface IntelAccessSourceWire {
     /**
      * Source identifier referenced by the account wire object.
      * @type {string}
-     * @memberof Intelaccesssourcewire
+     * @memberof IntelAccessSourceWire
      */
     'id'?: string;
     /**
      * Human-readable source name shown in administrative consoles.
      * @type {string}
-     * @memberof Intelaccesssourcewire
+     * @memberof IntelAccessSourceWire
      */
     'name'?: string;
 }
 /**
  * Accounts slice embedded in the aggregate identity response.
  * @export
- * @interface Intelaccountsslice
+ * @interface IntelAccountsSlice
  */
-export interface Intelaccountsslice {
+export interface IntelAccountsSlice {
     /**
      * First page of accounts for the identity.
-     * @type {Array<Intelaccessaccountwire>}
-     * @memberof Intelaccountsslice
+     * @type {Array<IntelAccessAccountWire>}
+     * @memberof IntelAccountsSlice
      */
-    'items': Array<Intelaccessaccountwire>;
+    'items': Array<IntelAccessAccountWire>;
     /**
      * Absolute URL to the next accounts page; present only when more results exist.
      * @type {string}
-     * @memberof Intelaccountsslice
+     * @memberof IntelAccountsSlice
      */
     'next'?: string;
 }
 /**
  * Certification history event. Supported eventType is IdentityCertified.
  * @export
- * @interface Intelcertificationhistoryevent
+ * @interface IntelCertificationHistoryEvent
  */
-export interface Intelcertificationhistoryevent {
+export interface IntelCertificationHistoryEvent {
     [key: string]: any;
 
     /**
      * Type of certification history event.
      * @type {string}
-     * @memberof Intelcertificationhistoryevent
+     * @memberof IntelCertificationHistoryEvent
      */
-    'eventType': IntelcertificationhistoryeventEventTypeEnum;
+    'eventType': IntelCertificationHistoryEventEventTypeEnum;
     /**
      * Event timestamp.
      * @type {string}
-     * @memberof Intelcertificationhistoryevent
+     * @memberof IntelCertificationHistoryEvent
      */
     'dateTime'?: string;
     /**
      * Identifier of the certification.
      * @type {string}
-     * @memberof Intelcertificationhistoryevent
+     * @memberof IntelCertificationHistoryEvent
      */
     'certificationId'?: string;
     /**
      * Display name of the certification.
      * @type {string}
-     * @memberof Intelcertificationhistoryevent
+     * @memberof IntelCertificationHistoryEvent
      */
     'certificationName'?: string;
     /**
      * Timestamp when the certification was signed.
      * @type {string}
-     * @memberof Intelcertificationhistoryevent
+     * @memberof IntelCertificationHistoryEvent
      */
     'signedDate'?: string;
 }
 
-export const IntelcertificationhistoryeventEventTypeEnum = {
+export const IntelCertificationHistoryEventEventTypeEnum = {
     IdentityCertified: 'IdentityCertified'
 } as const;
 
-export type IntelcertificationhistoryeventEventTypeEnum = typeof IntelcertificationhistoryeventEventTypeEnum[keyof typeof IntelcertificationhistoryeventEventTypeEnum];
+export type IntelCertificationHistoryEventEventTypeEnum = typeof IntelCertificationHistoryEventEventTypeEnum[keyof typeof IntelCertificationHistoryEventEventTypeEnum];
 
 /**
  * Flat identity response with identity attributes hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
  * @export
- * @interface Intelidentityaggregate
+ * @interface IntelIdentityAggregate
  */
-export interface Intelidentityaggregate {
+export interface IntelIdentityAggregate {
     /**
      * Identity Security Cloud identifier for this identity.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'id': string;
     /**
      * Identity type for the matched record.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
-    'type': IntelidentityaggregateTypeEnum;
+    'type': IntelIdentityAggregateTypeEnum;
     /**
      * Preferred display name for the identity across administrative experiences.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'displayName'?: string;
     /**
      * Optional free-text description assigned to the identity profile when present.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'description'?: string | null;
     /**
      * NERM classification for the identity.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
-    'subtype'?: IntelidentityaggregateSubtypeEnum | null;
+    'subtype'?: IntelIdentityAggregateSubtypeEnum | null;
     /**
      * Serialized owner reference information when populated by upstream identity services.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'owners'?: string | null;
     /**
      * Arbitrary SCIM-style attribute bag returned for the identity context view.
      * @type {{ [key: string]: any; }}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'attributes'?: { [key: string]: any; };
     /**
      * Timestamp when the identity record was created in Identity Security Cloud.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'created'?: string;
     /**
      * Timestamp when the identity record was last modified in Identity Security Cloud.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'modified'?: string;
     /**
      * Primary login or account alias for the identity.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'alias'?: string;
     /**
      * Primary business email address for the identity.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'email'?: string;
     /**
      * Current identity lifecycle status label from Identity Security Cloud.
      * @type {string}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'identityStatus'?: string;
     /**
      * True when the identity is flagged as a people manager in the organization.
      * @type {boolean}
-     * @memberof Intelidentityaggregate
+     * @memberof IntelIdentityAggregate
      */
     'isManager'?: boolean;
     /**
      * First page of accounts for the identity.
-     * @type {Intelaccountsslice}
-     * @memberof Intelidentityaggregate
+     * @type {IntelAccountsSlice}
+     * @memberof IntelIdentityAggregate
      */
-    'accounts': Intelaccountsslice;
+    'accounts': IntelAccountsSlice;
     /**
      * Full privileged access result for the identity.
-     * @type {Intelprivilegedaccessslice}
-     * @memberof Intelidentityaggregate
+     * @type {IntelPrivilegedAccessSlice}
+     * @memberof IntelIdentityAggregate
      */
-    'privilegedAccess': Intelprivilegedaccessslice;
+    'privilegedAccess': IntelPrivilegedAccessSlice;
     /**
      * Rare access slice; omitted when the tenant lacks the IDA-outliers license.
-     * @type {Inteloutliersslice}
-     * @memberof Intelidentityaggregate
+     * @type {IntelOutliersSlice}
+     * @memberof IntelIdentityAggregate
      */
-    'outliers'?: Inteloutliersslice;
+    'outliers'?: IntelOutliersSlice;
     /**
      * Access-history split into access items and certifications sub-slices.
-     * @type {Intelaccesshistory}
-     * @memberof Intelidentityaggregate
+     * @type {IntelAccessHistory}
+     * @memberof IntelIdentityAggregate
      */
-    'accessHistory': Intelaccesshistory;
+    'accessHistory': IntelAccessHistory;
 }
 
-export const IntelidentityaggregateTypeEnum = {
+export const IntelIdentityAggregateTypeEnum = {
     Human: 'HUMAN'
 } as const;
 
-export type IntelidentityaggregateTypeEnum = typeof IntelidentityaggregateTypeEnum[keyof typeof IntelidentityaggregateTypeEnum];
-export const IntelidentityaggregateSubtypeEnum = {
+export type IntelIdentityAggregateTypeEnum = typeof IntelIdentityAggregateTypeEnum[keyof typeof IntelIdentityAggregateTypeEnum];
+export const IntelIdentityAggregateSubtypeEnum = {
     Employee: 'Employee',
     NonEmployee: 'Non Employee',
     CannotDetermine: 'Cannot Determine'
 } as const;
 
-export type IntelidentityaggregateSubtypeEnum = typeof IntelidentityaggregateSubtypeEnum[keyof typeof IntelidentityaggregateSubtypeEnum];
+export type IntelIdentityAggregateSubtypeEnum = typeof IntelIdentityAggregateSubtypeEnum[keyof typeof IntelIdentityAggregateSubtypeEnum];
 
 /**
  * One outlier access-item row.
  * @export
- * @interface Inteloutlieraccessitem
+ * @interface IntelOutlierAccessItem
  */
-export interface Inteloutlieraccessitem {
+export interface IntelOutlierAccessItem {
     /**
      * Stable identifier of the outlier access-item row.
      * @type {string}
-     * @memberof Inteloutlieraccessitem
+     * @memberof IntelOutlierAccessItem
      */
     'id': string;
     /**
      * Display label of the risky access item.
      * @type {string}
-     * @memberof Inteloutlieraccessitem
+     * @memberof IntelOutlierAccessItem
      */
     'displayName': string;
     /**
      * Optional descriptive text for the risky access item.
      * @type {string}
-     * @memberof Inteloutlieraccessitem
+     * @memberof IntelOutlierAccessItem
      */
     'description'?: string | null;
     /**
      * Access item type.
      * @type {string}
-     * @memberof Inteloutlieraccessitem
+     * @memberof IntelOutlierAccessItem
      */
     'accessType': string;
     /**
      * Source name where the risky access item exists.
      * @type {string}
-     * @memberof Inteloutlieraccessitem
+     * @memberof IntelOutlierAccessItem
      */
     'sourceName': string;
     /**
      * Indicates whether analytics marked this item as extremely rare.
      * @type {boolean}
-     * @memberof Inteloutlieraccessitem
+     * @memberof IntelOutlierAccessItem
      */
     'extremelyRare': boolean;
 }
 /**
  * Outlier slices embedded in the aggregate identity response.
  * @export
- * @interface Inteloutliersslice
+ * @interface IntelOutliersSlice
  */
-export interface Inteloutliersslice {
+export interface IntelOutliersSlice {
     /**
      * First page of rare access items for the identity.
-     * @type {Intelrareaccessslice}
-     * @memberof Inteloutliersslice
+     * @type {IntelRareAccessSlice}
+     * @memberof IntelOutliersSlice
      */
-    'rareAccess': Intelrareaccessslice;
+    'rareAccess': IntelRareAccessSlice;
 }
 /**
  * 
  * @export
- * @interface Intelprivilegedaccessitemwire
+ * @interface IntelPrivilegedAccessItemWire
  */
-export interface Intelprivilegedaccessitemwire {
+export interface IntelPrivilegedAccessItemWire {
     /**
      * True when this item is classified as privileged access for the identity.
      * @type {boolean}
-     * @memberof Intelprivilegedaccessitemwire
+     * @memberof IntelPrivilegedAccessItemWire
      */
     'privileged': boolean;
     /**
      * Identifier of the privileged access item.
      * @type {string}
-     * @memberof Intelprivilegedaccessitemwire
+     * @memberof IntelPrivilegedAccessItemWire
      */
     'id': string;
     /**
      * Type of privileged access object.
      * @type {string}
-     * @memberof Intelprivilegedaccessitemwire
+     * @memberof IntelPrivilegedAccessItemWire
      */
     'type': string;
     /**
      * Display label for the privileged access item in administrative experiences.
      * @type {string}
-     * @memberof Intelprivilegedaccessitemwire
+     * @memberof IntelPrivilegedAccessItemWire
      */
     'displayName'?: string;
     /**
      * Technical name of the privileged access item.
      * @type {string}
-     * @memberof Intelprivilegedaccessitemwire
+     * @memberof IntelPrivilegedAccessItemWire
      */
     'name'?: string;
     /**
      * 
-     * @type {IntelprivilegedaccessitemwireSource}
-     * @memberof Intelprivilegedaccessitemwire
+     * @type {IntelPrivilegedAccessItemWireSource}
+     * @memberof IntelPrivilegedAccessItemWire
      */
-    'source'?: IntelprivilegedaccessitemwireSource;
+    'source'?: IntelPrivilegedAccessItemWireSource;
     /**
      * Source attribute name that carries the privileged value when applicable.
      * @type {string}
-     * @memberof Intelprivilegedaccessitemwire
+     * @memberof IntelPrivilegedAccessItemWire
      */
     'attribute'?: string;
     /**
      * Privileged value on the source attribute when applicable.
      * @type {string}
-     * @memberof Intelprivilegedaccessitemwire
+     * @memberof IntelPrivilegedAccessItemWire
      */
     'value'?: string;
 }
 /**
  * Source metadata associated with the privileged access item when present.
  * @export
- * @interface IntelprivilegedaccessitemwireSource
+ * @interface IntelPrivilegedAccessItemWireSource
  */
-export interface IntelprivilegedaccessitemwireSource {
+export interface IntelPrivilegedAccessItemWireSource {
     /**
      * Human-readable source name for the privileged access item.
      * @type {string}
-     * @memberof IntelprivilegedaccessitemwireSource
+     * @memberof IntelPrivilegedAccessItemWireSource
      */
     'name'?: string;
     /**
      * Source identifier for the privileged access item.
      * @type {string}
-     * @memberof IntelprivilegedaccessitemwireSource
+     * @memberof IntelPrivilegedAccessItemWireSource
      */
     'id'?: string;
 }
 /**
  * Full privileged access result embedded in the aggregate identity response.
  * @export
- * @interface Intelprivilegedaccessslice
+ * @interface IntelPrivilegedAccessSlice
  */
-export interface Intelprivilegedaccessslice {
+export interface IntelPrivilegedAccessSlice {
     /**
      * Privileged access items for the identity.
-     * @type {Array<Intelprivilegedaccessitemwire>}
-     * @memberof Intelprivilegedaccessslice
+     * @type {Array<IntelPrivilegedAccessItemWire>}
+     * @memberof IntelPrivilegedAccessSlice
      */
-    'items': Array<Intelprivilegedaccessitemwire>;
+    'items': Array<IntelPrivilegedAccessItemWire>;
 }
 /**
  * Rare access slice embedded in the aggregate identity response.
  * @export
- * @interface Intelrareaccessslice
+ * @interface IntelRareAccessSlice
  */
-export interface Intelrareaccessslice {
+export interface IntelRareAccessSlice {
     /**
      * First page of rare access items for the identity.
-     * @type {Array<Inteloutlieraccessitem>}
-     * @memberof Intelrareaccessslice
+     * @type {Array<IntelOutlierAccessItem>}
+     * @memberof IntelRareAccessSlice
      */
-    'items': Array<Inteloutlieraccessitem>;
+    'items': Array<IntelOutlierAccessItem>;
     /**
      * Absolute URL to the next rareAccess page; present only when more results exist.
      * @type {string}
-     * @memberof Intelrareaccessslice
+     * @memberof IntelRareAccessSlice
      */
     'next'?: string;
 }
@@ -648,12 +648,12 @@ export interface Intelrareaccessslice {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -893,7 +893,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityIntelligenceV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Intelidentityaggregate>> {
+        async getIdentityIntelligenceV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IntelIdentityAggregate>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityIntelligenceV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIdentityIntelligenceV1']?.[localVarOperationServerIndex]?.url;
@@ -908,7 +908,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityAccessItemHistoryV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Intelaccessitemhistoryevent>>> {
+        async getIntelIdentityAccessItemHistoryV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelAccessItemHistoryEvent>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccessItemHistoryV1(id, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityAccessItemHistoryV1']?.[localVarOperationServerIndex]?.url;
@@ -923,7 +923,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityAccountsV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Intelaccessaccountwire>>> {
+        async getIntelIdentityAccountsV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelAccessAccountWire>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccountsV1(id, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityAccountsV1']?.[localVarOperationServerIndex]?.url;
@@ -938,7 +938,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityCertificationHistoryV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Intelcertificationhistoryevent>>> {
+        async getIntelIdentityCertificationHistoryV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelCertificationHistoryEvent>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityCertificationHistoryV1(id, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityCertificationHistoryV1']?.[localVarOperationServerIndex]?.url;
@@ -953,7 +953,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityRareAccessV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Inteloutlieraccessitem>>> {
+        async getIntelIdentityRareAccessV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelOutlierAccessItem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityRareAccessV1(id, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityRareAccessV1']?.[localVarOperationServerIndex]?.url;
@@ -976,7 +976,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityIntelligenceV1(requestParameters: IntelligenceApiGetIdentityIntelligenceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Intelidentityaggregate> {
+        getIdentityIntelligenceV1(requestParameters: IntelligenceApiGetIdentityIntelligenceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IntelIdentityAggregate> {
             return localVarFp.getIdentityIntelligenceV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -986,7 +986,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityAccessItemHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Intelaccessitemhistoryevent>> {
+        getIntelIdentityAccessItemHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelAccessItemHistoryEvent>> {
             return localVarFp.getIntelIdentityAccessItemHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -996,7 +996,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityAccountsV1(requestParameters: IntelligenceApiGetIntelIdentityAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Intelaccessaccountwire>> {
+        getIntelIdentityAccountsV1(requestParameters: IntelligenceApiGetIntelIdentityAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelAccessAccountWire>> {
             return localVarFp.getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1006,7 +1006,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityCertificationHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityCertificationHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Intelcertificationhistoryevent>> {
+        getIntelIdentityCertificationHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityCertificationHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelCertificationHistoryEvent>> {
             return localVarFp.getIntelIdentityCertificationHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1016,7 +1016,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityRareAccessV1(requestParameters: IntelligenceApiGetIntelIdentityRareAccessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Inteloutlieraccessitem>> {
+        getIntelIdentityRareAccessV1(requestParameters: IntelligenceApiGetIntelIdentityRareAccessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelOutlierAccessItem>> {
             return localVarFp.getIntelIdentityRareAccessV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
     };

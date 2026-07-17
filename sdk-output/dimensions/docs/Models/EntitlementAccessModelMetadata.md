@@ -15,5 +15,5 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementAccessModelMetadata', 'v1E
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attributes** | **(optional)** `Array<Accessmodelmetadata>` |  | [default to undefined]
+**attributes** | **(optional)** `Array<AccessModelMetadata>` |  | [default to undefined]
 

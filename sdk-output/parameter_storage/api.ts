@@ -51,25 +51,25 @@ export interface DeleteParameterV1409Response {
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -78,33 +78,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -138,60 +138,60 @@ export interface GetAttestationDocumentV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * The attestation document. This is Base64Url encoded binary data containing the attestation document. This has a cert with a public key that needs to be used to encrypt the private fields of the parameter on creation or update.
  * @export
- * @interface Parameterstorageattestationdocument
+ * @interface ParameterStorageAttestationDocument
  */
-export interface Parameterstorageattestationdocument {
+export interface ParameterStorageAttestationDocument {
     /**
      * The Base64Url encoded attestation document.
      * @type {string}
-     * @memberof Parameterstorageattestationdocument
+     * @memberof ParameterStorageAttestationDocument
      */
     'attestationDocument'?: string;
 }
 /**
  * RFC 6902 JSON Patch operation
  * @export
- * @interface Parameterstoragejsonpatch
+ * @interface ParameterStorageJsonPatch
  */
-export interface Parameterstoragejsonpatch {
+export interface ParameterStorageJsonPatch {
     /**
      * The operation to perform (add, remove, replace, move, copy, test)
      * @type {string}
-     * @memberof Parameterstoragejsonpatch
+     * @memberof ParameterStorageJsonPatch
      */
-    'op': ParameterstoragejsonpatchOpEnum;
+    'op': ParameterStorageJsonPatchOpEnum;
     /**
      * A JSON-Pointer describing the target location
      * @type {string}
-     * @memberof Parameterstoragejsonpatch
+     * @memberof ParameterStorageJsonPatch
      */
     'path': string;
     /**
      * The value to be used within the operations. Required for add/replace/test.
      * @type {any}
-     * @memberof Parameterstoragejsonpatch
+     * @memberof ParameterStorageJsonPatch
      */
     'value'?: any;
     /**
      * A JSON-Pointer describing the source location for move/copy.
      * @type {string}
-     * @memberof Parameterstoragejsonpatch
+     * @memberof ParameterStorageJsonPatch
      */
     'from'?: string;
 }
 
-export const ParameterstoragejsonpatchOpEnum = {
+export const ParameterStorageJsonPatchOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -200,195 +200,195 @@ export const ParameterstoragejsonpatchOpEnum = {
     Test: 'test'
 } as const;
 
-export type ParameterstoragejsonpatchOpEnum = typeof ParameterstoragejsonpatchOpEnum[keyof typeof ParameterstoragejsonpatchOpEnum];
+export type ParameterStorageJsonPatchOpEnum = typeof ParameterStorageJsonPatchOpEnum[keyof typeof ParameterStorageJsonPatchOpEnum];
 
 /**
  * A parameter to add to parameter storage. The public and private fields must match the type specification.
  * @export
- * @interface Parameterstoragenewparameter
+ * @interface ParameterStorageNewParameter
  */
-export interface Parameterstoragenewparameter {
+export interface ParameterStorageNewParameter {
     /**
      * The UUID of the parameter owner.
      * @type {string}
-     * @memberof Parameterstoragenewparameter
+     * @memberof ParameterStorageNewParameter
      */
     'ownerId': string;
     /**
      * The human-readable name for the parameter.
      * @type {string}
-     * @memberof Parameterstoragenewparameter
+     * @memberof ParameterStorageNewParameter
      */
     'name': string;
     /**
      * The type of the parameter. This cannot be changed after being set. Please see the types document for more information.
      * @type {string}
-     * @memberof Parameterstoragenewparameter
+     * @memberof ParameterStorageNewParameter
      */
     'type': string;
     /**
      * The content must be a JSON object containing the public fields that can be stored with this parameter.
      * @type {object}
-     * @memberof Parameterstoragenewparameter
+     * @memberof ParameterStorageNewParameter
      */
     'publicFields'?: object;
     /**
      * Must be a JWE AES256 encrypted blob. The content of the blob must be a JSON object containing the private fields that can be stored with this parameter. 
      * @type {string}
-     * @memberof Parameterstoragenewparameter
+     * @memberof ParameterStorageNewParameter
      */
     'privateFields'?: string;
     /**
      * Describe the parameter
      * @type {string}
-     * @memberof Parameterstoragenewparameter
+     * @memberof ParameterStorageNewParameter
      */
     'description'?: string;
 }
 /**
  * A parameter that has been retrieved from the store.
  * @export
- * @interface Parameterstorageparameter
+ * @interface ParameterStorageParameter
  */
-export interface Parameterstorageparameter {
+export interface ParameterStorageParameter {
     /**
      * The ID of the reference
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'id': string;
     /**
      * The ID of the user who owns the parameter.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'ownerId': string;
     /**
      * The type of the parameter. This cannot be changed after being set. Please see the types document for more information.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'type'?: string;
     /**
      * The human-readable name of the parameter.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'name': string;
     /**
      * The name of the primary field in the public fields.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'primaryField'?: string;
     /**
      * The public fields stored for this parameter. See the types document for information about what can be stored.
      * @type {object}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'publicFields': object;
     /**
      * Describe the parameter
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'description'?: string;
     /**
      * ISO8606 format datetime of the last time any field of the parameter was changed.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'lastModifiedAt'?: string;
     /**
      * The ID of the user who last modified the parameter. Empty when identity is not known.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'lastModifiedBy'?: string;
     /**
      * ISO8606 format datetime of the time the secret fields were changed on the parameter.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'privateFieldsLastModifiedAt'?: string;
     /**
      * The ID of the user who last modified the private fields. Empty when identity is not known.
      * @type {string}
-     * @memberof Parameterstorageparameter
+     * @memberof ParameterStorageParameter
      */
     'privateFieldsLastModifiedBy'?: string;
 }
 /**
  * Reference information returned in response to a request.
  * @export
- * @interface Parameterstoragereference
+ * @interface ParameterStorageReference
  */
-export interface Parameterstoragereference {
+export interface ParameterStorageReference {
     /**
      * The ID of the reference
      * @type {string}
-     * @memberof Parameterstoragereference
+     * @memberof ParameterStorageReference
      */
     'id': string;
     /**
      * The ID of the consumer holding the reference
      * @type {string}
-     * @memberof Parameterstoragereference
+     * @memberof ParameterStorageReference
      */
     'consumerId': string;
     /**
      * The ID of the parameter that the reference is pointing to.
      * @type {string}
-     * @memberof Parameterstoragereference
+     * @memberof ParameterStorageReference
      */
     'parameterId': string;
     /**
      * The human-readable name of the reference
      * @type {string}
-     * @memberof Parameterstoragereference
+     * @memberof ParameterStorageReference
      */
     'name': string;
     /**
      * The hint string used to validate the reference
      * @type {string}
-     * @memberof Parameterstoragereference
+     * @memberof ParameterStorageReference
      */
     'usageHint'?: string;
 }
 /**
  * An existing parameter that needs to be updated. The type cannot be changed once the parameter is created.
  * @export
- * @interface Parameterstorageupdateparameter
+ * @interface ParameterStorageUpdateParameter
  */
-export interface Parameterstorageupdateparameter {
+export interface ParameterStorageUpdateParameter {
     /**
      * The UUID of the parameter owner.
      * @type {string}
-     * @memberof Parameterstorageupdateparameter
+     * @memberof ParameterStorageUpdateParameter
      */
     'ownerId'?: string;
     /**
      * The human-readable name for the parameter.
      * @type {string}
-     * @memberof Parameterstorageupdateparameter
+     * @memberof ParameterStorageUpdateParameter
      */
     'name'?: string;
     /**
      * The public fields that can be stored with this parameter.
      * @type {object}
-     * @memberof Parameterstorageupdateparameter
+     * @memberof ParameterStorageUpdateParameter
      */
     'publicFields'?: object;
     /**
      * The private fields that can be stored with this parameter.
      * @type {string}
-     * @memberof Parameterstorageupdateparameter
+     * @memberof ParameterStorageUpdateParameter
      */
     'privateFields'?: string;
     /**
      * Describe the parameter
      * @type {string}
-     * @memberof Parameterstorageupdateparameter
+     * @memberof ParameterStorageUpdateParameter
      */
     'description'?: string;
 }
@@ -402,11 +402,11 @@ export const ParameterStorageApiAxiosParamCreator = function (configuration?: Co
         /**
          * Add a new parameter.
          * @summary Add a new parameter.
-         * @param {Parameterstoragenewparameter} [parameterstoragenewparameter] The parameter to add to the store.
+         * @param {ParameterStorageNewParameter} [parameterStorageNewParameter] The parameter to add to the store.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createParameterV1: async (parameterstoragenewparameter?: Parameterstoragenewparameter, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createParameterV1: async (parameterStorageNewParameter?: ParameterStorageNewParameter, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/parameter-storage/v1/parameters`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -426,7 +426,7 @@ export const ParameterStorageApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(parameterstoragenewparameter, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(parameterStorageNewParameter, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -679,11 +679,11 @@ export const ParameterStorageApiAxiosParamCreator = function (configuration?: Co
          * Update a parameter. You cannot change a parameter\'s type once set. Only the name, owner, description, public fields, and private fields can be updated. Private field updates are made via JWE AES256 encrypted blobs.
          * @summary Update a parameter.
          * @param {string} id The ID of the parameter to be updated.
-         * @param {Parameterstorageupdateparameter} [parameterstorageupdateparameter] The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
+         * @param {ParameterStorageUpdateParameter} [parameterStorageUpdateParameter] The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateParameterV1: async (id: string, parameterstorageupdateparameter?: Parameterstorageupdateparameter, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateParameterV1: async (id: string, parameterStorageUpdateParameter?: ParameterStorageUpdateParameter, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateParameterV1', 'id', id)
             const localVarPath = `/parameter-storage/v1/parameters/{id}`
@@ -706,7 +706,7 @@ export const ParameterStorageApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(parameterstorageupdateparameter, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(parameterStorageUpdateParameter, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -726,12 +726,12 @@ export const ParameterStorageApiFp = function(configuration?: Configuration) {
         /**
          * Add a new parameter.
          * @summary Add a new parameter.
-         * @param {Parameterstoragenewparameter} [parameterstoragenewparameter] The parameter to add to the store.
+         * @param {ParameterStorageNewParameter} [parameterStorageNewParameter] The parameter to add to the store.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createParameterV1(parameterstoragenewparameter?: Parameterstoragenewparameter, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Parameterstorageparameter>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createParameterV1(parameterstoragenewparameter, axiosOptions);
+        async createParameterV1(parameterStorageNewParameter?: ParameterStorageNewParameter, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ParameterStorageParameter>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createParameterV1(parameterStorageNewParameter, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ParameterStorageApi.createParameterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -756,7 +756,7 @@ export const ParameterStorageApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAttestationDocumentV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Parameterstorageattestationdocument>> {
+        async getAttestationDocumentV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ParameterStorageAttestationDocument>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAttestationDocumentV1(key, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ParameterStorageApi.getAttestationDocumentV1']?.[localVarOperationServerIndex]?.url;
@@ -772,7 +772,7 @@ export const ParameterStorageApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getParameterReferencesV1(id: string, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Parameterstoragereference>>> {
+        async getParameterReferencesV1(id: string, sorters?: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ParameterStorageReference>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getParameterReferencesV1(id, sorters, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ParameterStorageApi.getParameterReferencesV1']?.[localVarOperationServerIndex]?.url;
@@ -798,7 +798,7 @@ export const ParameterStorageApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getParameterV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Parameterstorageparameter>> {
+        async getParameterV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ParameterStorageParameter>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getParameterV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ParameterStorageApi.getParameterV1']?.[localVarOperationServerIndex]?.url;
@@ -814,7 +814,7 @@ export const ParameterStorageApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchParametersV1(filters?: string, sorters?: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Parameterstorageparameter>>> {
+        async searchParametersV1(filters?: string, sorters?: string, offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ParameterStorageParameter>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchParametersV1(filters, sorters, offset, limit, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ParameterStorageApi.searchParametersV1']?.[localVarOperationServerIndex]?.url;
@@ -824,12 +824,12 @@ export const ParameterStorageApiFp = function(configuration?: Configuration) {
          * Update a parameter. You cannot change a parameter\'s type once set. Only the name, owner, description, public fields, and private fields can be updated. Private field updates are made via JWE AES256 encrypted blobs.
          * @summary Update a parameter.
          * @param {string} id The ID of the parameter to be updated.
-         * @param {Parameterstorageupdateparameter} [parameterstorageupdateparameter] The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
+         * @param {ParameterStorageUpdateParameter} [parameterStorageUpdateParameter] The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateParameterV1(id: string, parameterstorageupdateparameter?: Parameterstorageupdateparameter, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Parameterstorageparameter>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateParameterV1(id, parameterstorageupdateparameter, axiosOptions);
+        async updateParameterV1(id: string, parameterStorageUpdateParameter?: ParameterStorageUpdateParameter, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ParameterStorageParameter>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateParameterV1(id, parameterStorageUpdateParameter, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ParameterStorageApi.updateParameterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -851,8 +851,8 @@ export const ParameterStorageApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createParameterV1(requestParameters: ParameterStorageApiCreateParameterV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Parameterstorageparameter> {
-            return localVarFp.createParameterV1(requestParameters.parameterstoragenewparameter, axiosOptions).then((request) => request(axios, basePath));
+        createParameterV1(requestParameters: ParameterStorageApiCreateParameterV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ParameterStorageParameter> {
+            return localVarFp.createParameterV1(requestParameters.parameterStorageNewParameter, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Delete a parameter. Will only delete parameters without existing references.
@@ -871,7 +871,7 @@ export const ParameterStorageApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAttestationDocumentV1(requestParameters: ParameterStorageApiGetAttestationDocumentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Parameterstorageattestationdocument> {
+        getAttestationDocumentV1(requestParameters: ParameterStorageApiGetAttestationDocumentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ParameterStorageAttestationDocument> {
             return localVarFp.getAttestationDocumentV1(requestParameters.key, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -881,7 +881,7 @@ export const ParameterStorageApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getParameterReferencesV1(requestParameters: ParameterStorageApiGetParameterReferencesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Parameterstoragereference>> {
+        getParameterReferencesV1(requestParameters: ParameterStorageApiGetParameterReferencesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ParameterStorageReference>> {
             return localVarFp.getParameterReferencesV1(requestParameters.id, requestParameters.sorters, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -901,7 +901,7 @@ export const ParameterStorageApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getParameterV1(requestParameters: ParameterStorageApiGetParameterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Parameterstorageparameter> {
+        getParameterV1(requestParameters: ParameterStorageApiGetParameterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ParameterStorageParameter> {
             return localVarFp.getParameterV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -911,7 +911,7 @@ export const ParameterStorageApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchParametersV1(requestParameters: ParameterStorageApiSearchParametersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Parameterstorageparameter>> {
+        searchParametersV1(requestParameters: ParameterStorageApiSearchParametersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ParameterStorageParameter>> {
             return localVarFp.searchParametersV1(requestParameters.filters, requestParameters.sorters, requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -921,8 +921,8 @@ export const ParameterStorageApiFactory = function (configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateParameterV1(requestParameters: ParameterStorageApiUpdateParameterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Parameterstorageparameter> {
-            return localVarFp.updateParameterV1(requestParameters.id, requestParameters.parameterstorageupdateparameter, axiosOptions).then((request) => request(axios, basePath));
+        updateParameterV1(requestParameters: ParameterStorageApiUpdateParameterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ParameterStorageParameter> {
+            return localVarFp.updateParameterV1(requestParameters.id, requestParameters.parameterStorageUpdateParameter, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -935,10 +935,10 @@ export const ParameterStorageApiFactory = function (configuration?: Configuratio
 export interface ParameterStorageApiCreateParameterV1Request {
     /**
      * The parameter to add to the store.
-     * @type {Parameterstoragenewparameter}
+     * @type {ParameterStorageNewParameter}
      * @memberof ParameterStorageApiCreateParameterV1
      */
-    readonly parameterstoragenewparameter?: Parameterstoragenewparameter
+    readonly parameterStorageNewParameter?: ParameterStorageNewParameter
 }
 
 /**
@@ -1082,10 +1082,10 @@ export interface ParameterStorageApiUpdateParameterV1Request {
 
     /**
      * The updated parameter. Supports both full and RFC 6902 JSON Patch updates. For RFC 6902 JSON Patch updates, move and copy operations are not supported for privateField updates.
-     * @type {Parameterstorageupdateparameter}
+     * @type {ParameterStorageUpdateParameter}
      * @memberof ParameterStorageApiUpdateParameterV1
      */
-    readonly parameterstorageupdateparameter?: Parameterstorageupdateparameter
+    readonly parameterStorageUpdateParameter?: ParameterStorageUpdateParameter
 }
 
 /**
@@ -1104,7 +1104,7 @@ export class ParameterStorageApi extends BaseAPI {
      * @memberof ParameterStorageApi
      */
     public createParameterV1(requestParameters: ParameterStorageApiCreateParameterV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return ParameterStorageApiFp(this.configuration).createParameterV1(requestParameters.parameterstoragenewparameter, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ParameterStorageApiFp(this.configuration).createParameterV1(requestParameters.parameterStorageNewParameter, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1188,7 +1188,7 @@ export class ParameterStorageApi extends BaseAPI {
      * @memberof ParameterStorageApi
      */
     public updateParameterV1(requestParameters: ParameterStorageApiUpdateParameterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ParameterStorageApiFp(this.configuration).updateParameterV1(requestParameters.id, requestParameters.parameterstorageupdateparameter, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ParameterStorageApiFp(this.configuration).updateParameterV1(requestParameters.id, requestParameters.parameterStorageUpdateParameter, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

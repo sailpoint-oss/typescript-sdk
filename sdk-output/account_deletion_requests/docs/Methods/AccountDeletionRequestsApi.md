@@ -34,11 +34,11 @@ and generates an asynchronous result containing a tracking ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **accountId** | `string` | Account ID. |  [default to undefined]
-**accountdeleterequestinput** | `Accountdeleterequestinput` |  | [optional]
+**accountDeleteRequestInput** | `AccountDeleteRequestInput` |  | [optional]
 
 ### Return type
 
-`Accountrequestasyncresult`
+`AccountRequestAsyncResult`
 
 ### HTTP request headers
 
@@ -50,12 +50,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accountdeleterequestinput } from 'sailpoint-api-client/dist/account_deletion_requests/api';
+import { AccountDeleteRequestInput } from 'sailpoint-api-client/dist/account_deletion_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountDeletionRequestsApi(configuration);
 const accountId: string = ef38f94347e94562b5bb8424a56498d8; // Account ID.
-const accountdeleterequestinput: Accountdeleterequestinput = {"comments":"I requested this account deletion."}; //  (optional)
+const accountDeleteRequestInput: AccountDeleteRequestInput = {
+  "comments" : "Requesting account deletion request"
+}; //  (optional)
 const result = await apiInstance.deleteAccountRequestV1({ accountId: accountId });
 console.log(result);
 ```
@@ -80,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accountactionrequestdto>`
+`Array<AccountActionRequestDto>`
 
 ### HTTP request headers
 

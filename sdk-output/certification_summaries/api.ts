@@ -26,56 +26,56 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * An object holding the access that is being reviewed
  * @export
- * @interface Accesssummary
+ * @interface AccessSummary
  */
-export interface Accesssummary {
+export interface AccessSummary {
     /**
      * 
-     * @type {AccesssummaryAccess}
-     * @memberof Accesssummary
+     * @type {AccessSummaryAccess}
+     * @memberof AccessSummary
      */
-    'access'?: AccesssummaryAccess;
+    'access'?: AccessSummaryAccess;
     /**
      * 
-     * @type {Reviewableentitlement}
-     * @memberof Accesssummary
+     * @type {ReviewableEntitlement}
+     * @memberof AccessSummary
      */
-    'entitlement'?: Reviewableentitlement | null;
+    'entitlement'?: ReviewableEntitlement | null;
     /**
      * 
-     * @type {Reviewableaccessprofile}
-     * @memberof Accesssummary
+     * @type {ReviewableAccessProfile}
+     * @memberof AccessSummary
      */
-    'accessProfile'?: Reviewableaccessprofile;
+    'accessProfile'?: ReviewableAccessProfile;
     /**
      * 
-     * @type {Reviewablerole}
-     * @memberof Accesssummary
+     * @type {ReviewableRole}
+     * @memberof AccessSummary
      */
-    'role'?: Reviewablerole | null;
+    'role'?: ReviewableRole | null;
 }
 /**
  * 
  * @export
- * @interface AccesssummaryAccess
+ * @interface AccessSummaryAccess
  */
-export interface AccesssummaryAccess {
+export interface AccessSummaryAccess {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof AccesssummaryAccess
+     * @type {DtoType}
+     * @memberof AccessSummaryAccess
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The ID of the item being certified
      * @type {string}
-     * @memberof AccesssummaryAccess
+     * @memberof AccessSummaryAccess
      */
     'id'?: string;
     /**
      * The name of the item being certified
      * @type {string}
-     * @memberof AccesssummaryAccess
+     * @memberof AccessSummaryAccess
      */
     'name'?: string;
 }
@@ -84,134 +84,134 @@ export interface AccesssummaryAccess {
 /**
  * Insights into account activity
  * @export
- * @interface Activityinsights
+ * @interface ActivityInsights
  */
-export interface Activityinsights {
+export interface ActivityInsights {
     /**
      * UUID of the account
      * @type {string}
-     * @memberof Activityinsights
+     * @memberof ActivityInsights
      */
     'accountID'?: string;
     /**
      * The number of days of activity
      * @type {number}
-     * @memberof Activityinsights
+     * @memberof ActivityInsights
      */
     'usageDays'?: number;
     /**
      * Status indicating if the activity is complete or unknown
      * @type {string}
-     * @memberof Activityinsights
+     * @memberof ActivityInsights
      */
-    'usageDaysState'?: ActivityinsightsUsageDaysStateEnum;
+    'usageDaysState'?: ActivityInsightsUsageDaysStateEnum;
 }
 
-export const ActivityinsightsUsageDaysStateEnum = {
+export const ActivityInsightsUsageDaysStateEnum = {
     Complete: 'COMPLETE',
     Unknown: 'UNKNOWN'
 } as const;
 
-export type ActivityinsightsUsageDaysStateEnum = typeof ActivityinsightsUsageDaysStateEnum[keyof typeof ActivityinsightsUsageDaysStateEnum];
+export type ActivityInsightsUsageDaysStateEnum = typeof ActivityInsightsUsageDaysStateEnum[keyof typeof ActivityInsightsUsageDaysStateEnum];
 
 /**
  * 
  * @export
- * @interface Certificationidentitysummary
+ * @interface CertificationIdentitySummary
  */
-export interface Certificationidentitysummary {
+export interface CertificationIdentitySummary {
     /**
      * The ID of the identity summary
      * @type {string}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'id'?: string;
     /**
      * Name of the linked identity
      * @type {string}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'name'?: string;
     /**
      * The ID of the identity being certified
      * @type {string}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'identityId'?: string;
     /**
      * Indicates whether the review items for the linked identity\'s certification have been completed
      * @type {boolean}
-     * @memberof Certificationidentitysummary
+     * @memberof CertificationIdentitySummary
      */
     'completed'?: boolean;
 }
 /**
  * DAS data for the entitlement
  * @export
- * @interface Dataaccess
+ * @interface DataAccess
  */
-export interface Dataaccess {
+export interface DataAccess {
     /**
      * List of classification policies that apply to resources the entitlement \\ groups has access to
-     * @type {Array<DataaccessPoliciesInner>}
-     * @memberof Dataaccess
+     * @type {Array<DataAccessPoliciesInner>}
+     * @memberof DataAccess
      */
-    'policies'?: Array<DataaccessPoliciesInner>;
+    'policies'?: Array<DataAccessPoliciesInner>;
     /**
      * List of classification categories that apply to resources the entitlement \\ groups has access to
-     * @type {Array<DataaccessCategoriesInner>}
-     * @memberof Dataaccess
+     * @type {Array<DataAccessCategoriesInner>}
+     * @memberof DataAccess
      */
-    'categories'?: Array<DataaccessCategoriesInner>;
+    'categories'?: Array<DataAccessCategoriesInner>;
     /**
      * 
-     * @type {DataaccessImpactScore}
-     * @memberof Dataaccess
+     * @type {DataAccessImpactScore}
+     * @memberof DataAccess
      */
-    'impactScore'?: DataaccessImpactScore;
+    'impactScore'?: DataAccessImpactScore;
 }
 /**
  * 
  * @export
- * @interface DataaccessCategoriesInner
+ * @interface DataAccessCategoriesInner
  */
-export interface DataaccessCategoriesInner {
+export interface DataAccessCategoriesInner {
     /**
      * Value of the category
      * @type {string}
-     * @memberof DataaccessCategoriesInner
+     * @memberof DataAccessCategoriesInner
      */
     'value'?: string;
     /**
      * Number of matched for each category
      * @type {number}
-     * @memberof DataaccessCategoriesInner
+     * @memberof DataAccessCategoriesInner
      */
     'matchCount'?: number;
 }
 /**
  * 
  * @export
- * @interface DataaccessImpactScore
+ * @interface DataAccessImpactScore
  */
-export interface DataaccessImpactScore {
+export interface DataAccessImpactScore {
     /**
      * Impact Score for this data
      * @type {string}
-     * @memberof DataaccessImpactScore
+     * @memberof DataAccessImpactScore
      */
     'value'?: string;
 }
 /**
  * 
  * @export
- * @interface DataaccessPoliciesInner
+ * @interface DataAccessPoliciesInner
  */
-export interface DataaccessPoliciesInner {
+export interface DataAccessPoliciesInner {
     /**
      * Value of the policy
      * @type {string}
-     * @memberof DataaccessPoliciesInner
+     * @memberof DataAccessPoliciesInner
      */
     'value'?: string;
 }
@@ -221,7 +221,7 @@ export interface DataaccessPoliciesInner {
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -253,31 +253,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -286,33 +286,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -343,134 +343,134 @@ export interface GetIdentityDecisionSummaryV1429Response {
 /**
  * 
  * @export
- * @interface Identitycertdecisionsummary
+ * @interface IdentityCertDecisionSummary
  */
-export interface Identitycertdecisionsummary {
+export interface IdentityCertDecisionSummary {
     /**
      * Number of entitlement decisions that have been made
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'entitlementDecisionsMade'?: number;
     /**
      * Number of access profile decisions that have been made
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accessProfileDecisionsMade'?: number;
     /**
      * Number of role decisions that have been made
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'roleDecisionsMade'?: number;
     /**
      * Number of account decisions that have been made
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accountDecisionsMade'?: number;
     /**
      * The total number of entitlement decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'entitlementDecisionsTotal'?: number;
     /**
      * The total number of access profile decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accessProfileDecisionsTotal'?: number;
     /**
      * The total number of role decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'roleDecisionsTotal'?: number;
     /**
      * The total number of account decisions on the certification, both complete and incomplete
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accountDecisionsTotal'?: number;
     /**
      * The number of entitlement decisions that have been made which were approved
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'entitlementsApproved'?: number;
     /**
      * The number of entitlement decisions that have been made which were revoked
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'entitlementsRevoked'?: number;
     /**
      * The number of access profile decisions that have been made which were approved
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accessProfilesApproved'?: number;
     /**
      * The number of access profile decisions that have been made which were revoked
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accessProfilesRevoked'?: number;
     /**
      * The number of role decisions that have been made which were approved
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'rolesApproved'?: number;
     /**
      * The number of role decisions that have been made which were revoked
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'rolesRevoked'?: number;
     /**
      * The number of account decisions that have been made which were approved
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accountsApproved'?: number;
     /**
      * The number of account decisions that have been made which were revoked
      * @type {number}
-     * @memberof Identitycertdecisionsummary
+     * @memberof IdentityCertDecisionSummary
      */
     'accountsRevoked'?: number;
 }
 /**
  * 
  * @export
- * @interface Identityreferencewithnameandemail
+ * @interface IdentityReferenceWithNameAndEmail
  */
-export interface Identityreferencewithnameandemail {
+export interface IdentityReferenceWithNameAndEmail {
     /**
      * The type can only be IDENTITY. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'type'?: string;
     /**
      * Identity ID.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'id'?: string;
     /**
      * Identity\'s human-readable display name. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'name'?: string;
     /**
      * Identity\'s email address. This is read-only.
      * @type {string}
-     * @memberof Identityreferencewithnameandemail
+     * @memberof IdentityReferenceWithNameAndEmail
      */
     'email'?: string | null;
 }
@@ -480,369 +480,369 @@ export interface Identityreferencewithnameandemail {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Reviewableaccessprofile
+ * @interface ReviewableAccessProfile
  */
-export interface Reviewableaccessprofile {
+export interface ReviewableAccessProfile {
     /**
      * The id of the Access Profile
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'id'?: string;
     /**
      * Name of the Access Profile
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'name'?: string;
     /**
      * Information about the Access Profile
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'description'?: string;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'privileged'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'cloudGoverned'?: boolean;
     /**
      * The date at which a user\'s access expires
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'endDate'?: string | null;
     /**
      * 
-     * @type {Identityreferencewithnameandemail}
-     * @memberof Reviewableaccessprofile
+     * @type {IdentityReferenceWithNameAndEmail}
+     * @memberof ReviewableAccessProfile
      */
-    'owner'?: Identityreferencewithnameandemail | null;
+    'owner'?: IdentityReferenceWithNameAndEmail | null;
     /**
      * A list of entitlements associated with this Access Profile
-     * @type {Array<Reviewableentitlement>}
-     * @memberof Reviewableaccessprofile
+     * @type {Array<ReviewableEntitlement>}
+     * @memberof ReviewableAccessProfile
      */
-    'entitlements'?: Array<Reviewableentitlement>;
+    'entitlements'?: Array<ReviewableEntitlement>;
     /**
      * Date the Access Profile was created.
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'created'?: string;
     /**
      * Date the Access Profile was last modified.
      * @type {string}
-     * @memberof Reviewableaccessprofile
+     * @memberof ReviewableAccessProfile
      */
     'modified'?: string;
 }
 /**
  * 
  * @export
- * @interface Reviewableentitlement
+ * @interface ReviewableEntitlement
  */
-export interface Reviewableentitlement {
+export interface ReviewableEntitlement {
     /**
      * The id for the entitlement
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'id'?: string;
     /**
      * The name of the entitlement
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'name'?: string;
     /**
      * Information about the entitlement
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'description'?: string | null;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'privileged'?: boolean;
     /**
      * 
-     * @type {Identityreferencewithnameandemail}
-     * @memberof Reviewableentitlement
+     * @type {IdentityReferenceWithNameAndEmail}
+     * @memberof ReviewableEntitlement
      */
-    'owner'?: Identityreferencewithnameandemail | null;
+    'owner'?: IdentityReferenceWithNameAndEmail | null;
     /**
      * The name of the attribute on the source
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'attributeName'?: string;
     /**
      * The value of the attribute on the source
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'attributeValue'?: string;
     /**
      * The schema object type on the source used to represent the entitlement and its attributes
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceSchemaObjectType'?: string;
     /**
      * The name of the source for which this entitlement belongs
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceName'?: string;
     /**
      * The type of the source for which the entitlement belongs
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceType'?: string;
     /**
      * The ID of the source for which the entitlement belongs
      * @type {string}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'sourceId'?: string;
     /**
      * Indicates if the entitlement has permissions
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'hasPermissions'?: boolean;
     /**
      * Indicates if the entitlement is a representation of an account permission
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'isPermission'?: boolean;
     /**
      * Indicates whether the entitlement can be revoked
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'revocable'?: boolean;
     /**
      * True if the entitlement is cloud governed
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'cloudGoverned'?: boolean;
     /**
      * True if the entitlement has DAS data
      * @type {boolean}
-     * @memberof Reviewableentitlement
+     * @memberof ReviewableEntitlement
      */
     'containsDataAccess'?: boolean;
     /**
      * 
-     * @type {Dataaccess}
-     * @memberof Reviewableentitlement
+     * @type {DataAccess}
+     * @memberof ReviewableEntitlement
      */
-    'dataAccess'?: Dataaccess | null;
+    'dataAccess'?: DataAccess | null;
     /**
      * 
-     * @type {ReviewableentitlementAccount}
-     * @memberof Reviewableentitlement
+     * @type {ReviewableEntitlementAccount}
+     * @memberof ReviewableEntitlement
      */
-    'account'?: ReviewableentitlementAccount | null;
+    'account'?: ReviewableEntitlementAccount | null;
 }
 /**
  * Information about the status of the entitlement
  * @export
- * @interface ReviewableentitlementAccount
+ * @interface ReviewableEntitlementAccount
  */
-export interface ReviewableentitlementAccount {
+export interface ReviewableEntitlementAccount {
     /**
      * The native identity for this account
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'nativeIdentity'?: string;
     /**
      * Indicates whether this account is currently disabled
      * @type {boolean}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'disabled'?: boolean;
     /**
      * Indicates whether this account is currently locked
      * @type {boolean}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'locked'?: boolean;
     /**
      * 
-     * @type {Dtotype}
-     * @memberof ReviewableentitlementAccount
+     * @type {DtoType}
+     * @memberof ReviewableEntitlementAccount
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * The id associated with the account
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'id'?: string | null;
     /**
      * The account name
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'name'?: string | null;
     /**
      * When the account was created
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'created'?: string | null;
     /**
      * When the account was last modified
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'modified'?: string | null;
     /**
      * 
-     * @type {Activityinsights}
-     * @memberof ReviewableentitlementAccount
+     * @type {ActivityInsights}
+     * @memberof ReviewableEntitlementAccount
      */
-    'activityInsights'?: Activityinsights;
+    'activityInsights'?: ActivityInsights;
     /**
      * Information about the account
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'description'?: string | null;
     /**
      * The id associated with the machine Account Governance Group
      * @type {string}
-     * @memberof ReviewableentitlementAccount
+     * @memberof ReviewableEntitlementAccount
      */
     'governanceGroupId'?: string | null;
     /**
      * 
-     * @type {ReviewableentitlementAccountOwner}
-     * @memberof ReviewableentitlementAccount
+     * @type {ReviewableEntitlementAccountOwner}
+     * @memberof ReviewableEntitlementAccount
      */
-    'owner'?: ReviewableentitlementAccountOwner | null;
+    'owner'?: ReviewableEntitlementAccountOwner | null;
 }
 
 
 /**
  * Information about the machine account owner
  * @export
- * @interface ReviewableentitlementAccountOwner
+ * @interface ReviewableEntitlementAccountOwner
  */
-export interface ReviewableentitlementAccountOwner {
+export interface ReviewableEntitlementAccountOwner {
     /**
      * The id associated with the machine account owner
      * @type {string}
-     * @memberof ReviewableentitlementAccountOwner
+     * @memberof ReviewableEntitlementAccountOwner
      */
     'id'?: string | null;
     /**
      * An enumeration of the types of Owner supported within the IdentityNow infrastructure.
      * @type {string}
-     * @memberof ReviewableentitlementAccountOwner
+     * @memberof ReviewableEntitlementAccountOwner
      */
-    'type'?: ReviewableentitlementAccountOwnerTypeEnum;
+    'type'?: ReviewableEntitlementAccountOwnerTypeEnum;
     /**
      * The machine account owner\'s display name
      * @type {string}
-     * @memberof ReviewableentitlementAccountOwner
+     * @memberof ReviewableEntitlementAccountOwner
      */
     'displayName'?: string | null;
 }
 
-export const ReviewableentitlementAccountOwnerTypeEnum = {
+export const ReviewableEntitlementAccountOwnerTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ReviewableentitlementAccountOwnerTypeEnum = typeof ReviewableentitlementAccountOwnerTypeEnum[keyof typeof ReviewableentitlementAccountOwnerTypeEnum];
+export type ReviewableEntitlementAccountOwnerTypeEnum = typeof ReviewableEntitlementAccountOwnerTypeEnum[keyof typeof ReviewableEntitlementAccountOwnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface Reviewablerole
+ * @interface ReviewableRole
  */
-export interface Reviewablerole {
+export interface ReviewableRole {
     /**
      * The id for the Role
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'id'?: string;
     /**
      * The name of the Role
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'name'?: string;
     /**
      * Information about the Role
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'description'?: string;
     /**
      * Indicates if the entitlement is a privileged entitlement
      * @type {boolean}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'privileged'?: boolean;
     /**
      * 
-     * @type {Identityreferencewithnameandemail}
-     * @memberof Reviewablerole
+     * @type {IdentityReferenceWithNameAndEmail}
+     * @memberof ReviewableRole
      */
-    'owner'?: Identityreferencewithnameandemail | null;
+    'owner'?: IdentityReferenceWithNameAndEmail | null;
     /**
      * Indicates whether the Role can be revoked or requested
      * @type {boolean}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'revocable'?: boolean;
     /**
      * The date when a user\'s access expires.
      * @type {string}
-     * @memberof Reviewablerole
+     * @memberof ReviewableRole
      */
     'endDate'?: string;
     /**
      * The list of Access Profiles associated with this Role
-     * @type {Array<Reviewableaccessprofile>}
-     * @memberof Reviewablerole
+     * @type {Array<ReviewableAccessProfile>}
+     * @memberof ReviewableRole
      */
-    'accessProfiles'?: Array<Reviewableaccessprofile>;
+    'accessProfiles'?: Array<ReviewableAccessProfile>;
     /**
      * The list of entitlements associated with this Role
-     * @type {Array<Reviewableentitlement>}
-     * @memberof Reviewablerole
+     * @type {Array<ReviewableEntitlement>}
+     * @memberof ReviewableRole
      */
-    'entitlements'?: Array<Reviewableentitlement>;
+    'entitlements'?: Array<ReviewableEntitlement>;
 }
 
 /**
@@ -1073,7 +1073,7 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityAccessSummariesV1(id: string, type: GetIdentityAccessSummariesV1TypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accesssummary>>> {
+        async getIdentityAccessSummariesV1(id: string, type: GetIdentityAccessSummariesV1TypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAccessSummariesV1(id, type, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentityAccessSummariesV1']?.[localVarOperationServerIndex]?.url;
@@ -1087,7 +1087,7 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityDecisionSummaryV1(id: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycertdecisionsummary>> {
+        async getIdentityDecisionSummaryV1(id: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertDecisionSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityDecisionSummaryV1(id, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentityDecisionSummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -1105,7 +1105,7 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySummariesV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Certificationidentitysummary>>> {
+        async getIdentitySummariesV1(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationIdentitySummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummariesV1(id, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentitySummariesV1']?.[localVarOperationServerIndex]?.url;
@@ -1119,7 +1119,7 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySummaryV1(id: string, identitySummaryId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Certificationidentitysummary>> {
+        async getIdentitySummaryV1(id: string, identitySummaryId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationIdentitySummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummaryV1(id, identitySummaryId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentitySummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -1142,7 +1142,7 @@ export const CertificationSummariesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityAccessSummariesV1(requestParameters: CertificationSummariesApiGetIdentityAccessSummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accesssummary>> {
+        getIdentityAccessSummariesV1(requestParameters: CertificationSummariesApiGetIdentityAccessSummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessSummary>> {
             return localVarFp.getIdentityAccessSummariesV1(requestParameters.id, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1152,7 +1152,7 @@ export const CertificationSummariesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityDecisionSummaryV1(requestParameters: CertificationSummariesApiGetIdentityDecisionSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycertdecisionsummary> {
+        getIdentityDecisionSummaryV1(requestParameters: CertificationSummariesApiGetIdentityDecisionSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityCertDecisionSummary> {
             return localVarFp.getIdentityDecisionSummaryV1(requestParameters.id, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1162,7 +1162,7 @@ export const CertificationSummariesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySummariesV1(requestParameters: CertificationSummariesApiGetIdentitySummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Certificationidentitysummary>> {
+        getIdentitySummariesV1(requestParameters: CertificationSummariesApiGetIdentitySummariesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CertificationIdentitySummary>> {
             return localVarFp.getIdentitySummariesV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1172,7 +1172,7 @@ export const CertificationSummariesApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySummaryV1(requestParameters: CertificationSummariesApiGetIdentitySummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Certificationidentitysummary> {
+        getIdentitySummaryV1(requestParameters: CertificationSummariesApiGetIdentitySummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CertificationIdentitySummary> {
             return localVarFp.getIdentitySummaryV1(requestParameters.id, requestParameters.identitySummaryId, axiosOptions).then((request) => request(axios, basePath));
         },
     };

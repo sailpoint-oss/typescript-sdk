@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Outliersummary>`
+`Array<OutlierSummary>`
 
 ### HTTP request headers
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Latestoutliersummary>`
+`Array<LatestOutlierSummary>`
 
 ### HTTP request headers
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Outlierfeaturesummary`
+`OutlierFeatureSummary`
 
 ### HTTP request headers
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Outliercontributingfeature>`
+`Array<OutlierContributingFeature>`
 
 ### HTTP request headers
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Outlierscontributingfeatureaccessitems>`
+`Array<OutliersContributingFeatureAccessItems>`
 
 ### HTTP request headers
 

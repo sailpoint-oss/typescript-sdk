@@ -26,122 +26,122 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Activityconfigurationsettings
+ * @interface ActivityConfigurationSettings
  */
-export interface Activityconfigurationsettings {
+export interface ActivityConfigurationSettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'clusterId'?: string | null;
     /**
      * The time period for retaining activity logs.
      * @type {number}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'retentionTimePeriod'?: number;
     /**
      * The type of retention period (e.g., days, months, years).
      * @type {string}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'retentionTimeType'?: string | null;
     /**
      * List of user identifiers to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'excludeUsers'?: Array<string> | null;
     /**
      * List of folder paths to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'excludeFolders'?: Array<string> | null;
     /**
      * List of file extensions to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'excludeFileExtensions'?: Array<string> | null;
     /**
      * List of actions to exclude from activity tracking.
      * @type {Array<string>}
-     * @memberof Activityconfigurationsettings
+     * @memberof ActivityConfigurationSettings
      */
     'excludeActions'?: Array<string> | null;
 }
 /**
  * 
  * @export
- * @interface Applicationcrawlersettings
+ * @interface ApplicationCrawlerSettings
  */
-export interface Applicationcrawlersettings {
+export interface ApplicationCrawlerSettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'clusterId'?: string | null;
     /**
      * 
-     * @type {Crawlresourcessizesoptions}
-     * @memberof Applicationcrawlersettings
+     * @type {CrawlResourcesSizesOptions}
+     * @memberof ApplicationCrawlerSettings
      */
-    'calculateResourceSize'?: Crawlresourcessizesoptions;
+    'calculateResourceSize'?: CrawlResourcesSizesOptions;
     /**
      * Indicates whether to crawl the snapshots folder.
      * @type {boolean}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'crawlSnapshotsFolder'?: boolean | null;
     /**
      * Indicates whether to crawl mailboxes.
      * @type {boolean}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'crawlMailboxes'?: boolean | null;
     /**
      * Indicates whether to crawl public folders.
      * @type {boolean}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'crawlPublicFolders'?: boolean | null;
     /**
      * Regular expression pattern for paths to exclude from crawling.
      * @type {string}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'excludedPathsByRegex'?: string | null;
     /**
      * List of top-level shares to crawl.
      * @type {Array<string>}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'crawlTopLevelShares'?: Array<string> | null;
     /**
      * List of resource identifiers to exclude from crawling.
      * @type {Array<string>}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'excludedResources'?: Array<string> | null;
     /**
      * List of resource identifiers to include in crawling.
      * @type {Array<string>}
-     * @memberof Applicationcrawlersettings
+     * @memberof ApplicationCrawlerSettings
      */
     'includeResources'?: Array<string> | null;
 }
@@ -150,67 +150,67 @@ export interface Applicationcrawlersettings {
 /**
  * 
  * @export
- * @interface Applicationitem
+ * @interface ApplicationItem
  */
-export interface Applicationitem {
+export interface ApplicationItem {
     /**
      * The unique identifier of the application.
      * @type {number}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'id'?: number;
     /**
      * The display name of the application.
      * @type {string}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'name'?: string | null;
     /**
      * A brief description of the application and its purpose.
      * @type {string}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'description'?: string | null;
     /**
      * The type of the application.
      * @type {string}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'type'?: string | null;
     /**
      * A list of tags associated with the application.
      * @type {Array<Tag>}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'tags'?: Array<Tag> | null;
     /**
      * The status of the last connection test performed on the application.
      * @type {string}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'testConnectionStatus'?: string | null;
     /**
      * The timestamp of the last connection test performed on the application, in milliseconds since epoch.
      * @type {number}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'testConnectionDate'?: number | null;
     /**
      * The identifier of the cluster used for crawling resources.
      * @type {string}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'rcClusterId'?: string | null;
     /**
      * The identifier of the cluster used for data classification.
      * @type {string}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'dcClusterId'?: string | null;
     /**
      * The identifier of the cluster used for permission collection.
      * @type {string}
-     * @memberof Applicationitem
+     * @memberof ApplicationItem
      */
     'pcClusterId'?: string | null;
 }
@@ -220,7 +220,7 @@ export interface Applicationitem {
  * @enum {number}
  */
 
-export const Applicationtype = {
+export const ApplicationType = {
     NUMBER_1: 1,
     NUMBER_8: 8,
     NUMBER_9: 9,
@@ -238,110 +238,110 @@ export const Applicationtype = {
     NUMBER_37: 37
 } as const;
 
-export type Applicationtype = typeof Applicationtype[keyof typeof Applicationtype];
+export type ApplicationType = typeof ApplicationType[keyof typeof ApplicationType];
 
 
 /**
  * 
  * @export
- * @interface Assignresourceownerrequest
+ * @interface AssignResourceOwnerRequest
  */
-export interface Assignresourceownerrequest {
+export interface AssignResourceOwnerRequest {
     /**
      * The unique identifier of the application containing the resource.
      * @type {number}
-     * @memberof Assignresourceownerrequest
+     * @memberof AssignResourceOwnerRequest
      */
     'appId'?: number;
     /**
      * The full path to the resource within the application (e.g., file path or object path).
      * @type {string}
-     * @memberof Assignresourceownerrequest
+     * @memberof AssignResourceOwnerRequest
      */
     'fullPath'?: string | null;
     /**
      * The unique identifier (UUID) of the identity to be assigned as the resource owner.
      * @type {string}
-     * @memberof Assignresourceownerrequest
+     * @memberof AssignResourceOwnerRequest
      */
     'identityId'?: string;
 }
 /**
  * 
  * @export
- * @interface Basecreateapplicationrequest
+ * @interface BaseCreateApplicationRequest
  */
-export interface Basecreateapplicationrequest {
+export interface BaseCreateApplicationRequest {
     /**
      * 
-     * @type {Applicationtype}
-     * @memberof Basecreateapplicationrequest
+     * @type {ApplicationType}
+     * @memberof BaseCreateApplicationRequest
      */
-    'applicationType': Applicationtype;
+    'applicationType': ApplicationType;
     /**
      * The display name of the application.
      * @type {string}
-     * @memberof Basecreateapplicationrequest
+     * @memberof BaseCreateApplicationRequest
      */
     'name': string;
     /**
      * A brief description of the application and its purpose.
      * @type {string}
-     * @memberof Basecreateapplicationrequest
+     * @memberof BaseCreateApplicationRequest
      */
     'description'?: string | null;
     /**
      * A list of tags to categorize or identify the application.
-     * @type {Array<Int64stringkeyvaluepair>}
-     * @memberof Basecreateapplicationrequest
+     * @type {Array<Int64StringKeyValuePair>}
+     * @memberof BaseCreateApplicationRequest
      */
-    'tags'?: Array<Int64stringkeyvaluepair> | null;
+    'tags'?: Array<Int64StringKeyValuePair> | null;
     /**
      * The unique identifier for the identity collector associated with this application.
      * @type {number}
-     * @memberof Basecreateapplicationrequest
+     * @memberof BaseCreateApplicationRequest
      */
     'identityCollectorId'?: number | null;
     /**
      * The unique identifier for the AD identity collector.
      * @type {number}
-     * @memberof Basecreateapplicationrequest
+     * @memberof BaseCreateApplicationRequest
      */
     'adIdentityCollectorId'?: number | null;
     /**
      * The unique identifier for the NIS identity collector.
      * @type {number}
-     * @memberof Basecreateapplicationrequest
+     * @memberof BaseCreateApplicationRequest
      */
     'nisIdentityCollectorId'?: number | null;
     /**
      * 
-     * @type {Applicationcrawlersettings}
-     * @memberof Basecreateapplicationrequest
+     * @type {ApplicationCrawlerSettings}
+     * @memberof BaseCreateApplicationRequest
      */
-    'applicationCrawlerSettings'?: Applicationcrawlersettings;
+    'applicationCrawlerSettings'?: ApplicationCrawlerSettings;
     /**
      * 
-     * @type {Permissioncollectorsettings}
-     * @memberof Basecreateapplicationrequest
+     * @type {PermissionCollectorSettings}
+     * @memberof BaseCreateApplicationRequest
      */
-    'permissionCollectorSettings'?: Permissioncollectorsettings;
+    'permissionCollectorSettings'?: PermissionCollectorSettings;
     /**
      * 
-     * @type {Dataclassificationsettings}
-     * @memberof Basecreateapplicationrequest
+     * @type {DataClassificationSettings}
+     * @memberof BaseCreateApplicationRequest
      */
-    'dataClassificationSettings'?: Dataclassificationsettings;
+    'dataClassificationSettings'?: DataClassificationSettings;
     /**
      * 
-     * @type {Activityconfigurationsettings}
-     * @memberof Basecreateapplicationrequest
+     * @type {ActivityConfigurationSettings}
+     * @memberof BaseCreateApplicationRequest
      */
-    'activityConfigurationSettings'?: Activityconfigurationsettings;
+    'activityConfigurationSettings'?: ActivityConfigurationSettings;
     /**
      * If true, the application setup will be executed immediately after creation.
      * @type {boolean}
-     * @memberof Basecreateapplicationrequest
+     * @memberof BaseCreateApplicationRequest
      */
     'executeNow'?: boolean;
 }
@@ -350,19 +350,19 @@ export interface Basecreateapplicationrequest {
 /**
  * 
  * @export
- * @interface Basesettings
+ * @interface BaseSettings
  */
-export interface Basesettings {
+export interface BaseSettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof Basesettings
+     * @memberof BaseSettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof Basesettings
+     * @memberof BaseSettings
      */
     'clusterId'?: string | null;
 }
@@ -372,7 +372,7 @@ export interface Basesettings {
  * @enum {number}
  */
 
-export const Businessservicetype = {
+export const BusinessServiceType = {
     NUMBER_0: 0,
     NUMBER_1: 1,
     NUMBER_2: 2,
@@ -445,7 +445,7 @@ export const Businessservicetype = {
     NUMBER_1411: 1411
 } as const;
 
-export type Businessservicetype = typeof Businessservicetype[keyof typeof Businessservicetype];
+export type BusinessServiceType = typeof BusinessServiceType[keyof typeof BusinessServiceType];
 
 
 /**
@@ -454,14 +454,14 @@ export type Businessservicetype = typeof Businessservicetype[keyof typeof Busine
  * @enum {number}
  */
 
-export const Crawlresourcessizesoptions = {
+export const CrawlResourcesSizesOptions = {
     NUMBER_0: 0,
     NUMBER_1: 1,
     NUMBER_2: 2,
     NUMBER_3: 3
 } as const;
 
-export type Crawlresourcessizesoptions = typeof Crawlresourcessizesoptions[keyof typeof Crawlresourcessizesoptions];
+export type CrawlResourcesSizesOptions = typeof CrawlResourcesSizesOptions[keyof typeof CrawlResourcesSizesOptions];
 
 
 /**
@@ -486,6 +486,73 @@ export interface CreateIdentityCollectorV1200Response {
 /**
  * 
  * @export
+ * @interface CreateScheduleRequest
+ */
+export interface CreateScheduleRequest {
+    /**
+     * The type or category of the scheduled task.
+     * @type {string}
+     * @memberof CreateScheduleRequest
+     */
+    'taskTypeName'?: string | null;
+    /**
+     * The scheduling type, such as \"Daily\", \"Weekly\" etc.
+     * @type {string}
+     * @memberof CreateScheduleRequest
+     */
+    'scheduleType'?: string | null;
+    /**
+     * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
+     * @type {number}
+     * @memberof CreateScheduleRequest
+     */
+    'interval'?: number | null;
+    /**
+     * The display name of the scheduled task.
+     * @type {string}
+     * @memberof CreateScheduleRequest
+     */
+    'scheduleTaskName'?: string | null;
+    /**
+     * The start time for the scheduled task, represented as epoch seconds.
+     * @type {number}
+     * @memberof CreateScheduleRequest
+     */
+    'startTime'?: number;
+    /**
+     * The end time for the scheduled task, represented as epoch seconds.
+     * @type {number}
+     * @memberof CreateScheduleRequest
+     */
+    'endTime'?: number;
+    /**
+     * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
+     * @type {Array<string>}
+     * @memberof CreateScheduleRequest
+     */
+    'daysOfWeek'?: Array<string> | null;
+    /**
+     * Indicates whether the scheduled task is currently active.
+     * @type {boolean}
+     * @memberof CreateScheduleRequest
+     */
+    'active'?: boolean;
+    /**
+     * The ID of another scheduled task that triggers this scheduled task upon its completion.
+     * @type {number}
+     * @memberof CreateScheduleRequest
+     */
+    'runAfterScheduleTaskId'?: number | null;
+    /**
+     * The unique identifier of the application associated with the scheduled task.
+     * @type {number}
+     * @memberof CreateScheduleRequest
+     */
+    'applicationId'?: number | null;
+}
+/**
+ * 
+ * @export
  * @interface Createidentitycollectorrequest
  */
 export interface Createidentitycollectorrequest {
@@ -505,136 +572,69 @@ export interface Createidentitycollectorrequest {
 /**
  * 
  * @export
- * @interface Createschedulerequest
+ * @interface DataClassificationSettings
  */
-export interface Createschedulerequest {
-    /**
-     * The type or category of the scheduled task.
-     * @type {string}
-     * @memberof Createschedulerequest
-     */
-    'taskTypeName'?: string | null;
-    /**
-     * The scheduling type, such as \"Daily\", \"Weekly\" etc.
-     * @type {string}
-     * @memberof Createschedulerequest
-     */
-    'scheduleType'?: string | null;
-    /**
-     * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
-     * @type {number}
-     * @memberof Createschedulerequest
-     */
-    'interval'?: number | null;
-    /**
-     * The display name of the scheduled task.
-     * @type {string}
-     * @memberof Createschedulerequest
-     */
-    'scheduleTaskName'?: string | null;
-    /**
-     * The start time for the scheduled task, represented as epoch seconds.
-     * @type {number}
-     * @memberof Createschedulerequest
-     */
-    'startTime'?: number;
-    /**
-     * The end time for the scheduled task, represented as epoch seconds.
-     * @type {number}
-     * @memberof Createschedulerequest
-     */
-    'endTime'?: number;
-    /**
-     * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
-     * @type {Array<string>}
-     * @memberof Createschedulerequest
-     */
-    'daysOfWeek'?: Array<string> | null;
-    /**
-     * Indicates whether the scheduled task is currently active.
-     * @type {boolean}
-     * @memberof Createschedulerequest
-     */
-    'active'?: boolean;
-    /**
-     * The ID of another scheduled task that triggers this scheduled task upon its completion.
-     * @type {number}
-     * @memberof Createschedulerequest
-     */
-    'runAfterScheduleTaskId'?: number | null;
-    /**
-     * The unique identifier of the application associated with the scheduled task.
-     * @type {number}
-     * @memberof Createschedulerequest
-     */
-    'applicationId'?: number | null;
-}
-/**
- * 
- * @export
- * @interface Dataclassificationsettings
- */
-export interface Dataclassificationsettings {
+export interface DataClassificationSettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof Dataclassificationsettings
+     * @memberof DataClassificationSettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof Dataclassificationsettings
+     * @memberof DataClassificationSettings
      */
     'clusterId'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Dataownermodel
+ * @interface DataOwnerModel
  */
-export interface Dataownermodel {
+export interface DataOwnerModel {
     /**
      * The unique identifier (UUID) of the identity assigned as the owner of the resource.
      * @type {string}
-     * @memberof Dataownermodel
+     * @memberof DataOwnerModel
      */
     'identityId'?: string;
     /**
      * The unique identifier of the resource owned by the identity.
      * @type {number}
-     * @memberof Dataownermodel
+     * @memberof DataOwnerModel
      */
     'resourceId'?: number;
     /**
      * The full path to the resource within the system or application.
      * @type {string}
-     * @memberof Dataownermodel
+     * @memberof DataOwnerModel
      */
     'fullPath'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -643,33 +643,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -731,19 +731,19 @@ export interface Identitycollectorlistitem {
 /**
  * 
  * @export
- * @interface Int64stringkeyvaluepair
+ * @interface Int64StringKeyValuePair
  */
-export interface Int64stringkeyvaluepair {
+export interface Int64StringKeyValuePair {
     /**
      * The key for the tag or pair.
      * @type {number}
-     * @memberof Int64stringkeyvaluepair
+     * @memberof Int64StringKeyValuePair
      */
     'key'?: number;
     /**
      * The value for the tag or pair.
      * @type {string}
-     * @memberof Int64stringkeyvaluepair
+     * @memberof Int64StringKeyValuePair
      */
     'value'?: string | null;
 }
@@ -753,54 +753,54 @@ export interface Int64stringkeyvaluepair {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Permissioncollectorsettings
+ * @interface PermissionCollectorSettings
  */
-export interface Permissioncollectorsettings {
+export interface PermissionCollectorSettings {
     /**
      * Indicates whether the feature or configuration is enabled.
      * @type {boolean}
-     * @memberof Permissioncollectorsettings
+     * @memberof PermissionCollectorSettings
      */
     'isEnabled'?: boolean;
     /**
      * The identifier of the cluster associated with this configuration, if applicable.
      * @type {string}
-     * @memberof Permissioncollectorsettings
+     * @memberof PermissionCollectorSettings
      */
     'clusterId'?: string | null;
     /**
      * Indicates whether unique permissions should be analyzed for resources.
      * @type {boolean}
-     * @memberof Permissioncollectorsettings
+     * @memberof PermissionCollectorSettings
      */
     'analyzeUniquePermissions'?: boolean | null;
     /**
      * Indicates whether effective permissions should be calculated.
      * @type {boolean}
-     * @memberof Permissioncollectorsettings
+     * @memberof PermissionCollectorSettings
      */
     'calculateEffectivePermissions'?: boolean | null;
     /**
      * Indicates whether riskiest permissions should be calculated.
      * @type {boolean}
-     * @memberof Permissioncollectorsettings
+     * @memberof PermissionCollectorSettings
      */
     'calculateRiskiestPermissions'?: boolean | null;
     /**
      * Source for effective permissions calculation.
      * @type {string}
-     * @memberof Permissioncollectorsettings
+     * @memberof PermissionCollectorSettings
      */
     'effectivePermissionsSource'?: string | null;
 }
@@ -857,68 +857,68 @@ export interface PutIdentityCollectorV1409ResponseMessagesInner {
 /**
  * 
  * @export
- * @interface Reelectrequest
+ * @interface ReelectRequest
  */
-export interface Reelectrequest {
+export interface ReelectRequest {
     /**
      * The UUID of the identity proposed to be re-elected as the resource owner.
      * @type {string}
-     * @memberof Reelectrequest
+     * @memberof ReelectRequest
      */
     'ownerId'?: string;
     /**
      * The name of the campaign or election process for re-electing the owner.
      * @type {string}
-     * @memberof Reelectrequest
+     * @memberof ReelectRequest
      */
     'campaignName'?: string | null;
     /**
      * A list of UUIDs representing the identities of reviewers participating in the re-election process.
      * @type {Array<string>}
-     * @memberof Reelectrequest
+     * @memberof ReelectRequest
      */
     'reviewers'?: Array<string> | null;
 }
 /**
  * 
  * @export
- * @interface Resourcemodel
+ * @interface ResourceModel
  */
-export interface Resourcemodel {
+export interface ResourceModel {
     /**
      * The unique identifier for the resource.
      * @type {number}
-     * @memberof Resourcemodel
+     * @memberof ResourceModel
      */
     'id'?: number;
     /**
      * The display name or label for the resource.
      * @type {string}
-     * @memberof Resourcemodel
+     * @memberof ResourceModel
      */
     'name'?: string | null;
     /**
      * The full path to the resource within the system or application.
      * @type {string}
-     * @memberof Resourcemodel
+     * @memberof ResourceModel
      */
     'fullPath'?: string | null;
     /**
      * The unique identifier of the application to which this resource belongs.
      * @type {number}
-     * @memberof Resourcemodel
+     * @memberof ResourceModel
      */
     'applicationId'?: number;
     /**
      * 
-     * @type {Businessservicetype}
-     * @memberof Resourcemodel
+     * @type {BusinessServiceType}
+     * @memberof ResourceModel
      */
-    'type'?: Businessservicetype;
+    'type'?: BusinessServiceType;
     /**
      * A list of UUIDs representing the owners of the resource.
      * @type {Array<string>}
-     * @memberof Resourcemodel
+     * @memberof ResourceModel
      */
     'owners'?: Array<string> | null;
 }
@@ -927,97 +927,97 @@ export interface Resourcemodel {
 /**
  * 
  * @export
- * @interface Scheduleinfo
+ * @interface ScheduleInfo
  */
-export interface Scheduleinfo {
+export interface ScheduleInfo {
     /**
      * The unique identifier for the scheduled task.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'scheduleTaskId'?: number;
     /**
      * The display name of the scheduled task.
      * @type {string}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'scheduleTaskName'?: string | null;
     /**
      * The type or category of the scheduled task.
      * @type {string}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'taskTypeName'?: string | null;
     /**
      * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'interval'?: number;
     /**
      * The scheduling type, such as \"Daily\", \"Weekly\", or \"Manual\" etc.
      * @type {string}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'scheduleType'?: string | null;
     /**
      * Indicates whether the scheduled task is currently active.
      * @type {boolean}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'active'?: boolean;
     /**
      * The start time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'startTime'?: number | null;
     /**
      * The end time for the scheduled task, represented as epoch seconds.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'endTime'?: number | null;
     /**
      * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
      * @type {Array<string>}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'daysOfWeek'?: Array<string> | null;
     /**
      * The ID of another scheduled task that triggers this scheduled task upon its completion.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'runAfterScheduleTaskId'?: number | null;
     /**
      * The name of the scheduled task that must complete before this task runs.
      * @type {string}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'runAfterScheduleTaskName'?: string | null;
     /**
      * The unique identifier of the application associated with the scheduled task.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'applicationId'?: number | null;
     /**
      * The display name of the user who created the scheduled task.
      * @type {string}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'createdByDisplayName'?: string | null;
     /**
      * The next scheduled run time for the task, represented as epoch seconds.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'nextRun'?: number | null;
     /**
      * The last run time of the task, represented as epoch seconds.
      * @type {number}
-     * @memberof Scheduleinfo
+     * @memberof ScheduleInfo
      */
     'lastRun'?: number | null;
 }
@@ -1043,69 +1043,136 @@ export interface Tag {
 /**
  * 
  * @export
- * @interface Taskinfo
+ * @interface TaskInfo
  */
-export interface Taskinfo {
+export interface TaskInfo {
     /**
      * The unique identifier for the task.
      * @type {number}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'taskId'?: number | null;
     /**
      * The type or category of the task.
      * @type {string}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'taskTypeName'?: string | null;
     /**
      * The start time of the task, represented as epoch seconds.
      * @type {number}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'startTime'?: number | null;
     /**
      * The end time of the task, represented as epoch seconds.
      * @type {number}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'endTime'?: number | null;
     /**
      * The display name of the task.
      * @type {string}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'taskName'?: string | null;
     /**
      * The display name of the user who created the task.
      * @type {string}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'createdByDisplayName'?: string | null;
     /**
      * The progress of the task, typically represented as a percentage (0-100).
      * @type {number}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'progress'?: number;
     /**
      * The current status of the task (e.g., \"Running\", \"Completed\", \"Failed\").
      * @type {string}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'status'?: string | null;
     /**
      * Additional details or information about the task.
      * @type {string}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'details'?: string | null;
     /**
      * The unique identifier of the associated scheduled task, if applicable.
      * @type {number}
-     * @memberof Taskinfo
+     * @memberof TaskInfo
      */
     'scheduleTaskId'?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface UpdateScheduleRequest
+ */
+export interface UpdateScheduleRequest {
+    /**
+     * The type or category of the scheduled task.
+     * @type {string}
+     * @memberof UpdateScheduleRequest
+     */
+    'taskTypeName'?: string | null;
+    /**
+     * The scheduling type, such as \"Daily\", \"Weekly\", or \"Manual\" etc.
+     * @type {string}
+     * @memberof UpdateScheduleRequest
+     */
+    'scheduleType'?: string | null;
+    /**
+     * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
+     * @type {number}
+     * @memberof UpdateScheduleRequest
+     */
+    'interval'?: number | null;
+    /**
+     * The display name of the scheduled task.
+     * @type {string}
+     * @memberof UpdateScheduleRequest
+     */
+    'scheduleTaskName'?: string | null;
+    /**
+     * The start time for the scheduled task, represented as epoch seconds.
+     * @type {number}
+     * @memberof UpdateScheduleRequest
+     */
+    'startTime'?: number;
+    /**
+     * The end time for the scheduled task, represented as epoch seconds.
+     * @type {number}
+     * @memberof UpdateScheduleRequest
+     */
+    'endTime'?: number;
+    /**
+     * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
+     * @type {Array<string>}
+     * @memberof UpdateScheduleRequest
+     */
+    'daysOfWeek'?: Array<string> | null;
+    /**
+     * Indicates whether the scheduled task is currently active.
+     * @type {boolean}
+     * @memberof UpdateScheduleRequest
+     */
+    'active'?: boolean;
+    /**
+     * The ID of another scheduled task that triggers this scheduled task upon its completion.
+     * @type {number}
+     * @memberof UpdateScheduleRequest
+     */
+    'runAfterScheduleTaskId'?: number | null;
+    /**
+     * The unique identifier of the application associated with the scheduled task.
+     * @type {number}
+     * @memberof UpdateScheduleRequest
+     */
+    'applicationId'?: number | null;
 }
 /**
  * 
@@ -1131,73 +1198,6 @@ export interface Updateidentitycollectorrequest {
      * @memberof Updateidentitycollectorrequest
      */
     'type': string;
-}
-/**
- * 
- * @export
- * @interface Updateschedulerequest
- */
-export interface Updateschedulerequest {
-    /**
-     * The type or category of the scheduled task.
-     * @type {string}
-     * @memberof Updateschedulerequest
-     */
-    'taskTypeName'?: string | null;
-    /**
-     * The scheduling type, such as \"Daily\", \"Weekly\", or \"Manual\" etc.
-     * @type {string}
-     * @memberof Updateschedulerequest
-     */
-    'scheduleType'?: string | null;
-    /**
-     * The interval depends on the chosen schedule cycle (scheduleType), i.e. if the schedule is daily, the interval will represent the days between executions.
-     * @type {number}
-     * @memberof Updateschedulerequest
-     */
-    'interval'?: number | null;
-    /**
-     * The display name of the scheduled task.
-     * @type {string}
-     * @memberof Updateschedulerequest
-     */
-    'scheduleTaskName'?: string | null;
-    /**
-     * The start time for the scheduled task, represented as epoch seconds.
-     * @type {number}
-     * @memberof Updateschedulerequest
-     */
-    'startTime'?: number;
-    /**
-     * The end time for the scheduled task, represented as epoch seconds.
-     * @type {number}
-     * @memberof Updateschedulerequest
-     */
-    'endTime'?: number;
-    /**
-     * A list of days of the week when the task should run (e.g., \"Monday\", \"Wednesday\").
-     * @type {Array<string>}
-     * @memberof Updateschedulerequest
-     */
-    'daysOfWeek'?: Array<string> | null;
-    /**
-     * Indicates whether the scheduled task is currently active.
-     * @type {boolean}
-     * @memberof Updateschedulerequest
-     */
-    'active'?: boolean;
-    /**
-     * The ID of another scheduled task that triggers this scheduled task upon its completion.
-     * @type {number}
-     * @memberof Updateschedulerequest
-     */
-    'runAfterScheduleTaskId'?: number | null;
-    /**
-     * The unique identifier of the application associated with the scheduled task.
-     * @type {number}
-     * @memberof Updateschedulerequest
-     */
-    'applicationId'?: number | null;
 }
 
 /**
@@ -1243,13 +1243,13 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
         /**
          * This endpoint creates a new application in Data Access Security with the specified configuration.
          * @summary Create application
-         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the details required to create a new application.
+         * @param {BaseCreateApplicationRequest} baseCreateApplicationRequest Request body containing the details required to create a new application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createApplicationV1: async (basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'basecreateapplicationrequest' is not null or undefined
-            assertParamExists('createApplicationV1', 'basecreateapplicationrequest', basecreateapplicationrequest)
+        createApplicationV1: async (baseCreateApplicationRequest: BaseCreateApplicationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'baseCreateApplicationRequest' is not null or undefined
+            assertParamExists('createApplicationV1', 'baseCreateApplicationRequest', baseCreateApplicationRequest)
             const localVarPath = `/das/v1/applications`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1269,7 +1269,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(baseCreateApplicationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1315,13 +1315,13 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
         /**
          * 
          * @summary Create a new schedule.
-         * @param {Createschedulerequest} createschedulerequest 
+         * @param {CreateScheduleRequest} createScheduleRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createScheduleV1: async (createschedulerequest: Createschedulerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createschedulerequest' is not null or undefined
-            assertParamExists('createScheduleV1', 'createschedulerequest', createschedulerequest)
+        createScheduleV1: async (createScheduleRequest: CreateScheduleRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createScheduleRequest' is not null or undefined
+            assertParamExists('createScheduleV1', 'createScheduleRequest', createScheduleRequest)
             const localVarPath = `/das/v1/tasks/schedules`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1341,7 +1341,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createschedulerequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createScheduleRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1351,13 +1351,13 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
         /**
          * 
          * @summary Assign owner to application resource.
-         * @param {Assignresourceownerrequest} assignresourceownerrequest The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+         * @param {AssignResourceOwnerRequest} assignResourceOwnerRequest The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersAssignPost: async (assignresourceownerrequest: Assignresourceownerrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'assignresourceownerrequest' is not null or undefined
-            assertParamExists('dasV1OwnersAssignPost', 'assignresourceownerrequest', assignresourceownerrequest)
+        dasV1OwnersAssignPost: async (assignResourceOwnerRequest: AssignResourceOwnerRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'assignResourceOwnerRequest' is not null or undefined
+            assertParamExists('dasV1OwnersAssignPost', 'assignResourceOwnerRequest', assignResourceOwnerRequest)
             const localVarPath = `/das/v1/owners/assign`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1377,7 +1377,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(assignresourceownerrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(assignResourceOwnerRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1431,13 +1431,13 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
         /**
          * 
          * @summary Re-elect resource owner.
-         * @param {Reelectrequest} reelectrequest The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+         * @param {ReelectRequest} reelectRequest The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersReelectPost: async (reelectrequest: Reelectrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reelectrequest' is not null or undefined
-            assertParamExists('dasV1OwnersReelectPost', 'reelectrequest', reelectrequest)
+        dasV1OwnersReelectPost: async (reelectRequest: ReelectRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reelectRequest' is not null or undefined
+            assertParamExists('dasV1OwnersReelectPost', 'reelectRequest', reelectRequest)
             const localVarPath = `/das/v1/owners/reelect`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1457,7 +1457,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reelectrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reelectRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2032,15 +2032,15 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
          * @param {number} id The unique identifier of the application to update.
-         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the updated details for the application.
+         * @param {BaseCreateApplicationRequest} baseCreateApplicationRequest Request body containing the updated details for the application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putApplicationV1: async (id: number, basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putApplicationV1: async (id: number, baseCreateApplicationRequest: BaseCreateApplicationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putApplicationV1', 'id', id)
-            // verify required parameter 'basecreateapplicationrequest' is not null or undefined
-            assertParamExists('putApplicationV1', 'basecreateapplicationrequest', basecreateapplicationrequest)
+            // verify required parameter 'baseCreateApplicationRequest' is not null or undefined
+            assertParamExists('putApplicationV1', 'baseCreateApplicationRequest', baseCreateApplicationRequest)
             const localVarPath = `/das/v1/applications/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2061,7 +2061,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(basecreateapplicationrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(baseCreateApplicationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2112,15 +2112,15 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
          * 
          * @summary Update a schedule.
          * @param {number} id The unique identifier of the schedule to update.
-         * @param {Updateschedulerequest} updateschedulerequest 
+         * @param {UpdateScheduleRequest} updateScheduleRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putScheduleV1: async (id: number, updateschedulerequest: Updateschedulerequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putScheduleV1: async (id: number, updateScheduleRequest: UpdateScheduleRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putScheduleV1', 'id', id)
-            // verify required parameter 'updateschedulerequest' is not null or undefined
-            assertParamExists('putScheduleV1', 'updateschedulerequest', updateschedulerequest)
+            // verify required parameter 'updateScheduleRequest' is not null or undefined
+            assertParamExists('putScheduleV1', 'updateScheduleRequest', updateScheduleRequest)
             const localVarPath = `/das/v1/tasks/schedules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2141,7 +2141,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateschedulerequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateScheduleRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2208,12 +2208,12 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint creates a new application in Data Access Security with the specified configuration.
          * @summary Create application
-         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the details required to create a new application.
+         * @param {BaseCreateApplicationRequest} baseCreateApplicationRequest Request body containing the details required to create a new application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createApplicationV1(basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createApplicationV1(basecreateapplicationrequest, axiosOptions);
+        async createApplicationV1(baseCreateApplicationRequest: BaseCreateApplicationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createApplicationV1(baseCreateApplicationRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.createApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2234,12 +2234,12 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Create a new schedule.
-         * @param {Createschedulerequest} createschedulerequest 
+         * @param {CreateScheduleRequest} createScheduleRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createScheduleV1(createschedulerequest: Createschedulerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduleV1(createschedulerequest, axiosOptions);
+        async createScheduleV1(createScheduleRequest: CreateScheduleRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduleV1(createScheduleRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.createScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2247,12 +2247,12 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Assign owner to application resource.
-         * @param {Assignresourceownerrequest} assignresourceownerrequest The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
+         * @param {AssignResourceOwnerRequest} assignResourceOwnerRequest The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async dasV1OwnersAssignPost(assignresourceownerrequest: Assignresourceownerrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersAssignPost(assignresourceownerrequest, axiosOptions);
+        async dasV1OwnersAssignPost(assignResourceOwnerRequest: AssignResourceOwnerRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersAssignPost(assignResourceOwnerRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersAssignPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2266,7 +2266,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async dasV1OwnersOwnerIdentityIdResourcesGet(ownerIdentityId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Resourcemodel>>> {
+        async dasV1OwnersOwnerIdentityIdResourcesGet(ownerIdentityId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ResourceModel>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersOwnerIdentityIdResourcesGet(ownerIdentityId, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersOwnerIdentityIdResourcesGet']?.[localVarOperationServerIndex]?.url;
@@ -2275,12 +2275,12 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Re-elect resource owner.
-         * @param {Reelectrequest} reelectrequest The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
+         * @param {ReelectRequest} reelectRequest The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async dasV1OwnersReelectPost(reelectrequest: Reelectrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersReelectPost(reelectrequest, axiosOptions);
+        async dasV1OwnersReelectPost(reelectRequest: ReelectRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<number>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dasV1OwnersReelectPost(reelectRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.dasV1OwnersReelectPost']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2373,7 +2373,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Applicationitem>> {
+        async getApplicationV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApplicationItem>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getApplicationV1']?.[localVarOperationServerIndex]?.url;
@@ -2389,7 +2389,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Applicationitem>>> {
+        async getApplicationsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ApplicationItem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationsV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getApplicationsV1']?.[localVarOperationServerIndex]?.url;
@@ -2404,7 +2404,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOwnersV1(appId: number, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Dataownermodel>>> {
+        async getOwnersV1(appId: number, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DataOwnerModel>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOwnersV1(appId, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getOwnersV1']?.[localVarOperationServerIndex]?.url;
@@ -2417,7 +2417,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getScheduleV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Scheduleinfo>> {
+        async getScheduleV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduleInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getScheduleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getScheduleV1']?.[localVarOperationServerIndex]?.url;
@@ -2433,7 +2433,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSchedulesV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Scheduleinfo>>> {
+        async getSchedulesV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduleInfo>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSchedulesV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getSchedulesV1']?.[localVarOperationServerIndex]?.url;
@@ -2446,7 +2446,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskinfo>> {
+        async getTaskV1(id: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskInfo>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getTaskV1']?.[localVarOperationServerIndex]?.url;
@@ -2462,7 +2462,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTasksV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Taskinfo>>> {
+        async getTasksV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskInfo>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTasksV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getTasksV1']?.[localVarOperationServerIndex]?.url;
@@ -2488,12 +2488,12 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * This endpoint updates an existing application in Data Access Security with the specified configuration.
          * @summary Update application by identifier.
          * @param {number} id The unique identifier of the application to update.
-         * @param {Basecreateapplicationrequest} basecreateapplicationrequest Request body containing the updated details for the application.
+         * @param {BaseCreateApplicationRequest} baseCreateApplicationRequest Request body containing the updated details for the application.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putApplicationV1(id: number, basecreateapplicationrequest: Basecreateapplicationrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putApplicationV1(id, basecreateapplicationrequest, axiosOptions);
+        async putApplicationV1(id: number, baseCreateApplicationRequest: BaseCreateApplicationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putApplicationV1(id, baseCreateApplicationRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.putApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2516,12 +2516,12 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * 
          * @summary Update a schedule.
          * @param {number} id The unique identifier of the schedule to update.
-         * @param {Updateschedulerequest} updateschedulerequest 
+         * @param {UpdateScheduleRequest} updateScheduleRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putScheduleV1(id: number, updateschedulerequest: Updateschedulerequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putScheduleV1(id, updateschedulerequest, axiosOptions);
+        async putScheduleV1(id: number, updateScheduleRequest: UpdateScheduleRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putScheduleV1(id, updateScheduleRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.putScheduleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2567,7 +2567,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         createApplicationV1(requestParameters: DataAccessSecurityApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.createApplicationV1(requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createApplicationV1(requestParameters.baseCreateApplicationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
@@ -2587,7 +2587,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         createScheduleV1(requestParameters: DataAccessSecurityApiCreateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
-            return localVarFp.createScheduleV1(requestParameters.createschedulerequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createScheduleV1(requestParameters.createScheduleRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2597,7 +2597,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         dasV1OwnersAssignPost(requestParameters: DataAccessSecurityApiDasV1OwnersAssignPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
-            return localVarFp.dasV1OwnersAssignPost(requestParameters.assignresourceownerrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.dasV1OwnersAssignPost(requestParameters.assignResourceOwnerRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2606,7 +2606,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters: DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Resourcemodel>> {
+        dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters: DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ResourceModel>> {
             return localVarFp.dasV1OwnersOwnerIdentityIdResourcesGet(requestParameters.ownerIdentityId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2617,7 +2617,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         dasV1OwnersReelectPost(requestParameters: DataAccessSecurityApiDasV1OwnersReelectPostRequest, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<number> {
-            return localVarFp.dasV1OwnersReelectPost(requestParameters.reelectrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.dasV1OwnersReelectPost(requestParameters.reelectRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2686,7 +2686,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationV1(requestParameters: DataAccessSecurityApiGetApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Applicationitem> {
+        getApplicationV1(requestParameters: DataAccessSecurityApiGetApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ApplicationItem> {
             return localVarFp.getApplicationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2696,7 +2696,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationsV1(requestParameters: DataAccessSecurityApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Applicationitem>> {
+        getApplicationsV1(requestParameters: DataAccessSecurityApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ApplicationItem>> {
             return localVarFp.getApplicationsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2706,7 +2706,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOwnersV1(requestParameters: DataAccessSecurityApiGetOwnersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Dataownermodel>> {
+        getOwnersV1(requestParameters: DataAccessSecurityApiGetOwnersV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<DataOwnerModel>> {
             return localVarFp.getOwnersV1(requestParameters.appId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2716,7 +2716,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getScheduleV1(requestParameters: DataAccessSecurityApiGetScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Scheduleinfo> {
+        getScheduleV1(requestParameters: DataAccessSecurityApiGetScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ScheduleInfo> {
             return localVarFp.getScheduleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2726,7 +2726,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSchedulesV1(requestParameters: DataAccessSecurityApiGetSchedulesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Scheduleinfo>> {
+        getSchedulesV1(requestParameters: DataAccessSecurityApiGetSchedulesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ScheduleInfo>> {
             return localVarFp.getSchedulesV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2736,7 +2736,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskV1(requestParameters: DataAccessSecurityApiGetTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskinfo> {
+        getTaskV1(requestParameters: DataAccessSecurityApiGetTaskV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskInfo> {
             return localVarFp.getTaskV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2746,7 +2746,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTasksV1(requestParameters: DataAccessSecurityApiGetTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Taskinfo>> {
+        getTasksV1(requestParameters: DataAccessSecurityApiGetTasksV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<TaskInfo>> {
             return localVarFp.getTasksV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2767,7 +2767,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         putApplicationV1(requestParameters: DataAccessSecurityApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.putApplicationV1(requestParameters.id, requestParameters.baseCreateApplicationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
@@ -2787,7 +2787,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @throws {RequiredError}
          */
         putScheduleV1(requestParameters: DataAccessSecurityApiPutScheduleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.putScheduleV1(requestParameters.id, requestParameters.updateschedulerequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.putScheduleV1(requestParameters.id, requestParameters.updateScheduleRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point sends a request to re-run a task in Data Access Security.
@@ -2824,10 +2824,10 @@ export interface DataAccessSecurityApiCancelTaskV1Request {
 export interface DataAccessSecurityApiCreateApplicationV1Request {
     /**
      * Request body containing the details required to create a new application.
-     * @type {Basecreateapplicationrequest}
+     * @type {BaseCreateApplicationRequest}
      * @memberof DataAccessSecurityApiCreateApplicationV1
      */
-    readonly basecreateapplicationrequest: Basecreateapplicationrequest
+    readonly baseCreateApplicationRequest: BaseCreateApplicationRequest
 }
 
 /**
@@ -2852,10 +2852,10 @@ export interface DataAccessSecurityApiCreateIdentityCollectorV1Request {
 export interface DataAccessSecurityApiCreateScheduleV1Request {
     /**
      * 
-     * @type {Createschedulerequest}
+     * @type {CreateScheduleRequest}
      * @memberof DataAccessSecurityApiCreateScheduleV1
      */
-    readonly createschedulerequest: Createschedulerequest
+    readonly createScheduleRequest: CreateScheduleRequest
 }
 
 /**
@@ -2866,10 +2866,10 @@ export interface DataAccessSecurityApiCreateScheduleV1Request {
 export interface DataAccessSecurityApiDasV1OwnersAssignPostRequest {
     /**
      * The request body must contain the application ID, resource path, and identity ID to be assigned as the resource owner.
-     * @type {Assignresourceownerrequest}
+     * @type {AssignResourceOwnerRequest}
      * @memberof DataAccessSecurityApiDasV1OwnersAssignPost
      */
-    readonly assignresourceownerrequest: Assignresourceownerrequest
+    readonly assignResourceOwnerRequest: AssignResourceOwnerRequest
 }
 
 /**
@@ -2908,10 +2908,10 @@ export interface DataAccessSecurityApiDasV1OwnersOwnerIdentityIdResourcesGetRequ
 export interface DataAccessSecurityApiDasV1OwnersReelectPostRequest {
     /**
      * The request body must contain details for re-electing a resource owner. Date/time fields should use epoch format in seconds.
-     * @type {Reelectrequest}
+     * @type {ReelectRequest}
      * @memberof DataAccessSecurityApiDasV1OwnersReelectPost
      */
-    readonly reelectrequest: Reelectrequest
+    readonly reelectRequest: ReelectRequest
 }
 
 /**
@@ -3244,10 +3244,10 @@ export interface DataAccessSecurityApiPutApplicationV1Request {
 
     /**
      * Request body containing the updated details for the application.
-     * @type {Basecreateapplicationrequest}
+     * @type {BaseCreateApplicationRequest}
      * @memberof DataAccessSecurityApiPutApplicationV1
      */
-    readonly basecreateapplicationrequest: Basecreateapplicationrequest
+    readonly baseCreateApplicationRequest: BaseCreateApplicationRequest
 }
 
 /**
@@ -3286,10 +3286,10 @@ export interface DataAccessSecurityApiPutScheduleV1Request {
 
     /**
      * 
-     * @type {Updateschedulerequest}
+     * @type {UpdateScheduleRequest}
      * @memberof DataAccessSecurityApiPutScheduleV1
      */
-    readonly updateschedulerequest: Updateschedulerequest
+    readonly updateScheduleRequest: UpdateScheduleRequest
 }
 
 /**
@@ -3334,7 +3334,7 @@ export class DataAccessSecurityApi extends BaseAPI {
      * @memberof DataAccessSecurityApi
      */
     public createApplicationV1(requestParameters: DataAccessSecurityApiCreateApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityApiFp(this.configuration).createApplicationV1(requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DataAccessSecurityApiFp(this.configuration).createApplicationV1(requestParameters.baseCreateApplicationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3358,7 +3358,7 @@ export class DataAccessSecurityApi extends BaseAPI {
      * @memberof DataAccessSecurityApi
      */
     public createScheduleV1(requestParameters: DataAccessSecurityApiCreateScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityApiFp(this.configuration).createScheduleV1(requestParameters.createschedulerequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DataAccessSecurityApiFp(this.configuration).createScheduleV1(requestParameters.createScheduleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3370,7 +3370,7 @@ export class DataAccessSecurityApi extends BaseAPI {
      * @memberof DataAccessSecurityApi
      */
     public dasV1OwnersAssignPost(requestParameters: DataAccessSecurityApiDasV1OwnersAssignPostRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersAssignPost(requestParameters.assignresourceownerrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersAssignPost(requestParameters.assignResourceOwnerRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3394,7 +3394,7 @@ export class DataAccessSecurityApi extends BaseAPI {
      * @memberof DataAccessSecurityApi
      */
     public dasV1OwnersReelectPost(requestParameters: DataAccessSecurityApiDasV1OwnersReelectPostRequest, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersReelectPost(requestParameters.reelectrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DataAccessSecurityApiFp(this.configuration).dasV1OwnersReelectPost(requestParameters.reelectRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3574,7 +3574,7 @@ export class DataAccessSecurityApi extends BaseAPI {
      * @memberof DataAccessSecurityApi
      */
     public putApplicationV1(requestParameters: DataAccessSecurityApiPutApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityApiFp(this.configuration).putApplicationV1(requestParameters.id, requestParameters.basecreateapplicationrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DataAccessSecurityApiFp(this.configuration).putApplicationV1(requestParameters.id, requestParameters.baseCreateApplicationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3598,7 +3598,7 @@ export class DataAccessSecurityApi extends BaseAPI {
      * @memberof DataAccessSecurityApi
      */
     public putScheduleV1(requestParameters: DataAccessSecurityApiPutScheduleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataAccessSecurityApiFp(this.configuration).putScheduleV1(requestParameters.id, requestParameters.updateschedulerequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DataAccessSecurityApiFp(this.configuration).putScheduleV1(requestParameters.id, requestParameters.updateScheduleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -26,223 +26,223 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Represents a request to perform an action on an account, such as deletion or modification.
  * @export
- * @interface Accountactionrequestdto
+ * @interface AccountActionRequestDto
  */
-export interface Accountactionrequestdto {
+export interface AccountActionRequestDto {
     /**
      * Account requester ID.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'accountRequestId'?: string;
     /**
      * Access item requester\'s identity ID.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'requestType'?: string;
     /**
      * Creation date and time of account deletion request date.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'createdAt'?: string;
     /**
      * Account deletion request completion date and time.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'completedAt'?: string;
     /**
      * Overall status of deletion request.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'overallStatus'?: string;
     /**
      * 
-     * @type {AccountactionrequestdtoRequester}
-     * @memberof Accountactionrequestdto
+     * @type {AccountActionRequestDtoRequester}
+     * @memberof AccountActionRequestDto
      */
-    'requester'?: AccountactionrequestdtoRequester;
+    'requester'?: AccountActionRequestDtoRequester;
     /**
      * Comments added by the requester while creating the account deletion request.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'requesterComments'?: string;
     /**
      * 
-     * @type {AccountactionrequestdtoAccountDetails}
-     * @memberof Accountactionrequestdto
+     * @type {AccountActionRequestDtoAccountDetails}
+     * @memberof AccountActionRequestDto
      */
-    'accountDetails'?: AccountactionrequestdtoAccountDetails;
+    'accountDetails'?: AccountActionRequestDtoAccountDetails;
     /**
      * 
-     * @type {AccountactionrequestdtoCorrelatedIdentity}
-     * @memberof Accountactionrequestdto
+     * @type {AccountActionRequestDtoCorrelatedIdentity}
+     * @memberof AccountActionRequestDto
      */
-    'correlatedIdentity'?: AccountactionrequestdtoCorrelatedIdentity;
+    'correlatedIdentity'?: AccountActionRequestDtoCorrelatedIdentity;
     /**
      * 
-     * @type {Identityreference}
-     * @memberof Accountactionrequestdto
+     * @type {IdentityReference}
+     * @memberof AccountActionRequestDto
      */
-    'managerReference'?: Identityreference | null;
+    'managerReference'?: IdentityReference | null;
     /**
      * ID of the approval request associated with the account deletion action.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'approvalRequestId'?: string;
     /**
      * List of account request phases.
-     * @type {Array<Accountrequestphase>}
-     * @memberof Accountactionrequestdto
+     * @type {Array<AccountRequestPhase>}
+     * @memberof AccountActionRequestDto
      */
-    'accountRequestPhases'?: Array<Accountrequestphase>;
+    'accountRequestPhases'?: Array<AccountRequestPhase>;
     /**
      * List approval details
-     * @type {Array<Approvaldetails>}
-     * @memberof Accountactionrequestdto
+     * @type {Array<ApprovalDetails>}
+     * @memberof AccountActionRequestDto
      */
-    'approvalDetails'?: Array<Approvaldetails>;
+    'approvalDetails'?: Array<ApprovalDetails>;
     /**
      * Detailed error information.
      * @type {string}
-     * @memberof Accountactionrequestdto
+     * @memberof AccountActionRequestDto
      */
     'errorDetails'?: string | null;
 }
 /**
  * 
  * @export
- * @interface AccountactionrequestdtoAccountDetails
+ * @interface AccountActionRequestDtoAccountDetails
  */
-export interface AccountactionrequestdtoAccountDetails {
+export interface AccountActionRequestDtoAccountDetails {
     /**
      * unique id of this object
      * @type {string}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'accountId'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'description'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'nativeIdentity'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'uuid'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'displayName'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'disabled'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'locked'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'uncorrelated'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'systemAccount'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'authoritative'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'supportsPasswordChange'?: boolean;
     /**
      * 
      * @type {object}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'attributes'?: object;
     /**
      * 
      * @type {object}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'application'?: object;
     /**
      * 
      * @type {object}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'identity'?: object;
     /**
      * 
      * @type {object}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'schema'?: object;
     /**
      * 
      * @type {Array<string>}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'pendingAccessRequestIds'?: Array<string>;
     /**
      * 
      * @type {Array<string>}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
-    'features'?: Array<AccountactionrequestdtoAccountDetailsFeaturesEnum>;
+    'features'?: Array<AccountActionRequestDtoAccountDetailsFeaturesEnum>;
     /**
      * 
      * @type {object}
-     * @memberof AccountactionrequestdtoAccountDetails
+     * @memberof AccountActionRequestDtoAccountDetails
      */
     'meta'?: object;
 }
 
-export const AccountactionrequestdtoAccountDetailsFeaturesEnum = {
+export const AccountActionRequestDtoAccountDetailsFeaturesEnum = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -271,30 +271,30 @@ export const AccountactionrequestdtoAccountDetailsFeaturesEnum = {
     NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING'
 } as const;
 
-export type AccountactionrequestdtoAccountDetailsFeaturesEnum = typeof AccountactionrequestdtoAccountDetailsFeaturesEnum[keyof typeof AccountactionrequestdtoAccountDetailsFeaturesEnum];
+export type AccountActionRequestDtoAccountDetailsFeaturesEnum = typeof AccountActionRequestDtoAccountDetailsFeaturesEnum[keyof typeof AccountActionRequestDtoAccountDetailsFeaturesEnum];
 
 /**
  * 
  * @export
- * @interface AccountactionrequestdtoCorrelatedIdentity
+ * @interface AccountActionRequestDtoCorrelatedIdentity
  */
-export interface AccountactionrequestdtoCorrelatedIdentity {
+export interface AccountActionRequestDtoCorrelatedIdentity {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof AccountactionrequestdtoCorrelatedIdentity
+     * @type {DtoType}
+     * @memberof AccountActionRequestDtoCorrelatedIdentity
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * Identity id
      * @type {string}
-     * @memberof AccountactionrequestdtoCorrelatedIdentity
+     * @memberof AccountActionRequestDtoCorrelatedIdentity
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof AccountactionrequestdtoCorrelatedIdentity
+     * @memberof AccountActionRequestDtoCorrelatedIdentity
      */
     'name'?: string;
 }
@@ -303,25 +303,25 @@ export interface AccountactionrequestdtoCorrelatedIdentity {
 /**
  * 
  * @export
- * @interface AccountactionrequestdtoRequester
+ * @interface AccountActionRequestDtoRequester
  */
-export interface AccountactionrequestdtoRequester {
+export interface AccountActionRequestDtoRequester {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof AccountactionrequestdtoRequester
+     * @type {DtoType}
+     * @memberof AccountActionRequestDtoRequester
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof AccountactionrequestdtoRequester
+     * @memberof AccountActionRequestDtoRequester
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof AccountactionrequestdtoRequester
+     * @memberof AccountActionRequestDtoRequester
      */
     'name'?: string;
 }
@@ -330,145 +330,145 @@ export interface AccountactionrequestdtoRequester {
 /**
  * Contains the required information for processing a user-initiated account deletion request, including the reason for deletion.
  * @export
- * @interface Accountdeleterequestinput
+ * @interface AccountDeleteRequestInput
  */
-export interface Accountdeleterequestinput {
+export interface AccountDeleteRequestInput {
     /**
      * Reason for deleting the account.
      * @type {string}
-     * @memberof Accountdeleterequestinput
+     * @memberof AccountDeleteRequestInput
      */
     'comments'?: string;
 }
 /**
  * Account Details
  * @export
- * @interface Accountdetails
+ * @interface AccountDetails
  */
-export interface Accountdetails {
+export interface AccountDetails {
     /**
      * unique id of this object
      * @type {string}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'name'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'accountId'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'description'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'nativeIdentity'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'uuid'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'displayName'?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'disabled'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'locked'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'uncorrelated'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'systemAccount'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'authoritative'?: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'supportsPasswordChange'?: boolean;
     /**
      * 
      * @type {object}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'attributes'?: object;
     /**
      * 
      * @type {object}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'application'?: object;
     /**
      * 
      * @type {object}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'identity'?: object;
     /**
      * 
      * @type {object}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'schema'?: object;
     /**
      * 
      * @type {Array<string>}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'pendingAccessRequestIds'?: Array<string>;
     /**
      * 
      * @type {Array<string>}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
-    'features'?: Array<AccountdetailsFeaturesEnum>;
+    'features'?: Array<AccountDetailsFeaturesEnum>;
     /**
      * 
      * @type {object}
-     * @memberof Accountdetails
+     * @memberof AccountDetails
      */
     'meta'?: object;
 }
 
-export const AccountdetailsFeaturesEnum = {
+export const AccountDetailsFeaturesEnum = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -497,59 +497,59 @@ export const AccountdetailsFeaturesEnum = {
     NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING'
 } as const;
 
-export type AccountdetailsFeaturesEnum = typeof AccountdetailsFeaturesEnum[keyof typeof AccountdetailsFeaturesEnum];
+export type AccountDetailsFeaturesEnum = typeof AccountDetailsFeaturesEnum[keyof typeof AccountDetailsFeaturesEnum];
 
 /**
  * Asynchronous response containing a unique tracking ID for the account request
  * @export
- * @interface Accountrequestasyncresult
+ * @interface AccountRequestAsyncResult
  */
-export interface Accountrequestasyncresult {
+export interface AccountRequestAsyncResult {
     /**
      * Id of the account request
      * @type {string}
-     * @memberof Accountrequestasyncresult
+     * @memberof AccountRequestAsyncResult
      */
     'accountRequestId': string;
 }
 /**
  * Contains detailed information about each phase in the account request process, including its type, current state, and relevant timestamps.
  * @export
- * @interface Accountrequestphase
+ * @interface AccountRequestPhase
  */
-export interface Accountrequestphase {
+export interface AccountRequestPhase {
     /**
      * Enum of account request phase type
      * @type {string}
-     * @memberof Accountrequestphase
+     * @memberof AccountRequestPhase
      */
-    'name'?: AccountrequestphaseNameEnum;
+    'name'?: AccountRequestPhaseNameEnum;
     /**
      * 
-     * @type {Accountrequestphasestate}
-     * @memberof Accountrequestphase
+     * @type {AccountRequestPhaseState}
+     * @memberof AccountRequestPhase
      */
-    'state'?: Accountrequestphasestate;
+    'state'?: AccountRequestPhaseState;
     /**
      * Start date of account request phase.
      * @type {string}
-     * @memberof Accountrequestphase
+     * @memberof AccountRequestPhase
      */
     'started'?: string;
     /**
      * Finish date of account request phase.
      * @type {string}
-     * @memberof Accountrequestphase
+     * @memberof AccountRequestPhase
      */
     'finished'?: string;
 }
 
-export const AccountrequestphaseNameEnum = {
+export const AccountRequestPhaseNameEnum = {
     ApprovalPhase: 'APPROVAL_PHASE',
     ProvisioningPhase: 'PROVISIONING_PHASE'
 } as const;
 
-export type AccountrequestphaseNameEnum = typeof AccountrequestphaseNameEnum[keyof typeof AccountrequestphaseNameEnum];
+export type AccountRequestPhaseNameEnum = typeof AccountRequestPhaseNameEnum[keyof typeof AccountRequestPhaseNameEnum];
 
 /**
  * The current phase state of the account request, indicating its progress or outcome in the approval workflow.
@@ -557,7 +557,7 @@ export type AccountrequestphaseNameEnum = typeof AccountrequestphaseNameEnum[key
  * @enum {string}
  */
 
-export const Accountrequestphasestate = {
+export const AccountRequestPhaseState = {
     Pending: 'PENDING',
     Cancelled: 'CANCELLED',
     Approved: 'APPROVED',
@@ -567,150 +567,150 @@ export const Accountrequestphasestate = {
     NotStarted: 'NOT_STARTED'
 } as const;
 
-export type Accountrequestphasestate = typeof Accountrequestphasestate[keyof typeof Accountrequestphasestate];
+export type AccountRequestPhaseState = typeof AccountRequestPhaseState[keyof typeof AccountRequestPhaseState];
 
 
 /**
  * Contains comprehensive details about the approval process, including the approver\'s information, comments, decision date, serial order, and the current status of the approval request.
  * @export
- * @interface Approvaldetails
+ * @interface ApprovalDetails
  */
-export interface Approvaldetails {
+export interface ApprovalDetails {
     /**
      * 
-     * @type {Approverdto}
-     * @memberof Approvaldetails
+     * @type {ApproverDto}
+     * @memberof ApprovalDetails
      */
-    'approver'?: Approverdto;
+    'approver'?: ApproverDto;
     /**
      * Comments added by approver while rejecting or approving the account deletion request.
      * @type {string}
-     * @memberof Approvaldetails
+     * @memberof ApprovalDetails
      */
     'approverComments'?: string;
     /**
      * Decision date of approval rejected or approved.
      * @type {string}
-     * @memberof Approvaldetails
+     * @memberof ApprovalDetails
      */
     'decisionDate'?: string;
     /**
      * SerialOrder of approval details.
      * @type {number}
-     * @memberof Approvaldetails
+     * @memberof ApprovalDetails
      */
     'serialOrder'?: number;
     /**
      * 
-     * @type {Accountrequestphasestate}
-     * @memberof Approvaldetails
+     * @type {AccountRequestPhaseState}
+     * @memberof ApprovalDetails
      */
-    'status'?: Accountrequestphasestate;
+    'status'?: AccountRequestPhaseState;
 }
 
 
 /**
  * Contains detailed information about the approver, including their identity, contact details, type, and references to related identities such as owners, actioned identities, and members.
  * @export
- * @interface Approverdto
+ * @interface ApproverDto
  */
-export interface Approverdto {
+export interface ApproverDto {
     /**
      * Identity ID and it cannot be null.
      * @type {string}
-     * @memberof Approverdto
+     * @memberof ApproverDto
      */
     'identityID'?: string;
     /**
      * Optional id
      * @type {string}
-     * @memberof Approverdto
+     * @memberof ApproverDto
      */
     'id'?: string | null;
     /**
      * Identity display name
      * @type {string}
-     * @memberof Approverdto
+     * @memberof ApproverDto
      */
     'name'?: string;
     /**
      * Email address of identity
      * @type {string}
-     * @memberof Approverdto
+     * @memberof ApproverDto
      */
     'email'?: string;
     /**
      * Used to mention type of data transfer object in this case it is used to transfer IDENTITY data.
      * @type {string}
-     * @memberof Approverdto
+     * @memberof ApproverDto
      */
     'type'?: string;
     /**
      * List of reference of identity type dto for account owner identities
-     * @type {Array<Approverreference>}
-     * @memberof Approverdto
+     * @type {Array<ApproverReference>}
+     * @memberof ApproverDto
      */
-    'ownerOf'?: Array<Approverreference> | null;
+    'ownerOf'?: Array<ApproverReference> | null;
     /**
      * List of reference of identity type dto who acted on behalf of other identities.
-     * @type {Array<Approverreference>}
-     * @memberof Approverdto
+     * @type {Array<ApproverReference>}
+     * @memberof ApproverDto
      */
-    'actionedAs'?: Array<Approverreference> | null;
+    'actionedAs'?: Array<ApproverReference> | null;
     /**
      * List of reference of identity type dto for member identities.
-     * @type {Array<Approverreference>}
-     * @memberof Approverdto
+     * @type {Array<ApproverReference>}
+     * @memberof ApproverDto
      */
-    'members'?: Array<Approverreference> | null;
+    'members'?: Array<ApproverReference> | null;
 }
 /**
  * 
  * @export
- * @interface Approverreference
+ * @interface ApproverReference
  */
-export interface Approverreference {
+export interface ApproverReference {
     /**
      * Id of supported DtoType like IDENTITY, MACHINE_IDENTITY etc.
      * @type {string}
-     * @memberof Approverreference
+     * @memberof ApproverReference
      */
     'id'?: string;
     /**
      * Type of Dto
      * @type {string}
-     * @memberof Approverreference
+     * @memberof ApproverReference
      */
     'type'?: string;
     /**
      * Display name of DtoType like IDENTITY, MACHINE_IDENTITY etc
      * @type {string}
-     * @memberof Approverreference
+     * @memberof ApproverReference
      */
     'name'?: string;
 }
 /**
  * 
  * @export
- * @interface Basereferencedto
+ * @interface BaseReferenceDto
  */
-export interface Basereferencedto {
+export interface BaseReferenceDto {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Basereferencedto
+     * @type {DtoType}
+     * @memberof BaseReferenceDto
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * ID of the object to which this reference applies
      * @type {string}
-     * @memberof Basereferencedto
+     * @memberof BaseReferenceDto
      */
     'id'?: string;
     /**
      * Human-readable display name of the object to which this reference applies
      * @type {string}
-     * @memberof Basereferencedto
+     * @memberof BaseReferenceDto
      */
     'name'?: string;
 }
@@ -722,7 +722,7 @@ export interface Basereferencedto {
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -754,31 +754,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -787,33 +787,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -844,25 +844,25 @@ export interface GetAccountDeletionRequestsV1429Response {
 /**
  * The manager for the identity.
  * @export
- * @interface Identityreference
+ * @interface IdentityReference
  */
-export interface Identityreference {
+export interface IdentityReference {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof Identityreference
+     * @type {DtoType}
+     * @memberof IdentityReference
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * Identity id
      * @type {string}
-     * @memberof Identityreference
+     * @memberof IdentityReference
      */
     'id'?: string;
     /**
      * Human-readable display name of identity.
      * @type {string}
-     * @memberof Identityreference
+     * @memberof IdentityReference
      */
     'name'?: string;
 }
@@ -874,12 +874,12 @@ export interface Identityreference {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -893,11 +893,11 @@ export const AccountDeletionRequestsApiAxiosParamCreator = function (configurati
          * Initiates an account deletion request for the specified account. This method validates the input data, processes the deletion request, and generates an asynchronous result containing a tracking ID.  >**NOTE: You can only delete accounts from sources of the \"Connected\" type. which supports account deletion**
          * @summary Delete account
          * @param {string} accountId Account ID.
-         * @param {Accountdeleterequestinput} [accountdeleterequestinput] 
+         * @param {AccountDeleteRequestInput} [accountDeleteRequestInput] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccountRequestV1: async (accountId: string, accountdeleterequestinput?: Accountdeleterequestinput, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteAccountRequestV1: async (accountId: string, accountDeleteRequestInput?: AccountDeleteRequestInput, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('deleteAccountRequestV1', 'accountId', accountId)
             const localVarPath = `/account-requests/v1/account/{accountId}/delete`
@@ -920,7 +920,7 @@ export const AccountDeletionRequestsApiAxiosParamCreator = function (configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accountdeleterequestinput, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accountDeleteRequestInput, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -991,12 +991,12 @@ export const AccountDeletionRequestsApiFp = function(configuration?: Configurati
          * Initiates an account deletion request for the specified account. This method validates the input data, processes the deletion request, and generates an asynchronous result containing a tracking ID.  >**NOTE: You can only delete accounts from sources of the \"Connected\" type. which supports account deletion**
          * @summary Delete account
          * @param {string} accountId Account ID.
-         * @param {Accountdeleterequestinput} [accountdeleterequestinput] 
+         * @param {AccountDeleteRequestInput} [accountDeleteRequestInput] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccountRequestV1(accountId: string, accountdeleterequestinput?: Accountdeleterequestinput, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accountrequestasyncresult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountRequestV1(accountId, accountdeleterequestinput, axiosOptions);
+        async deleteAccountRequestV1(accountId: string, accountDeleteRequestInput?: AccountDeleteRequestInput, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountRequestAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountRequestV1(accountId, accountDeleteRequestInput, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccountDeletionRequestsApi.deleteAccountRequestV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1011,7 +1011,7 @@ export const AccountDeletionRequestsApiFp = function(configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountDeletionRequestsV1(limit?: number, offset?: number, count?: boolean, mine?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accountactionrequestdto>>> {
+        async getAccountDeletionRequestsV1(limit?: number, offset?: number, count?: boolean, mine?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountActionRequestDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountDeletionRequestsV1(limit, offset, count, mine, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccountDeletionRequestsApi.getAccountDeletionRequestsV1']?.[localVarOperationServerIndex]?.url;
@@ -1034,8 +1034,8 @@ export const AccountDeletionRequestsApiFactory = function (configuration?: Confi
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccountRequestV1(requestParameters: AccountDeletionRequestsApiDeleteAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accountrequestasyncresult> {
-            return localVarFp.deleteAccountRequestV1(requestParameters.accountId, requestParameters.accountdeleterequestinput, axiosOptions).then((request) => request(axios, basePath));
+        deleteAccountRequestV1(requestParameters: AccountDeletionRequestsApiDeleteAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountRequestAsyncResult> {
+            return localVarFp.deleteAccountRequestV1(requestParameters.accountId, requestParameters.accountDeleteRequestInput, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a paginated list of account deletion requests filtered by the provided query parameters. When the \"mine\" parameter is set to true, the response includes only those deletion requests that were initiated by the currently authenticated user. If \"mine\" is false or not specified, the endpoint returns all account deletion requests associated with the current tenant, regardless of the initiator. This allows both users and administrators to view relevant deletion requests based on their access level and intent.
@@ -1044,7 +1044,7 @@ export const AccountDeletionRequestsApiFactory = function (configuration?: Confi
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccountDeletionRequestsV1(requestParameters: AccountDeletionRequestsApiGetAccountDeletionRequestsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accountactionrequestdto>> {
+        getAccountDeletionRequestsV1(requestParameters: AccountDeletionRequestsApiGetAccountDeletionRequestsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccountActionRequestDto>> {
             return localVarFp.getAccountDeletionRequestsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.mine, axiosOptions).then((request) => request(axios, basePath));
         },
     };
@@ -1065,10 +1065,10 @@ export interface AccountDeletionRequestsApiDeleteAccountRequestV1Request {
 
     /**
      * 
-     * @type {Accountdeleterequestinput}
+     * @type {AccountDeleteRequestInput}
      * @memberof AccountDeletionRequestsApiDeleteAccountRequestV1
      */
-    readonly accountdeleterequestinput?: Accountdeleterequestinput
+    readonly accountDeleteRequestInput?: AccountDeleteRequestInput
 }
 
 /**
@@ -1122,7 +1122,7 @@ export class AccountDeletionRequestsApi extends BaseAPI {
      * @memberof AccountDeletionRequestsApi
      */
     public deleteAccountRequestV1(requestParameters: AccountDeletionRequestsApiDeleteAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccountDeletionRequestsApiFp(this.configuration).deleteAccountRequestV1(requestParameters.accountId, requestParameters.accountdeleterequestinput, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccountDeletionRequestsApiFp(this.configuration).deleteAccountRequestV1(requestParameters.accountId, requestParameters.accountDeleteRequestInput, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

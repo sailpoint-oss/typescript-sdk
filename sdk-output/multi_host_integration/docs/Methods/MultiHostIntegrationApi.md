@@ -47,11 +47,11 @@ A token with Org Admin or Multi-Host Admin authority is required to access this 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**multihostintegrationscreate** | `Multihostintegrationscreate` | The specifics of the Multi-Host Integration to create | 
+**multiHostIntegrationsCreate** | `MultiHostIntegrationsCreate` | The specifics of the Multi-Host Integration to create | 
 
 ### Return type
 
-`Multihostintegrations`
+`MultiHostIntegrations`
 
 ### HTTP request headers
 
@@ -63,12 +63,37 @@ Name | Type | Description  | Notes
 ```typescript
 import { MultiHostIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Multihostintegrationscreate } from 'sailpoint-api-client/dist/multi_host_integration/api';
+import { MultiHostIntegrationsCreate } from 'sailpoint-api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
-const multihostintegrationscreate: Multihostintegrationscreate = ; // The specifics of the Multi-Host Integration to create
-const result = await apiInstance.createMultiHostIntegrationV1({ multihostintegrationscreate: multihostintegrationscreate });
+const multiHostIntegrationsCreate: MultiHostIntegrationsCreate = {
+  "owner" : {
+    "name" : "MyName",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "managementWorkgroup" : {
+    "name" : "My Management Workgroup",
+    "id" : "2c91808568c529c60168cca6f90c2222",
+    "type" : "GOVERNANCE_GROUP"
+  },
+  "cluster" : {
+    "name" : "Corporate Cluster",
+    "id" : "2c9180866166b5b0016167c32ef31a66",
+    "type" : "CLUSTER"
+  },
+  "connector" : "multihost-microsoft-sql-server",
+  "connectorAttributes" : {
+    "maxSourcesPerAggGroup" : 10,
+    "maxAllowedSources" : 300
+  },
+  "created" : "2022-02-08T14:50:03.827Z",
+  "name" : "My Multi-Host Integration",
+  "description" : "This is the Multi-Host Integration.",
+  "modified" : "2024-01-23T18:08:50.897Z"
+}; // The specifics of the Multi-Host Integration to create
+const result = await apiInstance.createMultiHostIntegrationV1({ multiHostIntegrationsCreate: multiHostIntegrationsCreate });
 console.log(result);
 ```
 
@@ -88,7 +113,7 @@ A token with Org Admin or Multi-Host Admin authority is required to access this 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **multihostId** | `string` | ID of the Multi-Host Integration. |  [default to undefined]
-**multihostintegrationscreatesources** | `Array<Multihostintegrationscreatesources>` | The specifics of the sources to create within Multi-Host Integration. | 
+**multiHostIntegrationsCreateSources** | `Array<MultiHostIntegrationsCreateSources>` | The specifics of the sources to create within Multi-Host Integration. | 
 
 ### Return type
 
@@ -104,13 +129,24 @@ Name | Type | Description  | Notes
 ```typescript
 import { MultiHostIntegrationApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Multihostintegrationscreatesources } from 'sailpoint-api-client/dist/multi_host_integration/api';
+import { MultiHostIntegrationsCreateSources } from 'sailpoint-api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
 const multihostId: string = 2c91808568c529c60168cca6f90c1326; // ID of the Multi-Host Integration.
-const multihostintegrationscreatesources: Array<Multihostintegrationscreatesources> = ; // The specifics of the sources to create within Multi-Host Integration.
-const result = await apiInstance.createSourcesWithinMultiHostV1({ multihostId: multihostId, multihostintegrationscreatesources: multihostintegrationscreatesources });
+const multiHostIntegrationsCreateSources: Array<MultiHostIntegrationsCreateSources> = {
+  "connectorAttributes" : {
+    "authType" : "SQLAuthentication",
+    "url" : "jdbc:sqlserver://178.18.41.118:1433",
+    "user" : "username",
+    "driverClass" : "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+    "maxSourcesPerAggGroup" : 10,
+    "maxAllowedSources" : 300
+  },
+  "name" : "My Source",
+  "description" : "This is the corporate directory."
+}; // The specifics of the sources to create within Multi-Host Integration.
+const result = await apiInstance.createSourcesWithinMultiHostV1({ multihostId: multihostId, multiHostIntegrationsCreateSources: multiHostIntegrationsCreateSources });
 console.log(result);
 ```
 
@@ -214,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Multihostintegrationsaggscheduleupdate>`
+`Array<MultiHostIntegrationsAggScheduleUpdate>`
 
 ### HTTP request headers
 
@@ -257,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Multihostintegrationsaggscheduleupdate>`
+`Array<MultiHostIntegrationsAggScheduleUpdate>`
 
 ### HTTP request headers
 
@@ -303,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Multihostintegrations>`
+`Array<MultiHostIntegrations>`
 
 ### HTTP request headers
 
@@ -347,7 +383,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Multihostintegrations`
+`MultiHostIntegrations`
 
 ### HTTP request headers
 
@@ -386,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sourcecreationerrors>`
+`Array<SourceCreationErrors>`
 
 ### HTTP request headers
 
@@ -422,7 +458,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Array<Multihostintegrationtemplatetype>`
+`Array<MultiHostIntegrationTemplateType>`
 
 ### HTTP request headers
 
@@ -465,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Multihostsources>`
+`Array<MultiHostSources>`
 
 ### HTTP request headers
 

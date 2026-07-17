@@ -3,10 +3,10 @@
 .openapi-generator-ignore
 DeclassifySourceApi.md
 DeclassifySourceApideveloperSite_code_examples.yaml
-Errormessagedto.md
-Errorresponsedto.md
+ErrorMessageDto.md
+ErrorResponseDto.md
 Index.md
-Localeorigin.md
+LocaleOrigin.md
 README.md
 SendDeclassifyMachineAccountFromSourceV1401Response.md
 SendDeclassifyMachineAccountFromSourceV1429Response.md

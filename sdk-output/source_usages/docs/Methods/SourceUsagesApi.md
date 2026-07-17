@@ -37,7 +37,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Sourceusagestatus`
+`SourceUsageStatus`
 
 ### HTTP request headers
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Sourceusage>`
+`Array<SourceUsage>`
 
 ### HTTP request headers
 

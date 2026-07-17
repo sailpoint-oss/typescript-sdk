@@ -52,10 +52,16 @@
       source: |
         import { ReportsDataExtractionApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Reportdetails } from 'sailpoint-api-client/dist/reports_data_extraction/api';
+        import { ReportDetails } from 'sailpoint-api-client/dist/reports_data_extraction/api';
 
         const configuration = new Configuration();
         const apiInstance = new ReportsDataExtractionApi(configuration);
-        const reportdetails: Reportdetails = ; // Reportdetails | 
-        const result = await apiInstance.startReportV1({ reportdetails: reportdetails });
+        const reportDetails: ReportDetails = {
+  "reportType" : "ACCOUNTS",
+  "arguments" : {
+    "application" : "2c9180897e7742b2017e781782f705b9",
+    "sourceName" : "Active Directory"
+  }
+}; // ReportDetails | 
+        const result = await apiInstance.startReportV1({ reportDetails: reportDetails });
         console.log(result);

@@ -26,44 +26,44 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * Arguments for Account Export report (ACCOUNTS)
  * @export
- * @interface AccountsExportReportArguments
+ * @interface Accountsexportreportarguments
  */
-export interface AccountsExportReportArguments {
+export interface Accountsexportreportarguments {
     /**
      * Source ID.
      * @type {string}
-     * @memberof AccountsExportReportArguments
+     * @memberof Accountsexportreportarguments
      */
     'application': string;
     /**
      * Source name.
      * @type {string}
-     * @memberof AccountsExportReportArguments
+     * @memberof Accountsexportreportarguments
      */
     'sourceName': string;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -72,33 +72,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -129,39 +129,39 @@ export interface GetReportResultV1429Response {
 /**
  * Arguments for Identities Details report (IDENTITIES_DETAILS)
  * @export
- * @interface IdentitiesDetailsReportArguments
+ * @interface Identitiesdetailsreportarguments
  */
-export interface IdentitiesDetailsReportArguments {
+export interface Identitiesdetailsreportarguments {
     /**
      * Flag to specify if only correlated identities are included in report.
      * @type {boolean}
-     * @memberof IdentitiesDetailsReportArguments
+     * @memberof Identitiesdetailsreportarguments
      */
     'correlatedOnly': boolean;
 }
 /**
  * Arguments for Identities report (IDENTITIES)
  * @export
- * @interface IdentitiesReportArguments
+ * @interface Identitiesreportarguments
  */
-export interface IdentitiesReportArguments {
+export interface Identitiesreportarguments {
     /**
      * Flag to specify if only correlated identities are included in report.
      * @type {boolean}
-     * @memberof IdentitiesReportArguments
+     * @memberof Identitiesreportarguments
      */
     'correlatedOnly'?: boolean;
 }
 /**
  * Arguments for Identity Profile Identity Error report (IDENTITY_PROFILE_IDENTITY_ERROR)
  * @export
- * @interface IdentityProfileIdentityErrorReportArguments
+ * @interface Identityprofileidentityerrorreportarguments
  */
-export interface IdentityProfileIdentityErrorReportArguments {
+export interface Identityprofileidentityerrorreportarguments {
     /**
      * Source ID.
      * @type {string}
-     * @memberof IdentityProfileIdentityErrorReportArguments
+     * @memberof Identityprofileidentityerrorreportarguments
      */
     'authoritativeSource': string;
 }
@@ -190,56 +190,56 @@ export type Index = typeof Index[keyof typeof Index];
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Arguments for Orphan Identities report (ORPHAN_IDENTITIES)
  * @export
- * @interface OrphanIdentitiesReportArguments
+ * @interface Orphanidentitiesreportarguments
  */
-export interface OrphanIdentitiesReportArguments {
+export interface Orphanidentitiesreportarguments {
     /**
      * Output report file formats. These are formats for calling GET endpoint as query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
      * @type {Array<string>}
-     * @memberof OrphanIdentitiesReportArguments
+     * @memberof Orphanidentitiesreportarguments
      */
-    'selectedFormats'?: Array<OrphanIdentitiesReportArgumentsSelectedFormatsEnum>;
+    'selectedFormats'?: Array<OrphanidentitiesreportargumentsSelectedFormatsEnum>;
 }
 
-export const OrphanIdentitiesReportArgumentsSelectedFormatsEnum = {
+export const OrphanidentitiesreportargumentsSelectedFormatsEnum = {
     Csv: 'CSV',
     Pdf: 'PDF'
 } as const;
 
-export type OrphanIdentitiesReportArgumentsSelectedFormatsEnum = typeof OrphanIdentitiesReportArgumentsSelectedFormatsEnum[keyof typeof OrphanIdentitiesReportArgumentsSelectedFormatsEnum];
+export type OrphanidentitiesreportargumentsSelectedFormatsEnum = typeof OrphanidentitiesreportargumentsSelectedFormatsEnum[keyof typeof OrphanidentitiesreportargumentsSelectedFormatsEnum];
 
 /**
  * Details about report to be processed.
  * @export
- * @interface Reportdetails
+ * @interface ReportDetails
  */
-export interface Reportdetails {
+export interface ReportDetails {
     /**
      * Use this property to define what report should be processed in the RDE service.
      * @type {string}
-     * @memberof Reportdetails
+     * @memberof ReportDetails
      */
-    'reportType'?: ReportdetailsReportTypeEnum;
+    'reportType'?: ReportDetailsReportTypeEnum;
     /**
      * 
-     * @type {ReportdetailsArguments}
-     * @memberof Reportdetails
+     * @type {ReportDetailsArguments}
+     * @memberof ReportDetails
      */
-    'arguments'?: ReportdetailsArguments;
+    'arguments'?: ReportDetailsArguments;
 }
 
-export const ReportdetailsReportTypeEnum = {
+export const ReportDetailsReportTypeEnum = {
     Accounts: 'ACCOUNTS',
     IdentitiesDetails: 'IDENTITIES_DETAILS',
     Identities: 'IDENTITIES',
@@ -249,134 +249,134 @@ export const ReportdetailsReportTypeEnum = {
     UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
 } as const;
 
-export type ReportdetailsReportTypeEnum = typeof ReportdetailsReportTypeEnum[keyof typeof ReportdetailsReportTypeEnum];
+export type ReportDetailsReportTypeEnum = typeof ReportDetailsReportTypeEnum[keyof typeof ReportDetailsReportTypeEnum];
 
 /**
  * The string-object map(dictionary) with the arguments needed for report processing.
  * @export
- * @interface ReportdetailsArguments
+ * @interface ReportDetailsArguments
  */
-export interface ReportdetailsArguments {
+export interface ReportDetailsArguments {
     /**
      * Source ID.
      * @type {string}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'application': string;
     /**
      * Source name.
      * @type {string}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'sourceName': string;
     /**
      * Flag to specify if only correlated identities are included in report.
      * @type {boolean}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'correlatedOnly': boolean;
     /**
      * Source ID.
      * @type {string}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'authoritativeSource': string;
     /**
      * Output report file formats. These are formats for calling GET endpoint as query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
      * @type {Array<string>}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
-    'selectedFormats'?: Array<ReportdetailsArgumentsSelectedFormatsEnum>;
+    'selectedFormats'?: Array<ReportDetailsArgumentsSelectedFormatsEnum>;
     /**
      * The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
      * @type {Array<Index>}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'indices'?: Array<Index>;
     /**
      * The query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
      * @type {string}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'query': string;
     /**
      * Comma separated string consisting of technical attribute names of fields to include in report.  Use `access.spread`, `apps.spread`, `accounts.spread` to include respective identity access details.  Use `accessProfiles.spread` to unclude access profile details.  Use `entitlements.spread` to include entitlement details. 
      * @type {string}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'columns'?: string;
     /**
      * The fields to be used to sort the search results. Use + or - to specify the sort direction.
      * @type {Array<string>}
-     * @memberof ReportdetailsArguments
+     * @memberof ReportDetailsArguments
      */
     'sort'?: Array<string>;
 }
 
-export const ReportdetailsArgumentsSelectedFormatsEnum = {
+export const ReportDetailsArgumentsSelectedFormatsEnum = {
     Csv: 'CSV',
     Pdf: 'PDF'
 } as const;
 
-export type ReportdetailsArgumentsSelectedFormatsEnum = typeof ReportdetailsArgumentsSelectedFormatsEnum[keyof typeof ReportdetailsArgumentsSelectedFormatsEnum];
+export type ReportDetailsArgumentsSelectedFormatsEnum = typeof ReportDetailsArgumentsSelectedFormatsEnum[keyof typeof ReportDetailsArgumentsSelectedFormatsEnum];
 
 /**
  * Details about report result or current state.
  * @export
- * @interface Reportresults
+ * @interface ReportResults
  */
-export interface Reportresults {
+export interface ReportResults {
     /**
      * Use this property to define what report should be processed in the RDE service.
      * @type {string}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
-    'reportType'?: ReportresultsReportTypeEnum;
+    'reportType'?: ReportResultsReportTypeEnum;
     /**
      * Name of the task definition which is started to process requesting report. Usually the same as report name
      * @type {string}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
     'taskDefName'?: string;
     /**
      * Unique task definition identifier.
      * @type {string}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
     'id'?: string;
     /**
      * Report processing start date
      * @type {string}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
     'created'?: string;
     /**
      * Report current state or result status.
      * @type {string}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
-    'status'?: ReportresultsStatusEnum;
+    'status'?: ReportResultsStatusEnum;
     /**
      * Report processing time in ms.
      * @type {number}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
     'duration'?: number;
     /**
      * Report size in rows.
      * @type {number}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
     'rows'?: number;
     /**
      * Output report file formats. This are formats for calling get endpoint as a query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
      * @type {Array<string>}
-     * @memberof Reportresults
+     * @memberof ReportResults
      */
-    'availableFormats'?: Array<ReportresultsAvailableFormatsEnum>;
+    'availableFormats'?: Array<ReportResultsAvailableFormatsEnum>;
 }
 
-export const ReportresultsReportTypeEnum = {
+export const ReportResultsReportTypeEnum = {
     Accounts: 'ACCOUNTS',
     IdentitiesDetails: 'IDENTITIES_DETAILS',
     Identities: 'IDENTITIES',
@@ -386,154 +386,154 @@ export const ReportresultsReportTypeEnum = {
     UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
 } as const;
 
-export type ReportresultsReportTypeEnum = typeof ReportresultsReportTypeEnum[keyof typeof ReportresultsReportTypeEnum];
-export const ReportresultsStatusEnum = {
+export type ReportResultsReportTypeEnum = typeof ReportResultsReportTypeEnum[keyof typeof ReportResultsReportTypeEnum];
+export const ReportResultsStatusEnum = {
     Success: 'SUCCESS',
     Failure: 'FAILURE',
     Warning: 'WARNING',
     Terminated: 'TERMINATED'
 } as const;
 
-export type ReportresultsStatusEnum = typeof ReportresultsStatusEnum[keyof typeof ReportresultsStatusEnum];
-export const ReportresultsAvailableFormatsEnum = {
+export type ReportResultsStatusEnum = typeof ReportResultsStatusEnum[keyof typeof ReportResultsStatusEnum];
+export const ReportResultsAvailableFormatsEnum = {
     Csv: 'CSV',
     Pdf: 'PDF'
 } as const;
 
-export type ReportresultsAvailableFormatsEnum = typeof ReportresultsAvailableFormatsEnum[keyof typeof ReportresultsAvailableFormatsEnum];
+export type ReportResultsAvailableFormatsEnum = typeof ReportResultsAvailableFormatsEnum[keyof typeof ReportResultsAvailableFormatsEnum];
 
 /**
  * Arguments for Search Export report (SEARCH_EXPORT)  The report file generated will be a zip file containing csv files of the search results. 
  * @export
- * @interface SearchExportReportArguments
+ * @interface Searchexportreportarguments
  */
-export interface SearchExportReportArguments {
+export interface Searchexportreportarguments {
     /**
      * The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
      * @type {Array<Index>}
-     * @memberof SearchExportReportArguments
+     * @memberof Searchexportreportarguments
      */
     'indices'?: Array<Index>;
     /**
      * The query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
      * @type {string}
-     * @memberof SearchExportReportArguments
+     * @memberof Searchexportreportarguments
      */
     'query': string;
     /**
      * Comma separated string consisting of technical attribute names of fields to include in report.  Use `access.spread`, `apps.spread`, `accounts.spread` to include respective identity access details.  Use `accessProfiles.spread` to unclude access profile details.  Use `entitlements.spread` to include entitlement details. 
      * @type {string}
-     * @memberof SearchExportReportArguments
+     * @memberof Searchexportreportarguments
      */
     'columns'?: string;
     /**
      * The fields to be used to sort the search results. Use + or - to specify the sort direction.
      * @type {Array<string>}
-     * @memberof SearchExportReportArguments
+     * @memberof Searchexportreportarguments
      */
     'sort'?: Array<string>;
 }
 /**
  * Details about job or task type, state and lifecycle.
  * @export
- * @interface Taskresultdetails
+ * @interface TaskResultDetails
  */
-export interface Taskresultdetails {
+export interface TaskResultDetails {
     /**
      * Type of the job or task underlying in the report processing. It could be a quartz task, QPOC or MENTOS jobs or a refresh/sync task.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
-    'type'?: TaskresultdetailsTypeEnum;
+    'type'?: TaskResultDetailsTypeEnum;
     /**
      * Unique task definition identifier.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'id'?: string;
     /**
      * Use this property to define what report should be processed in the RDE service.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
-    'reportType'?: TaskresultdetailsReportTypeEnum;
+    'reportType'?: TaskResultDetailsReportTypeEnum;
     /**
      * Description of the report purpose and/or contents.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'description'?: string;
     /**
      * Name of the parent task/report if exists.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'parentName'?: string | null;
     /**
      * Name of the report processing initiator.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'launcher'?: string;
     /**
      * Report creation date
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'created'?: string;
     /**
      * Report start date
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'launched'?: string | null;
     /**
      * Report completion date
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'completed'?: string | null;
     /**
      * Report completion status.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
-    'completionStatus'?: TaskresultdetailsCompletionStatusEnum | null;
+    'completionStatus'?: TaskResultDetailsCompletionStatusEnum | null;
     /**
      * List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors.
-     * @type {Array<TaskresultdetailsMessagesInner>}
-     * @memberof Taskresultdetails
+     * @type {Array<TaskResultDetailsMessagesInner>}
+     * @memberof TaskResultDetails
      */
-    'messages'?: Array<TaskresultdetailsMessagesInner>;
+    'messages'?: Array<TaskResultDetailsMessagesInner>;
     /**
      * Task definition results, if necessary.
-     * @type {Array<TaskresultdetailsReturnsInner>}
-     * @memberof Taskresultdetails
+     * @type {Array<TaskResultDetailsReturnsInner>}
+     * @memberof TaskResultDetails
      */
-    'returns'?: Array<TaskresultdetailsReturnsInner>;
+    'returns'?: Array<TaskResultDetailsReturnsInner>;
     /**
      * Extra attributes map(dictionary) needed for the report.
      * @type {object}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'attributes'?: object;
     /**
      * Current report state.
      * @type {string}
-     * @memberof Taskresultdetails
+     * @memberof TaskResultDetails
      */
     'progress'?: string | null;
 }
 
-export const TaskresultdetailsTypeEnum = {
+export const TaskResultDetailsTypeEnum = {
     Quartz: 'QUARTZ',
     Qpoc: 'QPOC',
     Mentos: 'MENTOS',
     QueuedTask: 'QUEUED_TASK'
 } as const;
 
-export type TaskresultdetailsTypeEnum = typeof TaskresultdetailsTypeEnum[keyof typeof TaskresultdetailsTypeEnum];
-export const TaskresultdetailsReportTypeEnum = {
+export type TaskResultDetailsTypeEnum = typeof TaskResultDetailsTypeEnum[keyof typeof TaskResultDetailsTypeEnum];
+export const TaskResultDetailsReportTypeEnum = {
     Accounts: 'ACCOUNTS',
     IdentitiesDetails: 'IDENTITIES_DETAILS',
     Identities: 'IDENTITIES',
@@ -543,8 +543,8 @@ export const TaskresultdetailsReportTypeEnum = {
     UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
 } as const;
 
-export type TaskresultdetailsReportTypeEnum = typeof TaskresultdetailsReportTypeEnum[keyof typeof TaskresultdetailsReportTypeEnum];
-export const TaskresultdetailsCompletionStatusEnum = {
+export type TaskResultDetailsReportTypeEnum = typeof TaskResultDetailsReportTypeEnum[keyof typeof TaskResultDetailsReportTypeEnum];
+export const TaskResultDetailsCompletionStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -552,93 +552,93 @@ export const TaskresultdetailsCompletionStatusEnum = {
     TempError: 'TEMP_ERROR'
 } as const;
 
-export type TaskresultdetailsCompletionStatusEnum = typeof TaskresultdetailsCompletionStatusEnum[keyof typeof TaskresultdetailsCompletionStatusEnum];
+export type TaskResultDetailsCompletionStatusEnum = typeof TaskResultDetailsCompletionStatusEnum[keyof typeof TaskResultDetailsCompletionStatusEnum];
 
 /**
  * 
  * @export
- * @interface TaskresultdetailsMessagesInner
+ * @interface TaskResultDetailsMessagesInner
  */
-export interface TaskresultdetailsMessagesInner {
+export interface TaskResultDetailsMessagesInner {
     /**
      * Type of the message.
      * @type {string}
-     * @memberof TaskresultdetailsMessagesInner
+     * @memberof TaskResultDetailsMessagesInner
      */
-    'type'?: TaskresultdetailsMessagesInnerTypeEnum;
+    'type'?: TaskResultDetailsMessagesInnerTypeEnum;
     /**
      * Flag whether message is an error.
      * @type {boolean}
-     * @memberof TaskresultdetailsMessagesInner
+     * @memberof TaskResultDetailsMessagesInner
      */
     'error'?: boolean;
     /**
      * Flag whether message is a warning.
      * @type {boolean}
-     * @memberof TaskresultdetailsMessagesInner
+     * @memberof TaskResultDetailsMessagesInner
      */
     'warning'?: boolean;
     /**
      * Message string identifier.
      * @type {string}
-     * @memberof TaskresultdetailsMessagesInner
+     * @memberof TaskResultDetailsMessagesInner
      */
     'key'?: string;
     /**
      * Message context with the locale based language.
      * @type {string}
-     * @memberof TaskresultdetailsMessagesInner
+     * @memberof TaskResultDetailsMessagesInner
      */
     'localizedText'?: string;
 }
 
-export const TaskresultdetailsMessagesInnerTypeEnum = {
+export const TaskResultDetailsMessagesInnerTypeEnum = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type TaskresultdetailsMessagesInnerTypeEnum = typeof TaskresultdetailsMessagesInnerTypeEnum[keyof typeof TaskresultdetailsMessagesInnerTypeEnum];
+export type TaskResultDetailsMessagesInnerTypeEnum = typeof TaskResultDetailsMessagesInnerTypeEnum[keyof typeof TaskResultDetailsMessagesInnerTypeEnum];
 
 /**
  * 
  * @export
- * @interface TaskresultdetailsReturnsInner
+ * @interface TaskResultDetailsReturnsInner
  */
-export interface TaskresultdetailsReturnsInner {
+export interface TaskResultDetailsReturnsInner {
     /**
      * Attribute description.
      * @type {string}
-     * @memberof TaskresultdetailsReturnsInner
+     * @memberof TaskResultDetailsReturnsInner
      */
     'displayLabel'?: string;
     /**
      * System or database attribute name.
      * @type {string}
-     * @memberof TaskresultdetailsReturnsInner
+     * @memberof TaskResultDetailsReturnsInner
      */
     'attributeName'?: string;
 }
 /**
  * Arguments for Uncorrelated Accounts report (UNCORRELATED_ACCOUNTS)
  * @export
- * @interface UncorrelatedAccountsReportArguments
+ * @interface Uncorrelatedaccountsreportarguments
  */
-export interface UncorrelatedAccountsReportArguments {
+export interface Uncorrelatedaccountsreportarguments {
     /**
      * Output report file formats. These are formats for calling GET endpoint as query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
      * @type {Array<string>}
-     * @memberof UncorrelatedAccountsReportArguments
+     * @memberof Uncorrelatedaccountsreportarguments
      */
-    'selectedFormats'?: Array<UncorrelatedAccountsReportArgumentsSelectedFormatsEnum>;
+    'selectedFormats'?: Array<UncorrelatedaccountsreportargumentsSelectedFormatsEnum>;
 }
 
-export const UncorrelatedAccountsReportArgumentsSelectedFormatsEnum = {
+export const UncorrelatedaccountsreportargumentsSelectedFormatsEnum = {
     Csv: 'CSV',
     Pdf: 'PDF'
 } as const;
 
-export type UncorrelatedAccountsReportArgumentsSelectedFormatsEnum = typeof UncorrelatedAccountsReportArgumentsSelectedFormatsEnum[keyof typeof UncorrelatedAccountsReportArgumentsSelectedFormatsEnum];
+export type UncorrelatedaccountsreportargumentsSelectedFormatsEnum = typeof UncorrelatedaccountsreportargumentsSelectedFormatsEnum[keyof typeof UncorrelatedaccountsreportargumentsSelectedFormatsEnum];
 
 
 /**
@@ -774,13 +774,13 @@ export const ReportsDataExtractionApiAxiosParamCreator = function (configuration
         /**
          * Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
          * @summary Run report
-         * @param {Reportdetails} reportdetails 
+         * @param {ReportDetails} reportDetails 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startReportV1: async (reportdetails: Reportdetails, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reportdetails' is not null or undefined
-            assertParamExists('startReportV1', 'reportdetails', reportdetails)
+        startReportV1: async (reportDetails: ReportDetails, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reportDetails' is not null or undefined
+            assertParamExists('startReportV1', 'reportDetails', reportDetails)
             const localVarPath = `/reports/v1/run`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -800,7 +800,7 @@ export const ReportsDataExtractionApiAxiosParamCreator = function (configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reportdetails, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reportDetails, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -838,7 +838,7 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReportResultV1(taskResultId: string, completed?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Reportresults>> {
+        async getReportResultV1(taskResultId: string, completed?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResults>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getReportResultV1(taskResultId, completed, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReportsDataExtractionApi.getReportResultV1']?.[localVarOperationServerIndex]?.url;
@@ -863,12 +863,12 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
         /**
          * Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
          * @summary Run report
-         * @param {Reportdetails} reportdetails 
+         * @param {ReportDetails} reportDetails 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startReportV1(reportdetails: Reportdetails, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Taskresultdetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startReportV1(reportdetails, axiosOptions);
+        async startReportV1(reportDetails: ReportDetails, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startReportV1(reportDetails, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReportsDataExtractionApi.startReportV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -900,7 +900,7 @@ export const ReportsDataExtractionApiFactory = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getReportResultV1(requestParameters: ReportsDataExtractionApiGetReportResultV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Reportresults> {
+        getReportResultV1(requestParameters: ReportsDataExtractionApiGetReportResultV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ReportResults> {
             return localVarFp.getReportResultV1(requestParameters.taskResultId, requestParameters.completed, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -920,8 +920,8 @@ export const ReportsDataExtractionApiFactory = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startReportV1(requestParameters: ReportsDataExtractionApiStartReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Taskresultdetails> {
-            return localVarFp.startReportV1(requestParameters.reportdetails, axiosOptions).then((request) => request(axios, basePath));
+        startReportV1(requestParameters: ReportsDataExtractionApiStartReportV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskResultDetails> {
+            return localVarFp.startReportV1(requestParameters.reportDetails, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1004,10 +1004,10 @@ export interface ReportsDataExtractionApiGetReportV1Request {
 export interface ReportsDataExtractionApiStartReportV1Request {
     /**
      * 
-     * @type {Reportdetails}
+     * @type {ReportDetails}
      * @memberof ReportsDataExtractionApiStartReportV1
      */
-    readonly reportdetails: Reportdetails
+    readonly reportDetails: ReportDetails
 }
 
 /**
@@ -1062,7 +1062,7 @@ export class ReportsDataExtractionApi extends BaseAPI {
      * @memberof ReportsDataExtractionApi
      */
     public startReportV1(requestParameters: ReportsDataExtractionApiStartReportV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ReportsDataExtractionApiFp(this.configuration).startReportV1(requestParameters.reportdetails, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ReportsDataExtractionApiFp(this.configuration).startReportV1(requestParameters.reportDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

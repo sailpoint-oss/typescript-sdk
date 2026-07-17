@@ -1,0 +1,20 @@
+---
+id: v1-password-info-account
+title: PasswordInfoAccount
+pagination_label: PasswordInfoAccount
+sidebar_label: PasswordInfoAccount
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'PasswordInfoAccount', 'v1PasswordInfoAccount']
+slug: /tools/sdk/typescript/password_management/models/password-info-account
+tags: ['SDK', 'Software Development Kit', 'PasswordInfoAccount', 'v1PasswordInfoAccount']
+---
+
+# PasswordInfoAccount
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**accountId** | **(optional)** `string` | Account ID of the account. This is specified per account schema in the source configuration. It is used to distinguish accounts. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-ID-for-a/ta-p/80350 | [default to undefined]
+**accountName** | **(optional)** `string` | Display name of the account. This is specified per account schema in the source configuration. It is used to display name of the account. More info can be found here https://community.sailpoint.com/t5/IdentityNow-Connectors/How-do-I-designate-an-account-attribute-as-the-Account-Name-for/ta-p/74008 | [default to undefined]
+

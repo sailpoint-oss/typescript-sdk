@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accesssummary>`
+`Array<AccessSummary>`
 
 ### HTTP request headers
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Identitycertdecisionsummary`
+`IdentityCertDecisionSummary`
 
 ### HTTP request headers
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Certificationidentitysummary>`
+`Array<CertificationIdentitySummary>`
 
 ### HTTP request headers
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Certificationidentitysummary`
+`CertificationIdentitySummary`
 
 ### HTTP request headers
 

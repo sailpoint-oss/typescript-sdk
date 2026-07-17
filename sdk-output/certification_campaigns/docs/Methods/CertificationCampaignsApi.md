@@ -126,7 +126,7 @@ can complete a certification even if all items have not been completed.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Campaign ID. |  [default to undefined]
-**campaigncompleteoptions** | `Campaigncompleteoptions` | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE | [optional]
+**campaignCompleteOptions** | `CampaignCompleteOptions` | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE | [optional]
 
 ### Return type
 
@@ -142,12 +142,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Campaigncompleteoptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CampaignCompleteOptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Campaign ID.
-const campaigncompleteoptions: Campaigncompleteoptions = ; // Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE (optional)
+const campaignCompleteOptions: CampaignCompleteOptions = {
+  "autoCompleteAction" : "REVOKE"
+}; // Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE (optional)
 const result = await apiInstance.completeCampaignV1({ id: id });
 console.log(result);
 ```
@@ -166,11 +168,11 @@ Use this API to create a certification campaign template based on campaign.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**campaigntemplate** | `Campaigntemplate` |  | 
+**campaignTemplate** | `CampaignTemplate` |  | 
 
 ### Return type
 
-`Campaigntemplate`
+`CampaignTemplate`
 
 ### HTTP request headers
 
@@ -182,12 +184,136 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Campaigntemplate } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CampaignTemplate } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
-const campaigntemplate: Campaigntemplate = ; // 
-const result = await apiInstance.createCampaignTemplateV1({ campaigntemplate: campaigntemplate });
+const campaignTemplate: CampaignTemplate = {
+  "ownerRef" : {
+    "name" : "Mister Manager",
+    "id" : "2c918086676d3e0601677611dbde220f",
+    "type" : "IDENTITY",
+    "email" : "mr.manager@example.com"
+  },
+  "deadlineDuration" : "P2W",
+  "created" : "2020-03-05T22:44:00.364Z",
+  "scheduled" : false,
+  "name" : "Manager Campaign Template",
+  "description" : "Template for the annual manager campaign.",
+  "modified" : "2020-03-05T22:52:09.969Z",
+  "campaign" : {
+    "totalCertifications" : 100,
+    "sourcesWithOrphanEntitlements" : [ {
+      "name" : "Source with orphan entitlements",
+      "id" : "2c90ad2a70ace7d50170acf22ca90010",
+      "type" : "SOURCE"
+    }, {
+      "name" : "Source with orphan entitlements",
+      "id" : "2c90ad2a70ace7d50170acf22ca90010",
+      "type" : "SOURCE"
+    } ],
+    "recommendationsEnabled" : true,
+    "sunsetCommentsRequired" : true,
+    "created" : "2020-03-03T22:15:13.611Z",
+    "machineAccountCampaignInfo" : {
+      "reviewerType" : "ACCOUNT_OWNER",
+      "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+    },
+    "description" : "Everyone needs to be reviewed by their manager",
+    "type" : "MANAGER",
+    "sourceOwnerCampaignInfo" : {
+      "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+    },
+    "emailNotificationEnabled" : false,
+    "alerts" : [ {
+      "level" : "ERROR",
+      "localizations" : [ {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      }, {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      } ]
+    }, {
+      "level" : "ERROR",
+      "localizations" : [ {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      }, {
+        "localeOrigin" : "DEFAULT",
+        "text" : "The request was syntactically correct but its content is semantically invalid.",
+        "locale" : "en-US"
+      } ]
+    } ],
+    "filter" : {
+      "name" : "Test Filter",
+      "id" : "0fbe863c063c4c88a35fd7f17e8a3df5",
+      "type" : "CAMPAIGN_FILTER"
+    },
+    "searchCampaignInfo" : {
+      "identityIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ],
+      "query" : "Search Campaign query description",
+      "description" : "Search Campaign description",
+      "reviewer" : {
+        "name" : "William Wilson",
+        "id" : "2c91808568c529c60168cca6f90c1313",
+        "type" : "IDENTITY"
+      },
+      "type" : "ACCESS",
+      "accessConstraints" : [ {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      }, {
+        "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+        "type" : "ENTITLEMENT",
+        "operator" : "SELECTED"
+      } ]
+    },
+    "autoRevokeAllowed" : false,
+    "name" : "Manager Campaign",
+    "mandatoryCommentRequirement" : "NO_DECISIONS",
+    "modified" : "2020-03-03T22:20:12.674Z",
+    "roleCompositionCampaignInfo" : {
+      "remediatorRef" : {
+        "name" : "Role Admin",
+        "id" : "2c90ad2a70ace7d50170acf22ca90010",
+        "type" : "IDENTITY"
+      },
+      "reviewerId" : "2c91808568c529c60168cca6f90c1313",
+      "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+      "query" : "Search Query",
+      "description" : "Role Composition Description",
+      "reviewer" : {
+        "name" : "William Wilson",
+        "id" : "2c91808568c529c60168cca6f90c1313",
+        "type" : "IDENTITY"
+      }
+    },
+    "completedCertifications" : 10,
+    "id" : "2c9079b270a266a60170a2779fcb0007",
+    "deadline" : "2020-03-15T10:00:01.456Z",
+    "status" : "ACTIVE",
+    "correlatedStatus" : "CORRELATED"
+  },
+  "id" : "2c9079b270a266a60170a277bb960008"
+}; // 
+const result = await apiInstance.createCampaignTemplateV1({ campaignTemplate: campaignTemplate });
 console.log(result);
 ```
 
@@ -320,7 +446,7 @@ Use this API to delete certification campaigns whose IDs are specified in the pr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**campaignsdeleterequest** | `Campaignsdeleterequest` | IDs of the campaigns to delete. | 
+**campaignsDeleteRequest** | `CampaignsDeleteRequest` | IDs of the campaigns to delete. | 
 
 ### Return type
 
@@ -336,12 +462,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Campaignsdeleterequest } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CampaignsDeleteRequest } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
-const campaignsdeleterequest: Campaignsdeleterequest = ; // IDs of the campaigns to delete.
-const result = await apiInstance.deleteCampaignsV1({ campaignsdeleterequest: campaignsdeleterequest });
+const campaignsDeleteRequest: CampaignsDeleteRequest = {
+  "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
+}; // IDs of the campaigns to delete.
+const result = await apiInstance.deleteCampaignsV1({ campaignsDeleteRequest: campaignsDeleteRequest });
 console.log(result);
 ```
 
@@ -408,7 +536,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Campaignreportsconfig`
+`CampaignReportsConfig`
 
 ### HTTP request headers
 
@@ -445,7 +573,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Campaignreport>`
+`Array<CampaignReport>`
 
 ### HTTP request headers
 
@@ -521,7 +649,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Campaigntemplate`
+`CampaignTemplate`
 
 ### HTTP request headers
 
@@ -565,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Campaigntemplate>`
+`Array<CampaignTemplate>`
 
 ### HTTP request headers
 
@@ -644,11 +772,11 @@ This API reassigns the specified certifications from one identity to another.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The certification campaign ID |  [default to undefined]
-**adminreviewreassign** | `Adminreviewreassign` |  | 
+**adminReviewReassign** | `AdminReviewReassign` |  | 
 
 ### Return type
 
-`Certificationtask`
+`CertificationTask`
 
 ### HTTP request headers
 
@@ -660,13 +788,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Adminreviewreassign } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { AdminReviewReassign } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The certification campaign ID
-const adminreviewreassign: Adminreviewreassign = ; // 
-const result = await apiInstance.moveV1({ id: id, adminreviewreassign: adminreviewreassign });
+const adminReviewReassign: AdminReviewReassign = {
+  "certificationIds" : [ "af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3" ],
+  "reason" : "reassigned for some reason",
+  "reassignTo" : {
+    "id" : "ef38f94347e94562b5bb8424a56397d8",
+    "type" : "IDENTITY"
+  }
+}; // 
+const result = await apiInstance.moveV1({ id: id, adminReviewReassign: adminReviewReassign });
 console.log(result);
 ```
 
@@ -685,11 +820,11 @@ Use this API to update individual fields on a certification campaign template, u
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the campaign template being modified. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create)  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create)  | 
 
 ### Return type
 
-`Campaigntemplate`
+`CampaignTemplate`
 
 ### HTTP request headers
 
@@ -701,13 +836,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = 2c9180835d191a86015d28455b4a2329; // ID of the campaign template being modified.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/description","value":"Updated description!"},{"op":"replace","path":"/campaign/filter/id","value":"ff80818155fe8c080155fe8d925b0316"}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
-const result = await apiInstance.patchCampaignTemplateV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+const result = await apiInstance.patchCampaignTemplateV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -725,11 +864,11 @@ Use this API to overwrite the configuration for campaign reports.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**campaignreportsconfig** | `Campaignreportsconfig` | Campaign report configuration. | 
+**campaignReportsConfig** | `CampaignReportsConfig` | Campaign report configuration. | 
 
 ### Return type
 
-`Campaignreportsconfig`
+`CampaignReportsConfig`
 
 ### HTTP request headers
 
@@ -741,12 +880,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Campaignreportsconfig } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CampaignReportsConfig } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
-const campaignreportsconfig: Campaignreportsconfig = ; // Campaign report configuration.
-const result = await apiInstance.setCampaignReportsConfigV1({ campaignreportsconfig: campaignreportsconfig });
+const campaignReportsConfig: CampaignReportsConfig = {
+  "identityAttributeColumns" : [ "firstname", "lastname" ]
+}; // Campaign report configuration.
+const result = await apiInstance.setCampaignReportsConfigV1({ campaignReportsConfig: campaignReportsConfig });
 console.log(result);
 ```
 
@@ -844,7 +985,7 @@ Use this API to run a report for a certification campaign.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the campaign the report is being run for. |  [default to undefined]
-**type** | `Reporttype` | Type of the report to run. |  [default to undefined]
+**type** | `ReportType` | Type of the report to run. |  [default to undefined]
 
 ### Return type
 
@@ -864,7 +1005,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = 2c91808571bcfcf80171c23e4b4221fc; // ID of the campaign the report is being run for.
-const type: Reporttype = ; // Type of the report to run.
+const type: ReportType = ; // Type of the report to run.
 const result = await apiInstance.startCampaignReportV1({ id: id, type: type });
 console.log(result);
 ```
@@ -884,7 +1025,7 @@ Use this API to submit a job to activate the certified campaign with the specifi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Campaign ID. |  [default to undefined]
-**activatecampaignoptions** | `Activatecampaignoptions` | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. | [optional]
+**activateCampaignOptions** | `ActivateCampaignOptions` | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. | [optional]
 
 ### Return type
 
@@ -900,12 +1041,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Activatecampaignoptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { ActivateCampaignOptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Campaign ID.
-const activatecampaignoptions: Activatecampaignoptions = ; // Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
+const activateCampaignOptions: ActivateCampaignOptions = {
+  "timeZone" : "-05:00"
+}; // Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
 const result = await apiInstance.startCampaignV1({ id: id });
 console.log(result);
 ```
@@ -938,7 +1081,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Campaignreference`
+`CampaignReference`
 
 ### HTTP request headers
 
@@ -973,11 +1116,11 @@ Use this API to update individual fields on a certification campaign, using the 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the campaign template being modified. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline  | 
 
 ### Return type
 
-`Slimcampaign`
+`SlimCampaign`
 
 ### HTTP request headers
 
@@ -989,13 +1132,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { CertificationCampaignsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
 const id: string = 2c91808571bcfcf80171c23e4b4221fc; // ID of the campaign template being modified.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/name","value":"This field has been updated!"},{"op":"copy","from":"/name","path":"/description"}]; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
-const result = await apiInstance.updateCampaignV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+const result = await apiInstance.updateCampaignV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

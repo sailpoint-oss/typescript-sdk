@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Publicidentity>`
+`Array<PublicIdentity>`
 
 ### HTTP request headers
 

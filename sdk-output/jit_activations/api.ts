@@ -29,7 +29,7 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @enum {string}
  */
 
-export const Activationworkflowstatus = {
+export const ActivationWorkflowStatus = {
     Creating: 'CREATING',
     Activating: 'ACTIVATING',
     Invalid: 'INVALID',
@@ -40,31 +40,31 @@ export const Activationworkflowstatus = {
     Revoked: 'REVOKED'
 } as const;
 
-export type Activationworkflowstatus = typeof Activationworkflowstatus[keyof typeof Activationworkflowstatus];
+export type ActivationWorkflowStatus = typeof ActivationWorkflowStatus[keyof typeof ActivationWorkflowStatus];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -73,93 +73,93 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
  * @export
- * @interface Jitactivationactivaterequest
+ * @interface JitActivationActivateRequest
  */
-export interface Jitactivationactivaterequest {
+export interface JitActivationActivateRequest {
     /**
      * Entitlement connection identifier for the activation.
      * @type {string}
-     * @memberof Jitactivationactivaterequest
+     * @memberof JitActivationActivateRequest
      */
     'connectionId': string;
     /**
      * Requested activation duration in minutes.
      * @type {number}
-     * @memberof Jitactivationactivaterequest
+     * @memberof JitActivationActivateRequest
      */
     'activationPeriodMins': number;
 }
 /**
  * 
  * @export
- * @interface Jitactivationactivateresponse
+ * @interface JitActivationActivateResponse
  */
-export interface Jitactivationactivateresponse {
+export interface JitActivationActivateResponse {
     /**
      * Workflow or business identifier for this activation.
      * @type {string}
-     * @memberof Jitactivationactivateresponse
+     * @memberof JitActivationActivateResponse
      */
     'id': string;
     /**
      * Persistent activation record identifier for this JIT activation.
      * @type {string}
-     * @memberof Jitactivationactivateresponse
+     * @memberof JitActivationActivateResponse
      */
     'activationId': string;
     /**
      * Entitlement connection identifier for the activation.
      * @type {string}
-     * @memberof Jitactivationactivateresponse
+     * @memberof JitActivationActivateResponse
      */
     'connectionId': string;
     /**
      * Activation duration in minutes for this workflow.
      * @type {number}
-     * @memberof Jitactivationactivateresponse
+     * @memberof JitActivationActivateResponse
      */
     'activationPeriodMins': number;
     /**
      * 
-     * @type {Activationworkflowstatus}
-     * @memberof Jitactivationactivateresponse
+     * @type {ActivationWorkflowStatus}
+     * @memberof JitActivationActivateResponse
      */
-    'status': Activationworkflowstatus;
+    'status': ActivationWorkflowStatus;
     /**
      * Time when the activation workflow was started (ISO-8601).
      * @type {string}
-     * @memberof Jitactivationactivateresponse
+     * @memberof JitActivationActivateResponse
      */
     'startTime': string;
 }
@@ -168,50 +168,50 @@ export interface Jitactivationactivateresponse {
 /**
  * 
  * @export
- * @interface Jitactivationdeactivaterequest
+ * @interface JitActivationDeactivateRequest
  */
-export interface Jitactivationdeactivaterequest {
+export interface JitActivationDeactivateRequest {
     /**
      * Entitlement connection identifier for the activation to deactivate.
      * @type {string}
-     * @memberof Jitactivationdeactivaterequest
+     * @memberof JitActivationDeactivateRequest
      */
     'connectionId': string;
 }
 /**
  * 
  * @export
- * @interface Jitactivationdeactivateresponse
+ * @interface JitActivationDeactivateResponse
  */
-export interface Jitactivationdeactivateresponse {
+export interface JitActivationDeactivateResponse {
     /**
      * Workflow or business identifier for this activation.
      * @type {string}
-     * @memberof Jitactivationdeactivateresponse
+     * @memberof JitActivationDeactivateResponse
      */
     'id': string;
     /**
      * Persistent activation record identifier for this JIT activation.
      * @type {string}
-     * @memberof Jitactivationdeactivateresponse
+     * @memberof JitActivationDeactivateResponse
      */
     'activationId': string;
     /**
      * Entitlement connection identifier for the activation.
      * @type {string}
-     * @memberof Jitactivationdeactivateresponse
+     * @memberof JitActivationDeactivateResponse
      */
     'connectionId': string;
     /**
      * 
-     * @type {Activationworkflowstatus}
-     * @memberof Jitactivationdeactivateresponse
+     * @type {ActivationWorkflowStatus}
+     * @memberof JitActivationDeactivateResponse
      */
-    'status': Activationworkflowstatus;
+    'status': ActivationWorkflowStatus;
     /**
      * Time associated with this deactivation request (ISO-8601).
      * @type {string}
-     * @memberof Jitactivationdeactivateresponse
+     * @memberof JitActivationDeactivateResponse
      */
     'startTime': string;
 }
@@ -220,62 +220,62 @@ export interface Jitactivationdeactivateresponse {
 /**
  * 
  * @export
- * @interface Jitactivationextendrequest
+ * @interface JitActivationExtendRequest
  */
-export interface Jitactivationextendrequest {
+export interface JitActivationExtendRequest {
     /**
      * Entitlement connection identifier for the activation to extend.
      * @type {string}
-     * @memberof Jitactivationextendrequest
+     * @memberof JitActivationExtendRequest
      */
     'connectionId': string;
     /**
      * Number of minutes to extend the activation period.
      * @type {number}
-     * @memberof Jitactivationextendrequest
+     * @memberof JitActivationExtendRequest
      */
     'activationPeriodExtensionMins': number;
 }
 /**
  * 
  * @export
- * @interface Jitactivationextendresponse
+ * @interface JitActivationExtendResponse
  */
-export interface Jitactivationextendresponse {
+export interface JitActivationExtendResponse {
     /**
      * Workflow or business identifier for this activation.
      * @type {string}
-     * @memberof Jitactivationextendresponse
+     * @memberof JitActivationExtendResponse
      */
     'id': string;
     /**
      * Persistent activation record identifier for this JIT activation.
      * @type {string}
-     * @memberof Jitactivationextendresponse
+     * @memberof JitActivationExtendResponse
      */
     'activationId': string;
     /**
      * Entitlement connection identifier for the activation.
      * @type {string}
-     * @memberof Jitactivationextendresponse
+     * @memberof JitActivationExtendResponse
      */
     'connectionId': string;
     /**
      * Extension applied to the activation period, in minutes.
      * @type {number}
-     * @memberof Jitactivationextendresponse
+     * @memberof JitActivationExtendResponse
      */
     'activationPeriodExtensionMins': number;
     /**
      * 
-     * @type {Activationworkflowstatus}
-     * @memberof Jitactivationextendresponse
+     * @type {ActivationWorkflowStatus}
+     * @memberof JitActivationExtendResponse
      */
-    'status': Activationworkflowstatus;
+    'status': ActivationWorkflowStatus;
     /**
      * Time associated with this extend request (ISO-8601).
      * @type {string}
-     * @memberof Jitactivationextendresponse
+     * @memberof JitActivationExtendResponse
      */
     'startTime': string;
 }
@@ -287,12 +287,12 @@ export interface Jitactivationextendresponse {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
@@ -331,13 +331,13 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
          * @summary Start JIT activation workflow
-         * @param {Jitactivationactivaterequest} jitactivationactivaterequest 
+         * @param {JitActivationActivateRequest} jitActivationActivateRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startActivateWorkflowV1: async (jitactivationactivaterequest: Jitactivationactivaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jitactivationactivaterequest' is not null or undefined
-            assertParamExists('startActivateWorkflowV1', 'jitactivationactivaterequest', jitactivationactivaterequest)
+        startActivateWorkflowV1: async (jitActivationActivateRequest: JitActivationActivateRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jitActivationActivateRequest' is not null or undefined
+            assertParamExists('startActivateWorkflowV1', 'jitActivationActivateRequest', jitActivationActivateRequest)
             const localVarPath = `/jit-activations/v1/activate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -357,7 +357,7 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jitactivationactivaterequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jitActivationActivateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -367,13 +367,13 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Deactivate JIT activation workflow
-         * @param {Jitactivationdeactivaterequest} jitactivationdeactivaterequest 
+         * @param {JitActivationDeactivateRequest} jitActivationDeactivateRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startDeactivateWorkflowV1: async (jitactivationdeactivaterequest: Jitactivationdeactivaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jitactivationdeactivaterequest' is not null or undefined
-            assertParamExists('startDeactivateWorkflowV1', 'jitactivationdeactivaterequest', jitactivationdeactivaterequest)
+        startDeactivateWorkflowV1: async (jitActivationDeactivateRequest: JitActivationDeactivateRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jitActivationDeactivateRequest' is not null or undefined
+            assertParamExists('startDeactivateWorkflowV1', 'jitActivationDeactivateRequest', jitActivationDeactivateRequest)
             const localVarPath = `/jit-activations/v1/deactivate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -393,7 +393,7 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jitactivationdeactivaterequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jitActivationDeactivateRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -403,13 +403,13 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Extend JIT activation workflow
-         * @param {Jitactivationextendrequest} jitactivationextendrequest 
+         * @param {JitActivationExtendRequest} jitActivationExtendRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startExtendWorkflowV1: async (jitactivationextendrequest: Jitactivationextendrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'jitactivationextendrequest' is not null or undefined
-            assertParamExists('startExtendWorkflowV1', 'jitactivationextendrequest', jitactivationextendrequest)
+        startExtendWorkflowV1: async (jitActivationExtendRequest: JitActivationExtendRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jitActivationExtendRequest' is not null or undefined
+            assertParamExists('startExtendWorkflowV1', 'jitActivationExtendRequest', jitActivationExtendRequest)
             const localVarPath = `/jit-activations/v1/extend`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -429,7 +429,7 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jitactivationextendrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jitActivationExtendRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -449,12 +449,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
         /**
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
          * @summary Start JIT activation workflow
-         * @param {Jitactivationactivaterequest} jitactivationactivaterequest 
+         * @param {JitActivationActivateRequest} jitActivationActivateRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startActivateWorkflowV1(jitactivationactivaterequest: Jitactivationactivaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Jitactivationactivateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startActivateWorkflowV1(jitactivationactivaterequest, axiosOptions);
+        async startActivateWorkflowV1(jitActivationActivateRequest: JitActivationActivateRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationActivateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startActivateWorkflowV1(jitActivationActivateRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.startActivateWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -462,12 +462,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Deactivate JIT activation workflow
-         * @param {Jitactivationdeactivaterequest} jitactivationdeactivaterequest 
+         * @param {JitActivationDeactivateRequest} jitActivationDeactivateRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startDeactivateWorkflowV1(jitactivationdeactivaterequest: Jitactivationdeactivaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Jitactivationdeactivateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startDeactivateWorkflowV1(jitactivationdeactivaterequest, axiosOptions);
+        async startDeactivateWorkflowV1(jitActivationDeactivateRequest: JitActivationDeactivateRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationDeactivateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startDeactivateWorkflowV1(jitActivationDeactivateRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.startDeactivateWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -475,12 +475,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Extend JIT activation workflow
-         * @param {Jitactivationextendrequest} jitactivationextendrequest 
+         * @param {JitActivationExtendRequest} jitActivationExtendRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startExtendWorkflowV1(jitactivationextendrequest: Jitactivationextendrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Jitactivationextendresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startExtendWorkflowV1(jitactivationextendrequest, axiosOptions);
+        async startExtendWorkflowV1(jitActivationExtendRequest: JitActivationExtendRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationExtendResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startExtendWorkflowV1(jitActivationExtendRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.startExtendWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -502,8 +502,8 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startActivateWorkflowV1(requestParameters: JITActivationsApiStartActivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Jitactivationactivateresponse> {
-            return localVarFp.startActivateWorkflowV1(requestParameters.jitactivationactivaterequest, axiosOptions).then((request) => request(axios, basePath));
+        startActivateWorkflowV1(requestParameters: JITActivationsApiStartActivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JitActivationActivateResponse> {
+            return localVarFp.startActivateWorkflowV1(requestParameters.jitActivationActivateRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
@@ -512,8 +512,8 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startDeactivateWorkflowV1(requestParameters: JITActivationsApiStartDeactivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Jitactivationdeactivateresponse> {
-            return localVarFp.startDeactivateWorkflowV1(requestParameters.jitactivationdeactivaterequest, axiosOptions).then((request) => request(axios, basePath));
+        startDeactivateWorkflowV1(requestParameters: JITActivationsApiStartDeactivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JitActivationDeactivateResponse> {
+            return localVarFp.startDeactivateWorkflowV1(requestParameters.jitActivationDeactivateRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
@@ -522,8 +522,8 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startExtendWorkflowV1(requestParameters: JITActivationsApiStartExtendWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Jitactivationextendresponse> {
-            return localVarFp.startExtendWorkflowV1(requestParameters.jitactivationextendrequest, axiosOptions).then((request) => request(axios, basePath));
+        startExtendWorkflowV1(requestParameters: JITActivationsApiStartExtendWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JitActivationExtendResponse> {
+            return localVarFp.startExtendWorkflowV1(requestParameters.jitActivationExtendRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -536,10 +536,10 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
 export interface JITActivationsApiStartActivateWorkflowV1Request {
     /**
      * 
-     * @type {Jitactivationactivaterequest}
+     * @type {JitActivationActivateRequest}
      * @memberof JITActivationsApiStartActivateWorkflowV1
      */
-    readonly jitactivationactivaterequest: Jitactivationactivaterequest
+    readonly jitActivationActivateRequest: JitActivationActivateRequest
 }
 
 /**
@@ -550,10 +550,10 @@ export interface JITActivationsApiStartActivateWorkflowV1Request {
 export interface JITActivationsApiStartDeactivateWorkflowV1Request {
     /**
      * 
-     * @type {Jitactivationdeactivaterequest}
+     * @type {JitActivationDeactivateRequest}
      * @memberof JITActivationsApiStartDeactivateWorkflowV1
      */
-    readonly jitactivationdeactivaterequest: Jitactivationdeactivaterequest
+    readonly jitActivationDeactivateRequest: JitActivationDeactivateRequest
 }
 
 /**
@@ -564,10 +564,10 @@ export interface JITActivationsApiStartDeactivateWorkflowV1Request {
 export interface JITActivationsApiStartExtendWorkflowV1Request {
     /**
      * 
-     * @type {Jitactivationextendrequest}
+     * @type {JitActivationExtendRequest}
      * @memberof JITActivationsApiStartExtendWorkflowV1
      */
-    readonly jitactivationextendrequest: Jitactivationextendrequest
+    readonly jitActivationExtendRequest: JitActivationExtendRequest
 }
 
 /**
@@ -586,7 +586,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public startActivateWorkflowV1(requestParameters: JITActivationsApiStartActivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).startActivateWorkflowV1(requestParameters.jitactivationactivaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).startActivateWorkflowV1(requestParameters.jitActivationActivateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -598,7 +598,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public startDeactivateWorkflowV1(requestParameters: JITActivationsApiStartDeactivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).startDeactivateWorkflowV1(requestParameters.jitactivationdeactivaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).startDeactivateWorkflowV1(requestParameters.jitActivationDeactivateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -610,7 +610,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public startExtendWorkflowV1(requestParameters: JITActivationsApiStartExtendWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).startExtendWorkflowV1(requestParameters.jitactivationextendrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).startExtendWorkflowV1(requestParameters.jitActivationExtendRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

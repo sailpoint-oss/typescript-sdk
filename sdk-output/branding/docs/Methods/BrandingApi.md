@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Brandingitem`
+`BrandingItem`
 
 ### HTTP request headers
 
@@ -127,7 +127,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Array<Brandingitem>`
+`Array<BrandingItem>`
 
 ### HTTP request headers
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Brandingitem`
+`BrandingItem`
 
 ### HTTP request headers
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Brandingitem`
+`BrandingItem`
 
 ### HTTP request headers
 

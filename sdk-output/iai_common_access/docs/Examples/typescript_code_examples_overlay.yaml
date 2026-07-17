@@ -6,13 +6,23 @@
       source: |
         import { IAICommonAccessApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Commonaccessitemrequest } from 'sailpoint-api-client/dist/iai_common_access/api';
+        import { CommonAccessItemRequest } from 'sailpoint-api-client/dist/iai_common_access/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAICommonAccessApi(configuration);
-        const commonaccessitemrequest: Commonaccessitemrequest = ; // Commonaccessitemrequest | 
+        const commonAccessItemRequest: CommonAccessItemRequest = {
+  "access" : {
+    "ownerName" : "ownerName",
+    "name" : "name",
+    "description" : "description",
+    "id" : "id",
+    "type" : "ACCESS_PROFILE",
+    "ownerId" : "ownerId"
+  },
+  "status" : "CONFIRMED"
+}; // CommonAccessItemRequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.createCommonAccessV1({ commonaccessitemrequest: commonaccessitemrequest });
+        const result = await apiInstance.createCommonAccessV1({ commonAccessItemRequest: commonAccessItemRequest });
         console.log(result);
 - path: /common-access/v1
   method: GET
@@ -41,11 +51,14 @@
       source: |
         import { IAICommonAccessApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Commonaccessidstatus } from 'sailpoint-api-client/dist/iai_common_access/api';
+        import { CommonAccessIDStatus } from 'sailpoint-api-client/dist/iai_common_access/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAICommonAccessApi(configuration);
-        const commonaccessidstatus: Array<Commonaccessidstatus> = ; // Array<Commonaccessidstatus> | Confirm or deny in bulk the common access ids that are (or aren\'t) common access
+        const commonAccessIDStatus: Array<CommonAccessIDStatus> = {
+  "confirmedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+  "deniedIds" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ]
+}; // Array<CommonAccessIDStatus> | Confirm or deny in bulk the common access ids that are (or aren\'t) common access
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.updateCommonAccessStatusInBulkV1({ commonaccessidstatus: commonaccessidstatus });
+        const result = await apiInstance.updateCommonAccessStatusInBulkV1({ commonAccessIDStatus: commonAccessIDStatus });
         console.log(result);

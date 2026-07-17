@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'Scope', 'v1Scope']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scope** | **(optional)** `Scopetype` |  | [default to undefined]
-**visibility** | **(optional)** `Scopevisibilitytype` |  | [default to undefined]
-**scopeFilter** | **(optional)** `Visibilitycriteria` |  | [default to undefined]
+**scope** | **(optional)** `ScopeType` |  | [default to undefined]
+**visibility** | **(optional)** `ScopeVisibilityType` |  | [default to undefined]
+**scopeFilter** | **(optional)** `VisibilityCriteria` |  | [default to undefined]
 **scopeSelection** | **(optional)** `Array<Ref>` | List of Identities that are assigned to the segment | [default to undefined]
 

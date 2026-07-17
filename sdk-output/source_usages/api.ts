@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,53 +113,53 @@ export interface GetStatusBySourceIdV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Sourceusage
+ * @interface SourceUsage
  */
-export interface Sourceusage {
+export interface SourceUsage {
     /**
      * The first day of the month for which activity is aggregated.
      * @type {string}
-     * @memberof Sourceusage
+     * @memberof SourceUsage
      */
     'date'?: string;
     /**
      * The average number of days that accounts were active within this source, for the month.
      * @type {number}
-     * @memberof Sourceusage
+     * @memberof SourceUsage
      */
     'count'?: number;
 }
 /**
  * 
  * @export
- * @interface Sourceusagestatus
+ * @interface SourceUsageStatus
  */
-export interface Sourceusagestatus {
+export interface SourceUsageStatus {
     /**
      * Source Usage Status. Acceptable values are:   - COMPLETE       - This status means that an activity data source has been setup and usage insights are available for the source.   - INCOMPLETE       - This status means that an activity data source has not been setup and usage insights are not available for the source.
      * @type {string}
-     * @memberof Sourceusagestatus
+     * @memberof SourceUsageStatus
      */
-    'status'?: SourceusagestatusStatusEnum;
+    'status'?: SourceUsageStatusStatusEnum;
 }
 
-export const SourceusagestatusStatusEnum = {
+export const SourceUsageStatusStatusEnum = {
     Complete: 'COMPLETE',
     Incomplete: 'INCOMPLETE'
 } as const;
 
-export type SourceusagestatusStatusEnum = typeof SourceusagestatusStatusEnum[keyof typeof SourceusagestatusStatusEnum];
+export type SourceUsageStatusStatusEnum = typeof SourceUsageStatusStatusEnum[keyof typeof SourceUsageStatusStatusEnum];
 
 
 /**
@@ -273,7 +273,7 @@ export const SourceUsagesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusBySourceIdV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Sourceusagestatus>> {
+        async getStatusBySourceIdV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceUsageStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceIdV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourceUsagesApi.getStatusBySourceIdV1']?.[localVarOperationServerIndex]?.url;
@@ -290,7 +290,7 @@ export const SourceUsagesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsagesBySourceIdV1(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Sourceusage>>> {
+        async getUsagesBySourceIdV1(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceUsage>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceIdV1(sourceId, limit, offset, count, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourceUsagesApi.getUsagesBySourceIdV1']?.[localVarOperationServerIndex]?.url;
@@ -313,7 +313,7 @@ export const SourceUsagesApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getStatusBySourceIdV1(requestParameters: SourceUsagesApiGetStatusBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Sourceusagestatus> {
+        getStatusBySourceIdV1(requestParameters: SourceUsagesApiGetStatusBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceUsageStatus> {
             return localVarFp.getStatusBySourceIdV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -323,7 +323,7 @@ export const SourceUsagesApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUsagesBySourceIdV1(requestParameters: SourceUsagesApiGetUsagesBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Sourceusage>> {
+        getUsagesBySourceIdV1(requestParameters: SourceUsagesApiGetUsagesBySourceIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceUsage>> {
             return localVarFp.getUsagesBySourceIdV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
     };

@@ -84,7 +84,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Manualdiscoverapplicationstemplate`
+`ManualDiscoverApplicationsTemplate`
 
 ### HTTP request headers
 
@@ -158,12 +158,12 @@ Use this API to discover applications.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | The sourceId. |  [default to undefined]
-**applicationdiscoveryrequest** | `Applicationdiscoveryrequest` |  | 
+**applicationDiscoveryRequest** | `ApplicationDiscoveryRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Applicationdiscoveryresponse`
+`ApplicationDiscoveryResponse`
 
 ### HTTP request headers
 
@@ -175,14 +175,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { ApplicationDiscoveryApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Applicationdiscoveryrequest } from 'sailpoint-api-client/dist/application_discovery/api';
+import { ApplicationDiscoveryRequest } from 'sailpoint-api-client/dist/application_discovery/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApplicationDiscoveryApi(configuration);
 const sourceId: string = sourceId_example; // The sourceId.
-const applicationdiscoveryrequest: Applicationdiscoveryrequest = ; // 
+const applicationDiscoveryRequest: ApplicationDiscoveryRequest = {
+  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ]
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.startApplicationDiscoveryV1({ sourceId: sourceId, applicationdiscoveryrequest: applicationdiscoveryrequest });
+const result = await apiInstance.startApplicationDiscoveryV1({ sourceId: sourceId, applicationDiscoveryRequest: applicationDiscoveryRequest });
 console.log(result);
 ```
 

@@ -59,11 +59,11 @@ This API performs a deploy based on an existing daft.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**deployrequest** | `Deployrequest` | The deploy request body. | 
+**deployRequest** | `DeployRequest` | The deploy request body. | 
 
 ### Return type
 
-`Deployresponse`
+`DeployResponse`
 
 ### HTTP request headers
 
@@ -75,12 +75,14 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Deployrequest } from 'sailpoint-api-client/dist/configuration_hub/api';
+import { DeployRequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
-const deployrequest: Deployrequest = {"draftId":"c9a38d8c-5edf-4182-9d39-f6581d3ebd05"}; // The deploy request body.
-const result = await apiInstance.createDeployV1({ deployrequest: deployrequest });
+const deployRequest: DeployRequest = {
+  "draftId" : "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b"
+}; // The deploy request body.
+const result = await apiInstance.createDeployV1({ deployRequest: deployRequest });
 console.log(result);
 ```
 
@@ -101,11 +103,11 @@ The request will need the following security scope:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceOrg** | `string` | The name of the source org. |  [default to undefined]
-**objectmappingrequest** | `Objectmappingrequest` | The object mapping request body. | 
+**objectMappingRequest** | `ObjectMappingRequest` | The object mapping request body. | 
 
 ### Return type
 
-`Objectmappingresponse`
+`ObjectMappingResponse`
 
 ### HTTP request headers
 
@@ -117,13 +119,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Objectmappingrequest } from 'sailpoint-api-client/dist/configuration_hub/api';
+import { ObjectMappingRequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
 const sourceOrg: string = source-org; // The name of the source org.
-const objectmappingrequest: Objectmappingrequest = {"objectType":"GOVERNANCE_GROUP","jsonPath":"$.description","sourceValue":"Sample Governance Group","targetValue":"Sample Governance Group - Updated","enabled":true}; // The object mapping request body.
-const result = await apiInstance.createObjectMappingV1({ sourceOrg: sourceOrg, objectmappingrequest: objectmappingrequest });
+const objectMappingRequest: ObjectMappingRequest = {
+  "targetValue" : "My New Governance Group Name",
+  "jsonPath" : "$.name",
+  "sourceValue" : "My Governance Group Name",
+  "enabled" : false,
+  "objectType" : "IDENTITY"
+}; // The object mapping request body.
+const result = await apiInstance.createObjectMappingV1({ sourceOrg: sourceOrg, objectMappingRequest: objectMappingRequest });
 console.log(result);
 ```
 
@@ -144,11 +152,11 @@ The request will need the following security scope:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceOrg** | `string` | The name of the source org. |  [default to undefined]
-**objectmappingbulkcreaterequest** | `Objectmappingbulkcreaterequest` | The bulk create object mapping request body. | 
+**objectMappingBulkCreateRequest** | `ObjectMappingBulkCreateRequest` | The bulk create object mapping request body. | 
 
 ### Return type
 
-`Objectmappingbulkcreateresponse`
+`ObjectMappingBulkCreateResponse`
 
 ### HTTP request headers
 
@@ -160,13 +168,27 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Objectmappingbulkcreaterequest } from 'sailpoint-api-client/dist/configuration_hub/api';
+import { ObjectMappingBulkCreateRequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
 const sourceOrg: string = source-org; // The name of the source org.
-const objectmappingbulkcreaterequest: Objectmappingbulkcreaterequest = {"newObjectsMappings":[{"objectType":"SOURCE","jsonPath":"$.name","sourceValue":"Original SOURCE Name","targetValue":"New SOURCE Name","enabled":true},{"objectType":"IDENTITY","jsonPath":"$.name","sourceValue":"Original IDENTITY Name","targetValue":"New IDENTITY Name ","enabled":true}]}; // The bulk create object mapping request body.
-const result = await apiInstance.createObjectMappingsV1({ sourceOrg: sourceOrg, objectmappingbulkcreaterequest: objectmappingbulkcreaterequest });
+const objectMappingBulkCreateRequest: ObjectMappingBulkCreateRequest = {
+  "newObjectsMappings" : [ {
+    "targetValue" : "My New Governance Group Name",
+    "jsonPath" : "$.name",
+    "sourceValue" : "My Governance Group Name",
+    "enabled" : false,
+    "objectType" : "IDENTITY"
+  }, {
+    "targetValue" : "My New Governance Group Name",
+    "jsonPath" : "$.name",
+    "sourceValue" : "My Governance Group Name",
+    "enabled" : false,
+    "objectType" : "IDENTITY"
+  } ]
+}; // The bulk create object mapping request body.
+const result = await apiInstance.createObjectMappingsV1({ sourceOrg: sourceOrg, objectMappingBulkCreateRequest: objectMappingBulkCreateRequest });
 console.log(result);
 ```
 
@@ -183,11 +205,11 @@ This API creates a new scheduled action for the current tenant.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**scheduledactionpayload** | `Scheduledactionpayload` | The scheduled action creation request body. | 
+**scheduledActionPayload** | `ScheduledActionPayload` | The scheduled action creation request body. | 
 
 ### Return type
 
-`Scheduledactionresponse`
+`ScheduledActionResponse`
 
 ### HTTP request headers
 
@@ -199,12 +221,34 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Scheduledactionpayload } from 'sailpoint-api-client/dist/configuration_hub/api';
+import { ScheduledActionPayload } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
-const scheduledactionpayload: Scheduledactionpayload = {"jobType":"BACKUP","startTime":"2024-08-16T14:16:58.389Z","cronString":"0 0 * * * *","timeZoneId":"America/Chicago","content":{"name":"Daily Backup","backupOptions":{"includeTypes":["SOURCE","IDENTITY"],"objectOptions":{"SOURCE":{"includedNames":["Source1","Source2"]}}}}}; // The scheduled action creation request body.
-const result = await apiInstance.createScheduledActionV1({ scheduledactionpayload: scheduledactionpayload });
+const scheduledActionPayload: ScheduledActionPayload = {
+  "cronString" : "0 0 * * * *",
+  "timeZoneId" : "America/Chicago",
+  "startTime" : "2024-08-16T14:16:58.389Z",
+  "jobType" : "BACKUP",
+  "content" : {
+    "sourceTenant" : "tenant-name",
+    "draftId" : "9012b87d-48ca-439a-868f-2160001da8c3",
+    "name" : "Daily Backup",
+    "backupOptions" : {
+      "includeTypes" : [ "ROLE", "IDENTITY_PROFILE" ],
+      "objectOptions" : {
+        "SOURCE" : {
+          "includedNames" : [ "Source1", "Source2" ]
+        },
+        "ROLE" : {
+          "includedNames" : [ "Admin Role", "User Role" ]
+        }
+      }
+    },
+    "sourceBackupId" : "5678b87d-48ca-439a-868f-2160001da8c2"
+  }
+}; // The scheduled action creation request body.
+const result = await apiInstance.createScheduledActionV1({ scheduledActionPayload: scheduledActionPayload });
 console.log(result);
 ```
 
@@ -230,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Backupresponse`
+`BackupResponse`
 
 ### HTTP request headers
 
@@ -470,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Deployresponse`
+`DeployResponse`
 
 ### HTTP request headers
 
@@ -510,7 +554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Objectmappingresponse>`
+`Array<ObjectMappingResponse>`
 
 ### HTTP request headers
 
@@ -547,7 +591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Backupresponse`
+`BackupResponse`
 
 ### HTTP request headers
 
@@ -584,7 +628,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Backupresponse>`
+`Array<BackupResponse>`
 
 ### HTTP request headers
 
@@ -654,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Draftresponse>`
+`Array<DraftResponse>`
 
 ### HTTP request headers
 
@@ -688,7 +732,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Array<Scheduledactionresponse>`
+`Array<ScheduledActionResponse>`
 
 ### HTTP request headers
 
@@ -724,7 +768,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Backupresponse>`
+`Array<BackupResponse>`
 
 ### HTTP request headers
 
@@ -761,11 +805,11 @@ The request will need the following security scope:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceOrg** | `string` | The name of the source org. |  [default to undefined]
-**objectmappingbulkpatchrequest** | `Objectmappingbulkpatchrequest` | The object mapping request body. | 
+**objectMappingBulkPatchRequest** | `ObjectMappingBulkPatchRequest` | The object mapping request body. | 
 
 ### Return type
 
-`Objectmappingbulkpatchresponse`
+`ObjectMappingBulkPatchResponse`
 
 ### HTTP request headers
 
@@ -777,13 +821,26 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Objectmappingbulkpatchrequest } from 'sailpoint-api-client/dist/configuration_hub/api';
+import { ObjectMappingBulkPatchRequest } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
 const sourceOrg: string = source-org; // The name of the source org.
-const objectmappingbulkpatchrequest: Objectmappingbulkpatchrequest = {"patches":{"603b1a61-d03d-4ed1-864f-a508fbd1995d":[{"op":"replace","path":"/enabled","value":true}],"00bece34-f50d-4227-8878-76f620b5a971":[{"op":"replace","path":"/targetValue","value":"New Target Value"}]}}; // The object mapping request body.
-const result = await apiInstance.updateObjectMappingsV1({ sourceOrg: sourceOrg, objectmappingbulkpatchrequest: objectmappingbulkpatchrequest });
+const objectMappingBulkPatchRequest: ObjectMappingBulkPatchRequest = {
+  "patches" : {
+    "603b1a61-d03d-4ed1-864f-a508fbd1995d" : [ {
+      "op" : "replace",
+      "path" : "/enabled",
+      "value" : true
+    } ],
+    "00bece34-f50d-4227-8878-76f620b5a971" : [ {
+      "op" : "replace",
+      "path" : "/targetValue",
+      "value" : "New Target Value"
+    } ]
+  }
+}; // The object mapping request body.
+const result = await apiInstance.updateObjectMappingsV1({ sourceOrg: sourceOrg, objectMappingBulkPatchRequest: objectMappingBulkPatchRequest });
 console.log(result);
 ```
 
@@ -801,11 +858,11 @@ This API updates an existing scheduled action using JSON Patch format.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the scheduled action. |  [default to undefined]
-**jsonpatch** | `Jsonpatch` | The JSON Patch document containing the changes to apply to the scheduled action. | 
+**jsonPatch** | `JsonPatch` | The JSON Patch document containing the changes to apply to the scheduled action. | 
 
 ### Return type
 
-`Scheduledactionresponse`
+`ScheduledActionResponse`
 
 ### HTTP request headers
 
@@ -817,13 +874,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { ConfigurationHubApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatch } from 'sailpoint-api-client/dist/configuration_hub/api';
+import { JsonPatch } from 'sailpoint-api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
 const id: string = 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde; // The ID of the scheduled action.
-const jsonpatch: Jsonpatch = [{"op":"replace","path":"/content/name","value":"Updated Backup Name"},{"op":"replace","path":"/cronString","value":"0 0 9 * * ?"}]; // The JSON Patch document containing the changes to apply to the scheduled action.
-const result = await apiInstance.updateScheduledActionV1({ id: id, jsonpatch: jsonpatch });
+const jsonPatch: JsonPatch = {
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}; // The JSON Patch document containing the changes to apply to the scheduled action.
+const result = await apiInstance.updateScheduledActionV1({ id: id, jsonPatch: jsonPatch });
 console.log(result);
 ```
 

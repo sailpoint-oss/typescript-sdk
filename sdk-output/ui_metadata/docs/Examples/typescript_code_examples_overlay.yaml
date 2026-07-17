@@ -20,11 +20,15 @@
       source: |
         import { UIMetadataApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
-        import { Tenantuimetadataitemupdaterequest } from 'sailpoint-api-client/dist/ui_metadata/api';
+        import { TenantUiMetadataItemUpdateRequest } from 'sailpoint-api-client/dist/ui_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new UIMetadataApi(configuration);
-        const tenantuimetadataitemupdaterequest: Tenantuimetadataitemupdaterequest = ; // Tenantuimetadataitemupdaterequest | 
+        const tenantUiMetadataItemUpdateRequest: TenantUiMetadataItemUpdateRequest = {
+  "usernameEmptyText" : "Please provide your work email address...",
+  "usernameLabel" : "Email",
+  "iframeWhiteList" : "http://example.com http://example2.com"
+}; // TenantUiMetadataItemUpdateRequest | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const result = await apiInstance.setTenantUiMetadataV1({ tenantuimetadataitemupdaterequest: tenantuimetadataitemupdaterequest });
+        const result = await apiInstance.setTenantUiMetadataV1({ tenantUiMetadataItemUpdateRequest: tenantUiMetadataItemUpdateRequest });
         console.log(result);

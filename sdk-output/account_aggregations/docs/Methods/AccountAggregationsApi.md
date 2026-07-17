@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accountaggregationstatus`
+`AccountAggregationStatus`
 
 ### HTTP request headers
 

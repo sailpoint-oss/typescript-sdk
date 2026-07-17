@@ -33,65 +33,65 @@ export interface ArrayInner {
 /**
  * 
  * @export
- * @interface Basecommondto
+ * @interface BaseCommonDto
  */
-export interface Basecommondto {
+export interface BaseCommonDto {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof Basecommondto
+     * @memberof BaseCommonDto
      */
     'modified'?: string;
 }
 /**
  * Before Provisioning Rule.
  * @export
- * @interface Beforeprovisioningruledto
+ * @interface BeforeProvisioningRuleDto
  */
-export interface Beforeprovisioningruledto {
+export interface BeforeProvisioningRuleDto {
     /**
      * Before Provisioning Rule DTO type.
      * @type {string}
-     * @memberof Beforeprovisioningruledto
+     * @memberof BeforeProvisioningRuleDto
      */
-    'type'?: BeforeprovisioningruledtoTypeEnum;
+    'type'?: BeforeProvisioningRuleDtoTypeEnum;
     /**
      * Before Provisioning Rule ID.
      * @type {string}
-     * @memberof Beforeprovisioningruledto
+     * @memberof BeforeProvisioningRuleDto
      */
     'id'?: string;
     /**
      * Rule display name.
      * @type {string}
-     * @memberof Beforeprovisioningruledto
+     * @memberof BeforeProvisioningRuleDto
      */
     'name'?: string;
 }
 
-export const BeforeprovisioningruledtoTypeEnum = {
+export const BeforeProvisioningRuleDtoTypeEnum = {
     Rule: 'RULE'
 } as const;
 
-export type BeforeprovisioningruledtoTypeEnum = typeof BeforeprovisioningruledtoTypeEnum[keyof typeof BeforeprovisioningruledtoTypeEnum];
+export type BeforeProvisioningRuleDtoTypeEnum = typeof BeforeProvisioningRuleDtoTypeEnum[keyof typeof BeforeProvisioningRuleDtoTypeEnum];
 
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -99,7 +99,7 @@ export type BeforeprovisioningruledtoTypeEnum = typeof Beforeprovisioningruledto
  * @enum {string}
  */
 
-export const Dtotype = {
+export const DtoType = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
@@ -131,31 +131,31 @@ export const Dtotype = {
     Workgroup: 'WORKGROUP'
 } as const;
 
-export type Dtotype = typeof Dtotype[keyof typeof Dtotype];
+export type DtoType = typeof DtoType[keyof typeof DtoType];
 
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -164,33 +164,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -221,43 +221,43 @@ export interface GetSIMIntegrationV1429Response {
 /**
  * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatch
+ * @interface JsonPatch
  */
-export interface Jsonpatch {
+export interface JsonPatch {
     /**
      * Operations to be applied
-     * @type {Array<Jsonpatchoperation>}
-     * @memberof Jsonpatch
+     * @type {Array<JsonPatchOperation>}
+     * @memberof JsonPatch
      */
-    'operations'?: Array<Jsonpatchoperation>;
+    'operations'?: Array<JsonPatchOperation>;
 }
 /**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
- * @interface Jsonpatchoperation
+ * @interface JsonPatchOperation
  */
-export interface Jsonpatchoperation {
+export interface JsonPatchOperation {
     /**
      * The operation to be performed
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
-    'op': JsonpatchoperationOpEnum;
+    'op': JsonPatchOperationOpEnum;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
-     * @memberof Jsonpatchoperation
+     * @memberof JsonPatchOperation
      */
     'path': string;
     /**
      * 
-     * @type {JsonpatchoperationValue}
-     * @memberof Jsonpatchoperation
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
      */
-    'value'?: JsonpatchoperationValue;
+    'value'?: JsonPatchOperationValue;
 }
 
-export const JsonpatchoperationOpEnum = {
+export const JsonPatchOperationOpEnum = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -266,14 +266,14 @@ export const JsonpatchoperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonpatchoperationOpEnum = typeof JsonpatchoperationOpEnum[keyof typeof JsonpatchoperationOpEnum];
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
- * @type JsonpatchoperationValue
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -281,316 +281,316 @@ export type JsonpatchoperationValue = Array<ArrayInner> | boolean | number | obj
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * Owner\'s identity.
  * @export
- * @interface Ownerdto
+ * @interface OwnerDto
  */
-export interface Ownerdto {
+export interface OwnerDto {
     /**
      * Owner\'s DTO type.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
-    'type'?: OwnerdtoTypeEnum;
+    'type'?: OwnerDtoTypeEnum;
     /**
      * Owner\'s identity ID.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
     'id'?: string;
     /**
      * Owner\'s name.
      * @type {string}
-     * @memberof Ownerdto
+     * @memberof OwnerDto
      */
     'name'?: string;
 }
 
-export const OwnerdtoTypeEnum = {
+export const OwnerDtoTypeEnum = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerdtoTypeEnum = typeof OwnerdtoTypeEnum[keyof typeof OwnerdtoTypeEnum];
+export type OwnerDtoTypeEnum = typeof OwnerDtoTypeEnum[keyof typeof OwnerDtoTypeEnum];
 
 /**
  * Specification of a Service Desk integration provisioning configuration.
  * @export
- * @interface Provisioningconfig
+ * @interface ProvisioningConfig
  */
-export interface Provisioningconfig {
+export interface ProvisioningConfig {
     /**
      * Specifies whether this configuration is used to manage provisioning requests for all sources from the org.  If true, no managedResourceRefs are allowed.
      * @type {boolean}
-     * @memberof Provisioningconfig
+     * @memberof ProvisioningConfig
      */
     'universalManager'?: boolean;
     /**
      * References to sources for the Service Desk integration template.  May only be specified if universalManager is false.
-     * @type {Array<Servicedesksource>}
-     * @memberof Provisioningconfig
+     * @type {Array<ServiceDeskSource>}
+     * @memberof ProvisioningConfig
      */
-    'managedResourceRefs'?: Array<Servicedesksource>;
+    'managedResourceRefs'?: Array<ServiceDeskSource>;
     /**
      * 
-     * @type {ProvisioningconfigPlanInitializerScript}
-     * @memberof Provisioningconfig
+     * @type {ProvisioningConfigPlanInitializerScript}
+     * @memberof ProvisioningConfig
      */
-    'planInitializerScript'?: ProvisioningconfigPlanInitializerScript | null;
+    'planInitializerScript'?: ProvisioningConfigPlanInitializerScript | null;
     /**
      * Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
      * @type {boolean}
-     * @memberof Provisioningconfig
+     * @memberof ProvisioningConfig
      */
     'noProvisioningRequests'?: boolean;
     /**
      * When saving pending requests is enabled, this defines the number of hours the request is allowed to live before it is considered expired and no longer affects plan compilation.
      * @type {number}
-     * @memberof Provisioningconfig
+     * @memberof ProvisioningConfig
      */
     'provisioningRequestExpiration'?: number;
 }
 /**
  * This is a reference to a plan initializer script.
  * @export
- * @interface ProvisioningconfigPlanInitializerScript
+ * @interface ProvisioningConfigPlanInitializerScript
  */
-export interface ProvisioningconfigPlanInitializerScript {
+export interface ProvisioningConfigPlanInitializerScript {
     /**
      * This is a Rule that allows provisioning instruction changes.
      * @type {string}
-     * @memberof ProvisioningconfigPlanInitializerScript
+     * @memberof ProvisioningConfigPlanInitializerScript
      */
     'source'?: string;
 }
 /**
  * 
  * @export
- * @interface Servicedeskintegrationdto
+ * @interface ServiceDeskIntegrationDto
  */
-export interface Servicedeskintegrationdto {
+export interface ServiceDeskIntegrationDto {
     /**
      * Unique identifier for the Service Desk integration
      * @type {string}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      */
     'id'?: string;
     /**
      * Service Desk integration\'s name. The name must be unique.
      * @type {string}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      */
     'name': string;
     /**
      * The date and time the Service Desk integration was created
      * @type {string}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      */
     'created'?: string;
     /**
      * The date and time the Service Desk integration was last modified
      * @type {string}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      */
     'modified'?: string;
     /**
      * Service Desk integration\'s description.
      * @type {string}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      */
     'description': string;
     /**
      * Service Desk integration types:  - ServiceNowSDIM - ServiceNow 
      * @type {string}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      */
     'type': string;
     /**
      * 
-     * @type {Ownerdto}
-     * @memberof Servicedeskintegrationdto
+     * @type {OwnerDto}
+     * @memberof ServiceDeskIntegrationDto
      */
-    'ownerRef'?: Ownerdto;
+    'ownerRef'?: OwnerDto;
     /**
      * 
-     * @type {Sourceclusterdto}
-     * @memberof Servicedeskintegrationdto
+     * @type {SourceClusterDto}
+     * @memberof ServiceDeskIntegrationDto
      */
-    'clusterRef'?: Sourceclusterdto;
+    'clusterRef'?: SourceClusterDto;
     /**
      * Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      * @deprecated
      */
     'cluster'?: string | null;
     /**
      * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      * @deprecated
      */
     'managedSources'?: Array<string>;
     /**
      * 
-     * @type {Provisioningconfig}
-     * @memberof Servicedeskintegrationdto
+     * @type {ProvisioningConfig}
+     * @memberof ServiceDeskIntegrationDto
      */
-    'provisioningConfig'?: Provisioningconfig;
+    'provisioningConfig'?: ProvisioningConfig;
     /**
      * Service Desk integration\'s attributes. Validation constraints enforced by the implementation.
      * @type {{ [key: string]: any; }}
-     * @memberof Servicedeskintegrationdto
+     * @memberof ServiceDeskIntegrationDto
      */
     'attributes': { [key: string]: any; };
     /**
      * 
-     * @type {Beforeprovisioningruledto}
-     * @memberof Servicedeskintegrationdto
+     * @type {BeforeProvisioningRuleDto}
+     * @memberof ServiceDeskIntegrationDto
      */
-    'beforeProvisioningRule'?: Beforeprovisioningruledto;
+    'beforeProvisioningRule'?: BeforeProvisioningRuleDto;
 }
 /**
  * Source for Service Desk integration template.
  * @export
- * @interface Servicedesksource
+ * @interface ServiceDeskSource
  */
-export interface Servicedesksource {
+export interface ServiceDeskSource {
     /**
      * DTO type of source for service desk integration template.
      * @type {string}
-     * @memberof Servicedesksource
+     * @memberof ServiceDeskSource
      */
-    'type'?: ServicedesksourceTypeEnum;
+    'type'?: ServiceDeskSourceTypeEnum;
     /**
      * ID of source for service desk integration template.
      * @type {string}
-     * @memberof Servicedesksource
+     * @memberof ServiceDeskSource
      */
     'id'?: string;
     /**
      * Human-readable name of source for service desk integration template.
      * @type {string}
-     * @memberof Servicedesksource
+     * @memberof ServiceDeskSource
      */
     'name'?: string;
 }
 
-export const ServicedesksourceTypeEnum = {
+export const ServiceDeskSourceTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type ServicedesksourceTypeEnum = typeof ServicedesksourceTypeEnum[keyof typeof ServicedesksourceTypeEnum];
+export type ServiceDeskSourceTypeEnum = typeof ServiceDeskSourceTypeEnum[keyof typeof ServiceDeskSourceTypeEnum];
 
 /**
  * 
  * @export
- * @interface Simintegrationdetails
+ * @interface SimIntegrationDetails
  */
-export interface Simintegrationdetails {
+export interface SimIntegrationDetails {
     /**
      * System-generated unique ID of the Object
      * @type {string}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'id'?: string;
     /**
      * Name of the Object
      * @type {string}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'name': string | null;
     /**
      * Creation date of the Object
      * @type {string}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'created'?: string;
     /**
      * Last modification date of the Object
      * @type {string}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'modified'?: string;
     /**
      * The description of the integration
      * @type {string}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'description'?: string;
     /**
      * The integration type
      * @type {string}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'type'?: string;
     /**
      * The attributes map containing the credentials used to configure the integration.
      * @type {object}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'attributes'?: object | null;
     /**
      * The list of sources (managed resources)
      * @type {Array<string>}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'sources'?: Array<string>;
     /**
      * The cluster/proxy
      * @type {string}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'cluster'?: string;
     /**
      * Custom mapping between the integration result and the provisioning result
      * @type {object}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'statusMap'?: object;
     /**
      * Request data to customize desc and body of the created ticket
      * @type {object}
-     * @memberof Simintegrationdetails
+     * @memberof SimIntegrationDetails
      */
     'request'?: object;
     /**
      * 
-     * @type {SimintegrationdetailsAllOfBeforeProvisioningRule}
-     * @memberof Simintegrationdetails
+     * @type {SimIntegrationDetailsAllOfBeforeProvisioningRule}
+     * @memberof SimIntegrationDetails
      */
-    'beforeProvisioningRule'?: SimintegrationdetailsAllOfBeforeProvisioningRule;
+    'beforeProvisioningRule'?: SimIntegrationDetailsAllOfBeforeProvisioningRule;
 }
 /**
  * Before provisioning rule of integration
  * @export
- * @interface SimintegrationdetailsAllOfBeforeProvisioningRule
+ * @interface SimIntegrationDetailsAllOfBeforeProvisioningRule
  */
-export interface SimintegrationdetailsAllOfBeforeProvisioningRule {
+export interface SimIntegrationDetailsAllOfBeforeProvisioningRule {
     /**
      * 
-     * @type {Dtotype}
-     * @memberof SimintegrationdetailsAllOfBeforeProvisioningRule
+     * @type {DtoType}
+     * @memberof SimIntegrationDetailsAllOfBeforeProvisioningRule
      */
-    'type'?: Dtotype;
+    'type'?: DtoType;
     /**
      * ID of the rule
      * @type {string}
-     * @memberof SimintegrationdetailsAllOfBeforeProvisioningRule
+     * @memberof SimIntegrationDetailsAllOfBeforeProvisioningRule
      */
     'id'?: string;
     /**
      * Human-readable display name of the rule
      * @type {string}
-     * @memberof SimintegrationdetailsAllOfBeforeProvisioningRule
+     * @memberof SimIntegrationDetailsAllOfBeforeProvisioningRule
      */
     'name'?: string;
 }
@@ -599,34 +599,34 @@ export interface SimintegrationdetailsAllOfBeforeProvisioningRule {
 /**
  * Source cluster.
  * @export
- * @interface Sourceclusterdto
+ * @interface SourceClusterDto
  */
-export interface Sourceclusterdto {
+export interface SourceClusterDto {
     /**
      * Source cluster DTO type.
      * @type {string}
-     * @memberof Sourceclusterdto
+     * @memberof SourceClusterDto
      */
-    'type'?: SourceclusterdtoTypeEnum;
+    'type'?: SourceClusterDtoTypeEnum;
     /**
      * Source cluster ID.
      * @type {string}
-     * @memberof Sourceclusterdto
+     * @memberof SourceClusterDto
      */
     'id'?: string;
     /**
      * Source cluster display name.
      * @type {string}
-     * @memberof Sourceclusterdto
+     * @memberof SourceClusterDto
      */
     'name'?: string;
 }
 
-export const SourceclusterdtoTypeEnum = {
+export const SourceClusterDtoTypeEnum = {
     Cluster: 'CLUSTER'
 } as const;
 
-export type SourceclusterdtoTypeEnum = typeof SourceclusterdtoTypeEnum[keyof typeof SourceclusterdtoTypeEnum];
+export type SourceClusterDtoTypeEnum = typeof SourceClusterDtoTypeEnum[keyof typeof SourceClusterDtoTypeEnum];
 
 
 /**
@@ -638,14 +638,14 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
         /**
          * Create a new SIM Integrations.
          * @summary Create new sim integration
-         * @param {Simintegrationdetails} simintegrationdetails DTO containing the details of the SIM integration
+         * @param {SimIntegrationDetails} simIntegrationDetails DTO containing the details of the SIM integration
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSIMIntegrationV1: async (simintegrationdetails: Simintegrationdetails, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'simintegrationdetails' is not null or undefined
-            assertParamExists('createSIMIntegrationV1', 'simintegrationdetails', simintegrationdetails)
+        createSIMIntegrationV1: async (simIntegrationDetails: SimIntegrationDetails, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'simIntegrationDetails' is not null or undefined
+            assertParamExists('createSIMIntegrationV1', 'simIntegrationDetails', simIntegrationDetails)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -672,7 +672,7 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(simintegrationdetails, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(simIntegrationDetails, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -805,16 +805,16 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
          * Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
          * @summary Patch a sim beforeprovisioningrule attribute.
          * @param {string} id SIM integration id
-         * @param {Jsonpatch} jsonpatch The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+         * @param {JsonPatch} jsonPatch The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchBeforeProvisioningRuleV1: async (id: string, jsonpatch: Jsonpatch, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchBeforeProvisioningRuleV1: async (id: string, jsonPatch: JsonPatch, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchBeforeProvisioningRuleV1', 'id', id)
-            // verify required parameter 'jsonpatch' is not null or undefined
-            assertParamExists('patchBeforeProvisioningRuleV1', 'jsonpatch', jsonpatch)
+            // verify required parameter 'jsonPatch' is not null or undefined
+            assertParamExists('patchBeforeProvisioningRuleV1', 'jsonPatch', jsonPatch)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -842,7 +842,7 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatch, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -853,16 +853,16 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
          * Patch a SIM attribute given a JsonPatch object.
          * @summary Patch a sim attribute.
          * @param {string} id SIM integration id
-         * @param {Jsonpatch} jsonpatch The JsonPatch object that describes the changes of SIM
+         * @param {JsonPatch} jsonPatch The JsonPatch object that describes the changes of SIM
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSIMAttributesV1: async (id: string, jsonpatch: Jsonpatch, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchSIMAttributesV1: async (id: string, jsonPatch: JsonPatch, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchSIMAttributesV1', 'id', id)
-            // verify required parameter 'jsonpatch' is not null or undefined
-            assertParamExists('patchSIMAttributesV1', 'jsonpatch', jsonpatch)
+            // verify required parameter 'jsonPatch' is not null or undefined
+            assertParamExists('patchSIMAttributesV1', 'jsonPatch', jsonPatch)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -890,7 +890,7 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonpatch, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatch, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -901,16 +901,16 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
          * Update an existing SIM integration.
          * @summary Update an existing sim integration
          * @param {string} id The id of the integration.
-         * @param {Simintegrationdetails} simintegrationdetails The full DTO of the integration containing the updated model
+         * @param {SimIntegrationDetails} simIntegrationDetails The full DTO of the integration containing the updated model
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSIMIntegrationV1: async (id: string, simintegrationdetails: Simintegrationdetails, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSIMIntegrationV1: async (id: string, simIntegrationDetails: SimIntegrationDetails, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putSIMIntegrationV1', 'id', id)
-            // verify required parameter 'simintegrationdetails' is not null or undefined
-            assertParamExists('putSIMIntegrationV1', 'simintegrationdetails', simintegrationdetails)
+            // verify required parameter 'simIntegrationDetails' is not null or undefined
+            assertParamExists('putSIMIntegrationV1', 'simIntegrationDetails', simIntegrationDetails)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -938,7 +938,7 @@ export const SIMIntegrationsApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(simintegrationdetails, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(simIntegrationDetails, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -958,13 +958,13 @@ export const SIMIntegrationsApiFp = function(configuration?: Configuration) {
         /**
          * Create a new SIM Integrations.
          * @summary Create new sim integration
-         * @param {Simintegrationdetails} simintegrationdetails DTO containing the details of the SIM integration
+         * @param {SimIntegrationDetails} simIntegrationDetails DTO containing the details of the SIM integration
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSIMIntegrationV1(simintegrationdetails: Simintegrationdetails, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSIMIntegrationV1(simintegrationdetails, xSailPointExperimental, axiosOptions);
+        async createSIMIntegrationV1(simIntegrationDetails: SimIntegrationDetails, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSIMIntegrationV1(simIntegrationDetails, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SIMIntegrationsApi.createSIMIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -991,7 +991,7 @@ export const SIMIntegrationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSIMIntegrationV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
+        async getSIMIntegrationV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSIMIntegrationV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SIMIntegrationsApi.getSIMIntegrationV1']?.[localVarOperationServerIndex]?.url;
@@ -1004,7 +1004,7 @@ export const SIMIntegrationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSIMIntegrationsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Servicedeskintegrationdto>>> {
+        async getSIMIntegrationsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSIMIntegrationsV1(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SIMIntegrationsApi.getSIMIntegrationsV1']?.[localVarOperationServerIndex]?.url;
@@ -1014,13 +1014,13 @@ export const SIMIntegrationsApiFp = function(configuration?: Configuration) {
          * Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
          * @summary Patch a sim beforeprovisioningrule attribute.
          * @param {string} id SIM integration id
-         * @param {Jsonpatch} jsonpatch The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+         * @param {JsonPatch} jsonPatch The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchBeforeProvisioningRuleV1(id: string, jsonpatch: Jsonpatch, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchBeforeProvisioningRuleV1(id, jsonpatch, xSailPointExperimental, axiosOptions);
+        async patchBeforeProvisioningRuleV1(id: string, jsonPatch: JsonPatch, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchBeforeProvisioningRuleV1(id, jsonPatch, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SIMIntegrationsApi.patchBeforeProvisioningRuleV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1029,13 +1029,13 @@ export const SIMIntegrationsApiFp = function(configuration?: Configuration) {
          * Patch a SIM attribute given a JsonPatch object.
          * @summary Patch a sim attribute.
          * @param {string} id SIM integration id
-         * @param {Jsonpatch} jsonpatch The JsonPatch object that describes the changes of SIM
+         * @param {JsonPatch} jsonPatch The JsonPatch object that describes the changes of SIM
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSIMAttributesV1(id: string, jsonpatch: Jsonpatch, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSIMAttributesV1(id, jsonpatch, xSailPointExperimental, axiosOptions);
+        async patchSIMAttributesV1(id: string, jsonPatch: JsonPatch, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSIMAttributesV1(id, jsonPatch, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SIMIntegrationsApi.patchSIMAttributesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1044,13 +1044,13 @@ export const SIMIntegrationsApiFp = function(configuration?: Configuration) {
          * Update an existing SIM integration.
          * @summary Update an existing sim integration
          * @param {string} id The id of the integration.
-         * @param {Simintegrationdetails} simintegrationdetails The full DTO of the integration containing the updated model
+         * @param {SimIntegrationDetails} simIntegrationDetails The full DTO of the integration containing the updated model
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSIMIntegrationV1(id: string, simintegrationdetails: Simintegrationdetails, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Servicedeskintegrationdto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSIMIntegrationV1(id, simintegrationdetails, xSailPointExperimental, axiosOptions);
+        async putSIMIntegrationV1(id: string, simIntegrationDetails: SimIntegrationDetails, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSIMIntegrationV1(id, simIntegrationDetails, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SIMIntegrationsApi.putSIMIntegrationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1072,8 +1072,8 @@ export const SIMIntegrationsApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSIMIntegrationV1(requestParameters: SIMIntegrationsApiCreateSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
-            return localVarFp.createSIMIntegrationV1(requestParameters.simintegrationdetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createSIMIntegrationV1(requestParameters: SIMIntegrationsApiCreateSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceDeskIntegrationDto> {
+            return localVarFp.createSIMIntegrationV1(requestParameters.simIntegrationDetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get the details of a SIM integration.
@@ -1092,7 +1092,7 @@ export const SIMIntegrationsApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSIMIntegrationV1(requestParameters: SIMIntegrationsApiGetSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
+        getSIMIntegrationV1(requestParameters: SIMIntegrationsApiGetSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceDeskIntegrationDto> {
             return localVarFp.getSIMIntegrationV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1102,7 +1102,7 @@ export const SIMIntegrationsApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSIMIntegrationsV1(requestParameters: SIMIntegrationsApiGetSIMIntegrationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Servicedeskintegrationdto>> {
+        getSIMIntegrationsV1(requestParameters: SIMIntegrationsApiGetSIMIntegrationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ServiceDeskIntegrationDto>> {
             return localVarFp.getSIMIntegrationsV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1112,8 +1112,8 @@ export const SIMIntegrationsApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchBeforeProvisioningRuleV1(requestParameters: SIMIntegrationsApiPatchBeforeProvisioningRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
-            return localVarFp.patchBeforeProvisioningRuleV1(requestParameters.id, requestParameters.jsonpatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        patchBeforeProvisioningRuleV1(requestParameters: SIMIntegrationsApiPatchBeforeProvisioningRuleV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceDeskIntegrationDto> {
+            return localVarFp.patchBeforeProvisioningRuleV1(requestParameters.id, requestParameters.jsonPatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Patch a SIM attribute given a JsonPatch object.
@@ -1122,8 +1122,8 @@ export const SIMIntegrationsApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSIMAttributesV1(requestParameters: SIMIntegrationsApiPatchSIMAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
-            return localVarFp.patchSIMAttributesV1(requestParameters.id, requestParameters.jsonpatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        patchSIMAttributesV1(requestParameters: SIMIntegrationsApiPatchSIMAttributesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceDeskIntegrationDto> {
+            return localVarFp.patchSIMAttributesV1(requestParameters.id, requestParameters.jsonPatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing SIM integration.
@@ -1132,8 +1132,8 @@ export const SIMIntegrationsApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSIMIntegrationV1(requestParameters: SIMIntegrationsApiPutSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Servicedeskintegrationdto> {
-            return localVarFp.putSIMIntegrationV1(requestParameters.id, requestParameters.simintegrationdetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        putSIMIntegrationV1(requestParameters: SIMIntegrationsApiPutSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ServiceDeskIntegrationDto> {
+            return localVarFp.putSIMIntegrationV1(requestParameters.id, requestParameters.simIntegrationDetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1146,10 +1146,10 @@ export const SIMIntegrationsApiFactory = function (configuration?: Configuration
 export interface SIMIntegrationsApiCreateSIMIntegrationV1Request {
     /**
      * DTO containing the details of the SIM integration
-     * @type {Simintegrationdetails}
+     * @type {SimIntegrationDetails}
      * @memberof SIMIntegrationsApiCreateSIMIntegrationV1
      */
-    readonly simintegrationdetails: Simintegrationdetails
+    readonly simIntegrationDetails: SimIntegrationDetails
 
     /**
      * Use this header to enable this experimental API.
@@ -1230,10 +1230,10 @@ export interface SIMIntegrationsApiPatchBeforeProvisioningRuleV1Request {
 
     /**
      * The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
-     * @type {Jsonpatch}
+     * @type {JsonPatch}
      * @memberof SIMIntegrationsApiPatchBeforeProvisioningRuleV1
      */
-    readonly jsonpatch: Jsonpatch
+    readonly jsonPatch: JsonPatch
 
     /**
      * Use this header to enable this experimental API.
@@ -1258,10 +1258,10 @@ export interface SIMIntegrationsApiPatchSIMAttributesV1Request {
 
     /**
      * The JsonPatch object that describes the changes of SIM
-     * @type {Jsonpatch}
+     * @type {JsonPatch}
      * @memberof SIMIntegrationsApiPatchSIMAttributesV1
      */
-    readonly jsonpatch: Jsonpatch
+    readonly jsonPatch: JsonPatch
 
     /**
      * Use this header to enable this experimental API.
@@ -1286,10 +1286,10 @@ export interface SIMIntegrationsApiPutSIMIntegrationV1Request {
 
     /**
      * The full DTO of the integration containing the updated model
-     * @type {Simintegrationdetails}
+     * @type {SimIntegrationDetails}
      * @memberof SIMIntegrationsApiPutSIMIntegrationV1
      */
-    readonly simintegrationdetails: Simintegrationdetails
+    readonly simIntegrationDetails: SimIntegrationDetails
 
     /**
      * Use this header to enable this experimental API.
@@ -1315,7 +1315,7 @@ export class SIMIntegrationsApi extends BaseAPI {
      * @memberof SIMIntegrationsApi
      */
     public createSIMIntegrationV1(requestParameters: SIMIntegrationsApiCreateSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SIMIntegrationsApiFp(this.configuration).createSIMIntegrationV1(requestParameters.simintegrationdetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SIMIntegrationsApiFp(this.configuration).createSIMIntegrationV1(requestParameters.simIntegrationDetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1363,7 +1363,7 @@ export class SIMIntegrationsApi extends BaseAPI {
      * @memberof SIMIntegrationsApi
      */
     public patchBeforeProvisioningRuleV1(requestParameters: SIMIntegrationsApiPatchBeforeProvisioningRuleV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SIMIntegrationsApiFp(this.configuration).patchBeforeProvisioningRuleV1(requestParameters.id, requestParameters.jsonpatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SIMIntegrationsApiFp(this.configuration).patchBeforeProvisioningRuleV1(requestParameters.id, requestParameters.jsonPatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1375,7 +1375,7 @@ export class SIMIntegrationsApi extends BaseAPI {
      * @memberof SIMIntegrationsApi
      */
     public patchSIMAttributesV1(requestParameters: SIMIntegrationsApiPatchSIMAttributesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SIMIntegrationsApiFp(this.configuration).patchSIMAttributesV1(requestParameters.id, requestParameters.jsonpatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SIMIntegrationsApiFp(this.configuration).patchSIMAttributesV1(requestParameters.id, requestParameters.jsonPatch, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1387,7 +1387,7 @@ export class SIMIntegrationsApi extends BaseAPI {
      * @memberof SIMIntegrationsApi
      */
     public putSIMIntegrationV1(requestParameters: SIMIntegrationsApiPutSIMIntegrationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SIMIntegrationsApiFp(this.configuration).putSIMIntegrationV1(requestParameters.id, requestParameters.simintegrationdetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SIMIntegrationsApiFp(this.configuration).putSIMIntegrationV1(requestParameters.id, requestParameters.simIntegrationDetails, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

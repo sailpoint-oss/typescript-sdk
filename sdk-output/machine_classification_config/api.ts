@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,189 +113,189 @@ export interface GetMachineClassificationConfigV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Machineclassificationconfig
+ * @interface MachineClassificationConfig
  */
-export interface Machineclassificationconfig {
+export interface MachineClassificationConfig {
     /**
      * Indicates whether Classification is enabled for a Source
      * @type {boolean}
-     * @memberof Machineclassificationconfig
+     * @memberof MachineClassificationConfig
      */
     'enabled'?: boolean;
     /**
      * Classification Method
      * @type {string}
-     * @memberof Machineclassificationconfig
+     * @memberof MachineClassificationConfig
      */
-    'classificationMethod'?: MachineclassificationconfigClassificationMethodEnum;
+    'classificationMethod'?: MachineClassificationConfigClassificationMethodEnum;
     /**
      * 
-     * @type {Machineclassificationcriterialevel1}
-     * @memberof Machineclassificationconfig
+     * @type {MachineClassificationCriteriaLevel1}
+     * @memberof MachineClassificationConfig
      */
-    'criteria'?: Machineclassificationcriterialevel1;
+    'criteria'?: MachineClassificationCriteriaLevel1;
     /**
      * Date the config was created
      * @type {string}
-     * @memberof Machineclassificationconfig
+     * @memberof MachineClassificationConfig
      */
     'created'?: string;
     /**
      * Date the config was last updated
      * @type {string}
-     * @memberof Machineclassificationconfig
+     * @memberof MachineClassificationConfig
      */
     'modified'?: string | null;
 }
 
-export const MachineclassificationconfigClassificationMethodEnum = {
+export const MachineClassificationConfigClassificationMethodEnum = {
     Source: 'SOURCE',
     Criteria: 'CRITERIA'
 } as const;
 
-export type MachineclassificationconfigClassificationMethodEnum = typeof MachineclassificationconfigClassificationMethodEnum[keyof typeof MachineclassificationconfigClassificationMethodEnum];
+export type MachineClassificationConfigClassificationMethodEnum = typeof MachineClassificationConfigClassificationMethodEnum[keyof typeof MachineClassificationConfigClassificationMethodEnum];
 
 /**
  * 
  * @export
- * @interface Machineclassificationcriterialevel1
+ * @interface MachineClassificationCriteriaLevel1
  */
-export interface Machineclassificationcriterialevel1 {
+export interface MachineClassificationCriteriaLevel1 {
     /**
      * 
-     * @type {Machineclassificationcriteriaoperation}
-     * @memberof Machineclassificationcriterialevel1
+     * @type {MachineClassificationCriteriaOperation}
+     * @memberof MachineClassificationCriteriaLevel1
      */
-    'operation'?: Machineclassificationcriteriaoperation;
+    'operation'?: MachineClassificationCriteriaOperation;
     /**
      * Indicates whether case matters when evaluating the criteria
      * @type {boolean}
-     * @memberof Machineclassificationcriterialevel1
+     * @memberof MachineClassificationCriteriaLevel1
      */
     'caseSensitive'?: boolean;
     /**
      * The data type of the attribute being evaluated
      * @type {string}
-     * @memberof Machineclassificationcriterialevel1
+     * @memberof MachineClassificationCriteriaLevel1
      */
     'dataType'?: string | null;
     /**
      * The attribute to evaluate in the classification criteria
      * @type {string}
-     * @memberof Machineclassificationcriterialevel1
+     * @memberof MachineClassificationCriteriaLevel1
      */
     'attribute'?: string | null;
     /**
      * The value to compare against the attribute in the classification criteria
      * @type {string}
-     * @memberof Machineclassificationcriterialevel1
+     * @memberof MachineClassificationCriteriaLevel1
      */
     'value'?: string | null;
     /**
      * An array of child classification criteria objects
-     * @type {Array<Machineclassificationcriterialevel2>}
-     * @memberof Machineclassificationcriterialevel1
+     * @type {Array<MachineClassificationCriteriaLevel2>}
+     * @memberof MachineClassificationCriteriaLevel1
      */
-    'children'?: Array<Machineclassificationcriterialevel2> | null;
+    'children'?: Array<MachineClassificationCriteriaLevel2> | null;
 }
 
 
 /**
  * 
  * @export
- * @interface Machineclassificationcriterialevel2
+ * @interface MachineClassificationCriteriaLevel2
  */
-export interface Machineclassificationcriterialevel2 {
+export interface MachineClassificationCriteriaLevel2 {
     /**
      * 
-     * @type {Machineclassificationcriteriaoperation}
-     * @memberof Machineclassificationcriterialevel2
+     * @type {MachineClassificationCriteriaOperation}
+     * @memberof MachineClassificationCriteriaLevel2
      */
-    'operation'?: Machineclassificationcriteriaoperation;
+    'operation'?: MachineClassificationCriteriaOperation;
     /**
      * Indicates whether case matters when evaluating the criteria
      * @type {boolean}
-     * @memberof Machineclassificationcriterialevel2
+     * @memberof MachineClassificationCriteriaLevel2
      */
     'caseSensitive'?: boolean;
     /**
      * The data type of the attribute being evaluated
      * @type {string}
-     * @memberof Machineclassificationcriterialevel2
+     * @memberof MachineClassificationCriteriaLevel2
      */
     'dataType'?: string | null;
     /**
      * The attribute to evaluate in the classification criteria
      * @type {string}
-     * @memberof Machineclassificationcriterialevel2
+     * @memberof MachineClassificationCriteriaLevel2
      */
     'attribute'?: string | null;
     /**
      * The value to compare against the attribute in the classification criteria
      * @type {string}
-     * @memberof Machineclassificationcriterialevel2
+     * @memberof MachineClassificationCriteriaLevel2
      */
     'value'?: string | null;
     /**
      * An array of child classification criteria objects
-     * @type {Array<Machineclassificationcriterialevel3>}
-     * @memberof Machineclassificationcriterialevel2
+     * @type {Array<MachineClassificationCriteriaLevel3>}
+     * @memberof MachineClassificationCriteriaLevel2
      */
-    'children'?: Array<Machineclassificationcriterialevel3> | null;
+    'children'?: Array<MachineClassificationCriteriaLevel3> | null;
 }
 
 
 /**
  * 
  * @export
- * @interface Machineclassificationcriterialevel3
+ * @interface MachineClassificationCriteriaLevel3
  */
-export interface Machineclassificationcriterialevel3 {
+export interface MachineClassificationCriteriaLevel3 {
     /**
      * 
-     * @type {Machineclassificationcriteriaoperation}
-     * @memberof Machineclassificationcriterialevel3
+     * @type {MachineClassificationCriteriaOperation}
+     * @memberof MachineClassificationCriteriaLevel3
      */
-    'operation'?: Machineclassificationcriteriaoperation;
+    'operation'?: MachineClassificationCriteriaOperation;
     /**
      * Indicates whether or not case matters when evaluating the criteria
      * @type {boolean}
-     * @memberof Machineclassificationcriterialevel3
+     * @memberof MachineClassificationCriteriaLevel3
      */
     'caseSensitive'?: boolean;
     /**
      * The data type of the attribute being evaluated
      * @type {string}
-     * @memberof Machineclassificationcriterialevel3
+     * @memberof MachineClassificationCriteriaLevel3
      */
     'dataType'?: string | null;
     /**
      * The attribute to evaluate in the classification criteria
      * @type {string}
-     * @memberof Machineclassificationcriterialevel3
+     * @memberof MachineClassificationCriteriaLevel3
      */
     'attribute'?: string | null;
     /**
      * The value to compare against the attribute in the classification criteria
      * @type {string}
-     * @memberof Machineclassificationcriterialevel3
+     * @memberof MachineClassificationCriteriaLevel3
      */
     'value'?: string | null;
     /**
      * An array of child classification criteria objects
      * @type {Array<object>}
-     * @memberof Machineclassificationcriterialevel3
+     * @memberof MachineClassificationCriteriaLevel3
      */
     'children'?: Array<object> | null;
 }
@@ -307,7 +307,7 @@ export interface Machineclassificationcriterialevel3 {
  * @enum {string}
  */
 
-export const Machineclassificationcriteriaoperation = {
+export const MachineClassificationCriteriaOperation = {
     Equals: 'EQUALS',
     NotEquals: 'NOT_EQUALS',
     StartsWith: 'STARTS_WITH',
@@ -317,7 +317,7 @@ export const Machineclassificationcriteriaoperation = {
     Or: 'OR'
 } as const;
 
-export type Machineclassificationcriteriaoperation = typeof Machineclassificationcriteriaoperation[keyof typeof Machineclassificationcriteriaoperation];
+export type MachineClassificationCriteriaOperation = typeof MachineClassificationCriteriaOperation[keyof typeof MachineClassificationCriteriaOperation];
 
 
 
@@ -399,15 +399,15 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
          * Use this API to update Classification Config for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update source\'s classification config
          * @param {string} sourceId Source ID.
-         * @param {Machineclassificationconfig} machineclassificationconfig 
+         * @param {MachineClassificationConfig} machineClassificationConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMachineClassificationConfigV1: async (sourceId: string, machineclassificationconfig: Machineclassificationconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setMachineClassificationConfigV1: async (sourceId: string, machineClassificationConfig: MachineClassificationConfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('setMachineClassificationConfigV1', 'sourceId', sourceId)
-            // verify required parameter 'machineclassificationconfig' is not null or undefined
-            assertParamExists('setMachineClassificationConfigV1', 'machineclassificationconfig', machineclassificationconfig)
+            // verify required parameter 'machineClassificationConfig' is not null or undefined
+            assertParamExists('setMachineClassificationConfigV1', 'machineClassificationConfig', machineClassificationConfig)
             const localVarPath = `/sources/v1/{sourceId}/machine-classification-config`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -428,7 +428,7 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(machineclassificationconfig, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(machineClassificationConfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -465,7 +465,7 @@ export const MachineClassificationConfigApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineClassificationConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineclassificationconfig>> {
+        async getMachineClassificationConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineClassificationConfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineClassificationConfigV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineClassificationConfigApi.getMachineClassificationConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -475,12 +475,12 @@ export const MachineClassificationConfigApiFp = function(configuration?: Configu
          * Use this API to update Classification Config for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update source\'s classification config
          * @param {string} sourceId Source ID.
-         * @param {Machineclassificationconfig} machineclassificationconfig 
+         * @param {MachineClassificationConfig} machineClassificationConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMachineClassificationConfigV1(sourceId: string, machineclassificationconfig: Machineclassificationconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineclassificationconfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMachineClassificationConfigV1(sourceId, machineclassificationconfig, axiosOptions);
+        async setMachineClassificationConfigV1(sourceId: string, machineClassificationConfig: MachineClassificationConfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineClassificationConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMachineClassificationConfigV1(sourceId, machineClassificationConfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineClassificationConfigApi.setMachineClassificationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -512,7 +512,7 @@ export const MachineClassificationConfigApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiGetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineclassificationconfig> {
+        getMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiGetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineClassificationConfig> {
             return localVarFp.getMachineClassificationConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -522,8 +522,8 @@ export const MachineClassificationConfigApiFactory = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiSetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineclassificationconfig> {
-            return localVarFp.setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineclassificationconfig, axiosOptions).then((request) => request(axios, basePath));
+        setMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiSetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineClassificationConfig> {
+            return localVarFp.setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineClassificationConfig, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -571,10 +571,10 @@ export interface MachineClassificationConfigApiSetMachineClassificationConfigV1R
 
     /**
      * 
-     * @type {Machineclassificationconfig}
+     * @type {MachineClassificationConfig}
      * @memberof MachineClassificationConfigApiSetMachineClassificationConfigV1
      */
-    readonly machineclassificationconfig: Machineclassificationconfig
+    readonly machineClassificationConfig: MachineClassificationConfig
 }
 
 /**
@@ -617,7 +617,7 @@ export class MachineClassificationConfigApi extends BaseAPI {
      * @memberof MachineClassificationConfigApi
      */
     public setMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiSetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineClassificationConfigApiFp(this.configuration).setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineclassificationconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineClassificationConfigApiFp(this.configuration).setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineClassificationConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -37,11 +37,11 @@ The API returns a result that includes the Managed Cluster Type ID
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**managedclustertype** | `Managedclustertype` |  | 
+**managedClusterType** | `ManagedClusterType` |  | 
 
 ### Return type
 
-`Managedclustertype`
+`ManagedClusterType`
 
 ### HTTP request headers
 
@@ -53,12 +53,18 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClusterTypesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Managedclustertype } from 'sailpoint-api-client/dist/managed_cluster_types/api';
+import { ManagedClusterType } from 'sailpoint-api-client/dist/managed_cluster_types/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);
-const managedclustertype: Managedclustertype = ; // 
-const result = await apiInstance.createManagedClusterTypeV1({ managedclustertype: managedclustertype });
+const managedClusterType: ManagedClusterType = {
+  "managedProcessIds" : [ "someId", "someId2" ],
+  "pod" : "megapod-useast1",
+  "org" : "denali-cjh",
+  "id" : "aClusterTypeId",
+  "type" : "idn"
+}; // 
+const result = await apiInstance.createManagedClusterTypeV1({ managedClusterType: managedClusterType });
 console.log(result);
 ```
 
@@ -116,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Managedclustertype`
+`ManagedClusterType`
 
 ### HTTP request headers
 
@@ -157,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Managedclustertype>`
+`Array<ManagedClusterType>`
 
 ### HTTP request headers
 
@@ -195,11 +201,11 @@ Update an existing Managed Cluster Type.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The Managed Cluster Type ID |  [default to undefined]
-**jsonpatch** | `Jsonpatch` | The JSONPatch payload used to update the schema. | 
+**jsonPatch** | `JsonPatch` | The JSONPatch payload used to update the schema. | 
 
 ### Return type
 
-`Managedclustertype`
+`ManagedClusterType`
 
 ### HTTP request headers
 
@@ -211,13 +217,23 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClusterTypesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatch } from 'sailpoint-api-client/dist/managed_cluster_types/api';
+import { JsonPatch } from 'sailpoint-api-client/dist/managed_cluster_types/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);
 const id: string = aClusterTypeId; // The Managed Cluster Type ID
-const jsonpatch: Jsonpatch = ; // The JSONPatch payload used to update the schema.
-const result = await apiInstance.updateManagedClusterTypeV1({ id: id, jsonpatch: jsonpatch });
+const jsonPatch: JsonPatch = {
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}; // The JSONPatch payload used to update the schema.
+const result = await apiInstance.updateManagedClusterTypeV1({ id: id, jsonPatch: jsonPatch });
 console.log(result);
 ```
 

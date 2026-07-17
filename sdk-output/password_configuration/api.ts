@@ -26,25 +26,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -53,33 +53,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -113,42 +113,42 @@ export interface GetPasswordOrgConfigV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Passwordorgconfig
+ * @interface PasswordOrgConfig
  */
-export interface Passwordorgconfig {
+export interface PasswordOrgConfig {
     /**
      * Indicator whether custom password instructions feature is enabled. The default value is false.
      * @type {boolean}
-     * @memberof Passwordorgconfig
+     * @memberof PasswordOrgConfig
      */
     'customInstructionsEnabled'?: boolean;
     /**
      * Indicator whether \"digit token\" feature is enabled. The default value is false.
      * @type {boolean}
-     * @memberof Passwordorgconfig
+     * @memberof PasswordOrgConfig
      */
     'digitTokenEnabled'?: boolean;
     /**
      * The duration of \"digit token\" in minutes. The default value is 5.
      * @type {number}
-     * @memberof Passwordorgconfig
+     * @memberof PasswordOrgConfig
      */
     'digitTokenDurationMinutes'?: number;
     /**
      * The length of \"digit token\". The default value is 6.
      * @type {number}
-     * @memberof Passwordorgconfig
+     * @memberof PasswordOrgConfig
      */
     'digitTokenLength'?: number;
 }
@@ -162,13 +162,13 @@ export const PasswordConfigurationApiAxiosParamCreator = function (configuration
         /**
          * This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to \"true\". Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Create password org config
-         * @param {Passwordorgconfig} passwordorgconfig 
+         * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPasswordOrgConfigV1: async (passwordorgconfig: Passwordorgconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'passwordorgconfig' is not null or undefined
-            assertParamExists('createPasswordOrgConfigV1', 'passwordorgconfig', passwordorgconfig)
+        createPasswordOrgConfigV1: async (passwordOrgConfig: PasswordOrgConfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordOrgConfig' is not null or undefined
+            assertParamExists('createPasswordOrgConfigV1', 'passwordOrgConfig', passwordOrgConfig)
             const localVarPath = `/password-org-config/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -188,7 +188,7 @@ export const PasswordConfigurationApiAxiosParamCreator = function (configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordorgconfig, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordOrgConfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -228,13 +228,13 @@ export const PasswordConfigurationApiAxiosParamCreator = function (configuration
         /**
          * This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to \"true\" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Update password org config
-         * @param {Passwordorgconfig} passwordorgconfig 
+         * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putPasswordOrgConfigV1: async (passwordorgconfig: Passwordorgconfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'passwordorgconfig' is not null or undefined
-            assertParamExists('putPasswordOrgConfigV1', 'passwordorgconfig', passwordorgconfig)
+        putPasswordOrgConfigV1: async (passwordOrgConfig: PasswordOrgConfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordOrgConfig' is not null or undefined
+            assertParamExists('putPasswordOrgConfigV1', 'passwordOrgConfig', passwordOrgConfig)
             const localVarPath = `/password-org-config/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -254,7 +254,7 @@ export const PasswordConfigurationApiAxiosParamCreator = function (configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordorgconfig, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordOrgConfig, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -274,12 +274,12 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
         /**
          * This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to \"true\". Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Create password org config
-         * @param {Passwordorgconfig} passwordorgconfig 
+         * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPasswordOrgConfigV1(passwordorgconfig: Passwordorgconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordorgconfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfigV1(passwordorgconfig, axiosOptions);
+        async createPasswordOrgConfigV1(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfigV1(passwordOrgConfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PasswordConfigurationApi.createPasswordOrgConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -290,7 +290,7 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordorgconfig>> {
+        async getPasswordOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordOrgConfigV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PasswordConfigurationApi.getPasswordOrgConfigV1']?.[localVarOperationServerIndex]?.url;
@@ -299,12 +299,12 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
         /**
          * This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to \"true\" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Update password org config
-         * @param {Passwordorgconfig} passwordorgconfig 
+         * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putPasswordOrgConfigV1(passwordorgconfig: Passwordorgconfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Passwordorgconfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfigV1(passwordorgconfig, axiosOptions);
+        async putPasswordOrgConfigV1(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfigV1(passwordOrgConfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PasswordConfigurationApi.putPasswordOrgConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -326,8 +326,8 @@ export const PasswordConfigurationApiFactory = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createPasswordOrgConfigV1(requestParameters: PasswordConfigurationApiCreatePasswordOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordorgconfig> {
-            return localVarFp.createPasswordOrgConfigV1(requestParameters.passwordorgconfig, axiosOptions).then((request) => request(axios, basePath));
+        createPasswordOrgConfigV1(requestParameters: PasswordConfigurationApiCreatePasswordOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordOrgConfig> {
+            return localVarFp.createPasswordOrgConfigV1(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:read\'
@@ -335,7 +335,7 @@ export const PasswordConfigurationApiFactory = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPasswordOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordorgconfig> {
+        getPasswordOrgConfigV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordOrgConfig> {
             return localVarFp.getPasswordOrgConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -345,8 +345,8 @@ export const PasswordConfigurationApiFactory = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putPasswordOrgConfigV1(requestParameters: PasswordConfigurationApiPutPasswordOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Passwordorgconfig> {
-            return localVarFp.putPasswordOrgConfigV1(requestParameters.passwordorgconfig, axiosOptions).then((request) => request(axios, basePath));
+        putPasswordOrgConfigV1(requestParameters: PasswordConfigurationApiPutPasswordOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PasswordOrgConfig> {
+            return localVarFp.putPasswordOrgConfigV1(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -359,10 +359,10 @@ export const PasswordConfigurationApiFactory = function (configuration?: Configu
 export interface PasswordConfigurationApiCreatePasswordOrgConfigV1Request {
     /**
      * 
-     * @type {Passwordorgconfig}
+     * @type {PasswordOrgConfig}
      * @memberof PasswordConfigurationApiCreatePasswordOrgConfigV1
      */
-    readonly passwordorgconfig: Passwordorgconfig
+    readonly passwordOrgConfig: PasswordOrgConfig
 }
 
 /**
@@ -373,10 +373,10 @@ export interface PasswordConfigurationApiCreatePasswordOrgConfigV1Request {
 export interface PasswordConfigurationApiPutPasswordOrgConfigV1Request {
     /**
      * 
-     * @type {Passwordorgconfig}
+     * @type {PasswordOrgConfig}
      * @memberof PasswordConfigurationApiPutPasswordOrgConfigV1
      */
-    readonly passwordorgconfig: Passwordorgconfig
+    readonly passwordOrgConfig: PasswordOrgConfig
 }
 
 /**
@@ -395,7 +395,7 @@ export class PasswordConfigurationApi extends BaseAPI {
      * @memberof PasswordConfigurationApi
      */
     public createPasswordOrgConfigV1(requestParameters: PasswordConfigurationApiCreatePasswordOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordConfigurationApiFp(this.configuration).createPasswordOrgConfigV1(requestParameters.passwordorgconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PasswordConfigurationApiFp(this.configuration).createPasswordOrgConfigV1(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -418,7 +418,7 @@ export class PasswordConfigurationApi extends BaseAPI {
      * @memberof PasswordConfigurationApi
      */
     public putPasswordOrgConfigV1(requestParameters: PasswordConfigurationApiPutPasswordOrgConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return PasswordConfigurationApiFp(this.configuration).putPasswordOrgConfigV1(requestParameters.passwordorgconfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PasswordConfigurationApiFp(this.configuration).putPasswordOrgConfigV1(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

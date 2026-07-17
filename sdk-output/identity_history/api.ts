@@ -26,232 +26,232 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Accessitemaccessprofileresponse
+ * @interface AccessItemAccessProfileResponse
  */
-export interface Accessitemaccessprofileresponse {
+export interface AccessItemAccessProfileResponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'id'?: string;
     /**
      * the access item type. accessProfile in this case
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'accessType'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'displayName'?: string;
     /**
      * the name of the source
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'sourceName'?: string;
     /**
      * the number of entitlements the access profile will create
      * @type {number}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'entitlementCount': number;
     /**
      * the description for the access profile
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'description'?: string | null;
     /**
      * the id of the source
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'sourceId'?: string;
     /**
      * the list of app ids associated with the access profile
-     * @type {Array<AccessitemaccessprofileresponseAppRefsInner>}
-     * @memberof Accessitemaccessprofileresponse
+     * @type {Array<AccessItemAccessProfileResponseAppRefsInner>}
+     * @memberof AccessItemAccessProfileResponse
      */
-    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInner>;
+    'appRefs': Array<AccessItemAccessProfileResponseAppRefsInner>;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'startDate'?: string | null;
     /**
      * the date the access profile is no longer assigned to the specified identity
      * @type {string}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'removeDate'?: string | null;
     /**
      * indicates whether the access profile is standalone
      * @type {boolean}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'standalone': boolean | null;
     /**
      * indicates whether the access profile is revocable
      * @type {boolean}
-     * @memberof Accessitemaccessprofileresponse
+     * @memberof AccessItemAccessProfileResponse
      */
     'revocable': boolean | null;
 }
 /**
  * 
  * @export
- * @interface AccessitemaccessprofileresponseAppRefsInner
+ * @interface AccessItemAccessProfileResponseAppRefsInner
  */
-export interface AccessitemaccessprofileresponseAppRefsInner {
+export interface AccessItemAccessProfileResponseAppRefsInner {
     /**
      * the cloud app id associated with the access profile
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseAppRefsInner
+     * @memberof AccessItemAccessProfileResponseAppRefsInner
      */
     'cloudAppId'?: string;
     /**
      * the cloud app name associated with the access profile
      * @type {string}
-     * @memberof AccessitemaccessprofileresponseAppRefsInner
+     * @memberof AccessItemAccessProfileResponseAppRefsInner
      */
     'cloudAppName'?: string;
 }
 /**
  * 
  * @export
- * @interface Accessitemaccountresponse
+ * @interface AccessItemAccountResponse
  */
-export interface Accessitemaccountresponse {
+export interface AccessItemAccountResponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof Accessitemaccountresponse
+     * @memberof AccessItemAccountResponse
      */
     'id'?: string;
     /**
      * the access item type. account in this case
      * @type {string}
-     * @memberof Accessitemaccountresponse
+     * @memberof AccessItemAccountResponse
      */
     'accessType'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof Accessitemaccountresponse
+     * @memberof AccessItemAccountResponse
      */
     'displayName'?: string;
     /**
      * the name of the source
      * @type {string}
-     * @memberof Accessitemaccountresponse
+     * @memberof AccessItemAccountResponse
      */
     'sourceName'?: string;
     /**
      * the native identifier used to uniquely identify an acccount
      * @type {string}
-     * @memberof Accessitemaccountresponse
+     * @memberof AccessItemAccountResponse
      */
     'nativeIdentity': string;
     /**
      * the id of the source
      * @type {string}
-     * @memberof Accessitemaccountresponse
+     * @memberof AccessItemAccountResponse
      */
     'sourceId'?: string;
     /**
      * the number of entitlements the account will create
      * @type {number}
-     * @memberof Accessitemaccountresponse
+     * @memberof AccessItemAccountResponse
      */
     'entitlementCount'?: number;
 }
 /**
  * 
  * @export
- * @interface Accessitemappresponse
+ * @interface AccessItemAppResponse
  */
-export interface Accessitemappresponse {
+export interface AccessItemAppResponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof Accessitemappresponse
+     * @memberof AccessItemAppResponse
      */
     'id'?: string;
     /**
      * the access item type. entitlement in this case
      * @type {string}
-     * @memberof Accessitemappresponse
+     * @memberof AccessItemAppResponse
      */
     'accessType'?: string;
     /**
      * the access item display name
      * @type {string}
-     * @memberof Accessitemappresponse
+     * @memberof AccessItemAppResponse
      */
     'displayName'?: string;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof Accessitemappresponse
+     * @memberof AccessItemAppResponse
      */
     'sourceName'?: string | null;
     /**
      * the app role id
      * @type {string}
-     * @memberof Accessitemappresponse
+     * @memberof AccessItemAppResponse
      */
     'appRoleId': string | null;
 }
 /**
  * 
  * @export
- * @interface Accessitemassociated
+ * @interface AccessItemAssociated
  */
-export interface Accessitemassociated {
+export interface AccessItemAssociated {
     /**
      * the event type
      * @type {string}
-     * @memberof Accessitemassociated
+     * @memberof AccessItemAssociated
      */
     'eventType'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof Accessitemassociated
+     * @memberof AccessItemAssociated
      */
     'dateTime'?: string;
     /**
      * the identity id
      * @type {string}
-     * @memberof Accessitemassociated
+     * @memberof AccessItemAssociated
      */
     'identityId'?: string;
     /**
      * 
-     * @type {AccessitemassociatedAccessItem}
-     * @memberof Accessitemassociated
+     * @type {AccessItemAssociatedAccessItem}
+     * @memberof AccessItemAssociated
      */
-    'accessItem': AccessitemassociatedAccessItem;
+    'accessItem': AccessItemAssociatedAccessItem;
     /**
      * 
-     * @type {Correlatedgovernanceevent}
-     * @memberof Accessitemassociated
+     * @type {CorrelatedGovernanceEvent}
+     * @memberof AccessItemAssociated
      */
-    'governanceEvent': Correlatedgovernanceevent | null;
+    'governanceEvent': CorrelatedGovernanceEvent | null;
     /**
      * the access item type
      * @type {string}
-     * @memberof Accessitemassociated
+     * @memberof AccessItemAssociated
      */
-    'accessItemType'?: AccessitemassociatedAccessItemTypeEnum;
+    'accessItemType'?: AccessItemAssociatedAccessItemTypeEnum;
 }
 
-export const AccessitemassociatedAccessItemTypeEnum = {
+export const AccessItemAssociatedAccessItemTypeEnum = {
     Account: 'account',
     App: 'app',
     Entitlement: 'entitlement',
@@ -259,292 +259,292 @@ export const AccessitemassociatedAccessItemTypeEnum = {
     AccessProfile: 'accessProfile'
 } as const;
 
-export type AccessitemassociatedAccessItemTypeEnum = typeof AccessitemassociatedAccessItemTypeEnum[keyof typeof AccessitemassociatedAccessItemTypeEnum];
+export type AccessItemAssociatedAccessItemTypeEnum = typeof AccessItemAssociatedAccessItemTypeEnum[keyof typeof AccessItemAssociatedAccessItemTypeEnum];
 
 /**
  * 
  * @export
- * @interface AccessitemassociatedAccessItem
+ * @interface AccessItemAssociatedAccessItem
  */
-export interface AccessitemassociatedAccessItem {
+export interface AccessItemAssociatedAccessItem {
     /**
      * the access item id
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'id'?: string;
     /**
      * the access item type. entitlement in this case
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'accessType'?: string;
     /**
      * the access item display name
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'displayName'?: string;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'sourceName'?: string | null;
     /**
      * the entitlement attribute
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'attribute': string;
     /**
      * the associated value
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'value': string;
     /**
      * the type of entitlement
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'type': string;
     /**
      * the description for the role
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'description'?: string;
     /**
      * the id of the source
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'sourceId'?: string;
     /**
      * indicates whether the access profile is standalone
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'standalone': boolean | null;
     /**
      * indicates whether the entitlement is privileged
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'privileged': boolean | null;
     /**
      * indicates whether the entitlement is cloud governed
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'cloudGoverned': boolean | null;
     /**
      * the number of entitlements the account will create
      * @type {number}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'entitlementCount': number;
     /**
      * the list of app ids associated with the access profile
-     * @type {Array<AccessitemaccessprofileresponseAppRefsInner>}
-     * @memberof AccessitemassociatedAccessItem
+     * @type {Array<AccessItemAccessProfileResponseAppRefsInner>}
+     * @memberof AccessItemAssociatedAccessItem
      */
-    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInner>;
+    'appRefs': Array<AccessItemAccessProfileResponseAppRefsInner>;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'startDate'?: string | null;
     /**
      * the date the role is no longer assigned to the specified identity
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'removeDate'?: string;
     /**
      * indicates whether the role is revocable
      * @type {boolean}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'revocable': boolean;
     /**
      * the native identifier used to uniquely identify an acccount
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'nativeIdentity': string;
     /**
      * the app role id
      * @type {string}
-     * @memberof AccessitemassociatedAccessItem
+     * @memberof AccessItemAssociatedAccessItem
      */
     'appRoleId': string | null;
 }
 /**
  * 
  * @export
- * @interface Accessitemdiff
+ * @interface AccessItemDiff
  */
-export interface Accessitemdiff {
+export interface AccessItemDiff {
     /**
      * the id of the access item
      * @type {string}
-     * @memberof Accessitemdiff
+     * @memberof AccessItemDiff
      */
     'id'?: string;
     /**
      * 
      * @type {string}
-     * @memberof Accessitemdiff
+     * @memberof AccessItemDiff
      */
-    'eventType'?: AccessitemdiffEventTypeEnum;
+    'eventType'?: AccessItemDiffEventTypeEnum;
     /**
      * the display name of the access item
      * @type {string}
-     * @memberof Accessitemdiff
+     * @memberof AccessItemDiff
      */
     'displayName'?: string;
     /**
      * the source name of the access item
      * @type {string}
-     * @memberof Accessitemdiff
+     * @memberof AccessItemDiff
      */
     'sourceName'?: string;
 }
 
-export const AccessitemdiffEventTypeEnum = {
+export const AccessItemDiffEventTypeEnum = {
     Add: 'ADD',
     Remove: 'REMOVE'
 } as const;
 
-export type AccessitemdiffEventTypeEnum = typeof AccessitemdiffEventTypeEnum[keyof typeof AccessitemdiffEventTypeEnum];
+export type AccessItemDiffEventTypeEnum = typeof AccessItemDiffEventTypeEnum[keyof typeof AccessItemDiffEventTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessitementitlementresponse
+ * @interface AccessItemEntitlementResponse
  */
-export interface Accessitementitlementresponse {
+export interface AccessItemEntitlementResponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'id'?: string;
     /**
      * the access item type. entitlement in this case
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'accessType'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'displayName'?: string;
     /**
      * the name of the source
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'sourceName'?: string;
     /**
      * the entitlement attribute
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'attribute': string;
     /**
      * the associated value
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'value': string;
     /**
      * the type of entitlement
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'type': string;
     /**
      * the description for the entitlment
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'description'?: string | null;
     /**
      * the id of the source
      * @type {string}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'sourceId'?: string;
     /**
      * indicates whether the entitlement is standalone
      * @type {boolean}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'standalone': boolean | null;
     /**
      * indicates whether the entitlement is privileged
      * @type {boolean}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'privileged': boolean | null;
     /**
      * indicates whether the entitlement is cloud governed
      * @type {boolean}
-     * @memberof Accessitementitlementresponse
+     * @memberof AccessItemEntitlementResponse
      */
     'cloudGoverned': boolean | null;
 }
 /**
  * 
  * @export
- * @interface Accessitemremoved
+ * @interface AccessItemRemoved
  */
-export interface Accessitemremoved {
+export interface AccessItemRemoved {
     /**
      * 
-     * @type {AccessitemassociatedAccessItem}
-     * @memberof Accessitemremoved
+     * @type {AccessItemAssociatedAccessItem}
+     * @memberof AccessItemRemoved
      */
-    'accessItem': AccessitemassociatedAccessItem;
+    'accessItem': AccessItemAssociatedAccessItem;
     /**
      * the identity id
      * @type {string}
-     * @memberof Accessitemremoved
+     * @memberof AccessItemRemoved
      */
     'identityId'?: string;
     /**
      * the event type
      * @type {string}
-     * @memberof Accessitemremoved
+     * @memberof AccessItemRemoved
      */
     'eventType'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof Accessitemremoved
+     * @memberof AccessItemRemoved
      */
     'dateTime'?: string;
     /**
      * the access item type
      * @type {string}
-     * @memberof Accessitemremoved
+     * @memberof AccessItemRemoved
      */
-    'accessItemType'?: AccessitemremovedAccessItemTypeEnum;
+    'accessItemType'?: AccessItemRemovedAccessItemTypeEnum;
     /**
      * 
-     * @type {Correlatedgovernanceevent}
-     * @memberof Accessitemremoved
+     * @type {CorrelatedGovernanceEvent}
+     * @memberof AccessItemRemoved
      */
-    'governanceEvent'?: Correlatedgovernanceevent | null;
+    'governanceEvent'?: CorrelatedGovernanceEvent | null;
 }
 
-export const AccessitemremovedAccessItemTypeEnum = {
+export const AccessItemRemovedAccessItemTypeEnum = {
     Account: 'account',
     App: 'app',
     Entitlement: 'entitlement',
@@ -552,482 +552,482 @@ export const AccessitemremovedAccessItemTypeEnum = {
     AccessProfile: 'accessProfile'
 } as const;
 
-export type AccessitemremovedAccessItemTypeEnum = typeof AccessitemremovedAccessItemTypeEnum[keyof typeof AccessitemremovedAccessItemTypeEnum];
+export type AccessItemRemovedAccessItemTypeEnum = typeof AccessItemRemovedAccessItemTypeEnum[keyof typeof AccessItemRemovedAccessItemTypeEnum];
 
 /**
  * 
  * @export
- * @interface Accessitemroleresponse
+ * @interface AccessItemRoleResponse
  */
-export interface Accessitemroleresponse {
+export interface AccessItemRoleResponse {
     /**
      * the access item id
      * @type {string}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'id'?: string;
     /**
      * the access item type. role in this case
      * @type {string}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'accessType'?: string;
     /**
      * the role display name
      * @type {string}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'displayName'?: string;
     /**
      * the associated source name if it exists
      * @type {string}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'sourceName'?: string | null;
     /**
      * the description for the role
      * @type {string}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'description'?: string;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'startDate'?: string | null;
     /**
      * the date the role is no longer assigned to the specified identity
      * @type {string}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'removeDate'?: string;
     /**
      * indicates whether the role is revocable
      * @type {boolean}
-     * @memberof Accessitemroleresponse
+     * @memberof AccessItemRoleResponse
      */
     'revocable': boolean;
 }
 /**
  * 
  * @export
- * @interface Accessrequested
+ * @interface AccessRequestItemResponse
  */
-export interface Accessrequested {
-    /**
-     * 
-     * @type {Accessrequestresponse2}
-     * @memberof Accessrequested
-     */
-    'accessRequest': Accessrequestresponse2;
-    /**
-     * the identity id
-     * @type {string}
-     * @memberof Accessrequested
-     */
-    'identityId'?: string;
-    /**
-     * the event type
-     * @type {string}
-     * @memberof Accessrequested
-     */
-    'eventType'?: string;
-    /**
-     * the date of event
-     * @type {string}
-     * @memberof Accessrequested
-     */
-    'dateTime'?: string;
-}
-/**
- * 
- * @export
- * @interface Accessrequestitemresponse
- */
-export interface Accessrequestitemresponse {
+export interface AccessRequestItemResponse {
     /**
      * the access request item operation
      * @type {string}
-     * @memberof Accessrequestitemresponse
+     * @memberof AccessRequestItemResponse
      */
     'operation'?: string;
     /**
      * the access item type
      * @type {string}
-     * @memberof Accessrequestitemresponse
+     * @memberof AccessRequestItemResponse
      */
     'accessItemType'?: string;
     /**
      * the name of access request item
      * @type {string}
-     * @memberof Accessrequestitemresponse
+     * @memberof AccessRequestItemResponse
      */
     'name'?: string;
     /**
      * the final decision for the access request
      * @type {string}
-     * @memberof Accessrequestitemresponse
+     * @memberof AccessRequestItemResponse
      */
-    'decision'?: AccessrequestitemresponseDecisionEnum;
+    'decision'?: AccessRequestItemResponseDecisionEnum;
     /**
      * the description of access request item
      * @type {string}
-     * @memberof Accessrequestitemresponse
+     * @memberof AccessRequestItemResponse
      */
     'description'?: string;
     /**
      * the source id
      * @type {string}
-     * @memberof Accessrequestitemresponse
+     * @memberof AccessRequestItemResponse
      */
     'sourceId'?: string;
     /**
      * the source Name
      * @type {string}
-     * @memberof Accessrequestitemresponse
+     * @memberof AccessRequestItemResponse
      */
     'sourceName'?: string;
     /**
      * 
-     * @type {Array<Approvalinforesponse>}
-     * @memberof Accessrequestitemresponse
+     * @type {Array<ApprovalInfoResponse>}
+     * @memberof AccessRequestItemResponse
      */
-    'approvalInfos'?: Array<Approvalinforesponse>;
+    'approvalInfos'?: Array<ApprovalInfoResponse>;
 }
 
-export const AccessrequestitemresponseDecisionEnum = {
+export const AccessRequestItemResponseDecisionEnum = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type AccessrequestitemresponseDecisionEnum = typeof AccessrequestitemresponseDecisionEnum[keyof typeof AccessrequestitemresponseDecisionEnum];
+export type AccessRequestItemResponseDecisionEnum = typeof AccessRequestItemResponseDecisionEnum[keyof typeof AccessRequestItemResponseDecisionEnum];
 
 /**
  * 
  * @export
- * @interface Accessrequestresponse2
+ * @interface AccessRequestResponse2
  */
-export interface Accessrequestresponse2 {
+export interface AccessRequestResponse2 {
     /**
      * the requester Id
      * @type {string}
-     * @memberof Accessrequestresponse2
+     * @memberof AccessRequestResponse2
      */
     'requesterId'?: string;
     /**
      * the requesterName
      * @type {string}
-     * @memberof Accessrequestresponse2
+     * @memberof AccessRequestResponse2
      */
     'requesterName'?: string;
     /**
      * 
-     * @type {Array<Accessrequestitemresponse>}
-     * @memberof Accessrequestresponse2
+     * @type {Array<AccessRequestItemResponse>}
+     * @memberof AccessRequestResponse2
      */
-    'items'?: Array<Accessrequestitemresponse>;
+    'items'?: Array<AccessRequestItemResponse>;
 }
 /**
  * 
  * @export
- * @interface Accountstatuschanged
+ * @interface AccessRequested
  */
-export interface Accountstatuschanged {
+export interface AccessRequested {
+    /**
+     * 
+     * @type {AccessRequestResponse2}
+     * @memberof AccessRequested
+     */
+    'accessRequest': AccessRequestResponse2;
+    /**
+     * the identity id
+     * @type {string}
+     * @memberof AccessRequested
+     */
+    'identityId'?: string;
     /**
      * the event type
      * @type {string}
-     * @memberof Accountstatuschanged
+     * @memberof AccessRequested
+     */
+    'eventType'?: string;
+    /**
+     * the date of event
+     * @type {string}
+     * @memberof AccessRequested
+     */
+    'dateTime'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface AccountStatusChanged
+ */
+export interface AccountStatusChanged {
+    /**
+     * the event type
+     * @type {string}
+     * @memberof AccountStatusChanged
      */
     'eventType'?: string;
     /**
      * the identity id
      * @type {string}
-     * @memberof Accountstatuschanged
+     * @memberof AccountStatusChanged
      */
     'identityId'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof Accountstatuschanged
+     * @memberof AccountStatusChanged
      */
     'dateTime'?: string;
     /**
      * 
-     * @type {AccountstatuschangedAccount}
-     * @memberof Accountstatuschanged
+     * @type {AccountStatusChangedAccount}
+     * @memberof AccountStatusChanged
      */
-    'account': AccountstatuschangedAccount;
+    'account': AccountStatusChangedAccount;
     /**
      * 
-     * @type {AccountstatuschangedStatusChange}
-     * @memberof Accountstatuschanged
+     * @type {AccountStatusChangedStatusChange}
+     * @memberof AccountStatusChanged
      */
-    'statusChange': AccountstatuschangedStatusChange;
+    'statusChange': AccountStatusChangedStatusChange;
 }
 /**
  * 
  * @export
- * @interface AccountstatuschangedAccount
+ * @interface AccountStatusChangedAccount
  */
-export interface AccountstatuschangedAccount {
+export interface AccountStatusChangedAccount {
     /**
      * the ID of the account in the database
      * @type {string}
-     * @memberof AccountstatuschangedAccount
+     * @memberof AccountStatusChangedAccount
      */
     'id'?: string;
     /**
      * the native identifier of the account
      * @type {string}
-     * @memberof AccountstatuschangedAccount
+     * @memberof AccountStatusChangedAccount
      */
     'nativeIdentity'?: string;
     /**
      * the display name of the account
      * @type {string}
-     * @memberof AccountstatuschangedAccount
+     * @memberof AccountStatusChangedAccount
      */
     'displayName'?: string;
     /**
      * the ID of the source for this account
      * @type {string}
-     * @memberof AccountstatuschangedAccount
+     * @memberof AccountStatusChangedAccount
      */
     'sourceId'?: string;
     /**
      * the name of the source for this account
      * @type {string}
-     * @memberof AccountstatuschangedAccount
+     * @memberof AccountStatusChangedAccount
      */
     'sourceName'?: string;
     /**
      * the number of entitlements on this account
      * @type {number}
-     * @memberof AccountstatuschangedAccount
+     * @memberof AccountStatusChangedAccount
      */
     'entitlementCount'?: number;
     /**
      * this value is always \"account\"
      * @type {string}
-     * @memberof AccountstatuschangedAccount
+     * @memberof AccountStatusChangedAccount
      */
     'accessType'?: string;
 }
 /**
  * 
  * @export
- * @interface AccountstatuschangedStatusChange
+ * @interface AccountStatusChangedStatusChange
  */
-export interface AccountstatuschangedStatusChange {
+export interface AccountStatusChangedStatusChange {
     /**
      * the previous status of the account
      * @type {string}
-     * @memberof AccountstatuschangedStatusChange
+     * @memberof AccountStatusChangedStatusChange
      */
-    'previousStatus'?: AccountstatuschangedStatusChangePreviousStatusEnum;
+    'previousStatus'?: AccountStatusChangedStatusChangePreviousStatusEnum;
     /**
      * the new status of the account
      * @type {string}
-     * @memberof AccountstatuschangedStatusChange
+     * @memberof AccountStatusChangedStatusChange
      */
-    'newStatus'?: AccountstatuschangedStatusChangeNewStatusEnum;
+    'newStatus'?: AccountStatusChangedStatusChangeNewStatusEnum;
 }
 
-export const AccountstatuschangedStatusChangePreviousStatusEnum = {
+export const AccountStatusChangedStatusChangePreviousStatusEnum = {
     Enabled: 'enabled',
     Disabled: 'disabled',
     Locked: 'locked'
 } as const;
 
-export type AccountstatuschangedStatusChangePreviousStatusEnum = typeof AccountstatuschangedStatusChangePreviousStatusEnum[keyof typeof AccountstatuschangedStatusChangePreviousStatusEnum];
-export const AccountstatuschangedStatusChangeNewStatusEnum = {
+export type AccountStatusChangedStatusChangePreviousStatusEnum = typeof AccountStatusChangedStatusChangePreviousStatusEnum[keyof typeof AccountStatusChangedStatusChangePreviousStatusEnum];
+export const AccountStatusChangedStatusChangeNewStatusEnum = {
     Enabled: 'enabled',
     Disabled: 'disabled',
     Locked: 'locked'
 } as const;
 
-export type AccountstatuschangedStatusChangeNewStatusEnum = typeof AccountstatuschangedStatusChangeNewStatusEnum[keyof typeof AccountstatuschangedStatusChangeNewStatusEnum];
+export type AccountStatusChangedStatusChangeNewStatusEnum = typeof AccountStatusChangedStatusChangeNewStatusEnum[keyof typeof AccountStatusChangedStatusChangeNewStatusEnum];
 
 /**
  * 
  * @export
- * @interface Approvalinforesponse
+ * @interface ApprovalInfoResponse
  */
-export interface Approvalinforesponse {
+export interface ApprovalInfoResponse {
     /**
      * the id of approver
      * @type {string}
-     * @memberof Approvalinforesponse
+     * @memberof ApprovalInfoResponse
      */
     'id'?: string;
     /**
      * the name of approver
      * @type {string}
-     * @memberof Approvalinforesponse
+     * @memberof ApprovalInfoResponse
      */
     'name'?: string;
     /**
      * the status of the approval request
      * @type {string}
-     * @memberof Approvalinforesponse
+     * @memberof ApprovalInfoResponse
      */
     'status'?: string;
 }
 /**
  * 
  * @export
- * @interface Attributechange
+ * @interface AttributeChange
  */
-export interface Attributechange {
+export interface AttributeChange {
     /**
      * the attribute name
      * @type {string}
-     * @memberof Attributechange
+     * @memberof AttributeChange
      */
     'name'?: string;
     /**
      * the old value of attribute
      * @type {string}
-     * @memberof Attributechange
+     * @memberof AttributeChange
      */
     'previousValue'?: string;
     /**
      * the new value of attribute
      * @type {string}
-     * @memberof Attributechange
+     * @memberof AttributeChange
      */
     'newValue'?: string;
 }
 /**
  * 
  * @export
- * @interface Attributeschanged
+ * @interface AttributesChanged
  */
-export interface Attributeschanged {
+export interface AttributesChanged {
     /**
      * 
-     * @type {Array<Attributechange>}
-     * @memberof Attributeschanged
+     * @type {Array<AttributeChange>}
+     * @memberof AttributesChanged
      */
-    'attributeChanges': Array<Attributechange>;
+    'attributeChanges': Array<AttributeChange>;
     /**
      * the event type
      * @type {string}
-     * @memberof Attributeschanged
+     * @memberof AttributesChanged
      */
     'eventType'?: string;
     /**
      * the identity id
      * @type {string}
-     * @memberof Attributeschanged
+     * @memberof AttributesChanged
      */
     'identityId'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof Attributeschanged
+     * @memberof AttributesChanged
      */
     'dateTime'?: string;
 }
 /**
  * 
  * @export
- * @interface Certifierresponse
+ * @interface CertifierResponse
  */
-export interface Certifierresponse {
+export interface CertifierResponse {
     /**
      * the id of the certifier
      * @type {string}
-     * @memberof Certifierresponse
+     * @memberof CertifierResponse
      */
     'id'?: string;
     /**
      * the name of the certifier
      * @type {string}
-     * @memberof Certifierresponse
+     * @memberof CertifierResponse
      */
     'displayName'?: string;
 }
 /**
  * 
  * @export
- * @interface Correlatedgovernanceevent
+ * @interface CorrelatedGovernanceEvent
  */
-export interface Correlatedgovernanceevent {
+export interface CorrelatedGovernanceEvent {
     /**
      * The name of the governance event, such as the certification name or access request ID.
      * @type {string}
-     * @memberof Correlatedgovernanceevent
+     * @memberof CorrelatedGovernanceEvent
      */
     'name'?: string;
     /**
      * The date that the certification or access request was completed.
      * @type {string}
-     * @memberof Correlatedgovernanceevent
+     * @memberof CorrelatedGovernanceEvent
      */
     'dateTime'?: string;
     /**
      * The type of governance event.
      * @type {string}
-     * @memberof Correlatedgovernanceevent
+     * @memberof CorrelatedGovernanceEvent
      */
-    'type'?: CorrelatedgovernanceeventTypeEnum;
+    'type'?: CorrelatedGovernanceEventTypeEnum;
     /**
      * The ID of the instance that caused the event - either the certification ID or access request ID.
      * @type {string}
-     * @memberof Correlatedgovernanceevent
+     * @memberof CorrelatedGovernanceEvent
      */
     'governanceId'?: string;
     /**
      * The owners of the governance event (the certifiers or approvers)
-     * @type {Array<Certifierresponse>}
-     * @memberof Correlatedgovernanceevent
+     * @type {Array<CertifierResponse>}
+     * @memberof CorrelatedGovernanceEvent
      */
-    'owners'?: Array<Certifierresponse>;
+    'owners'?: Array<CertifierResponse>;
     /**
      * The owners of the governance event (the certifiers or approvers), this field should be preferred over owners
-     * @type {Array<Certifierresponse>}
-     * @memberof Correlatedgovernanceevent
+     * @type {Array<CertifierResponse>}
+     * @memberof CorrelatedGovernanceEvent
      */
-    'reviewers'?: Array<Certifierresponse>;
+    'reviewers'?: Array<CertifierResponse>;
     /**
      * 
-     * @type {Certifierresponse}
-     * @memberof Correlatedgovernanceevent
+     * @type {CertifierResponse}
+     * @memberof CorrelatedGovernanceEvent
      */
-    'decisionMaker'?: Certifierresponse;
+    'decisionMaker'?: CertifierResponse;
 }
 
-export const CorrelatedgovernanceeventTypeEnum = {
+export const CorrelatedGovernanceEventTypeEnum = {
     Certification: 'certification',
     AccessRequest: 'accessRequest'
 } as const;
 
-export type CorrelatedgovernanceeventTypeEnum = typeof CorrelatedgovernanceeventTypeEnum[keyof typeof CorrelatedgovernanceeventTypeEnum];
+export type CorrelatedGovernanceEventTypeEnum = typeof CorrelatedGovernanceEventTypeEnum[keyof typeof CorrelatedGovernanceEventTypeEnum];
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -1036,33 +1036,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
@@ -1090,22 +1090,22 @@ export interface GetHistoricalIdentityEventsV1200ResponseInner {
     'signedDate'?: string;
     /**
      * this field is deprecated and may go away
-     * @type {Array<Certifierresponse>}
+     * @type {Array<CertifierResponse>}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'certifiers'?: Array<Certifierresponse>;
+    'certifiers'?: Array<CertifierResponse>;
     /**
      * The list of identities who review this certification
-     * @type {Array<Certifierresponse>}
+     * @type {Array<CertifierResponse>}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'reviewers'?: Array<Certifierresponse>;
+    'reviewers'?: Array<CertifierResponse>;
     /**
      * 
-     * @type {Certifierresponse}
+     * @type {CertifierResponse}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'signer'?: Certifierresponse;
+    'signer'?: CertifierResponse;
     /**
      * the event type
      * @type {string}
@@ -1126,16 +1126,16 @@ export interface GetHistoricalIdentityEventsV1200ResponseInner {
     'identityId'?: string;
     /**
      * 
-     * @type {AccessitemassociatedAccessItem}
+     * @type {AccessItemAssociatedAccessItem}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'accessItem': AccessitemassociatedAccessItem;
+    'accessItem': AccessItemAssociatedAccessItem;
     /**
      * 
-     * @type {Correlatedgovernanceevent}
+     * @type {CorrelatedGovernanceEvent}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'governanceEvent': Correlatedgovernanceevent | null;
+    'governanceEvent': CorrelatedGovernanceEvent | null;
     /**
      * the access item type
      * @type {string}
@@ -1144,28 +1144,28 @@ export interface GetHistoricalIdentityEventsV1200ResponseInner {
     'accessItemType'?: GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum;
     /**
      * 
-     * @type {Array<Attributechange>}
+     * @type {Array<AttributeChange>}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'attributeChanges': Array<Attributechange>;
+    'attributeChanges': Array<AttributeChange>;
     /**
      * 
-     * @type {Accessrequestresponse2}
+     * @type {AccessRequestResponse2}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'accessRequest': Accessrequestresponse2;
+    'accessRequest': AccessRequestResponse2;
     /**
      * 
-     * @type {AccountstatuschangedAccount}
+     * @type {AccountStatusChangedAccount}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'account': AccountstatuschangedAccount;
+    'account': AccountStatusChangedAccount;
     /**
      * 
-     * @type {AccountstatuschangedStatusChange}
+     * @type {AccountStatusChangedStatusChange}
      * @memberof GetHistoricalIdentityEventsV1200ResponseInner
      */
-    'statusChange': AccountstatuschangedStatusChange;
+    'statusChange': AccountStatusChangedStatusChange;
 }
 
 export const GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum = {
@@ -1181,167 +1181,167 @@ export type GetHistoricalIdentityEventsV1200ResponseInnerAccessItemTypeEnum = ty
 /**
  * 
  * @export
- * @interface Identitycertified
+ * @interface IdentityCertified
  */
-export interface Identitycertified {
+export interface IdentityCertified {
     /**
      * the id of the certification item
      * @type {string}
-     * @memberof Identitycertified
+     * @memberof IdentityCertified
      */
     'certificationId': string;
     /**
      * the certification item name
      * @type {string}
-     * @memberof Identitycertified
+     * @memberof IdentityCertified
      */
     'certificationName': string;
     /**
      * the date ceritification was signed
      * @type {string}
-     * @memberof Identitycertified
+     * @memberof IdentityCertified
      */
     'signedDate'?: string;
     /**
      * this field is deprecated and may go away
-     * @type {Array<Certifierresponse>}
-     * @memberof Identitycertified
+     * @type {Array<CertifierResponse>}
+     * @memberof IdentityCertified
      */
-    'certifiers'?: Array<Certifierresponse>;
+    'certifiers'?: Array<CertifierResponse>;
     /**
      * The list of identities who review this certification
-     * @type {Array<Certifierresponse>}
-     * @memberof Identitycertified
+     * @type {Array<CertifierResponse>}
+     * @memberof IdentityCertified
      */
-    'reviewers'?: Array<Certifierresponse>;
+    'reviewers'?: Array<CertifierResponse>;
     /**
      * 
-     * @type {Certifierresponse}
-     * @memberof Identitycertified
+     * @type {CertifierResponse}
+     * @memberof IdentityCertified
      */
-    'signer'?: Certifierresponse;
+    'signer'?: CertifierResponse;
     /**
      * the event type
      * @type {string}
-     * @memberof Identitycertified
+     * @memberof IdentityCertified
      */
     'eventType'?: string;
     /**
      * the date of event
      * @type {string}
-     * @memberof Identitycertified
+     * @memberof IdentityCertified
      */
     'dateTime'?: string;
 }
 /**
  * 
  * @export
- * @interface Identitycompareresponse
+ * @interface IdentityCompareResponse
  */
-export interface Identitycompareresponse {
+export interface IdentityCompareResponse {
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check.
      * @type {{ [key: string]: object; }}
-     * @memberof Identitycompareresponse
+     * @memberof IdentityCompareResponse
      */
     'accessItemDiff'?: { [key: string]: object; };
 }
 /**
  * 
  * @export
- * @interface Identityhistoryresponse
+ * @interface IdentityHistoryResponse
  */
-export interface Identityhistoryresponse {
+export interface IdentityHistoryResponse {
     /**
      * the identity ID
      * @type {string}
-     * @memberof Identityhistoryresponse
+     * @memberof IdentityHistoryResponse
      */
     'id'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof Identityhistoryresponse
+     * @memberof IdentityHistoryResponse
      */
     'displayName'?: string;
     /**
      * the date when the identity record was created
      * @type {string}
-     * @memberof Identityhistoryresponse
+     * @memberof IdentityHistoryResponse
      */
     'snapshot'?: string;
     /**
      * the date when the identity was deleted
      * @type {string}
-     * @memberof Identityhistoryresponse
+     * @memberof IdentityHistoryResponse
      */
     'deletedDate'?: string;
     /**
      * A map containing the count of each access item
      * @type {{ [key: string]: number; }}
-     * @memberof Identityhistoryresponse
+     * @memberof IdentityHistoryResponse
      */
     'accessItemCount'?: { [key: string]: number; };
     /**
      * A map containing the identity attributes
      * @type {{ [key: string]: any; }}
-     * @memberof Identityhistoryresponse
+     * @memberof IdentityHistoryResponse
      */
     'attributes'?: { [key: string]: any; };
 }
 /**
  * 
  * @export
- * @interface Identitylistitem
+ * @interface IdentityListItem
  */
-export interface Identitylistitem {
+export interface IdentityListItem {
     /**
      * the identity ID
      * @type {string}
-     * @memberof Identitylistitem
+     * @memberof IdentityListItem
      */
     'id'?: string;
     /**
      * the display name of the identity
      * @type {string}
-     * @memberof Identitylistitem
+     * @memberof IdentityListItem
      */
     'displayName'?: string;
     /**
      * the first name of the identity
      * @type {string}
-     * @memberof Identitylistitem
+     * @memberof IdentityListItem
      */
     'firstName'?: string | null;
     /**
      * the last name of the identity
      * @type {string}
-     * @memberof Identitylistitem
+     * @memberof IdentityListItem
      */
     'lastName'?: string | null;
     /**
      * indicates if an identity is active or not
      * @type {boolean}
-     * @memberof Identitylistitem
+     * @memberof IdentityListItem
      */
     'active'?: boolean;
     /**
      * the date when the identity was deleted
      * @type {string}
-     * @memberof Identitylistitem
+     * @memberof IdentityListItem
      */
     'deletedDate'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Identitysnapshotsummaryresponse
+ * @interface IdentitySnapshotSummaryResponse
  */
-export interface Identitysnapshotsummaryresponse {
+export interface IdentitySnapshotSummaryResponse {
     /**
      * the date when the identity record was created
      * @type {string}
-     * @memberof Identitysnapshotsummaryresponse
+     * @memberof IdentitySnapshotSummaryResponse
      */
     'snapshot'?: string;
 }
@@ -1457,10 +1457,10 @@ export interface ListIdentityAccessItemsV1200ResponseInner {
     'entitlementCount': number;
     /**
      * the list of app ids associated with the access profile
-     * @type {Array<AccessitemaccessprofileresponseAppRefsInner>}
+     * @type {Array<AccessItemAccessProfileResponseAppRefsInner>}
      * @memberof ListIdentityAccessItemsV1200ResponseInner
      */
-    'appRefs': Array<AccessitemaccessprofileresponseAppRefsInner>;
+    'appRefs': Array<AccessItemAccessProfileResponseAppRefsInner>;
     /**
      * the date the access profile will be assigned to the specified identity, in case requested with a future start date
      * @type {string}
@@ -1496,7 +1496,7 @@ export interface ListIdentityAccessItemsV1200ResponseInner {
  * @type ListIdentitySnapshotAccessItemsV1200ResponseInner
  * @export
  */
-export type ListIdentitySnapshotAccessItemsV1200ResponseInner = Accessitemaccessprofileresponse | Accessitemaccountresponse | Accessitemappresponse | Accessitementitlementresponse | Accessitemroleresponse;
+export type ListIdentitySnapshotAccessItemsV1200ResponseInner = AccessItemAccessProfileResponse | AccessItemAccountResponse | AccessItemAppResponse | AccessItemEntitlementResponse | AccessItemRoleResponse;
 
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -1504,30 +1504,30 @@ export type ListIdentitySnapshotAccessItemsV1200ResponseInner = Accessitemaccess
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Metricresponse
+ * @interface MetricResponse
  */
-export interface Metricresponse {
+export interface MetricResponse {
     /**
      * the name of metric
      * @type {string}
-     * @memberof Metricresponse
+     * @memberof MetricResponse
      */
     'name'?: string;
     /**
      * the value associated to the metric
      * @type {number}
-     * @memberof Metricresponse
+     * @memberof MetricResponse
      */
     'value'?: number;
 }
@@ -2228,7 +2228,7 @@ export const IdentityHistoryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async compareIdentitySnapshotsAccessTypeV1(id: string, accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessitemdiff>>> {
+        async compareIdentitySnapshotsAccessTypeV1(id: string, accessType: CompareIdentitySnapshotsAccessTypeV1AccessTypeEnum, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessItemDiff>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshotsAccessTypeV1(id, accessType, accessAssociated, snapshot1, snapshot2, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.compareIdentitySnapshotsAccessTypeV1']?.[localVarOperationServerIndex]?.url;
@@ -2248,7 +2248,7 @@ export const IdentityHistoryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async compareIdentitySnapshotsV1(id: string, snapshot1?: string, snapshot2?: string, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitycompareresponse>>> {
+        async compareIdentitySnapshotsV1(id: string, snapshot1?: string, snapshot2?: string, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCompareResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshotsV1(id, snapshot1, snapshot2, accessItemTypes, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.compareIdentitySnapshotsV1']?.[localVarOperationServerIndex]?.url;
@@ -2282,7 +2282,7 @@ export const IdentityHistoryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getHistoricalIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityhistoryresponse>> {
+        async getHistoricalIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentityV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getHistoricalIdentityV1']?.[localVarOperationServerIndex]?.url;
@@ -2302,7 +2302,7 @@ export const IdentityHistoryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySnapshotSummaryV1(id: string, before?: string, interval?: GetIdentitySnapshotSummaryV1IntervalEnum, timeZone?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Metricresponse>>> {
+        async getIdentitySnapshotSummaryV1(id: string, before?: string, interval?: GetIdentitySnapshotSummaryV1IntervalEnum, timeZone?: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MetricResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshotSummaryV1(id, before, interval, timeZone, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getIdentitySnapshotSummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -2317,7 +2317,7 @@ export const IdentityHistoryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySnapshotV1(id: string, date: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identityhistoryresponse>> {
+        async getIdentitySnapshotV1(id: string, date: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshotV1(id, date, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.getIdentitySnapshotV1']?.[localVarOperationServerIndex]?.url;
@@ -2349,7 +2349,7 @@ export const IdentityHistoryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listHistoricalIdentitiesV1(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitylistitem>>> {
+        async listHistoricalIdentitiesV1(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityListItem>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listHistoricalIdentitiesV1(startsWithQuery, isDeleted, isActive, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.listHistoricalIdentitiesV1']?.[localVarOperationServerIndex]?.url;
@@ -2402,7 +2402,7 @@ export const IdentityHistoryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentitySnapshotsV1(id: string, start?: string, interval?: ListIdentitySnapshotsV1IntervalEnum, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Identitysnapshotsummaryresponse>>> {
+        async listIdentitySnapshotsV1(id: string, start?: string, interval?: ListIdentitySnapshotsV1IntervalEnum, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitySnapshotSummaryResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshotsV1(id, start, interval, limit, offset, count, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentityHistoryApi.listIdentitySnapshotsV1']?.[localVarOperationServerIndex]?.url;
@@ -2425,7 +2425,7 @@ export const IdentityHistoryApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        compareIdentitySnapshotsAccessTypeV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessitemdiff>> {
+        compareIdentitySnapshotsAccessTypeV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsAccessTypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessItemDiff>> {
             return localVarFp.compareIdentitySnapshotsAccessTypeV1(requestParameters.id, requestParameters.accessType, requestParameters.accessAssociated, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2435,7 +2435,7 @@ export const IdentityHistoryApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        compareIdentitySnapshotsV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitycompareresponse>> {
+        compareIdentitySnapshotsV1(requestParameters: IdentityHistoryApiCompareIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentityCompareResponse>> {
             return localVarFp.compareIdentitySnapshotsV1(requestParameters.id, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2455,7 +2455,7 @@ export const IdentityHistoryApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getHistoricalIdentityV1(requestParameters: IdentityHistoryApiGetHistoricalIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityhistoryresponse> {
+        getHistoricalIdentityV1(requestParameters: IdentityHistoryApiGetHistoricalIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityHistoryResponse> {
             return localVarFp.getHistoricalIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2465,7 +2465,7 @@ export const IdentityHistoryApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySnapshotSummaryV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Metricresponse>> {
+        getIdentitySnapshotSummaryV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotSummaryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MetricResponse>> {
             return localVarFp.getIdentitySnapshotSummaryV1(requestParameters.id, requestParameters.before, requestParameters.interval, requestParameters.timeZone, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2475,7 +2475,7 @@ export const IdentityHistoryApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentitySnapshotV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identityhistoryresponse> {
+        getIdentitySnapshotV1(requestParameters: IdentityHistoryApiGetIdentitySnapshotV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityHistoryResponse> {
             return localVarFp.getIdentitySnapshotV1(requestParameters.id, requestParameters.date, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2495,7 +2495,7 @@ export const IdentityHistoryApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listHistoricalIdentitiesV1(requestParameters: IdentityHistoryApiListHistoricalIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitylistitem>> {
+        listHistoricalIdentitiesV1(requestParameters: IdentityHistoryApiListHistoricalIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentityListItem>> {
             return localVarFp.listHistoricalIdentitiesV1(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2525,7 +2525,7 @@ export const IdentityHistoryApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentitySnapshotsV1(requestParameters: IdentityHistoryApiListIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identitysnapshotsummaryresponse>> {
+        listIdentitySnapshotsV1(requestParameters: IdentityHistoryApiListIdentitySnapshotsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentitySnapshotSummaryResponse>> {
             return localVarFp.listIdentitySnapshotsV1(requestParameters.id, requestParameters.start, requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };

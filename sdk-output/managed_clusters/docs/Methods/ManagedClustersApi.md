@@ -39,11 +39,11 @@ The API returns a result that includes the managed cluster ID.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**managedclusterrequest** | `Managedclusterrequest` |  | 
+**managedClusterRequest** | `ManagedClusterRequest` |  | 
 
 ### Return type
 
-`Managedcluster`
+`ManagedCluster`
 
 ### HTTP request headers
 
@@ -55,12 +55,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClustersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Managedclusterrequest } from 'sailpoint-api-client/dist/managed_clusters/api';
+import { ManagedClusterRequest } from 'sailpoint-api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
-const managedclusterrequest: Managedclusterrequest = ; // 
-const result = await apiInstance.createManagedClusterV1({ managedclusterrequest: managedclusterrequest });
+const managedClusterRequest: ManagedClusterRequest = {
+  "configuration" : {
+    "clusterExternalId" : "externalId",
+    "ccgVersion" : "77.0.0"
+  },
+  "name" : "Managed Cluster Name",
+  "description" : "A short description of the managed cluster.",
+  "type" : "idn"
+}; // 
+const result = await apiInstance.createManagedClusterV1({ managedClusterRequest: managedClusterRequest });
 console.log(result);
 ```
 
@@ -120,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Clientlogconfiguration`
+`ClientLogConfiguration`
 
 ### HTTP request headers
 
@@ -157,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Managedcluster`
+`ManagedCluster`
 
 ### HTTP request headers
 
@@ -197,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Managedcluster>`
+`Array<ManagedCluster>`
 
 ### HTTP request headers
 
@@ -238,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Clientlogconfiguration`
+`ClientLogConfiguration`
 
 ### HTTP request headers
 
@@ -274,11 +282,11 @@ Update an existing managed cluster.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Managed cluster ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | JSONPatch payload used to update the object. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | JSONPatch payload used to update the object. | 
 
 ### Return type
 
-`Managedcluster`
+`ManagedCluster`
 
 ### HTTP request headers
 
@@ -290,13 +298,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { ManagedClustersApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/managed_clusters/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
 const id: string = 2c9180897de347a2017de8859e8c5039; // Managed cluster ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = ; // JSONPatch payload used to update the object.
-const result = await apiInstance.updateManagedClusterV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // JSONPatch payload used to update the object.
+const result = await apiInstance.updateManagedClusterV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -318,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Clustermanualupgrade`
+`ClusterManualUpgrade`
 
 ### HTTP request headers
 

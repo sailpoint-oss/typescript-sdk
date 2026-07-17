@@ -1,0 +1,20 @@
+---
+id: v1-source-item-ref
+title: SourceItemRef
+pagination_label: SourceItemRef
+sidebar_label: SourceItemRef
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceItemRef', 'v1SourceItemRef']
+slug: /tools/sdk/typescript/access_requests/models/source-item-ref
+tags: ['SDK', 'Software Development Kit', 'SourceItemRef', 'v1SourceItemRef']
+---
+
+# SourceItemRef
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**sourceId** | **(optional)** `string` | The id for the source on which account selections are made | [default to undefined]
+**accounts** | **(optional)** `Array<AccountItemRef>` | A list of account selections on the source. Currently, only one selection per source is supported. | [default to undefined]
+

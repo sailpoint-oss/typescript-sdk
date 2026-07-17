@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitems`
+`WorkItems`
 
 ### HTTP request headers
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitems`
+`WorkItems`
 
 ### HTTP request headers
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitems`
+`WorkItems`
 
 ### HTTP request headers
 
@@ -171,7 +171,7 @@ This API forwards a work item to a new owner. Either an admin, or the owning/cur
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the work item |  [default to undefined]
-**workitemforward** | `Workitemforward` |  | 
+**workItemForward** | `WorkItemForward` |  | 
 
 ### Return type
 
@@ -187,13 +187,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { WorkItemsApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Workitemforward } from 'sailpoint-api-client/dist/work_items/api';
+import { WorkItemForward } from 'sailpoint-api-client/dist/work_items/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // The ID of the work item
-const workitemforward: Workitemforward = ; // 
-const result = await apiInstance.forwardWorkItemV1({ id: id, workitemforward: workitemforward });
+const workItemForward: WorkItemForward = {
+  "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+  "comment" : "I'm going on vacation.",
+  "sendNotifications" : true
+}; // 
+const result = await apiInstance.forwardWorkItemV1({ id: id, workItemForward: workItemForward });
 console.log(result);
 ```
 
@@ -217,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workitems>`
+`Array<WorkItems>`
 
 ### HTTP request headers
 
@@ -257,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitemscount`
+`WorkItemsCount`
 
 ### HTTP request headers
 
@@ -294,7 +298,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitemscount`
+`WorkItemsCount`
 
 ### HTTP request headers
 
@@ -331,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitems`
+`WorkItems`
 
 ### HTTP request headers
 
@@ -368,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitemssummary`
+`WorkItemsSummary`
 
 ### HTTP request headers
 
@@ -408,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Workitems>`
+`Array<WorkItems>`
 
 ### HTTP request headers
 
@@ -449,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitems`
+`WorkItems`
 
 ### HTTP request headers
 
@@ -487,7 +491,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitems`
+`WorkItems`
 
 ### HTTP request headers
 
@@ -525,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Workitems`
+`WorkItems`
 
 ### HTTP request headers
 

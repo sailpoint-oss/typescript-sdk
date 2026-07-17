@@ -26,74 +26,74 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Approvalitemdetails
+ * @interface ApprovalItemDetails
  */
-export interface Approvalitemdetails {
+export interface ApprovalItemDetails {
     /**
      * The approval item\'s ID
      * @type {string}
-     * @memberof Approvalitemdetails
+     * @memberof ApprovalItemDetails
      */
     'id'?: string;
     /**
      * The account referenced by the approval item
      * @type {string}
-     * @memberof Approvalitemdetails
+     * @memberof ApprovalItemDetails
      */
     'account'?: string | null;
     /**
      * The name of the application/source
      * @type {string}
-     * @memberof Approvalitemdetails
+     * @memberof ApprovalItemDetails
      */
     'application'?: string;
     /**
      * The attribute\'s name
      * @type {string}
-     * @memberof Approvalitemdetails
+     * @memberof ApprovalItemDetails
      */
     'name'?: string | null;
     /**
      * The attribute\'s operation
      * @type {string}
-     * @memberof Approvalitemdetails
+     * @memberof ApprovalItemDetails
      */
     'operation'?: string;
     /**
      * The attribute\'s value
      * @type {string}
-     * @memberof Approvalitemdetails
+     * @memberof ApprovalItemDetails
      */
     'value'?: string | null;
     /**
      * 
-     * @type {Workitemstate}
-     * @memberof Approvalitemdetails
+     * @type {WorkItemState}
+     * @memberof ApprovalItemDetails
      */
-    'state'?: Workitemstate;
+    'state'?: WorkItemState;
 }
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -102,87 +102,87 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * 
  * @export
- * @interface Formdetails
+ * @interface FormDetails
  */
-export interface Formdetails {
+export interface FormDetails {
     /**
      * ID of the form
      * @type {string}
-     * @memberof Formdetails
+     * @memberof FormDetails
      */
     'id'?: string | null;
     /**
      * Name of the form
      * @type {string}
-     * @memberof Formdetails
+     * @memberof FormDetails
      */
     'name'?: string | null;
     /**
      * The form title
      * @type {string}
-     * @memberof Formdetails
+     * @memberof FormDetails
      */
     'title'?: string | null;
     /**
      * The form subtitle.
      * @type {string}
-     * @memberof Formdetails
+     * @memberof FormDetails
      */
     'subtitle'?: string | null;
     /**
      * The name of the user that should be shown this form
      * @type {string}
-     * @memberof Formdetails
+     * @memberof FormDetails
      */
     'targetUser'?: string;
     /**
      * Sections of the form
-     * @type {Array<Sectiondetails>}
-     * @memberof Formdetails
+     * @type {Array<SectionDetails>}
+     * @memberof FormDetails
      */
-    'sections'?: Array<Sectiondetails>;
+    'sections'?: Array<SectionDetails>;
 }
 /**
  * 
  * @export
- * @interface Formitemdetails
+ * @interface FormItemDetails
  */
-export interface Formitemdetails {
+export interface FormItemDetails {
     /**
      * Name of the FormItem
      * @type {string}
-     * @memberof Formitemdetails
+     * @memberof FormItemDetails
      */
     'name'?: string | null;
 }
@@ -218,324 +218,132 @@ export interface ListWorkItemsV1429Response {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
  * 
  * @export
- * @interface Remediationitemdetails
+ * @interface RemediationItemDetails
  */
-export interface Remediationitemdetails {
+export interface RemediationItemDetails {
     /**
      * The ID of the certification
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'id'?: string;
     /**
      * The ID of the certification target
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'targetId'?: string;
     /**
      * The name of the certification target
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'targetName'?: string;
     /**
      * The display name of the certification target
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'targetDisplayName'?: string;
     /**
      * The name of the application/source
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'applicationName'?: string;
     /**
      * The name of the attribute being certified
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'attributeName'?: string;
     /**
      * The operation of the certification on the attribute
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'attributeOperation'?: string;
     /**
      * The value of the attribute being certified
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'attributeValue'?: string;
     /**
      * The native identity of the target
      * @type {string}
-     * @memberof Remediationitemdetails
+     * @memberof RemediationItemDetails
      */
     'nativeIdentity'?: string;
 }
 /**
  * 
  * @export
- * @interface Sectiondetails
+ * @interface SectionDetails
  */
-export interface Sectiondetails {
+export interface SectionDetails {
     /**
      * Name of the FormItem
      * @type {string}
-     * @memberof Sectiondetails
+     * @memberof SectionDetails
      */
     'name'?: string | null;
     /**
      * Label of the section
      * @type {string}
-     * @memberof Sectiondetails
+     * @memberof SectionDetails
      */
     'label'?: string | null;
     /**
      * List of FormItems. FormItems can be SectionDetails and/or FieldDetails
      * @type {Array<object>}
-     * @memberof Sectiondetails
+     * @memberof SectionDetails
      */
     'formItems'?: Array<object>;
 }
 /**
  * 
  * @export
- * @interface Workitemforward
+ * @interface WorkItemForward
  */
-export interface Workitemforward {
+export interface WorkItemForward {
     /**
      * The ID of the identity to forward this work item to.
      * @type {string}
-     * @memberof Workitemforward
+     * @memberof WorkItemForward
      */
     'targetOwnerId': string;
     /**
      * Comments to send to the target owner
      * @type {string}
-     * @memberof Workitemforward
+     * @memberof WorkItemForward
      */
     'comment': string;
     /**
      * If true, send a notification to the target owner.
      * @type {boolean}
-     * @memberof Workitemforward
+     * @memberof WorkItemForward
      */
     'sendNotifications'?: boolean;
 }
 /**
- * 
- * @export
- * @interface Workitems
- */
-export interface Workitems {
-    /**
-     * ID of the work item
-     * @type {string}
-     * @memberof Workitems
-     */
-    'id'?: string;
-    /**
-     * ID of the requester
-     * @type {string}
-     * @memberof Workitems
-     */
-    'requesterId'?: string | null;
-    /**
-     * The displayname of the requester
-     * @type {string}
-     * @memberof Workitems
-     */
-    'requesterDisplayName'?: string | null;
-    /**
-     * The ID of the owner
-     * @type {string}
-     * @memberof Workitems
-     */
-    'ownerId'?: string | null;
-    /**
-     * The name of the owner
-     * @type {string}
-     * @memberof Workitems
-     */
-    'ownerName'?: string;
-    /**
-     * Time when the work item was created
-     * @type {string}
-     * @memberof Workitems
-     */
-    'created'?: string;
-    /**
-     * Time when the work item was last updated
-     * @type {string}
-     * @memberof Workitems
-     */
-    'modified'?: string | null;
-    /**
-     * The description of the work item
-     * @type {string}
-     * @memberof Workitems
-     */
-    'description'?: string;
-    /**
-     * 
-     * @type {Workitemstatemanualworkitems}
-     * @memberof Workitems
-     */
-    'state'?: Workitemstatemanualworkitems;
-    /**
-     * 
-     * @type {Workitemtypemanualworkitems}
-     * @memberof Workitems
-     */
-    'type'?: Workitemtypemanualworkitems;
-    /**
-     * A list of remediation items
-     * @type {Array<Remediationitemdetails>}
-     * @memberof Workitems
-     */
-    'remediationItems'?: Array<Remediationitemdetails> | null;
-    /**
-     * A list of items that need to be approved
-     * @type {Array<Approvalitemdetails>}
-     * @memberof Workitems
-     */
-    'approvalItems'?: Array<Approvalitemdetails> | null;
-    /**
-     * The work item name
-     * @type {string}
-     * @memberof Workitems
-     */
-    'name'?: string | null;
-    /**
-     * The time at which the work item completed
-     * @type {string}
-     * @memberof Workitems
-     */
-    'completed'?: string | null;
-    /**
-     * The number of items in the work item
-     * @type {number}
-     * @memberof Workitems
-     */
-    'numItems'?: number | null;
-    /**
-     * 
-     * @type {WorkitemsForm}
-     * @memberof Workitems
-     */
-    'form'?: WorkitemsForm;
-    /**
-     * An array of errors that ocurred during the work item
-     * @type {Array<string>}
-     * @memberof Workitems
-     */
-    'errors'?: Array<string>;
-}
-
-
-/**
- * 
- * @export
- * @interface WorkitemsForm
- */
-export interface WorkitemsForm {
-    /**
-     * ID of the form
-     * @type {string}
-     * @memberof WorkitemsForm
-     */
-    'id'?: string | null;
-    /**
-     * Name of the form
-     * @type {string}
-     * @memberof WorkitemsForm
-     */
-    'name'?: string | null;
-    /**
-     * The form title
-     * @type {string}
-     * @memberof WorkitemsForm
-     */
-    'title'?: string | null;
-    /**
-     * The form subtitle.
-     * @type {string}
-     * @memberof WorkitemsForm
-     */
-    'subtitle'?: string | null;
-    /**
-     * The name of the user that should be shown this form
-     * @type {string}
-     * @memberof WorkitemsForm
-     */
-    'targetUser'?: string;
-    /**
-     * Sections of the form
-     * @type {Array<Sectiondetails>}
-     * @memberof WorkitemsForm
-     */
-    'sections'?: Array<Sectiondetails>;
-}
-/**
- * 
- * @export
- * @interface Workitemscount
- */
-export interface Workitemscount {
-    /**
-     * The count of work items
-     * @type {number}
-     * @memberof Workitemscount
-     */
-    'count'?: number;
-}
-/**
- * 
- * @export
- * @interface Workitemssummary
- */
-export interface Workitemssummary {
-    /**
-     * The count of open work items
-     * @type {number}
-     * @memberof Workitemssummary
-     */
-    'open'?: number;
-    /**
-     * The count of completed work items
-     * @type {number}
-     * @memberof Workitemssummary
-     */
-    'completed'?: number;
-    /**
-     * The count of total work items
-     * @type {number}
-     * @memberof Workitemssummary
-     */
-    'total'?: number;
-}
-/**
  * The state of a work item
  * @export
  * @enum {string}
  */
 
-export const Workitemstate = {
+export const WorkItemState = {
     Finished: 'Finished',
     Rejected: 'Rejected',
     Returned: 'Returned',
@@ -544,7 +352,7 @@ export const Workitemstate = {
     Canceled: 'Canceled'
 } as const;
 
-export type Workitemstate = typeof Workitemstate[keyof typeof Workitemstate];
+export type WorkItemState = typeof WorkItemState[keyof typeof WorkItemState];
 
 
 /**
@@ -553,7 +361,7 @@ export type Workitemstate = typeof Workitemstate[keyof typeof Workitemstate];
  * @enum {string}
  */
 
-export const Workitemstatemanualworkitems = {
+export const WorkItemStateManualWorkItems = {
     Finished: 'Finished',
     Rejected: 'Rejected',
     Returned: 'Returned',
@@ -562,7 +370,7 @@ export const Workitemstatemanualworkitems = {
     Canceled: 'Canceled'
 } as const;
 
-export type Workitemstatemanualworkitems = typeof Workitemstatemanualworkitems[keyof typeof Workitemstatemanualworkitems];
+export type WorkItemStateManualWorkItems = typeof WorkItemStateManualWorkItems[keyof typeof WorkItemStateManualWorkItems];
 
 
 /**
@@ -571,7 +379,7 @@ export type Workitemstatemanualworkitems = typeof Workitemstatemanualworkitems[k
  * @enum {string}
  */
 
-export const Workitemtypemanualworkitems = {
+export const WorkItemTypeManualWorkItems = {
     Generic: 'Generic',
     Certification: 'Certification',
     Remediation: 'Remediation',
@@ -588,9 +396,201 @@ export const Workitemtypemanualworkitems = {
     Test: 'Test'
 } as const;
 
-export type Workitemtypemanualworkitems = typeof Workitemtypemanualworkitems[keyof typeof Workitemtypemanualworkitems];
+export type WorkItemTypeManualWorkItems = typeof WorkItemTypeManualWorkItems[keyof typeof WorkItemTypeManualWorkItems];
 
 
+/**
+ * 
+ * @export
+ * @interface WorkItems
+ */
+export interface WorkItems {
+    /**
+     * ID of the work item
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'id'?: string;
+    /**
+     * ID of the requester
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'requesterId'?: string | null;
+    /**
+     * The displayname of the requester
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'requesterDisplayName'?: string | null;
+    /**
+     * The ID of the owner
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'ownerId'?: string | null;
+    /**
+     * The name of the owner
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'ownerName'?: string;
+    /**
+     * Time when the work item was created
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'created'?: string;
+    /**
+     * Time when the work item was last updated
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'modified'?: string | null;
+    /**
+     * The description of the work item
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {WorkItemStateManualWorkItems}
+     * @memberof WorkItems
+     */
+    'state'?: WorkItemStateManualWorkItems;
+    /**
+     * 
+     * @type {WorkItemTypeManualWorkItems}
+     * @memberof WorkItems
+     */
+    'type'?: WorkItemTypeManualWorkItems;
+    /**
+     * A list of remediation items
+     * @type {Array<RemediationItemDetails>}
+     * @memberof WorkItems
+     */
+    'remediationItems'?: Array<RemediationItemDetails> | null;
+    /**
+     * A list of items that need to be approved
+     * @type {Array<ApprovalItemDetails>}
+     * @memberof WorkItems
+     */
+    'approvalItems'?: Array<ApprovalItemDetails> | null;
+    /**
+     * The work item name
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'name'?: string | null;
+    /**
+     * The time at which the work item completed
+     * @type {string}
+     * @memberof WorkItems
+     */
+    'completed'?: string | null;
+    /**
+     * The number of items in the work item
+     * @type {number}
+     * @memberof WorkItems
+     */
+    'numItems'?: number | null;
+    /**
+     * 
+     * @type {WorkItemsForm}
+     * @memberof WorkItems
+     */
+    'form'?: WorkItemsForm;
+    /**
+     * An array of errors that ocurred during the work item
+     * @type {Array<string>}
+     * @memberof WorkItems
+     */
+    'errors'?: Array<string>;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface WorkItemsCount
+ */
+export interface WorkItemsCount {
+    /**
+     * The count of work items
+     * @type {number}
+     * @memberof WorkItemsCount
+     */
+    'count'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface WorkItemsForm
+ */
+export interface WorkItemsForm {
+    /**
+     * ID of the form
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'id'?: string | null;
+    /**
+     * Name of the form
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'name'?: string | null;
+    /**
+     * The form title
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'title'?: string | null;
+    /**
+     * The form subtitle.
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'subtitle'?: string | null;
+    /**
+     * The name of the user that should be shown this form
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'targetUser'?: string;
+    /**
+     * Sections of the form
+     * @type {Array<SectionDetails>}
+     * @memberof WorkItemsForm
+     */
+    'sections'?: Array<SectionDetails>;
+}
+/**
+ * 
+ * @export
+ * @interface WorkItemsSummary
+ */
+export interface WorkItemsSummary {
+    /**
+     * The count of open work items
+     * @type {number}
+     * @memberof WorkItemsSummary
+     */
+    'open'?: number;
+    /**
+     * The count of completed work items
+     * @type {number}
+     * @memberof WorkItemsSummary
+     */
+    'completed'?: number;
+    /**
+     * The count of total work items
+     * @type {number}
+     * @memberof WorkItemsSummary
+     */
+    'total'?: number;
+}
 
 /**
  * WorkItemsApi - axios parameter creator
@@ -712,15 +712,15 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
          * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
          * @summary Forward a work item
          * @param {string} id The ID of the work item
-         * @param {Workitemforward} workitemforward 
+         * @param {WorkItemForward} workItemForward 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        forwardWorkItemV1: async (id: string, workitemforward: Workitemforward, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        forwardWorkItemV1: async (id: string, workItemForward: WorkItemForward, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('forwardWorkItemV1', 'id', id)
-            // verify required parameter 'workitemforward' is not null or undefined
-            assertParamExists('forwardWorkItemV1', 'workitemforward', workitemforward)
+            // verify required parameter 'workItemForward' is not null or undefined
+            assertParamExists('forwardWorkItemV1', 'workItemForward', workItemForward)
             const localVarPath = `/work-items/v1/{id}/forward`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -741,7 +741,7 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(workitemforward, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(workItemForward, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1117,7 +1117,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalItemV1(id: string, approvalItemId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitems>> {
+        async approveApprovalItemV1(id: string, approvalItemId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemV1(id, approvalItemId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.approveApprovalItemV1']?.[localVarOperationServerIndex]?.url;
@@ -1130,7 +1130,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalItemsInBulkV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitems>> {
+        async approveApprovalItemsInBulkV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemsInBulkV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.approveApprovalItemsInBulkV1']?.[localVarOperationServerIndex]?.url;
@@ -1144,7 +1144,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeWorkItemV1(id: string, body?: string | null, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitems>> {
+        async completeWorkItemV1(id: string, body?: string | null, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItemV1(id, body, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.completeWorkItemV1']?.[localVarOperationServerIndex]?.url;
@@ -1154,12 +1154,12 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
          * @summary Forward a work item
          * @param {string} id The ID of the work item
-         * @param {Workitemforward} workitemforward 
+         * @param {WorkItemForward} workItemForward 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async forwardWorkItemV1(id: string, workitemforward: Workitemforward, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardWorkItemV1(id, workitemforward, axiosOptions);
+        async forwardWorkItemV1(id: string, workItemForward: WorkItemForward, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardWorkItemV1(id, workItemForward, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.forwardWorkItemV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1174,7 +1174,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompletedWorkItemsV1(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workitems>>> {
+        async getCompletedWorkItemsV1(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompletedWorkItemsV1(ownerId, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.getCompletedWorkItemsV1']?.[localVarOperationServerIndex]?.url;
@@ -1187,7 +1187,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCountCompletedWorkItemsV1(ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitemscount>> {
+        async getCountCompletedWorkItemsV1(ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCountCompletedWorkItemsV1(ownerId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.getCountCompletedWorkItemsV1']?.[localVarOperationServerIndex]?.url;
@@ -1200,7 +1200,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCountWorkItemsV1(ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitemscount>> {
+        async getCountWorkItemsV1(ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCountWorkItemsV1(ownerId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.getCountWorkItemsV1']?.[localVarOperationServerIndex]?.url;
@@ -1213,7 +1213,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkItemV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitems>> {
+        async getWorkItemV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.getWorkItemV1']?.[localVarOperationServerIndex]?.url;
@@ -1226,7 +1226,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkItemsSummaryV1(ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitemssummary>> {
+        async getWorkItemsSummaryV1(ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsSummary>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemsSummaryV1(ownerId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.getWorkItemsSummaryV1']?.[localVarOperationServerIndex]?.url;
@@ -1242,7 +1242,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkItemsV1(limit?: number, offset?: number, count?: boolean, ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workitems>>> {
+        async listWorkItemsV1(limit?: number, offset?: number, count?: boolean, ownerId?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkItemsV1(limit, offset, count, ownerId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.listWorkItemsV1']?.[localVarOperationServerIndex]?.url;
@@ -1256,7 +1256,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalItemV1(id: string, approvalItemId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitems>> {
+        async rejectApprovalItemV1(id: string, approvalItemId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemV1(id, approvalItemId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.rejectApprovalItemV1']?.[localVarOperationServerIndex]?.url;
@@ -1269,7 +1269,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalItemsInBulkV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitems>> {
+        async rejectApprovalItemsInBulkV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemsInBulkV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.rejectApprovalItemsInBulkV1']?.[localVarOperationServerIndex]?.url;
@@ -1283,7 +1283,7 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitAccountSelectionV1(id: string, requestBody: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workitems>> {
+        async submitAccountSelectionV1(id: string, requestBody: { [key: string]: any; }, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitAccountSelectionV1(id, requestBody, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkItemsApi.submitAccountSelectionV1']?.[localVarOperationServerIndex]?.url;
@@ -1306,7 +1306,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveApprovalItemV1(requestParameters: WorkItemsApiApproveApprovalItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitems> {
+        approveApprovalItemV1(requestParameters: WorkItemsApiApproveApprovalItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
             return localVarFp.approveApprovalItemV1(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1316,7 +1316,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveApprovalItemsInBulkV1(requestParameters: WorkItemsApiApproveApprovalItemsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitems> {
+        approveApprovalItemsInBulkV1(requestParameters: WorkItemsApiApproveApprovalItemsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
             return localVarFp.approveApprovalItemsInBulkV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1326,7 +1326,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completeWorkItemV1(requestParameters: WorkItemsApiCompleteWorkItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitems> {
+        completeWorkItemV1(requestParameters: WorkItemsApiCompleteWorkItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
             return localVarFp.completeWorkItemV1(requestParameters.id, requestParameters.body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1337,7 +1337,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         forwardWorkItemV1(requestParameters: WorkItemsApiForwardWorkItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.forwardWorkItemV1(requestParameters.id, requestParameters.workitemforward, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.forwardWorkItemV1(requestParameters.id, requestParameters.workItemForward, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
@@ -1346,7 +1346,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCompletedWorkItemsV1(requestParameters: WorkItemsApiGetCompletedWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workitems>> {
+        getCompletedWorkItemsV1(requestParameters: WorkItemsApiGetCompletedWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkItems>> {
             return localVarFp.getCompletedWorkItemsV1(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1356,7 +1356,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCountCompletedWorkItemsV1(requestParameters: WorkItemsApiGetCountCompletedWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitemscount> {
+        getCountCompletedWorkItemsV1(requestParameters: WorkItemsApiGetCountCompletedWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItemsCount> {
             return localVarFp.getCountCompletedWorkItemsV1(requestParameters.ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1366,7 +1366,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCountWorkItemsV1(requestParameters: WorkItemsApiGetCountWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitemscount> {
+        getCountWorkItemsV1(requestParameters: WorkItemsApiGetCountWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItemsCount> {
             return localVarFp.getCountWorkItemsV1(requestParameters.ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1376,7 +1376,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkItemV1(requestParameters: WorkItemsApiGetWorkItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitems> {
+        getWorkItemV1(requestParameters: WorkItemsApiGetWorkItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
             return localVarFp.getWorkItemV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1386,7 +1386,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkItemsSummaryV1(requestParameters: WorkItemsApiGetWorkItemsSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitemssummary> {
+        getWorkItemsSummaryV1(requestParameters: WorkItemsApiGetWorkItemsSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItemsSummary> {
             return localVarFp.getWorkItemsSummaryV1(requestParameters.ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1396,7 +1396,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkItemsV1(requestParameters: WorkItemsApiListWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workitems>> {
+        listWorkItemsV1(requestParameters: WorkItemsApiListWorkItemsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkItems>> {
             return localVarFp.listWorkItemsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1406,7 +1406,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectApprovalItemV1(requestParameters: WorkItemsApiRejectApprovalItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitems> {
+        rejectApprovalItemV1(requestParameters: WorkItemsApiRejectApprovalItemV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
             return localVarFp.rejectApprovalItemV1(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1416,7 +1416,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectApprovalItemsInBulkV1(requestParameters: WorkItemsApiRejectApprovalItemsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitems> {
+        rejectApprovalItemsInBulkV1(requestParameters: WorkItemsApiRejectApprovalItemsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
             return localVarFp.rejectApprovalItemsInBulkV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1426,7 +1426,7 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitAccountSelectionV1(requestParameters: WorkItemsApiSubmitAccountSelectionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Workitems> {
+        submitAccountSelectionV1(requestParameters: WorkItemsApiSubmitAccountSelectionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkItems> {
             return localVarFp.submitAccountSelectionV1(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
     };
@@ -1503,10 +1503,10 @@ export interface WorkItemsApiForwardWorkItemV1Request {
 
     /**
      * 
-     * @type {Workitemforward}
+     * @type {WorkItemForward}
      * @memberof WorkItemsApiForwardWorkItemV1
      */
-    readonly workitemforward: Workitemforward
+    readonly workItemForward: WorkItemForward
 }
 
 /**
@@ -1743,7 +1743,7 @@ export class WorkItemsApi extends BaseAPI {
      * @memberof WorkItemsApi
      */
     public forwardWorkItemV1(requestParameters: WorkItemsApiForwardWorkItemV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).forwardWorkItemV1(requestParameters.id, requestParameters.workitemforward, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkItemsApiFp(this.configuration).forwardWorkItemV1(requestParameters.id, requestParameters.workItemForward, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

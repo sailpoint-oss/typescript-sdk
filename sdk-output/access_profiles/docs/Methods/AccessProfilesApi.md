@@ -73,11 +73,11 @@ The maximum supported length for the description field is 2000 characters. Longe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessprofile** | `Accessprofile` |  | 
+**accessProfile** | `AccessProfile` |  | 
 
 ### Return type
 
-`Accessprofile`
+`AccessProfile`
 
 ### HTTP request headers
 
@@ -89,12 +89,127 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessprofile } from 'sailpoint-api-client/dist/access_profiles/api';
+import { AccessProfile } from 'sailpoint-api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
-const accessprofile: Accessprofile = ; // 
-const result = await apiInstance.createAccessProfileV1({ accessprofile: accessprofile });
+const accessProfile: AccessProfile = {
+  "owner" : {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  },
+  "entitlements" : [ {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  }, {
+    "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+    "id" : "2c91809773dee32014e13e122092014e",
+    "type" : "ENTITLEMENT"
+  } ],
+  "created" : "2021-03-01T22:32:58.104Z",
+  "description" : "Collection of entitlements to read/write the employee database",
+  "source" : {
+    "name" : "ODS-AD-SOURCE",
+    "id" : "2c91809773dee3610173fdb0b6061ef4",
+    "type" : "SOURCE"
+  },
+  "enabled" : true,
+  "additionalOwners" : [ {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "support",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "type" : "IDENTITY"
+  } ],
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  },
+  "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
+  "accessRequestConfig" : {
+    "commentsRequired" : true,
+    "reauthorizationRequired" : true,
+    "approvalSchemes" : [ {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "denialCommentsRequired" : true,
+    "requireEndDate" : true,
+    "maxPermittedAccessDuration" : {
+      "value" : 6,
+      "timeUnit" : "MONTHS"
+    }
+  },
+  "name" : "Employee-database-read-write",
+  "provisioningCriteria" : {
+    "children" : [ {
+      "children" : [ {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      }, {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      } ],
+      "attribute" : "email",
+      "operation" : "EQUALS",
+      "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+    }, {
+      "children" : [ {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      }, {
+        "children" : "children",
+        "attribute" : "email",
+        "operation" : "EQUALS",
+        "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+      } ],
+      "attribute" : "email",
+      "operation" : "EQUALS",
+      "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+    } ],
+    "attribute" : "email",
+    "operation" : "EQUALS",
+    "value" : "carlee.cert1c9f9b6fd@mailinator.com"
+  },
+  "modified" : "2021-03-02T20:22:28.104Z",
+  "accessModelMetadata" : {
+    "attributes" : [ {
+      "key" : "iscPrivacy",
+      "name" : "Privacy",
+      "multiselect" : false,
+      "status" : "active",
+      "type" : "governance",
+      "objectTypes" : [ "all" ],
+      "description" : "Specifies the level of privacy associated with an access item.",
+      "values" : [ {
+        "value" : "public",
+        "name" : "Public",
+        "status" : "active"
+      } ]
+    } ]
+  },
+  "id" : "2c91808a7190d06e01719938fcd20792",
+  "requestable" : true
+}; // 
+const result = await apiInstance.createAccessProfileV1({ accessProfile: accessProfile });
 console.log(result);
 ```
 
@@ -156,11 +271,11 @@ A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles asso
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessprofilebulkdeleterequest** | `Accessprofilebulkdeleterequest` |  | 
+**accessProfileBulkDeleteRequest** | `AccessProfileBulkDeleteRequest` |  | 
 
 ### Return type
 
-`Accessprofilebulkdeleteresponse`
+`AccessProfileBulkDeleteResponse`
 
 ### HTTP request headers
 
@@ -172,12 +287,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Accessprofilebulkdeleterequest } from 'sailpoint-api-client/dist/access_profiles/api';
+import { AccessProfileBulkDeleteRequest } from 'sailpoint-api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
-const accessprofilebulkdeleterequest: Accessprofilebulkdeleterequest = {"bestEffortOnly":true,"accessProfileIds":["2c91808876438bb2017668b91919ecca","2c91808876438ba801766e129f151816"]}; // 
-const result = await apiInstance.deleteAccessProfilesInBulkV1({ accessprofilebulkdeleterequest: accessprofilebulkdeleterequest });
+const accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest = {
+  "accessProfileIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ],
+  "bestEffortOnly" : true
+}; // 
+const result = await apiInstance.deleteAccessProfilesInBulkV1({ accessProfileBulkDeleteRequest: accessProfileBulkDeleteRequest });
 console.log(result);
 ```
 
@@ -247,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Accessprofile`
+`AccessProfile`
 
 ### HTTP request headers
 
@@ -292,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Accessprofile>`
+`Array<AccessProfile>`
 
 ### HTTP request headers
 
@@ -364,11 +482,11 @@ A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Access Profile to patch |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` |  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
 
 ### Return type
 
-`Accessprofile`
+`AccessProfile`
 
 ### HTTP request headers
 
@@ -380,13 +498,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/access_profiles/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
 const id: string = 2c91808a7813090a017814121919ecca; // ID of the Access Profile to patch
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/entitlements","value":[{"id":"2c9180857725c14301772a93bb77242d","type":"ENTITLEMENT","name":"AD User Group"}]}]; // 
-const result = await apiInstance.patchAccessProfileV1({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // 
+const result = await apiInstance.patchAccessProfileV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -412,12 +534,12 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**accessprofilebulkupdaterequestInner** | `Array<AccessprofilebulkupdaterequestInner>` |  | 
+**accessProfileBulkUpdateRequestInner** | `Array<AccessProfileBulkUpdateRequestInner>` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Array<Accessprofileupdateitem>`
+`Array<AccessProfileUpdateItem>`
 
 ### HTTP request headers
 
@@ -429,13 +551,13 @@ Name | Type | Description  | Notes
 ```typescript
 import { AccessProfilesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { AccessprofilebulkupdaterequestInner } from 'sailpoint-api-client/dist/access_profiles/api';
+import { AccessProfileBulkUpdateRequestInner } from 'sailpoint-api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
-const accessprofilebulkupdaterequestInner: Array<AccessprofilebulkupdaterequestInner> = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // 
+const accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner> = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.updateAccessProfilesInBulkV1({ accessprofilebulkupdaterequestInner: accessprofilebulkupdaterequestInner });
+const result = await apiInstance.updateAccessProfilesInBulkV1({ accessProfileBulkUpdateRequestInner: accessProfileBulkUpdateRequestInner });
 console.log(result);
 ```
 

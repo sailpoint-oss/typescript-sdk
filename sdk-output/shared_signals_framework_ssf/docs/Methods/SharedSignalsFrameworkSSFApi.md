@@ -49,11 +49,11 @@ You can create a maximum of 10 SSF stream configurations for one org.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**createstreamrequest** | `Createstreamrequest` |  | 
+**createStreamRequest** | `CreateStreamRequest` |  | 
 
 ### Return type
 
-`Streamconfigresponse`
+`StreamConfigResponse`
 
 ### HTTP request headers
 
@@ -65,12 +65,20 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Createstreamrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { CreateStreamRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
-const createstreamrequest: Createstreamrequest = {"delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Production event stream for session revocation notifications"}; // 
-const result = await apiInstance.createStreamV1({ createstreamrequest: createstreamrequest });
+const createStreamRequest: CreateStreamRequest = {
+  "delivery" : {
+    "method" : "urn:ietf:rfc:8935",
+    "endpoint_url" : "https://receiver.example.com/ssf/events",
+    "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+  },
+  "description" : "Production event stream",
+  "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+}; // 
+const result = await apiInstance.createStreamV1({ createStreamRequest: createStreamRequest });
 console.log(result);
 ```
 
@@ -129,7 +137,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Jwks`
+`JWKS`
 
 ### HTTP request headers
 
@@ -162,7 +170,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-`Transmittermetadata`
+`TransmitterMetadata`
 
 ### HTTP request headers
 
@@ -198,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Streamstatusresponse`
+`StreamStatusResponse`
 
 ### HTTP request headers
 
@@ -274,7 +282,7 @@ Verifies an SSF stream by publishing a verification event requested by a securit
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**verificationrequest** | `Verificationrequest` |  | 
+**verificationRequest** | `VerificationRequest` |  | 
 
 ### Return type
 
@@ -290,12 +298,15 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Verificationrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { VerificationRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
-const verificationrequest: Verificationrequest = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","state":"verification-challenge-state-123"}; // 
-const result = await apiInstance.sendStreamVerificationV1({ verificationrequest: verificationrequest });
+const verificationRequest: VerificationRequest = {
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "state" : "verification-challenge-state-123"
+}; // 
+const result = await apiInstance.sendStreamVerificationV1({ verificationRequest: verificationRequest });
 console.log(result);
 ```
 
@@ -315,11 +326,11 @@ The associated stream with the client ID (through the request OAuth 2.0 access t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**replacestreamconfigurationrequest** | `Replacestreamconfigurationrequest` |  | 
+**replaceStreamConfigurationRequest** | `ReplaceStreamConfigurationRequest` |  | 
 
 ### Return type
 
-`Updatestreamconfigresponse`
+`UpdateStreamConfigResponse`
 
 ### HTTP request headers
 
@@ -331,12 +342,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Replacestreamconfigurationrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { ReplaceStreamConfigurationRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
-const replacestreamconfigurationrequest: Replacestreamconfigurationrequest = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","delivery":{"method":"urn:ietf:rfc:8935","endpoint_url":"https://receiver.example.com/ssf/events"},"events_requested":["https://schemas.openid.net/secevent/caep/event-type/session-revoked"],"description":"Replaced stream configuration for production event delivery"}; // 
-const result = await apiInstance.setStreamConfigurationV1({ replacestreamconfigurationrequest: replacestreamconfigurationrequest });
+const replaceStreamConfigurationRequest: ReplaceStreamConfigurationRequest = {
+  "delivery" : {
+    "method" : "urn:ietf:rfc:8935",
+    "endpoint_url" : "https://receiver.example.com/ssf/events",
+    "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+  },
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "description" : "Production event stream",
+  "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+}; // 
+const result = await apiInstance.setStreamConfigurationV1({ replaceStreamConfigurationRequest: replaceStreamConfigurationRequest });
 console.log(result);
 ```
 
@@ -356,11 +376,11 @@ The associated stream with the client ID (through the request OAuth 2.0 access t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**updatestreamconfigurationrequest** | `Updatestreamconfigurationrequest` |  | 
+**updateStreamConfigurationRequest** | `UpdateStreamConfigurationRequest` |  | 
 
 ### Return type
 
-`Updatestreamconfigresponse`
+`UpdateStreamConfigResponse`
 
 ### HTTP request headers
 
@@ -372,12 +392,21 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Updatestreamconfigurationrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { UpdateStreamConfigurationRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
-const updatestreamconfigurationrequest: Updatestreamconfigurationrequest = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","description":"Updated production event stream configuration"}; // 
-const result = await apiInstance.updateStreamConfigurationV1({ updatestreamconfigurationrequest: updatestreamconfigurationrequest });
+const updateStreamConfigurationRequest: UpdateStreamConfigurationRequest = {
+  "delivery" : {
+    "method" : "urn:ietf:rfc:8935",
+    "endpoint_url" : "https://receiver.example.com/ssf/events",
+    "authorization_header" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..."
+  },
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "description" : "Updated production event stream configuration",
+  "events_requested" : [ "https://schemas.openid.net/secevent/caep/event-type/session-revoked" ]
+}; // 
+const result = await apiInstance.updateStreamConfigurationV1({ updateStreamConfigurationRequest: updateStreamConfigurationRequest });
 console.log(result);
 ```
 
@@ -394,11 +423,11 @@ Updates the operational status (enabled, paused, disabled) with an optional reas
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**updatestreamstatusrequest** | `Updatestreamstatusrequest` |  | 
+**updateStreamStatusRequest** | `UpdateStreamStatusRequest` |  | 
 
 ### Return type
 
-`Streamstatusresponse`
+`StreamStatusResponse`
 
 ### HTTP request headers
 
@@ -410,12 +439,16 @@ Name | Type | Description  | Notes
 ```typescript
 import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Updatestreamstatusrequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { UpdateStreamStatusRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
-const updatestreamstatusrequest: Updatestreamstatusrequest = {"stream_id":"550e8400-e29b-41d4-a716-446655440000","status":"paused","reason":"manually paused"}; // 
-const result = await apiInstance.updateStreamStatusV1({ updatestreamstatusrequest: updatestreamstatusrequest });
+const updateStreamStatusRequest: UpdateStreamStatusRequest = {
+  "reason" : "manually paused",
+  "stream_id" : "550e8400-e29b-41d4-a716-446655440000",
+  "status" : "paused"
+}; // 
+const result = await apiInstance.updateStreamStatusV1({ updateStreamStatusRequest: updateStreamStatusRequest });
 console.log(result);
 ```
 

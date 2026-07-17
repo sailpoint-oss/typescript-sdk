@@ -48,12 +48,12 @@ The maximum supported length for the description field is 2000 characters.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**machineidentityrequest** | `Machineidentityrequest` |  | 
+**machineIdentityRequest** | `MachineIdentityRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Machineidentityresponse`
+`MachineIdentityResponse`
 
 ### HTTP request headers
 
@@ -65,13 +65,43 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineIdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Machineidentityrequest } from 'sailpoint-api-client/dist/machine_identities/api';
+import { MachineIdentityRequest } from 'sailpoint-api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
-const machineidentityrequest: Machineidentityrequest = ; // 
+const machineIdentityRequest: MachineIdentityRequest = {
+  "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+  "subtype" : "Application",
+  "created" : "2015-05-28T14:07:17Z",
+  "userEntitlements" : [ {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+  }, {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa"
+  } ],
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "description" : "",
+  "attributes" : "{\"Region\":\"EU\"}",
+  "owners" : {
+    "primaryIdentity" : "{}",
+    "secondaryIdentities" : [ {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }, {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    } ]
+  },
+  "id" : "id12345",
+  "uuid" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+  "nativeIdentity" : "abc:123:dddd"
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.createMachineIdentityV1({ machineidentityrequest: machineidentityrequest });
+const result = await apiInstance.createMachineIdentityV1({ machineIdentityRequest: machineIdentityRequest });
 console.log(result);
 ```
 
@@ -108,7 +138,90 @@ import { Machineidentityv2 } from 'sailpoint-api-client/dist/machine_identities/
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
-const machineidentityv2: Machineidentityv2 = ; // 
+const machineidentityv2: Machineidentityv2 = {
+  "sourceId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+  "resource" : {
+    "features" : [ "PROVISIONING", "AUTHENTICATION" ],
+    "name" : "nightly-batch-role",
+    "id" : "8886e5e3-63d0-462f-a195-d98da885b8dc",
+    "type" : "aws:iam-role"
+  },
+  "created" : "2015-05-28T14:07:17Z",
+  "connectorAttributes" : {
+    "objectguid" : "abc-123"
+  },
+  "description" : "Service account for nightly batch jobs",
+  "owners" : {
+    "secondary" : [ {
+      "id" : "2c9180858082150f0180893dbaf44202",
+      "name" : "Jane Doe",
+      "type" : "IDENTITY"
+    } ],
+    "primary" : {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }
+  },
+  "source" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "uuid" : "f5dd23fe-3414-42b7-bb1c-869400ad7a10",
+  "nativeIdentity" : "abc:123:dddd",
+  "effectiveSanctionedStatus" : "SANCTIONED",
+  "environment" : "PRODUCTION",
+  "subtype" : "AI_AGENT",
+  "businessApplicationRefs" : [ {
+    "name" : "Cursor",
+    "correlationType" : "MANUAL",
+    "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "type" : "BUSINESS_APPLICATION",
+    "sanctionedStatus" : "SANCTIONED"
+  }, {
+    "name" : "Cursor",
+    "correlationType" : "MANUAL",
+    "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "type" : "BUSINESS_APPLICATION",
+    "sanctionedStatus" : "SANCTIONED"
+  } ],
+  "userEntitlements" : [ {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "displayName" : "Entitlement Name",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+    "source" : {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }
+  }, {
+    "sourceId" : "5898b7c1-620c-49c6-cccc-cbf81eb4bddd",
+    "displayName" : "Entitlement Name",
+    "entitlementId" : "6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa",
+    "source" : {
+      "name" : "William Wilson",
+      "id" : "2c91808568c529c60168cca6f90c1313",
+      "type" : "IDENTITY"
+    }
+  } ],
+  "name" : "aName",
+  "modified" : "2015-05-28T14:07:17Z",
+  "datasetId" : "8886e5e3-63d0-462f-a195-d98da885b8dc",
+  "attributes" : {
+    "privilegeLevel" : "HIGH",
+    "region" : "APAC"
+  },
+  "risk" : {
+    "severity" : "HIGH",
+    "score" : 72.5
+  },
+  "id" : "id12345",
+  "manuallyEdited" : true,
+  "manuallyCreated" : true,
+  "existsOnSource" : "TRUE",
+  "status" : "ACTIVE"
+}; // 
 const result = await apiInstance.createMachineIdentityV2({ machineidentityv2: machineidentityv2 });
 console.log(result);
 ```
@@ -254,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Machineidentityresponse`
+`MachineIdentityResponse`
 
 ### HTTP request headers
 
@@ -331,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Correlationconfig`
+`CorrelationConfig`
 
 ### HTTP request headers
 
@@ -378,7 +491,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Machineidentityresponse>`
+`Array<MachineIdentityResponse>`
 
 ### HTTP request headers
 
@@ -473,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Machineidentityuserentitlementresponse>`
+`Array<MachineIdentityUserEntitlementResponse>`
 
 ### HTTP request headers
 
@@ -520,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Array<Correlationconfig>`
+`Array<CorrelationConfig>`
 
 ### HTTP request headers
 
@@ -561,11 +674,11 @@ Name | Type | Description  | Notes
 **sourceId** | `string` | The Source ID. |  [default to undefined]
 **resourceId** | `string` | The source resource ID (for example, account or aws:iam-role). |  [default to undefined]
 **configId** | `string` | The correlation config ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | The JSONPatch payload used to update the correlation config. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the correlation config. | 
 
 ### Return type
 
-`Correlationconfig`
+`CorrelationConfig`
 
 ### HTTP request headers
 
@@ -577,15 +690,19 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineIdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/machine_identities/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
 const resourceId: string = aws:iam-role; // The source resource ID (for example, account or aws:iam-role).
 const configId: string = f5dd23fe-3414-42b7-bb1c-869400ad7a10; // The correlation config ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"replace","path":"/attributes","value":{"syncPrimaryToMachineAccounts":true}}]; // The JSONPatch payload used to update the correlation config.
-const result = await apiInstance.patchOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the correlation config.
+const result = await apiInstance.patchOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 
@@ -606,12 +723,12 @@ Starts a machine identity (AI Agents) aggregation on the specified source.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **sourceId** | `string` | Source ID. |  [default to undefined]
-**machineidentityaggregationrequest** | `Machineidentityaggregationrequest` |  | 
+**machineIdentityAggregationRequest** | `MachineIdentityAggregationRequest` |  | 
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
-`Machineidentityaggregationresponse`
+`MachineIdentityAggregationResponse`
 
 ### HTTP request headers
 
@@ -623,14 +740,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineIdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Machineidentityaggregationrequest } from 'sailpoint-api-client/dist/machine_identities/api';
+import { MachineIdentityAggregationRequest } from 'sailpoint-api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
 const sourceId: string = ef38f94347e94562b5bb8424a56397d8; // Source ID.
-const machineidentityaggregationrequest: Machineidentityaggregationrequest = ; // 
+const machineIdentityAggregationRequest: MachineIdentityAggregationRequest = {
+  "datasetIds" : [ "source:datasetId12345", "source:datasetId12345" ],
+  "disableOptimization" : false
+}; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
-const result = await apiInstance.startMachineIdentityAggregationV1({ sourceId: sourceId, machineidentityaggregationrequest: machineidentityaggregationrequest });
+const result = await apiInstance.startMachineIdentityAggregationV1({ sourceId: sourceId, machineIdentityAggregationRequest: machineIdentityAggregationRequest });
 console.log(result);
 ```
 
@@ -657,7 +777,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-`Machineidentityresponse`
+`MachineIdentityResponse`
 
 ### HTTP request headers
 
@@ -696,7 +816,7 @@ Patchable fields include **name**, **description**, **nativeIdentity**, **subtyp
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Machine Identity ID. |  [default to undefined]
-**jsonpatchoperation** | `Array<Jsonpatchoperation>` | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
 
 ### Return type
 
@@ -712,13 +832,17 @@ Name | Type | Description  | Notes
 ```typescript
 import { MachineIdentitiesApi } from 'sailpoint-api-client';
 import { Configuration } from 'sailpoint-api-client';
-import { Jsonpatchoperation } from 'sailpoint-api-client/dist/machine_identities/api';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Machine Identity ID.
-const jsonpatchoperation: Array<Jsonpatchoperation> = [{"op":"add","path":"/attributes/securityRisk","value":"medium"}]; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-const result = await apiInstance.updateMachineIdentityV2({ id: id, jsonpatchoperation: jsonpatchoperation });
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const result = await apiInstance.updateMachineIdentityV2({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

@@ -26,30 +26,30 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface Custompasswordinstruction
+ * @interface CustomPasswordInstruction
  */
-export interface Custompasswordinstruction {
+export interface CustomPasswordInstruction {
     /**
      * The page ID that represents the page for forget user name, reset password and unlock account flow.
      * @type {string}
-     * @memberof Custompasswordinstruction
+     * @memberof CustomPasswordInstruction
      */
-    'pageId'?: CustompasswordinstructionPageIdEnum;
+    'pageId'?: CustomPasswordInstructionPageIdEnum;
     /**
      * The custom instructions for the specified page. Allow basic HTML format and maximum length is 1000 characters. The custom instructions will be sanitized to avoid attacks. If the customization text includes a link, like `<A HREF=\\\"URL\\\">...</A>` clicking on this will open the link on the current browser page. If you want your link to be redirected to a different page, please redirect it to \"_blank\" like this: `<a href=\\\"URL\" target=\\\"_blank\\\" >link</a>`. This will open a new tab when the link is clicked. Notice we\'re only supporting _blank as the redirection target. 
      * @type {string}
-     * @memberof Custompasswordinstruction
+     * @memberof CustomPasswordInstruction
      */
     'pageContent'?: string;
     /**
      * The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\".
      * @type {string}
-     * @memberof Custompasswordinstruction
+     * @memberof CustomPasswordInstruction
      */
     'locale'?: string;
 }
 
-export const CustompasswordinstructionPageIdEnum = {
+export const CustomPasswordInstructionPageIdEnum = {
     ChangePasswordEnterPassword: 'change-password:enter-password',
     ChangePasswordFinish: 'change-password:finish',
     FlowSelectionSelect: 'flow-selection:select',
@@ -64,30 +64,30 @@ export const CustompasswordinstructionPageIdEnum = {
     UnlockAccountFinish: 'unlock-account:finish'
 } as const;
 
-export type CustompasswordinstructionPageIdEnum = typeof CustompasswordinstructionPageIdEnum[keyof typeof CustompasswordinstructionPageIdEnum];
+export type CustomPasswordInstructionPageIdEnum = typeof CustomPasswordInstructionPageIdEnum[keyof typeof CustomPasswordInstructionPageIdEnum];
 
 /**
  * 
  * @export
- * @interface Errormessagedto
+ * @interface ErrorMessageDto
  */
-export interface Errormessagedto {
+export interface ErrorMessageDto {
     /**
      * The locale for the message text, a BCP 47 language tag.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'locale'?: string | null;
     /**
      * 
-     * @type {Localeorigin}
-     * @memberof Errormessagedto
+     * @type {LocaleOrigin}
+     * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: Localeorigin | null;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
-     * @memberof Errormessagedto
+     * @memberof ErrorMessageDto
      */
     'text'?: string;
 }
@@ -96,33 +96,33 @@ export interface Errormessagedto {
 /**
  * 
  * @export
- * @interface Errorresponsedto
+ * @interface ErrorResponseDto
  */
-export interface Errorresponsedto {
+export interface ErrorResponseDto {
     /**
      * Fine-grained error code providing more detail of the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'detailCode'?: string;
     /**
      * Unique tracking id for the error.
      * @type {string}
-     * @memberof Errorresponsedto
+     * @memberof ErrorResponseDto
      */
     'trackingId'?: string;
     /**
      * Generic localized reason for error
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'messages'?: Array<Errormessagedto>;
+    'messages'?: Array<ErrorMessageDto>;
     /**
      * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
-     * @type {Array<Errormessagedto>}
-     * @memberof Errorresponsedto
+     * @type {Array<ErrorMessageDto>}
+     * @memberof ErrorResponseDto
      */
-    'causes'?: Array<Errormessagedto>;
+    'causes'?: Array<ErrorMessageDto>;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -130,12 +130,12 @@ export interface Errorresponsedto {
  * @enum {string}
  */
 
-export const Localeorigin = {
+export const LocaleOrigin = {
     Default: 'DEFAULT',
     Request: 'REQUEST'
 } as const;
 
-export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
+export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 
@@ -146,16 +146,16 @@ export type Localeorigin = typeof Localeorigin[keyof typeof Localeorigin];
 export const CustomPasswordInstructionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API creates the custom password instructions for the specified page ID.
+         * This API creates the custom password instructions for the specified page ID.  The `pageId` determines which login and password-recovery screen your custom instructions appear on. The following table describes each supported page ID and where its text is displayed:  | Page ID | Where the custom text appears | | --- | --- | | `flow-selection:select` | Flow-selection landing screen, under \"Need help signing in?\", above the navigation links. | | `reset-password:enter-username` | Reset-password \"enter username\" step, under the prompt, above the username field. | | `unlock-account:enter-username` | Unlock-account \"enter username\" step, under the prompt, above the username field. | | `forget-username:user-email` | Forgot-username screen, under \"Enter the email address for\", above the email field. | | `reset-password:enter-password` | Reset-password \"new password\" step, under the header, above the password fields. | | `change-password:enter-password` | Same \"new password\" screen, but the authenticated app/sync-group change variant. | | `reset-password:finish` | Reset-password success screen, under the success icon/heading, above the return button. | | `change-password:finish` | Success screen for the authenticated app/sync-group change, under the heading. | | `mfa:select` | MFA method-selection step, under the prompt, above the list of MFA options. | | `mfa:enter-code` | MFA code-entry step, under the option label, above the code field. | | `mfa:enter-kba` | KBA step, under \"Please answer these security questions\", above the questions form. | | `unlock-account:finish` | Unlock-account success screen, under the success icon/heading, above the return button. |  In every case the text shows as an info-icon + paragraph block that only appears if custom text is configured for that page ID, positioned between the screen\'s built-in heading and its form controls. 
          * @summary Create custom password instructions
-         * @param {Custompasswordinstruction} custompasswordinstruction 
+         * @param {CustomPasswordInstruction} customPasswordInstruction 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomPasswordInstructionsV1: async (custompasswordinstruction: Custompasswordinstruction, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'custompasswordinstruction' is not null or undefined
-            assertParamExists('createCustomPasswordInstructionsV1', 'custompasswordinstruction', custompasswordinstruction)
+        createCustomPasswordInstructionsV1: async (customPasswordInstruction: CustomPasswordInstruction, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'customPasswordInstruction' is not null or undefined
+            assertParamExists('createCustomPasswordInstructionsV1', 'customPasswordInstruction', customPasswordInstruction)
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -182,7 +182,7 @@ export const CustomPasswordInstructionsApiAxiosParamCreator = function (configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(custompasswordinstruction, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(customPasswordInstruction, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -294,15 +294,15 @@ export const CustomPasswordInstructionsApiFp = function(configuration?: Configur
     const localVarAxiosParamCreator = CustomPasswordInstructionsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API creates the custom password instructions for the specified page ID.
+         * This API creates the custom password instructions for the specified page ID.  The `pageId` determines which login and password-recovery screen your custom instructions appear on. The following table describes each supported page ID and where its text is displayed:  | Page ID | Where the custom text appears | | --- | --- | | `flow-selection:select` | Flow-selection landing screen, under \"Need help signing in?\", above the navigation links. | | `reset-password:enter-username` | Reset-password \"enter username\" step, under the prompt, above the username field. | | `unlock-account:enter-username` | Unlock-account \"enter username\" step, under the prompt, above the username field. | | `forget-username:user-email` | Forgot-username screen, under \"Enter the email address for\", above the email field. | | `reset-password:enter-password` | Reset-password \"new password\" step, under the header, above the password fields. | | `change-password:enter-password` | Same \"new password\" screen, but the authenticated app/sync-group change variant. | | `reset-password:finish` | Reset-password success screen, under the success icon/heading, above the return button. | | `change-password:finish` | Success screen for the authenticated app/sync-group change, under the heading. | | `mfa:select` | MFA method-selection step, under the prompt, above the list of MFA options. | | `mfa:enter-code` | MFA code-entry step, under the option label, above the code field. | | `mfa:enter-kba` | KBA step, under \"Please answer these security questions\", above the questions form. | | `unlock-account:finish` | Unlock-account success screen, under the success icon/heading, above the return button. |  In every case the text shows as an info-icon + paragraph block that only appears if custom text is configured for that page ID, positioned between the screen\'s built-in heading and its form controls. 
          * @summary Create custom password instructions
-         * @param {Custompasswordinstruction} custompasswordinstruction 
+         * @param {CustomPasswordInstruction} customPasswordInstruction 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomPasswordInstructionsV1(custompasswordinstruction: Custompasswordinstruction, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Custompasswordinstruction>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPasswordInstructionsV1(custompasswordinstruction, xSailPointExperimental, axiosOptions);
+        async createCustomPasswordInstructionsV1(customPasswordInstruction: CustomPasswordInstruction, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstruction>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPasswordInstructionsV1(customPasswordInstruction, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsApi.createCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -331,7 +331,7 @@ export const CustomPasswordInstructionsApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomPasswordInstructionsV1(pageId: GetCustomPasswordInstructionsV1PageIdEnum, locale?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Custompasswordinstruction>> {
+        async getCustomPasswordInstructionsV1(pageId: GetCustomPasswordInstructionsV1PageIdEnum, locale?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstruction>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomPasswordInstructionsV1(pageId, locale, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomPasswordInstructionsApi.getCustomPasswordInstructionsV1']?.[localVarOperationServerIndex]?.url;
@@ -348,14 +348,14 @@ export const CustomPasswordInstructionsApiFactory = function (configuration?: Co
     const localVarFp = CustomPasswordInstructionsApiFp(configuration)
     return {
         /**
-         * This API creates the custom password instructions for the specified page ID.
+         * This API creates the custom password instructions for the specified page ID.  The `pageId` determines which login and password-recovery screen your custom instructions appear on. The following table describes each supported page ID and where its text is displayed:  | Page ID | Where the custom text appears | | --- | --- | | `flow-selection:select` | Flow-selection landing screen, under \"Need help signing in?\", above the navigation links. | | `reset-password:enter-username` | Reset-password \"enter username\" step, under the prompt, above the username field. | | `unlock-account:enter-username` | Unlock-account \"enter username\" step, under the prompt, above the username field. | | `forget-username:user-email` | Forgot-username screen, under \"Enter the email address for\", above the email field. | | `reset-password:enter-password` | Reset-password \"new password\" step, under the header, above the password fields. | | `change-password:enter-password` | Same \"new password\" screen, but the authenticated app/sync-group change variant. | | `reset-password:finish` | Reset-password success screen, under the success icon/heading, above the return button. | | `change-password:finish` | Success screen for the authenticated app/sync-group change, under the heading. | | `mfa:select` | MFA method-selection step, under the prompt, above the list of MFA options. | | `mfa:enter-code` | MFA code-entry step, under the option label, above the code field. | | `mfa:enter-kba` | KBA step, under \"Please answer these security questions\", above the questions form. | | `unlock-account:finish` | Unlock-account success screen, under the success icon/heading, above the return button. |  In every case the text shows as an info-icon + paragraph block that only appears if custom text is configured for that page ID, positioned between the screen\'s built-in heading and its form controls. 
          * @summary Create custom password instructions
          * @param {CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Custompasswordinstruction> {
-            return localVarFp.createCustomPasswordInstructionsV1(requestParameters.custompasswordinstruction, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        createCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CustomPasswordInstruction> {
+            return localVarFp.createCustomPasswordInstructionsV1(requestParameters.customPasswordInstruction, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API delete the custom password instructions for the specified page ID.
@@ -374,7 +374,7 @@ export const CustomPasswordInstructionsApiFactory = function (configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Custompasswordinstruction> {
+        getCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CustomPasswordInstruction> {
             return localVarFp.getCustomPasswordInstructionsV1(requestParameters.pageId, requestParameters.locale, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
@@ -388,10 +388,10 @@ export const CustomPasswordInstructionsApiFactory = function (configuration?: Co
 export interface CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request {
     /**
      * 
-     * @type {Custompasswordinstruction}
+     * @type {CustomPasswordInstruction}
      * @memberof CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1
      */
-    readonly custompasswordinstruction: Custompasswordinstruction
+    readonly customPasswordInstruction: CustomPasswordInstruction
 
     /**
      * Use this header to enable this experimental API.
@@ -465,7 +465,7 @@ export interface CustomPasswordInstructionsApiGetCustomPasswordInstructionsV1Req
  */
 export class CustomPasswordInstructionsApi extends BaseAPI {
     /**
-     * This API creates the custom password instructions for the specified page ID.
+     * This API creates the custom password instructions for the specified page ID.  The `pageId` determines which login and password-recovery screen your custom instructions appear on. The following table describes each supported page ID and where its text is displayed:  | Page ID | Where the custom text appears | | --- | --- | | `flow-selection:select` | Flow-selection landing screen, under \"Need help signing in?\", above the navigation links. | | `reset-password:enter-username` | Reset-password \"enter username\" step, under the prompt, above the username field. | | `unlock-account:enter-username` | Unlock-account \"enter username\" step, under the prompt, above the username field. | | `forget-username:user-email` | Forgot-username screen, under \"Enter the email address for\", above the email field. | | `reset-password:enter-password` | Reset-password \"new password\" step, under the header, above the password fields. | | `change-password:enter-password` | Same \"new password\" screen, but the authenticated app/sync-group change variant. | | `reset-password:finish` | Reset-password success screen, under the success icon/heading, above the return button. | | `change-password:finish` | Success screen for the authenticated app/sync-group change, under the heading. | | `mfa:select` | MFA method-selection step, under the prompt, above the list of MFA options. | | `mfa:enter-code` | MFA code-entry step, under the option label, above the code field. | | `mfa:enter-kba` | KBA step, under \"Please answer these security questions\", above the questions form. | | `unlock-account:finish` | Unlock-account success screen, under the success icon/heading, above the return button. |  In every case the text shows as an info-icon + paragraph block that only appears if custom text is configured for that page ID, positioned between the screen\'s built-in heading and its form controls. 
      * @summary Create custom password instructions
      * @param {CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -473,7 +473,7 @@ export class CustomPasswordInstructionsApi extends BaseAPI {
      * @memberof CustomPasswordInstructionsApi
      */
     public createCustomPasswordInstructionsV1(requestParameters: CustomPasswordInstructionsApiCreateCustomPasswordInstructionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomPasswordInstructionsApiFp(this.configuration).createCustomPasswordInstructionsV1(requestParameters.custompasswordinstruction, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CustomPasswordInstructionsApiFp(this.configuration).createCustomPasswordInstructionsV1(requestParameters.customPasswordInstruction, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
