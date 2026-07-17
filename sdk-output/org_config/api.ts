@@ -233,6 +233,12 @@ export interface Orgconfig {
      */
     'iaiEnableCertificationRecommendations'?: boolean;
     /**
+     * Org opt-in flag that enables AI Agent delete-at-source lifecycle requests for the current org.
+     * @type {boolean}
+     * @memberof Orgconfig
+     */
+    'aiAgentDeleteRequestEnabled'?: boolean | null;
+    /**
      * 
      * @type {Array<Reportconfigdto>}
      * @memberof Orgconfig
