@@ -1131,7 +1131,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/docs/api/disable-account-v-1) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -1718,7 +1718,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/docs/api/disable-account-v-1) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -1943,7 +1943,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.deleteAccountAsyncV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/docs/api/disable-account-v-1) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete account
          * @param {AccountsApiDeleteAccountV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2432,7 +2432,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/docs/api/disable-account-v-1) rather than delete them. This will also allow you to reenable the accounts in the future.  >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
      * @summary Delete account
      * @param {AccountsApiDeleteAccountV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

@@ -126,7 +126,7 @@ export type AccessItemRequesterDtoTypeEnum = typeof AccessItemRequesterDtoTypeEn
  */
 export interface AccessRequestDynamicApprover {
     /**
-     * The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request. 
+     * The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/docs/api/list-access-request-status-v-1) to get the status of the request. 
      * @type {string}
      * @memberof AccessRequestDynamicApprover
      */

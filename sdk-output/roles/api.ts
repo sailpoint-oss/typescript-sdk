@@ -1617,7 +1617,7 @@ export interface RoleMetadataBulkUpdateByIdRequestValuesInner {
     'values': Array<string> | null;
 }
 /**
- * Bulk update by query request of Role metadata. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed. For more information about the query could refer to  [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post)
+ * Bulk update by query request of Role metadata. The maximum meta data values that one single role assigned can not exceed 25. Custom metadata need suit licensed. For more information about the query could refer to  [V3 API Perform Search](https://developer.sailpoint.com/docs/api/search-post-v-1)
  * @export
  * @interface RoleMetadataBulkUpdateByQueryRequest
  */
@@ -1757,7 +1757,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete role(s)
          * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -2445,7 +2445,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete role(s)
          * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -2689,7 +2689,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.createRoleV1(requestParameters.role, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete role(s)
          * @param {RolesApiDeleteBulkRolesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -3280,7 +3280,7 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
-     * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
+     * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A user with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
      * @summary Delete role(s)
      * @param {RolesApiDeleteBulkRolesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

@@ -1396,7 +1396,7 @@ export const IdentitiesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
+         * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
          * @summary Get ownership details
          * @param {string} identityId Identity ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -1737,7 +1737,7 @@ export const IdentitiesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status). 
+         * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1). 
          * @summary Invite identities to register
          * @param {InviteIdentitiesRequest} inviteIdentitiesRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
@@ -1891,7 +1891,7 @@ export const IdentitiesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
+         * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
          * @summary Get ownership details
          * @param {string} identityId Identity ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -2008,7 +2008,7 @@ export const IdentitiesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status). 
+         * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1). 
          * @summary Invite identities to register
          * @param {InviteIdentitiesRequest} inviteIdentitiesRequest 
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
@@ -2070,7 +2070,7 @@ export const IdentitiesApiFactory = function (configuration?: Configuration, bas
             return localVarFp.deleteIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
+         * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
          * @summary Get ownership details
          * @param {IdentitiesApiGetIdentityOwnershipDetailsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2150,7 +2150,7 @@ export const IdentitiesApiFactory = function (configuration?: Configuration, bas
             return localVarFp.sendIdentityVerificationAccountTokenV1(requestParameters.id, requestParameters.sendAccountVerificationRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status). 
+         * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1). 
          * @summary Invite identities to register
          * @param {IdentitiesApiStartIdentitiesInviteV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2489,7 +2489,7 @@ export class IdentitiesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
+     * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
      * @summary Get ownership details
      * @param {IdentitiesApiGetIdentityOwnershipDetailsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2585,7 +2585,7 @@ export class IdentitiesApi extends BaseAPI {
     }
 
     /**
-     * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status). 
+     * This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.  This task will send an invitation email only for unregistered identities.  The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1). 
      * @summary Invite identities to register
      * @param {IdentitiesApiStartIdentitiesInviteV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

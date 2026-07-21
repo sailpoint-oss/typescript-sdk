@@ -282,6 +282,319 @@ export interface JitActivationExtendResponse {
 
 
 /**
+ * A single JIT activation history record.
+ * @export
+ * @interface Jitactivationhistorydocument
+ */
+export interface Jitactivationhistorydocument {
+    /**
+     * Unique identifier of the activation record.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'id'?: string;
+    /**
+     * Tenant (pod/org) identifier.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'tenantId'?: string;
+    /**
+     * Identifier of the identity that requested activation.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'identityId'?: string;
+    /**
+     * Identifier of the account on which the entitlement was provisioned.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'accountId'?: string;
+    /**
+     * Identifier of the entitlement that was activated.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'entitlementId'?: string;
+    /**
+     * Identifier of the source that owns the entitlement.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'sourceId'?: string;
+    /**
+     * Identifier of the entitlement connection used for this activation.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'connectionId'?: string;
+    /**
+     * Display name of the identity.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'identityName'?: string;
+    /**
+     * Display name of the entitlement.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'entitlementName'?: string;
+    /**
+     * Display name of the source.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'sourceDisplayName'?: string;
+    /**
+     * Display names of the JIT policies that matched this activation.
+     * @type {Array<string>}
+     * @memberof Jitactivationhistorydocument
+     */
+    'policyDisplayNames'?: Array<string>;
+    /**
+     * Current or final status of the activation workflow. Possible values: ACTIVATING, AWAITING_FRICTIONS, PROVISIONING, PROVISIONED, DEPROVISIONING, COMPLETE, CANCELLED, ERROR, TIMED_OUT, REVOKED.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'status'?: string;
+    /**
+     * Error message if the activation ended in an ERROR state.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'error'?: string | null;
+    /**
+     * Outcome of policy friction evaluation (e.g. SUCCESS_ENFORCED, BYPASSED).
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'policyFrictionOutcome'?: string | null;
+    /**
+     * UUIDs of the policy records that matched this activation.
+     * @type {Array<string>}
+     * @memberof Jitactivationhistorydocument
+     */
+    'policyMatchDetails'?: Array<string> | null;
+    /**
+     * Timestamp when the activation was initiated.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'activationInitiated'?: string | null;
+    /**
+     * Timestamp when provisioning started.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'provisionStart'?: string | null;
+    /**
+     * Timestamp when provisioning completed.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'provisionCompleted'?: string | null;
+    /**
+     * Timestamp when deprovisioning started.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'deprovisionStart'?: string | null;
+    /**
+     * Timestamp when deprovisioning completed.
+     * @type {string}
+     * @memberof Jitactivationhistorydocument
+     */
+    'deprovisionComplete'?: string | null;
+    /**
+     * Duration of the provisioning phase in minutes.
+     * @type {number}
+     * @memberof Jitactivationhistorydocument
+     */
+    'provisionDurationMins'?: number | null;
+    /**
+     * Duration of the deprovisioning phase in minutes.
+     * @type {number}
+     * @memberof Jitactivationhistorydocument
+     */
+    'deprovisionDurationMins'?: number | null;
+    /**
+     * 
+     * @type {JitactivationhistorydocumentSummary}
+     * @memberof Jitactivationhistorydocument
+     */
+    'summary'?: JitactivationhistorydocumentSummary | null;
+    /**
+     * Individual friction items presented to the user during activation (e.g. TICKET, JUSTIFICATION, REAUTH). Null when no friction was evaluated.
+     * @type {Array<JitactivationhistorydocumentFrictionsInner>}
+     * @memberof Jitactivationhistorydocument
+     */
+    'frictions'?: Array<JitactivationhistorydocumentFrictionsInner> | null;
+    /**
+     * Additional structured metadata about the activation. Shape is subject to change.
+     * @type {{ [key: string]: any; }}
+     * @memberof Jitactivationhistorydocument
+     */
+    'activationDetails'?: { [key: string]: any; } | null;
+    /**
+     * Duration breakdown of the full activation lifecycle. Shape is subject to change.
+     * @type {{ [key: string]: any; }}
+     * @memberof Jitactivationhistorydocument
+     */
+    'activationDuration'?: { [key: string]: any; } | null;
+    /**
+     * Low-level provisioning operation detail. Shape is subject to change.
+     * @type {{ [key: string]: any; }}
+     * @memberof Jitactivationhistorydocument
+     */
+    'provisioningDetails'?: { [key: string]: any; } | null;
+}
+/**
+ * 
+ * @export
+ * @interface JitactivationhistorydocumentFrictionsInner
+ */
+export interface JitactivationhistorydocumentFrictionsInner {
+    /**
+     * Type of friction control.
+     * @type {string}
+     * @memberof JitactivationhistorydocumentFrictionsInner
+     */
+    'type'?: string;
+    /**
+     * Whether the user had permission to bypass this friction.
+     * @type {boolean}
+     * @memberof JitactivationhistorydocumentFrictionsInner
+     */
+    'bypassAllowed'?: boolean;
+    /**
+     * Data submitted by the user to satisfy this friction (e.g. ticket ID, justification text).
+     * @type {string}
+     * @memberof JitactivationhistorydocumentFrictionsInner
+     */
+    'submittedData'?: string | null;
+    /**
+     * Completion status of this friction item.
+     * @type {string}
+     * @memberof JitactivationhistorydocumentFrictionsInner
+     */
+    'status'?: string;
+}
+/**
+ * High-level friction summary for the activation, including policy matches, reauthentication, justification, and ticket details. Null when no policy was matched or frictions were not evaluated.
+ * @export
+ * @interface JitactivationhistorydocumentSummary
+ */
+export interface JitactivationhistorydocumentSummary {
+    /**
+     * List of policies that matched during activation evaluation.
+     * @type {Array<JitactivationhistorydocumentSummaryPolicyMatchesInner>}
+     * @memberof JitactivationhistorydocumentSummary
+     */
+    'policyMatches'?: Array<JitactivationhistorydocumentSummaryPolicyMatchesInner>;
+    /**
+     * 
+     * @type {JitactivationhistorydocumentSummaryReauthentication}
+     * @memberof JitactivationhistorydocumentSummary
+     */
+    'reauthentication'?: JitactivationhistorydocumentSummaryReauthentication | null;
+    /**
+     * 
+     * @type {JitactivationhistorydocumentSummaryJustification}
+     * @memberof JitactivationhistorydocumentSummary
+     */
+    'justification'?: JitactivationhistorydocumentSummaryJustification | null;
+    /**
+     * 
+     * @type {JitactivationhistorydocumentSummaryServiceNowTicket}
+     * @memberof JitactivationhistorydocumentSummary
+     */
+    'serviceNowTicket'?: JitactivationhistorydocumentSummaryServiceNowTicket | null;
+}
+/**
+ * Justification friction details.
+ * @export
+ * @interface JitactivationhistorydocumentSummaryJustification
+ */
+export interface JitactivationhistorydocumentSummaryJustification {
+    /**
+     * Whether a justification was required for this activation.
+     * @type {boolean}
+     * @memberof JitactivationhistorydocumentSummaryJustification
+     */
+    'required'?: boolean;
+    /**
+     * Whether the justification requirement was bypassed.
+     * @type {boolean}
+     * @memberof JitactivationhistorydocumentSummaryJustification
+     */
+    'bypassed'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface JitactivationhistorydocumentSummaryPolicyMatchesInner
+ */
+export interface JitactivationhistorydocumentSummaryPolicyMatchesInner {
+    /**
+     * UUID of the matched policy.
+     * @type {string}
+     * @memberof JitactivationhistorydocumentSummaryPolicyMatchesInner
+     */
+    'policyId'?: string;
+    /**
+     * Display name of the matched policy.
+     * @type {string}
+     * @memberof JitactivationhistorydocumentSummaryPolicyMatchesInner
+     */
+    'policyName'?: string;
+}
+/**
+ * Reauthentication friction details.
+ * @export
+ * @interface JitactivationhistorydocumentSummaryReauthentication
+ */
+export interface JitactivationhistorydocumentSummaryReauthentication {
+    /**
+     * Whether reauthentication was required for this activation.
+     * @type {boolean}
+     * @memberof JitactivationhistorydocumentSummaryReauthentication
+     */
+    'required'?: boolean;
+    /**
+     * Whether the reauthentication requirement was bypassed.
+     * @type {boolean}
+     * @memberof JitactivationhistorydocumentSummaryReauthentication
+     */
+    'bypassed'?: boolean;
+}
+/**
+ * ServiceNow ticket friction details.
+ * @export
+ * @interface JitactivationhistorydocumentSummaryServiceNowTicket
+ */
+export interface JitactivationhistorydocumentSummaryServiceNowTicket {
+    /**
+     * Whether a ServiceNow ticket was required for this activation.
+     * @type {boolean}
+     * @memberof JitactivationhistorydocumentSummaryServiceNowTicket
+     */
+    'required'?: boolean;
+    /**
+     * Whether the ServiceNow ticket requirement was bypassed.
+     * @type {boolean}
+     * @memberof JitactivationhistorydocumentSummaryServiceNowTicket
+     */
+    'bypassed'?: boolean;
+    /**
+     * ServiceNow ticket reference submitted by the user.
+     * @type {string}
+     * @memberof JitactivationhistorydocumentSummaryServiceNowTicket
+     */
+    'ticketReference'?: string | null;
+}
+/**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
  * @enum {string}
@@ -328,6 +641,126 @@ export interface StartActivateWorkflowV1429Response {
  */
 export const JITActivationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+         * @summary List JIT activation history (self)
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
+         * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJitActivationHistoryForCurrentIdentityV1: async (limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/jit-activation-history/v1/current-identity`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (searchAfter !== undefined) {
+                localVarQueryParameter['searchAfter'] = searchAfter;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns JIT activation history records for the tenant.  This is the admin/operator view - it returns activations across all identities in the tenant. Requires `idn:jit-activation-history:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+         * @summary List JIT activation history (admin)
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
+         * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identityId**: *eq, in*  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJitActivationHistoryV1: async (limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/jit-activation-history/v1`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (searchAfter !== undefined) {
+                localVarQueryParameter['searchAfter'] = searchAfter;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
         /**
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
          * @summary Start JIT activation workflow
@@ -447,6 +880,42 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JITActivationsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+         * @summary List JIT activation history (self)
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
+         * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJitActivationHistoryForCurrentIdentityV1(limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Jitactivationhistorydocument>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJitActivationHistoryForCurrentIdentityV1(limit, offset, count, sorters, searchAfter, filters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.listJitActivationHistoryForCurrentIdentityV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns JIT activation history records for the tenant.  This is the admin/operator view - it returns activations across all identities in the tenant. Requires `idn:jit-activation-history:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+         * @summary List JIT activation history (admin)
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
+         * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identityId**: *eq, in*  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listJitActivationHistoryV1(limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Jitactivationhistorydocument>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJitActivationHistoryV1(limit, offset, count, sorters, searchAfter, filters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.listJitActivationHistoryV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
          * @summary Start JIT activation workflow
          * @param {JitActivationActivateRequest} jitActivationActivateRequest 
@@ -496,6 +965,26 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
     const localVarFp = JITActivationsApiFp(configuration)
     return {
         /**
+         * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+         * @summary List JIT activation history (self)
+         * @param {JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJitActivationHistoryForCurrentIdentityV1(requestParameters: JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Jitactivationhistorydocument>> {
+            return localVarFp.listJitActivationHistoryForCurrentIdentityV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns JIT activation history records for the tenant.  This is the admin/operator view - it returns activations across all identities in the tenant. Requires `idn:jit-activation-history:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+         * @summary List JIT activation history (admin)
+         * @param {JITActivationsApiListJitActivationHistoryV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listJitActivationHistoryV1(requestParameters: JITActivationsApiListJitActivationHistoryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Jitactivationhistorydocument>> {
+            return localVarFp.listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
          * @summary Start JIT activation workflow
          * @param {JITActivationsApiStartActivateWorkflowV1Request} requestParameters Request parameters.
@@ -527,6 +1016,104 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
         },
     };
 };
+
+/**
+ * Request parameters for listJitActivationHistoryForCurrentIdentityV1 operation in JITActivationsApi.
+ * @export
+ * @interface JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request
+ */
+export interface JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
+     */
+    readonly sorters?: string
+
+    /**
+     * Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
+     */
+    readonly searchAfter?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listJitActivationHistoryV1 operation in JITActivationsApi.
+ * @export
+ * @interface JITActivationsApiListJitActivationHistoryV1Request
+ */
+export interface JITActivationsApiListJitActivationHistoryV1Request {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof JITActivationsApiListJitActivationHistoryV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof JITActivationsApiListJitActivationHistoryV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof JITActivationsApiListJitActivationHistoryV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryV1
+     */
+    readonly sorters?: string
+
+    /**
+     * Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryV1
+     */
+    readonly searchAfter?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identityId**: *eq, in*  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryV1
+     */
+    readonly filters?: string
+}
 
 /**
  * Request parameters for startActivateWorkflowV1 operation in JITActivationsApi.
@@ -577,6 +1164,30 @@ export interface JITActivationsApiStartExtendWorkflowV1Request {
  * @extends {BaseAPI}
  */
 export class JITActivationsApi extends BaseAPI {
+    /**
+     * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+     * @summary List JIT activation history (self)
+     * @param {JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JITActivationsApi
+     */
+    public listJitActivationHistoryForCurrentIdentityV1(requestParameters: JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return JITActivationsApiFp(this.configuration).listJitActivationHistoryForCurrentIdentityV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns JIT activation history records for the tenant.  This is the admin/operator view - it returns activations across all identities in the tenant. Requires `idn:jit-activation-history:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
+     * @summary List JIT activation history (admin)
+     * @param {JITActivationsApiListJitActivationHistoryV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JITActivationsApi
+     */
+    public listJitActivationHistoryV1(requestParameters: JITActivationsApiListJitActivationHistoryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return JITActivationsApiFp(this.configuration).listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
      * @summary Start JIT activation workflow

@@ -1219,7 +1219,7 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
+         * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/docs/api/get-notification-template-v-1) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
          * @summary Create notification template
          * @param {TemplateDto} templateDto 
          * @param {*} [axiosOptions] Override http request option.
@@ -1821,7 +1821,7 @@ export const NotificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
+         * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/docs/api/get-notification-template-v-1) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
          * @summary Create notification template
          * @param {TemplateDto} templateDto 
          * @param {*} [axiosOptions] Override http request option.
@@ -2047,7 +2047,7 @@ export const NotificationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.createDomainDkimV1(requestParameters.domainAddress, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
+         * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/docs/api/get-notification-template-v-1) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
          * @summary Create notification template
          * @param {NotificationsApiCreateNotificationTemplateV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2512,7 +2512,7 @@ export class NotificationsApi extends BaseAPI {
     }
 
     /**
-     * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
+     * This will update notification templates that are available in your tenant.  Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/docs/api/get-notification-template-v-1) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready. 
      * @summary Create notification template
      * @param {NotificationsApiCreateNotificationTemplateV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

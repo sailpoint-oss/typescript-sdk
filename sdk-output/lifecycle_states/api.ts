@@ -401,7 +401,7 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
  */
 export interface SetLifecycleStateV1200Response {
     /**
-     * ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/v3/get-account-activity/). The response will contain relevant information about the IdentityRequest, such as its status.
+     * ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/get-account-activity-v-1). The response will contain relevant information about the IdentityRequest, such as its status.
      * @type {string}
      * @memberof SetLifecycleStateV1200Response
      */
