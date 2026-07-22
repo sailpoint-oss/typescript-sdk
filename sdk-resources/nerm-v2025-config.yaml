@@ -5,7 +5,7 @@ files:
     destinationFilename: package.json
 npmName: sailpoint-nerm-sdk
 npmRepository: sailpoint.com
-npmVersion: 2.1.2
+npmVersion: 2.1.3
 useSingleRequestParameter: true
 apiVersion: v2025
 enumNameSuffix: NermV2025
