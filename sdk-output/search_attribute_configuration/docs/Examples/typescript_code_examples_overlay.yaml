@@ -18,7 +18,6 @@
     "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
   }
 }; // SearchAttributeConfig | 
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.createSearchAttributeConfigV1({ searchAttributeConfig: searchAttributeConfig });
         console.log(result);
 - path: /accounts/v1/search-attribute-config/{name}
@@ -33,7 +32,6 @@
         const configuration = new Configuration();
         const apiInstance = new SearchAttributeConfigurationApi(configuration);
         const name: string = 'newMailAttribute'; // string | Name of the extended search attribute configuration to delete. (default to undefined)
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteSearchAttributeConfigV1({ name: name });
         console.log(result);
 - path: /accounts/v1/search-attribute-config
@@ -49,7 +47,6 @@
         const apiInstance = new SearchAttributeConfigurationApi(configuration);
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getSearchAttributeConfigV1({  });
         console.log(result);
 - path: /accounts/v1/search-attribute-config/{name}
@@ -64,7 +61,6 @@
         const configuration = new Configuration();
         const apiInstance = new SearchAttributeConfigurationApi(configuration);
         const name: string = 'newMailAttribute'; // string | Name of the extended search attribute configuration to get. (default to undefined)
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getSingleSearchAttributeConfigV1({ name: name });
         console.log(result);
 - path: /accounts/v1/search-attribute-config/{name}
@@ -85,6 +81,5 @@
   "path" : "/description",
   "value" : "New description"
 }; // Array<JsonPatchOperation> | 
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchSearchAttributeConfigV1({ name: name, jsonPatchOperation: jsonPatchOperation });
         console.log(result);

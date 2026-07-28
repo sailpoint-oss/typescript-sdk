@@ -10,7 +10,6 @@
         const configuration = new Configuration();
         const apiInstance = new IdentitiesApi(configuration);
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Identity Id (default to undefined)
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteIdentityV1({ id: id });
         console.log(result);
 - path: /identities/v1/{identityId}/ownership

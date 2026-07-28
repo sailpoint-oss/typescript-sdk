@@ -36,6 +36,9 @@ Method | HTTP request | Description
 
 
 ## approve-bulk-entitlement-recommendations-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Bulk approve entitlement recommendations
 Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
 
@@ -47,6 +50,7 @@ Approve multiple entitlement recommendations in a single request. Each item in t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **bulkApproveEntitlementRecommendationRequest** | `BulkApproveEntitlementRecommendationRequest` | The list of recommendation items to approve. | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -77,6 +81,7 @@ const bulkApproveEntitlementRecommendationRequest: BulkApproveEntitlementRecomme
     "privilegeLevel" : "high"
   } ]
 }; // The list of recommendation items to approve.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.approveBulkEntitlementRecommendationsV1({ bulkApproveEntitlementRecommendationRequest: bulkApproveEntitlementRecommendationRequest });
 console.log(result);
 ```
@@ -246,6 +251,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## list-pending-entitlement-recommendation-approvals-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 List pending entitlement recommendation approvals
 Returns a list of entitlement recommendations (SED and/or privilege) that are currently awaiting review or approval. Each record includes the recommendation type, entitlement details, and any AI-generated suggestions.
 
@@ -258,6 +266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -278,6 +287,7 @@ const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
 const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.listPendingEntitlementRecommendationApprovalsV1({  });
 console.log(result);
 ```
@@ -285,6 +295,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## list-privileged-entitlement-recommendations-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 List privileged entitlement recommendations
 Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
 
@@ -297,6 +310,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -317,6 +331,7 @@ const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
 const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.listPrivilegedEntitlementRecommendationsV1({  });
 console.log(result);
 ```
@@ -389,6 +404,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## patch-entitlement-recommendation-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Update an entitlement recommendation
 Partially update a single entitlement recommendation record by its ID. Use this endpoint to update the status, description, or privilege level of a specific SED or privilege recommendation.
 
@@ -401,6 +419,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The unique identifier of the entitlement recommendation to update. |  [default to undefined]
 **jsonPatchOperation** | `Array<JsonPatchOperation>` | The patch operations to apply to the entitlement recommendation record. | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -426,6 +445,7 @@ const jsonPatchOperation: Array<JsonPatchOperation> = {
   "path" : "/description",
   "value" : "New description"
 }; // The patch operations to apply to the entitlement recommendation record.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchEntitlementRecommendationV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
@@ -477,6 +497,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## submit-entitlement-recommendations-assignment-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Assign entitlement recommendations for review
 Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
 
@@ -488,6 +511,7 @@ Assign a set of entitlement recommendation records to a reviewer. The assignee c
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **entitlementRecommendationAssignRequest** | `EntitlementRecommendationAssignRequest` | The recommendation IDs and the target assignee. | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -514,6 +538,7 @@ const entitlementRecommendationAssignRequest: EntitlementRecommendationAssignReq
   },
   "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
 }; // The recommendation IDs and the target assignee.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.submitEntitlementRecommendationsAssignmentV1({ entitlementRecommendationAssignRequest: entitlementRecommendationAssignRequest });
 console.log(result);
 ```

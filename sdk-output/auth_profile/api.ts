@@ -260,15 +260,10 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
         /**
          * This API returns a list of auth profiles.
          * @summary Get list of auth profiles
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getProfileConfigListV1: async (xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
+        getProfileConfigListV1: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/auth-profiles/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -283,9 +278,6 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -299,17 +291,12 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
          * This API returns auth profile information.
          * @summary Get auth profile
          * @param {string} id ID of the Auth Profile to patch.
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getProfileConfigV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getProfileConfigV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getProfileConfigV1', 'id', id)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/auth-profiles/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -325,9 +312,6 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -342,19 +326,14 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
          * @summary Patch a specified auth profile
          * @param {string} id ID of the Auth Profile to patch.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchProfileConfigV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchProfileConfigV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchProfileConfigV1', 'id', id)
             // verify required parameter 'jsonPatchOperation' is not null or undefined
             assertParamExists('patchProfileConfigV1', 'jsonPatchOperation', jsonPatchOperation)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/auth-profiles/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -372,9 +351,6 @@ export const AuthProfileApiAxiosParamCreator = function (configuration?: Configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
 
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -398,12 +374,11 @@ export const AuthProfileApiFp = function(configuration?: Configuration) {
         /**
          * This API returns a list of auth profiles.
          * @summary Get list of auth profiles
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getProfileConfigListV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthProfileSummary>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProfileConfigListV1(xSailPointExperimental, axiosOptions);
+        async getProfileConfigListV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthProfileSummary>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProfileConfigListV1(axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AuthProfileApi.getProfileConfigListV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -412,12 +387,11 @@ export const AuthProfileApiFp = function(configuration?: Configuration) {
          * This API returns auth profile information.
          * @summary Get auth profile
          * @param {string} id ID of the Auth Profile to patch.
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getProfileConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProfileConfigV1(id, xSailPointExperimental, axiosOptions);
+        async getProfileConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProfileConfigV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AuthProfileApi.getProfileConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -427,12 +401,11 @@ export const AuthProfileApiFp = function(configuration?: Configuration) {
          * @summary Patch a specified auth profile
          * @param {string} id ID of the Auth Profile to patch.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchProfileConfigV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchProfileConfigV1(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
+        async patchProfileConfigV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchProfileConfigV1(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AuthProfileApi.patchProfileConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -450,12 +423,11 @@ export const AuthProfileApiFactory = function (configuration?: Configuration, ba
         /**
          * This API returns a list of auth profiles.
          * @summary Get list of auth profiles
-         * @param {AuthProfileApiGetProfileConfigListV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getProfileConfigListV1(requestParameters: AuthProfileApiGetProfileConfigListV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AuthProfileSummary>> {
-            return localVarFp.getProfileConfigListV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        getProfileConfigListV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AuthProfileSummary>> {
+            return localVarFp.getProfileConfigListV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns auth profile information.
@@ -465,7 +437,7 @@ export const AuthProfileApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         getProfileConfigV1(requestParameters: AuthProfileApiGetProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AuthProfile> {
-            return localVarFp.getProfileConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getProfileConfigV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing Auth Profile. The following fields are patchable: **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
@@ -475,24 +447,10 @@ export const AuthProfileApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         patchProfileConfigV1(requestParameters: AuthProfileApiPatchProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AuthProfile> {
-            return localVarFp.patchProfileConfigV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchProfileConfigV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
-
-/**
- * Request parameters for getProfileConfigListV1 operation in AuthProfileApi.
- * @export
- * @interface AuthProfileApiGetProfileConfigListV1Request
- */
-export interface AuthProfileApiGetProfileConfigListV1Request {
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof AuthProfileApiGetProfileConfigListV1
-     */
-    readonly xSailPointExperimental?: string
-}
 
 /**
  * Request parameters for getProfileConfigV1 operation in AuthProfileApi.
@@ -506,13 +464,6 @@ export interface AuthProfileApiGetProfileConfigV1Request {
      * @memberof AuthProfileApiGetProfileConfigV1
      */
     readonly id: string
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof AuthProfileApiGetProfileConfigV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -534,13 +485,6 @@ export interface AuthProfileApiPatchProfileConfigV1Request {
      * @memberof AuthProfileApiPatchProfileConfigV1
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof AuthProfileApiPatchProfileConfigV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -553,13 +497,12 @@ export class AuthProfileApi extends BaseAPI {
     /**
      * This API returns a list of auth profiles.
      * @summary Get list of auth profiles
-     * @param {AuthProfileApiGetProfileConfigListV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthProfileApi
      */
-    public getProfileConfigListV1(requestParameters: AuthProfileApiGetProfileConfigListV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AuthProfileApiFp(this.configuration).getProfileConfigListV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getProfileConfigListV1(axiosOptions?: RawAxiosRequestConfig) {
+        return AuthProfileApiFp(this.configuration).getProfileConfigListV1(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -571,7 +514,7 @@ export class AuthProfileApi extends BaseAPI {
      * @memberof AuthProfileApi
      */
     public getProfileConfigV1(requestParameters: AuthProfileApiGetProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AuthProfileApiFp(this.configuration).getProfileConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AuthProfileApiFp(this.configuration).getProfileConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -583,7 +526,7 @@ export class AuthProfileApi extends BaseAPI {
      * @memberof AuthProfileApi
      */
     public patchProfileConfigV1(requestParameters: AuthProfileApiPatchProfileConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AuthProfileApiFp(this.configuration).patchProfileConfigV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AuthProfileApiFp(this.configuration).patchProfileConfigV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

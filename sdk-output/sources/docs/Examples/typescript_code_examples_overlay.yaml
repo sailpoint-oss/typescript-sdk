@@ -550,7 +550,6 @@
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
         const id: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | The Source id (default to undefined)
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getSourceEntitlementRequestConfigV1({ id: id });
         console.log(result);
 - path: /sources/v1/{sourceId}/source-health
@@ -1431,7 +1430,6 @@
     } ]
   }
 }; // SourceEntitlementRequestConfig | 
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.updateSourceEntitlementRequestConfigV1({ id: id, sourceEntitlementRequestConfig: sourceEntitlementRequestConfig });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}

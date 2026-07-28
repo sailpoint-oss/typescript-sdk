@@ -484,12 +484,17 @@ export const DataSegmentationApiAxiosParamCreator = function (configuration?: Co
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
          * @param {DataSegment} dataSegment 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createDataSegmentV1: async (dataSegment: DataSegment, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createDataSegmentV1: async (dataSegment: DataSegment, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'dataSegment' is not null or undefined
             assertParamExists('createDataSegmentV1', 'dataSegment', dataSegment)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/data-segments/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -506,6 +511,9 @@ export const DataSegmentationApiAxiosParamCreator = function (configuration?: Co
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -877,11 +885,12 @@ export const DataSegmentationApiFp = function(configuration?: Configuration) {
          * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities.
          * @summary Create segment
          * @param {DataSegment} dataSegment 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createDataSegmentV1(dataSegment: DataSegment, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegment>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDataSegmentV1(dataSegment, axiosOptions);
+        async createDataSegmentV1(dataSegment: DataSegment, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DataSegment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDataSegmentV1(dataSegment, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataSegmentationApi.createDataSegmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1012,7 +1021,7 @@ export const DataSegmentationApiFactory = function (configuration?: Configuratio
          * @throws {RequiredError}
          */
         createDataSegmentV1(requestParameters: DataSegmentationApiCreateDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<DataSegment> {
-            return localVarFp.createDataSegmentV1(requestParameters.dataSegment, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createDataSegmentV1(requestParameters.dataSegment, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes the segment specified by the given ID.
@@ -1099,6 +1108,13 @@ export interface DataSegmentationApiCreateDataSegmentV1Request {
      * @memberof DataSegmentationApiCreateDataSegmentV1
      */
     readonly dataSegment: DataSegment
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DataSegmentationApiCreateDataSegmentV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -1334,7 +1350,7 @@ export class DataSegmentationApi extends BaseAPI {
      * @memberof DataSegmentationApi
      */
     public createDataSegmentV1(requestParameters: DataSegmentationApiCreateDataSegmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DataSegmentationApiFp(this.configuration).createDataSegmentV1(requestParameters.dataSegment, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DataSegmentationApiFp(this.configuration).createDataSegmentV1(requestParameters.dataSegment, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

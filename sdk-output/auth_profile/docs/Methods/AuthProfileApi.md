@@ -27,9 +27,6 @@ Method | HTTP request | Description
 
 
 ## get-profile-config-list-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get list of auth profiles
 This API returns a list of auth profiles.
 
@@ -37,10 +34,7 @@ This API returns a list of auth profiles.
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -59,7 +53,6 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AuthProfileApi(configuration);
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getProfileConfigListV1({  });
 console.log(result);
 ```
@@ -67,9 +60,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-profile-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get auth profile
 This API returns auth profile information.
 
@@ -81,7 +71,6 @@ This API returns auth profile information.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Auth Profile to patch. |  [default to undefined]
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -101,7 +90,6 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new AuthProfileApi(configuration);
 const id: string = 2c91808a7813090a017814121919ecca; // ID of the Auth Profile to patch.
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getProfileConfigV1({ id: id });
 console.log(result);
 ```
@@ -109,9 +97,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## patch-profile-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Patch a specified auth profile
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
@@ -125,7 +110,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | ID of the Auth Profile to patch. |  [default to undefined]
 **jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -151,7 +135,6 @@ const jsonPatchOperation: Array<JsonPatchOperation> = {
   "path" : "/description",
   "value" : "New description"
 }; // 
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchProfileConfigV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```

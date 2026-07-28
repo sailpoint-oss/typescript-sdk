@@ -146,12 +146,17 @@ export const MachineAccountClassifyApiAxiosParamCreator = function (configuratio
          * @summary Classify single machine account
          * @param {string} id Account ID.
          * @param {SendClassifyMachineAccountV1ClassificationModeEnum} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendClassifyMachineAccountV1: async (id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sendClassifyMachineAccountV1: async (id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('sendClassifyMachineAccountV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/accounts/v1/{id}/classify`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -171,6 +176,9 @@ export const MachineAccountClassifyApiAxiosParamCreator = function (configuratio
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -195,11 +203,12 @@ export const MachineAccountClassifyApiFp = function(configuration?: Configuratio
          * @summary Classify single machine account
          * @param {string} id Account ID.
          * @param {SendClassifyMachineAccountV1ClassificationModeEnum} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendClassifyMachineAccountV1(id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountV1200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendClassifyMachineAccountV1(id, classificationMode, axiosOptions);
+        async sendClassifyMachineAccountV1(id: string, classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountV1200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendClassifyMachineAccountV1(id, classificationMode, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountClassifyApi.sendClassifyMachineAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -222,7 +231,7 @@ export const MachineAccountClassifyApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         sendClassifyMachineAccountV1(requestParameters: MachineAccountClassifyApiSendClassifyMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SendClassifyMachineAccountV1200Response> {
-            return localVarFp.sendClassifyMachineAccountV1(requestParameters.id, requestParameters.classificationMode, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.sendClassifyMachineAccountV1(requestParameters.id, requestParameters.classificationMode, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -246,6 +255,13 @@ export interface MachineAccountClassifyApiSendClassifyMachineAccountV1Request {
      * @memberof MachineAccountClassifyApiSendClassifyMachineAccountV1
      */
     readonly classificationMode?: SendClassifyMachineAccountV1ClassificationModeEnum
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountClassifyApiSendClassifyMachineAccountV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -264,7 +280,7 @@ export class MachineAccountClassifyApi extends BaseAPI {
      * @memberof MachineAccountClassifyApi
      */
     public sendClassifyMachineAccountV1(requestParameters: MachineAccountClassifyApiSendClassifyMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountClassifyApiFp(this.configuration).sendClassifyMachineAccountV1(requestParameters.id, requestParameters.classificationMode, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineAccountClassifyApiFp(this.configuration).sendClassifyMachineAccountV1(requestParameters.id, requestParameters.classificationMode, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -52,6 +52,7 @@
   "activationPeriodMins" : 120,
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // JitActivationActivateRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.startActivateWorkflowV1({ jitActivationActivateRequest: jitActivationActivateRequest });
         console.log(result);
 - path: /jit-activations/v1/deactivate
@@ -69,6 +70,7 @@
         const jitActivationDeactivateRequest: JitActivationDeactivateRequest = {
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // JitActivationDeactivateRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.startDeactivateWorkflowV1({ jitActivationDeactivateRequest: jitActivationDeactivateRequest });
         console.log(result);
 - path: /jit-activations/v1/extend
@@ -87,5 +89,6 @@
   "activationPeriodExtensionMins" : 120,
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // JitActivationExtendRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.startExtendWorkflowV1({ jitActivationExtendRequest: jitActivationExtendRequest });
         console.log(result);

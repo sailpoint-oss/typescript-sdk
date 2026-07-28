@@ -515,9 +515,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## update-access-profiles-in-bulk-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Update access profile(s) requestable field.
 This API initiates a bulk update of field requestable for one or more Access Profiles.
 
@@ -535,7 +532,6 @@ This API initiates a bulk update of field requestable for one or more Access Pro
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **accessProfileBulkUpdateRequestInner** | `Array<AccessProfileBulkUpdateRequestInner>` |  | 
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -556,7 +552,6 @@ import { AccessProfileBulkUpdateRequestInner } from 'sailpoint-api-client/dist/a
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
 const accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner> = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // 
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.updateAccessProfilesInBulkV1({ accessProfileBulkUpdateRequestInner: accessProfileBulkUpdateRequestInner });
 console.log(result);
 ```

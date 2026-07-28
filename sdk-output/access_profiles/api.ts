@@ -1501,17 +1501,12 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesInBulkV1: async (accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateAccessProfilesInBulkV1: async (accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accessProfileBulkUpdateRequestInner' is not null or undefined
             assertParamExists('updateAccessProfilesInBulkV1', 'accessProfileBulkUpdateRequestInner', accessProfileBulkUpdateRequestInner)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/access-profiles/v1/bulk-update-requestable`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1528,9 +1523,6 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1659,12 +1651,11 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessProfilesInBulkV1(accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileUpdateItem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesInBulkV1(accessProfileBulkUpdateRequestInner, xSailPointExperimental, axiosOptions);
+        async updateAccessProfilesInBulkV1(accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileUpdateItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesInBulkV1(accessProfileBulkUpdateRequestInner, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.updateAccessProfilesInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1757,7 +1748,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         updateAccessProfilesInBulkV1(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessProfileUpdateItem>> {
-            return localVarFp.updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1963,13 +1954,6 @@ export interface AccessProfilesApiUpdateAccessProfilesInBulkV1Request {
      * @memberof AccessProfilesApiUpdateAccessProfilesInBulkV1
      */
     readonly accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof AccessProfilesApiUpdateAccessProfilesInBulkV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2072,7 +2056,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public updateAccessProfilesInBulkV1(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

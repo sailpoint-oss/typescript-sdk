@@ -331,12 +331,17 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
          * Use this API to remove Classification Config for a Source.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Delete source\'s classification config
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMachineClassificationConfigV1: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteMachineClassificationConfigV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('deleteMachineClassificationConfigV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/machine-classification-config`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -352,6 +357,9 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -365,12 +373,17 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
          * This API returns a Machine Classification Config for a Source using Source ID.
          * @summary Machine classification config for source
          * @param {string} sourceId Source ID
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineClassificationConfigV1: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMachineClassificationConfigV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getMachineClassificationConfigV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/machine-classification-config`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -386,6 +399,9 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -400,14 +416,19 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
          * @summary Update source\'s classification config
          * @param {string} sourceId Source ID.
          * @param {MachineClassificationConfig} machineClassificationConfig 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMachineClassificationConfigV1: async (sourceId: string, machineClassificationConfig: MachineClassificationConfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setMachineClassificationConfigV1: async (sourceId: string, machineClassificationConfig: MachineClassificationConfig, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('setMachineClassificationConfigV1', 'sourceId', sourceId)
             // verify required parameter 'machineClassificationConfig' is not null or undefined
             assertParamExists('setMachineClassificationConfigV1', 'machineClassificationConfig', machineClassificationConfig)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/machine-classification-config`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -425,6 +446,9 @@ export const MachineClassificationConfigApiAxiosParamCreator = function (configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -449,11 +473,12 @@ export const MachineClassificationConfigApiFp = function(configuration?: Configu
          * Use this API to remove Classification Config for a Source.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Delete source\'s classification config
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteMachineClassificationConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineClassificationConfigV1(sourceId, axiosOptions);
+        async deleteMachineClassificationConfigV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineClassificationConfigV1(sourceId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineClassificationConfigApi.deleteMachineClassificationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -462,11 +487,12 @@ export const MachineClassificationConfigApiFp = function(configuration?: Configu
          * This API returns a Machine Classification Config for a Source using Source ID.
          * @summary Machine classification config for source
          * @param {string} sourceId Source ID
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineClassificationConfigV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineClassificationConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineClassificationConfigV1(sourceId, axiosOptions);
+        async getMachineClassificationConfigV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineClassificationConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineClassificationConfigV1(sourceId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineClassificationConfigApi.getMachineClassificationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -476,11 +502,12 @@ export const MachineClassificationConfigApiFp = function(configuration?: Configu
          * @summary Update source\'s classification config
          * @param {string} sourceId Source ID.
          * @param {MachineClassificationConfig} machineClassificationConfig 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMachineClassificationConfigV1(sourceId: string, machineClassificationConfig: MachineClassificationConfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineClassificationConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMachineClassificationConfigV1(sourceId, machineClassificationConfig, axiosOptions);
+        async setMachineClassificationConfigV1(sourceId: string, machineClassificationConfig: MachineClassificationConfig, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineClassificationConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMachineClassificationConfigV1(sourceId, machineClassificationConfig, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineClassificationConfigApi.setMachineClassificationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -503,7 +530,7 @@ export const MachineClassificationConfigApiFactory = function (configuration?: C
          * @throws {RequiredError}
          */
         deleteMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiDeleteMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteMachineClassificationConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.deleteMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a Machine Classification Config for a Source using Source ID.
@@ -513,7 +540,7 @@ export const MachineClassificationConfigApiFactory = function (configuration?: C
          * @throws {RequiredError}
          */
         getMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiGetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineClassificationConfig> {
-            return localVarFp.getMachineClassificationConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update Classification Config for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -523,7 +550,7 @@ export const MachineClassificationConfigApiFactory = function (configuration?: C
          * @throws {RequiredError}
          */
         setMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiSetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineClassificationConfig> {
-            return localVarFp.setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineClassificationConfig, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineClassificationConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -540,6 +567,13 @@ export interface MachineClassificationConfigApiDeleteMachineClassificationConfig
      * @memberof MachineClassificationConfigApiDeleteMachineClassificationConfigV1
      */
     readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineClassificationConfigApiDeleteMachineClassificationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -554,6 +588,13 @@ export interface MachineClassificationConfigApiGetMachineClassificationConfigV1R
      * @memberof MachineClassificationConfigApiGetMachineClassificationConfigV1
      */
     readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineClassificationConfigApiGetMachineClassificationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -575,6 +616,13 @@ export interface MachineClassificationConfigApiSetMachineClassificationConfigV1R
      * @memberof MachineClassificationConfigApiSetMachineClassificationConfigV1
      */
     readonly machineClassificationConfig: MachineClassificationConfig
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineClassificationConfigApiSetMachineClassificationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -593,7 +641,7 @@ export class MachineClassificationConfigApi extends BaseAPI {
      * @memberof MachineClassificationConfigApi
      */
     public deleteMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiDeleteMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineClassificationConfigApiFp(this.configuration).deleteMachineClassificationConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineClassificationConfigApiFp(this.configuration).deleteMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -605,7 +653,7 @@ export class MachineClassificationConfigApi extends BaseAPI {
      * @memberof MachineClassificationConfigApi
      */
     public getMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiGetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineClassificationConfigApiFp(this.configuration).getMachineClassificationConfigV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineClassificationConfigApiFp(this.configuration).getMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -617,7 +665,7 @@ export class MachineClassificationConfigApi extends BaseAPI {
      * @memberof MachineClassificationConfigApi
      */
     public setMachineClassificationConfigV1(requestParameters: MachineClassificationConfigApiSetMachineClassificationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineClassificationConfigApiFp(this.configuration).setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineClassificationConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineClassificationConfigApiFp(this.configuration).setMachineClassificationConfigV1(requestParameters.sourceId, requestParameters.machineClassificationConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

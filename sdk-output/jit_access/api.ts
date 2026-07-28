@@ -244,12 +244,17 @@ export const JITAccessApiAxiosParamCreator = function (configuration?: Configura
          * Returns the tenant\'s current JIT activation policy configuration, including governed entitlement IDs, activation and extension time limits, default periods, notification settings, and whether the policy applies to future assignments.  The tenant comes from the authenticated request context (not the URL). Use **configType** to select which configuration to read. Returns **404** if that configuration has not been stored yet.  **User level:** POLICY_ADMIN (policy administrator). 
          * @summary Get JIT activation policy configuration
          * @param {GetJitActivationConfigV1ConfigTypeEnum} configType Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getJitActivationConfigV1: async (configType: GetJitActivationConfigV1ConfigTypeEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getJitActivationConfigV1: async (configType: GetJitActivationConfigV1ConfigTypeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'configType' is not null or undefined
             assertParamExists('getJitActivationConfigV1', 'configType', configType)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/jit-activation-config/v1/{configType}`
                 .replace(`{${"configType"}}`, encodeURIComponent(String(configType)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -265,6 +270,9 @@ export const JITAccessApiAxiosParamCreator = function (configuration?: Configura
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -279,14 +287,19 @@ export const JITAccessApiAxiosParamCreator = function (configuration?: Configura
          * @summary Update JIT activation policy configuration
          * @param {PatchJitActivationConfigV1ConfigTypeEnum} configType Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
          * @param {Array<JitAccessOperationRequest>} jitAccessOperationRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchJitActivationConfigV1: async (configType: PatchJitActivationConfigV1ConfigTypeEnum, jitAccessOperationRequest: Array<JitAccessOperationRequest>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchJitActivationConfigV1: async (configType: PatchJitActivationConfigV1ConfigTypeEnum, jitAccessOperationRequest: Array<JitAccessOperationRequest>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'configType' is not null or undefined
             assertParamExists('patchJitActivationConfigV1', 'configType', configType)
             // verify required parameter 'jitAccessOperationRequest' is not null or undefined
             assertParamExists('patchJitActivationConfigV1', 'jitAccessOperationRequest', jitAccessOperationRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/jit-activation-config/v1/{configType}`
                 .replace(`{${"configType"}}`, encodeURIComponent(String(configType)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -304,6 +317,9 @@ export const JITAccessApiAxiosParamCreator = function (configuration?: Configura
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -328,11 +344,12 @@ export const JITAccessApiFp = function(configuration?: Configuration) {
          * Returns the tenant\'s current JIT activation policy configuration, including governed entitlement IDs, activation and extension time limits, default periods, notification settings, and whether the policy applies to future assignments.  The tenant comes from the authenticated request context (not the URL). Use **configType** to select which configuration to read. Returns **404** if that configuration has not been stored yet.  **User level:** POLICY_ADMIN (policy administrator). 
          * @summary Get JIT activation policy configuration
          * @param {GetJitActivationConfigV1ConfigTypeEnum} configType Configuration kind to read. Only **policy** (JIT activation policy) is supported today. 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getJitActivationConfigV1(configType: GetJitActivationConfigV1ConfigTypeEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationConfigResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getJitActivationConfigV1(configType, axiosOptions);
+        async getJitActivationConfigV1(configType: GetJitActivationConfigV1ConfigTypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationConfigResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getJitActivationConfigV1(configType, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITAccessApi.getJitActivationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -342,11 +359,12 @@ export const JITAccessApiFp = function(configuration?: Configuration) {
          * @summary Update JIT activation policy configuration
          * @param {PatchJitActivationConfigV1ConfigTypeEnum} configType Configuration kind to update. Only **policy** (JIT activation policy) is supported today. 
          * @param {Array<JitAccessOperationRequest>} jitAccessOperationRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchJitActivationConfigV1(configType: PatchJitActivationConfigV1ConfigTypeEnum, jitAccessOperationRequest: Array<JitAccessOperationRequest>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationConfigResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchJitActivationConfigV1(configType, jitAccessOperationRequest, axiosOptions);
+        async patchJitActivationConfigV1(configType: PatchJitActivationConfigV1ConfigTypeEnum, jitAccessOperationRequest: Array<JitAccessOperationRequest>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationConfigResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchJitActivationConfigV1(configType, jitAccessOperationRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITAccessApi.patchJitActivationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -369,7 +387,7 @@ export const JITAccessApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         getJitActivationConfigV1(requestParameters: JITAccessApiGetJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JITActivationConfigResponse> {
-            return localVarFp.getJitActivationConfigV1(requestParameters.configType, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getJitActivationConfigV1(requestParameters.configType, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates the tenant\'s JIT activation policy configuration by applying one or more **replace** operations (same shape as JSON Patch: **op**, **path**, **value**). Use this to change entitlement lists, max/default activation and extension durations, notification recipients or template, and the apply-to-future-assignments flag.  The body must be a non-empty array. Only **replace** is supported; each **path** must be one of the values documented on the request item schema. The tenant is taken from the request context. **configType** selects which configuration to update. Returns **404** if the configuration does not exist, or **400** for an empty body, unknown **configType**, or invalid path/value.  **User level:** POLICY_ADMIN (policy administrator). 
@@ -379,7 +397,7 @@ export const JITAccessApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         patchJitActivationConfigV1(requestParameters: JITAccessApiPatchJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JITActivationConfigResponse> {
-            return localVarFp.patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitAccessOperationRequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitAccessOperationRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -396,6 +414,13 @@ export interface JITAccessApiGetJitActivationConfigV1Request {
      * @memberof JITAccessApiGetJitActivationConfigV1
      */
     readonly configType: GetJitActivationConfigV1ConfigTypeEnum
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITAccessApiGetJitActivationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -417,6 +442,13 @@ export interface JITAccessApiPatchJitActivationConfigV1Request {
      * @memberof JITAccessApiPatchJitActivationConfigV1
      */
     readonly jitAccessOperationRequest: Array<JitAccessOperationRequest>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITAccessApiPatchJitActivationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -435,7 +467,7 @@ export class JITAccessApi extends BaseAPI {
      * @memberof JITAccessApi
      */
     public getJitActivationConfigV1(requestParameters: JITAccessApiGetJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITAccessApiFp(this.configuration).getJitActivationConfigV1(requestParameters.configType, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITAccessApiFp(this.configuration).getJitActivationConfigV1(requestParameters.configType, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -447,7 +479,7 @@ export class JITAccessApi extends BaseAPI {
      * @memberof JITAccessApi
      */
     public patchJitActivationConfigV1(requestParameters: JITAccessApiPatchJitActivationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITAccessApiFp(this.configuration).patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitAccessOperationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITAccessApiFp(this.configuration).patchJitActivationConfigV1(requestParameters.configType, requestParameters.jitAccessOperationRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

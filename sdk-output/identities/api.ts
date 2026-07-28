@@ -1357,17 +1357,12 @@ export const IdentitiesApiAxiosParamCreator = function (configuration?: Configur
          * The API returns successful response if the requested identity was deleted.
          * @summary Delete identity
          * @param {string} id Identity Id
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteIdentityV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteIdentityV1', 'id', id)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/identities/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1383,9 +1378,6 @@ export const IdentitiesApiAxiosParamCreator = function (configuration?: Configur
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1880,12 +1872,11 @@ export const IdentitiesApiFp = function(configuration?: Configuration) {
          * The API returns successful response if the requested identity was deleted.
          * @summary Delete identity
          * @param {string} id Identity Id
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityV1(id, xSailPointExperimental, axiosOptions);
+        async deleteIdentityV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentitiesApi.deleteIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2067,7 +2058,7 @@ export const IdentitiesApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         deleteIdentityV1(requestParameters: IdentitiesApiDeleteIdentityV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.deleteIdentityV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to return an identity\'s owned objects that will cause problems for deleting the identity.  Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity.  For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/search-post-v-1).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity\'s owned objects.
@@ -2194,13 +2185,6 @@ export interface IdentitiesApiDeleteIdentityV1Request {
      * @memberof IdentitiesApiDeleteIdentityV1
      */
     readonly id: string
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof IdentitiesApiDeleteIdentityV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2485,7 +2469,7 @@ export class IdentitiesApi extends BaseAPI {
      * @memberof IdentitiesApi
      */
     public deleteIdentityV1(requestParameters: IdentitiesApiDeleteIdentityV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IdentitiesApiFp(this.configuration).deleteIdentityV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IdentitiesApiFp(this.configuration).deleteIdentityV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

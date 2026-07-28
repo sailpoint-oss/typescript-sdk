@@ -316,18 +316,13 @@ export const OrgConfigApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List the valid time zones that can be set in organization configurations.
          * @summary Get valid time zones
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getValidTimeZonesV1: async (xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
+        getValidTimeZonesV1: async (limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/org-config/v1/valid-time-zones`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -354,9 +349,6 @@ export const OrgConfigApiAxiosParamCreator = function (configuration?: Configura
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -427,15 +419,14 @@ export const OrgConfigApiFp = function(configuration?: Configuration) {
         /**
          * List the valid time zones that can be set in organization configurations.
          * @summary Get valid time zones
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getValidTimeZonesV1(xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidTimeZonesV1(xSailPointExperimental, limit, offset, count, axiosOptions);
+        async getValidTimeZonesV1(limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidTimeZonesV1(limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['OrgConfigApi.getValidTimeZonesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -480,7 +471,7 @@ export const OrgConfigApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         getValidTimeZonesV1(requestParameters: OrgConfigApiGetValidTimeZonesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
-            return localVarFp.getValidTimeZonesV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getValidTimeZonesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Patch the current organization\'s configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization\'s time zone.
@@ -501,13 +492,6 @@ export const OrgConfigApiFactory = function (configuration?: Configuration, base
  * @interface OrgConfigApiGetValidTimeZonesV1Request
  */
 export interface OrgConfigApiGetValidTimeZonesV1Request {
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof OrgConfigApiGetValidTimeZonesV1
-     */
-    readonly xSailPointExperimental?: string
-
     /**
      * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
@@ -571,7 +555,7 @@ export class OrgConfigApi extends BaseAPI {
      * @memberof OrgConfigApi
      */
     public getValidTimeZonesV1(requestParameters: OrgConfigApiGetValidTimeZonesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return OrgConfigApiFp(this.configuration).getValidTimeZonesV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return OrgConfigApiFp(this.configuration).getValidTimeZonesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -28,6 +28,9 @@ Method | HTTP request | Description
 
 
 ## create-data-segment-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Create segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
@@ -40,6 +43,7 @@ This API creates a segment.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **dataSegment** | `DataSegment` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -96,6 +100,7 @@ const dataSegment: DataSegment = {
   "published" : true,
   "enabled" : true
 }; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.createDataSegmentV1({ dataSegment: dataSegment });
 console.log(result);
 ```

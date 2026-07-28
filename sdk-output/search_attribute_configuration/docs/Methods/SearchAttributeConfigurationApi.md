@@ -41,9 +41,6 @@ Method | HTTP request | Description
 
 
 ## create-search-attribute-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Create extended search attributes
 Create and configure extended search attributes.  This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
 >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
@@ -56,7 +53,6 @@ Create and configure extended search attributes.  This API accepts an attribute 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **searchAttributeConfig** | `SearchAttributeConfig` |  | 
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -84,7 +80,6 @@ const searchAttributeConfig: SearchAttributeConfig = {
     "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
   }
 }; // 
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.createSearchAttributeConfigV1({ searchAttributeConfig: searchAttributeConfig });
 console.log(result);
 ```
@@ -92,9 +87,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## delete-search-attribute-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Delete extended search attribute
 Delete an extended attribute configuration by name.
 
@@ -106,7 +98,6 @@ Delete an extended attribute configuration by name.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | `string` | Name of the extended search attribute configuration to delete. |  [default to undefined]
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -126,7 +117,6 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
 const name: string = newMailAttribute; // Name of the extended search attribute configuration to delete.
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.deleteSearchAttributeConfigV1({ name: name });
 console.log(result);
 ```
@@ -134,9 +124,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-search-attribute-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 List extended search attributes
 Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
@@ -149,7 +136,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
 **offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -170,7 +156,6 @@ const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getSearchAttributeConfigV1({  });
 console.log(result);
 ```
@@ -178,9 +163,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-single-search-attribute-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get extended search attribute
 Get an extended attribute configuration by name.
 
@@ -192,7 +174,6 @@ Get an extended attribute configuration by name.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | `string` | Name of the extended search attribute configuration to get. |  [default to undefined]
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -212,7 +193,6 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
 const name: string = newMailAttribute; // Name of the extended search attribute configuration to get.
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getSingleSearchAttributeConfigV1({ name: name });
 console.log(result);
 ```
@@ -220,9 +200,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## patch-search-attribute-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Update extended search attribute
 Update an existing search attribute configuration. 
 You can patch these fields:
@@ -237,7 +214,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | `string` | Name of the search attribute configuration to patch. |  [default to undefined]
 **jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -263,7 +239,6 @@ const jsonPatchOperation: Array<JsonPatchOperation> = {
   "path" : "/description",
   "value" : "New description"
 }; // 
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchSearchAttributeConfigV1({ name: name, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```

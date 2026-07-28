@@ -1240,12 +1240,17 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
          * Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
          * @summary Bulk approve entitlement recommendations
          * @param {BulkApproveEntitlementRecommendationRequest} bulkApproveEntitlementRecommendationRequest The list of recommendation items to approve.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveBulkEntitlementRecommendationsV1: async (bulkApproveEntitlementRecommendationRequest: BulkApproveEntitlementRecommendationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveBulkEntitlementRecommendationsV1: async (bulkApproveEntitlementRecommendationRequest: BulkApproveEntitlementRecommendationRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'bulkApproveEntitlementRecommendationRequest' is not null or undefined
             assertParamExists('approveBulkEntitlementRecommendationsV1', 'bulkApproveEntitlementRecommendationRequest', bulkApproveEntitlementRecommendationRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/entitlement-recommendations/v1/bulk-approve`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1262,6 +1267,9 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1432,10 +1440,15 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
          * @summary List pending entitlement recommendation approvals
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPendingEntitlementRecommendationApprovalsV1: async (offset?: number, limit?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listPendingEntitlementRecommendationApprovalsV1: async (offset?: number, limit?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/entitlement-recommendations/v1/pending-approvals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1458,6 +1471,9 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1472,10 +1488,15 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
          * @summary List privileged entitlement recommendations
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPrivilegedEntitlementRecommendationsV1: async (offset?: number, limit?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listPrivilegedEntitlementRecommendationsV1: async (offset?: number, limit?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/privileged-recommendations/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1498,6 +1519,9 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1582,14 +1606,19 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
          * @summary Update an entitlement recommendation
          * @param {string} id The unique identifier of the entitlement recommendation to update.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation The patch operations to apply to the entitlement recommendation record.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchEntitlementRecommendationV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchEntitlementRecommendationV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchEntitlementRecommendationV1', 'id', id)
             // verify required parameter 'jsonPatchOperation' is not null or undefined
             assertParamExists('patchEntitlementRecommendationV1', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/entitlement-recommendations/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1607,6 +1636,9 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
     
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1661,12 +1693,17 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
          * Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
          * @summary Assign entitlement recommendations for review
          * @param {EntitlementRecommendationAssignRequest} entitlementRecommendationAssignRequest The recommendation IDs and the target assignee.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        submitEntitlementRecommendationsAssignmentV1: async (entitlementRecommendationAssignRequest: EntitlementRecommendationAssignRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        submitEntitlementRecommendationsAssignmentV1: async (entitlementRecommendationAssignRequest: EntitlementRecommendationAssignRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'entitlementRecommendationAssignRequest' is not null or undefined
             assertParamExists('submitEntitlementRecommendationsAssignmentV1', 'entitlementRecommendationAssignRequest', entitlementRecommendationAssignRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/entitlement-recommendations/v1/assign`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1683,6 +1720,9 @@ export const SuggestedEntitlementDescriptionApiAxiosParamCreator = function (con
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1849,11 +1889,12 @@ export const SuggestedEntitlementDescriptionApiFp = function(configuration?: Con
          * Approve multiple entitlement recommendations in a single request. Each item in the request must include the recommendation ID and, depending on the record type, either an approved description (SED items) or an approved privilege level (privilege items). Returns a per-item result indicating success or failure.
          * @summary Bulk approve entitlement recommendations
          * @param {BulkApproveEntitlementRecommendationRequest} bulkApproveEntitlementRecommendationRequest The list of recommendation items to approve.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveBulkEntitlementRecommendationsV1(bulkApproveEntitlementRecommendationRequest: BulkApproveEntitlementRecommendationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkApproveEntitlementRecommendationResult>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveBulkEntitlementRecommendationsV1(bulkApproveEntitlementRecommendationRequest, axiosOptions);
+        async approveBulkEntitlementRecommendationsV1(bulkApproveEntitlementRecommendationRequest: BulkApproveEntitlementRecommendationRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkApproveEntitlementRecommendationResult>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveBulkEntitlementRecommendationsV1(bulkApproveEntitlementRecommendationRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.approveBulkEntitlementRecommendationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1918,11 +1959,12 @@ export const SuggestedEntitlementDescriptionApiFp = function(configuration?: Con
          * @summary List pending entitlement recommendation approvals
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPendingEntitlementRecommendationApprovalsV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementRecommendationRecord>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingEntitlementRecommendationApprovalsV1(offset, limit, axiosOptions);
+        async listPendingEntitlementRecommendationApprovalsV1(offset?: number, limit?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementRecommendationRecord>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingEntitlementRecommendationApprovalsV1(offset, limit, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.listPendingEntitlementRecommendationApprovalsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1932,11 +1974,12 @@ export const SuggestedEntitlementDescriptionApiFp = function(configuration?: Con
          * @summary List privileged entitlement recommendations
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPrivilegedEntitlementRecommendationsV1(offset?: number, limit?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PrivilegedRecommendationGroup>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPrivilegedEntitlementRecommendationsV1(offset, limit, axiosOptions);
+        async listPrivilegedEntitlementRecommendationsV1(offset?: number, limit?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PrivilegedRecommendationGroup>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPrivilegedEntitlementRecommendationsV1(offset, limit, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.listPrivilegedEntitlementRecommendationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1966,11 +2009,12 @@ export const SuggestedEntitlementDescriptionApiFp = function(configuration?: Con
          * @summary Update an entitlement recommendation
          * @param {string} id The unique identifier of the entitlement recommendation to update.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation The patch operations to apply to the entitlement recommendation record.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchEntitlementRecommendationV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRecommendationRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementRecommendationV1(id, jsonPatchOperation, axiosOptions);
+        async patchEntitlementRecommendationV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRecommendationRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementRecommendationV1(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.patchEntitlementRecommendationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1993,11 +2037,12 @@ export const SuggestedEntitlementDescriptionApiFp = function(configuration?: Con
          * Assign a set of entitlement recommendation records to a reviewer. The assignee can be a specific identity, a governance group, or a role-based assignee such as source owner or entitlement owner. Returns a batch ID that can be used to track the assignment.
          * @summary Assign entitlement recommendations for review
          * @param {EntitlementRecommendationAssignRequest} entitlementRecommendationAssignRequest The recommendation IDs and the target assignee.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitEntitlementRecommendationsAssignmentV1(entitlementRecommendationAssignRequest: EntitlementRecommendationAssignRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRecommendationAssignResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitEntitlementRecommendationsAssignmentV1(entitlementRecommendationAssignRequest, axiosOptions);
+        async submitEntitlementRecommendationsAssignmentV1(entitlementRecommendationAssignRequest: EntitlementRecommendationAssignRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRecommendationAssignResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitEntitlementRecommendationsAssignmentV1(entitlementRecommendationAssignRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SuggestedEntitlementDescriptionApi.submitEntitlementRecommendationsAssignmentV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2072,7 +2117,7 @@ export const SuggestedEntitlementDescriptionApiFactory = function (configuration
          * @throws {RequiredError}
          */
         approveBulkEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BulkApproveEntitlementRecommendationResult>> {
-            return localVarFp.approveBulkEntitlementRecommendationsV1(requestParameters.bulkApproveEntitlementRecommendationRequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.approveBulkEntitlementRecommendationsV1(requestParameters.bulkApproveEntitlementRecommendationRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Create the initial auto-write settings for a tenant. Returns 409 Conflict if settings already exist. Use PATCH to update existing settings.
@@ -2121,7 +2166,7 @@ export const SuggestedEntitlementDescriptionApiFactory = function (configuration
          * @throws {RequiredError}
          */
         listPendingEntitlementRecommendationApprovalsV1(requestParameters: SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementRecommendationRecord>> {
-            return localVarFp.listPendingEntitlementRecommendationApprovalsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listPendingEntitlementRecommendationApprovalsV1(requestParameters.offset, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of privileged entitlement recommendation groups. Each group aggregates individual entitlement instances that share the same entitlement name and connector type, along with a recommendation score and instance count.
@@ -2131,7 +2176,7 @@ export const SuggestedEntitlementDescriptionApiFactory = function (configuration
          * @throws {RequiredError}
          */
         listPrivilegedEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PrivilegedRecommendationGroup>> {
-            return localVarFp.listPrivilegedEntitlementRecommendationsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listPrivilegedEntitlementRecommendationsV1(requestParameters.offset, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * List of Suggested Entitlement Descriptions (SED)  SED field descriptions:  **batchId**: the ID of the batch of entitlements that are submitted for description generation  **displayName**: the display name of the entitlement that we are generating a description for  **sourceName**: the name of the source associated with the entitlement that we are generating the description for  **sourceId**: the ID of the source associated with the entitlement that we are generating the description for  **status**: the status of the suggested entitlement description, valid status options: \"requested\", \"suggested\", \"not_suggested\", \"failed\", \"assigned\", \"approved\", \"denied\"  **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
@@ -2151,7 +2196,7 @@ export const SuggestedEntitlementDescriptionApiFactory = function (configuration
          * @throws {RequiredError}
          */
         patchEntitlementRecommendationV1(requestParameters: SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementRecommendationRecord> {
-            return localVarFp.patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Patch Suggested Entitlement Description
@@ -2171,7 +2216,7 @@ export const SuggestedEntitlementDescriptionApiFactory = function (configuration
          * @throws {RequiredError}
          */
         submitEntitlementRecommendationsAssignmentV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementRecommendationAssignResult> {
-            return localVarFp.submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementRecommendationAssignRequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementRecommendationAssignRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
@@ -2228,6 +2273,13 @@ export interface SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecomme
      * @memberof SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1
      */
     readonly bulkApproveEntitlementRecommendationRequest: BulkApproveEntitlementRecommendationRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2319,6 +2371,13 @@ export interface SuggestedEntitlementDescriptionApiListPendingEntitlementRecomme
      * @memberof SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1
      */
     readonly limit?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2340,6 +2399,13 @@ export interface SuggestedEntitlementDescriptionApiListPrivilegedEntitlementReco
      * @memberof SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1
      */
     readonly limit?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2424,6 +2490,13 @@ export interface SuggestedEntitlementDescriptionApiPatchEntitlementRecommendatio
      * @memberof SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2459,6 +2532,13 @@ export interface SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendati
      * @memberof SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1
      */
     readonly entitlementRecommendationAssignRequest: EntitlementRecommendationAssignRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2533,7 +2613,7 @@ export class SuggestedEntitlementDescriptionApi extends BaseAPI {
      * @memberof SuggestedEntitlementDescriptionApi
      */
     public approveBulkEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiApproveBulkEntitlementRecommendationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionApiFp(this.configuration).approveBulkEntitlementRecommendationsV1(requestParameters.bulkApproveEntitlementRecommendationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).approveBulkEntitlementRecommendationsV1(requestParameters.bulkApproveEntitlementRecommendationRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2592,7 +2672,7 @@ export class SuggestedEntitlementDescriptionApi extends BaseAPI {
      * @memberof SuggestedEntitlementDescriptionApi
      */
     public listPendingEntitlementRecommendationApprovalsV1(requestParameters: SuggestedEntitlementDescriptionApiListPendingEntitlementRecommendationApprovalsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionApiFp(this.configuration).listPendingEntitlementRecommendationApprovalsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).listPendingEntitlementRecommendationApprovalsV1(requestParameters.offset, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2604,7 +2684,7 @@ export class SuggestedEntitlementDescriptionApi extends BaseAPI {
      * @memberof SuggestedEntitlementDescriptionApi
      */
     public listPrivilegedEntitlementRecommendationsV1(requestParameters: SuggestedEntitlementDescriptionApiListPrivilegedEntitlementRecommendationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionApiFp(this.configuration).listPrivilegedEntitlementRecommendationsV1(requestParameters.offset, requestParameters.limit, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).listPrivilegedEntitlementRecommendationsV1(requestParameters.offset, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2628,7 +2708,7 @@ export class SuggestedEntitlementDescriptionApi extends BaseAPI {
      * @memberof SuggestedEntitlementDescriptionApi
      */
     public patchEntitlementRecommendationV1(requestParameters: SuggestedEntitlementDescriptionApiPatchEntitlementRecommendationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionApiFp(this.configuration).patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).patchEntitlementRecommendationV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2652,7 +2732,7 @@ export class SuggestedEntitlementDescriptionApi extends BaseAPI {
      * @memberof SuggestedEntitlementDescriptionApi
      */
     public submitEntitlementRecommendationsAssignmentV1(requestParameters: SuggestedEntitlementDescriptionApiSubmitEntitlementRecommendationsAssignmentV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SuggestedEntitlementDescriptionApiFp(this.configuration).submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementRecommendationAssignRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SuggestedEntitlementDescriptionApiFp(this.configuration).submitEntitlementRecommendationsAssignmentV1(requestParameters.entitlementRecommendationAssignRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

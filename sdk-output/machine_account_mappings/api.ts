@@ -269,14 +269,19 @@ export const MachineAccountMappingsApiAxiosParamCreator = function (configuratio
          * @summary Create machine account mappings
          * @param {string} sourceId Source ID.
          * @param {AttributeMappings} attributeMappings 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineAccountMappingsV1: async (sourceId: string, attributeMappings: AttributeMappings, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createMachineAccountMappingsV1: async (sourceId: string, attributeMappings: AttributeMappings, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('createMachineAccountMappingsV1', 'sourceId', sourceId)
             // verify required parameter 'attributeMappings' is not null or undefined
             assertParamExists('createMachineAccountMappingsV1', 'attributeMappings', attributeMappings)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/machine-account-mappings`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -294,6 +299,9 @@ export const MachineAccountMappingsApiAxiosParamCreator = function (configuratio
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -308,12 +316,17 @@ export const MachineAccountMappingsApiAxiosParamCreator = function (configuratio
          * Use this API to remove machine account attribute mappings for a Source.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Delete source\'s machine account mappings
          * @param {string} sourceId source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMachineAccountMappingsV1: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteMachineAccountMappingsV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('deleteMachineAccountMappingsV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/machine-account-mappings`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -329,6 +342,9 @@ export const MachineAccountMappingsApiAxiosParamCreator = function (configuratio
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -344,12 +360,17 @@ export const MachineAccountMappingsApiAxiosParamCreator = function (configuratio
          * @param {string} sourceId Source ID
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listMachineAccountMappingsV1: async (sourceId: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listMachineAccountMappingsV1: async (sourceId: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('listMachineAccountMappingsV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/machine-account-mappings`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -373,6 +394,9 @@ export const MachineAccountMappingsApiAxiosParamCreator = function (configuratio
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -437,11 +461,12 @@ export const MachineAccountMappingsApiFp = function(configuration?: Configuratio
          * @summary Create machine account mappings
          * @param {string} sourceId Source ID.
          * @param {AttributeMappings} attributeMappings 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createMachineAccountMappingsV1(sourceId: string, attributeMappings: AttributeMappings, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeMappings>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountMappingsV1(sourceId, attributeMappings, axiosOptions);
+        async createMachineAccountMappingsV1(sourceId: string, attributeMappings: AttributeMappings, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeMappings>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountMappingsV1(sourceId, attributeMappings, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsApi.createMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -450,11 +475,12 @@ export const MachineAccountMappingsApiFp = function(configuration?: Configuratio
          * Use this API to remove machine account attribute mappings for a Source.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Delete source\'s machine account mappings
          * @param {string} sourceId source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteMachineAccountMappingsV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountMappingsV1(sourceId, axiosOptions);
+        async deleteMachineAccountMappingsV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountMappingsV1(sourceId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsApi.deleteMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -465,11 +491,12 @@ export const MachineAccountMappingsApiFp = function(configuration?: Configuratio
          * @param {string} sourceId Source ID
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listMachineAccountMappingsV1(sourceId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeMappings>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountMappingsV1(sourceId, limit, offset, axiosOptions);
+        async listMachineAccountMappingsV1(sourceId: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeMappings>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountMappingsV1(sourceId, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountMappingsApi.listMachineAccountMappingsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -506,7 +533,7 @@ export const MachineAccountMappingsApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         createMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiCreateMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributeMappings>> {
-            return localVarFp.createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributeMappings, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributeMappings, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to remove machine account attribute mappings for a Source.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -516,7 +543,7 @@ export const MachineAccountMappingsApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         deleteMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteMachineAccountMappingsV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.deleteMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves Machine account mappings for a specified source using Source ID.
@@ -526,7 +553,7 @@ export const MachineAccountMappingsApiFactory = function (configuration?: Config
          * @throws {RequiredError}
          */
         listMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiListMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributeMappings>> {
-            return localVarFp.listMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -560,6 +587,13 @@ export interface MachineAccountMappingsApiCreateMachineAccountMappingsV1Request 
      * @memberof MachineAccountMappingsApiCreateMachineAccountMappingsV1
      */
     readonly attributeMappings: AttributeMappings
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountMappingsApiCreateMachineAccountMappingsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -574,6 +608,13 @@ export interface MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request 
      * @memberof MachineAccountMappingsApiDeleteMachineAccountMappingsV1
      */
     readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountMappingsApiDeleteMachineAccountMappingsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -602,6 +643,13 @@ export interface MachineAccountMappingsApiListMachineAccountMappingsV1Request {
      * @memberof MachineAccountMappingsApiListMachineAccountMappingsV1
      */
     readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountMappingsApiListMachineAccountMappingsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -641,7 +689,7 @@ export class MachineAccountMappingsApi extends BaseAPI {
      * @memberof MachineAccountMappingsApi
      */
     public createMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiCreateMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountMappingsApiFp(this.configuration).createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributeMappings, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineAccountMappingsApiFp(this.configuration).createMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.attributeMappings, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -653,7 +701,7 @@ export class MachineAccountMappingsApi extends BaseAPI {
      * @memberof MachineAccountMappingsApi
      */
     public deleteMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiDeleteMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountMappingsApiFp(this.configuration).deleteMachineAccountMappingsV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineAccountMappingsApiFp(this.configuration).deleteMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -665,7 +713,7 @@ export class MachineAccountMappingsApi extends BaseAPI {
      * @memberof MachineAccountMappingsApi
      */
     public listMachineAccountMappingsV1(requestParameters: MachineAccountMappingsApiListMachineAccountMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineAccountMappingsApiFp(this.configuration).listMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineAccountMappingsApiFp(this.configuration).listMachineAccountMappingsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

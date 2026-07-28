@@ -1255,9 +1255,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-source-entitlement-request-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get source entitlement request configuration
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
@@ -1273,7 +1270,6 @@ Access request to any entitlements in the source should follow this configuratio
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The Source id |  [default to undefined]
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -1293,7 +1289,6 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const id: string = 8c190e6787aa4ed9a90bd9d5344523fb; // The Source id
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getSourceEntitlementRequestConfigV1({ id: id });
 console.log(result);
 ```
@@ -3052,9 +3047,6 @@ console.log(result);
 [[Back to top]](#)
 
 ## update-source-entitlement-request-config-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Update source entitlement request configuration
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
 
@@ -3071,7 +3063,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The Source id |  [default to undefined]
 **sourceEntitlementRequestConfig** | `SourceEntitlementRequestConfig` |  | 
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -3120,7 +3111,6 @@ const sourceEntitlementRequestConfig: SourceEntitlementRequestConfig = {
     } ]
   }
 }; // 
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.updateSourceEntitlementRequestConfigV1({ id: id, sourceEntitlementRequestConfig: sourceEntitlementRequestConfig });
 console.log(result);
 ```

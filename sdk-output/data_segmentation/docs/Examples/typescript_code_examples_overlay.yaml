@@ -47,6 +47,7 @@
   "published" : true,
   "enabled" : true
 }; // DataSegment | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.createDataSegmentV1({ dataSegment: dataSegment });
         console.log(result);
 - path: /data-segments/v1/{segmentId}

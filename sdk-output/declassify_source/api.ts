@@ -132,12 +132,17 @@ export const DeclassifySourceApiAxiosParamCreator = function (configuration?: Co
          * Use this API to declassify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Declassify source\'s all accounts
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendDeclassifyMachineAccountFromSourceV1: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sendDeclassifyMachineAccountFromSourceV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('sendDeclassifyMachineAccountFromSourceV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/declassify`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -153,6 +158,9 @@ export const DeclassifySourceApiAxiosParamCreator = function (configuration?: Co
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -176,11 +184,12 @@ export const DeclassifySourceApiFp = function(configuration?: Configuration) {
          * Use this API to declassify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Declassify source\'s all accounts
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendDeclassifyMachineAccountFromSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendDeclassifyMachineAccountFromSourceV1(sourceId, axiosOptions);
+        async sendDeclassifyMachineAccountFromSourceV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendDeclassifyMachineAccountFromSourceV1(sourceId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DeclassifySourceApi.sendDeclassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -203,7 +212,7 @@ export const DeclassifySourceApiFactory = function (configuration?: Configuratio
          * @throws {RequiredError}
          */
         sendDeclassifyMachineAccountFromSourceV1(requestParameters: DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.sendDeclassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.sendDeclassifyMachineAccountFromSourceV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -220,6 +229,13 @@ export interface DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Requ
      * @memberof DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1
      */
     readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -238,7 +254,7 @@ export class DeclassifySourceApi extends BaseAPI {
      * @memberof DeclassifySourceApi
      */
     public sendDeclassifyMachineAccountFromSourceV1(requestParameters: DeclassifySourceApiSendDeclassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return DeclassifySourceApiFp(this.configuration).sendDeclassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return DeclassifySourceApiFp(this.configuration).sendDeclassifyMachineAccountFromSourceV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

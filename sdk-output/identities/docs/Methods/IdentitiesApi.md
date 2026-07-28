@@ -45,9 +45,6 @@ Method | HTTP request | Description
 
 
 ## delete-identity-v1
-:::warning experimental
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Delete identity
 The API returns successful response if the requested identity was deleted.
 
@@ -59,7 +56,6 @@ The API returns successful response if the requested identity was deleted.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Identity Id |  [default to undefined]
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -79,7 +75,6 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new IdentitiesApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Identity Id
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.deleteIdentityV1({ id: id });
 console.log(result);
 ```

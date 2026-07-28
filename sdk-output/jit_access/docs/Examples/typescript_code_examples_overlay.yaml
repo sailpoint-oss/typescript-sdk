@@ -10,6 +10,7 @@
         const configuration = new Configuration();
         const apiInstance = new JITAccessApi(configuration);
         const configType: string = 'policy'; // 'policy' | Configuration kind to read. Only **policy** (JIT activation policy) is supported today.  (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getJitActivationConfigV1({ configType: configType });
         console.log(result);
 - path: /jit-activation-config/v1/{configType}
@@ -30,5 +31,6 @@
   "path" : "/maxActivationPeriodMins",
   "value" : 60
 }; // Array<JitAccessOperationRequest> | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchJitActivationConfigV1({ configType: configType, jitAccessOperationRequest: jitAccessOperationRequest });
         console.log(result);

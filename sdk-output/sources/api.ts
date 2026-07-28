@@ -4348,17 +4348,12 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Get source entitlement request configuration
          * @param {string} id The Source id
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceEntitlementRequestConfigV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSourceEntitlementRequestConfigV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getSourceEntitlementRequestConfigV1', 'id', id)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/sources/v1/{id}/entitlement-request-config`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4374,9 +4369,6 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -5844,19 +5836,14 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
          * @param {SourceEntitlementRequestConfig} sourceEntitlementRequestConfig 
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSourceEntitlementRequestConfigV1: async (id: string, sourceEntitlementRequestConfig: SourceEntitlementRequestConfig, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSourceEntitlementRequestConfigV1: async (id: string, sourceEntitlementRequestConfig: SourceEntitlementRequestConfig, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateSourceEntitlementRequestConfigV1', 'id', id)
             // verify required parameter 'sourceEntitlementRequestConfig' is not null or undefined
             assertParamExists('updateSourceEntitlementRequestConfigV1', 'sourceEntitlementRequestConfig', sourceEntitlementRequestConfig)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/sources/v1/{id}/entitlement-request-config`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5874,9 +5861,6 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -6346,12 +6330,11 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Get source entitlement request configuration
          * @param {string} id The Source id
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceEntitlementRequestConfigV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementRequestConfigV1(id, xSailPointExperimental, axiosOptions);
+        async getSourceEntitlementRequestConfigV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementRequestConfigV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -6853,12 +6836,11 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
          * @param {SourceEntitlementRequestConfig} sourceEntitlementRequestConfig 
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceEntitlementRequestConfigV1(id: string, sourceEntitlementRequestConfig: SourceEntitlementRequestConfig, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfigV1(id, sourceEntitlementRequestConfig, xSailPointExperimental, axiosOptions);
+        async updateSourceEntitlementRequestConfigV1(id: string, sourceEntitlementRequestConfig: SourceEntitlementRequestConfig, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfigV1(id, sourceEntitlementRequestConfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -7155,7 +7137,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         getSourceEntitlementRequestConfigV1(requestParameters: SourcesApiGetSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceEntitlementRequestConfig> {
-            return localVarFp.getSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getSourceEntitlementRequestConfigV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint fetches source health by source\'s id
@@ -7505,7 +7487,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         updateSourceEntitlementRequestConfigV1(requestParameters: SourcesApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceEntitlementRequestConfig> {
-            return localVarFp.updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceEntitlementRequestConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceEntitlementRequestConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to selectively update an existing Schedule using a JSONPatch payload.   The following schedule fields are immutable and cannot be updated:  - type 
@@ -8000,13 +7982,6 @@ export interface SourcesApiGetSourceEntitlementRequestConfigV1Request {
      * @memberof SourcesApiGetSourceEntitlementRequestConfigV1
      */
     readonly id: string
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof SourcesApiGetSourceEntitlementRequestConfigV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -8854,13 +8829,6 @@ export interface SourcesApiUpdateSourceEntitlementRequestConfigV1Request {
      * @memberof SourcesApiUpdateSourceEntitlementRequestConfigV1
      */
     readonly sourceEntitlementRequestConfig: SourceEntitlementRequestConfig
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof SourcesApiUpdateSourceEntitlementRequestConfigV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -9232,7 +9200,7 @@ export class SourcesApi extends BaseAPI {
      * @memberof SourcesApi
      */
     public getSourceEntitlementRequestConfigV1(requestParameters: SourcesApiGetSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SourcesApiFp(this.configuration).getSourceEntitlementRequestConfigV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9652,7 +9620,7 @@ export class SourcesApi extends BaseAPI {
      * @memberof SourcesApi
      */
     public updateSourceEntitlementRequestConfigV1(requestParameters: SourcesApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceEntitlementRequestConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SourcesApiFp(this.configuration).updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceEntitlementRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

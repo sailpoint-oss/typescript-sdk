@@ -765,12 +765,17 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
          * @summary Start JIT activation workflow
          * @param {JitActivationActivateRequest} jitActivationActivateRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startActivateWorkflowV1: async (jitActivationActivateRequest: JitActivationActivateRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startActivateWorkflowV1: async (jitActivationActivateRequest: JitActivationActivateRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'jitActivationActivateRequest' is not null or undefined
             assertParamExists('startActivateWorkflowV1', 'jitActivationActivateRequest', jitActivationActivateRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/jit-activations/v1/activate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -787,6 +792,9 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -801,12 +809,17 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Deactivate JIT activation workflow
          * @param {JitActivationDeactivateRequest} jitActivationDeactivateRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startDeactivateWorkflowV1: async (jitActivationDeactivateRequest: JitActivationDeactivateRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startDeactivateWorkflowV1: async (jitActivationDeactivateRequest: JitActivationDeactivateRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'jitActivationDeactivateRequest' is not null or undefined
             assertParamExists('startDeactivateWorkflowV1', 'jitActivationDeactivateRequest', jitActivationDeactivateRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/jit-activations/v1/deactivate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -823,6 +836,9 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -837,12 +853,17 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Extend JIT activation workflow
          * @param {JitActivationExtendRequest} jitActivationExtendRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startExtendWorkflowV1: async (jitActivationExtendRequest: JitActivationExtendRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startExtendWorkflowV1: async (jitActivationExtendRequest: JitActivationExtendRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'jitActivationExtendRequest' is not null or undefined
             assertParamExists('startExtendWorkflowV1', 'jitActivationExtendRequest', jitActivationExtendRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/jit-activations/v1/extend`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -859,6 +880,9 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -919,11 +943,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
          * @summary Start JIT activation workflow
          * @param {JitActivationActivateRequest} jitActivationActivateRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startActivateWorkflowV1(jitActivationActivateRequest: JitActivationActivateRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationActivateResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startActivateWorkflowV1(jitActivationActivateRequest, axiosOptions);
+        async startActivateWorkflowV1(jitActivationActivateRequest: JitActivationActivateRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationActivateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startActivateWorkflowV1(jitActivationActivateRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.startActivateWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -932,11 +957,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Deactivate JIT activation workflow
          * @param {JitActivationDeactivateRequest} jitActivationDeactivateRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startDeactivateWorkflowV1(jitActivationDeactivateRequest: JitActivationDeactivateRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationDeactivateResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startDeactivateWorkflowV1(jitActivationDeactivateRequest, axiosOptions);
+        async startDeactivateWorkflowV1(jitActivationDeactivateRequest: JitActivationDeactivateRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationDeactivateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startDeactivateWorkflowV1(jitActivationDeactivateRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.startDeactivateWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -945,11 +971,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
          * @summary Extend JIT activation workflow
          * @param {JitActivationExtendRequest} jitActivationExtendRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startExtendWorkflowV1(jitActivationExtendRequest: JitActivationExtendRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationExtendResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startExtendWorkflowV1(jitActivationExtendRequest, axiosOptions);
+        async startExtendWorkflowV1(jitActivationExtendRequest: JitActivationExtendRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JitActivationExtendResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startExtendWorkflowV1(jitActivationExtendRequest, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.startExtendWorkflowV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -992,7 +1019,7 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         startActivateWorkflowV1(requestParameters: JITActivationsApiStartActivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JitActivationActivateResponse> {
-            return localVarFp.startActivateWorkflowV1(requestParameters.jitActivationActivateRequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.startActivateWorkflowV1(requestParameters.jitActivationActivateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
@@ -1002,7 +1029,7 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         startDeactivateWorkflowV1(requestParameters: JITActivationsApiStartDeactivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JitActivationDeactivateResponse> {
-            return localVarFp.startDeactivateWorkflowV1(requestParameters.jitActivationDeactivateRequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.startDeactivateWorkflowV1(requestParameters.jitActivationDeactivateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period by the requested number of minutes.  This request cannot be applied to a workflow that does not exist or whose execution has already completed. The client receives an error response in those cases.  The response is returned with HTTP 202 Accepted after the signal is sent. 
@@ -1012,7 +1039,7 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         startExtendWorkflowV1(requestParameters: JITActivationsApiStartExtendWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JitActivationExtendResponse> {
-            return localVarFp.startExtendWorkflowV1(requestParameters.jitActivationExtendRequest, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.startExtendWorkflowV1(requestParameters.jitActivationExtendRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1127,6 +1154,13 @@ export interface JITActivationsApiStartActivateWorkflowV1Request {
      * @memberof JITActivationsApiStartActivateWorkflowV1
      */
     readonly jitActivationActivateRequest: JitActivationActivateRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITActivationsApiStartActivateWorkflowV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -1141,6 +1175,13 @@ export interface JITActivationsApiStartDeactivateWorkflowV1Request {
      * @memberof JITActivationsApiStartDeactivateWorkflowV1
      */
     readonly jitActivationDeactivateRequest: JitActivationDeactivateRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITActivationsApiStartDeactivateWorkflowV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -1155,6 +1196,13 @@ export interface JITActivationsApiStartExtendWorkflowV1Request {
      * @memberof JITActivationsApiStartExtendWorkflowV1
      */
     readonly jitActivationExtendRequest: JitActivationExtendRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITActivationsApiStartExtendWorkflowV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -1197,7 +1245,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public startActivateWorkflowV1(requestParameters: JITActivationsApiStartActivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).startActivateWorkflowV1(requestParameters.jitActivationActivateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).startActivateWorkflowV1(requestParameters.jitActivationActivateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1209,7 +1257,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public startDeactivateWorkflowV1(requestParameters: JITActivationsApiStartDeactivateWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).startDeactivateWorkflowV1(requestParameters.jitActivationDeactivateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).startDeactivateWorkflowV1(requestParameters.jitActivationDeactivateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1221,7 +1269,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public startExtendWorkflowV1(requestParameters: JITActivationsApiStartExtendWorkflowV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).startExtendWorkflowV1(requestParameters.jitActivationExtendRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).startExtendWorkflowV1(requestParameters.jitActivationExtendRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

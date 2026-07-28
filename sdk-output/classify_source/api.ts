@@ -212,12 +212,17 @@ export const ClassifySourceApiAxiosParamCreator = function (configuration?: Conf
          * Use this API to cancel account classification process on a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Cancel classify source\'s accounts process
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteClassifyMachineAccountFromSourceV1: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteClassifyMachineAccountFromSourceV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('deleteClassifyMachineAccountFromSourceV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/classify`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -233,6 +238,9 @@ export const ClassifySourceApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -246,12 +254,17 @@ export const ClassifySourceApiAxiosParamCreator = function (configuration?: Conf
          * Use this API to get the status of Machine Account Classification process for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Source accounts classification status
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getClassifyMachineAccountFromSourceStatusV1: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getClassifyMachineAccountFromSourceStatusV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getClassifyMachineAccountFromSourceStatusV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/classify`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -267,6 +280,9 @@ export const ClassifySourceApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -280,12 +296,17 @@ export const ClassifySourceApiAxiosParamCreator = function (configuration?: Conf
          * Use this API to classify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify source\'s all accounts
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        sendClassifyMachineAccountFromSourceV1: async (sourceId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sendClassifyMachineAccountFromSourceV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('sendClassifyMachineAccountFromSourceV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/classify`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -301,6 +322,9 @@ export const ClassifySourceApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -324,11 +348,12 @@ export const ClassifySourceApiFp = function(configuration?: Configuration) {
          * Use this API to cancel account classification process on a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Cancel classify source\'s accounts process
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteClassifyMachineAccountFromSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteClassifyMachineAccountFromSourceV1(sourceId, axiosOptions);
+        async deleteClassifyMachineAccountFromSourceV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteClassifyMachineAccountFromSourceV1(sourceId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ClassifySourceApi.deleteClassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -337,11 +362,12 @@ export const ClassifySourceApiFp = function(configuration?: Configuration) {
          * Use this API to get the status of Machine Account Classification process for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Source accounts classification status
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getClassifyMachineAccountFromSourceStatusV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceClassificationStatus>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getClassifyMachineAccountFromSourceStatusV1(sourceId, axiosOptions);
+        async getClassifyMachineAccountFromSourceStatusV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceClassificationStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getClassifyMachineAccountFromSourceStatusV1(sourceId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ClassifySourceApi.getClassifyMachineAccountFromSourceStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -350,11 +376,12 @@ export const ClassifySourceApiFp = function(configuration?: Configuration) {
          * Use this API to classify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify source\'s all accounts
          * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendClassifyMachineAccountFromSourceV1(sourceId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountFromSourceV1200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendClassifyMachineAccountFromSourceV1(sourceId, axiosOptions);
+        async sendClassifyMachineAccountFromSourceV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendClassifyMachineAccountFromSourceV1200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendClassifyMachineAccountFromSourceV1(sourceId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ClassifySourceApi.sendClassifyMachineAccountFromSourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -377,7 +404,7 @@ export const ClassifySourceApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         deleteClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.deleteClassifyMachineAccountFromSourceV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get the status of Machine Account Classification process for a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -387,7 +414,7 @@ export const ClassifySourceApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceClassificationStatus> {
-            return localVarFp.getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to classify all the accounts from a source. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -397,7 +424,7 @@ export const ClassifySourceApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         sendClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SendClassifyMachineAccountFromSourceV1200Response> {
-            return localVarFp.sendClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.sendClassifyMachineAccountFromSourceV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -414,6 +441,13 @@ export interface ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Reques
      * @memberof ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1
      */
     readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -428,6 +462,13 @@ export interface ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Req
      * @memberof ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1
      */
     readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -442,6 +483,13 @@ export interface ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request 
      * @memberof ClassifySourceApiSendClassifyMachineAccountFromSourceV1
      */
     readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof ClassifySourceApiSendClassifyMachineAccountFromSourceV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -460,7 +508,7 @@ export class ClassifySourceApi extends BaseAPI {
      * @memberof ClassifySourceApi
      */
     public deleteClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiDeleteClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ClassifySourceApiFp(this.configuration).deleteClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ClassifySourceApiFp(this.configuration).deleteClassifyMachineAccountFromSourceV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -472,7 +520,7 @@ export class ClassifySourceApi extends BaseAPI {
      * @memberof ClassifySourceApi
      */
     public getClassifyMachineAccountFromSourceStatusV1(requestParameters: ClassifySourceApiGetClassifyMachineAccountFromSourceStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ClassifySourceApiFp(this.configuration).getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ClassifySourceApiFp(this.configuration).getClassifyMachineAccountFromSourceStatusV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -484,7 +532,7 @@ export class ClassifySourceApi extends BaseAPI {
      * @memberof ClassifySourceApi
      */
     public sendClassifyMachineAccountFromSourceV1(requestParameters: ClassifySourceApiSendClassifyMachineAccountFromSourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return ClassifySourceApiFp(this.configuration).sendClassifyMachineAccountFromSourceV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ClassifySourceApiFp(this.configuration).sendClassifyMachineAccountFromSourceV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

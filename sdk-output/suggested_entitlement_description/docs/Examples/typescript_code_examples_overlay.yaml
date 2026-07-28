@@ -21,6 +21,7 @@
     "privilegeLevel" : "high"
   } ]
 }; // BulkApproveEntitlementRecommendationRequest | The list of recommendation items to approve.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.approveBulkEntitlementRecommendationsV1({ bulkApproveEntitlementRecommendationRequest: bulkApproveEntitlementRecommendationRequest });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1/auto-write-settings
@@ -100,6 +101,7 @@
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.listPendingEntitlementRecommendationApprovalsV1({  });
         console.log(result);
 - path: /privileged-recommendations/v1
@@ -115,6 +117,7 @@
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.listPrivilegedEntitlementRecommendationsV1({  });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1
@@ -156,6 +159,7 @@
   "path" : "/description",
   "value" : "New description"
 }; // Array<JsonPatchOperation> | The patch operations to apply to the entitlement recommendation record.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchEntitlementRecommendationV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /suggested-entitlement-descriptions/v1
@@ -197,6 +201,7 @@
   },
   "items" : [ "79db50d4-723c-4aa0-a824-83c2205d82d1", "a1b2c3d4-e5f6-7890-abcd-ef1234567890" ]
 }; // EntitlementRecommendationAssignRequest | The recommendation IDs and the target assignee.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.submitEntitlementRecommendationsAssignmentV1({ entitlementRecommendationAssignRequest: entitlementRecommendationAssignRequest });
         console.log(result);
 - path: /suggested-entitlement-description-approvals/v1

@@ -134,6 +134,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## start-activate-workflow-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Start JIT activation workflow
 Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration.
 The service performs quick validation; the workflow performs additional validation.
@@ -149,6 +152,7 @@ The response is returned with HTTP 202 Accepted while the workflow initializes.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **jitActivationActivateRequest** | `JitActivationActivateRequest` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -172,6 +176,7 @@ const jitActivationActivateRequest: JitActivationActivateRequest = {
   "activationPeriodMins" : 120,
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.startActivateWorkflowV1({ jitActivationActivateRequest: jitActivationActivateRequest });
 console.log(result);
 ```
@@ -179,6 +184,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## start-deactivate-workflow-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Deactivate JIT activation workflow
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to deactivate.
 
@@ -196,6 +204,7 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **jitActivationDeactivateRequest** | `JitActivationDeactivateRequest` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -218,6 +227,7 @@ const apiInstance = new JITActivationsApi(configuration);
 const jitActivationDeactivateRequest: JitActivationDeactivateRequest = {
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.startDeactivateWorkflowV1({ jitActivationDeactivateRequest: jitActivationDeactivateRequest });
 console.log(result);
 ```
@@ -225,6 +235,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## start-extend-workflow-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Extend JIT activation workflow
 Sends a signal to a running JIT Privileged (JIT P) activation workflow to extend the activation period
 by the requested number of minutes.
@@ -243,6 +256,7 @@ The response is returned with HTTP 202 Accepted after the signal is sent.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **jitActivationExtendRequest** | `JitActivationExtendRequest` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -266,6 +280,7 @@ const jitActivationExtendRequest: JitActivationExtendRequest = {
   "activationPeriodExtensionMins" : 120,
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.startExtendWorkflowV1({ jitActivationExtendRequest: jitActivationExtendRequest });
 console.log(result);
 ```
