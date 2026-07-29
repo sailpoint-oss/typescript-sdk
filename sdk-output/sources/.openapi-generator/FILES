@@ -92,6 +92,7 @@ TaskResultDto.md
 Transform.md
 TransformRead.md
 UsageType.md
+Usagetypev2.md
 api.ts
 base.ts
 common.ts

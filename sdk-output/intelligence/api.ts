@@ -549,6 +549,12 @@ export interface IntelPrivilegedAccessItemWire {
      */
     'privileged': boolean;
     /**
+     * 
+     * @type {Intelprivilegelevel}
+     * @memberof IntelPrivilegedAccessItemWire
+     */
+    'privilegeLevel'?: Intelprivilegelevel;
+    /**
      * Identifier of the privileged access item.
      * @type {string}
      * @memberof IntelPrivilegedAccessItemWire
@@ -642,6 +648,29 @@ export interface IntelRareAccessSlice {
      */
     'next'?: string;
 }
+/**
+ * Effective privilege level for the privileged access item. Set to HIGH, MEDIUM, or LOW based on the tenant\'s privilege classification configuration, including connector criteria, custom criteria, manual overrides, or a single configured privilege level. Use NONE when no privilege level is assigned. Entitlements previously marked with privileged=true are classified as HIGH. 
+ * @export
+ * @interface Intelprivilegelevel
+ */
+export interface Intelprivilegelevel {
+    /**
+     * Effective privilege level for the privileged access item. 
+     * @type {string}
+     * @memberof Intelprivilegelevel
+     */
+    'effective'?: IntelprivilegelevelEffectiveEnum;
+}
+
+export const IntelprivilegelevelEffectiveEnum = {
+    High: 'HIGH',
+    Medium: 'MEDIUM',
+    Low: 'LOW',
+    None: 'NONE'
+} as const;
+
+export type IntelprivilegelevelEffectiveEnum = typeof IntelprivilegelevelEffectiveEnum[keyof typeof IntelprivilegelevelEffectiveEnum];
+
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export

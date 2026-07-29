@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'IntelPrivilegedAccessItemWire', 'v1In
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **privileged** | `boolean` | True when this item is classified as privileged access for the identity. | [default to undefined]
+**privilegeLevel** | **(optional)** `Intelprivilegelevel` |  | [default to undefined]
 **id** | `string` | Identifier of the privileged access item. | [default to undefined]
 **type** | `string` | Type of privileged access object. | [default to undefined]
 **displayName** | **(optional)** `string` | Display label for the privileged access item in administrative experiences. | [default to undefined]

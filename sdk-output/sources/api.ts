@@ -2144,10 +2144,10 @@ export interface ProvisioningPolicyDtoV2 {
     'description'?: string;
     /**
      * 
-     * @type {UsageType}
+     * @type {Usagetypev2}
      * @memberof ProvisioningPolicyDtoV2
      */
-    'usageType'?: UsageType;
+    'usageType'?: Usagetypev2;
     /**
      * 
      * @type {Array<FieldDetailsDtoV2>}
@@ -3425,7 +3425,7 @@ export const TransformReadTypeEnum = {
 export type TransformReadTypeEnum = typeof TransformReadTypeEnum[keyof typeof TransformReadTypeEnum];
 
 /**
- * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. CREATE_MACHINE_ACCOUNT - This usage type can be used to create the provisioning template for a source subtype which will be used in creating a machine account. You can use these usage types for all your provisioning policy needs. 
+ * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. You can use these usage types for all your provisioning policy needs. 
  * @export
  * @enum {string}
  */
@@ -3446,11 +3446,39 @@ export const UsageType = {
     UpdateIdentity: 'UPDATE_IDENTITY',
     EditGroup: 'EDIT_GROUP',
     Unlock: 'UNLOCK',
+    ChangePassword: 'CHANGE_PASSWORD'
+} as const;
+
+export type UsageType = typeof UsageType[keyof typeof UsageType];
+
+
+/**
+ * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. CREATE_MACHINE_ACCOUNT - This usage type can be used to create the provisioning template for a source subtype which will be used in creating a machine account. You can use these usage types for all your provisioning policy needs. 
+ * @export
+ * @enum {string}
+ */
+
+export const Usagetypev2 = {
+    Create: 'CREATE',
+    Update: 'UPDATE',
+    Enable: 'ENABLE',
+    Disable: 'DISABLE',
+    Delete: 'DELETE',
+    Assign: 'ASSIGN',
+    Unassign: 'UNASSIGN',
+    CreateGroup: 'CREATE_GROUP',
+    UpdateGroup: 'UPDATE_GROUP',
+    DeleteGroup: 'DELETE_GROUP',
+    Register: 'REGISTER',
+    CreateIdentity: 'CREATE_IDENTITY',
+    UpdateIdentity: 'UPDATE_IDENTITY',
+    EditGroup: 'EDIT_GROUP',
+    Unlock: 'UNLOCK',
     ChangePassword: 'CHANGE_PASSWORD',
     CreateMachineAccount: 'CREATE_MACHINE_ACCOUNT'
 } as const;
 
-export type UsageType = typeof UsageType[keyof typeof UsageType];
+export type Usagetypev2 = typeof Usagetypev2[keyof typeof Usagetypev2];
 
 
 
