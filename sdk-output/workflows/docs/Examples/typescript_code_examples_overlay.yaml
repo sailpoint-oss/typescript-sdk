@@ -83,13 +83,15 @@
         const configuration = new Configuration();
         const apiInstance = new WorkflowsApi(configuration);
         const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow execution (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const result = await apiInstance.getWorkflowExecutionHistoryV1({ id: id });
         console.log(result);
 - path: /workflow-executions/v1/{id}/history-v2
   method: GET
   xCodeSample:
     - lang: TypeScript
-      label: SDK_tools/sdk/typescript/workflows/methods/workflows#get-workflow-execution-history-v2
+      label: SDK_tools/sdk/typescript/workflows/methods/workflows#get-workflow-execution-history-v2-for-v1
       source: |
         import { WorkflowsApi } from 'sailpoint-api-client';
         import { Configuration } from 'sailpoint-api-client';
@@ -97,7 +99,7 @@
         const configuration = new Configuration();
         const apiInstance = new WorkflowsApi(configuration);
         const id: string = 'c17bea3a-574d-453c-9e04-4365fbf5af0b'; // string | Id of the workflow execution (default to undefined)
-        const result = await apiInstance.getWorkflowExecutionHistoryV2({ id: id });
+        const result = await apiInstance.getWorkflowExecutionHistoryV2ForV1({ id: id });
         console.log(result);
 - path: /workflow-executions/v1/{id}
   method: GET

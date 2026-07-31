@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**create-workflow-v1**](#create-workflow-v1) | **POST** `/workflows/v1` | Create workflow
 [**delete-workflow-v1**](#delete-workflow-v1) | **DELETE** `/workflows/v1/{id}` | Delete workflow by id
 [**get-workflow-execution-history-v1**](#get-workflow-execution-history-v1) | **GET** `/workflow-executions/v1/{id}/history` | Get workflow execution history
-[**get-workflow-execution-history-v2**](#get-workflow-execution-history-v2) | **GET** `/workflow-executions/v1/{id}/history-v2` | Get updated workflow execution history
+[**get-workflow-execution-history-v2-for-v1**](#get-workflow-execution-history-v2-for-v1) | **GET** `/workflow-executions/v1/{id}/history-v2` | Get updated workflow execution history
 [**get-workflow-execution-v1**](#get-workflow-execution-v1) | **GET** `/workflow-executions/v1/{id}` | Get workflow execution
 [**get-workflow-executions-v1**](#get-workflow-executions-v1) | **GET** `/workflows/v1/{id}/executions` | List workflow executions
 [**get-workflow-v1**](#get-workflow-v1) | **GET** `/workflows/v1/{id}` | Get workflow by id
@@ -238,6 +238,8 @@ Get a detailed history of a single workflow execution.  Workflow executions are 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Id of the workflow execution |  [default to undefined]
+**limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 
 ### Return type
 
@@ -257,17 +259,19 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
 const id: string = c17bea3a-574d-453c-9e04-4365fbf5af0b; // Id of the workflow execution
+const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const result = await apiInstance.getWorkflowExecutionHistoryV1({ id: id });
 console.log(result);
 ```
 
 [[Back to top]](#)
 
-## get-workflow-execution-history-v2
+## get-workflow-execution-history-v2-for-v1
 Get updated workflow execution history
 Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
-[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-history-v-2)
+[API Spec](https://developer.sailpoint.com/docs/api/get-workflow-execution-history-v2-for-v-1)
 
 ### Parameters
 
@@ -294,7 +298,7 @@ import { Configuration } from 'sailpoint-api-client';
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
 const id: string = c17bea3a-574d-453c-9e04-4365fbf5af0b; // Id of the workflow execution
-const result = await apiInstance.getWorkflowExecutionHistoryV2({ id: id });
+const result = await apiInstance.getWorkflowExecutionHistoryV2ForV1({ id: id });
 console.log(result);
 ```
 

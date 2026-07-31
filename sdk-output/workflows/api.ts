@@ -1303,10 +1303,12 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get workflow execution history
          * @param {string} id Id of the workflow execution
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowExecutionHistoryV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getWorkflowExecutionHistoryV1: async (id: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getWorkflowExecutionHistoryV1', 'id', id)
             const localVarPath = `/workflow-executions/v1/{id}/history`
@@ -1321,6 +1323,14 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
 
     
@@ -1340,9 +1350,9 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowExecutionHistoryV2: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getWorkflowExecutionHistoryV2ForV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getWorkflowExecutionHistoryV2', 'id', id)
+            assertParamExists('getWorkflowExecutionHistoryV2ForV1', 'id', id)
             const localVarPath = `/workflow-executions/v1/{id}/history-v2`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1913,11 +1923,13 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get workflow execution history
          * @param {string} id Id of the workflow execution
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecutionHistoryV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEvent>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistoryV1(id, axiosOptions);
+        async getWorkflowExecutionHistoryV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEvent>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistoryV1(id, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutionHistoryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1929,10 +1941,10 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecutionHistoryV2(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecutionHistory>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistoryV2(id, axiosOptions);
+        async getWorkflowExecutionHistoryV2ForV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowExecutionHistory>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistoryV2ForV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutionHistoryV2']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.getWorkflowExecutionHistoryV2ForV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2170,17 +2182,17 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         getWorkflowExecutionHistoryV1(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<WorkflowExecutionEvent>> {
-            return localVarFp.getWorkflowExecutionHistoryV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getWorkflowExecutionHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get updated workflow execution history
-         * @param {WorkflowsApiGetWorkflowExecutionHistoryV2Request} requestParameters Request parameters.
+         * @param {WorkflowsApiGetWorkflowExecutionHistoryV2ForV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkflowExecutionHistoryV2(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkflowExecutionHistory> {
-            return localVarFp.getWorkflowExecutionHistoryV2(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        getWorkflowExecutionHistoryV2ForV1(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV2ForV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<WorkflowExecutionHistory> {
+            return localVarFp.getWorkflowExecutionHistoryV2ForV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a \"404 Not Found\" response.
@@ -2393,18 +2405,32 @@ export interface WorkflowsApiGetWorkflowExecutionHistoryV1Request {
      * @memberof WorkflowsApiGetWorkflowExecutionHistoryV1
      */
     readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiGetWorkflowExecutionHistoryV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiGetWorkflowExecutionHistoryV1
+     */
+    readonly offset?: number
 }
 
 /**
- * Request parameters for getWorkflowExecutionHistoryV2 operation in WorkflowsApi.
+ * Request parameters for getWorkflowExecutionHistoryV2ForV1 operation in WorkflowsApi.
  * @export
- * @interface WorkflowsApiGetWorkflowExecutionHistoryV2Request
+ * @interface WorkflowsApiGetWorkflowExecutionHistoryV2ForV1Request
  */
-export interface WorkflowsApiGetWorkflowExecutionHistoryV2Request {
+export interface WorkflowsApiGetWorkflowExecutionHistoryV2ForV1Request {
     /**
      * Id of the workflow execution
      * @type {string}
-     * @memberof WorkflowsApiGetWorkflowExecutionHistoryV2
+     * @memberof WorkflowsApiGetWorkflowExecutionHistoryV2ForV1
      */
     readonly id: string
 }
@@ -2709,19 +2735,19 @@ export class WorkflowsApi extends BaseAPI {
      * @memberof WorkflowsApi
      */
     public getWorkflowExecutionHistoryV1(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).getWorkflowExecutionHistoryV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkflowsApiFp(this.configuration).getWorkflowExecutionHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
      * @summary Get updated workflow execution history
-     * @param {WorkflowsApiGetWorkflowExecutionHistoryV2Request} requestParameters Request parameters.
+     * @param {WorkflowsApiGetWorkflowExecutionHistoryV2ForV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    public getWorkflowExecutionHistoryV2(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV2Request, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).getWorkflowExecutionHistoryV2(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getWorkflowExecutionHistoryV2ForV1(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryV2ForV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).getWorkflowExecutionHistoryV2ForV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
