@@ -218,7 +218,13 @@ export interface IntelAccessHistoryAccessItemsSlice {
      */
     'items': Array<IntelAccessItemHistoryEvent>;
     /**
-     * Absolute URL to the next access-items page; present only when more results exist.
+     * Total number of events in this category; omitted when `items` is empty.
+     * @type {number}
+     * @memberof IntelAccessHistoryAccessItemsSlice
+     */
+    'totalCount'?: number;
+    /**
+     * Absolute URL to the next access-items page; present when totalCount exceeds the items returned on this page.
      * @type {string}
      * @memberof IntelAccessHistoryAccessItemsSlice
      */
@@ -237,7 +243,13 @@ export interface IntelAccessHistoryCertificationsSlice {
      */
     'items': Array<IntelCertificationHistoryEvent>;
     /**
-     * Absolute URL to the next certifications page; present only when more results exist.
+     * Total number of events in this category; omitted when `items` is empty.
+     * @type {number}
+     * @memberof IntelAccessHistoryCertificationsSlice
+     */
+    'totalCount'?: number;
+    /**
+     * Absolute URL to the next certifications page; present when totalCount exceeds the items returned on this page.
      * @type {string}
      * @memberof IntelAccessHistoryCertificationsSlice
      */
@@ -305,7 +317,13 @@ export interface IntelAccountsSlice {
      */
     'items': Array<IntelAccessAccountWire>;
     /**
-     * Absolute URL to the next accounts page; present only when more results exist.
+     * Total number of accounts for this identity; omitted when `items` is empty.
+     * @type {number}
+     * @memberof IntelAccountsSlice
+     */
+    'totalCount'?: number;
+    /**
+     * Absolute URL to the next accounts page; present when totalCount exceeds the items returned on this page.
      * @type {string}
      * @memberof IntelAccountsSlice
      */
@@ -642,7 +660,13 @@ export interface IntelRareAccessSlice {
      */
     'items': Array<IntelOutlierAccessItem>;
     /**
-     * Absolute URL to the next rareAccess page; present only when more results exist.
+     * Total number of rare-access items for the resolved outlier; omitted when `items` is empty.
+     * @type {number}
+     * @memberof IntelRareAccessSlice
+     */
+    'totalCount'?: number;
+    /**
+     * Absolute URL to the next rareAccess page; present when totalCount exceeds the items returned on this page.
      * @type {string}
      * @memberof IntelRareAccessSlice
      */
@@ -693,7 +717,7 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 export const IntelligenceApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -730,15 +754,16 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
          * @summary List identity access item history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityAccessItemHistoryV1: async (id: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIntelIdentityAccessItemHistoryV1: async (id: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIntelIdentityAccessItemHistoryV1', 'id', id)
             const localVarPath = `/intelligence/v1/identities/{id}/access-history/access-items`
@@ -762,6 +787,10 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -774,15 +803,16 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
          * @summary List identity accounts
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityAccountsV1: async (id: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIntelIdentityAccountsV1: async (id: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIntelIdentityAccountsV1', 'id', id)
             const localVarPath = `/intelligence/v1/identities/{id}/accounts`
@@ -806,6 +836,10 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -818,15 +852,16 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
          * @summary List identity certification history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityCertificationHistoryV1: async (id: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIntelIdentityCertificationHistoryV1: async (id: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIntelIdentityCertificationHistoryV1', 'id', id)
             const localVarPath = `/intelligence/v1/identities/{id}/access-history/certifications`
@@ -850,6 +885,10 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
                 localVarQueryParameter['offset'] = offset;
             }
 
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -862,15 +901,16 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. An identity with no outlier returns an empty array. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
          * @summary List identity rare access
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityRareAccessV1: async (id: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIntelIdentityRareAccessV1: async (id: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIntelIdentityRareAccessV1', 'id', id)
             const localVarPath = `/intelligence/v1/identities/{id}/outliers/rare-access`
@@ -892,6 +932,10 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
             }
 
 
@@ -916,7 +960,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntelligenceApiAxiosParamCreator(configuration)
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -929,61 +973,65 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
          * @summary List identity access item history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityAccessItemHistoryV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelAccessItemHistoryEvent>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccessItemHistoryV1(id, limit, offset, axiosOptions);
+        async getIntelIdentityAccessItemHistoryV1(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelAccessItemHistoryEvent>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccessItemHistoryV1(id, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityAccessItemHistoryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
          * @summary List identity accounts
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityAccountsV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelAccessAccountWire>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccountsV1(id, limit, offset, axiosOptions);
+        async getIntelIdentityAccountsV1(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelAccessAccountWire>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccountsV1(id, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityAccountsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
          * @summary List identity certification history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityCertificationHistoryV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelCertificationHistoryEvent>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityCertificationHistoryV1(id, limit, offset, axiosOptions);
+        async getIntelIdentityCertificationHistoryV1(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelCertificationHistoryEvent>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityCertificationHistoryV1(id, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityCertificationHistoryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. An identity with no outlier returns an empty array. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
          * @summary List identity rare access
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityRareAccessV1(id: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelOutlierAccessItem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityRareAccessV1(id, limit, offset, axiosOptions);
+        async getIntelIdentityRareAccessV1(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelOutlierAccessItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityRareAccessV1(id, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityRareAccessV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -999,7 +1047,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
     const localVarFp = IntelligenceApiFp(configuration)
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
          * @summary Get identity by filter
          * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1009,44 +1057,44 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
             return localVarFp.getIdentityIntelligenceV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
          * @summary List identity access item history
          * @param {IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         getIntelIdentityAccessItemHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelAccessItemHistoryEvent>> {
-            return localVarFp.getIntelIdentityAccessItemHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getIntelIdentityAccessItemHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
          * @summary List identity accounts
          * @param {IntelligenceApiGetIntelIdentityAccountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         getIntelIdentityAccountsV1(requestParameters: IntelligenceApiGetIntelIdentityAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelAccessAccountWire>> {
-            return localVarFp.getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
          * @summary List identity certification history
          * @param {IntelligenceApiGetIntelIdentityCertificationHistoryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         getIntelIdentityCertificationHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityCertificationHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelCertificationHistoryEvent>> {
-            return localVarFp.getIntelIdentityCertificationHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getIntelIdentityCertificationHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. An identity with no outlier returns an empty array. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
          * @summary List identity rare access
          * @param {IntelligenceApiGetIntelIdentityRareAccessV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         getIntelIdentityRareAccessV1(requestParameters: IntelligenceApiGetIntelIdentityRareAccessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelOutlierAccessItem>> {
-            return localVarFp.getIntelIdentityRareAccessV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getIntelIdentityRareAccessV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1091,6 +1139,13 @@ export interface IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request {
      * @memberof IntelligenceApiGetIntelIdentityAccessItemHistoryV1
      */
     readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IntelligenceApiGetIntelIdentityAccessItemHistoryV1
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -1119,6 +1174,13 @@ export interface IntelligenceApiGetIntelIdentityAccountsV1Request {
      * @memberof IntelligenceApiGetIntelIdentityAccountsV1
      */
     readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IntelligenceApiGetIntelIdentityAccountsV1
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -1147,6 +1209,13 @@ export interface IntelligenceApiGetIntelIdentityCertificationHistoryV1Request {
      * @memberof IntelligenceApiGetIntelIdentityCertificationHistoryV1
      */
     readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IntelligenceApiGetIntelIdentityCertificationHistoryV1
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -1175,6 +1244,13 @@ export interface IntelligenceApiGetIntelIdentityRareAccessV1Request {
      * @memberof IntelligenceApiGetIntelIdentityRareAccessV1
      */
     readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IntelligenceApiGetIntelIdentityRareAccessV1
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -1185,7 +1261,7 @@ export interface IntelligenceApiGetIntelIdentityRareAccessV1Request {
  */
 export class IntelligenceApi extends BaseAPI {
     /**
-     * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Paged slices include a next link only when more results exist. The privilegedAccess slice contains the full result and is not paged. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+     * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
      * @summary Get identity by filter
      * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1197,7 +1273,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+     * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
      * @summary List identity access item history
      * @param {IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1205,11 +1281,11 @@ export class IntelligenceApi extends BaseAPI {
      * @memberof IntelligenceApi
      */
     public getIntelIdentityAccessItemHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IntelligenceApiFp(this.configuration).getIntelIdentityAccessItemHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IntelligenceApiFp(this.configuration).getIntelIdentityAccessItemHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Requires tenant license idn:response-and-remediation. 
+     * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
      * @summary List identity accounts
      * @param {IntelligenceApiGetIntelIdentityAccountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1217,11 +1293,11 @@ export class IntelligenceApi extends BaseAPI {
      * @memberof IntelligenceApi
      */
     public getIntelIdentityAccountsV1(requestParameters: IntelligenceApiGetIntelIdentityAccountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IntelligenceApiFp(this.configuration).getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IntelligenceApiFp(this.configuration).getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+     * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
      * @summary List identity certification history
      * @param {IntelligenceApiGetIntelIdentityCertificationHistoryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1229,11 +1305,11 @@ export class IntelligenceApi extends BaseAPI {
      * @memberof IntelligenceApi
      */
     public getIntelIdentityCertificationHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityCertificationHistoryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IntelligenceApiFp(this.configuration).getIntelIdentityCertificationHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IntelligenceApiFp(this.configuration).getIntelIdentityCertificationHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. An identity with no outlier returns an empty array. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+     * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
      * @summary List identity rare access
      * @param {IntelligenceApiGetIntelIdentityRareAccessV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1241,7 +1317,7 @@ export class IntelligenceApi extends BaseAPI {
      * @memberof IntelligenceApi
      */
     public getIntelIdentityRareAccessV1(requestParameters: IntelligenceApiGetIntelIdentityRareAccessV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IntelligenceApiFp(this.configuration).getIntelIdentityRareAccessV1(requestParameters.id, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IntelligenceApiFp(this.configuration).getIntelIdentityRareAccessV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

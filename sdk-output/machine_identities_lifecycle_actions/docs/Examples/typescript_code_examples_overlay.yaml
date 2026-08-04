@@ -1,0 +1,83 @@
+- path: /machine-identities/v1/lifecycle-actions/{requestId}/cancel
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#cancel-machine-identity-lifecycle-action-v1
+      source: |
+        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { CancelLifecycleActionRequest } from 'sailpoint-api-client/dist/machine_identities_lifecycle_actions/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
+        const requestId: string = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'; // string | Lifecycle request identifier. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const cancelLifecycleActionRequest: CancelLifecycleActionRequest = {
+  "comment" : "Cancelling - will resubmit after maintenance window"
+}; // CancelLifecycleActionRequest |  (optional)
+        const result = await apiInstance.cancelMachineIdentityLifecycleActionV1({ requestId: requestId });
+        console.log(result);
+- path: /machine-identities/v1/lifecycle-actions/{requestId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#get-machine-identity-lifecycle-action-v1
+      source: |
+        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
+        const requestId: string = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'; // string | Lifecycle request identifier. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getMachineIdentityLifecycleActionV1({ requestId: requestId });
+        console.log(result);
+- path: /machine-identities/v1/lifecycle-actions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#list-machine-identity-lifecycle-actions-v1
+      source: |
+        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
+        const filters: string = 'status in ("RECEIVED","COMPLETED")'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **resourceType**: *eq, in*  **operationType**: *eq, in*  **status**: *eq, in*  **completed**: *eq*  **targetId**: *eq*  **targetName**: *eq, sw*  **sourceId**: *eq*  **created**: *gt, ge, lt, le* (optional) (default to undefined)
+        const sorters: string = '-created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, status**  Default sort is **-created** (newest first). (optional) (default to undefined)
+        const limit: number = 50; // number | Max number of results to return. When omitted, the default limit is 50. The maximum allowed limit is 250.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listMachineIdentityLifecycleActionsV1({  });
+        console.log(result);
+- path: /machine-identities/v1/{id}/lifecycle-actions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#submit-machine-identity-lifecycle-action-v1
+      source: |
+        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { LifecycleActionSubmitRequest } from 'sailpoint-api-client/dist/machine_identities_lifecycle_actions/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
+        const id: string = '1c9c8e1f-2f5f-4f77-9f7e-5d37e4fb3ef0'; // string | Machine identity ID. (default to undefined)
+        const lifecycleActionSubmitRequest: LifecycleActionSubmitRequest = {
+  "comments" : [ {
+    "comment" : "Suspending agent until security review completes"
+  }, {
+    "comment" : "Suspending agent until security review completes"
+  }, {
+    "comment" : "Suspending agent until security review completes"
+  }, {
+    "comment" : "Suspending agent until security review completes"
+  }, {
+    "comment" : "Suspending agent until security review completes"
+  } ],
+  "action" : "DEACTIVATE"
+}; // LifecycleActionSubmitRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.submitMachineIdentityLifecycleActionV1({ id: id, lifecycleActionSubmitRequest: lifecycleActionSubmitRequest });
+        console.log(result);

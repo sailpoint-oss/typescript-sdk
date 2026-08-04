@@ -16,5 +16,6 @@ tags: ['SDK', 'Software Development Kit', 'IntelRareAccessSlice', 'v1IntelRareAc
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | `Array<IntelOutlierAccessItem>` | First page of rare access items for the identity. | [default to undefined]
-**next** | **(optional)** `string` | Absolute URL to the next rareAccess page; present only when more results exist. | [default to undefined]
+**totalCount** | **(optional)** `number` | Total number of rare-access items for the resolved outlier; omitted when `items` is empty. | [default to undefined]
+**next** | **(optional)** `string` | Absolute URL to the next rareAccess page; present when totalCount exceeds the items returned on this page. | [default to undefined]
 

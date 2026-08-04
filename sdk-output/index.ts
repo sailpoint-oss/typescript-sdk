@@ -75,6 +75,7 @@ import { MachineAccountSubtypesApi as _MachineAccountSubtypesApi } from "./machi
 import { MachineAccountsApi as _MachineAccountsApi } from "./machine_accounts/api";
 import { MachineClassificationConfigApi as _MachineClassificationConfigApi } from "./machine_classification_config/api";
 import { MachineIdentitiesApi as _MachineIdentitiesApi } from "./machine_identities/api";
+import { MachineIdentityLifecycleActionsApi as _MachineIdentityLifecycleActionsApi } from "./machine_identities_lifecycle_actions/api";
 import { ManagedClientsApi as _ManagedClientsApi } from "./managed_clients/api";
 import { ManagedClusterTypesApi as _ManagedClusterTypesApi } from "./managed_cluster_types/api";
 import { ManagedClustersApi as _ManagedClustersApi } from "./managed_clusters/api";
@@ -187,6 +188,7 @@ export { _MachineAccountSubtypesApi as MachineAccountSubtypesApi };
 export { _MachineAccountsApi as MachineAccountsApi };
 export { _MachineClassificationConfigApi as MachineClassificationConfigApi };
 export { _MachineIdentitiesApi as MachineIdentitiesApi };
+export { _MachineIdentityLifecycleActionsApi as MachineIdentityLifecycleActionsApi };
 export { _ManagedClientsApi as ManagedClientsApi };
 export { _ManagedClusterTypesApi as ManagedClusterTypesApi };
 export { _ManagedClustersApi as ManagedClustersApi };
@@ -317,6 +319,7 @@ export namespace SailPoint {
   export const MachineAccountsApi = _MachineAccountsApi;
   export const MachineClassificationConfigApi = _MachineClassificationConfigApi;
   export const MachineIdentitiesApi = _MachineIdentitiesApi;
+  export const MachineIdentityLifecycleActionsApi = _MachineIdentityLifecycleActionsApi;
   export const ManagedClientsApi = _ManagedClientsApi;
   export const ManagedClusterTypesApi = _ManagedClusterTypesApi;
   export const ManagedClustersApi = _ManagedClustersApi;

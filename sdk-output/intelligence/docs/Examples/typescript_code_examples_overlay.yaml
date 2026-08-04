@@ -26,6 +26,7 @@
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-empty identity id path segment for Intelligence sub-resources. (default to undefined)
         const limit: number = 250; // number | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
         const offset: number = 0; // number | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.getIntelIdentityAccessItemHistoryV1({ id: id });
         console.log(result);
 - path: /intelligence/v1/identities/{id}/accounts
@@ -42,6 +43,7 @@
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-empty identity id path segment for Intelligence sub-resources. (default to undefined)
         const limit: number = 250; // number | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
         const offset: number = 0; // number | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.getIntelIdentityAccountsV1({ id: id });
         console.log(result);
 - path: /intelligence/v1/identities/{id}/access-history/certifications
@@ -58,6 +60,7 @@
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-empty identity id path segment for Intelligence sub-resources. (default to undefined)
         const limit: number = 250; // number | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
         const offset: number = 0; // number | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.getIntelIdentityCertificationHistoryV1({ id: id });
         console.log(result);
 - path: /intelligence/v1/identities/{id}/outliers/rare-access
@@ -74,5 +77,6 @@
         const id: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Non-empty identity id path segment for Intelligence sub-resources. (default to undefined)
         const limit: number = 250; // number | Page size. Defaults to 250; values above 250 are rejected with 400. (optional) (default to 250)
         const offset: number = 0; // number | Zero-based page offset. Defaults to 0. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.getIntelIdentityRareAccessV1({ id: id });
         console.log(result);
