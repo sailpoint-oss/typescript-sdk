@@ -530,6 +530,24 @@ export interface SodPolicy {
      */
     'ownerRef'?: SodPolicyOwnerRef;
     /**
+     * Additional owners of the SOD policy.(Max 10). Applicable only to Conflicting Access Based policies.
+     * @type {Array<SodPolicySecondaryOwnerRefsInner>}
+     * @memberof SodPolicy
+     */
+    'secondaryOwnerRefs'?: Array<SodPolicySecondaryOwnerRefsInner>;
+    /**
+     * Compensating or other controls allowed for this policy.(Max 10). Applicable only to Conflicting Access Based policies.
+     * @type {Array<SodPolicyAllowedControlsInner>}
+     * @memberof SodPolicy
+     */
+    'allowedControls'?: Array<SodPolicyAllowedControlsInner>;
+    /**
+     * Policy severity or priority level. Applicable only to Conflicting Access Based policies. If not specified, default will be HIGH.
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'level'?: SodPolicyLevelEnum | null;
+    /**
      * Optional External Policy Reference
      * @type {string}
      * @memberof SodPolicy
@@ -603,6 +621,14 @@ export interface SodPolicy {
     'conflictingAccessCriteria'?: SodPolicyConflictingAccessCriteria;
 }
 
+export const SodPolicyLevelEnum = {
+    Critical: 'CRITICAL',
+    High: 'HIGH',
+    Medium: 'MEDIUM',
+    Low: 'LOW'
+} as const;
+
+export type SodPolicyLevelEnum = typeof SodPolicyLevelEnum[keyof typeof SodPolicyLevelEnum];
 export const SodPolicyStateEnum = {
     Enforced: 'ENFORCED',
     NotEnforced: 'NOT_ENFORCED'
@@ -615,6 +641,38 @@ export const SodPolicyTypeEnum = {
 } as const;
 
 export type SodPolicyTypeEnum = typeof SodPolicyTypeEnum[keyof typeof SodPolicyTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface SodPolicyAllowedControlsInner
+ */
+export interface SodPolicyAllowedControlsInner {
+    /**
+     * Control reference type.
+     * @type {string}
+     * @memberof SodPolicyAllowedControlsInner
+     */
+    'type'?: SodPolicyAllowedControlsInnerTypeEnum;
+    /**
+     * Control reference ID.
+     * @type {string}
+     * @memberof SodPolicyAllowedControlsInner
+     */
+    'id'?: string;
+    /**
+     * Control reference name.
+     * @type {string}
+     * @memberof SodPolicyAllowedControlsInner
+     */
+    'name'?: string;
+}
+
+export const SodPolicyAllowedControlsInnerTypeEnum = {
+    CompensatingControl: 'COMPENSATING_CONTROL'
+} as const;
+
+export type SodPolicyAllowedControlsInnerTypeEnum = typeof SodPolicyAllowedControlsInnerTypeEnum[keyof typeof SodPolicyAllowedControlsInnerTypeEnum];
 
 /**
  * 
@@ -729,6 +787,39 @@ export interface SodPolicySchedule {
      */
     'modifierId'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface SodPolicySecondaryOwnerRefsInner
+ */
+export interface SodPolicySecondaryOwnerRefsInner {
+    /**
+     * Secondary Owner Type
+     * @type {string}
+     * @memberof SodPolicySecondaryOwnerRefsInner
+     */
+    'type'?: SodPolicySecondaryOwnerRefsInnerTypeEnum;
+    /**
+     * Secondary Owner ID
+     * @type {string}
+     * @memberof SodPolicySecondaryOwnerRefsInner
+     */
+    'id'?: string;
+    /**
+     * Secondary Owner Name
+     * @type {string}
+     * @memberof SodPolicySecondaryOwnerRefsInner
+     */
+    'name'?: string;
+}
+
+export const SodPolicySecondaryOwnerRefsInnerTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SodPolicySecondaryOwnerRefsInnerTypeEnum = typeof SodPolicySecondaryOwnerRefsInnerTypeEnum[keyof typeof SodPolicySecondaryOwnerRefsInnerTypeEnum];
+
 /**
  * SOD policy recipient.
  * @export
@@ -1214,8 +1305,8 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **state**: *eq, in*  **level**: *eq, in*  **type**: *eq*  **description**: *eq, co, sw*  **ownerRef.name**: *eq, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description, ownerRef.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1267,7 +1358,7 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
          * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
          * @summary Patch sod policy by id
          * @param {string} id The ID of the SOD policy being modified.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria * level * secondaryOwnerRefs * allowedControls 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1632,8 +1723,8 @@ export const SODPoliciesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **state**: *eq, in*  **level**: *eq, in*  **type**: *eq*  **description**: *eq, co, sw*  **ownerRef.name**: *eq, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description, ownerRef.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1647,7 +1738,7 @@ export const SODPoliciesApiFp = function(configuration?: Configuration) {
          * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
          * @summary Patch sod policy by id
          * @param {string} id The ID of the SOD policy being modified.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria * level * secondaryOwnerRefs * allowedControls 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2074,14 +2165,14 @@ export interface SODPoliciesApiListSodPoliciesV1Request {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **state**: *eq, in*  **level**: *eq, in*  **type**: *eq*  **description**: *eq, co, sw*  **ownerRef.name**: *eq, sw*
      * @type {string}
      * @memberof SODPoliciesApiListSodPoliciesV1
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description, ownerRef.name**
      * @type {string}
      * @memberof SODPoliciesApiListSodPoliciesV1
      */
@@ -2102,7 +2193,7 @@ export interface SODPoliciesApiPatchSodPolicyV1Request {
     readonly id: string
 
     /**
-     * A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+     * A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria * level * secondaryOwnerRefs * allowedControls 
      * @type {Array<JsonPatchOperation>}
      * @memberof SODPoliciesApiPatchSodPolicyV1
      */

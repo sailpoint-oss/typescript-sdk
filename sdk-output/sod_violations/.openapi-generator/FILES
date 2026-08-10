@@ -1,6 +1,12 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
+AccessCriteria.md
+Appliedcontrol.md
+Appliedcontrolcreate.md
+Appliedcontrolstatus.md
+Conflictingitem.md
+Conflictingitemsourceref.md
 DtoType.md
 ErrorMessageDto.md
 ErrorResponseDto.md
@@ -12,7 +18,12 @@ IdentityWithNewAccess.md
 IdentityWithNewAccessAccessRefsInner.md
 Index.md
 LocaleOrigin.md
+Policyviolationresponse.md
+Policyviolationrisklevel.md
+Policyviolationstatus.md
 README.md
+Reassigninput.md
+Referenceresponse.md
 SODViolationsApi.md
 SODViolationsApideveloperSite_code_examples.yaml
 SodPolicyDto2.md
@@ -22,6 +33,7 @@ StartPredictSodViolationsV1429Response.md
 ViolationContext.md
 ViolationContextPolicy.md
 ViolationPrediction.md
+Violationreassigninput.md
 api.ts
 base.ts
 common.ts

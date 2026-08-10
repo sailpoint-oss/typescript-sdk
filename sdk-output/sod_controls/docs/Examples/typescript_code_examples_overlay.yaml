@@ -1,0 +1,114 @@
+- path: /controls/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#create-control-v1
+      source: |
+        import { SODControlsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Compensatingcontrolcreate } from 'sailpoint-api-client/dist/sod_controls/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODControlsApi(configuration);
+        const compensatingcontrolcreate: Compensatingcontrolcreate = {
+  "owner" : {
+    "id" : "3e07886555ed43cfb83c85c58d2016e6",
+    "type" : "IDENTITY"
+  },
+  "name" : "a name",
+  "description" : "a description",
+  "secondaryOwners" : [ {
+    "id" : "943a7c57da334d07ba2454bf7fcf144f",
+    "type" : "GOVERNANCE_GROUP"
+  } ],
+  "action" : "Workflow",
+  "expiration" : "20d",
+  "type" : "Mitigation",
+  "justificationRequired" : true,
+  "workflowID" : "3e07886555ed43cfb83c85c58d2016e6"
+}; // Compensatingcontrolcreate | Data needed to create a Compensating Control
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createControlV1({ compensatingcontrolcreate: compensatingcontrolcreate });
+        console.log(result);
+- path: /controls/v1/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#delete-control-v1
+      source: |
+        import { SODControlsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODControlsApi(configuration);
+        const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | the ID (UUID) of the compensating control to delete. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteControlV1({ id: id });
+        console.log(result);
+- path: /controls/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#get-control-v1
+      source: |
+        import { SODControlsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODControlsApi(configuration);
+        const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | The ID of the compensating control to fetch (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getControlV1({ id: id });
+        console.log(result);
+- path: /controls/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#list-controls-v1
+      source: |
+        import { SODControlsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODControlsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'type eq "Mitigation" and name co "payroll"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **type**: *eq*  **owner**: *eq, in*  **description**: *eq, in, sw, co*  **action**: *eq, in* (optional) (default to undefined)
+        const sort: string = '-name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**  Prefix a field with - for descending order, for example -name. If no sort is provided, results default to name ascending. (optional) (default to undefined)
+        const result = await apiInstance.listControlsV1({  });
+        console.log(result);
+- path: /controls/v1/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#put-control-v1
+      source: |
+        import { SODControlsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Compensatingcontrolupdate } from 'sailpoint-api-client/dist/sod_controls/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODControlsApi(configuration);
+        const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | The unique identifier of the Compensating Control to be updated. (default to undefined)
+        const compensatingcontrolupdate: Compensatingcontrolupdate = {
+  "owner" : {
+    "id" : "3e07886555ed43cfb83c85c58d2016e6",
+    "type" : "IDENTITY"
+  },
+  "name" : "a name",
+  "description" : "a description",
+  "secondaryOwners" : [ {
+    "id" : "943a7c57da334d07ba2454bf7fcf144f",
+    "type" : "GOVERNANCE_GROUP"
+  } ],
+  "action" : "Workflow",
+  "expiration" : "20d",
+  "type" : "Mitigation",
+  "justificationRequired" : true,
+  "workflowID" : "3e07886555ed43cfb83c85c58d2016e6"
+}; // Compensatingcontrolupdate | Data needed to put a Compensating Control
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.putControlV1({ id: id, compensatingcontrolupdate: compensatingcontrolupdate });
+        console.log(result);

@@ -124,6 +124,7 @@ const sodPolicy: SodPolicy = {
     "id" : "2c9180a46faadee4016fb4e018c20639",
     "type" : "IDENTITY"
   },
+  "level" : "HIGH",
   "created" : "2020-01-01T00:00:00Z",
   "scheduled" : true,
   "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
@@ -138,7 +139,17 @@ const sodPolicy: SodPolicy = {
     }
   },
   "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+  "allowedControls" : [ {
+    "type" : "COMPENSATING_CONTROL",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "name" : "Mitigating Control 1"
+  } ],
   "type" : "GENERAL",
+  "secondaryOwnerRefs" : [ {
+    "type" : "IDENTITY",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "name" : "Support"
+  } ],
   "tags" : [ "TAG1", "TAG2" ],
   "name" : "policy-xyz",
   "modified" : "2020-01-01T00:00:00Z",
@@ -504,8 +515,8 @@ Name | Type | Description  | Notes
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
 **offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 **count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
-**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* | [optional] [default to undefined]
-**sorters** | `string` | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** | [optional] [default to undefined]
+**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **state**: *eq, in*  **level**: *eq, in*  **type**: *eq*  **description**: *eq, co, sw*  **ownerRef.name**: *eq, sw* | [optional] [default to undefined]
+**sorters** | `string` | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description, ownerRef.name** | [optional] [default to undefined]
 
 ### Return type
 
@@ -527,8 +538,8 @@ const apiInstance = new SODPoliciesApi(configuration);
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
-const filters: string = id eq "bc693f07e7b645539626c25954c58554"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
-const sorters: string = id,name; // Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
+const filters: string = id eq "bc693f07e7b645539626c25954c58554"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **state**: *eq, in*  **level**: *eq, in*  **type**: *eq*  **description**: *eq, co, sw*  **ownerRef.name**: *eq, sw* (optional)
+const sorters: string = id,name; // Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description, ownerRef.name** (optional)
 const result = await apiInstance.listSodPoliciesV1({  });
 console.log(result);
 ```
@@ -549,7 +560,7 @@ This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | The ID of the SOD policy being modified. |  [default to undefined]
-**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria  | 
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria * level * secondaryOwnerRefs * allowedControls  | 
 
 ### Return type
 
@@ -574,7 +585,7 @@ const jsonPatchOperation: Array<JsonPatchOperation> = {
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}; // A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+}; // A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria * level * secondaryOwnerRefs * allowedControls 
 const result = await apiInstance.patchSodPolicyV1({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
@@ -724,6 +735,7 @@ const sodPolicy: SodPolicy = {
     "id" : "2c9180a46faadee4016fb4e018c20639",
     "type" : "IDENTITY"
   },
+  "level" : "HIGH",
   "created" : "2020-01-01T00:00:00Z",
   "scheduled" : true,
   "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
@@ -738,7 +750,17 @@ const sodPolicy: SodPolicy = {
     }
   },
   "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+  "allowedControls" : [ {
+    "type" : "COMPENSATING_CONTROL",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "name" : "Mitigating Control 1"
+  } ],
   "type" : "GENERAL",
+  "secondaryOwnerRefs" : [ {
+    "type" : "IDENTITY",
+    "id" : "2c9180a46faadee4016fb4e018c20639",
+    "name" : "Support"
+  } ],
   "tags" : [ "TAG1", "TAG2" ],
   "name" : "policy-xyz",
   "modified" : "2020-01-01T00:00:00Z",

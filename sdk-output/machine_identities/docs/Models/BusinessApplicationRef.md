@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'BusinessApplicationRef', 'v1BusinessA
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** `string` | Reference type. | [default to undefined]
-**id** | **(optional)** `string` | Business Application ID. | [default to undefined]
-**name** | **(optional)** `string` | Business Application display name. | [default to undefined]
-**sanctionedStatus** | **(optional)** `SanctionedStatus` |  | [default to undefined]
-**correlationType** | **(optional)** `string` | Whether the Business Application reference was manually assigned or automatically correlated. | [default to undefined]
+**type** | `string` | Reference type. Must be `BUSINESS_APPLICATION`. | [default to undefined]
+**id** | `string` | Existing Business Application id in the tenant. | [default to undefined]
+**name** | **(optional)** `string` | Business Application display name. Ignored on write; responses are enriched from the Business Application. | [default to undefined]
+**sanctionedStatus** | **(optional)** `SanctionedStatus` | Sanctioned status of the linked Business Application. Ignored on write; responses are enriched from the Business Application. | [readonly] [default to undefined]
+**correlationType** | **(optional)** `CorrelationType` | Correlation type for this reference. On write: omit or `MANUAL` (default). `AUTOMATIC` is rejected (`400`). On response: may be `MANUAL` or `AUTOMATIC`. | [default to undefined]
 

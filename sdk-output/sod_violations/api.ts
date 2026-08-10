@@ -24,6 +24,201 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
+ * A named set of conflicting access items that together define one side of a separation-of-duties conflict.
+ * @export
+ * @interface AccessCriteria
+ */
+export interface AccessCriteria {
+    /**
+     * The name of the access criteria grouping.
+     * @type {string}
+     * @memberof AccessCriteria
+     */
+    'name': string;
+    /**
+     * The list of access items that make up this side of the conflict.
+     * @type {Array<Conflictingitem>}
+     * @memberof AccessCriteria
+     */
+    'conflictingItems': Array<Conflictingitem>;
+}
+/**
+ * A compensating control that has been applied to a policy violation.
+ * @export
+ * @interface Appliedcontrol
+ */
+export interface Appliedcontrol {
+    /**
+     * The system-generated unique identifier of the applied control record.
+     * @type {string}
+     * @memberof Appliedcontrol
+     */
+    'id': string;
+    /**
+     * The unique identifier of the policy violation the control was applied to.
+     * @type {string}
+     * @memberof Appliedcontrol
+     */
+    'violation': string;
+    /**
+     * 
+     * @type {Referenceresponse}
+     * @memberof Appliedcontrol
+     */
+    'control': Referenceresponse;
+    /**
+     * 
+     * @type {Referenceresponse}
+     * @memberof Appliedcontrol
+     */
+    'applier': Referenceresponse;
+    /**
+     * The date and time when the control was applied to the violation.
+     * @type {string}
+     * @memberof Appliedcontrol
+     */
+    'appliedDate': string;
+    /**
+     * The date and time when the applied control expires.
+     * @type {string}
+     * @memberof Appliedcontrol
+     */
+    'expiration': string;
+    /**
+     * Optional comments captured when the control was applied.
+     * @type {string}
+     * @memberof Appliedcontrol
+     */
+    'comments'?: string;
+    /**
+     * 
+     * @type {Appliedcontrolstatus}
+     * @memberof Appliedcontrol
+     */
+    'status'?: Appliedcontrolstatus;
+    /**
+     * The identifier of the workflow triggered when the control was applied.
+     * @type {string}
+     * @memberof Appliedcontrol
+     */
+    'workflowId'?: string;
+}
+
+
+/**
+ * Data needed to apply a compensating control to a policy violation.
+ * @export
+ * @interface Appliedcontrolcreate
+ */
+export interface Appliedcontrolcreate {
+    /**
+     * The unique identifier of the compensating control to apply.
+     * @type {string}
+     * @memberof Appliedcontrolcreate
+     */
+    'control': string;
+    /**
+     * Optional comments to capture when applying the control.
+     * @type {string}
+     * @memberof Appliedcontrolcreate
+     */
+    'comments'?: string;
+}
+/**
+ * The processing status of a compensating control that has been applied to a policy violation.
+ * @export
+ * @enum {string}
+ */
+
+export const Appliedcontrolstatus = {
+    Pending: 'Pending',
+    Active: 'Active',
+    Completed: 'Completed',
+    Canceled: 'Canceled',
+    Failed: 'Failed'
+} as const;
+
+export type Appliedcontrolstatus = typeof Appliedcontrolstatus[keyof typeof Appliedcontrolstatus];
+
+
+/**
+ * A single access item that contributes to a separation-of-duties conflict.
+ * @export
+ * @interface Conflictingitem
+ */
+export interface Conflictingitem {
+    /**
+     * The unique identifier of the conflicting access item.
+     * @type {string}
+     * @memberof Conflictingitem
+     */
+    'id': string;
+    /**
+     * The display name of the conflicting access item.
+     * @type {string}
+     * @memberof Conflictingitem
+     */
+    'name'?: string;
+    /**
+     * The type of access object represented by the conflicting item.
+     * @type {string}
+     * @memberof Conflictingitem
+     */
+    'type': ConflictingitemTypeEnum;
+    /**
+     * 
+     * @type {Conflictingitemsourceref}
+     * @memberof Conflictingitem
+     */
+    'sourceRef'?: Conflictingitemsourceref;
+    /**
+     * Optional human-readable description of the conflicting item.
+     * @type {string}
+     * @memberof Conflictingitem
+     */
+    'description'?: string;
+}
+
+export const ConflictingitemTypeEnum = {
+    Entitlement: 'ENTITLEMENT',
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE'
+} as const;
+
+export type ConflictingitemTypeEnum = typeof ConflictingitemTypeEnum[keyof typeof ConflictingitemTypeEnum];
+
+/**
+ * Reference to the source system or object (for example the application backing an entitlement). On GET, when the conflicting item type is ENTITLEMENT, hydration may populate these fields from the entitlement service payload\'s `source` object. 
+ * @export
+ * @interface Conflictingitemsourceref
+ */
+export interface Conflictingitemsourceref {
+    /**
+     * Source resource identifier when known.
+     * @type {string}
+     * @memberof Conflictingitemsourceref
+     */
+    'id'?: string;
+    /**
+     * Display name of the source.
+     * @type {string}
+     * @memberof Conflictingitemsourceref
+     */
+    'name'?: string;
+    /**
+     * Source type classification (for example application or connector type).
+     * @type {string}
+     * @memberof Conflictingitemsourceref
+     */
+    'type'?: string;
+    /**
+     * Human-readable description of the source.
+     * @type {string}
+     * @memberof Conflictingitemsourceref
+     */
+    'description'?: string;
+}
+/**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
  * @export
  * @enum {string}
@@ -285,6 +480,177 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
+ * A separation-of-duties policy violation for an identity.
+ * @export
+ * @interface Policyviolationresponse
+ */
+export interface Policyviolationresponse {
+    /**
+     * The system-generated unique identifier of the policy violation.
+     * @type {string}
+     * @memberof Policyviolationresponse
+     */
+    'id': string;
+    /**
+     * The display name of the policy violation.
+     * @type {string}
+     * @memberof Policyviolationresponse
+     */
+    'name'?: string;
+    /**
+     * The date and time when the policy violation was created.
+     * @type {string}
+     * @memberof Policyviolationresponse
+     */
+    'created': string;
+    /**
+     * The date and time when the policy violation was last modified.
+     * @type {string}
+     * @memberof Policyviolationresponse
+     */
+    'modified': string;
+    /**
+     * The date and time when the policy violation was last evaluated by the policy engine.
+     * @type {string}
+     * @memberof Policyviolationresponse
+     */
+    'lastEvaluatedDate'?: string;
+    /**
+     * 
+     * @type {Referenceresponse}
+     * @memberof Policyviolationresponse
+     */
+    'owner': Referenceresponse;
+    /**
+     * List of conflicting criteria. Each conflicting item supports optional description and optional sourceRef (id, name, type, description); for ENTITLEMENT items, sourceRef may be populated from the entitlement\'s source on GET via hydration. 
+     * @type {Array<AccessCriteria>}
+     * @memberof Policyviolationresponse
+     */
+    'conflictingCriteria': Array<AccessCriteria>;
+    /**
+     * List of compensating controls that have been applied to this policy violation.
+     * @type {Array<Appliedcontrol>}
+     * @memberof Policyviolationresponse
+     */
+    'appliedControls': Array<Appliedcontrol>;
+    /**
+     * Expiration on the active applied compensating control row (latest applied_date, tie-break id). Always returned; null when there is no active control or that row has no expiration.
+     * @type {string}
+     * @memberof Policyviolationresponse
+     */
+    'expiration': string | null;
+    /**
+     * 
+     * @type {Referenceresponse}
+     * @memberof Policyviolationresponse
+     */
+    'target': Referenceresponse;
+    /**
+     * 
+     * @type {Referenceresponse}
+     * @memberof Policyviolationresponse
+     */
+    'policy': Referenceresponse;
+    /**
+     * 
+     * @type {Policyviolationstatus}
+     * @memberof Policyviolationresponse
+     */
+    'status': Policyviolationstatus;
+    /**
+     * 
+     * @type {Policyviolationrisklevel}
+     * @memberof Policyviolationresponse
+     */
+    'level': Policyviolationrisklevel;
+}
+
+
+/**
+ * The risk level assigned to a policy violation.
+ * @export
+ * @enum {string}
+ */
+
+export const Policyviolationrisklevel = {
+    Low: 'Low',
+    Medium: 'Medium',
+    High: 'High',
+    Critical: 'Critical'
+} as const;
+
+export type Policyviolationrisklevel = typeof Policyviolationrisklevel[keyof typeof Policyviolationrisklevel];
+
+
+/**
+ * The current status of a policy violation.
+ * @export
+ * @enum {string}
+ */
+
+export const Policyviolationstatus = {
+    Open: 'Open',
+    Mitigated: 'Mitigated',
+    Remediated: 'Remediated',
+    Closed: 'Closed'
+} as const;
+
+export type Policyviolationstatus = typeof Policyviolationstatus[keyof typeof Policyviolationstatus];
+
+
+/**
+ * The identity or governance group to which a policy violation is reassigned.
+ * @export
+ * @interface Reassigninput
+ */
+export interface Reassigninput {
+    /**
+     * The unique identifier of the identity or governance group receiving the violation.
+     * @type {string}
+     * @memberof Reassigninput
+     */
+    'assigneeId': string;
+    /**
+     * The type of assignee receiving the violation.
+     * @type {string}
+     * @memberof Reassigninput
+     */
+    'assigneeType': ReassigninputAssigneeTypeEnum;
+}
+
+export const ReassigninputAssigneeTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type ReassigninputAssigneeTypeEnum = typeof ReassigninputAssigneeTypeEnum[keyof typeof ReassigninputAssigneeTypeEnum];
+
+/**
+ * Response reference: required id and type; optional name when display metadata resolves (omitted if not). For request bodies use ReferenceInput (id and type only). 
+ * @export
+ * @interface Referenceresponse
+ */
+export interface Referenceresponse {
+    /**
+     * The unique identifier of the referenced object.
+     * @type {string}
+     * @memberof Referenceresponse
+     */
+    'id': string;
+    /**
+     * Optional display name when metadata resolves. Omitted when unknown or not resolvable.
+     * @type {string}
+     * @memberof Referenceresponse
+     */
+    'name'?: string;
+    /**
+     * The type of the referenced object.
+     * @type {string}
+     * @memberof Referenceresponse
+     */
+    'type': string;
+}
+/**
  * SOD policy.
  * @export
  * @interface SodPolicyDto2
@@ -425,6 +791,25 @@ export interface ViolationPrediction {
      */
     'violationContexts'?: Array<ViolationContext>;
 }
+/**
+ * Data needed to reassign a policy violation to a new owner.
+ * @export
+ * @interface Violationreassigninput
+ */
+export interface Violationreassigninput {
+    /**
+     * 
+     * @type {Reassigninput}
+     * @memberof Violationreassigninput
+     */
+    'reassignTo': Reassigninput;
+    /**
+     * Optional comments explaining the reassignment.
+     * @type {string}
+     * @memberof Violationreassigninput
+     */
+    'comments'?: string;
+}
 
 /**
  * SODViolationsApi - axios parameter creator
@@ -432,6 +817,270 @@ export interface ViolationPrediction {
  */
 export const SODViolationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Returns a single policy violation by ID for the current tenant. Access is allowed if the caller has the read scope (`idn:sod-violation:read`) or is an owner of the violation (direct or via governance group). Returns 403 Forbidden if the violation exists but the caller has neither the read scope nor ownership. Returns 404 Not Found if the violation does not exist for the tenant. Embedded references (`owner`, `target`, `policy`, and references inside `appliedControls`) use `ReferenceResponse`: `id` and `type` are always present; `name` is included when display metadata resolves. 
+         * @summary Get policy violation by ID
+         * @param {string} id The ID of the policy violation to fetch
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getViolationV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getViolationV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/violations/v1/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns a paged list of policy violations where the current user is the owner (directly assigned or via a governance group they belong to). No permission scope is required; caller identity is required. Supports the same collection parameters as GET /violations (limit, offset, count, filters, sorters), including the same filter field whitelist and processing (normalization, pruning of not-yet-persisted name predicates). The owner filter is implicit (current user); **do not** use `ownerId` in filters for this endpoint. Embedded references in each violation follow `ReferenceResponse` (`id`, `type`, and optional `name` when metadata resolves). 
+         * @summary List My Policy Violations
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If omitted, default ordering matches GET /violations (created descending, then id descending).
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMyViolationsV1: async (xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/my-violations/v1`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns a paged list of policy violations for the current tenant. Requires the read scope (idn:sod-violation:read). This endpoint uses the standard collection parameters defined in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters/). This endpoint supports standard V3 collection parameters: `limit`, `offset`, `count`, `filters`, and `sorters`. Embedded references in each violation (`owner`, `target`, `policy`, and references inside `appliedControls`) follow the `ReferenceResponse` schema: `id` and `type` are always present; `name` is included when display metadata resolves. Filters and sorters are validated against a fixed whitelist of fields to ensure safe queries and to align with underlying database indexes. 
+         * @summary List Policy Violations
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **ownerId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If no sorters are provided, results default to created descending, then id descending.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listViolationsV1: async (xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/violations/v1`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Reassigns the specified policy violation to a new owner. Callers without the `idn:sod-violation:manage` scope may only reassign violations they own (directly, or via a governance group they belong to).
+         * @summary Reassign policy violation
+         * @param {string} id The ID of the policy violation to fetch
+         * @param {Violationreassigninput} violationreassigninput Data needed to reassign a Policy Violation
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        moveViolationV1: async (id: string, violationreassigninput: Violationreassigninput, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('moveViolationV1', 'id', id)
+            // verify required parameter 'violationreassigninput' is not null or undefined
+            assertParamExists('moveViolationV1', 'violationreassigninput', violationreassigninput)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/violations/v1/{id}/reassign`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(violationreassigninput, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Applies a compensating control to the specified policy violation. Callers without the `idn:sod-violation:manage` scope may only apply a control to violations they own (directly, or via a governance group they belong to).
+         * @summary Apply control to violation
+         * @param {string} id The ID of the policy violation to fetch
+         * @param {Appliedcontrolcreate} appliedcontrolcreate Data needed to apply a control to a Policy Violation
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startApplyControlV1: async (id: string, appliedcontrolcreate: Appliedcontrolcreate, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('startApplyControlV1', 'id', id)
+            // verify required parameter 'appliedcontrolcreate' is not null or undefined
+            assertParamExists('startApplyControlV1', 'appliedcontrolcreate', appliedcontrolcreate)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/violations/v1/{id}/controls`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(appliedcontrolcreate, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
         /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
@@ -515,6 +1164,86 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SODViolationsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Returns a single policy violation by ID for the current tenant. Access is allowed if the caller has the read scope (`idn:sod-violation:read`) or is an owner of the violation (direct or via governance group). Returns 403 Forbidden if the violation exists but the caller has neither the read scope nor ownership. Returns 404 Not Found if the violation does not exist for the tenant. Embedded references (`owner`, `target`, `policy`, and references inside `appliedControls`) use `ReferenceResponse`: `id` and `type` are always present; `name` is included when display metadata resolves. 
+         * @summary Get policy violation by ID
+         * @param {string} id The ID of the policy violation to fetch
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getViolationV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Policyviolationresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getViolationV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.getViolationV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns a paged list of policy violations where the current user is the owner (directly assigned or via a governance group they belong to). No permission scope is required; caller identity is required. Supports the same collection parameters as GET /violations (limit, offset, count, filters, sorters), including the same filter field whitelist and processing (normalization, pruning of not-yet-persisted name predicates). The owner filter is implicit (current user); **do not** use `ownerId` in filters for this endpoint. Embedded references in each violation follow `ReferenceResponse` (`id`, `type`, and optional `name` when metadata resolves). 
+         * @summary List My Policy Violations
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If omitted, default ordering matches GET /violations (created descending, then id descending).
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMyViolationsV1(xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Policyviolationresponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMyViolationsV1(xSailPointExperimental, limit, offset, count, filters, sorters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.listMyViolationsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns a paged list of policy violations for the current tenant. Requires the read scope (idn:sod-violation:read). This endpoint uses the standard collection parameters defined in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters/). This endpoint supports standard V3 collection parameters: `limit`, `offset`, `count`, `filters`, and `sorters`. Embedded references in each violation (`owner`, `target`, `policy`, and references inside `appliedControls`) follow the `ReferenceResponse` schema: `id` and `type` are always present; `name` is included when display metadata resolves. Filters and sorters are validated against a fixed whitelist of fields to ensure safe queries and to align with underlying database indexes. 
+         * @summary List Policy Violations
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **ownerId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If no sorters are provided, results default to created descending, then id descending.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listViolationsV1(xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Policyviolationresponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listViolationsV1(xSailPointExperimental, limit, offset, count, filters, sorters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.listViolationsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Reassigns the specified policy violation to a new owner. Callers without the `idn:sod-violation:manage` scope may only reassign violations they own (directly, or via a governance group they belong to).
+         * @summary Reassign policy violation
+         * @param {string} id The ID of the policy violation to fetch
+         * @param {Violationreassigninput} violationreassigninput Data needed to reassign a Policy Violation
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async moveViolationV1(id: string, violationreassigninput: Violationreassigninput, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Policyviolationresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.moveViolationV1(id, violationreassigninput, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.moveViolationV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Applies a compensating control to the specified policy violation. Callers without the `idn:sod-violation:manage` scope may only apply a control to violations they own (directly, or via a governance group they belong to).
+         * @summary Apply control to violation
+         * @param {string} id The ID of the policy violation to fetch
+         * @param {Appliedcontrolcreate} appliedcontrolcreate Data needed to apply a control to a Policy Violation
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startApplyControlV1(id: string, appliedcontrolcreate: Appliedcontrolcreate, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Appliedcontrol>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startApplyControlV1(id, appliedcontrolcreate, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SODViolationsApi.startApplyControlV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
          * @param {IdentityWithNewAccess} identityWithNewAccess 
@@ -551,6 +1280,56 @@ export const SODViolationsApiFactory = function (configuration?: Configuration, 
     const localVarFp = SODViolationsApiFp(configuration)
     return {
         /**
+         * Returns a single policy violation by ID for the current tenant. Access is allowed if the caller has the read scope (`idn:sod-violation:read`) or is an owner of the violation (direct or via governance group). Returns 403 Forbidden if the violation exists but the caller has neither the read scope nor ownership. Returns 404 Not Found if the violation does not exist for the tenant. Embedded references (`owner`, `target`, `policy`, and references inside `appliedControls`) use `ReferenceResponse`: `id` and `type` are always present; `name` is included when display metadata resolves. 
+         * @summary Get policy violation by ID
+         * @param {SODViolationsApiGetViolationV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getViolationV1(requestParameters: SODViolationsApiGetViolationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Policyviolationresponse> {
+            return localVarFp.getViolationV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns a paged list of policy violations where the current user is the owner (directly assigned or via a governance group they belong to). No permission scope is required; caller identity is required. Supports the same collection parameters as GET /violations (limit, offset, count, filters, sorters), including the same filter field whitelist and processing (normalization, pruning of not-yet-persisted name predicates). The owner filter is implicit (current user); **do not** use `ownerId` in filters for this endpoint. Embedded references in each violation follow `ReferenceResponse` (`id`, `type`, and optional `name` when metadata resolves). 
+         * @summary List My Policy Violations
+         * @param {SODViolationsApiListMyViolationsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMyViolationsV1(requestParameters: SODViolationsApiListMyViolationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Policyviolationresponse>> {
+            return localVarFp.listMyViolationsV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns a paged list of policy violations for the current tenant. Requires the read scope (idn:sod-violation:read). This endpoint uses the standard collection parameters defined in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters/). This endpoint supports standard V3 collection parameters: `limit`, `offset`, `count`, `filters`, and `sorters`. Embedded references in each violation (`owner`, `target`, `policy`, and references inside `appliedControls`) follow the `ReferenceResponse` schema: `id` and `type` are always present; `name` is included when display metadata resolves. Filters and sorters are validated against a fixed whitelist of fields to ensure safe queries and to align with underlying database indexes. 
+         * @summary List Policy Violations
+         * @param {SODViolationsApiListViolationsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listViolationsV1(requestParameters: SODViolationsApiListViolationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Policyviolationresponse>> {
+            return localVarFp.listViolationsV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Reassigns the specified policy violation to a new owner. Callers without the `idn:sod-violation:manage` scope may only reassign violations they own (directly, or via a governance group they belong to).
+         * @summary Reassign policy violation
+         * @param {SODViolationsApiMoveViolationV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        moveViolationV1(requestParameters: SODViolationsApiMoveViolationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Policyviolationresponse> {
+            return localVarFp.moveViolationV1(requestParameters.id, requestParameters.violationreassigninput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Applies a compensating control to the specified policy violation. Callers without the `idn:sod-violation:manage` scope may only apply a control to violations they own (directly, or via a governance group they belong to).
+         * @summary Apply control to violation
+         * @param {SODViolationsApiStartApplyControlV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startApplyControlV1(requestParameters: SODViolationsApiStartApplyControlV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Appliedcontrol> {
+            return localVarFp.startApplyControlV1(requestParameters.id, requestParameters.appliedcontrolcreate, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
          * @param {SODViolationsApiStartPredictSodViolationsV1Request} requestParameters Request parameters.
@@ -572,6 +1351,181 @@ export const SODViolationsApiFactory = function (configuration?: Configuration, 
         },
     };
 };
+
+/**
+ * Request parameters for getViolationV1 operation in SODViolationsApi.
+ * @export
+ * @interface SODViolationsApiGetViolationV1Request
+ */
+export interface SODViolationsApiGetViolationV1Request {
+    /**
+     * The ID of the policy violation to fetch
+     * @type {string}
+     * @memberof SODViolationsApiGetViolationV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SODViolationsApiGetViolationV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for listMyViolationsV1 operation in SODViolationsApi.
+ * @export
+ * @interface SODViolationsApiListMyViolationsV1Request
+ */
+export interface SODViolationsApiListMyViolationsV1Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SODViolationsApiListMyViolationsV1
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODViolationsApiListMyViolationsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODViolationsApiListMyViolationsV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SODViolationsApiListMyViolationsV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in*
+     * @type {string}
+     * @memberof SODViolationsApiListMyViolationsV1
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If omitted, default ordering matches GET /violations (created descending, then id descending).
+     * @type {string}
+     * @memberof SODViolationsApiListMyViolationsV1
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for listViolationsV1 operation in SODViolationsApi.
+ * @export
+ * @interface SODViolationsApiListViolationsV1Request
+ */
+export interface SODViolationsApiListViolationsV1Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SODViolationsApiListViolationsV1
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODViolationsApiListViolationsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODViolationsApiListViolationsV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SODViolationsApiListViolationsV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **ownerId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in*
+     * @type {string}
+     * @memberof SODViolationsApiListViolationsV1
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If no sorters are provided, results default to created descending, then id descending.
+     * @type {string}
+     * @memberof SODViolationsApiListViolationsV1
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for moveViolationV1 operation in SODViolationsApi.
+ * @export
+ * @interface SODViolationsApiMoveViolationV1Request
+ */
+export interface SODViolationsApiMoveViolationV1Request {
+    /**
+     * The ID of the policy violation to fetch
+     * @type {string}
+     * @memberof SODViolationsApiMoveViolationV1
+     */
+    readonly id: string
+
+    /**
+     * Data needed to reassign a Policy Violation
+     * @type {Violationreassigninput}
+     * @memberof SODViolationsApiMoveViolationV1
+     */
+    readonly violationreassigninput: Violationreassigninput
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SODViolationsApiMoveViolationV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for startApplyControlV1 operation in SODViolationsApi.
+ * @export
+ * @interface SODViolationsApiStartApplyControlV1Request
+ */
+export interface SODViolationsApiStartApplyControlV1Request {
+    /**
+     * The ID of the policy violation to fetch
+     * @type {string}
+     * @memberof SODViolationsApiStartApplyControlV1
+     */
+    readonly id: string
+
+    /**
+     * Data needed to apply a control to a Policy Violation
+     * @type {Appliedcontrolcreate}
+     * @memberof SODViolationsApiStartApplyControlV1
+     */
+    readonly appliedcontrolcreate: Appliedcontrolcreate
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SODViolationsApiStartApplyControlV1
+     */
+    readonly xSailPointExperimental?: string
+}
 
 /**
  * Request parameters for startPredictSodViolationsV1 operation in SODViolationsApi.
@@ -608,6 +1562,66 @@ export interface SODViolationsApiStartViolationCheckV1Request {
  * @extends {BaseAPI}
  */
 export class SODViolationsApi extends BaseAPI {
+    /**
+     * Returns a single policy violation by ID for the current tenant. Access is allowed if the caller has the read scope (`idn:sod-violation:read`) or is an owner of the violation (direct or via governance group). Returns 403 Forbidden if the violation exists but the caller has neither the read scope nor ownership. Returns 404 Not Found if the violation does not exist for the tenant. Embedded references (`owner`, `target`, `policy`, and references inside `appliedControls`) use `ReferenceResponse`: `id` and `type` are always present; `name` is included when display metadata resolves. 
+     * @summary Get policy violation by ID
+     * @param {SODViolationsApiGetViolationV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public getViolationV1(requestParameters: SODViolationsApiGetViolationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).getViolationV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns a paged list of policy violations where the current user is the owner (directly assigned or via a governance group they belong to). No permission scope is required; caller identity is required. Supports the same collection parameters as GET /violations (limit, offset, count, filters, sorters), including the same filter field whitelist and processing (normalization, pruning of not-yet-persisted name predicates). The owner filter is implicit (current user); **do not** use `ownerId` in filters for this endpoint. Embedded references in each violation follow `ReferenceResponse` (`id`, `type`, and optional `name` when metadata resolves). 
+     * @summary List My Policy Violations
+     * @param {SODViolationsApiListMyViolationsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public listMyViolationsV1(requestParameters: SODViolationsApiListMyViolationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).listMyViolationsV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns a paged list of policy violations for the current tenant. Requires the read scope (idn:sod-violation:read). This endpoint uses the standard collection parameters defined in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters/). This endpoint supports standard V3 collection parameters: `limit`, `offset`, `count`, `filters`, and `sorters`. Embedded references in each violation (`owner`, `target`, `policy`, and references inside `appliedControls`) follow the `ReferenceResponse` schema: `id` and `type` are always present; `name` is included when display metadata resolves. Filters and sorters are validated against a fixed whitelist of fields to ensure safe queries and to align with underlying database indexes. 
+     * @summary List Policy Violations
+     * @param {SODViolationsApiListViolationsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public listViolationsV1(requestParameters: SODViolationsApiListViolationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).listViolationsV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Reassigns the specified policy violation to a new owner. Callers without the `idn:sod-violation:manage` scope may only reassign violations they own (directly, or via a governance group they belong to).
+     * @summary Reassign policy violation
+     * @param {SODViolationsApiMoveViolationV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public moveViolationV1(requestParameters: SODViolationsApiMoveViolationV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).moveViolationV1(requestParameters.id, requestParameters.violationreassigninput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Applies a compensating control to the specified policy violation. Callers without the `idn:sod-violation:manage` scope may only apply a control to violations they own (directly, or via a governance group they belong to).
+     * @summary Apply control to violation
+     * @param {SODViolationsApiStartApplyControlV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public startApplyControlV1(requestParameters: SODViolationsApiStartApplyControlV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).startApplyControlV1(requestParameters.id, requestParameters.appliedcontrolcreate, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
      * @summary Predict sod violations for identity.

@@ -26,9 +26,11 @@ ScheduleType.md
 Selector.md
 SelectorType.md
 SodPolicy.md
+SodPolicyAllowedControlsInner.md
 SodPolicyConflictingAccessCriteria.md
 SodPolicyOwnerRef.md
 SodPolicySchedule.md
+SodPolicySecondaryOwnerRefsInner.md
 SodRecipient.md
 SodReportResultDto.md
 ViolationOwnerAssignmentConfig.md

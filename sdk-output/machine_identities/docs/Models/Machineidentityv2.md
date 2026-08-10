@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **resource** | **(optional)** `ResourceV2` |  | [default to undefined]
 **source** | **(optional)** `MachineIdentityV2Source` |  | [default to undefined]
 **userEntitlements** | **(optional)** `Array<UserEntitlementV2>` | The user entitlements associated to the machine identity. | [default to undefined]
-**businessApplicationRefs** | **(optional)** `Array<BusinessApplicationRef>` | Optional Business Application references associated with this machine identity. | [default to undefined]
-**effectiveSanctionedStatus** | **(optional)** `SanctionedStatus` |  | [default to undefined]
+**businessApplicationRefs** | **(optional)** `Array<BusinessApplicationRef>` | Optional Business Application references associated with this machine identity. Available when Business Applications is enabled for the tenant. On create and patch, at most one reference is allowed and is persisted as a `MANUAL` correlation. When Business Applications is not enabled, this field is null on responses and is rejected (`400`) if supplied on write. | [default to undefined]
+**effectiveSanctionedStatus** | **(optional)** `SanctionedStatus` | Derived sanctioned status from linked Business Applications; `UNKNOWN` when no refs are present. Available when Business Applications is enabled for the tenant; null when it is not enabled. Read-only on create and patch input. | [readonly] [default to undefined]
 **risk** | **(optional)** `MachineIdentityV2Risk` |  | [default to undefined]
 

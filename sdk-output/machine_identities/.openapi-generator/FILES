@@ -9,6 +9,7 @@ CorrelationCondition.md
 CorrelationConfig.md
 CorrelationRule.md
 CorrelationRuleAction.md
+CorrelationType.md
 DtoType.md
 ErrorMessageDto.md
 ErrorResponseDto.md

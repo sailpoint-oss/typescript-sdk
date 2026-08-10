@@ -1,3 +1,99 @@
+- path: /violations/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#get-violation-v1
+      source: |
+        import { SODViolationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODViolationsApi(configuration);
+        const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | The ID of the policy violation to fetch (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getViolationV1({ id: id });
+        console.log(result);
+- path: /my-violations/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#list-my-violations-v1
+      source: |
+        import { SODViolationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODViolationsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'status in ("Open","Mitigated") and level eq "High"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in* (optional) (default to undefined)
+        const sorters: string = '-level'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If omitted, default ordering matches GET /violations (created descending, then id descending). (optional) (default to undefined)
+        const result = await apiInstance.listMyViolationsV1({  });
+        console.log(result);
+- path: /violations/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#list-violations-v1
+      source: |
+        import { SODViolationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODViolationsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'status in ("Open","Mitigated") and level eq "High" and policyId eq "bc693f07-e7b6-4553-9626-c25954c58554" and ownerId eq "de305d54-75b4-431b-adb2-eb6b9e546014"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, in*  **policyId**: *eq*  **ownerId**: *eq*  **level**: *eq, in*  **policyName**: *eq, in, sw, co*  **ownerName**: *eq, in, sw, co*  **targetName**: *eq, in, sw, co*  **targetId**: *eq, in* (optional) (default to undefined)
+        const sorters: string = '-level'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **level**  Prefix a field with - for descending order, for example -level. If no sorters are provided, results default to created descending, then id descending. (optional) (default to undefined)
+        const result = await apiInstance.listViolationsV1({  });
+        console.log(result);
+- path: /violations/v1/{id}/reassign
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#move-violation-v1
+      source: |
+        import { SODViolationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Violationreassigninput } from 'sailpoint-api-client/dist/sod_violations/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODViolationsApi(configuration);
+        const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | The ID of the policy violation to fetch (default to undefined)
+        const violationreassigninput: Violationreassigninput = {
+  "comments" : "some comments about the reassignment",
+  "reassignTo" : {
+    "assigneeType" : "IDENTITY",
+    "assigneeId" : "3e07886555ed43cfb83c85c58d2016e6"
+  }
+}; // Violationreassigninput | Data needed to reassign a Policy Violation
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.moveViolationV1({ id: id, violationreassigninput: violationreassigninput });
+        console.log(result);
+- path: /violations/v1/{id}/controls
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#start-apply-control-v1
+      source: |
+        import { SODViolationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Appliedcontrolcreate } from 'sailpoint-api-client/dist/sod_violations/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SODViolationsApi(configuration);
+        const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | The ID of the policy violation to fetch (default to undefined)
+        const appliedcontrolcreate: Appliedcontrolcreate = {
+  "comments" : "Some comments about the applied control",
+  "control" : "3e07886555ed43cfb83c85c58d2016e6"
+}; // Appliedcontrolcreate | Data needed to apply a control to a Policy Violation
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.startApplyControlV1({ id: id, appliedcontrolcreate: appliedcontrolcreate });
+        console.log(result);
 - path: /sod-violations/v1/predict
   method: POST
   xCodeSample:

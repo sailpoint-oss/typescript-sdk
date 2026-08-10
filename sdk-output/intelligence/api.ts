@@ -376,7 +376,7 @@ export const IntelCertificationHistoryEventEventTypeEnum = {
 export type IntelCertificationHistoryEventEventTypeEnum = typeof IntelCertificationHistoryEventEventTypeEnum[keyof typeof IntelCertificationHistoryEventEventTypeEnum];
 
 /**
- * Flat identity response with identity attributes hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+ * Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
  * @export
  * @interface IntelIdentityAggregate
  */
@@ -411,12 +411,6 @@ export interface IntelIdentityAggregate {
      * @memberof IntelIdentityAggregate
      */
     'subtype'?: IntelIdentityAggregateSubtypeEnum | null;
-    /**
-     * Serialized owner reference information when populated by upstream identity services.
-     * @type {string}
-     * @memberof IntelIdentityAggregate
-     */
-    'owners'?: string | null;
     /**
      * Arbitrary SCIM-style attribute bag returned for the identity context view.
      * @type {{ [key: string]: any; }}
@@ -460,6 +454,12 @@ export interface IntelIdentityAggregate {
      */
     'isManager'?: boolean;
     /**
+     * Omitted when the tenant lacks the idg:base license.
+     * @type {Intelidentitygraphlink}
+     * @memberof IntelIdentityAggregate
+     */
+    'identityGraph'?: Intelidentitygraphlink;
+    /**
      * First page of accounts for the identity.
      * @type {IntelAccountsSlice}
      * @memberof IntelIdentityAggregate
@@ -486,7 +486,7 @@ export interface IntelIdentityAggregate {
 }
 
 export const IntelIdentityAggregateTypeEnum = {
-    Human: 'HUMAN'
+    Human: 'Human'
 } as const;
 
 export type IntelIdentityAggregateTypeEnum = typeof IntelIdentityAggregateTypeEnum[keyof typeof IntelIdentityAggregateTypeEnum];
@@ -497,6 +497,44 @@ export const IntelIdentityAggregateSubtypeEnum = {
 } as const;
 
 export type IntelIdentityAggregateSubtypeEnum = typeof IntelIdentityAggregateSubtypeEnum[keyof typeof IntelIdentityAggregateSubtypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface IntelIdentityNotFoundBody
+ */
+export interface IntelIdentityNotFoundBody {
+    /**
+     * Constant detail code indicating that no identity matched the supplied filter.
+     * @type {string}
+     * @memberof IntelIdentityNotFoundBody
+     */
+    'detailCode': IntelIdentityNotFoundBodyDetailCodeEnum;
+    /**
+     * Unique tracking id for the error.
+     * @type {string}
+     * @memberof IntelIdentityNotFoundBody
+     */
+    'trackingId'?: string;
+    /**
+     * Generic localized reason for error
+     * @type {Array<ErrorMessageDto>}
+     * @memberof IntelIdentityNotFoundBody
+     */
+    'messages'?: Array<ErrorMessageDto>;
+    /**
+     * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+     * @type {Array<ErrorMessageDto>}
+     * @memberof IntelIdentityNotFoundBody
+     */
+    'causes'?: Array<ErrorMessageDto>;
+}
+
+export const IntelIdentityNotFoundBodyDetailCodeEnum = {
+    IdcIdentityNotFound: 'IDC_IDENTITY_NOT_FOUND'
+} as const;
+
+export type IntelIdentityNotFoundBodyDetailCodeEnum = typeof IntelIdentityNotFoundBodyDetailCodeEnum[keyof typeof IntelIdentityNotFoundBodyDetailCodeEnum];
 
 /**
  * One outlier access-item row.
@@ -673,6 +711,542 @@ export interface IntelRareAccessSlice {
     'next'?: string;
 }
 /**
+ * Fast SOC view of impact across sources, accounts, and humans.
+ * @export
+ * @interface Intelblastradiussummary
+ */
+export interface Intelblastradiussummary {
+    /**
+     * Source systems that may be impacted if compromised.
+     * @type {Array<string>}
+     * @memberof Intelblastradiussummary
+     */
+    'impactedSources': Array<string>;
+    /**
+     * Linked machine accounts that may be impacted if compromised.
+     * @type {number}
+     * @memberof Intelblastradiussummary
+     */
+    'impactedAccounts': number;
+    /**
+     * Unique owners and authorized humans potentially impacted if compromised.
+     * @type {number}
+     * @memberof Intelblastradiussummary
+     */
+    'impactedHumans': number;
+    /**
+     * Whether this NHI holds entitlements included in summary.
+     * @type {boolean}
+     * @memberof Intelblastradiussummary
+     */
+    'hasEntitlements'?: boolean;
+    /**
+     * Environment labels for impacted access in this summary.
+     * @type {Array<string>}
+     * @memberof Intelblastradiussummary
+     */
+    'environments'?: Array<string>;
+    /**
+     * Access type labels for impacted access in this summary.
+     * @type {Array<string>}
+     * @memberof Intelblastradiussummary
+     */
+    'accessTypes'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface Intelidentityambiguousbody
+ */
+export interface Intelidentityambiguousbody {
+    /**
+     * Constant detail code indicating that more than one identity matched the filter.
+     * @type {string}
+     * @memberof Intelidentityambiguousbody
+     */
+    'detailCode': IntelidentityambiguousbodyDetailCodeEnum;
+    /**
+     * Unique tracking id for the error.
+     * @type {string}
+     * @memberof Intelidentityambiguousbody
+     */
+    'trackingId'?: string;
+    /**
+     * Generic localized reason for error
+     * @type {Array<ErrorMessageDto>}
+     * @memberof Intelidentityambiguousbody
+     */
+    'messages'?: Array<ErrorMessageDto>;
+    /**
+     * Plain-text descriptive reasons to provide additional detail to the text provided in the messages field
+     * @type {Array<ErrorMessageDto>}
+     * @memberof Intelidentityambiguousbody
+     */
+    'causes'?: Array<ErrorMessageDto>;
+    /**
+     * Identities that matched the ambiguous filter expression.
+     * @type {Array<Intelidentityambiguouscandidate>}
+     * @memberof Intelidentityambiguousbody
+     */
+    'candidates': Array<Intelidentityambiguouscandidate>;
+}
+
+export const IntelidentityambiguousbodyDetailCodeEnum = {
+    IdcIdentityAmbiguous: 'IDC_IDENTITY_AMBIGUOUS'
+} as const;
+
+export type IntelidentityambiguousbodyDetailCodeEnum = typeof IntelidentityambiguousbodyDetailCodeEnum[keyof typeof IntelidentityambiguousbodyDetailCodeEnum];
+
+/**
+ * One disambiguation hint when multiple identities matched the same filter.
+ * @export
+ * @interface Intelidentityambiguouscandidate
+ */
+export interface Intelidentityambiguouscandidate {
+    /**
+     * Identity Security Cloud identifier for a matching candidate.
+     * @type {string}
+     * @memberof Intelidentityambiguouscandidate
+     */
+    'id': string;
+    /**
+     * Human-facing label when available; omitted when empty upstream.
+     * @type {string}
+     * @memberof Intelidentityambiguouscandidate
+     */
+    'displayName'?: string;
+}
+/**
+ * @type Intelidentityenvelope
+ * @export
+ */
+export type Intelidentityenvelope = { type: 'Human' } & IntelIdentityAggregate | { type: 'NHI' } & Intelidentitymachineaggregate;
+
+/**
+ * Deep link into Identity Graph UI for the resolved identity at the aggregate root. Omitted when the tenant lacks the idg:base license. 
+ * @export
+ * @interface Intelidentitygraphlink
+ */
+export interface Intelidentitygraphlink {
+    /**
+     * Absolute URL to the Identity Graph view. Omitted when the tenant lacks idg:base or when the IDN UI host cannot be resolved from sp-tenant. Query parameters include entity and id for the resolved identity. 
+     * @type {string}
+     * @memberof Intelidentitygraphlink
+     */
+    'href': string;
+}
+/**
+ * Non-human identity response (type NHI). Machine identity fields are hoisted to the top level (no machine wrapper). Omits human-only fields and slices (email, alias, privilegedAccess, outliers, accessHistory). Top-level sourceId is omitted; use source.id when present. matchConfidence is present for opaque prefix resolution (exact or partial); omitted for direct id eq and exact opaque matches. 
+ * @export
+ * @interface Intelidentitymachineaggregate
+ */
+export interface Intelidentitymachineaggregate {
+    /**
+     * Identity Security Cloud identifier for this non-human identity.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'id': string;
+    /**
+     * Identity type for the matched record.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'type': IntelidentitymachineaggregateTypeEnum;
+    /**
+     * Preferred display name for the non-human identity.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'displayName'?: string;
+    /**
+     * Optional description from upstream when present.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'description'?: string | null;
+    /**
+     * Sub-classification label for that NHI.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'subtype'?: string | null;
+    /**
+     * Timestamp when the identity record was created in Identity Security Cloud.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'created'?: string;
+    /**
+     * Timestamp when the identity record was last modified in Identity Security Cloud.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'modified'?: string;
+    /**
+     * Match quality for opaque prefix resolution; omitted for direct id eq and exact opaque matches.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'matchConfidence'?: IntelidentitymachineaggregateMatchConfidenceEnum;
+    /**
+     * Omitted when the tenant lacks the idg:base license.
+     * @type {Intelidentitygraphlink}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'identityGraph'?: Intelidentitygraphlink;
+    /**
+     * 
+     * @type {Intelmachineaccountsslice}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'accounts': Intelmachineaccountsslice;
+    /**
+     * Native identifier on the source system.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'nativeIdentity': string;
+    /**
+     * Dataset identifier from upstream machine-identity services when present.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'datasetId'?: string | null;
+    /**
+     * Source metadata for the machine identity when present upstream.
+     * @type {Intelmachinesourcewire}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'source'?: Intelmachinesourcewire | null;
+    /**
+     * Upstream existsOnSource value. Wire uses uppercase strings such as TRUE or FALSE.
+     * @type {string}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'existsOnSource'?: string | null;
+    /**
+     * True when an administrator manually edited machine identity attributes.
+     * @type {boolean}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'manuallyEdited'?: boolean;
+    /**
+     * True when the machine identity was created manually in Identity Security Cloud.
+     * @type {boolean}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'manuallyCreated'?: boolean;
+    /**
+     * 
+     * @type {Intelmachineidentityowners}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'owners': Intelmachineidentityowners;
+    /**
+     * Entitlements associated with the machine identity from upstream.
+     * @type {Array<Intelmachineuserentitlement>}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'userEntitlements'?: Array<Intelmachineuserentitlement>;
+    /**
+     * Connector or runtime metadata; empty object when absent upstream.
+     * @type {{ [key: string]: any; }}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'attributes': { [key: string]: any; };
+    /**
+     * 
+     * @type {Intelmachinederived}
+     * @memberof Intelidentitymachineaggregate
+     */
+    'derived': Intelmachinederived;
+}
+
+export const IntelidentitymachineaggregateTypeEnum = {
+    Nhi: 'NHI'
+} as const;
+
+export type IntelidentitymachineaggregateTypeEnum = typeof IntelidentitymachineaggregateTypeEnum[keyof typeof IntelidentitymachineaggregateTypeEnum];
+export const IntelidentitymachineaggregateMatchConfidenceEnum = {
+    Exact: 'exact',
+    Partial: 'partial'
+} as const;
+
+export type IntelidentitymachineaggregateMatchConfidenceEnum = typeof IntelidentitymachineaggregateMatchConfidenceEnum[keyof typeof IntelidentitymachineaggregateMatchConfidenceEnum];
+
+/**
+ * Correlated machine accounts embedded on the non-human identity aggregate. Returns the correlated account set on the wire today (account paging via child routes is not yet released). 
+ * @export
+ * @interface Intelmachineaccountsslice
+ */
+export interface Intelmachineaccountsslice {
+    /**
+     * Machine account rows correlated to the non-human identity.
+     * @type {Array<Intelmachineaccountwire>}
+     * @memberof Intelmachineaccountsslice
+     */
+    'items': Array<Intelmachineaccountwire>;
+}
+/**
+ * Machine account row on the non-human identity aggregate accounts.items list. Every property in required is always present on the wire. Nullable object refs (source, machineIdentity, ownerIdentity) may be null. String fields may be empty when upstream has no value; booleans, timestamps, attributes, and connectorAttributes are always emitted (empty object when absent).
+ * @export
+ * @interface Intelmachineaccountwire
+ */
+export interface Intelmachineaccountwire {
+    /**
+     * Unique account identifier in Identity Security Cloud.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'id': string;
+    /**
+     * Account name on the correlated source.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'name': string;
+    /**
+     * Native identifier on the source system.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'nativeIdentity': string;
+    /**
+     * Source metadata for the machine account when present upstream.
+     * @type {Intelmachinesourcewire}
+     * @memberof Intelmachineaccountwire
+     */
+    'source': Intelmachinesourcewire | null;
+    /**
+     * True when the account is enabled for use on the source.
+     * @type {boolean}
+     * @memberof Intelmachineaccountwire
+     */
+    'enabled': boolean;
+    /**
+     * True when the account is locked on the source.
+     * @type {boolean}
+     * @memberof Intelmachineaccountwire
+     */
+    'locked': boolean;
+    /**
+     * Reference to the parent machine identity when populated upstream.
+     * @type {Intelmachineentityref}
+     * @memberof Intelmachineaccountwire
+     */
+    'machineIdentity': Intelmachineentityref | null;
+    /**
+     * Reference to the owning human identity when populated upstream.
+     * @type {Intelmachineentityref}
+     * @memberof Intelmachineaccountwire
+     */
+    'ownerIdentity': Intelmachineentityref | null;
+    /**
+     * Free-text account description from the source.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'description': string;
+    /**
+     * Account subtype label from upstream classification.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'subtype': string;
+    /**
+     * Access type label for the account (for example account or entitlement).
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'accessType': string;
+    /**
+     * Environment label associated with the account.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'environment': string;
+    /**
+     * Method used to classify the account as a machine account.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'classificationMethod': string;
+    /**
+     * True when an administrator manually edited account attributes.
+     * @type {boolean}
+     * @memberof Intelmachineaccountwire
+     */
+    'manuallyEdited': boolean;
+    /**
+     * True when an administrator manually correlated the account.
+     * @type {boolean}
+     * @memberof Intelmachineaccountwire
+     */
+    'manuallyCorrelated': boolean;
+    /**
+     * True when the account holds one or more entitlements.
+     * @type {boolean}
+     * @memberof Intelmachineaccountwire
+     */
+    'hasEntitlements': boolean;
+    /**
+     * Timestamp when the account record was created.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'created': string;
+    /**
+     * Timestamp when the account record was last modified.
+     * @type {string}
+     * @memberof Intelmachineaccountwire
+     */
+    'modified': string;
+    /**
+     * Extended account attributes from the source connector.
+     * @type {{ [key: string]: any; }}
+     * @memberof Intelmachineaccountwire
+     */
+    'attributes': { [key: string]: any; };
+    /**
+     * Connector-specific attribute bag from upstream.
+     * @type {{ [key: string]: any; }}
+     * @memberof Intelmachineaccountwire
+     */
+    'connectorAttributes': { [key: string]: any; };
+}
+/**
+ * Derived SOC triage signals for non-human identity risk assessment.
+ * @export
+ * @interface Intelmachinederived
+ */
+export interface Intelmachinederived {
+    /**
+     * Flags NHIs without a valid active owner for prioritization.
+     * @type {boolean}
+     * @memberof Intelmachinederived
+     */
+    'isOrphaned': boolean;
+    /**
+     * Humans who can invoke or access this NHI agent.
+     * @type {Array<Intelmachineentityref>}
+     * @memberof Intelmachinederived
+     */
+    'authorizedHumanIdentities': Array<Intelmachineentityref>;
+    /**
+     * 
+     * @type {Intelblastradiussummary}
+     * @memberof Intelmachinederived
+     */
+    'blastRadiusSummary': Intelblastradiussummary;
+}
+/**
+ * Typed id and name reference for owners, machine identities, and authorized humans.
+ * @export
+ * @interface Intelmachineentityref
+ */
+export interface Intelmachineentityref {
+    /**
+     * Reference type label from upstream (for example IDENTITY or MACHINE_IDENTITY).
+     * @type {string}
+     * @memberof Intelmachineentityref
+     */
+    'type': string;
+    /**
+     * Referenced object identifier.
+     * @type {string}
+     * @memberof Intelmachineentityref
+     */
+    'id': string;
+    /**
+     * Display name for the referenced identity or entity.
+     * @type {string}
+     * @memberof Intelmachineentityref
+     */
+    'name': string;
+    /**
+     * Email for authorized human holders when available upstream.
+     * @type {string}
+     * @memberof Intelmachineentityref
+     */
+    'email'?: string;
+}
+/**
+ * Owner references. primaryIdentity is null when no primary owner is set. Primary and secondary owner ids are both considered for derived.isOrphaned evaluation. 
+ * @export
+ * @interface Intelmachineidentityowners
+ */
+export interface Intelmachineidentityowners {
+    /**
+     * Primary human owner of the machine identity when assigned.
+     * @type {Intelmachineentityref}
+     * @memberof Intelmachineidentityowners
+     */
+    'primaryIdentity': Intelmachineentityref | null;
+    /**
+     * Secondary human owners associated with the machine identity.
+     * @type {Array<Intelmachineentityref>}
+     * @memberof Intelmachineidentityowners
+     */
+    'secondaryIdentities': Array<Intelmachineentityref>;
+}
+/**
+ * 
+ * @export
+ * @interface Intelmachinesourcewire
+ */
+export interface Intelmachinesourcewire {
+    /**
+     * Source identifier.
+     * @type {string}
+     * @memberof Intelmachinesourcewire
+     */
+    'id': string;
+    /**
+     * Source display name.
+     * @type {string}
+     * @memberof Intelmachinesourcewire
+     */
+    'name': string;
+    /**
+     * Source type label from upstream.
+     * @type {string}
+     * @memberof Intelmachinesourcewire
+     */
+    'type': string;
+}
+/**
+ * 
+ * @export
+ * @interface Intelmachineuserentitlement
+ */
+export interface Intelmachineuserentitlement {
+    /**
+     * Source identifier for the entitlement.
+     * @type {string}
+     * @memberof Intelmachineuserentitlement
+     */
+    'sourceId': string;
+    /**
+     * Entitlement identifier on the source.
+     * @type {string}
+     * @memberof Intelmachineuserentitlement
+     */
+    'entitlementId': string;
+    /**
+     * Display name for the entitlement.
+     * @type {string}
+     * @memberof Intelmachineuserentitlement
+     */
+    'displayName': string;
+    /**
+     * Resolved source metadata when available upstream.
+     * @type {Intelmachinesourcewire}
+     * @memberof Intelmachineuserentitlement
+     */
+    'source'?: Intelmachinesourcewire | null;
+}
+/**
  * Effective privilege level for the privileged access item. Set to HIGH, MEDIUM, or LOW based on the tenant\'s privilege classification configuration, including connector criteria, custom criteria, manual overrides, or a single configured privilege level. Use NONE when no privilege level is assigned. Entitlements previously marked with privileged=true are classified as HIGH. 
  * @export
  * @interface Intelprivilegelevel
@@ -717,9 +1291,9 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 export const IntelligenceApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403). identityGraph is omitted when the tenant lacks the idg:base license.  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. identityGraph is omitted when the tenant lacks the idg:base license. 
          * @summary Get identity by filter
-         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -754,7 +1328,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
          * @summary List identity access item history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -803,7 +1377,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
          * @summary List identity accounts
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -852,7 +1426,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
          * @summary List identity certification history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -901,7 +1475,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
          * @summary List identity rare access
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -960,20 +1534,20 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntelligenceApiAxiosParamCreator(configuration)
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403). identityGraph is omitted when the tenant lacks the idg:base license.  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. identityGraph is omitted when the tenant lacks the idg:base license. 
          * @summary Get identity by filter
-         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityIntelligenceV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IntelIdentityAggregate>> {
+        async getIdentityIntelligenceV1(filters: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Intelidentityenvelope>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityIntelligenceV1(filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIdentityIntelligenceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
          * @summary List identity access item history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -989,7 +1563,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
          * @summary List identity accounts
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -1005,7 +1579,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
          * @summary List identity certification history
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -1021,7 +1595,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
          * @summary List identity rare access
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
@@ -1047,17 +1621,17 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
     const localVarFp = IntelligenceApiFp(configuration)
     return {
         /**
-         * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403). identityGraph is omitted when the tenant lacks the idg:base license.  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. identityGraph is omitted when the tenant lacks the idg:base license. 
          * @summary Get identity by filter
          * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityIntelligenceV1(requestParameters: IntelligenceApiGetIdentityIntelligenceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IntelIdentityAggregate> {
+        getIdentityIntelligenceV1(requestParameters: IntelligenceApiGetIdentityIntelligenceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Intelidentityenvelope> {
             return localVarFp.getIdentityIntelligenceV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
          * @summary List identity access item history
          * @param {IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1067,7 +1641,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
             return localVarFp.getIntelIdentityAccessItemHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
          * @summary List identity accounts
          * @param {IntelligenceApiGetIntelIdentityAccountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1077,7 +1651,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
             return localVarFp.getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
          * @summary List identity certification history
          * @param {IntelligenceApiGetIntelIdentityCertificationHistoryV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1087,7 +1661,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
             return localVarFp.getIntelIdentityCertificationHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+         * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
          * @summary List identity rare access
          * @param {IntelligenceApiGetIntelIdentityRareAccessV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1106,7 +1680,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
  */
 export interface IntelligenceApiGetIdentityIntelligenceV1Request {
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
      * @type {string}
      * @memberof IntelligenceApiGetIdentityIntelligenceV1
      */
@@ -1261,7 +1835,7 @@ export interface IntelligenceApiGetIntelIdentityRareAccessV1Request {
  */
 export class IntelligenceApi extends BaseAPI {
     /**
-     * Requires tenant license idn:response-and-remediation.  Resolves exactly one identity by SCIM-style filters expression and returns the Intelligence envelope. Supported queryable fields are id and email only. The response embeds the first page of accounts, rare access, access-history access items, and access-history certifications. Each paged slice includes `totalCount` from upstream `X-Total-Count` when `items` is non-empty, and carries a `next` continuation URL when `totalCount` exceeds the items returned on this page. Empty slices render as `items: []` with no `totalCount`. The privilegedAccess slice contains the full result and is not paged; it never carries `next` or `totalCount`. The outliers slice is omitted when the tenant lacks the IDA-outliers license. 
+     * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403). identityGraph is omitted when the tenant lacks the idg:base license.  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. identityGraph is omitted when the tenant lacks the idg:base license. 
      * @summary Get identity by filter
      * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1273,7 +1847,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+     * Continuation endpoint for the parent response\'s `accessHistory.accessItems.next` link. Returns one page of access-item history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Unsupported event types and per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
      * @summary List identity access item history
      * @param {IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1285,7 +1859,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Requires tenant license idn:response-and-remediation. 
+     * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
      * @summary List identity accounts
      * @param {IntelligenceApiGetIntelIdentityAccountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1297,7 +1871,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation. 
+     * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
      * @summary List identity certification history
      * @param {IntelligenceApiGetIntelIdentityCertificationHistoryV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1309,7 +1883,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license. 
+     * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
      * @summary List identity rare access
      * @param {IntelligenceApiGetIntelIdentityRareAccessV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
