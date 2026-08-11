@@ -1061,7 +1061,48 @@ export interface AuditEventDataNERM {
      * @memberof AuditEventDataNERM
      */
     'profile_type_id'?: string;
+    /**
+     * The workflow version a change belongs to. Can be used for both Workflow configurations and Workflow Session events.
+     * @type {string}
+     * @memberof AuditEventDataNERM
+     */
+    'workflow_version_id'?: string;
+    /**
+     * The workflow version SHA.
+     * @type {string}
+     * @memberof AuditEventDataNERM
+     */
+    'version'?: string;
+    /**
+     * The id of the workflow action or condition the step event refers to.
+     * @type {string}
+     * @memberof AuditEventDataNERM
+     */
+    'step_id'?: string;
+    /**
+     * The name associated to an action configuration.
+     * @type {string}
+     * @memberof AuditEventDataNERM
+     */
+    'step_label'?: string;
+    /**
+     * What triggered the versioning change.
+     * @type {string}
+     * @memberof AuditEventDataNERM
+     */
+    'source'?: AuditEventDataNERMSourceNerm;
 }
+
+export const AuditEventDataNERMSourceNerm = {
+    Ui: 'ui',
+    Import: 'import',
+    Fork: 'fork',
+    CleanupWorker: 'cleanup_worker',
+    DeleteWorker: 'delete_worker'
+} as const;
+
+export type AuditEventDataNERMSourceNerm = typeof AuditEventDataNERMSourceNerm[keyof typeof AuditEventDataNERMSourceNerm];
+
 /**
  * 
  * @export
@@ -1205,6 +1246,12 @@ export const AuditEventNERMTypeNerm = {
     AuditableWorkflowUnassignEvent: 'AuditableWorkflowUnassignEvent',
     AuditableWorkflowWaitingForWorkflowEvent: 'AuditableWorkflowWaitingForWorkflowEvent',
     AuditableWorkflowWorkflowChangedEvent: 'AuditableWorkflowWorkflowChangedEvent',
+    AuditableWorkflowVersionCreatedEvent: 'AuditableWorkflowVersionCreatedEvent',
+    AuditableWorkflowVersionForkedEvent: 'AuditableWorkflowVersionForkedEvent',
+    AuditableWorkflowVersionDeprecatedEvent: 'AuditableWorkflowVersionDeprecatedEvent',
+    AuditableWorkflowVersionDeletedEvent: 'AuditableWorkflowVersionDeletedEvent',
+    AuditableWorkflowStepCreatedEvent: 'AuditableWorkflowStepCreatedEvent',
+    AuditableWorkflowStepUpdatedEvent: 'AuditableWorkflowStepUpdatedEvent',
     ActiveRecordCreate: 'ActiveRecordCreate',
     ActiveRecordUpdate: 'ActiveRecordUpdate',
     ActiveRecordDestroy: 'ActiveRecordDestroy',
@@ -8115,7 +8162,8 @@ export interface WorkflowSession1NERM {
 export const WorkflowSession1NERMRequesterTypeNerm = {
     User: 'User',
     NeprofileUser: 'NeprofileUser',
-    NeaccessUser: 'NeaccessUser'
+    NeaccessUser: 'NeaccessUser',
+    NeaccessRegistrant: 'NeaccessRegistrant'
 } as const;
 
 export type WorkflowSession1NERMRequesterTypeNerm = typeof WorkflowSession1NERMRequesterTypeNerm[keyof typeof WorkflowSession1NERMRequesterTypeNerm];
