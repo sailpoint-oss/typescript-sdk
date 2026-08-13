@@ -1,0 +1,106 @@
+- path: /business-applications/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#create-business-application-v1
+      source: |
+        import { BusinessApplicationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { BusinessApplication } from 'sailpoint-api-client/dist/business_applications/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new BusinessApplicationsApi(configuration);
+        const businessApplication: BusinessApplication = {
+  "owner" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "vendor" : "Cursor",
+  "created" : "2026-01-15T13:45:12.312Z",
+  "origin" : "",
+  "name" : "Cursor",
+  "description" : "AI coding assistant used by the platform engineering team.",
+  "modified" : "2026-02-20T09:31:47.882Z",
+  "id" : "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "source" : {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  },
+  "signatures" : [ {
+    "name" : "cursor",
+    "type" : "AI Agent"
+  }, {
+    "name" : "cursor",
+    "type" : "AI Agent"
+  } ],
+  "additionalOwners" : [ {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  }, {
+    "name" : "William Wilson",
+    "id" : "2c91808568c529c60168cca6f90c1313",
+    "type" : "IDENTITY"
+  } ],
+  "sanctionedStatus" : ""
+}; // BusinessApplication | 
+        const result = await apiInstance.createBusinessApplicationV1({ businessApplication: businessApplication });
+        console.log(result);
+- path: /business-applications/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#get-business-application-v1
+      source: |
+        import { BusinessApplicationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new BusinessApplicationsApi(configuration);
+        const id: string = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'; // string | Business Application ID. (default to undefined)
+        const result = await apiInstance.getBusinessApplicationV1({ id: id });
+        console.log(result);
+- path: /business-applications/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#list-business-applications-v1
+      source: |
+        import { BusinessApplicationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new BusinessApplicationsApi(configuration);
+        const filters: string = 'sanctionedStatus eq "SANCTIONED"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq* (optional) (default to undefined)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus** (optional) (default to undefined)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const result = await apiInstance.listBusinessApplicationsV1({  });
+        console.log(result);
+- path: /business-applications/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#update-business-application-v1
+      source: |
+        import { BusinessApplicationsApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/business_applications/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new BusinessApplicationsApi(configuration);
+        const id: string = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'; // string | Business Application ID. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A JSON array of patch operations per RFC 6902.
+        const result = await apiInstance.updateBusinessApplicationV1({ id: id, jsonPatchOperation: jsonPatchOperation });
+        console.log(result);

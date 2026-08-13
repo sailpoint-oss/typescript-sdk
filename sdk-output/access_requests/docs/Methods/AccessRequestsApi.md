@@ -459,6 +459,8 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Get access request configuration
 This endpoint returns the current access-request configuration.
 
+To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
+
 [API Spec](https://developer.sailpoint.com/docs/api/get-access-request-config-v-1)
 
 ### Parameters
@@ -491,6 +493,8 @@ console.log(result);
 ## get-access-request-config-v2
 Get access request configuration
 This endpoint returns the current access-request configuration.
+
+To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-access-request-config-v-2)
 
@@ -799,6 +803,8 @@ This endpoint has been deprecated and may be replaced or removed in future versi
 Update access request configuration
 This endpoint replaces the current access-request configuration.
 
+To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
+
 [API Spec](https://developer.sailpoint.com/docs/api/set-access-request-config-v-1)
 
 ### Parameters
@@ -883,6 +889,8 @@ console.log(result);
 ## set-access-request-config-v2
 Update access request configuration
 This endpoint replaces the current access-request configuration.
+
+To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/set-access-request-config-v-2)
 

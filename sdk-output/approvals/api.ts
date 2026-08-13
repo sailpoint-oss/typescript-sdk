@@ -317,6 +317,12 @@ export interface ApprovalApproveRequest {
      * @memberof ApprovalApproveRequest
      */
     'comment'?: string;
+    /**
+     * Optional field for ServiceNow Administrators to specify which member of a governance group to override/approve on behalf of.
+     * @type {string}
+     * @memberof ApprovalApproveRequest
+     */
+    'overrideApproverID'?: string;
 }
 /**
  * Approval Attributes Request
@@ -474,13 +480,13 @@ export interface ApprovalConfig {
      */
     'machineIdentityManagerAssignment'?: ApprovalConfigMachineIdentityManagerAssignmentEnum;
     /**
-     * When true, all approvals will be created with the status \"PASSED\".
+     * When true, all approvals will be created with the status \"PASSED\" effectively skipping the approval process. Note this field should only be used for Machine Account or Machine related approvals.
      * @type {boolean}
      * @memberof ApprovalConfig
      */
     'circumventApprovalProcess'?: boolean;
     /**
-     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
+     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT when the requester != requestee this will cause steps assigned directly to the requester to be auto-approved. INDIRECT when the requester != requestee this will cause steps assigned to the requester or a group containing the requester to be auto-approved. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
      * @type {string}
      * @memberof ApprovalConfig
      */
@@ -571,12 +577,6 @@ export interface ApprovalConfigEscalationConfig {
  */
 export interface ApprovalConfigEscalationConfigEscalationChainInner {
     /**
-     * Starting at 1 defines the order in which the identities will get assigned
-     * @type {number}
-     * @memberof ApprovalConfigEscalationConfigEscalationChainInner
-     */
-    'tier'?: number;
-    /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
      * @memberof ApprovalConfigEscalationConfigEscalationChainInner
@@ -592,6 +592,7 @@ export interface ApprovalConfigEscalationConfigEscalationChainInner {
 
 export const ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum = {
     Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
     MachineAccountOwner: 'MACHINE_ACCOUNT_OWNER',
@@ -608,11 +609,34 @@ export const ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum 
     EntitlementOwner: 'ENTITLEMENT_OWNER',
     RoleOwner: 'ROLE_OWNER',
     SourceOwner: 'SOURCE_OWNER',
+    RequestedTargetOwner: 'REQUESTED_TARGET_OWNER',
     AccessProfilePrimaryOwner: 'ACCESS_PROFILE_PRIMARY_OWNER',
     ApplicationPrimaryOwner: 'APPLICATION_PRIMARY_OWNER',
     EntitlementPrimaryOwner: 'ENTITLEMENT_PRIMARY_OWNER',
     RolePrimaryOwner: 'ROLE_PRIMARY_OWNER',
-    SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER'
+    SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER',
+    AccountPrimaryOwner: 'ACCOUNT_PRIMARY_OWNER',
+    MachineAccountPrimaryOwner: 'MACHINE_ACCOUNT_PRIMARY_OWNER',
+    MachineIdentityPrimaryOwner: 'MACHINE_IDENTITY_PRIMARY_OWNER',
+    RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER',
+    AccessProfileSecondaryOwnerGroup: 'ACCESS_PROFILE_SECONDARY_OWNER_GROUP',
+    ApplicationSecondaryOwnerGroup: 'APPLICATION_SECONDARY_OWNER_GROUP',
+    EntitlementSecondaryOwnerGroup: 'ENTITLEMENT_SECONDARY_OWNER_GROUP',
+    RoleSecondaryOwnerGroup: 'ROLE_SECONDARY_OWNER_GROUP',
+    SourceSecondaryOwnerGroup: 'SOURCE_SECONDARY_OWNER_GROUP',
+    AccountSecondaryOwnerGroup: 'ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineAccountSecondaryOwnerGroup: 'MACHINE_ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineIdentitySecondaryOwnerGroup: 'MACHINE_IDENTITY_SECONDARY_OWNER_GROUP',
+    RequestedTargetSecondaryOwnerGroup: 'REQUESTED_TARGET_SECONDARY_OWNER_GROUP',
+    AccessProfileAllOwnerGroup: 'ACCESS_PROFILE_ALL_OWNER_GROUP',
+    ApplicationAllOwnerGroup: 'APPLICATION_ALL_OWNER_GROUP',
+    EntitlementAllOwnerGroup: 'ENTITLEMENT_ALL_OWNER_GROUP',
+    RoleAllOwnerGroup: 'ROLE_ALL_OWNER_GROUP',
+    SourceAllOwnerGroup: 'SOURCE_ALL_OWNER_GROUP',
+    AccountAllOwnerGroup: 'ACCOUNT_ALL_OWNER_GROUP',
+    MachineAccountAllOwnerGroup: 'MACHINE_ACCOUNT_ALL_OWNER_GROUP',
+    MachineIdentityAllOwnerGroup: 'MACHINE_IDENTITY_ALL_OWNER_GROUP',
+    RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
 export type ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum = typeof ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum[keyof typeof ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum];
@@ -639,6 +663,7 @@ export interface ApprovalConfigFallbackApprover {
 
 export const ApprovalConfigFallbackApproverTypeEnum = {
     Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
     MachineAccountOwner: 'MACHINE_ACCOUNT_OWNER',
@@ -661,7 +686,28 @@ export const ApprovalConfigFallbackApproverTypeEnum = {
     EntitlementPrimaryOwner: 'ENTITLEMENT_PRIMARY_OWNER',
     RolePrimaryOwner: 'ROLE_PRIMARY_OWNER',
     SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER',
-    RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER'
+    AccountPrimaryOwner: 'ACCOUNT_PRIMARY_OWNER',
+    MachineAccountPrimaryOwner: 'MACHINE_ACCOUNT_PRIMARY_OWNER',
+    MachineIdentityPrimaryOwner: 'MACHINE_IDENTITY_PRIMARY_OWNER',
+    RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER',
+    AccessProfileSecondaryOwnerGroup: 'ACCESS_PROFILE_SECONDARY_OWNER_GROUP',
+    ApplicationSecondaryOwnerGroup: 'APPLICATION_SECONDARY_OWNER_GROUP',
+    EntitlementSecondaryOwnerGroup: 'ENTITLEMENT_SECONDARY_OWNER_GROUP',
+    RoleSecondaryOwnerGroup: 'ROLE_SECONDARY_OWNER_GROUP',
+    SourceSecondaryOwnerGroup: 'SOURCE_SECONDARY_OWNER_GROUP',
+    AccountSecondaryOwnerGroup: 'ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineAccountSecondaryOwnerGroup: 'MACHINE_ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineIdentitySecondaryOwnerGroup: 'MACHINE_IDENTITY_SECONDARY_OWNER_GROUP',
+    RequestedTargetSecondaryOwnerGroup: 'REQUESTED_TARGET_SECONDARY_OWNER_GROUP',
+    AccessProfileAllOwnerGroup: 'ACCESS_PROFILE_ALL_OWNER_GROUP',
+    ApplicationAllOwnerGroup: 'APPLICATION_ALL_OWNER_GROUP',
+    EntitlementAllOwnerGroup: 'ENTITLEMENT_ALL_OWNER_GROUP',
+    RoleAllOwnerGroup: 'ROLE_ALL_OWNER_GROUP',
+    SourceAllOwnerGroup: 'SOURCE_ALL_OWNER_GROUP',
+    AccountAllOwnerGroup: 'ACCOUNT_ALL_OWNER_GROUP',
+    MachineAccountAllOwnerGroup: 'MACHINE_ACCOUNT_ALL_OWNER_GROUP',
+    MachineIdentityAllOwnerGroup: 'MACHINE_IDENTITY_ALL_OWNER_GROUP',
+    RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
 export type ApprovalConfigFallbackApproverTypeEnum = typeof ApprovalConfigFallbackApproverTypeEnum[keyof typeof ApprovalConfigFallbackApproverTypeEnum];
@@ -704,12 +750,6 @@ export interface ApprovalConfigReminderConfig {
  */
 export interface ApprovalConfigSerialChainInner {
     /**
-     * Starting at 1 defines the order in which the identities will get assigned
-     * @type {number}
-     * @memberof ApprovalConfigSerialChainInner
-     */
-    'tier'?: number;
-    /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
      * @memberof ApprovalConfigSerialChainInner
@@ -748,18 +788,27 @@ export const ApprovalConfigSerialChainInnerIdentityTypeEnum = {
     EntitlementPrimaryOwner: 'ENTITLEMENT_PRIMARY_OWNER',
     RolePrimaryOwner: 'ROLE_PRIMARY_OWNER',
     SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER',
+    AccountPrimaryOwner: 'ACCOUNT_PRIMARY_OWNER',
+    MachineAccountPrimaryOwner: 'MACHINE_ACCOUNT_PRIMARY_OWNER',
+    MachineIdentityPrimaryOwner: 'MACHINE_IDENTITY_PRIMARY_OWNER',
     RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER',
     AccessProfileSecondaryOwnerGroup: 'ACCESS_PROFILE_SECONDARY_OWNER_GROUP',
     ApplicationSecondaryOwnerGroup: 'APPLICATION_SECONDARY_OWNER_GROUP',
     EntitlementSecondaryOwnerGroup: 'ENTITLEMENT_SECONDARY_OWNER_GROUP',
     RoleSecondaryOwnerGroup: 'ROLE_SECONDARY_OWNER_GROUP',
     SourceSecondaryOwnerGroup: 'SOURCE_SECONDARY_OWNER_GROUP',
+    AccountSecondaryOwnerGroup: 'ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineAccountSecondaryOwnerGroup: 'MACHINE_ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineIdentitySecondaryOwnerGroup: 'MACHINE_IDENTITY_SECONDARY_OWNER_GROUP',
     RequestedTargetSecondaryOwnerGroup: 'REQUESTED_TARGET_SECONDARY_OWNER_GROUP',
     AccessProfileAllOwnerGroup: 'ACCESS_PROFILE_ALL_OWNER_GROUP',
     ApplicationAllOwnerGroup: 'APPLICATION_ALL_OWNER_GROUP',
     EntitlementAllOwnerGroup: 'ENTITLEMENT_ALL_OWNER_GROUP',
     RoleAllOwnerGroup: 'ROLE_ALL_OWNER_GROUP',
     SourceAllOwnerGroup: 'SOURCE_ALL_OWNER_GROUP',
+    AccountAllOwnerGroup: 'ACCOUNT_ALL_OWNER_GROUP',
+    MachineAccountAllOwnerGroup: 'MACHINE_ACCOUNT_ALL_OWNER_GROUP',
+    MachineIdentityAllOwnerGroup: 'MACHINE_IDENTITY_ALL_OWNER_GROUP',
     RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
@@ -892,18 +941,27 @@ export const ApprovalIdentityTypeEnum = {
     EntitlementPrimaryOwner: 'ENTITLEMENT_PRIMARY_OWNER',
     RolePrimaryOwner: 'ROLE_PRIMARY_OWNER',
     SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER',
+    AccountPrimaryOwner: 'ACCOUNT_PRIMARY_OWNER',
+    MachineAccountPrimaryOwner: 'MACHINE_ACCOUNT_PRIMARY_OWNER',
+    MachineIdentityPrimaryOwner: 'MACHINE_IDENTITY_PRIMARY_OWNER',
     RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER',
     AccessProfileSecondaryOwnerGroup: 'ACCESS_PROFILE_SECONDARY_OWNER_GROUP',
     ApplicationSecondaryOwnerGroup: 'APPLICATION_SECONDARY_OWNER_GROUP',
     EntitlementSecondaryOwnerGroup: 'ENTITLEMENT_SECONDARY_OWNER_GROUP',
     RoleSecondaryOwnerGroup: 'ROLE_SECONDARY_OWNER_GROUP',
     SourceSecondaryOwnerGroup: 'SOURCE_SECONDARY_OWNER_GROUP',
+    AccountSecondaryOwnerGroup: 'ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineAccountSecondaryOwnerGroup: 'MACHINE_ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineIdentitySecondaryOwnerGroup: 'MACHINE_IDENTITY_SECONDARY_OWNER_GROUP',
     RequestedTargetSecondaryOwnerGroup: 'REQUESTED_TARGET_SECONDARY_OWNER_GROUP',
     AccessProfileAllOwnerGroup: 'ACCESS_PROFILE_ALL_OWNER_GROUP',
     ApplicationAllOwnerGroup: 'APPLICATION_ALL_OWNER_GROUP',
     EntitlementAllOwnerGroup: 'ENTITLEMENT_ALL_OWNER_GROUP',
     RoleAllOwnerGroup: 'ROLE_ALL_OWNER_GROUP',
     SourceAllOwnerGroup: 'SOURCE_ALL_OWNER_GROUP',
+    AccountAllOwnerGroup: 'ACCOUNT_ALL_OWNER_GROUP',
+    MachineAccountAllOwnerGroup: 'MACHINE_ACCOUNT_ALL_OWNER_GROUP',
+    MachineIdentityAllOwnerGroup: 'MACHINE_IDENTITY_ALL_OWNER_GROUP',
     RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
@@ -1166,6 +1224,12 @@ export interface ApprovalRejectRequest {
      * @memberof ApprovalRejectRequest
      */
     'comment'?: string;
+    /**
+     * Optional field for ServiceNow Administrators to specify which member of a governance group to override/reject on behalf of.
+     * @type {string}
+     * @memberof ApprovalRejectRequest
+     */
+    'overrideApproverID'?: string;
 }
 /**
  * Represents a requested target in an approval process, including details such as ID, name, reauthentication requirements, and removal date.
@@ -1566,8 +1630,8 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
          * @summary Delete Approval Configuration
-         * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1638,7 +1702,7 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Retrieves a singular approval configuration that matches the given ID
          * @summary Get Approval Config
-         * @param {string} id The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), \&quot;ENTITLEMENT_DESCRIPTIONS\&quot;, \&quot;ACCESS_REQUEST_APPROVAL\&quot;, \&quot;ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;AGENT_ACTIVATE_APPROVAL\&quot;, \&quot;AGENT_DEACTIVATE_APPROVAL\&quot;, (tenantID)]
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1803,8 +1867,8 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
          * @summary Put Approval Config
-         * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {ApprovalConfig} approvalConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2105,8 +2169,8 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
         /**
          * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
          * @summary Delete Approval Configuration
-         * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2132,7 +2196,7 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
         /**
          * Retrieves a singular approval configuration that matches the given ID
          * @summary Get Approval Config
-         * @param {string} id The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), \&quot;ENTITLEMENT_DESCRIPTIONS\&quot;, \&quot;ACCESS_REQUEST_APPROVAL\&quot;, \&quot;ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;AGENT_ACTIVATE_APPROVAL\&quot;, \&quot;AGENT_DEACTIVATE_APPROVAL\&quot;, (tenantID)]
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2183,8 +2247,8 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
         /**
          * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
          * @summary Put Approval Config
-         * @param {string} id The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {ApprovalConfig} approvalConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2504,15 +2568,15 @@ export interface ApprovalsApiCancelApprovalV1Request {
  */
 export interface ApprovalsApiDeleteApprovalConfigRequestV1Request {
     /**
-     * The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {string}
      * @memberof ApprovalsApiDeleteApprovalConfigRequestV1
      */
     readonly id: string
 
     /**
-     * The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-     * @type {'DOMAIN_OBJECT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
+     * The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+     * @type {'DOMAIN_OBJECT' | 'ACCOUNT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
      * @memberof ApprovalsApiDeleteApprovalConfigRequestV1
      */
     readonly scope: DeleteApprovalConfigRequestV1ScopeEnum
@@ -2539,7 +2603,7 @@ export interface ApprovalsApiGetApprovalV1Request {
  */
 export interface ApprovalsApiGetApprovalsConfigV1Request {
     /**
-     * The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), \&quot;ENTITLEMENT_DESCRIPTIONS\&quot;, \&quot;ACCESS_REQUEST_APPROVAL\&quot;, \&quot;ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;AGENT_ACTIVATE_APPROVAL\&quot;, \&quot;AGENT_DEACTIVATE_APPROVAL\&quot;, (tenantID)]
+     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {string}
      * @memberof ApprovalsApiGetApprovalsConfigV1
      */
@@ -2665,15 +2729,15 @@ export interface ApprovalsApiMoveApprovalV1Request {
  */
 export interface ApprovalsApiPutApprovalsConfigV1Request {
     /**
-     * The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {string}
      * @memberof ApprovalsApiPutApprovalsConfigV1
      */
     readonly id: string
 
     /**
-     * The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-     * @type {'DOMAIN_OBJECT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
+     * The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+     * @type {'DOMAIN_OBJECT' | 'ACCOUNT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
      * @memberof ApprovalsApiPutApprovalsConfigV1
      */
     readonly scope: PutApprovalsConfigV1ScopeEnum
@@ -2977,6 +3041,7 @@ export class ApprovalsApi extends BaseAPI {
  */
 export const DeleteApprovalConfigRequestV1ScopeEnum = {
     DomainObject: 'DOMAIN_OBJECT',
+    Account: 'ACCOUNT',
     Role: 'ROLE',
     AccessProfile: 'ACCESS_PROFILE',
     Entitlement: 'ENTITLEMENT',
@@ -2989,6 +3054,7 @@ export type DeleteApprovalConfigRequestV1ScopeEnum = typeof DeleteApprovalConfig
  */
 export const PutApprovalsConfigV1ScopeEnum = {
     DomainObject: 'DOMAIN_OBJECT',
+    Account: 'ACCOUNT',
     Role: 'ROLE',
     AccessProfile: 'ACCESS_PROFILE',
     Entitlement: 'ENTITLEMENT',

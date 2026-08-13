@@ -115,6 +115,7 @@ const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
 const id: string = 38453251-6be2-5f8f-df93-5ce19e295837; // Approval ID that correlates to an existing approval request that a user wants to approve.
 const approvalApproveRequest: ApprovalApproveRequest = {
+  "overrideApproverID" : "12345678901234567890123456789012",
   "comment" : "comment",
   "additionalAttributes" : {
     "additionalProp1" : "string",
@@ -227,8 +228,8 @@ Configurations at the APPROVAL_REQUEST scope cannot be deleted.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**id** | `string` | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT |  [default to undefined]
-**scope** | `'DOMAIN_OBJECT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'` | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT |  [default to undefined]
+**id** | `string` | The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID.  |  [default to undefined]
+**scope** | `'DOMAIN_OBJECT' | 'ACCOUNT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'` | The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID.  |  [default to undefined]
 
 ### Return type
 
@@ -247,8 +248,8 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
-const id: string = ACCESS_REQUEST_APPROVAL; // The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-const scope: string = APPROVAL_TYPE; // The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+const id: string = ACCESS_REQUEST_APPROVAL; // The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+const scope: string = APPROVAL_TYPE; // The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
 const result = await apiInstance.deleteApprovalConfigRequestV1({ id: id, scope: scope });
 console.log(result);
 ```
@@ -304,7 +305,7 @@ Retrieves a singular approval configuration that matches the given ID
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**id** | `string` | The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), \&quot;ENTITLEMENT_DESCRIPTIONS\&quot;, \&quot;ACCESS_REQUEST_APPROVAL\&quot;, \&quot;ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;AGENT_ACTIVATE_APPROVAL\&quot;, \&quot;AGENT_DEACTIVATE_APPROVAL\&quot;, (tenantID)] |  [default to undefined]
+**id** | `string` | The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID.  |  [default to undefined]
 
 ### Return type
 
@@ -323,7 +324,7 @@ import { Configuration } from 'sailpoint-api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
-const id: string = 1.2345678901234567E+31; // The id of the object the config applies to, for example one of the following: [(approvalID), (roleID), (entitlementID), (accessProfileID), \&quot;ENTITLEMENT_DESCRIPTIONS\&quot;, \&quot;ACCESS_REQUEST_APPROVAL\&quot;, \&quot;ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST\&quot;, \&quot;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST\&quot;, \&quot;AGENT_ACTIVATE_APPROVAL\&quot;, \&quot;AGENT_DEACTIVATE_APPROVAL\&quot;, (tenantID)]
+const id: string = ACCESS_REQUEST_APPROVAL; // The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
 const result = await apiInstance.getApprovalsConfigV1({ id: id });
 console.log(result);
 ```
@@ -455,8 +456,8 @@ For example to update the approval configurations for all Access Request Approva
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**id** | `string` | The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT |  [default to undefined]
-**scope** | `'DOMAIN_OBJECT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'` | The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT |  [default to undefined]
+**id** | `string` | The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID.  |  [default to undefined]
+**scope** | `'DOMAIN_OBJECT' | 'ACCOUNT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'` | The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID.  |  [default to undefined]
 **approvalConfig** | `ApprovalConfig` |  | 
 
 ### Return type
@@ -477,8 +478,8 @@ import { ApprovalConfig } from 'sailpoint-api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
-const id: string = ACCESS_REQUEST_APPROVAL; // The ID defined by the scope field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
-const scope: string = APPROVAL_TYPE; // The scope of the field, where [[id]]:[[scope]] is the following [[roleID]]:ROLE [[entitlementID]]:ENTITLEMENT [[accessProfileID]]:ACCESS_PROFILE ENTITLEMENT_DESCRIPTIONS:APPROVAL_TYPE ACCESS_REQUEST_APPROVAL:APPROVAL_TYPE ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST:APPROVAL_TYPE MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST:APPROVAL_TYPE AGENT_ACTIVATE_APPROVAL:APPROVAL_TYPE AGENT_DEACTIVATE_APPROVAL:APPROVAL_TYPE [[tenantID]]:TENANT [[domainObjectID]]:DOMAIN_OBJECT
+const id: string = ACCESS_REQUEST_APPROVAL; // The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+const scope: string = APPROVAL_TYPE; // The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
 const approvalConfig: ApprovalConfig = {
   "timeoutConfig" : {
     "daysUntilTimeout" : 2,
@@ -495,20 +496,18 @@ const approvalConfig: ApprovalConfig = {
     "type" : "MANAGER_OF"
   },
   "reminderConfig" : {
-    "reminderCronSchedule" : "1 1 1 1 1",
+    "reminderCronSchedule" : "@every 24h",
     "daysUntilFirstReminder" : 0,
     "maxReminders" : 5,
     "enabled" : false
   },
   "circumventApprovalProcess" : false,
   "escalationConfig" : {
-    "escalationCronSchedule" : "*/5 * * * *",
+    "escalationCronSchedule" : "@every 72h",
     "escalationChain" : [ {
-      "tier" : 1,
       "identityType" : "IDENTITY",
       "identityId" : "fdfda352157d4cc79bb749953131b457"
     }, {
-      "tier" : 1,
       "identityType" : "IDENTITY",
       "identityId" : "fdfda352157d4cc79bb749953131b457"
     } ],
@@ -516,11 +515,9 @@ const approvalConfig: ApprovalConfig = {
     "enabled" : true
   },
   "serialChain" : [ {
-    "tier" : 1,
     "identityType" : "IDENTITY",
     "identityId" : "2c9180858090ea8801809a0465e829da"
   }, {
-    "tier" : 1,
     "identityType" : "IDENTITY",
     "identityId" : "2c9180858090ea8801809a0465e829da"
   } ],
@@ -609,6 +606,7 @@ const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
 const id: string = 38453251-6be2-5f8f-df93-5ce19e295837; // Approval ID that correlates to an existing approval request that a user wants to reject.
 const approvalRejectRequest: ApprovalRejectRequest = {
+  "overrideApproverID" : "12345678901234567890123456789012",
   "comment" : "string"
 }; //  (optional)
 const result = await apiInstance.rejectApprovalV1({ id: id });

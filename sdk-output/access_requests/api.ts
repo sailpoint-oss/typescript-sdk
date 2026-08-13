@@ -311,7 +311,7 @@ export interface AccessRequestConfig {
      */
     'approvalsMustBeExternal'?: boolean;
     /**
-     * If this is true and the requester and reviewer are the same, the request is automatically approved.
+     * If this is true and the requester and reviewer are the same, the request is automatically approved.  This field has been moved to the approval configurations. Please use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint instead.
      * @type {boolean}
      * @memberof AccessRequestConfig
      */
@@ -2882,7 +2882,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This endpoint returns the current access-request configuration.
+         * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
@@ -2913,7 +2913,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This endpoint returns the current access-request configuration.
+         * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -3195,7 +3195,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This endpoint replaces the current access-request configuration.
+         * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestConfig} accessRequestConfig 
          * @param {*} [axiosOptions] Override http request option.
@@ -3232,7 +3232,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This endpoint replaces the current access-request configuration.
+         * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestConfig2} accessRequestConfig2 
          * @param {*} [axiosOptions] Override http request option.
@@ -3343,7 +3343,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint returns the current access-request configuration.
+         * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
@@ -3356,7 +3356,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint returns the current access-request configuration.
+         * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -3441,7 +3441,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint replaces the current access-request configuration.
+         * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestConfig} accessRequestConfig 
          * @param {*} [axiosOptions] Override http request option.
@@ -3455,7 +3455,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint replaces the current access-request configuration.
+         * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestConfig2} accessRequestConfig2 
          * @param {*} [axiosOptions] Override http request option.
@@ -3528,7 +3528,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
             return localVarFp.createAccessRequestV1(requestParameters.accessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns the current access-request configuration.
+         * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
@@ -3538,7 +3538,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
             return localVarFp.getAccessRequestConfigV1(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns the current access-request configuration.
+         * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -3587,7 +3587,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
             return localVarFp.loadAccountSelectionsV1(requestParameters.accountsSelectionRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint replaces the current access-request configuration.
+         * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestsApiSetAccessRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -3598,7 +3598,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
             return localVarFp.setAccessRequestConfigV1(requestParameters.accessRequestConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint replaces the current access-request configuration.
+         * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestsApiSetAccessRequestConfigV2Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -3979,7 +3979,7 @@ export class AccessRequestsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns the current access-request configuration.
+     * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
      * @summary Get access request configuration
      * @param {*} [axiosOptions] Override http request option.
      * @deprecated
@@ -3991,7 +3991,7 @@ export class AccessRequestsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns the current access-request configuration.
+     * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
      * @summary Get access request configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -4050,7 +4050,7 @@ export class AccessRequestsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint replaces the current access-request configuration.
+     * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
      * @summary Update access request configuration
      * @param {AccessRequestsApiSetAccessRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -4063,7 +4063,7 @@ export class AccessRequestsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint replaces the current access-request configuration.
+     * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
      * @summary Update access request configuration
      * @param {AccessRequestsApiSetAccessRequestConfigV2Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

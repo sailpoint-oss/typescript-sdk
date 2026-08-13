@@ -97,13 +97,13 @@ export interface ApprovalConfig {
      */
     'machineIdentityManagerAssignment'?: ApprovalConfigMachineIdentityManagerAssignmentEnum;
     /**
-     * When true, all approvals will be created with the status \"PASSED\".
+     * When true, all approvals will be created with the status \"PASSED\" effectively skipping the approval process. Note this field should only be used for Machine Account or Machine related approvals.
      * @type {boolean}
      * @memberof ApprovalConfig
      */
     'circumventApprovalProcess'?: boolean;
     /**
-     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT will cause approval requests to be auto-approved when assigned directly and only to the requester. INDIRECT will auto-approve when the requester appears anywhere in the list of approvers, including in a governance group. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
+     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT when the requester != requestee this will cause steps assigned directly to the requester to be auto-approved. INDIRECT when the requester != requestee this will cause steps assigned to the requester or a group containing the requester to be auto-approved. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
      * @type {string}
      * @memberof ApprovalConfig
      */
@@ -194,12 +194,6 @@ export interface ApprovalConfigEscalationConfig {
  */
 export interface ApprovalConfigEscalationConfigEscalationChainInner {
     /**
-     * Starting at 1 defines the order in which the identities will get assigned
-     * @type {number}
-     * @memberof ApprovalConfigEscalationConfigEscalationChainInner
-     */
-    'tier'?: number;
-    /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
      * @memberof ApprovalConfigEscalationConfigEscalationChainInner
@@ -215,6 +209,7 @@ export interface ApprovalConfigEscalationConfigEscalationChainInner {
 
 export const ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum = {
     Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
     MachineAccountOwner: 'MACHINE_ACCOUNT_OWNER',
@@ -231,11 +226,34 @@ export const ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum 
     EntitlementOwner: 'ENTITLEMENT_OWNER',
     RoleOwner: 'ROLE_OWNER',
     SourceOwner: 'SOURCE_OWNER',
+    RequestedTargetOwner: 'REQUESTED_TARGET_OWNER',
     AccessProfilePrimaryOwner: 'ACCESS_PROFILE_PRIMARY_OWNER',
     ApplicationPrimaryOwner: 'APPLICATION_PRIMARY_OWNER',
     EntitlementPrimaryOwner: 'ENTITLEMENT_PRIMARY_OWNER',
     RolePrimaryOwner: 'ROLE_PRIMARY_OWNER',
-    SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER'
+    SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER',
+    AccountPrimaryOwner: 'ACCOUNT_PRIMARY_OWNER',
+    MachineAccountPrimaryOwner: 'MACHINE_ACCOUNT_PRIMARY_OWNER',
+    MachineIdentityPrimaryOwner: 'MACHINE_IDENTITY_PRIMARY_OWNER',
+    RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER',
+    AccessProfileSecondaryOwnerGroup: 'ACCESS_PROFILE_SECONDARY_OWNER_GROUP',
+    ApplicationSecondaryOwnerGroup: 'APPLICATION_SECONDARY_OWNER_GROUP',
+    EntitlementSecondaryOwnerGroup: 'ENTITLEMENT_SECONDARY_OWNER_GROUP',
+    RoleSecondaryOwnerGroup: 'ROLE_SECONDARY_OWNER_GROUP',
+    SourceSecondaryOwnerGroup: 'SOURCE_SECONDARY_OWNER_GROUP',
+    AccountSecondaryOwnerGroup: 'ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineAccountSecondaryOwnerGroup: 'MACHINE_ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineIdentitySecondaryOwnerGroup: 'MACHINE_IDENTITY_SECONDARY_OWNER_GROUP',
+    RequestedTargetSecondaryOwnerGroup: 'REQUESTED_TARGET_SECONDARY_OWNER_GROUP',
+    AccessProfileAllOwnerGroup: 'ACCESS_PROFILE_ALL_OWNER_GROUP',
+    ApplicationAllOwnerGroup: 'APPLICATION_ALL_OWNER_GROUP',
+    EntitlementAllOwnerGroup: 'ENTITLEMENT_ALL_OWNER_GROUP',
+    RoleAllOwnerGroup: 'ROLE_ALL_OWNER_GROUP',
+    SourceAllOwnerGroup: 'SOURCE_ALL_OWNER_GROUP',
+    AccountAllOwnerGroup: 'ACCOUNT_ALL_OWNER_GROUP',
+    MachineAccountAllOwnerGroup: 'MACHINE_ACCOUNT_ALL_OWNER_GROUP',
+    MachineIdentityAllOwnerGroup: 'MACHINE_IDENTITY_ALL_OWNER_GROUP',
+    RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
 export type ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum = typeof ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum[keyof typeof ApprovalConfigEscalationConfigEscalationChainInnerIdentityTypeEnum];
@@ -262,6 +280,7 @@ export interface ApprovalConfigFallbackApprover {
 
 export const ApprovalConfigFallbackApproverTypeEnum = {
     Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
     ManagerOf: 'MANAGER_OF',
     AccountOwner: 'ACCOUNT_OWNER',
     MachineAccountOwner: 'MACHINE_ACCOUNT_OWNER',
@@ -284,7 +303,28 @@ export const ApprovalConfigFallbackApproverTypeEnum = {
     EntitlementPrimaryOwner: 'ENTITLEMENT_PRIMARY_OWNER',
     RolePrimaryOwner: 'ROLE_PRIMARY_OWNER',
     SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER',
-    RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER'
+    AccountPrimaryOwner: 'ACCOUNT_PRIMARY_OWNER',
+    MachineAccountPrimaryOwner: 'MACHINE_ACCOUNT_PRIMARY_OWNER',
+    MachineIdentityPrimaryOwner: 'MACHINE_IDENTITY_PRIMARY_OWNER',
+    RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER',
+    AccessProfileSecondaryOwnerGroup: 'ACCESS_PROFILE_SECONDARY_OWNER_GROUP',
+    ApplicationSecondaryOwnerGroup: 'APPLICATION_SECONDARY_OWNER_GROUP',
+    EntitlementSecondaryOwnerGroup: 'ENTITLEMENT_SECONDARY_OWNER_GROUP',
+    RoleSecondaryOwnerGroup: 'ROLE_SECONDARY_OWNER_GROUP',
+    SourceSecondaryOwnerGroup: 'SOURCE_SECONDARY_OWNER_GROUP',
+    AccountSecondaryOwnerGroup: 'ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineAccountSecondaryOwnerGroup: 'MACHINE_ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineIdentitySecondaryOwnerGroup: 'MACHINE_IDENTITY_SECONDARY_OWNER_GROUP',
+    RequestedTargetSecondaryOwnerGroup: 'REQUESTED_TARGET_SECONDARY_OWNER_GROUP',
+    AccessProfileAllOwnerGroup: 'ACCESS_PROFILE_ALL_OWNER_GROUP',
+    ApplicationAllOwnerGroup: 'APPLICATION_ALL_OWNER_GROUP',
+    EntitlementAllOwnerGroup: 'ENTITLEMENT_ALL_OWNER_GROUP',
+    RoleAllOwnerGroup: 'ROLE_ALL_OWNER_GROUP',
+    SourceAllOwnerGroup: 'SOURCE_ALL_OWNER_GROUP',
+    AccountAllOwnerGroup: 'ACCOUNT_ALL_OWNER_GROUP',
+    MachineAccountAllOwnerGroup: 'MACHINE_ACCOUNT_ALL_OWNER_GROUP',
+    MachineIdentityAllOwnerGroup: 'MACHINE_IDENTITY_ALL_OWNER_GROUP',
+    RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
 export type ApprovalConfigFallbackApproverTypeEnum = typeof ApprovalConfigFallbackApproverTypeEnum[keyof typeof ApprovalConfigFallbackApproverTypeEnum];
@@ -327,12 +367,6 @@ export interface ApprovalConfigReminderConfig {
  */
 export interface ApprovalConfigSerialChainInner {
     /**
-     * Starting at 1 defines the order in which the identities will get assigned
-     * @type {number}
-     * @memberof ApprovalConfigSerialChainInner
-     */
-    'tier'?: number;
-    /**
      * Optional Identity ID of the type of identity defined in the \'identityType\' field.
      * @type {string}
      * @memberof ApprovalConfigSerialChainInner
@@ -371,18 +405,27 @@ export const ApprovalConfigSerialChainInnerIdentityTypeEnum = {
     EntitlementPrimaryOwner: 'ENTITLEMENT_PRIMARY_OWNER',
     RolePrimaryOwner: 'ROLE_PRIMARY_OWNER',
     SourcePrimaryOwner: 'SOURCE_PRIMARY_OWNER',
+    AccountPrimaryOwner: 'ACCOUNT_PRIMARY_OWNER',
+    MachineAccountPrimaryOwner: 'MACHINE_ACCOUNT_PRIMARY_OWNER',
+    MachineIdentityPrimaryOwner: 'MACHINE_IDENTITY_PRIMARY_OWNER',
     RequestedTargetPrimaryOwner: 'REQUESTED_TARGET_PRIMARY_OWNER',
     AccessProfileSecondaryOwnerGroup: 'ACCESS_PROFILE_SECONDARY_OWNER_GROUP',
     ApplicationSecondaryOwnerGroup: 'APPLICATION_SECONDARY_OWNER_GROUP',
     EntitlementSecondaryOwnerGroup: 'ENTITLEMENT_SECONDARY_OWNER_GROUP',
     RoleSecondaryOwnerGroup: 'ROLE_SECONDARY_OWNER_GROUP',
     SourceSecondaryOwnerGroup: 'SOURCE_SECONDARY_OWNER_GROUP',
+    AccountSecondaryOwnerGroup: 'ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineAccountSecondaryOwnerGroup: 'MACHINE_ACCOUNT_SECONDARY_OWNER_GROUP',
+    MachineIdentitySecondaryOwnerGroup: 'MACHINE_IDENTITY_SECONDARY_OWNER_GROUP',
     RequestedTargetSecondaryOwnerGroup: 'REQUESTED_TARGET_SECONDARY_OWNER_GROUP',
     AccessProfileAllOwnerGroup: 'ACCESS_PROFILE_ALL_OWNER_GROUP',
     ApplicationAllOwnerGroup: 'APPLICATION_ALL_OWNER_GROUP',
     EntitlementAllOwnerGroup: 'ENTITLEMENT_ALL_OWNER_GROUP',
     RoleAllOwnerGroup: 'ROLE_ALL_OWNER_GROUP',
     SourceAllOwnerGroup: 'SOURCE_ALL_OWNER_GROUP',
+    AccountAllOwnerGroup: 'ACCOUNT_ALL_OWNER_GROUP',
+    MachineAccountAllOwnerGroup: 'MACHINE_ACCOUNT_ALL_OWNER_GROUP',
+    MachineIdentityAllOwnerGroup: 'MACHINE_IDENTITY_ALL_OWNER_GROUP',
     RequestedTargetAllOwnerGroup: 'REQUESTED_TARGET_ALL_OWNER_GROUP'
 } as const;
 
