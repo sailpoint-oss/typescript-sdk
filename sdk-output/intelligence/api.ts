@@ -1283,6 +1283,182 @@ export const LocaleOrigin = {
 export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
+/**
+ * Acknowledgement returned when a response action is accepted for asynchronous processing.
+ * @export
+ * @interface Responseactionaccepted
+ */
+export interface Responseactionaccepted {
+    /**
+     * Tracking handle and correlation id for the response action.
+     * @type {string}
+     * @memberof Responseactionaccepted
+     */
+    'requestId': string;
+    /**
+     * Aggregate status of the response action. SUBMITTED at creation (registered; no correlated workflow execution observed yet).
+     * @type {string}
+     * @memberof Responseactionaccepted
+     */
+    'status': ResponseactionacceptedStatusEnum;
+    /**
+     * Relative URL to poll for the current status of the response action.
+     * @type {string}
+     * @memberof Responseactionaccepted
+     */
+    'statusUrl': string;
+}
+
+export const ResponseactionacceptedStatusEnum = {
+    Submitted: 'SUBMITTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Failed: 'FAILED'
+} as const;
+
+export type ResponseactionacceptedStatusEnum = typeof ResponseactionacceptedStatusEnum[keyof typeof ResponseactionacceptedStatusEnum];
+
+/**
+ * External source metadata captured for audit and traceability.
+ * @export
+ * @interface Responseactioncontext
+ */
+export interface Responseactioncontext {
+    /**
+     * External system that initiated the action.
+     * @type {string}
+     * @memberof Responseactioncontext
+     */
+    'source': ResponseactioncontextSourceEnum;
+    /**
+     * External alert or case identifier.
+     * @type {string}
+     * @memberof Responseactioncontext
+     */
+    'externalAlertId'?: string;
+    /**
+     * Human-readable reason for the action.
+     * @type {string}
+     * @memberof Responseactioncontext
+     */
+    'reason'?: string;
+    /**
+     * Operator or analyst who initiated the action.
+     * @type {string}
+     * @memberof Responseactioncontext
+     */
+    'operator'?: string;
+}
+
+export const ResponseactioncontextSourceEnum = {
+    Crowdstrike: 'CROWDSTRIKE',
+    Sentinel: 'SENTINEL',
+    Splunk: 'SPLUNK',
+    Custom: 'CUSTOM'
+} as const;
+
+export type ResponseactioncontextSourceEnum = typeof ResponseactioncontextSourceEnum[keyof typeof ResponseactioncontextSourceEnum];
+
+/**
+ * @type Responseactioncreaterequest
+ * Request body for creating a response action.
+ * @export
+ */
+export type Responseactioncreaterequest = ResponseactioncreaterequestOneOf | ResponseactioncreaterequestOneOf1;
+
+/**
+ * 
+ * @export
+ * @interface ResponseactioncreaterequestOneOf
+ */
+export interface ResponseactioncreaterequestOneOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseactioncreaterequestOneOf
+     */
+    'actionType'?: ResponseactioncreaterequestOneOfActionTypeEnum;
+}
+
+export const ResponseactioncreaterequestOneOfActionTypeEnum = {
+    DisableIdentity: 'DISABLE_IDENTITY'
+} as const;
+
+export type ResponseactioncreaterequestOneOfActionTypeEnum = typeof ResponseactioncreaterequestOneOfActionTypeEnum[keyof typeof ResponseactioncreaterequestOneOfActionTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface ResponseactioncreaterequestOneOf1
+ */
+export interface ResponseactioncreaterequestOneOf1 {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResponseactioncreaterequestOneOf1
+     */
+    'actionType'?: ResponseactioncreaterequestOneOf1ActionTypeEnum;
+}
+
+export const ResponseactioncreaterequestOneOf1ActionTypeEnum = {
+    DisableAccount: 'DISABLE_ACCOUNT'
+} as const;
+
+export type ResponseactioncreaterequestOneOf1ActionTypeEnum = typeof ResponseactioncreaterequestOneOf1ActionTypeEnum[keyof typeof ResponseactioncreaterequestOneOf1ActionTypeEnum];
+
+/**
+ * Current tracked status of a response action. Target fields from the create request (identityType, identityId, accountIds, context) are not echoed here; they travel on the action event used to start the workflow(s). 
+ * @export
+ * @interface Responseactionstatus
+ */
+export interface Responseactionstatus {
+    /**
+     * Tracking handle and correlation id for the response action.
+     * @type {string}
+     * @memberof Responseactionstatus
+     */
+    'requestId': string;
+    /**
+     * The action that was requested.
+     * @type {string}
+     * @memberof Responseactionstatus
+     */
+    'actionType': ResponseactionstatusActionTypeEnum;
+    /**
+     * Aggregate status across the correlated workflow execution(s): SUBMITTED (registered, no execution yet), IN_PROGRESS (any still non-terminal), COMPLETED (all terminal and at least one succeeded), or FAILED (all terminal and none succeeded). 
+     * @type {string}
+     * @memberof Responseactionstatus
+     */
+    'status': ResponseactionstatusStatusEnum;
+    /**
+     * When the response action was accepted.
+     * @type {string}
+     * @memberof Responseactionstatus
+     */
+    'submittedAt': string;
+    /**
+     * When the response action status last changed.
+     * @type {string}
+     * @memberof Responseactionstatus
+     */
+    'updatedAt': string;
+}
+
+export const ResponseactionstatusActionTypeEnum = {
+    DisableIdentity: 'DISABLE_IDENTITY',
+    DisableAccount: 'DISABLE_ACCOUNT'
+} as const;
+
+export type ResponseactionstatusActionTypeEnum = typeof ResponseactionstatusActionTypeEnum[keyof typeof ResponseactionstatusActionTypeEnum];
+export const ResponseactionstatusStatusEnum = {
+    Submitted: 'SUBMITTED',
+    InProgress: 'IN_PROGRESS',
+    Completed: 'COMPLETED',
+    Failed: 'FAILED'
+} as const;
+
+export type ResponseactionstatusStatusEnum = typeof ResponseactionstatusStatusEnum[keyof typeof ResponseactionstatusStatusEnum];
+
 
 /**
  * IntelligenceApi - axios parameter creator
@@ -1290,6 +1466,42 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
  */
 export const IntelligenceApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Requires tenant license idn:response-and-remediation.  Creates a response action: the request is validated, a requestId (the correlation id) is minted, the action is recorded as SUBMITTED, and an event is published that triggers the correlated workflow(s).  Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll GET /intelligence/v1/response-actions/{requestId}/status for progress. 
+         * @summary Create a response action
+         * @param {Responseactioncreaterequest} responseactioncreaterequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResponseActionV1: async (responseactioncreaterequest: Responseactioncreaterequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'responseactioncreaterequest' is not null or undefined
+            assertParamExists('createResponseActionV1', 'responseactioncreaterequest', responseactioncreaterequest)
+            const localVarPath = `/intelligence/v1/response-actions`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(responseactioncreaterequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
         /**
          * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
          * @summary Get identity by filter
@@ -1523,6 +1735,40 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Requires tenant license idn:response-and-remediation.  Returns the current aggregate status of a previously submitted response action, identified by the requestId returned from POST /intelligence/v1/response-actions.  Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT. 
+         * @summary Get response action status
+         * @param {string} id The requestId of the response action to look up.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResponseActionStatusV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getResponseActionStatusV1', 'id', id)
+            const localVarPath = `/intelligence/v1/response-actions/{id}/status`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1533,6 +1779,19 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
 export const IntelligenceApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IntelligenceApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Requires tenant license idn:response-and-remediation.  Creates a response action: the request is validated, a requestId (the correlation id) is minted, the action is recorded as SUBMITTED, and an event is published that triggers the correlated workflow(s).  Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll GET /intelligence/v1/response-actions/{requestId}/status for progress. 
+         * @summary Create a response action
+         * @param {Responseactioncreaterequest} responseactioncreaterequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createResponseActionV1(responseactioncreaterequest: Responseactioncreaterequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Responseactionaccepted>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createResponseActionV1(responseactioncreaterequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.createResponseActionV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
          * @summary Get identity by filter
@@ -1610,6 +1869,19 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityRareAccessV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Requires tenant license idn:response-and-remediation.  Returns the current aggregate status of a previously submitted response action, identified by the requestId returned from POST /intelligence/v1/response-actions.  Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT. 
+         * @summary Get response action status
+         * @param {string} id The requestId of the response action to look up.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResponseActionStatusV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Responseactionstatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getResponseActionStatusV1(id, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getResponseActionStatusV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -1620,6 +1892,16 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
 export const IntelligenceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IntelligenceApiFp(configuration)
     return {
+        /**
+         * Requires tenant license idn:response-and-remediation.  Creates a response action: the request is validated, a requestId (the correlation id) is minted, the action is recorded as SUBMITTED, and an event is published that triggers the correlated workflow(s).  Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll GET /intelligence/v1/response-actions/{requestId}/status for progress. 
+         * @summary Create a response action
+         * @param {IntelligenceApiCreateResponseActionV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createResponseActionV1(requestParameters: IntelligenceApiCreateResponseActionV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Responseactionaccepted> {
+            return localVarFp.createResponseActionV1(requestParameters.responseactioncreaterequest, axiosOptions).then((request) => request(axios, basePath));
+        },
         /**
          * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
          * @summary Get identity by filter
@@ -1670,8 +1952,32 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
         getIntelIdentityRareAccessV1(requestParameters: IntelligenceApiGetIntelIdentityRareAccessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelOutlierAccessItem>> {
             return localVarFp.getIntelIdentityRareAccessV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
+        /**
+         * Requires tenant license idn:response-and-remediation.  Returns the current aggregate status of a previously submitted response action, identified by the requestId returned from POST /intelligence/v1/response-actions.  Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT. 
+         * @summary Get response action status
+         * @param {IntelligenceApiGetResponseActionStatusV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResponseActionStatusV1(requestParameters: IntelligenceApiGetResponseActionStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Responseactionstatus> {
+            return localVarFp.getResponseActionStatusV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        },
     };
 };
+
+/**
+ * Request parameters for createResponseActionV1 operation in IntelligenceApi.
+ * @export
+ * @interface IntelligenceApiCreateResponseActionV1Request
+ */
+export interface IntelligenceApiCreateResponseActionV1Request {
+    /**
+     * 
+     * @type {Responseactioncreaterequest}
+     * @memberof IntelligenceApiCreateResponseActionV1
+     */
+    readonly responseactioncreaterequest: Responseactioncreaterequest
+}
 
 /**
  * Request parameters for getIdentityIntelligenceV1 operation in IntelligenceApi.
@@ -1828,12 +2134,38 @@ export interface IntelligenceApiGetIntelIdentityRareAccessV1Request {
 }
 
 /**
+ * Request parameters for getResponseActionStatusV1 operation in IntelligenceApi.
+ * @export
+ * @interface IntelligenceApiGetResponseActionStatusV1Request
+ */
+export interface IntelligenceApiGetResponseActionStatusV1Request {
+    /**
+     * The requestId of the response action to look up.
+     * @type {string}
+     * @memberof IntelligenceApiGetResponseActionStatusV1
+     */
+    readonly id: string
+}
+
+/**
  * IntelligenceApi - object-oriented interface
  * @export
  * @class IntelligenceApi
  * @extends {BaseAPI}
  */
 export class IntelligenceApi extends BaseAPI {
+    /**
+     * Requires tenant license idn:response-and-remediation.  Creates a response action: the request is validated, a requestId (the correlation id) is minted, the action is recorded as SUBMITTED, and an event is published that triggers the correlated workflow(s).  Returns HTTP 202 with the requestId, an initial SUBMITTED status, and a statusUrl. Poll GET /intelligence/v1/response-actions/{requestId}/status for progress. 
+     * @summary Create a response action
+     * @param {IntelligenceApiCreateResponseActionV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IntelligenceApi
+     */
+    public createResponseActionV1(requestParameters: IntelligenceApiCreateResponseActionV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IntelligenceApiFp(this.configuration).createResponseActionV1(requestParameters.responseactioncreaterequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
      * @summary Get identity by filter
@@ -1892,6 +2224,18 @@ export class IntelligenceApi extends BaseAPI {
      */
     public getIntelIdentityRareAccessV1(requestParameters: IntelligenceApiGetIntelIdentityRareAccessV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return IntelligenceApiFp(this.configuration).getIntelIdentityRareAccessV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Requires tenant license idn:response-and-remediation.  Returns the current aggregate status of a previously submitted response action, identified by the requestId returned from POST /intelligence/v1/response-actions.  Supported actionType values: DISABLE_IDENTITY, DISABLE_ACCOUNT. 
+     * @summary Get response action status
+     * @param {IntelligenceApiGetResponseActionStatusV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IntelligenceApi
+     */
+    public getResponseActionStatusV1(requestParameters: IntelligenceApiGetResponseActionStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IntelligenceApiFp(this.configuration).getResponseActionStatusV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

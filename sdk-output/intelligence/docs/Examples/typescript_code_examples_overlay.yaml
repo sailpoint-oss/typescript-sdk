@@ -1,3 +1,29 @@
+- path: /intelligence/v1/response-actions
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#create-response-action-v1
+      source: |
+        import { IntelligenceApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { Responseactioncreaterequest } from 'sailpoint-api-client/dist/intelligence/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new IntelligenceApi(configuration);
+        const responseactioncreaterequest: Responseactioncreaterequest = {
+  "actionType" : "DISABLE_ACCOUNT",
+  "identityType" : "HUMAN",
+  "identityId" : "2c918085842e69ae018428c919680149",
+  "accountIds" : [ "2c918085abc000000000000000000001" ],
+  "context" : {
+    "reason" : "Contain compromised account",
+    "externalAlertId" : "CS-FALCON-12345",
+    "source" : "CROWDSTRIKE",
+    "operator" : "soc-analyst@customer.com"
+  }
+}; // Responseactioncreaterequest | 
+        const result = await apiInstance.createResponseActionV1({ responseactioncreaterequest: responseactioncreaterequest });
+        console.log(result);
 - path: /intelligence/v1/identities
   method: GET
   xCodeSample:
@@ -79,4 +105,18 @@
         const offset: number = 0; // number | Zero-based page offset. Defaults to 0. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.getIntelIdentityRareAccessV1({ id: id });
+        console.log(result);
+- path: /intelligence/v1/response-actions/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-response-action-status-v1
+      source: |
+        import { IntelligenceApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new IntelligenceApi(configuration);
+        const id: string = '3f1e6c9a-8b2d-4e5f-9a1b-2c3d4e5f6a7b'; // string | The requestId of the response action to look up. (default to undefined)
+        const result = await apiInstance.getResponseActionStatusV1({ id: id });
         console.log(result);

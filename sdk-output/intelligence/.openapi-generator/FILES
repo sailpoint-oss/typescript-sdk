@@ -40,6 +40,12 @@ Intelmachineuserentitlement.md
 Intelprivilegelevel.md
 LocaleOrigin.md
 README.md
+Responseactionaccepted.md
+Responseactioncontext.md
+Responseactioncreaterequest.md
+ResponseactioncreaterequestOneOf.md
+ResponseactioncreaterequestOneOf1.md
+Responseactionstatus.md
 api.ts
 base.ts
 common.ts

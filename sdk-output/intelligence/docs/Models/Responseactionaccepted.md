@@ -1,0 +1,21 @@
+---
+id: v1-responseactionaccepted
+title: Responseactionaccepted
+pagination_label: Responseactionaccepted
+sidebar_label: Responseactionaccepted
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'Responseactionaccepted', 'v1Responseactionaccepted']
+slug: /tools/sdk/typescript/intelligence/models/responseactionaccepted
+tags: ['SDK', 'Software Development Kit', 'Responseactionaccepted', 'v1Responseactionaccepted']
+---
+
+# Responseactionaccepted
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**requestId** | `string` | Tracking handle and correlation id for the response action. | [default to undefined]
+**status** | `string` | Aggregate status of the response action. SUBMITTED at creation (registered; no correlated workflow execution observed yet). | [default to undefined]
+**statusUrl** | `string` | Relative URL to poll for the current status of the response action. | [default to undefined]
+

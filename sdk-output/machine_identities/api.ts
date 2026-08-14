@@ -24,6 +24,166 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
+ * A single anomaly detected for a machine identity by Agent Behavior Monitoring.
+ * @export
+ * @interface Anomaly
+ */
+export interface Anomaly {
+    /**
+     * Anomaly identifier.
+     * @type {string}
+     * @memberof Anomaly
+     */
+    'id'?: string;
+    /**
+     * Category of the detected anomaly.
+     * @type {string}
+     * @memberof Anomaly
+     */
+    'anomalyType'?: string;
+    /**
+     * Human-readable description of the anomaly.
+     * @type {string}
+     * @memberof Anomaly
+     */
+    'description'?: string;
+    /**
+     * Identifier of the detection rule that produced the anomaly.
+     * @type {string}
+     * @memberof Anomaly
+     */
+    'ruleId'?: string;
+    /**
+     * Source systems that contributed to the detection.
+     * @type {Array<string>}
+     * @memberof Anomaly
+     */
+    'dataSources'?: Array<string>;
+    /**
+     * Date-time the anomaly was detected.
+     * @type {string}
+     * @memberof Anomaly
+     */
+    'detectedAt'?: string;
+    /**
+     * 
+     * @type {AnomalyEvidence}
+     * @memberof Anomaly
+     */
+    'evidence'?: AnomalyEvidence;
+}
+/**
+ * Peer-group baseline for time-series anomaly detections (SIEM source only). Contains the windowed data points and deviation thresholds used to render the anomaly chart.
+ * @export
+ * @interface AnomalyBaseline
+ */
+export interface AnomalyBaseline {
+    /**
+     * Name of the feature the baseline describes.
+     * @type {string}
+     * @memberof AnomalyBaseline
+     */
+    'uiFeatureName'?: string;
+    /**
+     * Number of data points in the window.
+     * @type {number}
+     * @memberof AnomalyBaseline
+     */
+    'windowSize'?: number;
+    /**
+     * Observed values across the window.
+     * @type {Array<number>}
+     * @memberof AnomalyBaseline
+     */
+    'values'?: Array<number>;
+    /**
+     * Raw observed values across the window.
+     * @type {Array<string>}
+     * @memberof AnomalyBaseline
+     */
+    'rawValue'?: Array<string>;
+    /**
+     * Upper deviation threshold per data point.
+     * @type {Array<number>}
+     * @memberof AnomalyBaseline
+     */
+    'upperBound'?: Array<number>;
+    /**
+     * Lower deviation threshold per data point.
+     * @type {Array<number>}
+     * @memberof AnomalyBaseline
+     */
+    'lowerBound'?: Array<number>;
+    /**
+     * Minimum value in the window.
+     * @type {number}
+     * @memberof AnomalyBaseline
+     */
+    'minimumValue'?: number;
+    /**
+     * False-positive-rate threshold value.
+     * @type {number}
+     * @memberof AnomalyBaseline
+     */
+    'fprValue'?: number;
+}
+/**
+ * Detection evidence associated with an anomaly. SENTINEL detections populate the agent attribute fields; SIEM detections instead include a baseline with windowed time-series data.
+ * @export
+ * @interface AnomalyEvidence
+ */
+export interface AnomalyEvidence {
+    /**
+     * Evidence source system.
+     * @type {string}
+     * @memberof AnomalyEvidence
+     */
+    'source'?: string;
+    /**
+     * 
+     * @type {AnomalyEvidenceTimestamp}
+     * @memberof AnomalyEvidence
+     */
+    'timestamp'?: AnomalyEvidenceTimestamp;
+    /**
+     * Attribute type captured for SENTINEL detections; null for SIEM detections.
+     * @type {string}
+     * @memberof AnomalyEvidence
+     */
+    'agentAttributeType'?: string | null;
+    /**
+     * Attribute value captured for SENTINEL detections; null for SIEM detections.
+     * @type {string}
+     * @memberof AnomalyEvidence
+     */
+    'agentAttributeValue'?: string | null;
+    /**
+     * Peer-group baseline for SIEM detections; null for SENTINEL detections.
+     * @type {AnomalyBaseline}
+     * @memberof AnomalyEvidence
+     */
+    'baseline'?: AnomalyBaseline | null;
+}
+/**
+ * Timestamp block for an anomaly\'s evidence.
+ * @export
+ * @interface AnomalyEvidenceTimestamp
+ */
+export interface AnomalyEvidenceTimestamp {
+    /**
+     * Point-in-time the evidence was captured.
+     * @type {string}
+     * @memberof AnomalyEvidenceTimestamp
+     */
+    'at'?: string;
+    /**
+     * Start of the aggregation window for time-window detections (SIEM); null for point-in-time detections (SENTINEL).
+     * @type {string}
+     * @memberof AnomalyEvidenceTimestamp
+     */
+    'from'?: string | null;
+}
+/**
  * 
  * @export
  * @interface ArrayInner
@@ -1539,6 +1699,37 @@ export type TaskStatusMessageTypeEnum = typeof TaskStatusMessageTypeEnum[keyof t
 export interface TaskStatusMessageParametersInner {
 }
 /**
+ * Aggregate counts of machine identities flagged with unsanctioned-application anomalies, used to power the Unsanctioned Agents card.
+ * @export
+ * @interface UnsanctionedApplicationAnomalySummary
+ */
+export interface UnsanctionedApplicationAnomalySummary {
+    /**
+     * The anomaly type these counts describe. Always unsanctioned_app for this endpoint.
+     * @type {string}
+     * @memberof UnsanctionedApplicationAnomalySummary
+     */
+    'anomalyType'?: string;
+    /**
+     * Number of distinct agents with at least one unsanctioned-application anomaly.
+     * @type {number}
+     * @memberof UnsanctionedApplicationAnomalySummary
+     */
+    'agentCount'?: number;
+    /**
+     * Number of distinct owners (users) associated with unsanctioned-application anomalies.
+     * @type {number}
+     * @memberof UnsanctionedApplicationAnomalySummary
+     */
+    'userCount'?: number;
+    /**
+     * Total number of unsanctioned-application anomaly records.
+     * @type {number}
+     * @memberof UnsanctionedApplicationAnomalySummary
+     */
+    'eventCount'?: number;
+}
+/**
  * A user entitlement associated to a machine identity.
  * @export
  * @interface UserEntitlementV2
@@ -1920,6 +2111,44 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
+         * Returns aggregate counts (distinct agents, distinct owners, and total events) for anomalies of type **unsanctioned_app** across the tenant. Powers the Unsanctioned Agents card on the Agent Registry page.
+         * @summary Get unsanctioned application anomaly summary
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUnsanctionedAnomalySummaryV1: async (xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-identities/v1/anomaly-summaries/unsanctioned`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of machine identities.
          * @summary List machine identities
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*
@@ -2028,6 +2257,68 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns a paginated list of anomalies detected for the specified machine identity (agent).  Set **count=true** to populate the *X-Total-Count* response header with the total number of anomalies for the agent. Combine **limit=0** with **count=true** to retrieve only the count with an empty result body.
+         * @summary List machine identity anomalies
+         * @param {string} id Machine identity (agent) ID.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **detectedAt**  The default sort is **-detectedAt** (most recent first).
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineIdentityAnomaliesV1: async (id: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('listMachineIdentityAnomaliesV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-identities/v1/{id}/anomalies`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2464,6 +2755,19 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Returns aggregate counts (distinct agents, distinct owners, and total events) for anomalies of type **unsanctioned_app** across the tenant. Powers the Unsanctioned Agents card on the Agent Registry page.
+         * @summary Get unsanctioned application anomaly summary
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUnsanctionedAnomalySummaryV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UnsanctionedApplicationAnomalySummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUnsanctionedAnomalySummaryV1(xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.getUnsanctionedAnomalySummaryV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API returns a list of machine identities.
          * @summary List machine identities
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw*
@@ -2496,6 +2800,24 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentitiesV2(filters, sorters, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listMachineIdentitiesV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns a paginated list of anomalies detected for the specified machine identity (agent).  Set **count=true** to populate the *X-Total-Count* response header with the total number of anomalies for the agent. Combine **limit=0** with **count=true** to retrieve only the count with an empty result body.
+         * @summary List machine identity anomalies
+         * @param {string} id Machine identity (agent) ID.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **detectedAt**  The default sort is **-detectedAt** (most recent first).
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMachineIdentityAnomaliesV1(id: string, sorters?: string, xSailPointExperimental?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Anomaly>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentityAnomaliesV1(id, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listMachineIdentityAnomaliesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2685,6 +3007,16 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
             return localVarFp.getOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Returns aggregate counts (distinct agents, distinct owners, and total events) for anomalies of type **unsanctioned_app** across the tenant. Powers the Unsanctioned Agents card on the Agent Registry page.
+         * @summary Get unsanctioned application anomaly summary
+         * @param {MachineIdentitiesApiGetUnsanctionedAnomalySummaryV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUnsanctionedAnomalySummaryV1(requestParameters: MachineIdentitiesApiGetUnsanctionedAnomalySummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<UnsanctionedApplicationAnomalySummary> {
+            return localVarFp.getUnsanctionedAnomalySummaryV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a list of machine identities.
          * @summary List machine identities
          * @param {MachineIdentitiesApiListMachineIdentitiesV1Request} requestParameters Request parameters.
@@ -2703,6 +3035,16 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          */
         listMachineIdentitiesV2(requestParameters: MachineIdentitiesApiListMachineIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineidentityv2>> {
             return localVarFp.listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns a paginated list of anomalies detected for the specified machine identity (agent).  Set **count=true** to populate the *X-Total-Count* response header with the total number of anomalies for the agent. Combine **limit=0** with **count=true** to retrieve only the count with an empty result body.
+         * @summary List machine identity anomalies
+         * @param {MachineIdentitiesApiListMachineIdentityAnomaliesV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineIdentityAnomaliesV1(requestParameters: MachineIdentitiesApiListMachineIdentityAnomaliesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Anomaly>> {
+            return localVarFp.listMachineIdentityAnomaliesV1(requestParameters.id, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of user entitlements associated with machine identities.
@@ -2929,6 +3271,20 @@ export interface MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request {
 }
 
 /**
+ * Request parameters for getUnsanctionedAnomalySummaryV1 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiGetUnsanctionedAnomalySummaryV1Request
+ */
+export interface MachineIdentitiesApiGetUnsanctionedAnomalySummaryV1Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiGetUnsanctionedAnomalySummaryV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for listMachineIdentitiesV1 operation in MachineIdentitiesApi.
  * @export
  * @interface MachineIdentitiesApiListMachineIdentitiesV1Request
@@ -3015,6 +3371,55 @@ export interface MachineIdentitiesApiListMachineIdentitiesV2Request {
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof MachineIdentitiesApiListMachineIdentitiesV2
+     */
+    readonly offset?: number
+}
+
+/**
+ * Request parameters for listMachineIdentityAnomaliesV1 operation in MachineIdentitiesApi.
+ * @export
+ * @interface MachineIdentitiesApiListMachineIdentityAnomaliesV1Request
+ */
+export interface MachineIdentitiesApiListMachineIdentityAnomaliesV1Request {
+    /**
+     * Machine identity (agent) ID.
+     * @type {string}
+     * @memberof MachineIdentitiesApiListMachineIdentityAnomaliesV1
+     */
+    readonly id: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **detectedAt**  The default sort is **-detectedAt** (most recent first).
+     * @type {string}
+     * @memberof MachineIdentitiesApiListMachineIdentityAnomaliesV1
+     */
+    readonly sorters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiListMachineIdentityAnomaliesV1
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof MachineIdentitiesApiListMachineIdentityAnomaliesV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesApiListMachineIdentityAnomaliesV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineIdentitiesApiListMachineIdentityAnomaliesV1
      */
     readonly offset?: number
 }
@@ -3333,6 +3738,18 @@ export class MachineIdentitiesApi extends BaseAPI {
     }
 
     /**
+     * Returns aggregate counts (distinct agents, distinct owners, and total events) for anomalies of type **unsanctioned_app** across the tenant. Powers the Unsanctioned Agents card on the Agent Registry page.
+     * @summary Get unsanctioned application anomaly summary
+     * @param {MachineIdentitiesApiGetUnsanctionedAnomalySummaryV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public getUnsanctionedAnomalySummaryV1(requestParameters: MachineIdentitiesApiGetUnsanctionedAnomalySummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).getUnsanctionedAnomalySummaryV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API returns a list of machine identities.
      * @summary List machine identities
      * @param {MachineIdentitiesApiListMachineIdentitiesV1Request} requestParameters Request parameters.
@@ -3354,6 +3771,18 @@ export class MachineIdentitiesApi extends BaseAPI {
      */
     public listMachineIdentitiesV2(requestParameters: MachineIdentitiesApiListMachineIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return MachineIdentitiesApiFp(this.configuration).listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns a paginated list of anomalies detected for the specified machine identity (agent).  Set **count=true** to populate the *X-Total-Count* response header with the total number of anomalies for the agent. Combine **limit=0** with **count=true** to retrieve only the count with an empty result body.
+     * @summary List machine identity anomalies
+     * @param {MachineIdentitiesApiListMachineIdentityAnomaliesV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineIdentitiesApi
+     */
+    public listMachineIdentityAnomaliesV1(requestParameters: MachineIdentitiesApiListMachineIdentityAnomaliesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineIdentitiesApiFp(this.configuration).listMachineIdentityAnomaliesV1(requestParameters.id, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

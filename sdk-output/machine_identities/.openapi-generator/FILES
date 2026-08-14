@@ -1,6 +1,10 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
+Anomaly.md
+AnomalyBaseline.md
+AnomalyEvidence.md
+AnomalyEvidenceTimestamp.md
 ArrayInner.md
 BaseCommonDto.md
 BaseReferenceDto.md
@@ -46,6 +50,7 @@ TaskDefinitionSummary.md
 TaskReturnDetails.md
 TaskStatusMessage.md
 TaskStatusMessageParametersInner.md
+UnsanctionedApplicationAnomalySummary.md
 UserEntitlementV2.md
 UserEntitlementV2Source.md
 api.ts
