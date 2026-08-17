@@ -24,6 +24,50 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
+ * One CC or BCC routing entry. Dynamic recipient types are resolved at notification send time. Field applicability depends on type: IDENTITY and GOVERNANCE_GROUP require `id`; STATIC_EMAIL requires `email`; MANAGER_OF may optionally include `id` (manager of that identity, otherwise manager of the notification recipient); ORG_ADMINS does not use `id` or `email`.
+ * @export
+ * @interface CcBccPreferenceEntry
+ */
+export interface CcBccPreferenceEntry {
+    /**
+     * 
+     * @type {CcBccRecipientType}
+     * @memberof CcBccPreferenceEntry
+     */
+    'type': CcBccRecipientType;
+    /**
+     * Identity or governance group id when required by the recipient type. For MANAGER_OF, when provided this is the identity whose manager should receive the email.
+     * @type {string}
+     * @memberof CcBccPreferenceEntry
+     */
+    'id'?: string | null;
+    /**
+     * Static email address when type is STATIC_EMAIL.
+     * @type {string}
+     * @memberof CcBccPreferenceEntry
+     */
+    'email'?: string | null;
+}
+
+
+/**
+ * Recipient resolution type for a CC or BCC preference entry. Dynamic types are resolved at notification send time based on the triggering event\'s context.
+ * @export
+ * @enum {string}
+ */
+
+export const CcBccRecipientType = {
+    Identity: 'IDENTITY',
+    ManagerOf: 'MANAGER_OF',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    OrgAdmins: 'ORG_ADMINS',
+    StaticEmail: 'STATIC_EMAIL'
+} as const;
+
+export type CcBccRecipientType = typeof CcBccRecipientType[keyof typeof CcBccRecipientType];
+
+
+/**
  * 
  * @export
  * @interface CreateDomainDkimV1405Response
@@ -358,7 +402,7 @@ export interface MailFromAttributesDto {
     'mailFromDomain'?: string;
 }
 /**
- * The notification medium (EMAIL, SLACK, or TEAMS)
+ * The notification medium (EMAIL, SLACK, TEAMS, or INBOX)
  * @export
  * @enum {string}
  */
@@ -366,7 +410,8 @@ export interface MailFromAttributesDto {
 export const Medium = {
     Email: 'EMAIL',
     Slack: 'SLACK',
-    Teams: 'TEAMS'
+    Teams: 'TEAMS',
+    Inbox: 'INBOX'
 } as const;
 
 export type Medium = typeof Medium[keyof typeof Medium];
@@ -398,7 +443,7 @@ export interface NotificationTemplateContext {
     'modified'?: string;
 }
 /**
- * Maps an Identity\'s attribute key to a list of preferred notification mediums.
+ * Tenant notification preferences for a notification key, including preferred mediums and optional CC/BCC email recipients.
  * @export
  * @interface PreferencesDto
  */
@@ -410,17 +455,29 @@ export interface PreferencesDto {
      */
     'key'?: string;
     /**
-     * List of preferred notification mediums, i.e., the mediums (or method) for which notifications are enabled. More mediums may be added in the future.
+     * List of preferred notification mediums, i.e., the mediums (or method) for which notifications are enabled. An empty list means the notification is disabled for the tenant. More mediums may be added in the future.
      * @type {Array<Medium>}
      * @memberof PreferencesDto
      */
     'mediums'?: Array<Medium>;
     /**
-     * Modified date of preference
+     * Modified date of preference.
      * @type {string}
      * @memberof PreferencesDto
      */
     'modified'?: string;
+    /**
+     * Optional CC recipients for email notifications for this key. Requires EMAIL to be included in `mediums`. Maximum of five entries. The same recipient cannot appear in both `ccList` and `bccList`.
+     * @type {Array<CcBccPreferenceEntry>}
+     * @memberof PreferencesDto
+     */
+    'ccList'?: Array<CcBccPreferenceEntry>;
+    /**
+     * Optional BCC recipients for email notifications for this key. Requires EMAIL to be included in `mediums`. Maximum of five entries. The same recipient cannot appear in both `ccList` and `bccList`.
+     * @type {Array<CcBccPreferenceEntry>}
+     * @memberof PreferencesDto
+     */
+    'bccList'?: Array<CcBccPreferenceEntry>;
 }
 /**
  * 
@@ -1435,13 +1492,14 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Returns a list of notification preferences for tenant.
-         * @summary List notification preferences for tenant.
-         * @param {string} key The key.
+         * Returns the notification preferences for a specific notification key, including preferred mediums and optional CC/BCC email recipients. If no custom preferences exist, returns the default settings from the interest definition. If the key does not exist, a 404 is returned.
+         * @summary Get notification preferences by key
+         * @param {string} key The notification key.
+         * @param {boolean} [filterUnavailableMediums] When &#x60;true&#x60;, excludes SLACK and TEAMS from the returned mediums if they are not configured for the tenant.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNotificationPreferencesV1: async (key: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getNotificationPreferencesV1: async (key: string, filterUnavailableMediums?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'key' is not null or undefined
             assertParamExists('getNotificationPreferencesV1', 'key', key)
             const localVarPath = `/notification-preferences/v1/{key}`
@@ -1456,6 +1514,10 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (filterUnavailableMediums !== undefined) {
+                localVarQueryParameter['filterUnavailableMediums'] = filterUnavailableMediums;
+            }
 
 
     
@@ -1588,6 +1650,61 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
          */
         listFromAddressesV1: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/verified-from-addresses/v1`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns a list of notification preferences for the current tenant, including preferred mediums and optional CC/BCC email recipients for each notification key. Supports standard V3 filtering, sorting, and offset/limit pagination.
+         * @summary List notification preferences for tenant
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listNotificationPreferencesV1: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/notification-preferences/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1797,6 +1914,46 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Overwrites the notification preferences for a specific notification key. Controls which mediums are enabled and optional CC/BCC email recipients. The `key` property in the request body is optional; if provided, it must match the key in the path or a 400 is returned. Each of `ccList` and `bccList` supports a maximum of five entries, and the same recipient cannot appear in both lists. CC/BCC configuration requires EMAIL to be enabled in `mediums` and is only allowed for templates which support it (i.e., templates which contain sensitive data like reset tokens do not allow for carbon copy emails to be configured).
+         * @summary Set notification preferences by key
+         * @param {string} key The notification key.
+         * @param {PreferencesDto} preferencesDto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setNotificationPreferencesV1: async (key: string, preferencesDto: PreferencesDto, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'key' is not null or undefined
+            assertParamExists('setNotificationPreferencesV1', 'key', key)
+            // verify required parameter 'preferencesDto' is not null or undefined
+            assertParamExists('setNotificationPreferencesV1', 'preferencesDto', preferencesDto)
+            const localVarPath = `/notification-preferences/v1/{key}`
+                .replace(`{${"key"}}`, encodeURIComponent(String(key)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(preferencesDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1900,14 +2057,15 @@ export const NotificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns a list of notification preferences for tenant.
-         * @summary List notification preferences for tenant.
-         * @param {string} key The key.
+         * Returns the notification preferences for a specific notification key, including preferred mediums and optional CC/BCC email recipients. If no custom preferences exist, returns the default settings from the interest definition. If the key does not exist, a 404 is returned.
+         * @summary Get notification preferences by key
+         * @param {string} key The notification key.
+         * @param {boolean} [filterUnavailableMediums] When &#x60;true&#x60;, excludes SLACK and TEAMS from the returned mediums if they are not configured for the tenant.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationPreferencesV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationPreferencesV1(key, axiosOptions);
+        async getNotificationPreferencesV1(key: string, filterUnavailableMediums?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationPreferencesV1(key, filterUnavailableMediums, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['NotificationsApi.getNotificationPreferencesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1970,6 +2128,23 @@ export const NotificationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Returns a list of notification preferences for the current tenant, including preferred mediums and optional CC/BCC email recipients for each notification key. Supports standard V3 filtering, sorting, and offset/limit pagination.
+         * @summary List notification preferences for tenant
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listNotificationPreferencesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PreferencesDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationPreferencesV1(limit, offset, count, filters, sorters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.listNotificationPreferencesV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This lists the default templates used for notifications, such as emails from IdentityNow.
          * @summary List notification template defaults
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2024,6 +2199,20 @@ export const NotificationsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendTestNotificationV1(sendTestNotificationRequestDto, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['NotificationsApi.sendTestNotificationV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Overwrites the notification preferences for a specific notification key. Controls which mediums are enabled and optional CC/BCC email recipients. The `key` property in the request body is optional; if provided, it must match the key in the path or a 400 is returned. Each of `ccList` and `bccList` supports a maximum of five entries, and the same recipient cannot appear in both lists. CC/BCC configuration requires EMAIL to be enabled in `mediums` and is only allowed for templates which support it (i.e., templates which contain sensitive data like reset tokens do not allow for carbon copy emails to be configured).
+         * @summary Set notification preferences by key
+         * @param {string} key The notification key.
+         * @param {PreferencesDto} preferencesDto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setNotificationPreferencesV1(key: string, preferencesDto: PreferencesDto, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setNotificationPreferencesV1(key, preferencesDto, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['NotificationsApi.setNotificationPreferencesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -2107,14 +2296,14 @@ export const NotificationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.getMailFromAttributesV1(requestParameters.identity, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Returns a list of notification preferences for tenant.
-         * @summary List notification preferences for tenant.
+         * Returns the notification preferences for a specific notification key, including preferred mediums and optional CC/BCC email recipients. If no custom preferences exist, returns the default settings from the interest definition. If the key does not exist, a 404 is returned.
+         * @summary Get notification preferences by key
          * @param {NotificationsApiGetNotificationPreferencesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         getNotificationPreferencesV1(requestParameters: NotificationsApiGetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PreferencesDto> {
-            return localVarFp.getNotificationPreferencesV1(requestParameters.key, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getNotificationPreferencesV1(requestParameters.key, requestParameters.filterUnavailableMediums, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a template that you have modified for your site by Id.
@@ -2156,6 +2345,16 @@ export const NotificationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.listFromAddressesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Returns a list of notification preferences for the current tenant, including preferred mediums and optional CC/BCC email recipients for each notification key. Supports standard V3 filtering, sorting, and offset/limit pagination.
+         * @summary List notification preferences for tenant
+         * @param {NotificationsApiListNotificationPreferencesV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listNotificationPreferencesV1(requestParameters: NotificationsApiListNotificationPreferencesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PreferencesDto>> {
+            return localVarFp.listNotificationPreferencesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This lists the default templates used for notifications, such as emails from IdentityNow.
          * @summary List notification template defaults
          * @param {NotificationsApiListNotificationTemplateDefaultsV1Request} requestParameters Request parameters.
@@ -2194,6 +2393,16 @@ export const NotificationsApiFactory = function (configuration?: Configuration, 
          */
         sendTestNotificationV1(requestParameters: NotificationsApiSendTestNotificationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.sendTestNotificationV1(requestParameters.sendTestNotificationRequestDto, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Overwrites the notification preferences for a specific notification key. Controls which mediums are enabled and optional CC/BCC email recipients. The `key` property in the request body is optional; if provided, it must match the key in the path or a 400 is returned. Each of `ccList` and `bccList` supports a maximum of five entries, and the same recipient cannot appear in both lists. CC/BCC configuration requires EMAIL to be enabled in `mediums` and is only allowed for templates which support it (i.e., templates which contain sensitive data like reset tokens do not allow for carbon copy emails to be configured).
+         * @summary Set notification preferences by key
+         * @param {NotificationsApiSetNotificationPreferencesV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setNotificationPreferencesV1(requestParameters: NotificationsApiSetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PreferencesDto> {
+            return localVarFp.setNotificationPreferencesV1(requestParameters.key, requestParameters.preferencesDto, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2310,11 +2519,18 @@ export interface NotificationsApiGetMailFromAttributesV1Request {
  */
 export interface NotificationsApiGetNotificationPreferencesV1Request {
     /**
-     * The key.
+     * The notification key.
      * @type {string}
      * @memberof NotificationsApiGetNotificationPreferencesV1
      */
     readonly key: string
+
+    /**
+     * When &#x60;true&#x60;, excludes SLACK and TEAMS from the returned mediums if they are not configured for the tenant.
+     * @type {boolean}
+     * @memberof NotificationsApiGetNotificationPreferencesV1
+     */
+    readonly filterUnavailableMediums?: boolean
 }
 
 /**
@@ -2397,6 +2613,48 @@ export interface NotificationsApiListFromAddressesV1Request {
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email**
      * @type {string}
      * @memberof NotificationsApiListFromAddressesV1
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for listNotificationPreferencesV1 operation in NotificationsApi.
+ * @export
+ * @interface NotificationsApiListNotificationPreferencesV1Request
+ */
+export interface NotificationsApiListNotificationPreferencesV1Request {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NotificationsApiListNotificationPreferencesV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NotificationsApiListNotificationPreferencesV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NotificationsApiListNotificationPreferencesV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in*
+     * @type {string}
+     * @memberof NotificationsApiListNotificationPreferencesV1
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key**
+     * @type {string}
+     * @memberof NotificationsApiListNotificationPreferencesV1
      */
     readonly sorters?: string
 }
@@ -2493,6 +2751,27 @@ export interface NotificationsApiSendTestNotificationV1Request {
 }
 
 /**
+ * Request parameters for setNotificationPreferencesV1 operation in NotificationsApi.
+ * @export
+ * @interface NotificationsApiSetNotificationPreferencesV1Request
+ */
+export interface NotificationsApiSetNotificationPreferencesV1Request {
+    /**
+     * The notification key.
+     * @type {string}
+     * @memberof NotificationsApiSetNotificationPreferencesV1
+     */
+    readonly key: string
+
+    /**
+     * 
+     * @type {PreferencesDto}
+     * @memberof NotificationsApiSetNotificationPreferencesV1
+     */
+    readonly preferencesDto: PreferencesDto
+}
+
+/**
  * NotificationsApi - object-oriented interface
  * @export
  * @class NotificationsApi
@@ -2584,15 +2863,15 @@ export class NotificationsApi extends BaseAPI {
     }
 
     /**
-     * Returns a list of notification preferences for tenant.
-     * @summary List notification preferences for tenant.
+     * Returns the notification preferences for a specific notification key, including preferred mediums and optional CC/BCC email recipients. If no custom preferences exist, returns the default settings from the interest definition. If the key does not exist, a 404 is returned.
+     * @summary Get notification preferences by key
      * @param {NotificationsApiGetNotificationPreferencesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NotificationsApi
      */
     public getNotificationPreferencesV1(requestParameters: NotificationsApiGetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return NotificationsApiFp(this.configuration).getNotificationPreferencesV1(requestParameters.key, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return NotificationsApiFp(this.configuration).getNotificationPreferencesV1(requestParameters.key, requestParameters.filterUnavailableMediums, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2643,6 +2922,18 @@ export class NotificationsApi extends BaseAPI {
     }
 
     /**
+     * Returns a list of notification preferences for the current tenant, including preferred mediums and optional CC/BCC email recipients for each notification key. Supports standard V3 filtering, sorting, and offset/limit pagination.
+     * @summary List notification preferences for tenant
+     * @param {NotificationsApiListNotificationPreferencesV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsApi
+     */
+    public listNotificationPreferencesV1(requestParameters: NotificationsApiListNotificationPreferencesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).listNotificationPreferencesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This lists the default templates used for notifications, such as emails from IdentityNow.
      * @summary List notification template defaults
      * @param {NotificationsApiListNotificationTemplateDefaultsV1Request} requestParameters Request parameters.
@@ -2688,6 +2979,18 @@ export class NotificationsApi extends BaseAPI {
      */
     public sendTestNotificationV1(requestParameters: NotificationsApiSendTestNotificationV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return NotificationsApiFp(this.configuration).sendTestNotificationV1(requestParameters.sendTestNotificationRequestDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Overwrites the notification preferences for a specific notification key. Controls which mediums are enabled and optional CC/BCC email recipients. The `key` property in the request body is optional; if provided, it must match the key in the path or a 400 is returned. Each of `ccList` and `bccList` supports a maximum of five entries, and the same recipient cannot appear in both lists. CC/BCC configuration requires EMAIL to be enabled in `mediums` and is only allowed for templates which support it (i.e., templates which contain sensitive data like reset tokens do not allow for carbon copy emails to be configured).
+     * @summary Set notification preferences by key
+     * @param {NotificationsApiSetNotificationPreferencesV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsApi
+     */
+    public setNotificationPreferencesV1(requestParameters: NotificationsApiSetNotificationPreferencesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return NotificationsApiFp(this.configuration).setNotificationPreferencesV1(requestParameters.key, requestParameters.preferencesDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

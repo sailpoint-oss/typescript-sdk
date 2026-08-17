@@ -20,4 +20,6 @@ tags: ['SDK', 'Software Development Kit', 'Medium', 'v1Medium']
 
 * `Teams` (value: `'TEAMS'`)
 
+* `Inbox` (value: `'INBOX'`)
+
 

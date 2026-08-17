@@ -217,7 +217,8 @@ console.log(result);
 
 ## list-completed-approvals-v1
 Completed access request approvals list
-This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
+This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include 'identityType' as 'MACHINE' and 'requestedFor' with 'type: MACHINE_IDENTITY' and the machine id. Approvals without a stored identity type are returned as 'HUMAN' / 'IDENTITY'.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-completed-approvals-v-1)
 
@@ -265,6 +266,8 @@ console.log(result);
 ## list-pending-approvals-v1
 Pending access request approvals list
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
+For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`.
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-pending-approvals-v-1)
 

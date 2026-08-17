@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **created** | **(optional)** `string` | When the request was created. | [default to undefined]
 **requester** | **(optional)** `AccessItemRequester` |  | [default to undefined]
 **requestedFor** | **(optional)** `RequestedItemStatusRequestedFor` |  | [default to undefined]
+**identityType** | **(optional)** `string` | Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`.  | [default to undefined]
 **requesterComment** | **(optional)** `RequestedItemStatusRequesterComment` |  | [default to undefined]
 **sodViolationContext** | **(optional)** `RequestedItemStatusSodViolationContext` |  | [default to undefined]
 **provisioningDetails** | **(optional)** `RequestedItemStatusProvisioningDetails` |  | [default to undefined]

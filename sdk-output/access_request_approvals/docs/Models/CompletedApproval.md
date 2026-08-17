@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **modified** | **(optional)** `string` | When the approval was modified last time. | [default to undefined]
 **requestCreated** | **(optional)** `string` | When the access-request was created. | [default to undefined]
 **requestType** | **(optional)** `AccessRequestType` |  | [default to undefined]
+**identityType** | **(optional)** `string` | Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`.  | [default to undefined]
 **requester** | **(optional)** `AccessItemRequester` |  | [default to undefined]
 **requestedFor** | **(optional)** `CompletedApprovalRequestedFor` |  | [default to undefined]
 **reviewedBy** | **(optional)** `AccessItemReviewedBy` |  | [default to undefined]

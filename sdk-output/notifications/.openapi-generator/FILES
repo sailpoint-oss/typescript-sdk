@@ -1,6 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
+CcBccPreferenceEntry.md
+CcBccRecipientType.md
 CreateDomainDkimV1405Response.md
 DkimAttributes.md
 DomainAddress.md

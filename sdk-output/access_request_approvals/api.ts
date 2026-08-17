@@ -30,7 +30,7 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  */
 export interface AccessItemRequestedFor {
     /**
-     * DTO type of identity the access item is requested for.
+     * DTO type of identity the access item is requested for. `IDENTITY` for human identities. `MACHINE_IDENTITY` for machine identities. When `MACHINE_IDENTITY`, `id` is the machine identity id. 
      * @type {string}
      * @memberof AccessItemRequestedFor
      */
@@ -50,7 +50,8 @@ export interface AccessItemRequestedFor {
 }
 
 export const AccessItemRequestedForTypeEnum = {
-    Identity: 'IDENTITY'
+    Identity: 'IDENTITY',
+    MachineIdentity: 'MACHINE_IDENTITY'
 } as const;
 
 export type AccessItemRequestedForTypeEnum = typeof AccessItemRequestedForTypeEnum[keyof typeof AccessItemRequestedForTypeEnum];
@@ -341,6 +342,12 @@ export interface CompletedApproval {
      */
     'requestType'?: AccessRequestType | null;
     /**
+     * Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`. 
+     * @type {string}
+     * @memberof CompletedApproval
+     */
+    'identityType'?: CompletedApprovalIdentityTypeEnum;
+    /**
      * 
      * @type {AccessItemRequester}
      * @memberof CompletedApproval
@@ -486,6 +493,12 @@ export interface CompletedApproval {
     'jitDetails'?: Array<EntitlementStateSnapshotJitDetail> | null;
 }
 
+export const CompletedApprovalIdentityTypeEnum = {
+    Human: 'HUMAN',
+    Machine: 'MACHINE'
+} as const;
+
+export type CompletedApprovalIdentityTypeEnum = typeof CompletedApprovalIdentityTypeEnum[keyof typeof CompletedApprovalIdentityTypeEnum];
 
 /**
  * If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger\'s decision to either approve or deny the request.
@@ -521,7 +534,7 @@ export interface CompletedApprovalPreApprovalTriggerResult {
 
 
 /**
- * Identity access was requested for.
+ * Identity access was requested for. For machine identity requests, `type` is `MACHINE_IDENTITY` and `id` is the machine identity id.
  * @export
  * @interface CompletedApprovalRequestedFor
  */
@@ -547,7 +560,8 @@ export interface CompletedApprovalRequestedFor {
 }
 
 export const CompletedApprovalRequestedForTypeEnum = {
-    Identity: 'IDENTITY'
+    Identity: 'IDENTITY',
+    MachineIdentity: 'MACHINE_IDENTITY'
 } as const;
 
 export type CompletedApprovalRequestedForTypeEnum = typeof CompletedApprovalRequestedForTypeEnum[keyof typeof CompletedApprovalRequestedForTypeEnum];
@@ -882,6 +896,12 @@ export interface PendingApproval {
      */
     'requestType'?: AccessRequestType | null;
     /**
+     * Type of identity the access was requested for. Requests without a stored identity type are returned as `HUMAN`. 
+     * @type {string}
+     * @memberof PendingApproval
+     */
+    'identityType'?: PendingApprovalIdentityTypeEnum;
+    /**
      * 
      * @type {AccessItemRequester}
      * @memberof PendingApproval
@@ -1009,6 +1029,12 @@ export interface PendingApproval {
     'jitDetails'?: Array<EntitlementStateSnapshotJitDetail> | null;
 }
 
+export const PendingApprovalIdentityTypeEnum = {
+    Human: 'HUMAN',
+    Machine: 'MACHINE'
+} as const;
+
+export type PendingApprovalIdentityTypeEnum = typeof PendingApprovalIdentityTypeEnum[keyof typeof PendingApprovalIdentityTypeEnum];
 
 /**
  * Enum represents action that is being processed on an approval.
@@ -1536,7 +1562,7 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
+         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
          * @summary Completed access request approvals list
          * @param {string} [ownerId] If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1596,7 +1622,7 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info.
+         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
          * @summary Pending access request approvals list
          * @param {string} [ownerId] If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1764,7 +1790,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
+         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
          * @summary Completed access request approvals list
          * @param {string} [ownerId] If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1782,7 +1808,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info.
+         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
          * @summary Pending access request approvals list
          * @param {string} [ownerId] If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1864,7 +1890,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
             return localVarFp.listAccessRequestApproversV1(requestParameters.accessRequestId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
+         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
          * @summary Completed access request approvals list
          * @param {AccessRequestApprovalsApiListCompletedApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1874,7 +1900,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
             return localVarFp.listCompletedApprovalsV1(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info.
+         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
          * @summary Pending access request approvals list
          * @param {AccessRequestApprovalsApiListPendingApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2169,7 +2195,7 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
+     * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
      * @summary Completed access request approvals list
      * @param {AccessRequestApprovalsApiListCompletedApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2181,7 +2207,7 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info.
+     * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
      * @summary Pending access request approvals list
      * @param {AccessRequestApprovalsApiListPendingApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

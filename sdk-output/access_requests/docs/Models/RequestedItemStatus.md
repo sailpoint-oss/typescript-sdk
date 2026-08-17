@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **created** | **(optional)** `string` | When the request was created. | [default to undefined]
 **requester** | **(optional)** `AccessItemRequester` |  | [default to undefined]
 **requestedFor** | **(optional)** `RequestedItemStatusRequestedFor` |  | [default to undefined]
+**identityType** | **(optional)** `string` | Type of identity the access was requested for. Legacy requests without a stored identity type are returned as `HUMAN`.  | [default to undefined]
 **requesterComment** | **(optional)** `RequestedItemStatusRequesterComment` |  | [default to undefined]
 **sodViolationContext** | **(optional)** `RequestedItemStatusSodViolationContext` |  | [default to undefined]
 **provisioningDetails** | **(optional)** `RequestedItemStatusProvisioningDetails` |  | [default to undefined]
@@ -41,7 +42,7 @@ Name | Type | Description | Notes
 **cancelable** | **(optional)** `boolean` | True if the request can be canceled. | [default to false]
 **accessRequestId** | **(optional)** `string` | This is the account activity id. | [default to undefined]
 **clientMetadata** | **(optional)**  | Arbitrary key-value pairs, if any were included in the corresponding access request | [default to undefined]
-**requestedAccounts** | **(optional)** `Array<RequestedAccountRef>` | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [default to undefined]
+**requestedAccounts** | **(optional)** `Array<RequestedAccountRef>` | The accounts selected for the access to be provisioned on, in case the requested-for identity has multiple accounts on one or more sources. | [default to undefined]
 **privilegeLevel** | **(optional)** `string` | The privilege level of the requested access item, if applicable. | [default to undefined]
 **jitDetails** | **(optional)** `Array<EntitlementStateSnapshotJitDetail>` | JIT (Just-In-Time) details for the requested access item, if applicable. | [default to undefined]
 
