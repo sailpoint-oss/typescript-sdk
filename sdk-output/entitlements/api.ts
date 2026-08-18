@@ -306,6 +306,12 @@ export interface EntitlementAccessRequestConfig {
      * @memberof EntitlementAccessRequestConfig
      */
     'maxPermittedAccessDuration'?: EntitlementAccessRequestConfigMaxPermittedAccessDuration | null;
+    /**
+     * The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
+     * @type {string}
+     * @memberof EntitlementAccessRequestConfig
+     */
+    'formDefinitionId'?: string | null;
 }
 /**
  * The maximum duration for which the access is permitted.
@@ -1134,7 +1140,7 @@ export const EntitlementsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This API returns the entitlement request config for a specified entitlement.
+         * This API returns the entitlement request config for a specified entitlement. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with entitlement access requests.
          * @summary Get entitlement request config
          * @param {string} id Entitlement Id
          * @param {*} [axiosOptions] Override http request option.
@@ -1546,7 +1552,7 @@ export const EntitlementsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This API replaces the entitlement request config for a specified entitlement.
+         * This API replaces the entitlement request config for a specified entitlement. Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with entitlement access requests.
          * @summary Replace entitlement request config
          * @param {string} id Entitlement ID
          * @param {EntitlementRequestConfig} entitlementRequestConfig 
@@ -1696,7 +1702,7 @@ export const EntitlementsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API returns the entitlement request config for a specified entitlement.
+         * This API returns the entitlement request config for a specified entitlement. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with entitlement access requests.
          * @summary Get entitlement request config
          * @param {string} id Entitlement Id
          * @param {*} [axiosOptions] Override http request option.
@@ -1828,7 +1834,7 @@ export const EntitlementsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API replaces the entitlement request config for a specified entitlement.
+         * This API replaces the entitlement request config for a specified entitlement. Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with entitlement access requests.
          * @summary Replace entitlement request config
          * @param {string} id Entitlement ID
          * @param {EntitlementRequestConfig} entitlementRequestConfig 
@@ -1898,7 +1904,7 @@ export const EntitlementsApiFactory = function (configuration?: Configuration, b
             return localVarFp.deleteAccessModelMetadataFromEntitlementV1(requestParameters.id, requestParameters.attributeKey, requestParameters.attributeValue, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns the entitlement request config for a specified entitlement.
+         * This API returns the entitlement request config for a specified entitlement. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with entitlement access requests.
          * @summary Get entitlement request config
          * @param {EntitlementsApiGetEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1979,7 +1985,7 @@ export const EntitlementsApiFactory = function (configuration?: Configuration, b
             return localVarFp.patchEntitlementV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API replaces the entitlement request config for a specified entitlement.
+         * This API replaces the entitlement request config for a specified entitlement. Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with entitlement access requests.
          * @summary Replace entitlement request config
          * @param {EntitlementsApiPutEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2449,7 +2455,7 @@ export class EntitlementsApi extends BaseAPI {
     }
 
     /**
-     * This API returns the entitlement request config for a specified entitlement.
+     * This API returns the entitlement request config for a specified entitlement. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with entitlement access requests.
      * @summary Get entitlement request config
      * @param {EntitlementsApiGetEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2546,7 +2552,7 @@ export class EntitlementsApi extends BaseAPI {
     }
 
     /**
-     * This API replaces the entitlement request config for a specified entitlement.
+     * This API replaces the entitlement request config for a specified entitlement. Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with entitlement access requests.
      * @summary Replace entitlement request config
      * @param {EntitlementsApiPutEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

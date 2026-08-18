@@ -259,6 +259,14 @@ Constraints for machine requests:
 * REVOKE_ACCESS must target exactly one machine identity. Per entitlement item, provide `nativeIdentity` (or it may be auto-resolved when the machine has exactly one account on the entitlement source). Do not send `accountSelection` on machine revoke.
 * Multi-machine GRANT_ACCESS is allowed within existing recipient limits; multi-machine REVOKE_ACCESS is not.
 
+__FORMS IN ACCESS REQUESTS__
+* Forms apply to human GRANT_ACCESS requests for roles, access profiles, and entitlements. Forms are not used for REVOKE_ACCESS.
+* Roles, access profiles, and entitlements can optionally reference a `formDefinitionId` in their request configuration. When configured, the requester completes that form and includes the resulting `formInstanceId` on each affected GRANT_ACCESS line item when submitting the access request.
+* Provide `formInstanceId` on each GRANT_ACCESS line item in `requestedItems` (flat payload) or in `requestedForWithRequestedItems.requestedItems` (nested payload). An empty `formInstanceId` on a GRANT_ACCESS line item is rejected with HTTP 400.
+* When a configured form is required, a missing `formInstanceId`, a submitted form whose definition does not match the configured `formDefinitionId`, or form instance data that could not be read may fail the request during asynchronous processing even when this endpoint returns success.
+* Reusing the same `formInstanceId` for the same requested object across multiple recipients is supported.
+* Completed form answers are returned on access request status, administration, and approval responses in the `form` object on each item. Access request pre-approval and dynamic approver trigger inputs may include `form` on each entry in `requestedItems`. The post-approval trigger includes `form` on each entry in `requestedItemsStatus`.
+
 :::caution
 
 If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.
@@ -321,6 +329,7 @@ const accessRequest: AccessRequest = {
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
+    "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
@@ -333,6 +342,7 @@ const accessRequest: AccessRequest = {
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
+    "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
@@ -368,6 +378,7 @@ const accessRequest: AccessRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -398,6 +409,7 @@ const accessRequest: AccessRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -432,6 +444,7 @@ const accessRequest: AccessRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -462,6 +475,7 @@ const accessRequest: AccessRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -591,6 +605,7 @@ Access request status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users. For access requests for machines, each status item will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Requests without a stored identity type are returned as `HUMAN` / `IDENTITY`.
+When a requested object has an associated form, each status item may include a `form` object with the form definition ID, instance ID, and answers (`formData`).
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-access-request-status-v-1)
 
@@ -650,6 +665,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Access request status for administrators
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
+When a requested object has an associated form, each status item may include a `form` object with the form definition ID, instance ID, and answers (`formData`).
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-administrators-access-request-status-v-1)
 
@@ -777,6 +793,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
+    "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
@@ -789,6 +806,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
+    "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
@@ -801,6 +819,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
+    "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
@@ -813,6 +832,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
+    "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
@@ -825,6 +845,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
+    "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
     "type" : "ACCESS_PROFILE",
     "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
     "startDate" : "2020-06-12T21:22:23Z",
@@ -860,6 +881,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -890,6 +912,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -924,6 +947,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -954,6 +978,7 @@ const accountsSelectionRequest: AccountsSelectionRequest = {
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
+      "formInstanceId" : "9f3a1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e",
       "type" : "ACCESS_PROFILE",
       "startDate" : "2020-06-12T21:22:23Z",
       "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
@@ -1033,6 +1058,7 @@ const accessRequestConfig: AccessRequestConfig = {
         "approverType" : "GOVERNANCE_GROUP"
       } ],
       "reauthorizationRequired" : false,
+      "formDefinitionId" : "78258e80-e9e2-4e1a-a11f-ce0b7c62f25d",
       "requestCommentRequired" : true,
       "requireEndDate" : true,
       "maxPermittedAccessDuration" : {

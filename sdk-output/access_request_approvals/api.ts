@@ -158,6 +158,51 @@ export interface AccessRequestApproversListResponse {
     'type'?: string;
 }
 /**
+ * Completed form instance associated with an access request item. Omitted when the item has no associated form or no form answers were captured. All listed properties may be present when form answers exist. Optional structural keys (`formElements`, `formConditions`, `formInstanceInputs`) may also be present; their shape follows the form instance payload.
+ * @export
+ * @interface AccessRequestItemForm
+ */
+export interface AccessRequestItemForm {
+    [key: string]: any;
+
+    /**
+     * ID of the form definition that was completed for this item.
+     * @type {string}
+     * @memberof AccessRequestItemForm
+     */
+    'formDefinitionId'?: string | null;
+    /**
+     * ID of the completed form instance.
+     * @type {string}
+     * @memberof AccessRequestItemForm
+     */
+    'formInstanceId'?: string | null;
+    /**
+     * Key-value pairs (form field technical name to value) from the completed form instance.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccessRequestItemForm
+     */
+    'formData'?: { [key: string]: any; } | null;
+    /**
+     * Optional form element definitions when present. Shape follows the form instance payload.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof AccessRequestItemForm
+     */
+    'formElements'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional conditional display rules when present. Shape follows the form instance payload; do not depend on a fixed condition schema in this API.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof AccessRequestItemForm
+     */
+    'formConditions'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional inputs passed into the form instance when present. Copied from the form instance payload as-is.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccessRequestItemForm
+     */
+    'formInstanceInputs'?: { [key: string]: any; } | null;
+}
+/**
  * Access request type. Defaults to GRANT_ACCESS. REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field. MODIFY_ACCESS type is used for updating access expiration dates or other access modifications.
  * @export
  * @enum {string}
@@ -491,6 +536,12 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'jitDetails'?: Array<EntitlementStateSnapshotJitDetail> | null;
+    /**
+     * 
+     * @type {PendingApprovalForm}
+     * @memberof CompletedApproval
+     */
+    'form'?: PendingApprovalForm;
 }
 
 export const CompletedApprovalIdentityTypeEnum = {
@@ -1027,6 +1078,12 @@ export interface PendingApproval {
      * @memberof PendingApproval
      */
     'jitDetails'?: Array<EntitlementStateSnapshotJitDetail> | null;
+    /**
+     * 
+     * @type {PendingApprovalForm}
+     * @memberof PendingApproval
+     */
+    'form'?: PendingApprovalForm;
 }
 
 export const PendingApprovalIdentityTypeEnum = {
@@ -1051,6 +1108,49 @@ export const PendingApprovalAction = {
 export type PendingApprovalAction = typeof PendingApprovalAction[keyof typeof PendingApprovalAction];
 
 
+/**
+ * 
+ * @export
+ * @interface PendingApprovalForm
+ */
+export interface PendingApprovalForm {
+    /**
+     * ID of the form definition that was completed for this item.
+     * @type {string}
+     * @memberof PendingApprovalForm
+     */
+    'formDefinitionId'?: string | null;
+    /**
+     * ID of the completed form instance.
+     * @type {string}
+     * @memberof PendingApprovalForm
+     */
+    'formInstanceId'?: string | null;
+    /**
+     * Key-value pairs (form field technical name to value) from the completed form instance.
+     * @type {{ [key: string]: any; }}
+     * @memberof PendingApprovalForm
+     */
+    'formData'?: { [key: string]: any; } | null;
+    /**
+     * Optional form element definitions when present. Shape follows the form instance payload.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof PendingApprovalForm
+     */
+    'formElements'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional conditional display rules when present. Shape follows the form instance payload; do not depend on a fixed condition schema in this API.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof PendingApprovalForm
+     */
+    'formConditions'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional inputs passed into the form instance when present. Copied from the form instance payload as-is.
+     * @type {{ [key: string]: any; }}
+     * @memberof PendingApprovalForm
+     */
+    'formInstanceInputs'?: { [key: string]: any; } | null;
+}
 /**
  * The maximum duration for which the access is permitted.
  * @export
@@ -1562,7 +1662,7 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
+         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
          * @summary Completed access request approvals list
          * @param {string} [ownerId] If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1622,7 +1722,7 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
+         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
          * @summary Pending access request approvals list
          * @param {string} [ownerId] If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1790,7 +1890,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
+         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
          * @summary Completed access request approvals list
          * @param {string} [ownerId] If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1808,7 +1908,7 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
+         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
          * @summary Pending access request approvals list
          * @param {string} [ownerId] If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1890,7 +1990,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
             return localVarFp.listAccessRequestApproversV1(requestParameters.accessRequestId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
+         * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
          * @summary Completed access request approvals list
          * @param {AccessRequestApprovalsApiListCompletedApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1900,7 +2000,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
             return localVarFp.listCompletedApprovalsV1(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
+         * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
          * @summary Pending access request approvals list
          * @param {AccessRequestApprovalsApiListPendingApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2195,7 +2295,7 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. 
+     * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info. For access requests for machines, each approval will include \'identityType\' as \'MACHINE\' and \'requestedFor\' with \'type: MACHINE_IDENTITY\' and the machine id. Approvals without a stored identity type are returned as \'HUMAN\' / \'IDENTITY\'. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
      * @summary Completed access request approvals list
      * @param {AccessRequestApprovalsApiListCompletedApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2207,7 +2307,7 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. 
+     * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info. For access requests for machines, each approval will include `identityType` as `MACHINE` and `requestedFor` with `type: MACHINE_IDENTITY` and the machine id. Approvals without a stored identity type are returned as `HUMAN` / `IDENTITY`. When a requested object has an associated form, each approval may include a `form` object with the form definition ID, instance ID, and answers (`formData`). 
      * @summary Pending access request approvals list
      * @param {AccessRequestApprovalsApiListPendingApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

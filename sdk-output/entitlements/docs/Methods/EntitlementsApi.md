@@ -115,6 +115,7 @@ console.log(result);
 ## get-entitlement-request-config-v1
 Get entitlement request config
 This API returns the entitlement request config for a specified entitlement.
+The `accessRequestConfig.formDefinitionId` field associates an optional custom form with entitlement access requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/get-entitlement-request-config-v-1)
 
@@ -481,6 +482,7 @@ console.log(result);
 ## put-entitlement-request-config-v1
 Replace entitlement request config
 This API replaces the entitlement request config for a specified entitlement.
+Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with entitlement access requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1)
 
@@ -522,6 +524,7 @@ const entitlementRequestConfig: EntitlementRequestConfig = {
       "approverType" : "GOVERNANCE_GROUP"
     } ],
     "reauthorizationRequired" : false,
+    "formDefinitionId" : "78258e80-e9e2-4e1a-a11f-ce0b7c62f25d",
     "requestCommentRequired" : true,
     "requireEndDate" : true,
     "maxPermittedAccessDuration" : {

@@ -225,6 +225,12 @@ export interface AccessRequestDynamicApproverRequestedItemsInner {
      * @memberof AccessRequestDynamicApproverRequestedItemsInner
      */
     'comment'?: string | null;
+    /**
+     * 
+     * @type {AccessRequestDynamicApproverRequestedItemsInnerForm}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInner
+     */
+    'form'?: AccessRequestDynamicApproverRequestedItemsInnerForm;
 }
 
 export const AccessRequestDynamicApproverRequestedItemsInnerTypeEnum = {
@@ -241,6 +247,94 @@ export const AccessRequestDynamicApproverRequestedItemsInnerOperationEnum = {
 
 export type AccessRequestDynamicApproverRequestedItemsInnerOperationEnum = typeof AccessRequestDynamicApproverRequestedItemsInnerOperationEnum[keyof typeof AccessRequestDynamicApproverRequestedItemsInnerOperationEnum];
 
+/**
+ * 
+ * @export
+ * @interface AccessRequestDynamicApproverRequestedItemsInnerForm
+ */
+export interface AccessRequestDynamicApproverRequestedItemsInnerForm {
+    /**
+     * ID of the form definition that was completed for this item.
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerForm
+     */
+    'formDefinitionId'?: string | null;
+    /**
+     * ID of the completed form instance.
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerForm
+     */
+    'formInstanceId'?: string | null;
+    /**
+     * Key-value pairs (form field technical name to value) from the completed form instance.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerForm
+     */
+    'formData'?: { [key: string]: any; } | null;
+    /**
+     * Optional form element definitions when present. Shape follows the form instance payload.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerForm
+     */
+    'formElements'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional conditional display rules when present. Shape follows the form instance payload; do not depend on a fixed condition schema in this API.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerForm
+     */
+    'formConditions'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional inputs passed into the form instance when present. Copied from the form instance payload as-is.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerForm
+     */
+    'formInstanceInputs'?: { [key: string]: any; } | null;
+}
+/**
+ * Completed form instance associated with an access request item. Omitted when the item has no associated form or no form answers were captured. All listed properties may be present when form answers exist. Optional structural keys (`formElements`, `formConditions`, `formInstanceInputs`) may also be present; their shape follows the form instance payload.
+ * @export
+ * @interface AccessRequestItemForm
+ */
+export interface AccessRequestItemForm {
+    [key: string]: any;
+
+    /**
+     * ID of the form definition that was completed for this item.
+     * @type {string}
+     * @memberof AccessRequestItemForm
+     */
+    'formDefinitionId'?: string | null;
+    /**
+     * ID of the completed form instance.
+     * @type {string}
+     * @memberof AccessRequestItemForm
+     */
+    'formInstanceId'?: string | null;
+    /**
+     * Key-value pairs (form field technical name to value) from the completed form instance.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccessRequestItemForm
+     */
+    'formData'?: { [key: string]: any; } | null;
+    /**
+     * Optional form element definitions when present. Shape follows the form instance payload.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof AccessRequestItemForm
+     */
+    'formElements'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional conditional display rules when present. Shape follows the form instance payload; do not depend on a fixed condition schema in this API.
+     * @type {Array<{ [key: string]: any; }>}
+     * @memberof AccessRequestItemForm
+     */
+    'formConditions'?: Array<{ [key: string]: any; }> | null;
+    /**
+     * Optional inputs passed into the form instance when present. Copied from the form instance payload as-is.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccessRequestItemForm
+     */
+    'formInstanceInputs'?: { [key: string]: any; } | null;
+}
 /**
  * 
  * @export
@@ -320,6 +414,12 @@ export interface AccessRequestPostApprovalRequestedItemsStatusInner {
      * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
      */
     'clientMetadata'?: { [key: string]: any; } | null;
+    /**
+     * 
+     * @type {AccessRequestDynamicApproverRequestedItemsInnerForm}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInner
+     */
+    'form'?: AccessRequestDynamicApproverRequestedItemsInnerForm;
     /**
      * A list of one or more approvers for the access request.
      * @type {Array<AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner>}
@@ -511,6 +611,12 @@ export interface AccessRequestPreApprovalRequestedItemsInner {
      * @memberof AccessRequestPreApprovalRequestedItemsInner
      */
     'comment'?: string | null;
+    /**
+     * 
+     * @type {AccessRequestDynamicApproverRequestedItemsInnerForm}
+     * @memberof AccessRequestPreApprovalRequestedItemsInner
+     */
+    'form'?: AccessRequestDynamicApproverRequestedItemsInnerForm;
 }
 
 export const AccessRequestPreApprovalRequestedItemsInnerTypeEnum = {

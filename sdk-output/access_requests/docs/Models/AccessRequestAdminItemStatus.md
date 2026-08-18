@@ -42,4 +42,5 @@ Name | Type | Description | Notes
 **reauthorizationRequired** | **(optional)** `boolean` | True if re-auth is required. | [default to false]
 **accessRequestId** | **(optional)** `string` | This is the account activity id. | [default to undefined]
 **clientMetadata** | **(optional)**  | Arbitrary key-value pairs, if any were included in the corresponding access request | [default to undefined]
+**form** | **(optional)** `RequestedItemStatusForm` |  | [default to undefined]
 

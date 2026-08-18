@@ -1138,6 +1138,12 @@ export interface EntitlementAccessRequestConfig {
      * @memberof EntitlementAccessRequestConfig
      */
     'maxPermittedAccessDuration'?: EntitlementAccessRequestConfigMaxPermittedAccessDuration | null;
+    /**
+     * The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
+     * @type {string}
+     * @memberof EntitlementAccessRequestConfig
+     */
+    'formDefinitionId'?: string | null;
 }
 /**
  * The maximum duration for which the access is permitted.

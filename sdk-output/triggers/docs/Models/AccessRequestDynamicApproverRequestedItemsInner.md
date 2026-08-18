@@ -21,4 +21,5 @@ Name | Type | Description | Notes
 **type** | `string` | The type of access item being requested. | [default to undefined]
 **operation** | `string` | Grant or revoke the access item | [default to undefined]
 **comment** | **(optional)** `string` | A comment from the requestor on why the access is needed. | [default to undefined]
+**form** | **(optional)** `AccessRequestDynamicApproverRequestedItemsInnerForm` |  | [default to undefined]
 

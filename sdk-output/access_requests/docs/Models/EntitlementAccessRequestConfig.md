@@ -21,4 +21,5 @@ Name | Type | Description | Notes
 **reauthorizationRequired** | **(optional)** `boolean` | Is Reauthorization Required | [default to false]
 **requireEndDate** | **(optional)** `boolean` | If true, then remove date or sunset date is required in access request of the entitlement. | [default to false]
 **maxPermittedAccessDuration** | **(optional)** `EntitlementAccessRequestConfigMaxPermittedAccessDuration` |  | [default to undefined]
+**formDefinitionId** | **(optional)** `string` | The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process. | [default to undefined]
 

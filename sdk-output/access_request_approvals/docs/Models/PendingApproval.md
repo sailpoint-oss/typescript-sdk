@@ -44,4 +44,5 @@ Name | Type | Description | Notes
 **privilegeLevel** | **(optional)** `string` | The privilege level of the requested access item, if applicable. | [default to undefined]
 **maxPermittedAccessDuration** | **(optional)** `PendingApprovalMaxPermittedAccessDuration` |  | [default to undefined]
 **jitDetails** | **(optional)** `Array<EntitlementStateSnapshotJitDetail>` | JIT (Just-In-Time) details for the requested access item, if applicable. | [default to undefined]
+**form** | **(optional)** `PendingApprovalForm` |  | [default to undefined]
 

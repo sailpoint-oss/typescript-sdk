@@ -8,6 +8,7 @@ AccessRequestAdminItemStatus.md
 AccessRequestConfig.md
 AccessRequestConfig2.md
 AccessRequestItem.md
+AccessRequestItemForm.md
 AccessRequestPhases.md
 AccessRequestResponse.md
 AccessRequestTracking.md
@@ -68,6 +69,7 @@ RequestedItemDetails.md
 RequestedItemDtoRef.md
 RequestedItemStatus.md
 RequestedItemStatusCancelledRequestDetails.md
+RequestedItemStatusForm.md
 RequestedItemStatusPreApprovalTriggerDetails.md
 RequestedItemStatusProvisioningDetails.md
 RequestedItemStatusRequestState.md

@@ -45,4 +45,5 @@ Name | Type | Description | Notes
 **requestedAccounts** | **(optional)** `Array<RequestedAccountRef>` | The accounts selected for the access to be provisioned on, in case the requested-for identity has multiple accounts on one or more sources. | [default to undefined]
 **privilegeLevel** | **(optional)** `string` | The privilege level of the requested access item, if applicable. | [default to undefined]
 **jitDetails** | **(optional)** `Array<EntitlementStateSnapshotJitDetail>` | JIT (Just-In-Time) details for the requested access item, if applicable. | [default to undefined]
+**form** | **(optional)** `RequestedItemStatusForm` |  | [default to undefined]
 

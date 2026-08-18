@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **operation** | `string` | The action to perform on the access item. | [default to undefined]
 **comment** | **(optional)** `string` | A comment from the identity requesting the access. | [default to undefined]
 **clientMetadata** | **(optional)**  | Additional customer defined metadata about the access item. | [default to undefined]
+**form** | **(optional)** `AccessRequestDynamicApproverRequestedItemsInnerForm` |  | [default to undefined]
 **approvalInfo** | `Array<AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner>` | A list of one or more approvers for the access request. | [default to undefined]
 
