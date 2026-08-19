@@ -376,7 +376,7 @@ export const IntelCertificationHistoryEventEventTypeEnum = {
 export type IntelCertificationHistoryEventEventTypeEnum = typeof IntelCertificationHistoryEventEventTypeEnum[keyof typeof IntelCertificationHistoryEventEventTypeEnum];
 
 /**
- * Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. The identityGraph deep link is omitted when the tenant lacks the idg:base license. 
+ * Human identity response (type Human). Identity attributes are hoisted to the top level. The accounts, privilegedAccess, and accessHistory slices are always present (empty slices use items []). The outliers slice is omitted when the tenant lacks the IDA-outliers license. The identityGraph deep link is omitted when the tenant lacks the idg:base license. The nonHumanIdentityOwnership slice is omitted when the tenant lacks idn:machine-identity-security. 
  * @export
  * @interface IntelIdentityAggregate
  */
@@ -459,6 +459,12 @@ export interface IntelIdentityAggregate {
      * @memberof IntelIdentityAggregate
      */
     'identityGraph'?: Intelidentitygraphlink;
+    /**
+     * Omitted when the tenant lacks `idn:machine-identity-security`. When present, both `agents` and `applications` always render. 
+     * @type {Intelnonhumanidentityownership}
+     * @memberof IntelIdentityAggregate
+     */
+    'nonHumanIdentityOwnership'?: Intelnonhumanidentityownership;
     /**
      * First page of accounts for the identity.
      * @type {IntelAccountsSlice}
@@ -1247,6 +1253,113 @@ export interface Intelmachineuserentitlement {
     'source'?: Intelmachinesourcewire | null;
 }
 /**
+ * One paged ownership role bucket (`primaryOwned` or `secondaryOwned`) embedded on the human aggregate. Embeds the first page of owned non-human identities; totalCount when items is non-empty. Continuation next carries limit and offset. 
+ * @export
+ * @interface Intelnonhumanidentityownedslice
+ */
+export interface Intelnonhumanidentityownedslice {
+    /**
+     * First page of owned non-human identities for this role.
+     * @type {Array<Intelnonhumanidentityownershipitem>}
+     * @memberof Intelnonhumanidentityownedslice
+     */
+    'items': Array<Intelnonhumanidentityownershipitem>;
+    /**
+     * Total number of owned non-human identities in this role; omitted when items is empty.
+     * @type {number}
+     * @memberof Intelnonhumanidentityownedslice
+     */
+    'totalCount'?: number;
+    /**
+     * Absolute URL to the next page for this category and ownership role; present when totalCount exceeds the items returned on this page. Includes `ownershipRole`, `limit`, `offset`, and `count=true`. 
+     * @type {string}
+     * @memberof Intelnonhumanidentityownedslice
+     */
+    'next'?: string;
+}
+/**
+ * Non-human identities the human owns, grouped by subtype category. Present only when the tenant has `idn:machine-identity-security`. When present, both `agents` and `applications` always render. Each category is a flat object with optional primaryOwned/secondaryOwned buckets and optional message/reason when upstream ownership fetch fails for that category. 
+ * @export
+ * @interface Intelnonhumanidentityownership
+ */
+export interface Intelnonhumanidentityownership {
+    /**
+     * Ownership for non-human identities with subtype AI Agent.
+     * @type {Intelnonhumanidentityownershipcategory}
+     * @memberof Intelnonhumanidentityownership
+     */
+    'agents': Intelnonhumanidentityownershipcategory;
+    /**
+     * Ownership for non-human identities with subtype Application.
+     * @type {Intelnonhumanidentityownershipcategory}
+     * @memberof Intelnonhumanidentityownership
+     */
+    'applications': Intelnonhumanidentityownershipcategory;
+}
+/**
+ * Ownership category for agents or applications. On success, primaryOwned and secondaryOwned carry independently paged buckets. On category-level upstream failure, message and reason are set (reason: UPSTREAM_UNAVAILABLE). The service emits one flat object today, so primaryOwned and secondaryOwned may still appear on the failure path with empty items. 
+ * @export
+ * @interface Intelnonhumanidentityownershipcategory
+ */
+export interface Intelnonhumanidentityownershipcategory {
+    /**
+     * First page of non-human identities for which this human is the primary owner.
+     * @type {Intelnonhumanidentityownedslice}
+     * @memberof Intelnonhumanidentityownershipcategory
+     */
+    'primaryOwned'?: Intelnonhumanidentityownedslice;
+    /**
+     * First page of non-human identities for which this human is a secondary owner.
+     * @type {Intelnonhumanidentityownedslice}
+     * @memberof Intelnonhumanidentityownershipcategory
+     */
+    'secondaryOwned'?: Intelnonhumanidentityownedslice;
+    /**
+     * Human-readable explanation of the temporary ownership data failure.
+     * @type {string}
+     * @memberof Intelnonhumanidentityownershipcategory
+     */
+    'message'?: string;
+    /**
+     * Machine-readable reason code for the category-level ownership failure.
+     * @type {string}
+     * @memberof Intelnonhumanidentityownershipcategory
+     */
+    'reason'?: IntelnonhumanidentityownershipcategoryReasonEnum;
+}
+
+export const IntelnonhumanidentityownershipcategoryReasonEnum = {
+    UpstreamUnavailable: 'UPSTREAM_UNAVAILABLE'
+} as const;
+
+export type IntelnonhumanidentityownershipcategoryReasonEnum = typeof IntelnonhumanidentityownershipcategoryReasonEnum[keyof typeof IntelnonhumanidentityownershipcategoryReasonEnum];
+
+/**
+ * Owned non-human identity summary row (aggregate slices and child route).
+ * @export
+ * @interface Intelnonhumanidentityownershipitem
+ */
+export interface Intelnonhumanidentityownershipitem {
+    /**
+     * Identity Security Cloud identifier for the owned non-human identity.
+     * @type {string}
+     * @memberof Intelnonhumanidentityownershipitem
+     */
+    'id': string;
+    /**
+     * Preferred display name for the owned non-human identity.
+     * @type {string}
+     * @memberof Intelnonhumanidentityownershipitem
+     */
+    'displayName': string;
+    /**
+     * Source of the owned non-human identity.
+     * @type {Intelmachinesourcewire}
+     * @memberof Intelnonhumanidentityownershipitem
+     */
+    'source'?: Intelmachinesourcewire;
+}
+/**
  * Effective privilege level for the privileged access item. Set to HIGH, MEDIUM, or LOW based on the tenant\'s privilege classification configuration, including connector criteria, custom criteria, manual overrides, or a single configured privilege level. Use NONE when no privilege level is assigned. Entitlements previously marked with privileged=true are classified as HIGH. 
  * @export
  * @interface Intelprivilegelevel
@@ -1503,7 +1616,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -1687,6 +1800,64 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * Continuation endpoint for a human parent\'s `nonHumanIdentityOwnership.{category}.primaryOwned.next` or `nonHumanIdentityOwnership.{category}.secondaryOwned.next` link. Returns a bare JSON array of owned non-human identity summary rows for the given `category`, optional `ownershipRole`, `limit`, and `offset`. Wire items match the aggregate ownership item shape (`{ id, displayName, source? }`).  When `ownershipRole` is omitted, the request defaults to `primary`. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). The `filters` query parameter is not supported on this route (HTTP 400).  Requires tenant licenses `idn:response-and-remediation` and `idn:machine-identity-security`. Tenants without `idn:machine-identity-security` receive HTTP 403.  Not applicable to non-human identities (no ownership slice on the NHI envelope). 
+         * @summary List owned NHI identities
+         * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
+         * @param {GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum} category Non-human identity ownership category. Use &#x60;agents&#x60; for AI Agent subtypes and &#x60;applications&#x60; for Application subtypes. 
+         * @param {GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum} [ownershipRole] Optional ownership role discriminator. When set to &#x60;primary&#x60; or &#x60;secondary&#x60;, returns one paged role bucket. When omitted, defaults to &#x60;primary&#x60;. 
+         * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
+         * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIntelIdentityNonHumanIdentityOwnershipV1: async (id: string, category: GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum, ownershipRole?: GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getIntelIdentityNonHumanIdentityOwnershipV1', 'id', id)
+            // verify required parameter 'category' is not null or undefined
+            assertParamExists('getIntelIdentityNonHumanIdentityOwnershipV1', 'category', category)
+            const localVarPath = `/intelligence/v1/identities/{id}/non-human-identity-ownership/{category}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"category"}}`, encodeURIComponent(String(category)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (ownershipRole !== undefined) {
+                localVarQueryParameter['ownershipRole'] = ownershipRole;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
          * @summary List identity rare access
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
@@ -1793,7 +1964,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -1854,6 +2025,24 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Continuation endpoint for a human parent\'s `nonHumanIdentityOwnership.{category}.primaryOwned.next` or `nonHumanIdentityOwnership.{category}.secondaryOwned.next` link. Returns a bare JSON array of owned non-human identity summary rows for the given `category`, optional `ownershipRole`, `limit`, and `offset`. Wire items match the aggregate ownership item shape (`{ id, displayName, source? }`).  When `ownershipRole` is omitted, the request defaults to `primary`. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). The `filters` query parameter is not supported on this route (HTTP 400).  Requires tenant licenses `idn:response-and-remediation` and `idn:machine-identity-security`. Tenants without `idn:machine-identity-security` receive HTTP 403.  Not applicable to non-human identities (no ownership slice on the NHI envelope). 
+         * @summary List owned NHI identities
+         * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
+         * @param {GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum} category Non-human identity ownership category. Use &#x60;agents&#x60; for AI Agent subtypes and &#x60;applications&#x60; for Application subtypes. 
+         * @param {GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum} [ownershipRole] Optional ownership role discriminator. When set to &#x60;primary&#x60; or &#x60;secondary&#x60;, returns one paged role bucket. When omitted, defaults to &#x60;primary&#x60;. 
+         * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
+         * @param {number} [offset] Zero-based page offset. Defaults to 0.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIntelIdentityNonHumanIdentityOwnershipV1(id: string, category: GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum, ownershipRole?: GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Intelnonhumanidentityownershipitem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityNonHumanIdentityOwnershipV1(id, category, ownershipRole, limit, offset, count, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityNonHumanIdentityOwnershipV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
          * @summary List identity rare access
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
@@ -1903,7 +2092,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
             return localVarFp.createResponseActionV1(requestParameters.responseactioncreaterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
          * @summary Get identity by filter
          * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1941,6 +2130,16 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
          */
         getIntelIdentityCertificationHistoryV1(requestParameters: IntelligenceApiGetIntelIdentityCertificationHistoryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelCertificationHistoryEvent>> {
             return localVarFp.getIntelIdentityCertificationHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Continuation endpoint for a human parent\'s `nonHumanIdentityOwnership.{category}.primaryOwned.next` or `nonHumanIdentityOwnership.{category}.secondaryOwned.next` link. Returns a bare JSON array of owned non-human identity summary rows for the given `category`, optional `ownershipRole`, `limit`, and `offset`. Wire items match the aggregate ownership item shape (`{ id, displayName, source? }`).  When `ownershipRole` is omitted, the request defaults to `primary`. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). The `filters` query parameter is not supported on this route (HTTP 400).  Requires tenant licenses `idn:response-and-remediation` and `idn:machine-identity-security`. Tenants without `idn:machine-identity-security` receive HTTP 403.  Not applicable to non-human identities (no ownership slice on the NHI envelope). 
+         * @summary List owned NHI identities
+         * @param {IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIntelIdentityNonHumanIdentityOwnershipV1(requestParameters: IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Intelnonhumanidentityownershipitem>> {
+            return localVarFp.getIntelIdentityNonHumanIdentityOwnershipV1(requestParameters.id, requestParameters.category, requestParameters.ownershipRole, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
@@ -2099,6 +2298,55 @@ export interface IntelligenceApiGetIntelIdentityCertificationHistoryV1Request {
 }
 
 /**
+ * Request parameters for getIntelIdentityNonHumanIdentityOwnershipV1 operation in IntelligenceApi.
+ * @export
+ * @interface IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1Request
+ */
+export interface IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1Request {
+    /**
+     * Non-empty identity id path segment for Intelligence sub-resources.
+     * @type {string}
+     * @memberof IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1
+     */
+    readonly id: string
+
+    /**
+     * Non-human identity ownership category. Use &#x60;agents&#x60; for AI Agent subtypes and &#x60;applications&#x60; for Application subtypes. 
+     * @type {'agents' | 'applications'}
+     * @memberof IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1
+     */
+    readonly category: GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum
+
+    /**
+     * Optional ownership role discriminator. When set to &#x60;primary&#x60; or &#x60;secondary&#x60;, returns one paged role bucket. When omitted, defaults to &#x60;primary&#x60;. 
+     * @type {'primary' | 'secondary'}
+     * @memberof IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1
+     */
+    readonly ownershipRole?: GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum
+
+    /**
+     * Page size. Defaults to 250; values above 250 are rejected with 400.
+     * @type {number}
+     * @memberof IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1
+     */
+    readonly limit?: number
+
+    /**
+     * Zero-based page offset. Defaults to 0.
+     * @type {number}
+     * @memberof IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1
+     */
+    readonly count?: boolean
+}
+
+/**
  * Request parameters for getIntelIdentityRareAccessV1 operation in IntelligenceApi.
  * @export
  * @interface IntelligenceApiGetIntelIdentityRareAccessV1Request
@@ -2167,7 +2415,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers, which is omitted (not an error) when the tenant lacks the IDA-outliers license (upstream 401 or 403).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+     * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
      * @summary Get identity by filter
      * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2215,6 +2463,18 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
+     * Continuation endpoint for a human parent\'s `nonHumanIdentityOwnership.{category}.primaryOwned.next` or `nonHumanIdentityOwnership.{category}.secondaryOwned.next` link. Returns a bare JSON array of owned non-human identity summary rows for the given `category`, optional `ownershipRole`, `limit`, and `offset`. Wire items match the aggregate ownership item shape (`{ id, displayName, source? }`).  When `ownershipRole` is omitted, the request defaults to `primary`. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). The `filters` query parameter is not supported on this route (HTTP 400).  Requires tenant licenses `idn:response-and-remediation` and `idn:machine-identity-security`. Tenants without `idn:machine-identity-security` receive HTTP 403.  Not applicable to non-human identities (no ownership slice on the NHI envelope). 
+     * @summary List owned NHI identities
+     * @param {IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IntelligenceApi
+     */
+    public getIntelIdentityNonHumanIdentityOwnershipV1(requestParameters: IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IntelligenceApiFp(this.configuration).getIntelIdentityNonHumanIdentityOwnershipV1(requestParameters.id, requestParameters.category, requestParameters.ownershipRole, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Continuation endpoint for the parent response\'s `outliers.rareAccess.next` link. Resolves the identity\'s first outlier, then returns one page of rare access items for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). An identity with no outlier returns an empty array with `X-Total-Count: 0` when `count=true`. Requires tenant license idn:response-and-remediation and the IDA-outliers license.  Not applicable to non-human identities (no outliers slice on the NHI envelope). 
      * @summary List identity rare access
      * @param {IntelligenceApiGetIntelIdentityRareAccessV1Request} requestParameters Request parameters.
@@ -2239,5 +2499,21 @@ export class IntelligenceApi extends BaseAPI {
     }
 }
 
+/**
+ * @export
+ */
+export const GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum = {
+    Agents: 'agents',
+    Applications: 'applications'
+} as const;
+export type GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum = typeof GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum[keyof typeof GetIntelIdentityNonHumanIdentityOwnershipV1CategoryEnum];
+/**
+ * @export
+ */
+export const GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum = {
+    Primary: 'primary',
+    Secondary: 'secondary'
+} as const;
+export type GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum = typeof GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum[keyof typeof GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum];
 
 

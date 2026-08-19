@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **identityStatus** | **(optional)** `string` | Current identity lifecycle status label from Identity Security Cloud. | [default to undefined]
 **isManager** | **(optional)** `boolean` | True when the identity is flagged as a people manager in the organization. | [default to false]
 **identityGraph** | **(optional)** `Intelidentitygraphlink` | Omitted when the tenant lacks the idg:base license. | [default to undefined]
+**nonHumanIdentityOwnership** | **(optional)** `Intelnonhumanidentityownership` | Omitted when the tenant lacks `idn:machine-identity-security`. When present, both `agents` and `applications` always render.  | [default to undefined]
 **accounts** | `IntelAccountsSlice` | First page of accounts for the identity. | [default to undefined]
 **privilegedAccess** | `IntelPrivilegedAccessSlice` | Full privileged access result for the identity. | [default to undefined]
 **outliers** | **(optional)** `IntelOutliersSlice` | Rare access slice; omitted when the tenant lacks the IDA-outliers license. | [default to undefined]
