@@ -1,0 +1,29 @@
+---
+id: v1-task-result-details
+title: TaskResultDetails
+pagination_label: TaskResultDetails
+sidebar_label: TaskResultDetails
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'TaskResultDetails', 'v1TaskResultDetails']
+slug: /tools/sdk/typescript/sources/models/task-result-details
+tags: ['SDK', 'Software Development Kit', 'TaskResultDetails', 'v1TaskResultDetails']
+---
+
+# TaskResultDetails
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **(optional)** `string` | System-generated unique ID of the task. | [default to undefined]
+**type** | **(optional)** `string` | Type of task this result represents. | [default to undefined]
+**name** | **(optional)** `string` | The name of the task. | [default to undefined]
+**description** | **(optional)** `string` | The description of the task. | [default to undefined]
+**launcher** | **(optional)** `string` | The user who initiated the task. | [default to undefined]
+**created** | **(optional)** `string` | The task creation date. | [default to undefined]
+**launched** | **(optional)** `string` | The task start date. | [default to undefined]
+**completed** | **(optional)** `string` | The task completion date. | [default to undefined]
+**completionStatus** | **(optional)** `string` | Task completion status. | [default to undefined]
+**parentName** | **(optional)** `string` | Name of the parent task if one exists. | [default to undefined]
+**progress** | **(optional)** `string` | Current task state. | [default to undefined]
+

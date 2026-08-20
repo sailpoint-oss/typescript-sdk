@@ -74,6 +74,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-provisioning-policy-v1**](#create-provisioning-policy-v1) | **POST** `/sources/v1/{sourceId}/provisioning-policies` | Create provisioning policy
 [**create-provisioning-policy-v2**](#create-provisioning-policy-v2) | **POST** `/sources/v2/{sourceId}/provisioning-policies` | Create provisioning policy
+[**create-source-dataset-v1**](#create-source-dataset-v1) | **POST** `/sources/v1/{sourceId}/datasets` | Create dataset on source
+[**create-source-resource-v1**](#create-source-resource-v1) | **POST** `/sources/v1/{sourceId}/resources` | Create resource on source
 [**create-source-schedule-v1**](#create-source-schedule-v1) | **POST** `/sources/v1/{sourceId}/schedules` | Create schedule on source
 [**create-source-schema-v1**](#create-source-schema-v1) | **POST** `/sources/v1/{sourceId}/schemas` | Create schema on source
 [**create-source-v1**](#create-source-v1) | **POST** `/sources/v1` | Creates a source in identitynow.
@@ -81,6 +83,9 @@ Method | HTTP request | Description
 [**delete-native-change-detection-config-v1**](#delete-native-change-detection-config-v1) | **DELETE** `/sources/v1/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**delete-provisioning-policy-v1**](#delete-provisioning-policy-v1) | **DELETE** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
 [**delete-provisioning-policy-v2**](#delete-provisioning-policy-v2) | **DELETE** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Delete provisioning policy by ID
+[**delete-source-dataset-objects-v1**](#delete-source-dataset-objects-v1) | **POST** `/sources/v1/{sourceId}/datasets/{datasetId}/delete-objects` | Delete objects for source dataset
+[**delete-source-dataset-v1**](#delete-source-dataset-v1) | **DELETE** `/sources/v1/{sourceId}/datasets/{datasetId}` | Delete source dataset by id
+[**delete-source-resource-v1**](#delete-source-resource-v1) | **DELETE** `/sources/v1/{sourceId}/resources/{resourceId}` | Delete source resource by id
 [**delete-source-schedule-v1**](#delete-source-schedule-v1) | **DELETE** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Delete source schedule by type.
 [**delete-source-schema-v1**](#delete-source-schema-v1) | **DELETE** `/sources/v1/{sourceId}/schemas/{schemaId}` | Delete source schema by id
 [**delete-source-v1**](#delete-source-v1) | **DELETE** `/sources/v1/{id}` | Delete source by id
@@ -95,8 +100,13 @@ Method | HTTP request | Description
 [**get-source-attr-sync-config-v1**](#get-source-attr-sync-config-v1) | **GET** `/sources/v1/{id}/attribute-sync-config` | Attribute sync config
 [**get-source-config-v1**](#get-source-config-v1) | **GET** `/sources/v1/{id}/connectors/source-config` | Gets source config with language-translations
 [**get-source-connections-v1**](#get-source-connections-v1) | **GET** `/sources/v1/{sourceId}/connections` | Get source connections by id
+[**get-source-dataset-v1**](#get-source-dataset-v1) | **GET** `/sources/v1/{sourceId}/datasets/{datasetId}` | Get source dataset by id
+[**get-source-datasets-v1**](#get-source-datasets-v1) | **GET** `/sources/v1/{sourceId}/datasets` | List datasets on source
 [**get-source-entitlement-request-config-v1**](#get-source-entitlement-request-config-v1) | **GET** `/sources/v1/{id}/entitlement-request-config` | Get source entitlement request configuration
 [**get-source-health-v1**](#get-source-health-v1) | **GET** `/sources/v1/{sourceId}/source-health` | Fetches source health by id
+[**get-source-resource-mappings-v1**](#get-source-resource-mappings-v1) | **GET** `/sources/v1/{sourceId}/resources/mappings` | Get source resource mappings
+[**get-source-resource-v1**](#get-source-resource-v1) | **GET** `/sources/v1/{sourceId}/resources/{resourceId}` | Get source resource by id
+[**get-source-resources-v1**](#get-source-resources-v1) | **GET** `/sources/v1/{sourceId}/resources` | List resources for a source
 [**get-source-schedule-v1**](#get-source-schedule-v1) | **GET** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Get source schedule by type
 [**get-source-schedules-v1**](#get-source-schedules-v1) | **GET** `/sources/v1/{sourceId}/schedules` | List schedules on source
 [**get-source-schema-v1**](#get-source-schema-v1) | **GET** `/sources/v1/{sourceId}/schemas/{schemaId}` | Get source schema by id
@@ -107,6 +117,7 @@ Method | HTTP request | Description
 [**import-connector-file-v1**](#import-connector-file-v1) | **POST** `/sources/v1/{sourceId}/upload-connector-file` | Upload connector file to source
 [**import-entitlements-schema-v1**](#import-entitlements-schema-v1) | **POST** `/sources/v1/{id}/schemas/entitlements` | Uploads source entitlements schema template
 [**import-entitlements-v1**](#import-entitlements-v1) | **POST** `/sources/v1/{sourceId}/load-entitlements` | Entitlement aggregation
+[**import-source-dataset-v1**](#import-source-dataset-v1) | **POST** `/sources/v1/{sourceId}/datasets/{datasetId}/aggregate` | Aggregate source dataset
 [**import-uncorrelated-accounts-v1**](#import-uncorrelated-accounts-v1) | **POST** `/sources/v1/{id}/load-uncorrelated-accounts` | Process uncorrelated accounts
 [**list-password-policy-holders-on-source-v1**](#list-password-policy-holders-on-source-v1) | **GET** `/sources/v1/{sourceId}/password-policies` | Get Password Policy for source
 [**list-provisioning-policies-v1**](#list-provisioning-policies-v1) | **GET** `/sources/v1/{sourceId}/provisioning-policies` | Lists provisioningpolicies
@@ -118,6 +129,8 @@ Method | HTTP request | Description
 [**put-provisioning-policy-v1**](#put-provisioning-policy-v1) | **PUT** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
 [**put-provisioning-policy-v2**](#put-provisioning-policy-v2) | **PUT** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Update provisioning policy by ID
 [**put-source-attr-sync-config-v1**](#put-source-attr-sync-config-v1) | **PUT** `/sources/v1/{id}/attribute-sync-config` | Update attribute sync config
+[**put-source-dataset-v1**](#put-source-dataset-v1) | **PUT** `/sources/v1/{sourceId}/datasets/{datasetId}` | Update source dataset (full)
+[**put-source-resource-v1**](#put-source-resource-v1) | **PUT** `/sources/v1/{sourceId}/resources/{resourceId}` | Update source resource (full)
 [**put-source-schema-v1**](#put-source-schema-v1) | **PUT** `/sources/v1/{sourceId}/schemas/{schemaId}` | Update source schema (full)
 [**put-source-v1**](#put-source-v1) | **PUT** `/sources/v1/{id}` | Update source (full)
 [**search-resource-objects-v1**](#search-resource-objects-v1) | **POST** `/sources/v1/{sourceId}/connector/peek-resource-objects` | Peek source connector\&#39;s resource objects
@@ -130,7 +143,9 @@ Method | HTTP request | Description
 [**update-provisioning-policies-in-bulk-v1**](#update-provisioning-policies-in-bulk-v1) | **POST** `/sources/v1/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
 [**update-provisioning-policy-v1**](#update-provisioning-policy-v1) | **PATCH** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
 [**update-provisioning-policy-v2**](#update-provisioning-policy-v2) | **PATCH** `/sources/v2/{sourceId}/provisioning-policies/{id}` | Partial update of provisioning policy
+[**update-source-dataset-v1**](#update-source-dataset-v1) | **PATCH** `/sources/v1/{sourceId}/datasets/{datasetId}` | Update source dataset (partial)
 [**update-source-entitlement-request-config-v1**](#update-source-entitlement-request-config-v1) | **PUT** `/sources/v1/{id}/entitlement-request-config` | Update source entitlement request configuration
+[**update-source-resource-v1**](#update-source-resource-v1) | **PATCH** `/sources/v1/{sourceId}/resources/{resourceId}` | Update source resource (partial)
 [**update-source-schedule-v1**](#update-source-schedule-v1) | **PATCH** `/sources/v1/{sourceId}/schedules/{scheduleType}` | Update source schedule (partial)
 [**update-source-schema-v1**](#update-source-schema-v1) | **PATCH** `/sources/v1/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
 [**update-source-v1**](#update-source-v1) | **PATCH** `/sources/v1/{id}` | Update source (partial)
@@ -304,6 +319,164 @@ const provisioningPolicyDtoV2: ProvisioningPolicyDtoV2 = {
 const useDefaultFields: boolean = false; // If passed as true, then it uses default fields from the connector template. (optional)
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.createProvisioningPolicyV2({ sourceId: sourceId, provisioningPolicyDtoV2: provisioningPolicyDtoV2 });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## create-source-dataset-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Create dataset on source
+Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+This operation requires a connector with the `supportDatasetCreation` label. `name` is required.
+The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of
+the name; any client-supplied `id` is ignored.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-dataset-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**sourceDataset** | `SourceDataset` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDataset`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { SourceDataset } from 'sailpoint-api-client/dist/sources/api';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const sourceDataset: SourceDataset = {
+  "name" : "Applications",
+  "description" : "CMDB application records for this source.",
+  "resources" : [ {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  }, {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  } ],
+  "id" : "cmdb-servicenow:applications",
+  "aggregationEnabled" : true
+}; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.createSourceDatasetV1({ sourceId: sourceId, sourceDataset: sourceDataset });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## create-source-resource-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Create resource on source
+Use this API to create a resource on the specified source in Identity Security Cloud (ISC).
+
+
+This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`,
+`datasetId`, and `schema` are required. The `schema` must define at least one attribute plus
+`identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from
+`name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored.
+After creation, schema attribute edits are made through the source schema APIs.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-source-resource-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**sourceDatasetResource** | `SourceDatasetResource` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDatasetResource`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { SourceDatasetResource } from 'sailpoint-api-client/dist/sources/api';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const sourceDatasetResource: SourceDatasetResource = {
+  "schema" : {
+    "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+    "nativeObjectType" : "User",
+    "configuration" : {
+      "groupMemberAttribute" : "member"
+    },
+    "created" : "2019-12-24T22:32:58.104Z",
+    "includePermissions" : false,
+    "name" : "account",
+    "hierarchyAttribute" : "memberOf",
+    "modified" : "2019-12-31T20:22:28.104Z",
+    "attributes" : [ {
+      "name" : "sAMAccountName",
+      "type" : "STRING",
+      "isMultiValued" : false,
+      "isEntitlement" : false,
+      "isGroup" : false
+    }, {
+      "name" : "memberOf",
+      "type" : "STRING",
+      "schema" : {
+        "type" : "CONNECTOR_SCHEMA",
+        "id" : "2c9180887671ff8c01767b4671fc7d60",
+        "name" : "group"
+      },
+      "description" : "Group membership",
+      "isMultiValued" : true,
+      "isEntitlement" : true,
+      "isGroup" : true
+    } ],
+    "id" : "2c9180835d191a86015d28455b4a2329",
+    "displayAttribute" : "distinguishedName",
+    "identityAttribute" : "sAMAccountName"
+  },
+  "features" : [ "Create", "Delete" ],
+  "name" : "Account",
+  "datasetId" : "cmdb-servicenow:applications",
+  "id" : "aws:iam-role",
+  "type" : "std:resource"
+}; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.createSourceResourceV1({ sourceId: sourceId, sourceDatasetResource: sourceDatasetResource });
 console.log(result);
 ```
 
@@ -704,6 +877,149 @@ const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
 const id: string = f5dd23fe-3414-42b7-bb1c-869400ad7a10; // The provisioning policy ID.
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.deleteProvisioningPolicyV2({ sourceId: sourceId, id: id });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## delete-source-dataset-objects-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Delete objects for source dataset
+Starts a task to delete aggregated objects for the specified dataset on the source in Identity
+Security Cloud (ISC). Linked dataset and resource definitions are not deleted.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-dataset-objects-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**datasetId** | `string` | Dataset ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`TaskResultDetails`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const datasetId: string = cmdb-servicenow:applications; // Dataset ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.deleteSourceDatasetObjectsV1({ sourceId: sourceId, datasetId: datasetId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## delete-source-dataset-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Delete source dataset by id
+Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+This operation requires a connector with the `supportDatasetCreation` label. Linked resource
+schemas are not deleted.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-dataset-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**datasetId** | `string` | Dataset ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+(empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const datasetId: string = cmdb-servicenow:applications; // Dataset ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.deleteSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## delete-source-resource-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Delete source resource by id
+Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).
+
+
+The resource schema is deleted and the resource is unlinked from any dataset rows on the source.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-source-resource-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**resourceId** | `string` | Resource ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+(empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const resourceId: string = account; // Resource ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.deleteSourceResourceV1({ sourceId: sourceId, resourceId: resourceId });
 console.log(result);
 ```
 
@@ -1254,6 +1570,100 @@ console.log(result);
 
 [[Back to top]](#)
 
+## get-source-dataset-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get source dataset by id
+Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-dataset-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**datasetId** | `string` | Dataset ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDataset`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const datasetId: string = cmdb-servicenow:applications; // Dataset ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.getSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-source-datasets-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List datasets on source
+Use this API to list datasets for the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-datasets-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`Array<SourceDataset>`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.getSourceDatasetsV1({ sourceId: sourceId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
 ## get-source-entitlement-request-config-v1
 Get source entitlement request configuration
 This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
@@ -1327,6 +1737,147 @@ const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source id.
 const result = await apiInstance.getSourceHealthV1({ sourceId: sourceId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-source-resource-mappings-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get source resource mappings
+Use this API to get aggregation metadata for resources on the specified source in Identity
+Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked
+dataset id, resource type, and connector object type. Resources without a matching schema are
+omitted.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-resource-mappings-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`{ [key: string]: SourceResourceMappingValue; }`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.getSourceResourceMappingsV1({ sourceId: sourceId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-source-resource-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get source resource by id
+Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC).
+The response includes the full CIS schema for the resource.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-resource-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**resourceId** | `string` | Resource ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDatasetResource`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const resourceId: string = account; // Resource ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.getSourceResourceV1({ sourceId: sourceId, resourceId: resourceId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-source-resources-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List resources for a source
+Use this API to list resources defined on the specified source in Identity Security Cloud (ISC).
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-resources-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`Array<SourceDatasetResource>`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.getSourceResourcesV1({ sourceId: sourceId });
 console.log(result);
 ```
 
@@ -1746,6 +2297,59 @@ const apiInstance = new SourcesApi(configuration);
 const sourceId: string = ef38f94347e94562b5bb8424a56397d8; // Source Id
 const file: File = BINARY_DATA_HERE; // The CSV file containing the source entitlements to aggregate. (optional)
 const result = await apiInstance.importEntitlementsV1({ sourceId: sourceId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## import-source-dataset-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Aggregate source dataset
+Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC).
+An optional `config` object can be supplied for connector-specific aggregation settings.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/import-source-dataset-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**datasetId** | `string` | Dataset ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+**datasetAggregationRequest** | `DatasetAggregationRequest` |  | [optional]
+
+### Return type
+
+`TaskResultDetails`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { DatasetAggregationRequest } from 'sailpoint-api-client/dist/sources/api';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const datasetId: string = cmdb-servicenow:applications; // Dataset ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const datasetAggregationRequest: DatasetAggregationRequest = {
+  "config" : {
+    "region" : "us-east-1"
+  }
+}; //  (optional)
+const result = await apiInstance.importSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId });
 console.log(result);
 ```
 
@@ -2348,6 +2952,165 @@ const attrSyncSourceConfig: AttrSyncSourceConfig = {
 }; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.putSourceAttrSyncConfigV1({ id: id, attrSyncSourceConfig: attrSyncSourceConfig });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## put-source-dataset-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update source dataset (full)
+Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).
+
+
+Callers should round-trip the GET representation. `id` is required in the request body and must
+match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources`
+can be changed only when the connector has the `supportDatasetCreation` label.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-dataset-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**datasetId** | `string` | Dataset ID. |  [default to undefined]
+**sourceDataset** | `SourceDataset` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDataset`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { SourceDataset } from 'sailpoint-api-client/dist/sources/api';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const datasetId: string = cmdb-servicenow:applications; // Dataset ID.
+const sourceDataset: SourceDataset = {
+  "name" : "Applications",
+  "description" : "CMDB application records for this source.",
+  "resources" : [ {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  }, {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  } ],
+  "id" : "cmdb-servicenow:applications",
+  "aggregationEnabled" : true
+}; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.putSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId, sourceDataset: sourceDataset });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## put-source-resource-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update source resource (full)
+Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).
+
+
+After creation, schema attribute edits should be made through the source schema APIs. Connectors
+with the `supportDatasetCreation` label can update additional resource fields.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-source-resource-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**resourceId** | `string` | Resource ID. |  [default to undefined]
+**sourceDatasetResource** | `SourceDatasetResource` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDatasetResource`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { SourceDatasetResource } from 'sailpoint-api-client/dist/sources/api';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const resourceId: string = account; // Resource ID.
+const sourceDatasetResource: SourceDatasetResource = {
+  "schema" : {
+    "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+    "nativeObjectType" : "User",
+    "configuration" : {
+      "groupMemberAttribute" : "member"
+    },
+    "created" : "2019-12-24T22:32:58.104Z",
+    "includePermissions" : false,
+    "name" : "account",
+    "hierarchyAttribute" : "memberOf",
+    "modified" : "2019-12-31T20:22:28.104Z",
+    "attributes" : [ {
+      "name" : "sAMAccountName",
+      "type" : "STRING",
+      "isMultiValued" : false,
+      "isEntitlement" : false,
+      "isGroup" : false
+    }, {
+      "name" : "memberOf",
+      "type" : "STRING",
+      "schema" : {
+        "type" : "CONNECTOR_SCHEMA",
+        "id" : "2c9180887671ff8c01767b4671fc7d60",
+        "name" : "group"
+      },
+      "description" : "Group membership",
+      "isMultiValued" : true,
+      "isEntitlement" : true,
+      "isGroup" : true
+    } ],
+    "id" : "2c9180835d191a86015d28455b4a2329",
+    "displayAttribute" : "distinguishedName",
+    "identityAttribute" : "sAMAccountName"
+  },
+  "features" : [ "Create", "Delete" ],
+  "name" : "Account",
+  "datasetId" : "cmdb-servicenow:applications",
+  "id" : "aws:iam-role",
+  "type" : "std:resource"
+}; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.putSourceResourceV1({ sourceId: sourceId, resourceId: resourceId, sourceDatasetResource: sourceDatasetResource });
 console.log(result);
 ```
 
@@ -3046,6 +3809,62 @@ console.log(result);
 
 [[Back to top]](#)
 
+## update-source-dataset-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update source dataset (partial)
+Use this API to selectively update an existing dataset using a JSONPatch payload.
+
+
+`aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed
+only when the connector has the `supportDatasetCreation` label. `id` is immutable.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-dataset-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**datasetId** | `string` | Dataset ID. |  [default to undefined]
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the dataset. | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDataset`
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const datasetId: string = cmdb-servicenow:applications; // Dataset ID.
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the dataset.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.updateSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId, jsonPatchOperation: jsonPatchOperation });
+console.log(result);
+```
+
+[[Back to top]](#)
+
 ## update-source-entitlement-request-config-v1
 Update source entitlement request configuration
 This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.
@@ -3113,6 +3932,62 @@ const sourceEntitlementRequestConfig: SourceEntitlementRequestConfig = {
   }
 }; // 
 const result = await apiInstance.updateSourceEntitlementRequestConfigV1({ id: id, sourceEntitlementRequestConfig: sourceEntitlementRequestConfig });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-source-resource-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Update source resource (partial)
+Use this API to selectively update an existing resource using a JSONPatch payload.
+
+
+After creation, schema attribute edits should be made through the source schema APIs. Connectors
+with the `supportDatasetCreation` label can update additional resource fields.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-source-resource-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**resourceId** | `string` | Resource ID. |  [default to undefined]
+**jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the resource. | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`SourceDatasetResource`
+
+### HTTP request headers
+
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from 'sailpoint-api-client';
+import { Configuration } from 'sailpoint-api-client';
+import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const resourceId: string = account; // Resource ID.
+const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // The JSONPatch payload used to update the resource.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.updateSourceResourceV1({ sourceId: sourceId, resourceId: resourceId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
 

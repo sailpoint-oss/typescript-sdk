@@ -21,6 +21,7 @@ BaseReferenceDto.md
 ConnectorDetail.md
 CorrelationConfig.md
 CorrelationConfigAttributeAssignmentsInner.md
+DatasetAggregationRequest.md
 DeleteSourceV1202Response.md
 DependantAppConnections.md
 DependantAppConnectionsAccountSource.md
@@ -75,6 +76,9 @@ SourceAccountCorrelationRule.md
 SourceBeforeProvisioningRule.md
 SourceCluster.md
 SourceConnectionsDto.md
+SourceDataset.md
+SourceDatasetResource.md
+SourceDatasetResourceReference.md
 SourceEntitlementRequestConfig.md
 SourceHealthDto.md
 SourceManagementWorkgroup.md
@@ -82,12 +86,14 @@ SourceManagerCorrelationMapping.md
 SourceManagerCorrelationRule.md
 SourceOwner.md
 SourcePasswordPoliciesInner.md
+SourceResourceMappingValue.md
 SourceSchemasInner.md
 SourceSyncJob.md
 SourceSyncPayload.md
 SourcesApi.md
 SourcesApideveloperSite_code_examples.yaml
 StatusResponse.md
+TaskResultDetails.md
 TaskResultDto.md
 Transform.md
 TransformRead.md

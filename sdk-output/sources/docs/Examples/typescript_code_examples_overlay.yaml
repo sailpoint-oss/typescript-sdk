@@ -112,6 +112,94 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.createProvisioningPolicyV2({ sourceId: sourceId, provisioningPolicyDtoV2: provisioningPolicyDtoV2 });
         console.log(result);
+- path: /sources/v1/{sourceId}/datasets
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-dataset-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { SourceDataset } from 'sailpoint-api-client/dist/sources/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const sourceDataset: SourceDataset = {
+  "name" : "Applications",
+  "description" : "CMDB application records for this source.",
+  "resources" : [ {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  }, {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  } ],
+  "id" : "cmdb-servicenow:applications",
+  "aggregationEnabled" : true
+}; // SourceDataset | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createSourceDatasetV1({ sourceId: sourceId, sourceDataset: sourceDataset });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-resource-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { SourceDatasetResource } from 'sailpoint-api-client/dist/sources/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const sourceDatasetResource: SourceDatasetResource = {
+  "schema" : {
+    "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+    "nativeObjectType" : "User",
+    "configuration" : {
+      "groupMemberAttribute" : "member"
+    },
+    "created" : "2019-12-24T22:32:58.104Z",
+    "includePermissions" : false,
+    "name" : "account",
+    "hierarchyAttribute" : "memberOf",
+    "modified" : "2019-12-31T20:22:28.104Z",
+    "attributes" : [ {
+      "name" : "sAMAccountName",
+      "type" : "STRING",
+      "isMultiValued" : false,
+      "isEntitlement" : false,
+      "isGroup" : false
+    }, {
+      "name" : "memberOf",
+      "type" : "STRING",
+      "schema" : {
+        "type" : "CONNECTOR_SCHEMA",
+        "id" : "2c9180887671ff8c01767b4671fc7d60",
+        "name" : "group"
+      },
+      "description" : "Group membership",
+      "isMultiValued" : true,
+      "isEntitlement" : true,
+      "isGroup" : true
+    } ],
+    "id" : "2c9180835d191a86015d28455b4a2329",
+    "displayAttribute" : "distinguishedName",
+    "identityAttribute" : "sAMAccountName"
+  },
+  "features" : [ "Create", "Delete" ],
+  "name" : "Account",
+  "datasetId" : "cmdb-servicenow:applications",
+  "id" : "aws:iam-role",
+  "type" : "std:resource"
+}; // SourceDatasetResource | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createSourceResourceV1({ sourceId: sourceId, sourceDatasetResource: sourceDatasetResource });
+        console.log(result);
 - path: /sources/v1/{sourceId}/schedules
   method: POST
   xCodeSample:
@@ -334,6 +422,54 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteProvisioningPolicyV2({ sourceId: sourceId, id: id });
         console.log(result);
+- path: /sources/v1/{sourceId}/datasets/{datasetId}/delete-objects
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-dataset-objects-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const datasetId: string = 'cmdb-servicenow:applications'; // string | Dataset ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteSourceDatasetObjectsV1({ sourceId: sourceId, datasetId: datasetId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-dataset-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const datasetId: string = 'cmdb-servicenow:applications'; // string | Dataset ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-resource-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const resourceId: string = 'account'; // string | Resource ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteSourceResourceV1({ sourceId: sourceId, resourceId: resourceId });
+        console.log(result);
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
   method: DELETE
   xCodeSample:
@@ -538,6 +674,40 @@
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
         const result = await apiInstance.getSourceConnectionsV1({ sourceId: sourceId });
         console.log(result);
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-dataset-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const datasetId: string = 'cmdb-servicenow:applications'; // string | Dataset ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/datasets
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-datasets-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSourceDatasetsV1({ sourceId: sourceId });
+        console.log(result);
 - path: /sources/v1/{id}/entitlement-request-config
   method: GET
   xCodeSample:
@@ -565,6 +735,55 @@
         const apiInstance = new SourcesApi(configuration);
         const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | The Source id. (default to undefined)
         const result = await apiInstance.getSourceHealthV1({ sourceId: sourceId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/mappings
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-resource-mappings-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSourceResourceMappingsV1({ sourceId: sourceId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-resource-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const resourceId: string = 'account'; // string | Resource ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSourceResourceV1({ sourceId: sourceId, resourceId: resourceId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-resources-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSourceResourcesV1({ sourceId: sourceId });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
   method: GET
@@ -716,6 +935,28 @@
         const sourceId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | Source Id (default to undefined)
         const file: File = BINARY_DATA_HERE; // File | The CSV file containing the source entitlements to aggregate. (optional) (default to undefined)
         const result = await apiInstance.importEntitlementsV1({ sourceId: sourceId });
+        console.log(result);
+- path: /sources/v1/{sourceId}/datasets/{datasetId}/aggregate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#import-source-dataset-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { DatasetAggregationRequest } from 'sailpoint-api-client/dist/sources/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const datasetId: string = 'cmdb-servicenow:applications'; // string | Dataset ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const datasetAggregationRequest: DatasetAggregationRequest = {
+  "config" : {
+    "region" : "us-east-1"
+  }
+}; // DatasetAggregationRequest |  (optional)
+        const result = await apiInstance.importSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId });
         console.log(result);
 - path: /sources/v1/{id}/load-uncorrelated-accounts
   method: POST
@@ -1024,6 +1265,96 @@
 }; // AttrSyncSourceConfig | 
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.putSourceAttrSyncConfigV1({ id: id, attrSyncSourceConfig: attrSyncSourceConfig });
+        console.log(result);
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-dataset-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { SourceDataset } from 'sailpoint-api-client/dist/sources/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const datasetId: string = 'cmdb-servicenow:applications'; // string | Dataset ID. (default to undefined)
+        const sourceDataset: SourceDataset = {
+  "name" : "Applications",
+  "description" : "CMDB application records for this source.",
+  "resources" : [ {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  }, {
+    "name" : "Role",
+    "id" : "aws:iam-role",
+    "type" : "std:resource"
+  } ],
+  "id" : "cmdb-servicenow:applications",
+  "aggregationEnabled" : true
+}; // SourceDataset | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.putSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId, sourceDataset: sourceDataset });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-resource-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { SourceDatasetResource } from 'sailpoint-api-client/dist/sources/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const resourceId: string = 'account'; // string | Resource ID. (default to undefined)
+        const sourceDatasetResource: SourceDatasetResource = {
+  "schema" : {
+    "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
+    "nativeObjectType" : "User",
+    "configuration" : {
+      "groupMemberAttribute" : "member"
+    },
+    "created" : "2019-12-24T22:32:58.104Z",
+    "includePermissions" : false,
+    "name" : "account",
+    "hierarchyAttribute" : "memberOf",
+    "modified" : "2019-12-31T20:22:28.104Z",
+    "attributes" : [ {
+      "name" : "sAMAccountName",
+      "type" : "STRING",
+      "isMultiValued" : false,
+      "isEntitlement" : false,
+      "isGroup" : false
+    }, {
+      "name" : "memberOf",
+      "type" : "STRING",
+      "schema" : {
+        "type" : "CONNECTOR_SCHEMA",
+        "id" : "2c9180887671ff8c01767b4671fc7d60",
+        "name" : "group"
+      },
+      "description" : "Group membership",
+      "isMultiValued" : true,
+      "isEntitlement" : true,
+      "isGroup" : true
+    } ],
+    "id" : "2c9180835d191a86015d28455b4a2329",
+    "displayAttribute" : "distinguishedName",
+    "identityAttribute" : "sAMAccountName"
+  },
+  "features" : [ "Create", "Delete" ],
+  "name" : "Account",
+  "datasetId" : "cmdb-servicenow:applications",
+  "id" : "aws:iam-role",
+  "type" : "std:resource"
+}; // SourceDatasetResource | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.putSourceResourceV1({ sourceId: sourceId, resourceId: resourceId, sourceDatasetResource: sourceDatasetResource });
         console.log(result);
 - path: /sources/v1/{sourceId}/schemas/{schemaId}
   method: PUT
@@ -1389,6 +1720,28 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.updateProvisioningPolicyV2({ sourceId: sourceId, id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
+- path: /sources/v1/{sourceId}/datasets/{datasetId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-dataset-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const datasetId: string = 'cmdb-servicenow:applications'; // string | Dataset ID. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | The JSONPatch payload used to update the dataset.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.updateSourceDatasetV1({ sourceId: sourceId, datasetId: datasetId, jsonPatchOperation: jsonPatchOperation });
+        console.log(result);
 - path: /sources/v1/{id}/entitlement-request-config
   method: PUT
   xCodeSample:
@@ -1432,6 +1785,28 @@
   }
 }; // SourceEntitlementRequestConfig | 
         const result = await apiInstance.updateSourceEntitlementRequestConfigV1({ id: id, sourceEntitlementRequestConfig: sourceEntitlementRequestConfig });
+        console.log(result);
+- path: /sources/v1/{sourceId}/resources/{resourceId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-resource-v1
+      source: |
+        import { SourcesApi } from 'sailpoint-api-client';
+        import { Configuration } from 'sailpoint-api-client';
+        import { JsonPatchOperation } from 'sailpoint-api-client/dist/sources/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new SourcesApi(configuration);
+        const sourceId: string = '2c9180835d191a86015d28455b4a2329'; // string | Source ID. (default to undefined)
+        const resourceId: string = 'account'; // string | Resource ID. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | The JSONPatch payload used to update the resource.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.updateSourceResourceV1({ sourceId: sourceId, resourceId: resourceId, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /sources/v1/{sourceId}/schedules/{scheduleType}
   method: PATCH

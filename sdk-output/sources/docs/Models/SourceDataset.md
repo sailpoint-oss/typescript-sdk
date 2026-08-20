@@ -1,0 +1,23 @@
+---
+id: v1-source-dataset
+title: SourceDataset
+pagination_label: SourceDataset
+sidebar_label: SourceDataset
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'SourceDataset', 'v1SourceDataset']
+slug: /tools/sdk/typescript/sources/models/source-dataset
+tags: ['SDK', 'Software Development Kit', 'SourceDataset', 'v1SourceDataset']
+---
+
+# SourceDataset
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **(optional)** `string` | Dataset identifier. Server-generated on create. | [readonly] [default to undefined]
+**name** | **(optional)** `string` | Display name of the dataset. Required on create. | [default to undefined]
+**description** | **(optional)** `string` | Description of the dataset. | [default to undefined]
+**aggregationEnabled** | **(optional)** `boolean` | Whether aggregation is enabled for this dataset on the source. | [default to false]
+**resources** | **(optional)** `Array<SourceDatasetResourceReference>` | Simplified resource references associated with this dataset. | [default to undefined]
+

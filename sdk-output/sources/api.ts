@@ -888,6 +888,19 @@ export const CorrelationConfigAttributeAssignmentsInnerMatchModeEnum = {
 export type CorrelationConfigAttributeAssignmentsInnerMatchModeEnum = typeof CorrelationConfigAttributeAssignmentsInnerMatchModeEnum[keyof typeof CorrelationConfigAttributeAssignmentsInnerMatchModeEnum];
 
 /**
+ * Optional request body for starting a dataset aggregation.
+ * @export
+ * @interface DatasetAggregationRequest
+ */
+export interface DatasetAggregationRequest {
+    /**
+     * Connector-specific aggregation configuration.
+     * @type {{ [key: string]: any; }}
+     * @memberof DatasetAggregationRequest
+     */
+    'config'?: { [key: string]: any; };
+}
+/**
  * 
  * @export
  * @interface DeleteSourceV1202Response
@@ -2917,6 +2930,111 @@ export interface SourceConnectionsDto {
     'missingDependents'?: Array<DependantConnectionsMissingDto>;
 }
 /**
+ * Dataset instance for a source. The dataset `id` is server-generated from `name` on create (`customer:` plus a normalized form of `name`); any client-supplied `id` is ignored. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label.
+ * @export
+ * @interface SourceDataset
+ */
+export interface SourceDataset {
+    /**
+     * Dataset identifier. Server-generated on create.
+     * @type {string}
+     * @memberof SourceDataset
+     */
+    'id'?: string;
+    /**
+     * Display name of the dataset. Required on create.
+     * @type {string}
+     * @memberof SourceDataset
+     */
+    'name'?: string;
+    /**
+     * Description of the dataset.
+     * @type {string}
+     * @memberof SourceDataset
+     */
+    'description'?: string;
+    /**
+     * Whether aggregation is enabled for this dataset on the source.
+     * @type {boolean}
+     * @memberof SourceDataset
+     */
+    'aggregationEnabled'?: boolean;
+    /**
+     * Simplified resource references associated with this dataset.
+     * @type {Array<SourceDatasetResourceReference>}
+     * @memberof SourceDataset
+     */
+    'resources'?: Array<SourceDatasetResourceReference>;
+}
+/**
+ * Resource definition for a source. On create, `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` (`customer:` plus a normalized form of `name`); any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. `datasetId` associates the resource with a dataset and is recorded in the resource schema configuration.
+ * @export
+ * @interface SourceDatasetResource
+ */
+export interface SourceDatasetResource {
+    /**
+     * Resource identifier. Server-generated on create.
+     * @type {string}
+     * @memberof SourceDatasetResource
+     */
+    'id'?: string;
+    /**
+     * Display name of the resource. Required on create.
+     * @type {string}
+     * @memberof SourceDatasetResource
+     */
+    'name'?: string;
+    /**
+     * Feature identifiers supported by this resource.
+     * @type {Array<string>}
+     * @memberof SourceDatasetResource
+     */
+    'features'?: Array<string>;
+    /**
+     * Resource type. Required on create.
+     * @type {string}
+     * @memberof SourceDatasetResource
+     */
+    'type'?: string;
+    /**
+     * Dataset identifier to associate this resource with. Required on create.
+     * @type {string}
+     * @memberof SourceDatasetResource
+     */
+    'datasetId'?: string;
+    /**
+     * 
+     * @type {Schema}
+     * @memberof SourceDatasetResource
+     */
+    'schema'?: Schema;
+}
+/**
+ * Simplified resource reference associated with a source dataset.
+ * @export
+ * @interface SourceDatasetResourceReference
+ */
+export interface SourceDatasetResourceReference {
+    /**
+     * Resource identifier.
+     * @type {string}
+     * @memberof SourceDatasetResourceReference
+     */
+    'id'?: string;
+    /**
+     * Display name of the resource.
+     * @type {string}
+     * @memberof SourceDatasetResourceReference
+     */
+    'name'?: string;
+    /**
+     * Resource type from source schema config.
+     * @type {string}
+     * @memberof SourceDatasetResourceReference
+     */
+    'type'?: string;
+}
+/**
  * Entitlement Request Configuration
  * @export
  * @interface SourceEntitlementRequestConfig
@@ -3169,6 +3287,31 @@ export type SourcePasswordPoliciesInnerTypeEnum = typeof SourcePasswordPoliciesI
 /**
  * 
  * @export
+ * @interface SourceResourceMappingValue
+ */
+export interface SourceResourceMappingValue {
+    /**
+     * Dataset identifier that owns the resource.
+     * @type {string}
+     * @memberof SourceResourceMappingValue
+     */
+    'datasetId'?: string;
+    /**
+     * Resource type from source schema config.
+     * @type {string}
+     * @memberof SourceResourceMappingValue
+     */
+    'resourceType'?: string;
+    /**
+     * Connector object type for the resource.
+     * @type {string}
+     * @memberof SourceResourceMappingValue
+     */
+    'objectType'?: string;
+}
+/**
+ * 
+ * @export
  * @interface SourceSchemasInner
  */
 export interface SourceSchemasInner {
@@ -3296,6 +3439,90 @@ export const StatusResponseStatusEnum = {
 } as const;
 
 export type StatusResponseStatusEnum = typeof StatusResponseStatusEnum[keyof typeof StatusResponseStatusEnum];
+
+/**
+ * Details of an asynchronous task started by a source dataset operation.
+ * @export
+ * @interface TaskResultDetails
+ */
+export interface TaskResultDetails {
+    /**
+     * System-generated unique ID of the task.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'id'?: string;
+    /**
+     * Type of task this result represents.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'type'?: string;
+    /**
+     * The name of the task.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'name'?: string;
+    /**
+     * The description of the task.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'description'?: string;
+    /**
+     * The user who initiated the task.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'launcher'?: string;
+    /**
+     * The task creation date.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'created'?: string;
+    /**
+     * The task start date.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'launched'?: string | null;
+    /**
+     * The task completion date.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'completed'?: string | null;
+    /**
+     * Task completion status.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'completionStatus'?: TaskResultDetailsCompletionStatusEnum | null;
+    /**
+     * Name of the parent task if one exists.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'parentName'?: string | null;
+    /**
+     * Current task state.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'progress'?: string | null;
+}
+
+export const TaskResultDetailsCompletionStatusEnum = {
+    Success: 'SUCCESS',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Terminated: 'TERMINATED',
+    TempError: 'TEMP_ERROR'
+} as const;
+
+export type TaskResultDetailsCompletionStatusEnum = typeof TaskResultDetailsCompletionStatusEnum[keyof typeof TaskResultDetailsCompletionStatusEnum];
 
 /**
  * Task result.
@@ -3631,6 +3858,102 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+         * @summary Create dataset on source
+         * @param {string} sourceId Source ID.
+         * @param {SourceDataset} sourceDataset 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceDatasetV1: async (sourceId: string, sourceDataset: SourceDataset, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('createSourceDatasetV1', 'sourceId', sourceId)
+            // verify required parameter 'sourceDataset' is not null or undefined
+            assertParamExists('createSourceDatasetV1', 'sourceDataset', sourceDataset)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceDataset, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+         * @summary Create resource on source
+         * @param {string} sourceId Source ID.
+         * @param {SourceDatasetResource} sourceDatasetResource 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceResourceV1: async (sourceId: string, sourceDatasetResource: SourceDatasetResource, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('createSourceResourceV1', 'sourceId', sourceId)
+            // verify required parameter 'sourceDatasetResource' is not null or undefined
+            assertParamExists('createSourceResourceV1', 'sourceDatasetResource', sourceDatasetResource)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceDatasetResource, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
          * @param {string} sourceId Source ID.
@@ -3878,6 +4201,144 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarPath = `/sources/v2/{sourceId}/provisioning-policies/{id}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+         * @summary Delete objects for source dataset
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceDatasetObjectsV1: async (sourceId: string, datasetId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('deleteSourceDatasetObjectsV1', 'sourceId', sourceId)
+            // verify required parameter 'datasetId' is not null or undefined
+            assertParamExists('deleteSourceDatasetObjectsV1', 'datasetId', datasetId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets/{datasetId}/delete-objects`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"datasetId"}}`, encodeURIComponent(String(datasetId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+         * @summary Delete source dataset by id
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceDatasetV1: async (sourceId: string, datasetId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('deleteSourceDatasetV1', 'sourceId', sourceId)
+            // verify required parameter 'datasetId' is not null or undefined
+            assertParamExists('deleteSourceDatasetV1', 'datasetId', datasetId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets/{datasetId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"datasetId"}}`, encodeURIComponent(String(datasetId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+         * @summary Delete source resource by id
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceResourceV1: async (sourceId: string, resourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('deleteSourceResourceV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('deleteSourceResourceV1', 'resourceId', resourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4422,6 +4883,109 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+         * @summary Get source dataset by id
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceDatasetV1: async (sourceId: string, datasetId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceDatasetV1', 'sourceId', sourceId)
+            // verify required parameter 'datasetId' is not null or undefined
+            assertParamExists('getSourceDatasetV1', 'datasetId', datasetId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets/{datasetId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"datasetId"}}`, encodeURIComponent(String(datasetId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+         * @summary List datasets on source
+         * @param {string} sourceId Source ID.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceDatasetsV1: async (sourceId: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceDatasetsV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Get source entitlement request configuration
          * @param {string} id The Source id
@@ -4480,6 +5044,151 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+         * @summary Get source resource mappings
+         * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourceMappingsV1: async (sourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceResourceMappingsV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources/mappings`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+         * @summary Get source resource by id
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourceV1: async (sourceId: string, resourceId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceResourceV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('getSourceResourceV1', 'resourceId', resourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+         * @summary List resources for a source
+         * @param {string} sourceId Source ID.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourcesV1: async (sourceId: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceResourcesV1', 'sourceId', sourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -4896,6 +5605,56 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+         * @summary Aggregate source dataset
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {DatasetAggregationRequest} [datasetAggregationRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceDatasetV1: async (sourceId: string, datasetId: string, xSailPointExperimental?: string, datasetAggregationRequest?: DatasetAggregationRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('importSourceDatasetV1', 'sourceId', sourceId)
+            // verify required parameter 'datasetId' is not null or undefined
+            assertParamExists('importSourceDatasetV1', 'datasetId', datasetId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets/{datasetId}/aggregate`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"datasetId"}}`, encodeURIComponent(String(datasetId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(datasetAggregationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5419,6 +6178,110 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+         * @summary Update source dataset (full)
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {SourceDataset} sourceDataset 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceDatasetV1: async (sourceId: string, datasetId: string, sourceDataset: SourceDataset, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('putSourceDatasetV1', 'sourceId', sourceId)
+            // verify required parameter 'datasetId' is not null or undefined
+            assertParamExists('putSourceDatasetV1', 'datasetId', datasetId)
+            // verify required parameter 'sourceDataset' is not null or undefined
+            assertParamExists('putSourceDatasetV1', 'sourceDataset', sourceDataset)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets/{datasetId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"datasetId"}}`, encodeURIComponent(String(datasetId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceDataset, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * @summary Update source resource (full)
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {SourceDatasetResource} sourceDatasetResource 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceResourceV1: async (sourceId: string, resourceId: string, sourceDatasetResource: SourceDatasetResource, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('putSourceResourceV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('putSourceResourceV1', 'resourceId', resourceId)
+            // verify required parameter 'sourceDatasetResource' is not null or undefined
+            assertParamExists('putSourceResourceV1', 'sourceDatasetResource', sourceDatasetResource)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceDatasetResource, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
          * @summary Update source schema (full)
          * @param {string} sourceId The Source id.
@@ -5909,6 +6772,58 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Use this API to selectively update an existing dataset using a JSONPatch payload.   `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. `id` is immutable. 
+         * @summary Update source dataset (partial)
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the dataset.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSourceDatasetV1: async (sourceId: string, datasetId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('updateSourceDatasetV1', 'sourceId', sourceId)
+            // verify required parameter 'datasetId' is not null or undefined
+            assertParamExists('updateSourceDatasetV1', 'datasetId', datasetId)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateSourceDatasetV1', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/datasets/{datasetId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"datasetId"}}`, encodeURIComponent(String(datasetId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
@@ -5942,6 +6857,58 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(sourceEntitlementRequestConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to selectively update an existing resource using a JSONPatch payload.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * @summary Update source resource (partial)
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the resource.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSourceResourceV1: async (sourceId: string, resourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('updateSourceResourceV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('updateSourceResourceV1', 'resourceId', resourceId)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateSourceResourceV1', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -6117,6 +7084,36 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+         * @summary Create dataset on source
+         * @param {string} sourceId Source ID.
+         * @param {SourceDataset} sourceDataset 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSourceDatasetV1(sourceId: string, sourceDataset: SourceDataset, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDataset>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceDatasetV1(sourceId, sourceDataset, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.createSourceDatasetV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+         * @summary Create resource on source
+         * @param {string} sourceId Source ID.
+         * @param {SourceDatasetResource} sourceDatasetResource 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSourceResourceV1(sourceId: string, sourceDatasetResource: SourceDatasetResource, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDatasetResource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceResourceV1(sourceId, sourceDatasetResource, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.createSourceResourceV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
          * @param {string} sourceId Source ID.
@@ -6211,6 +7208,51 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicyV2(sourceId, id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+         * @summary Delete objects for source dataset
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSourceDatasetObjectsV1(sourceId: string, datasetId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceDatasetObjectsV1(sourceId, datasetId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteSourceDatasetObjectsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+         * @summary Delete source dataset by id
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSourceDatasetV1(sourceId: string, datasetId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceDatasetV1(sourceId, datasetId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteSourceDatasetV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+         * @summary Delete source resource by id
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSourceResourceV1(sourceId: string, resourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceResourceV1(sourceId, resourceId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteSourceResourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6404,6 +7446,38 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+         * @summary Get source dataset by id
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceDatasetV1(sourceId: string, datasetId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDataset>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceDatasetV1(sourceId, datasetId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceDatasetV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+         * @summary List datasets on source
+         * @param {string} sourceId Source ID.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceDatasetsV1(sourceId: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceDataset>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceDatasetsV1(sourceId, limit, offset, count, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceDatasetsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Get source entitlement request configuration
          * @param {string} id The Source id
@@ -6427,6 +7501,52 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceHealthV1(sourceId, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceHealthV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+         * @summary Get source resource mappings
+         * @param {string} sourceId Source ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceResourceMappingsV1(sourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: SourceResourceMappingValue; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceResourceMappingsV1(sourceId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceResourceMappingsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+         * @summary Get source resource by id
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceResourceV1(sourceId: string, resourceId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDatasetResource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceResourceV1(sourceId, resourceId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceResourceV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+         * @summary List resources for a source
+         * @param {string} sourceId Source ID.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceResourcesV1(sourceId: string, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceDatasetResource>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceResourcesV1(sourceId, limit, offset, count, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceResourcesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6568,6 +7688,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementsV1(sourceId, file, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.importEntitlementsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+         * @summary Aggregate source dataset
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {DatasetAggregationRequest} [datasetAggregationRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importSourceDatasetV1(sourceId: string, datasetId: string, xSailPointExperimental?: string, datasetAggregationRequest?: DatasetAggregationRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceDatasetV1(sourceId, datasetId, xSailPointExperimental, datasetAggregationRequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.importSourceDatasetV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6736,6 +7872,38 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceAttrSyncConfigV1(id, attrSyncSourceConfig, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.putSourceAttrSyncConfigV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+         * @summary Update source dataset (full)
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {SourceDataset} sourceDataset 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putSourceDatasetV1(sourceId: string, datasetId: string, sourceDataset: SourceDataset, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDataset>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceDatasetV1(sourceId, datasetId, sourceDataset, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putSourceDatasetV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * @summary Update source resource (full)
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {SourceDatasetResource} sourceDatasetResource 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putSourceResourceV1(sourceId: string, resourceId: string, sourceDatasetResource: SourceDatasetResource, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDatasetResource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceResourceV1(sourceId, resourceId, sourceDatasetResource, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.putSourceResourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6909,6 +8077,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to selectively update an existing dataset using a JSONPatch payload.   `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. `id` is immutable. 
+         * @summary Update source dataset (partial)
+         * @param {string} sourceId Source ID.
+         * @param {string} datasetId Dataset ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the dataset.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateSourceDatasetV1(sourceId: string, datasetId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDataset>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceDatasetV1(sourceId, datasetId, jsonPatchOperation, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceDatasetV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
@@ -6920,6 +8104,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfigV1(id, sourceEntitlementRequestConfig, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceEntitlementRequestConfigV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to selectively update an existing resource using a JSONPatch payload.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * @summary Update source resource (partial)
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the resource.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateSourceResourceV1(sourceId: string, resourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceDatasetResource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceResourceV1(sourceId, resourceId, jsonPatchOperation, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.updateSourceResourceV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -6997,6 +8197,26 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createProvisioningPolicyV2(requestParameters.sourceId, requestParameters.provisioningPolicyDtoV2, requestParameters.useDefaultFields, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+         * @summary Create dataset on source
+         * @param {SourcesApiCreateSourceDatasetV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceDatasetV1(requestParameters: SourcesApiCreateSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDataset> {
+            return localVarFp.createSourceDatasetV1(requestParameters.sourceId, requestParameters.sourceDataset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+         * @summary Create resource on source
+         * @param {SourcesApiCreateSourceResourceV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceResourceV1(requestParameters: SourcesApiCreateSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDatasetResource> {
+            return localVarFp.createSourceResourceV1(requestParameters.sourceId, requestParameters.sourceDatasetResource, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
          * @summary Create schedule on source
          * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
@@ -7065,6 +8285,36 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         deleteProvisioningPolicyV2(requestParameters: SourcesApiDeleteProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+         * @summary Delete objects for source dataset
+         * @param {SourcesApiDeleteSourceDatasetObjectsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceDatasetObjectsV1(requestParameters: SourcesApiDeleteSourceDatasetObjectsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskResultDetails> {
+            return localVarFp.deleteSourceDatasetObjectsV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+         * @summary Delete source dataset by id
+         * @param {SourcesApiDeleteSourceDatasetV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceDatasetV1(requestParameters: SourcesApiDeleteSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+         * @summary Delete source resource by id
+         * @param {SourcesApiDeleteSourceResourceV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceResourceV1(requestParameters: SourcesApiDeleteSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -7207,6 +8457,26 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceConnectionsV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+         * @summary Get source dataset by id
+         * @param {SourcesApiGetSourceDatasetV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceDatasetV1(requestParameters: SourcesApiGetSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDataset> {
+            return localVarFp.getSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+         * @summary List datasets on source
+         * @param {SourcesApiGetSourceDatasetsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceDatasetsV1(requestParameters: SourcesApiGetSourceDatasetsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceDataset>> {
+            return localVarFp.getSourceDatasetsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Get source entitlement request configuration
          * @param {SourcesApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
@@ -7225,6 +8495,36 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         getSourceHealthV1(requestParameters: SourcesApiGetSourceHealthV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceHealthDto> {
             return localVarFp.getSourceHealthV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+         * @summary Get source resource mappings
+         * @param {SourcesApiGetSourceResourceMappingsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourceMappingsV1(requestParameters: SourcesApiGetSourceResourceMappingsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: SourceResourceMappingValue; }> {
+            return localVarFp.getSourceResourceMappingsV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+         * @summary Get source resource by id
+         * @param {SourcesApiGetSourceResourceV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourceV1(requestParameters: SourcesApiGetSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDatasetResource> {
+            return localVarFp.getSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+         * @summary List resources for a source
+         * @param {SourcesApiGetSourceResourcesV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourcesV1(requestParameters: SourcesApiGetSourceResourcesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceDatasetResource>> {
+            return localVarFp.getSourceResourcesV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get the source schedule by type in Identity Security Cloud (ISC). 
@@ -7325,6 +8625,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         importEntitlementsV1(requestParameters: SourcesApiImportEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<LoadEntitlementTask> {
             return localVarFp.importEntitlementsV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+         * @summary Aggregate source dataset
+         * @param {SourcesApiImportSourceDatasetV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceDatasetV1(requestParameters: SourcesApiImportSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TaskResultDetails> {
+            return localVarFp.importSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, requestParameters.datasetAggregationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
@@ -7435,6 +8745,26 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         putSourceAttrSyncConfigV1(requestParameters: SourcesApiPutSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttrSyncSourceConfig> {
             return localVarFp.putSourceAttrSyncConfigV1(requestParameters.id, requestParameters.attrSyncSourceConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+         * @summary Update source dataset (full)
+         * @param {SourcesApiPutSourceDatasetV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceDatasetV1(requestParameters: SourcesApiPutSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDataset> {
+            return localVarFp.putSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.sourceDataset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * @summary Update source resource (full)
+         * @param {SourcesApiPutSourceResourceV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceResourceV1(requestParameters: SourcesApiPutSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDatasetResource> {
+            return localVarFp.putSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.sourceDatasetResource, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
@@ -7557,6 +8887,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to selectively update an existing dataset using a JSONPatch payload.   `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. `id` is immutable. 
+         * @summary Update source dataset (partial)
+         * @param {SourcesApiUpdateSourceDatasetV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSourceDatasetV1(requestParameters: SourcesApiUpdateSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDataset> {
+            return localVarFp.updateSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
          * @summary Update source entitlement request configuration
          * @param {SourcesApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
@@ -7565,6 +8905,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         updateSourceEntitlementRequestConfigV1(requestParameters: SourcesApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceEntitlementRequestConfig> {
             return localVarFp.updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceEntitlementRequestConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to selectively update an existing resource using a JSONPatch payload.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * @summary Update source resource (partial)
+         * @param {SourcesApiUpdateSourceResourceV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSourceResourceV1(requestParameters: SourcesApiUpdateSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceDatasetResource> {
+            return localVarFp.updateSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to selectively update an existing Schedule using a JSONPatch payload.   The following schedule fields are immutable and cannot be updated:  - type 
@@ -7651,6 +9001,62 @@ export interface SourcesApiCreateProvisioningPolicyV2Request {
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof SourcesApiCreateProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for createSourceDatasetV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiCreateSourceDatasetV1Request
+ */
+export interface SourcesApiCreateSourceDatasetV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiCreateSourceDatasetV1
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {SourceDataset}
+     * @memberof SourcesApiCreateSourceDatasetV1
+     */
+    readonly sourceDataset: SourceDataset
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiCreateSourceDatasetV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for createSourceResourceV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiCreateSourceResourceV1Request
+ */
+export interface SourcesApiCreateSourceResourceV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiCreateSourceResourceV1
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {SourceDatasetResource}
+     * @memberof SourcesApiCreateSourceResourceV1
+     */
+    readonly sourceDatasetResource: SourceDatasetResource
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiCreateSourceResourceV1
      */
     readonly xSailPointExperimental?: string
 }
@@ -7791,6 +9197,90 @@ export interface SourcesApiDeleteProvisioningPolicyV2Request {
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof SourcesApiDeleteProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for deleteSourceDatasetObjectsV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteSourceDatasetObjectsV1Request
+ */
+export interface SourcesApiDeleteSourceDatasetObjectsV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceDatasetObjectsV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Dataset ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceDatasetObjectsV1
+     */
+    readonly datasetId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceDatasetObjectsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for deleteSourceDatasetV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteSourceDatasetV1Request
+ */
+export interface SourcesApiDeleteSourceDatasetV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceDatasetV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Dataset ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceDatasetV1
+     */
+    readonly datasetId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceDatasetV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for deleteSourceResourceV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteSourceResourceV1Request
+ */
+export interface SourcesApiDeleteSourceResourceV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceResourceV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Resource ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceResourceV1
+     */
+    readonly resourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceResourceV1
      */
     readonly xSailPointExperimental?: string
 }
@@ -8048,6 +9538,76 @@ export interface SourcesApiGetSourceConnectionsV1Request {
 }
 
 /**
+ * Request parameters for getSourceDatasetV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceDatasetV1Request
+ */
+export interface SourcesApiGetSourceDatasetV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceDatasetV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Dataset ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceDatasetV1
+     */
+    readonly datasetId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiGetSourceDatasetV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getSourceDatasetsV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceDatasetsV1Request
+ */
+export interface SourcesApiGetSourceDatasetsV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceDatasetsV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiGetSourceDatasetsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiGetSourceDatasetsV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SourcesApiGetSourceDatasetsV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiGetSourceDatasetsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for getSourceEntitlementRequestConfigV1 operation in SourcesApi.
  * @export
  * @interface SourcesApiGetSourceEntitlementRequestConfigV1Request
@@ -8073,6 +9633,97 @@ export interface SourcesApiGetSourceHealthV1Request {
      * @memberof SourcesApiGetSourceHealthV1
      */
     readonly sourceId: string
+}
+
+/**
+ * Request parameters for getSourceResourceMappingsV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceResourceMappingsV1Request
+ */
+export interface SourcesApiGetSourceResourceMappingsV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceMappingsV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceMappingsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getSourceResourceV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceResourceV1Request
+ */
+export interface SourcesApiGetSourceResourceV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Resource ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceV1
+     */
+    readonly resourceId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getSourceResourcesV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceResourcesV1Request
+ */
+export interface SourcesApiGetSourceResourcesV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourcesV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiGetSourceResourcesV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiGetSourceResourcesV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SourcesApiGetSourceResourcesV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourcesV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -8290,6 +9941,41 @@ export interface SourcesApiImportEntitlementsV1Request {
      * @memberof SourcesApiImportEntitlementsV1
      */
     readonly file?: File
+}
+
+/**
+ * Request parameters for importSourceDatasetV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiImportSourceDatasetV1Request
+ */
+export interface SourcesApiImportSourceDatasetV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiImportSourceDatasetV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Dataset ID.
+     * @type {string}
+     * @memberof SourcesApiImportSourceDatasetV1
+     */
+    readonly datasetId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiImportSourceDatasetV1
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * 
+     * @type {DatasetAggregationRequest}
+     * @memberof SourcesApiImportSourceDatasetV1
+     */
+    readonly datasetAggregationRequest?: DatasetAggregationRequest
 }
 
 /**
@@ -8622,6 +10308,76 @@ export interface SourcesApiPutSourceAttrSyncConfigV1Request {
 }
 
 /**
+ * Request parameters for putSourceDatasetV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiPutSourceDatasetV1Request
+ */
+export interface SourcesApiPutSourceDatasetV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiPutSourceDatasetV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Dataset ID.
+     * @type {string}
+     * @memberof SourcesApiPutSourceDatasetV1
+     */
+    readonly datasetId: string
+
+    /**
+     * 
+     * @type {SourceDataset}
+     * @memberof SourcesApiPutSourceDatasetV1
+     */
+    readonly sourceDataset: SourceDataset
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiPutSourceDatasetV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for putSourceResourceV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiPutSourceResourceV1Request
+ */
+export interface SourcesApiPutSourceResourceV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiPutSourceResourceV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Resource ID.
+     * @type {string}
+     * @memberof SourcesApiPutSourceResourceV1
+     */
+    readonly resourceId: string
+
+    /**
+     * 
+     * @type {SourceDatasetResource}
+     * @memberof SourcesApiPutSourceResourceV1
+     */
+    readonly sourceDatasetResource: SourceDatasetResource
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiPutSourceResourceV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for putSourceSchemaV1 operation in SourcesApi.
  * @export
  * @interface SourcesApiPutSourceSchemaV1Request
@@ -8888,6 +10644,41 @@ export interface SourcesApiUpdateProvisioningPolicyV2Request {
 }
 
 /**
+ * Request parameters for updateSourceDatasetV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUpdateSourceDatasetV1Request
+ */
+export interface SourcesApiUpdateSourceDatasetV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiUpdateSourceDatasetV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Dataset ID.
+     * @type {string}
+     * @memberof SourcesApiUpdateSourceDatasetV1
+     */
+    readonly datasetId: string
+
+    /**
+     * The JSONPatch payload used to update the dataset.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SourcesApiUpdateSourceDatasetV1
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiUpdateSourceDatasetV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for updateSourceEntitlementRequestConfigV1 operation in SourcesApi.
  * @export
  * @interface SourcesApiUpdateSourceEntitlementRequestConfigV1Request
@@ -8906,6 +10697,41 @@ export interface SourcesApiUpdateSourceEntitlementRequestConfigV1Request {
      * @memberof SourcesApiUpdateSourceEntitlementRequestConfigV1
      */
     readonly sourceEntitlementRequestConfig: SourceEntitlementRequestConfig
+}
+
+/**
+ * Request parameters for updateSourceResourceV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUpdateSourceResourceV1Request
+ */
+export interface SourcesApiUpdateSourceResourceV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiUpdateSourceResourceV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Resource ID.
+     * @type {string}
+     * @memberof SourcesApiUpdateSourceResourceV1
+     */
+    readonly resourceId: string
+
+    /**
+     * The JSONPatch payload used to update the resource.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SourcesApiUpdateSourceResourceV1
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiUpdateSourceResourceV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -9017,6 +10843,30 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
+     * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+     * @summary Create dataset on source
+     * @param {SourcesApiCreateSourceDatasetV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public createSourceDatasetV1(requestParameters: SourcesApiCreateSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSourceDatasetV1(requestParameters.sourceId, requestParameters.sourceDataset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+     * @summary Create resource on source
+     * @param {SourcesApiCreateSourceResourceV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public createSourceResourceV1(requestParameters: SourcesApiCreateSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSourceResourceV1(requestParameters.sourceId, requestParameters.sourceDatasetResource, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
      * @summary Create schedule on source
      * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
@@ -9098,6 +10948,42 @@ export class SourcesApi extends BaseAPI {
      */
     public deleteProvisioningPolicyV2(requestParameters: SourcesApiDeleteProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).deleteProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+     * @summary Delete objects for source dataset
+     * @param {SourcesApiDeleteSourceDatasetObjectsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public deleteSourceDatasetObjectsV1(requestParameters: SourcesApiDeleteSourceDatasetObjectsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceDatasetObjectsV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+     * @summary Delete source dataset by id
+     * @param {SourcesApiDeleteSourceDatasetV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public deleteSourceDatasetV1(requestParameters: SourcesApiDeleteSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+     * @summary Delete source resource by id
+     * @param {SourcesApiDeleteSourceResourceV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public deleteSourceResourceV1(requestParameters: SourcesApiDeleteSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9269,6 +11155,30 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
+     * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+     * @summary Get source dataset by id
+     * @param {SourcesApiGetSourceDatasetV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceDatasetV1(requestParameters: SourcesApiGetSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+     * @summary List datasets on source
+     * @param {SourcesApiGetSourceDatasetsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceDatasetsV1(requestParameters: SourcesApiGetSourceDatasetsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceDatasetsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
      * @summary Get source entitlement request configuration
      * @param {SourcesApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
@@ -9290,6 +11200,42 @@ export class SourcesApi extends BaseAPI {
      */
     public getSourceHealthV1(requestParameters: SourcesApiGetSourceHealthV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).getSourceHealthV1(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+     * @summary Get source resource mappings
+     * @param {SourcesApiGetSourceResourceMappingsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceResourceMappingsV1(requestParameters: SourcesApiGetSourceResourceMappingsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceResourceMappingsV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+     * @summary Get source resource by id
+     * @param {SourcesApiGetSourceResourceV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceResourceV1(requestParameters: SourcesApiGetSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+     * @summary List resources for a source
+     * @param {SourcesApiGetSourceResourcesV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceResourcesV1(requestParameters: SourcesApiGetSourceResourcesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceResourcesV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9410,6 +11356,18 @@ export class SourcesApi extends BaseAPI {
      */
     public importEntitlementsV1(requestParameters: SourcesApiImportEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).importEntitlementsV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+     * @summary Aggregate source dataset
+     * @param {SourcesApiImportSourceDatasetV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public importSourceDatasetV1(requestParameters: SourcesApiImportSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, requestParameters.datasetAggregationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9542,6 +11500,30 @@ export class SourcesApi extends BaseAPI {
      */
     public putSourceAttrSyncConfigV1(requestParameters: SourcesApiPutSourceAttrSyncConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).putSourceAttrSyncConfigV1(requestParameters.id, requestParameters.attrSyncSourceConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+     * @summary Update source dataset (full)
+     * @param {SourcesApiPutSourceDatasetV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public putSourceDatasetV1(requestParameters: SourcesApiPutSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.sourceDataset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+     * @summary Update source resource (full)
+     * @param {SourcesApiPutSourceResourceV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public putSourceResourceV1(requestParameters: SourcesApiPutSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.sourceDatasetResource, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9689,6 +11671,18 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
+     * Use this API to selectively update an existing dataset using a JSONPatch payload.   `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. `id` is immutable. 
+     * @summary Update source dataset (partial)
+     * @param {SourcesApiUpdateSourceDatasetV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public updateSourceDatasetV1(requestParameters: SourcesApiUpdateSourceDatasetV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
      * @summary Update source entitlement request configuration
      * @param {SourcesApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
@@ -9698,6 +11692,18 @@ export class SourcesApi extends BaseAPI {
      */
     public updateSourceEntitlementRequestConfigV1(requestParameters: SourcesApiUpdateSourceEntitlementRequestConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).updateSourceEntitlementRequestConfigV1(requestParameters.id, requestParameters.sourceEntitlementRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to selectively update an existing resource using a JSONPatch payload.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+     * @summary Update source resource (partial)
+     * @param {SourcesApiUpdateSourceResourceV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public updateSourceResourceV1(requestParameters: SourcesApiUpdateSourceResourceV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
