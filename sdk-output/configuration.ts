@@ -80,16 +80,21 @@ function isNodeRuntime(): boolean {
 }
 
 /**
- * Loads a Node module through an indirect require so that browser bundlers
- * never have to resolve Node built-ins. Returns undefined outside of Node.
+ * Loads a Node module lazily so that browser bundlers never have to resolve
+ * Node built-ins. Going through `module.require` rather than a bare `require`
+ * also keeps webpack from reporting it as a critical dependency. Returns
+ * undefined outside of Node.
  */
 function loadNodeModule(id: string): any {
   if (!isNodeRuntime()) {
     return undefined;
   }
   try {
-    const nodeRequire: any = require;
-    return nodeRequire(id);
+    const nodeRequire =
+      typeof module !== "undefined" && module.require
+        ? module.require.bind(module)
+        : undefined;
+    return nodeRequire ? nodeRequire(id) : undefined;
   } catch (error) {
     return undefined;
   }
