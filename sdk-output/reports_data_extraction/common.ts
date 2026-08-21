@@ -148,7 +148,9 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
             userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
         }
-        userAgent += ` (${process.platform}; ${process.arch}) Node/${process.versions.node} (openapi-generator/7.12.0)`;
+        userAgent += typeof process !== 'undefined' && process.versions?.node
+            ? ` (${process.platform}; ${process.arch}) Node/${process.versions.node} (openapi-generator/7.12.0)`
+            : ` (browser) (openapi-generator/7.12.0)`;
         const headers = {
             ...axiosArgs.axiosOptions.headers,
             ...{'X-SailPoint-SDK':'typescript-1.0.0'},
