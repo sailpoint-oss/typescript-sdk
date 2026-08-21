@@ -21,11 +21,50 @@
     "url": "https://github.com/sailpoint-oss/typescript-sdk/issues"
   },
   "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
   "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/esm/index.js",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./dist/*.js": "./dist/*.js",
+    "./dist/*.d.ts": "./dist/*.d.ts",
+    "./dist/*": {
+      "types": "./dist/*.d.ts",
+      "module": "./dist/esm/*.js",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "module": "./dist/esm/*.js",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "dist/*": [
+        "dist/*"
+      ],
+      "*": [
+        "dist/*"
+      ]
+    }
+  },
   "scripts": {
-    "build": "tsc --outDir dist/",
+    "build": "tsc --outDir dist/ && tsc -p tsconfig.esm.json",
     "prepare": "npm run build",
-    "test": "jest --ci"
+    "test": "jest --ci",
+    "build:cjs": "tsc --outDir dist/",
+    "build:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
     "axios": "^1.8.3",
@@ -62,5 +101,9 @@
       "<rootDir>/nermv2025/",
       "<rootDir>/dist/"
     ]
-  }
+  },
+  "sideEffects": [
+    "**/dist/index.js",
+    "**/dist/esm/index.js"
+  ]
 }

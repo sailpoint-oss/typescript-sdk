@@ -18,7 +18,8 @@
       "jest",
       "node"
     ],
-    "sourceMap": true
+    "sourceMap": true,
+    "inlineSources": true
   },
   "exclude": [
     "dist",
