@@ -267,9 +267,9 @@ export { axiosRetry };
 
 
 // --- SailPoint namespace (resource-named, all versions combined) ---
-// Emitted as an object literal rather than `export namespace` so that bundlers
-// can drop the unused partitions; a namespace compiles to an IIFE they cannot
-// tree-shake, which pulls every API class into the consumer's bundle.
+// Emitted as an object literal rather than a TypeScript namespace so that
+// bundlers can drop the unused partitions; a namespace compiles to an IIFE
+// they cannot tree-shake, which pulls every API class into the bundle.
 export const SailPoint = {
   AccessModelMetadataApi: _AccessModelMetadataApi,
   AccessProfilesApi: _AccessProfilesApi,
