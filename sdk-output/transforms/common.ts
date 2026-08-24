@@ -144,17 +144,21 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return async <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        let userAgent = `SailPoint-SDK-TypeScript/1.0.0`;
-        if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
-            userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
-        }
-        userAgent += typeof process !== 'undefined' && process.versions?.node
-            ? ` (${process.platform}; ${process.arch}) Node/${process.versions.node} (openapi-generator/7.12.0)`
-            : ` (browser) (openapi-generator/7.12.0)`;
-        const headers = {
+        const headers: Record<string, any> = {
             ...axiosArgs.axiosOptions.headers,
-            ...{'X-SailPoint-SDK':'typescript-1.0.0'},
-            ...{'User-Agent': userAgent},
+        }
+
+        // Node-only headers. Browsers reject a User-Agent override, and a custom
+        // header such as X-SailPoint-SDK forces a CORS preflight that tenants do
+        // not allow, which blocks the request outright.
+        if (typeof process !== 'undefined' && process.versions?.node) {
+            headers['X-SailPoint-SDK'] = 'typescript-1.0.0';
+            let userAgent = `SailPoint-SDK-TypeScript/1.0.0`;
+            if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
+                userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
+            }
+            userAgent += ` (${process.platform}; ${process.arch}) Node/${process.versions.node} (openapi-generator/7.12.0)`;
+            headers['User-Agent'] = userAgent;
         }
 
         if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
