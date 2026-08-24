@@ -144,10 +144,19 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return async <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        const headers = {
-            ...{'User-Agent':'OpenAPI-Generator/1.6.7/ts'}, 
+        const headers: Record<string, any> = {
             ...axiosArgs.axiosOptions.headers,
-            ...{'X-SailPoint-SDK':'typescript-1.6.7'}
+        }
+
+        // Node-only headers. Browsers reject a User-Agent override, and a custom
+        // header such as X-SailPoint-SDK forces a CORS preflight that tenants do
+        // not allow, which blocks the request outright.
+        if (typeof process !== 'undefined' && process.versions?.node) {
+            // the original spread let a caller-supplied User-Agent win
+            if (!('User-Agent' in headers)) {
+                headers['User-Agent'] = 'OpenAPI-Generator/1.6.7/ts';
+            }
+            headers['X-SailPoint-SDK'] = 'typescript-1.6.7';
         }
 
         axiosArgs.axiosOptions.headers = headers
