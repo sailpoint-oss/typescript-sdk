@@ -70,8 +70,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -108,8 +108,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -146,8 +146,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -185,9 +185,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { WorkItemForward } from 'sailpoint-api-client/dist/work_items/api';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { WorkItemForward } from '/api-client/dist/work_items/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -231,8 +231,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -271,8 +271,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -308,8 +308,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -345,8 +345,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -382,8 +382,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -422,8 +422,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -463,8 +463,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -501,8 +501,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);
@@ -539,8 +539,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkItemsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkItemsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkItemsApi(configuration);

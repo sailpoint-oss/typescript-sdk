@@ -74,9 +74,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PasswordDigitTokenReset } from 'sailpoint-api-client/dist/password_management/api';
+import { PasswordManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { PasswordDigitTokenReset } from '/api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
@@ -117,8 +117,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { PasswordManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
@@ -155,9 +155,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PasswordInfoQueryDTO } from 'sailpoint-api-client/dist/password_management/api';
+import { PasswordManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { PasswordInfoQueryDTO } from '/api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);
@@ -215,9 +215,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PasswordChangeRequest } from 'sailpoint-api-client/dist/password_management/api';
+import { PasswordManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { PasswordChangeRequest } from '/api-client/dist/password_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordManagementApi(configuration);

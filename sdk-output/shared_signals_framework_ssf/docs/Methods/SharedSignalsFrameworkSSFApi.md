@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreateStreamRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { CreateStreamRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -113,8 +113,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -147,8 +147,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -180,8 +180,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -216,8 +216,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -259,8 +259,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -296,9 +296,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { VerificationRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { VerificationRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -340,9 +340,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ReplaceStreamConfigurationRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { ReplaceStreamConfigurationRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -390,9 +390,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { UpdateStreamConfigurationRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { UpdateStreamConfigurationRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -437,9 +437,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SharedSignalsFrameworkSSFApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { UpdateStreamStatusRequest } from 'sailpoint-api-client/dist/shared_signals_framework_ssf/api';
+import { SharedSignalsFrameworkSSFApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { UpdateStreamStatusRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
 
 const configuration = new Configuration();
 const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);

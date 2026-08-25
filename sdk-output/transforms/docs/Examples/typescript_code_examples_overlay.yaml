@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#create-transform-v1
       source: |
-        import { TransformsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Transform } from 'sailpoint-api-client/dist/transforms/api';
+        import { TransformsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Transform } from '/api-client/dist/transforms/api';
 
         const configuration = new Configuration();
         const apiInstance = new TransformsApi(configuration);
@@ -23,8 +23,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#delete-transform-v1
       source: |
-        import { TransformsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { TransformsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TransformsApi(configuration);
@@ -37,8 +37,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#get-transform-v1
       source: |
-        import { TransformsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { TransformsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TransformsApi(configuration);
@@ -51,8 +51,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#list-transforms-v1
       source: |
-        import { TransformsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { TransformsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TransformsApi(configuration);
@@ -69,9 +69,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/transforms/methods/transforms#update-transform-v1
       source: |
-        import { TransformsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Transform } from 'sailpoint-api-client/dist/transforms/api';
+        import { TransformsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Transform } from '/api-client/dist/transforms/api';
 
         const configuration = new Configuration();
         const apiInstance = new TransformsApi(configuration);

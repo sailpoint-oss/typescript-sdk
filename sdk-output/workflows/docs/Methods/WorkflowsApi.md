@@ -62,8 +62,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -100,9 +100,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreateExternalExecuteWorkflowV1Request } from 'sailpoint-api-client/dist/workflows/api';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { CreateExternalExecuteWorkflowV1Request } from '/api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -139,8 +139,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -176,9 +176,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreateWorkflowV1Request } from 'sailpoint-api-client/dist/workflows/api';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { CreateWorkflowV1Request } from '/api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -214,8 +214,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -253,8 +253,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -292,8 +292,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -329,8 +329,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -382,8 +382,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -422,8 +422,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -460,8 +460,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -500,8 +500,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -536,8 +536,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -574,8 +574,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -610,8 +610,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -647,9 +647,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/workflows/api';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperation } from '/api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -691,9 +691,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { WorkflowBody } from 'sailpoint-api-client/dist/workflows/api';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { WorkflowBody } from '/api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -765,9 +765,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { TestExternalExecuteWorkflowV1Request } from 'sailpoint-api-client/dist/workflows/api';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { TestExternalExecuteWorkflowV1Request } from '/api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
@@ -816,9 +816,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkflowsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { TestWorkflowV1Request } from 'sailpoint-api-client/dist/workflows/api';
+import { WorkflowsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { TestWorkflowV1Request } from '/api-client/dist/workflows/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);

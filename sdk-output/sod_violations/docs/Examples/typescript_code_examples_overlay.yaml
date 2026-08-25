@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#get-violation-v1
       source: |
-        import { SODViolationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODViolationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODViolationsApi(configuration);
@@ -19,8 +19,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#list-my-violations-v1
       source: |
-        import { SODViolationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODViolationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODViolationsApi(configuration);
@@ -38,8 +38,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#list-violations-v1
       source: |
-        import { SODViolationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODViolationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODViolationsApi(configuration);
@@ -57,9 +57,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#move-violation-v1
       source: |
-        import { SODViolationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Violationreassigninput } from 'sailpoint-api-client/dist/sod_violations/api';
+        import { SODViolationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Violationreassigninput } from '/api-client/dist/sod_violations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODViolationsApi(configuration);
@@ -80,9 +80,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#start-apply-control-v1
       source: |
-        import { SODViolationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Appliedcontrolcreate } from 'sailpoint-api-client/dist/sod_violations/api';
+        import { SODViolationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Appliedcontrolcreate } from '/api-client/dist/sod_violations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODViolationsApi(configuration);
@@ -100,9 +100,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#start-predict-sod-violations-v1
       source: |
-        import { SODViolationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { IdentityWithNewAccess } from 'sailpoint-api-client/dist/sod_violations/api';
+        import { SODViolationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { IdentityWithNewAccess } from '/api-client/dist/sod_violations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODViolationsApi(configuration);
@@ -124,9 +124,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_violations/methods/sod-violations#start-violation-check-v1
       source: |
-        import { SODViolationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { IdentityWithNewAccess } from 'sailpoint-api-client/dist/sod_violations/api';
+        import { SODViolationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { IdentityWithNewAccess } from '/api-client/dist/sod_violations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODViolationsApi(configuration);

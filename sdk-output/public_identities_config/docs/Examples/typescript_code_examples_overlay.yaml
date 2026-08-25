@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/public_identities_config/methods/public-identities-config#get-public-identity-config-v1
       source: |
-        import { PublicIdentitiesConfigApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PublicIdentitiesConfigApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PublicIdentitiesConfigApi(configuration);
@@ -17,9 +17,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/public_identities_config/methods/public-identities-config#update-public-identity-config-v1
       source: |
-        import { PublicIdentitiesConfigApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { PublicIdentityConfig } from 'sailpoint-api-client/dist/public_identities_config/api';
+        import { PublicIdentitiesConfigApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { PublicIdentityConfig } from '/api-client/dist/public_identities_config/api';
 
         const configuration = new Configuration();
         const apiInstance = new PublicIdentitiesConfigApi(configuration);

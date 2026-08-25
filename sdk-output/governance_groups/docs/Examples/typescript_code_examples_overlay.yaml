@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#create-workgroup-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { WorkgroupDto } from 'sailpoint-api-client/dist/governance_groups/api';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { WorkgroupDto } from '/api-client/dist/governance_groups/api';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -34,9 +34,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#delete-workgroup-members-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkWorkgroupMembersRequestInner } from 'sailpoint-api-client/dist/governance_groups/api';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkWorkgroupMembersRequestInner } from '/api-client/dist/governance_groups/api';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -50,8 +50,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#delete-workgroup-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -64,9 +64,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#delete-workgroups-in-bulk-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { WorkgroupBulkDeleteRequest } from 'sailpoint-api-client/dist/governance_groups/api';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { WorkgroupBulkDeleteRequest } from '/api-client/dist/governance_groups/api';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -81,8 +81,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#get-workgroup-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -95,8 +95,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#list-connections-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -113,8 +113,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#list-workgroup-members-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -131,8 +131,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#list-workgroups-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -149,9 +149,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#patch-workgroup-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/governance_groups/api';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/governance_groups/api';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);
@@ -169,9 +169,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/governance_groups/methods/governance-groups#update-workgroup-members-v1
       source: |
-        import { GovernanceGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkWorkgroupMembersRequestInner } from 'sailpoint-api-client/dist/governance_groups/api';
+        import { GovernanceGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkWorkgroupMembersRequestInner } from '/api-client/dist/governance_groups/api';
 
         const configuration = new Configuration();
         const apiInstance = new GovernanceGroupsApi(configuration);

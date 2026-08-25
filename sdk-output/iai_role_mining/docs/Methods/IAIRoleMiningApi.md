@@ -75,9 +75,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { RoleMiningPotentialRoleProvisionRequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { RoleMiningPotentialRoleProvisionRequest } from '/api-client/dist/iai_role_mining/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -128,9 +128,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { RoleMiningSessionDto } from 'sailpoint-api-client/dist/iai_role_mining/api';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { RoleMiningSessionDto } from '/api-client/dist/iai_role_mining/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -204,8 +204,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -250,9 +250,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { RoleMiningPotentialRoleExportRequest } from 'sailpoint-api-client/dist/iai_role_mining/api';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { RoleMiningPotentialRoleExportRequest } from '/api-client/dist/iai_role_mining/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -300,8 +300,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -345,8 +345,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -392,8 +392,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -440,8 +440,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -491,8 +491,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -546,8 +546,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -600,8 +600,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -653,8 +653,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -705,8 +705,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -757,8 +757,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -809,8 +809,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -857,8 +857,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -900,8 +900,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -942,8 +942,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -984,8 +984,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -1030,8 +1030,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -1079,8 +1079,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -1138,9 +1138,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperationRoleMining } from 'sailpoint-api-client/dist/iai_role_mining/api';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperationRoleMining } from '/api-client/dist/iai_role_mining/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -1201,9 +1201,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperationRoleMining } from 'sailpoint-api-client/dist/iai_role_mining/api';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperationRoleMining } from '/api-client/dist/iai_role_mining/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -1251,9 +1251,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/iai_role_mining/api';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperation } from '/api-client/dist/iai_role_mining/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);
@@ -1301,9 +1301,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRoleMiningApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { RoleMiningPotentialRoleEditEntitlements } from 'sailpoint-api-client/dist/iai_role_mining/api';
+import { IAIRoleMiningApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { RoleMiningPotentialRoleEditEntitlements } from '/api-client/dist/iai_role_mining/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRoleMiningApi(configuration);

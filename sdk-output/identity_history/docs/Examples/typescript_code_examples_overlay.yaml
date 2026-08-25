@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#compare-identity-snapshots-access-type-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -26,8 +26,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#compare-identity-snapshots-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -47,8 +47,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#get-historical-identity-events-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -68,8 +68,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#get-historical-identity-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -83,8 +83,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#get-identity-snapshot-summary-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -104,8 +104,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#get-identity-snapshot-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -120,8 +120,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#get-identity-start-date-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -135,8 +135,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#list-historical-identities-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -154,8 +154,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#list-identity-access-items-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -173,8 +173,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#list-identity-snapshot-access-items-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);
@@ -190,8 +190,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_history/methods/identity-history#list-identity-snapshots-v1
       source: |
-        import { IdentityHistoryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityHistoryApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityHistoryApi(configuration);

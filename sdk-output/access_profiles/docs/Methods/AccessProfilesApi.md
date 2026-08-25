@@ -88,9 +88,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AccessProfile } from 'sailpoint-api-client/dist/access_profiles/api';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { AccessProfile } from '/api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
@@ -246,8 +246,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
@@ -287,9 +287,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AccessProfileBulkDeleteRequest } from 'sailpoint-api-client/dist/access_profiles/api';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { AccessProfileBulkDeleteRequest } from '/api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
@@ -335,8 +335,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
@@ -378,8 +378,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
@@ -423,8 +423,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
@@ -501,9 +501,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/access_profiles/api';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperation } from '/api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
@@ -550,9 +550,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessProfilesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AccessProfileBulkUpdateRequestInner } from 'sailpoint-api-client/dist/access_profiles/api';
+import { AccessProfilesApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { AccessProfileBulkUpdateRequestInner } from '/api-client/dist/access_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);

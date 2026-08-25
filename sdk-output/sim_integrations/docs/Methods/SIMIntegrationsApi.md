@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SIMIntegrationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SimIntegrationDetails } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { SIMIntegrationsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { SimIntegrationDetails } from '/api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
@@ -120,8 +120,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SIMIntegrationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SIMIntegrationsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
@@ -162,8 +162,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SIMIntegrationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SIMIntegrationsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
@@ -203,8 +203,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SIMIntegrationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SIMIntegrationsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
@@ -245,9 +245,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SIMIntegrationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatch } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { SIMIntegrationsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatch } from '/api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
@@ -300,9 +300,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SIMIntegrationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatch } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { SIMIntegrationsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatch } from '/api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);
@@ -355,9 +355,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SIMIntegrationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SimIntegrationDetails } from 'sailpoint-api-client/dist/sim_integrations/api';
+import { SIMIntegrationsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { SimIntegrationDetails } from '/api-client/dist/sim_integrations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SIMIntegrationsApi(configuration);

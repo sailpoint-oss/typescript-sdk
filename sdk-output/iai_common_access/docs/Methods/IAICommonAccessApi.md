@@ -49,9 +49,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAICommonAccessApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CommonAccessItemRequest } from 'sailpoint-api-client/dist/iai_common_access/api';
+import { IAICommonAccessApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { CommonAccessItemRequest } from '/api-client/dist/iai_common_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAICommonAccessApi(configuration);
@@ -106,8 +106,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAICommonAccessApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAICommonAccessApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAICommonAccessApi(configuration);
@@ -152,9 +152,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAICommonAccessApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CommonAccessIDStatus } from 'sailpoint-api-client/dist/iai_common_access/api';
+import { IAICommonAccessApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { CommonAccessIDStatus } from '/api-client/dist/iai_common_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAICommonAccessApi(configuration);

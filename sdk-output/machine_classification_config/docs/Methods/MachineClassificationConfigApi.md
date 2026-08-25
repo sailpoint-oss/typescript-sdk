@@ -50,8 +50,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineClassificationConfigApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineClassificationConfigApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineClassificationConfigApi(configuration);
@@ -92,8 +92,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineClassificationConfigApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineClassificationConfigApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineClassificationConfigApi(configuration);
@@ -135,9 +135,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineClassificationConfigApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { MachineClassificationConfig } from 'sailpoint-api-client/dist/machine_classification_config/api';
+import { MachineClassificationConfigApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { MachineClassificationConfig } from '/api-client/dist/machine_classification_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineClassificationConfigApi(configuration);

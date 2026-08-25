@@ -52,9 +52,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TransformsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Transform } from 'sailpoint-api-client/dist/transforms/api';
+import { TransformsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { Transform } from '/api-client/dist/transforms/api';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);
@@ -94,8 +94,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TransformsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TransformsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);
@@ -131,8 +131,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TransformsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TransformsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);
@@ -172,8 +172,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TransformsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TransformsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);
@@ -214,9 +214,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TransformsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Transform } from 'sailpoint-api-client/dist/transforms/api';
+import { TransformsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { Transform } from '/api-client/dist/transforms/api';
 
 const configuration = new Configuration();
 const apiInstance = new TransformsApi(configuration);

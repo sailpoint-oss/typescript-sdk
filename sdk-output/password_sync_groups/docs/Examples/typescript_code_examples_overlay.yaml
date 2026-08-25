@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#create-password-sync-group-v1
       source: |
-        import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { PasswordSyncGroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
+        import { PasswordSyncGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { PasswordSyncGroup } from '/api-client/dist/password_sync_groups/api';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -26,8 +26,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#delete-password-sync-group-v1
       source: |
-        import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PasswordSyncGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -40,8 +40,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#get-password-sync-group-v1
       source: |
-        import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PasswordSyncGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -54,8 +54,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#get-password-sync-groups-v1
       source: |
-        import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PasswordSyncGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -70,9 +70,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_sync_groups/methods/password-sync-groups#update-password-sync-group-v1
       source: |
-        import { PasswordSyncGroupsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { PasswordSyncGroup } from 'sailpoint-api-client/dist/password_sync_groups/api';
+        import { PasswordSyncGroupsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { PasswordSyncGroup } from '/api-client/dist/password_sync_groups/api';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordSyncGroupsApi(configuration);

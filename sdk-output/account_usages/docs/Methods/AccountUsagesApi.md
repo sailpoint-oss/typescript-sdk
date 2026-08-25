@@ -50,8 +50,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountUsagesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccountUsagesApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountUsagesApi(configuration);

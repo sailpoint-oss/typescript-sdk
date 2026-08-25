@@ -50,7 +50,7 @@ const JAR          = path.join(SDK_ROOT, "openapi-generator-cli.jar");
 const POSTSCRIPT   = path.join(__dirname, "postscript.js");
 const TEMPLATE_DIR = path.join(__dirname, "resources");
 
-const NPM_NAME     = "sailpoint-api-client";
+const NPM_NAME     = "@sailpoint/api-client";
 const NPM_VERSION  = "1.0.0";
 const API_VERSION  = "v1";
 
@@ -601,7 +601,7 @@ node sdk-resources/build-versioned-sdk.js <path-to-apis>
 // TS2308 note: export * across 100+ partitions collides on shared error model
 // names (Redocly inlines them into every partition).  Only API classes are
 // exported from the root — models are imported directly from sub-paths:
-//   import type { AccountV1 } from "sailpoint-api-client/accounts_v1/api"
+//   import type { AccountV1 } from "@sailpoint/api-client/accounts_v1/api"
 // ---------------------------------------------------------------------------
 
 /**
@@ -710,18 +710,18 @@ function generateIndexTs() {
 //
 // Named imports — version-explicit class names (preferred in the browser:
 // bundlers can drop every partition you do not import):
-//   import { AccountsApi, Configuration } from "sailpoint-api-client"
+//   import { AccountsApi, Configuration } from "@sailpoint/api-client"
 //
 // Namespace — resource-named, version-agnostic. Convenient in Node, but it is
 // one object holding every API class, so referencing it puts all of them in a
 // browser bundle:
-//   import { SailPoint, Configuration } from "sailpoint-api-client"
+//   import { SailPoint, Configuration } from "@sailpoint/api-client"
 //   const api = new SailPoint.AccountsApi(config)
 //   api.listAccountsV1(...)                          // method name shows version
 //   api.listAccountsV2(...)                          // when v2 partition lands
 //
 // Models — import directly from the partition sub-path:
-//   import type { AccountV1 } from "sailpoint-api-client/accounts/api"
+//   import type { AccountV1 } from "@sailpoint/api-client/accounts/api"
 
 // --- Partition imports (private _ alias avoids TS1194 / TS2303 in namespace) ---
 ${importLines.join("\n")}

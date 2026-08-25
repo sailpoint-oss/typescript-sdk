@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_summaries/methods/certification-summaries#get-identity-access-summaries-v1
       source: |
-        import { CertificationSummariesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationSummariesApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationSummariesApi(configuration);
@@ -24,8 +24,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_summaries/methods/certification-summaries#get-identity-decision-summary-v1
       source: |
-        import { CertificationSummariesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationSummariesApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationSummariesApi(configuration);
@@ -39,8 +39,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_summaries/methods/certification-summaries#get-identity-summaries-v1
       source: |
-        import { CertificationSummariesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationSummariesApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationSummariesApi(configuration);
@@ -58,8 +58,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_summaries/methods/certification-summaries#get-identity-summary-v1
       source: |
-        import { CertificationSummariesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationSummariesApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationSummariesApi(configuration);

@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#create-custom-user-level-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { UserLevelRequest } from 'sailpoint-api-client/dist/custom_user_levels/api';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { UserLevelRequest } from '/api-client/dist/custom_user_levels/api';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -46,8 +46,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#delete-user-level-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -61,8 +61,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#get-user-level-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -76,8 +76,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#list-all-authorization-right-sets-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -94,8 +94,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#list-user-level-identities-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -113,8 +113,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#list-user-levels-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -132,8 +132,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#publish-custom-user-level-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -147,8 +147,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#show-user-level-counts-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);
@@ -162,9 +162,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_user_levels/methods/custom-user-levels#update-user-level-v1
       source: |
-        import { CustomUserLevelsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatch } from 'sailpoint-api-client/dist/custom_user_levels/api';
+        import { CustomUserLevelsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatch } from '/api-client/dist/custom_user_levels/api';
 
         const configuration = new Configuration();
         const apiInstance = new CustomUserLevelsApi(configuration);

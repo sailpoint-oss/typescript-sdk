@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/source_usages/methods/source-usages#get-status-by-source-id-v1
       source: |
-        import { SourceUsagesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SourceUsagesApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourceUsagesApi(configuration);
@@ -18,8 +18,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/source_usages/methods/source-usages#get-usages-by-source-id-v1
       source: |
-        import { SourceUsagesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SourceUsagesApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourceUsagesApi(configuration);

@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/auth_profile/methods/auth-profile#get-profile-config-list-v1
       source: |
-        import { AuthProfileApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AuthProfileApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AuthProfileApi(configuration);
@@ -17,8 +17,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/auth_profile/methods/auth-profile#get-profile-config-v1
       source: |
-        import { AuthProfileApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AuthProfileApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AuthProfileApi(configuration);
@@ -31,9 +31,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/auth_profile/methods/auth-profile#patch-profile-config-v1
       source: |
-        import { AuthProfileApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/auth_profile/api';
+        import { AuthProfileApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/auth_profile/api';
 
         const configuration = new Configuration();
         const apiInstance = new AuthProfileApi(configuration);

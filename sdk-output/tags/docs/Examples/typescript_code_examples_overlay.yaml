@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tags/methods/tags#create-tag-v1
       source: |
-        import { TagsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Tag2 } from 'sailpoint-api-client/dist/tags/api';
+        import { TagsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Tag2 } from '/api-client/dist/tags/api';
 
         const configuration = new Configuration();
         const apiInstance = new TagsApi(configuration);
@@ -19,8 +19,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tags/methods/tags#delete-tag-by-id-v1
       source: |
-        import { TagsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { TagsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TagsApi(configuration);
@@ -33,8 +33,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tags/methods/tags#get-tag-by-id-v1
       source: |
-        import { TagsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { TagsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TagsApi(configuration);
@@ -47,8 +47,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tags/methods/tags#list-tags-v1
       source: |
-        import { TagsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { TagsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TagsApi(configuration);

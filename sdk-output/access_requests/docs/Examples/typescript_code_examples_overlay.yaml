@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#approve-bulk-access-request-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkApproveAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkApproveAccessRequest } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -22,9 +22,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#cancel-access-request-in-bulk-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkCancelAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkCancelAccessRequest } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -40,9 +40,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#cancel-access-request-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CancelAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { CancelAccessRequest } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -58,9 +58,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#close-access-request-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CloseAccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { CloseAccessRequest } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -78,9 +78,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#create-access-request-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AccessRequest } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { AccessRequest } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -260,8 +260,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#get-access-request-config-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -273,8 +273,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#get-access-request-config-v2
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -286,8 +286,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#get-entitlement-details-for-identity-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -301,8 +301,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#list-access-request-status-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -324,8 +324,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#list-administrators-access-request-status-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -348,9 +348,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#load-account-selections-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AccountsSelectionRequest } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { AccountsSelectionRequest } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -570,9 +570,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#set-access-request-config-v1
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AccessRequestConfig } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { AccessRequestConfig } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
@@ -635,9 +635,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_requests/methods/access-requests#set-access-request-config-v2
       source: |
-        import { AccessRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AccessRequestConfig2 } from 'sailpoint-api-client/dist/access_requests/api';
+        import { AccessRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { AccessRequestConfig2 } from '/api-client/dist/access_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);

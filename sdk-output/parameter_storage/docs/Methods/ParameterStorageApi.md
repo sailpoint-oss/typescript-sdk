@@ -67,9 +67,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ParameterStorageNewParameter } from 'sailpoint-api-client/dist/parameter_storage/api';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { ParameterStorageNewParameter } from '/api-client/dist/parameter_storage/api';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -112,8 +112,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -149,8 +149,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -189,8 +189,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -232,8 +232,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -269,8 +269,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -309,8 +309,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);
@@ -350,9 +350,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ParameterStorageApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ParameterStorageUpdateParameter } from 'sailpoint-api-client/dist/parameter_storage/api';
+import { ParameterStorageApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { ParameterStorageUpdateParameter } from '/api-client/dist/parameter_storage/api';
 
 const configuration = new Configuration();
 const apiInstance = new ParameterStorageApi(configuration);

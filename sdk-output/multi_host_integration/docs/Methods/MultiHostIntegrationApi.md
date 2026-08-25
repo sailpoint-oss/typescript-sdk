@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { MultiHostIntegrationsCreate } from 'sailpoint-api-client/dist/multi_host_integration/api';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { MultiHostIntegrationsCreate } from '/api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -127,9 +127,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { MultiHostIntegrationsCreateSources } from 'sailpoint-api-client/dist/multi_host_integration/api';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { MultiHostIntegrationsCreateSources } from '/api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -180,8 +180,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -220,8 +220,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -260,8 +260,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -303,8 +303,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -349,8 +349,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -393,8 +393,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -432,8 +432,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -468,8 +468,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -511,8 +511,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -555,8 +555,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -595,8 +595,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);
@@ -636,9 +636,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MultiHostIntegrationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { UpdateMultiHostSourcesV1RequestInner } from 'sailpoint-api-client/dist/multi_host_integration/api';
+import { MultiHostIntegrationApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { UpdateMultiHostSourcesV1RequestInner } from '/api-client/dist/multi_host_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MultiHostIntegrationApi(configuration);

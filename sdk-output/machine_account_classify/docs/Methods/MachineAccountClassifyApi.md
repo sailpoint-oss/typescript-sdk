@@ -49,8 +49,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountClassifyApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountClassifyApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountClassifyApi(configuration);

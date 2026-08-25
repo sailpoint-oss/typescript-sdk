@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreatePrivilegeCriteriaRequest } from 'sailpoint-api-client/dist/privilege_criteria/api';
+import { PrivilegeCriteriaApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { CreatePrivilegeCriteriaRequest } from '/api-client/dist/privilege_criteria/api';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);
@@ -118,8 +118,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { PrivilegeCriteriaApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);
@@ -155,8 +155,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { PrivilegeCriteriaApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);
@@ -192,8 +192,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { PrivilegeCriteriaApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);
@@ -230,9 +230,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PrivilegeCriteriaDTO } from 'sailpoint-api-client/dist/privilege_criteria/api';
+import { PrivilegeCriteriaApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { PrivilegeCriteriaDTO } from '/api-client/dist/privilege_criteria/api';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaApi(configuration);

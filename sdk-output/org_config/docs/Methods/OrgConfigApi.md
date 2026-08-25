@@ -44,8 +44,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { OrgConfigApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { OrgConfigApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new OrgConfigApi(configuration);
@@ -82,8 +82,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { OrgConfigApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { OrgConfigApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new OrgConfigApi(configuration);
@@ -121,9 +121,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { OrgConfigApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/org_config/api';
+import { OrgConfigApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperation } from '/api-client/dist/org_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new OrgConfigApi(configuration);

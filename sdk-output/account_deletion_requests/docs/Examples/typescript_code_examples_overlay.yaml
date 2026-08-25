@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_deletion_requests/methods/account-deletion-requests#delete-account-request-v1
       source: |
-        import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AccountDeleteRequestInput } from 'sailpoint-api-client/dist/account_deletion_requests/api';
+        import { AccountDeletionRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { AccountDeleteRequestInput } from '/api-client/dist/account_deletion_requests/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountDeletionRequestsApi(configuration);
@@ -22,8 +22,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_deletion_requests/methods/account-deletion-requests#get-account-deletion-requests-v1
       source: |
-        import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccountDeletionRequestsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountDeletionRequestsApi(configuration);

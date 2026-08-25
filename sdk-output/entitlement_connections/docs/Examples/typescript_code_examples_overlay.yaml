@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlement_connections/methods/entitlement-connections#list-entitlement-connections-for-current-identity-v1
       source: |
-        import { EntitlementConnectionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementConnectionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -23,8 +23,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlement_connections/methods/entitlement-connections#list-entitlement-connections-v1
       source: |
-        import { EntitlementConnectionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementConnectionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -42,9 +42,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlement_connections/methods/entitlement-connections#patch-entitlement-connection-by-id-v1
       source: |
-        import { EntitlementConnectionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/entitlement_connections/api';
+        import { EntitlementConnectionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/entitlement_connections/api';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -62,9 +62,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlement_connections/methods/entitlement-connections#patch-entitlement-connection-by-query-v1
       source: |
-        import { EntitlementConnectionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/entitlement_connections/api';
+        import { EntitlementConnectionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/entitlement_connections/api';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -84,9 +84,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlement_connections/methods/entitlement-connections#update-entitlement-connections-bulk-v1
       source: |
-        import { EntitlementConnectionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { EntitlementConnectionBulkUpdateItem } from 'sailpoint-api-client/dist/entitlement_connections/api';
+        import { EntitlementConnectionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { EntitlementConnectionBulkUpdateItem } from '/api-client/dist/entitlement_connections/api';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementConnectionsApi(configuration);

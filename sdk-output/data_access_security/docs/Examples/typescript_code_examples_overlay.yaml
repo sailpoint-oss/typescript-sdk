@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#cancel-task-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -18,9 +18,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#create-application-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BaseCreateApplicationRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BaseCreateApplicationRequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -79,9 +79,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#create-identity-collector-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Createidentitycollectorrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Createidentitycollectorrequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -97,9 +97,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#create-schedule-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CreateScheduleRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { CreateScheduleRequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -123,9 +123,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-assign-post
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AssignResourceOwnerRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { AssignResourceOwnerRequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -142,8 +142,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-owner-identity-id-resources-get
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -158,9 +158,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-reelect-post
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ReelectRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ReelectRequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -177,8 +177,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-resources-resource-id-get
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -193,8 +193,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#das-v1-owners-source-identity-id-reassign-destination-identity-id-post
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -208,8 +208,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-application-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -222,8 +222,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-identity-collector-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -236,8 +236,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-schedule-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -250,8 +250,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-task-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -264,8 +264,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-application-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -278,8 +278,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-applications-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -295,8 +295,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-owners-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -311,8 +311,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-schedule-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -325,8 +325,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-schedules-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -342,8 +342,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-task-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -356,8 +356,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-tasks-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -373,8 +373,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#list-identity-collectors-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -390,9 +390,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#put-application-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BaseCreateApplicationRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BaseCreateApplicationRequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -452,9 +452,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#put-identity-collector-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Updateidentitycollectorrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Updateidentitycollectorrequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -472,9 +472,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#put-schedule-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { UpdateScheduleRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { UpdateScheduleRequest } from '/api-client/dist/data_access_security/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
@@ -499,8 +499,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#start-task-rerun-v1
       source: |
-        import { DataAccessSecurityApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DataAccessSecurityApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);

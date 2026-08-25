@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/oauth_clients/methods/o-auth-clients#create-oauth-client-v1
       source: |
-        import { OAuthClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CreateOAuthClientRequest } from 'sailpoint-api-client/dist/oauth_clients/api';
+        import { OAuthClientsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { CreateOAuthClientRequest } from '/api-client/dist/oauth_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new OAuthClientsApi(configuration);
@@ -35,8 +35,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/oauth_clients/methods/o-auth-clients#delete-oauth-client-v1
       source: |
-        import { OAuthClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { OAuthClientsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new OAuthClientsApi(configuration);
@@ -49,8 +49,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/oauth_clients/methods/o-auth-clients#get-oauth-client-v1
       source: |
-        import { OAuthClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { OAuthClientsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new OAuthClientsApi(configuration);
@@ -63,8 +63,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/oauth_clients/methods/o-auth-clients#list-oauth-clients-v1
       source: |
-        import { OAuthClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { OAuthClientsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new OAuthClientsApi(configuration);
@@ -77,9 +77,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/oauth_clients/methods/o-auth-clients#patch-oauth-client-v1
       source: |
-        import { OAuthClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/oauth_clients/api';
+        import { OAuthClientsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/oauth_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new OAuthClientsApi(configuration);

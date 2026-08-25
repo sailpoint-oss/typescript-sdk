@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/segments/methods/segments#create-segment-v1
       source: |
-        import { SegmentsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Segment } from 'sailpoint-api-client/dist/segments/api';
+        import { SegmentsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Segment } from '/api-client/dist/segments/api';
 
         const configuration = new Configuration();
         const apiInstance = new SegmentsApi(configuration);
@@ -42,8 +42,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/segments/methods/segments#delete-segment-v1
       source: |
-        import { SegmentsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SegmentsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SegmentsApi(configuration);
@@ -56,8 +56,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/segments/methods/segments#get-segment-v1
       source: |
-        import { SegmentsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SegmentsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SegmentsApi(configuration);
@@ -70,8 +70,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/segments/methods/segments#list-segments-v1
       source: |
-        import { SegmentsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SegmentsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SegmentsApi(configuration);
@@ -86,8 +86,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/segments/methods/segments#patch-segment-v1
       source: |
-        import { SegmentsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SegmentsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SegmentsApi(configuration);

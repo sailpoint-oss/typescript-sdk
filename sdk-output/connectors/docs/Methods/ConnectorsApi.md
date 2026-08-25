@@ -69,9 +69,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { V3CreateConnectorDto } from 'sailpoint-api-client/dist/connectors/api';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { V3CreateConnectorDto } from '/api-client/dist/connectors/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -113,8 +113,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -150,8 +150,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -191,8 +191,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -232,8 +232,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -269,8 +269,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -307,8 +307,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -346,8 +346,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -385,8 +385,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -424,8 +424,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -463,8 +463,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -502,8 +502,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);
@@ -553,9 +553,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/connectors/api';
+import { ConnectorsApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperation } from '/api-client/dist/connectors/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorsApi(configuration);

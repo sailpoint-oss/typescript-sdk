@@ -59,8 +59,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BrandingApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { BrandingApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new BrandingApi(configuration);
@@ -103,8 +103,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BrandingApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { BrandingApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new BrandingApi(configuration);
@@ -137,8 +137,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { BrandingApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { BrandingApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new BrandingApi(configuration);
@@ -173,8 +173,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BrandingApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { BrandingApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new BrandingApi(configuration);
@@ -218,8 +218,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BrandingApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { BrandingApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new BrandingApi(configuration);

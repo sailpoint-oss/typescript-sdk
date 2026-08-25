@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/public_machine_identities/methods/public-machine-identities#list-public-machine-identities-v1
       source: |
-        import { PublicMachineIdentitiesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PublicMachineIdentitiesApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PublicMachineIdentitiesApi(configuration);

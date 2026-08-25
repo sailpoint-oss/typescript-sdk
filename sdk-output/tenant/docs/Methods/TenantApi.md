@@ -40,8 +40,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { TenantApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TenantApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TenantApi(configuration);

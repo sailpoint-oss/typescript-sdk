@@ -46,8 +46,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { MFAConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MFAConfigurationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
@@ -82,8 +82,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MFAConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MFAConfigurationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
@@ -116,8 +116,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { MFAConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MFAConfigurationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
@@ -152,9 +152,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MFAConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { MfaDuoConfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
+import { MFAConfigurationApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { MfaDuoConfig } from '/api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
@@ -200,9 +200,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MFAConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { KbaAnswerRequestItem } from 'sailpoint-api-client/dist/mfa_configuration/api';
+import { MFAConfigurationApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { KbaAnswerRequestItem } from '/api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
@@ -241,9 +241,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MFAConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { MfaOktaConfig } from 'sailpoint-api-client/dist/mfa_configuration/api';
+import { MFAConfigurationApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { MfaOktaConfig } from '/api-client/dist/mfa_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);
@@ -285,8 +285,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MFAConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MFAConfigurationApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MFAConfigurationApi(configuration);

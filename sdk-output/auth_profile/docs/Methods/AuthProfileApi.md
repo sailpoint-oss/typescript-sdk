@@ -48,8 +48,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { AuthProfileApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AuthProfileApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AuthProfileApi(configuration);
@@ -84,8 +84,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AuthProfileApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AuthProfileApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AuthProfileApi(configuration);
@@ -123,9 +123,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AuthProfileApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/auth_profile/api';
+import { AuthProfileApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperation } from '/api-client/dist/auth_profile/api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthProfileApi(configuration);

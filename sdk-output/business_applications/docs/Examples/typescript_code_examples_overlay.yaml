@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#create-business-application-v1
       source: |
-        import { BusinessApplicationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BusinessApplication } from 'sailpoint-api-client/dist/business_applications/api';
+        import { BusinessApplicationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BusinessApplication } from '/api-client/dist/business_applications/api';
 
         const configuration = new Configuration();
         const apiInstance = new BusinessApplicationsApi(configuration);
@@ -54,8 +54,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#get-business-application-v1
       source: |
-        import { BusinessApplicationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { BusinessApplicationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new BusinessApplicationsApi(configuration);
@@ -68,8 +68,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#list-business-applications-v1
       source: |
-        import { BusinessApplicationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { BusinessApplicationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new BusinessApplicationsApi(configuration);
@@ -86,9 +86,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/business_applications/methods/business-applications#update-business-application-v1
       source: |
-        import { BusinessApplicationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/business_applications/api';
+        import { BusinessApplicationsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/business_applications/api';
 
         const configuration = new Configuration();
         const apiInstance = new BusinessApplicationsApi(configuration);

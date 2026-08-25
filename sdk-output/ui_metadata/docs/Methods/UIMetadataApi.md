@@ -48,8 +48,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { UIMetadataApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { UIMetadataApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new UIMetadataApi(configuration);
@@ -89,9 +89,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { UIMetadataApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { TenantUiMetadataItemUpdateRequest } from 'sailpoint-api-client/dist/ui_metadata/api';
+import { UIMetadataApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { TenantUiMetadataItemUpdateRequest } from '/api-client/dist/ui_metadata/api';
 
 const configuration = new Configuration();
 const apiInstance = new UIMetadataApi(configuration);

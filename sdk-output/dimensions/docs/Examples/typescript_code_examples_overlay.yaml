@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#create-dimension-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Dimension } from 'sailpoint-api-client/dist/dimensions/api';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { Dimension } from '/api-client/dist/dimensions/api';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);
@@ -106,9 +106,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#delete-bulk-dimensions-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { DimensionBulkDeleteRequest } from 'sailpoint-api-client/dist/dimensions/api';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { DimensionBulkDeleteRequest } from '/api-client/dist/dimensions/api';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);
@@ -124,8 +124,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#delete-dimension-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);
@@ -139,8 +139,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#get-dimension-entitlements-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);
@@ -159,8 +159,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#get-dimension-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);
@@ -174,8 +174,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#list-dimension-access-profiles-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);
@@ -194,8 +194,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#list-dimensions-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);
@@ -214,9 +214,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/dimensions/methods/dimensions#patch-dimension-v1
       source: |
-        import { DimensionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/dimensions/api';
+        import { DimensionsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/dimensions/api';
 
         const configuration = new Configuration();
         const apiInstance = new DimensionsApi(configuration);

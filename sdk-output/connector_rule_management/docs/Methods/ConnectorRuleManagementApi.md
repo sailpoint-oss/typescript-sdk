@@ -55,9 +55,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ConnectorRuleCreateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+import { ConnectorRuleManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { ConnectorRuleCreateRequest } from '/api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -118,8 +118,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorRuleManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -157,8 +157,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorRuleManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -196,8 +196,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ConnectorRuleManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -234,9 +234,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ConnectorRuleUpdateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+import { ConnectorRuleManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { ConnectorRuleUpdateRequest } from '/api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -299,9 +299,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SourceCode } from 'sailpoint-api-client/dist/connector_rule_management/api';
+import { ConnectorRuleManagementApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { SourceCode } from '/api-client/dist/connector_rule_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConnectorRuleManagementApi(configuration);

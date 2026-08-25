@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#approve-approval-in-bulk-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkApproveRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkApproveRequestDTO } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -26,9 +26,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#approve-approval-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ApprovalApproveRequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ApprovalApproveRequest } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -50,9 +50,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#cancel-approval-by-id-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ApprovalCancelRequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ApprovalCancelRequest } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -68,9 +68,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#cancel-approval-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkCancelRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkCancelRequestDTO } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -86,8 +86,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#delete-approval-config-request-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -101,8 +101,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#get-approval-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -115,8 +115,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#get-approvals-config-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -129,8 +129,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#get-approvals-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -155,9 +155,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#move-approval-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkReassignRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkReassignRequestDTO } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -175,9 +175,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#put-approvals-config-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ApprovalConfig } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ApprovalConfig } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -235,9 +235,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#reject-approval-in-bulk-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkRejectRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { BulkRejectRequestDTO } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -253,9 +253,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#reject-approval-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ApprovalRejectRequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ApprovalRejectRequest } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -272,9 +272,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#update-approvals-attributes-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ApprovalAttributesRequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ApprovalAttributesRequest } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -296,9 +296,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#update-approvals-comments-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ApprovalCommentsRequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ApprovalCommentsRequest } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);
@@ -314,9 +314,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/approvals/methods/approvals#update-approvals-reassign-v1
       source: |
-        import { ApprovalsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ApprovalReassignRequest } from 'sailpoint-api-client/dist/approvals/api';
+        import { ApprovalsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { ApprovalReassignRequest } from '/api-client/dist/approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApprovalsApi(configuration);

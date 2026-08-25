@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#create-source-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SourceAppCreateDto } from 'sailpoint-api-client/dist/apps/api';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { SourceAppCreateDto } from '/api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -29,8 +29,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#delete-access-profiles-from-source-app-by-bulk-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -46,8 +46,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#delete-source-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -61,8 +61,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#get-source-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -76,8 +76,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-access-profiles-for-source-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -94,8 +94,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-all-source-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -113,8 +113,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-all-user-apps-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -131,8 +131,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-assigned-source-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -150,8 +150,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-available-accounts-for-user-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -167,8 +167,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-available-source-apps-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -186,8 +186,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#list-owned-user-apps-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -204,9 +204,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#patch-source-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/apps/api';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -225,9 +225,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#patch-user-app-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/apps/api';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);
@@ -246,9 +246,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/apps/methods/apps#update-source-apps-in-bulk-v1
       source: |
-        import { AppsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SourceAppBulkUpdateRequest } from 'sailpoint-api-client/dist/apps/api';
+        import { AppsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { SourceAppBulkUpdateRequest } from '/api-client/dist/apps/api';
 
         const configuration = new Configuration();
         const apiInstance = new AppsApi(configuration);

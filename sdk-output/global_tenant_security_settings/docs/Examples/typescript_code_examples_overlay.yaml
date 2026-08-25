@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#create-auth-org-network-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NetworkConfiguration } from 'sailpoint-api-client/dist/global_tenant_security_settings/api';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NetworkConfiguration } from '/api-client/dist/global_tenant_security_settings/api';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -23,8 +23,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#get-auth-org-lockout-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -36,8 +36,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#get-auth-org-network-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -49,8 +49,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#get-auth-org-service-provider-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -62,8 +62,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#get-auth-org-session-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -75,9 +75,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#patch-auth-org-lockout-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/global_tenant_security_settings/api';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -94,9 +94,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#patch-auth-org-network-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/global_tenant_security_settings/api';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -113,9 +113,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#patch-auth-org-service-provider-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/global_tenant_security_settings/api';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -132,9 +132,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/global_tenant_security_settings/methods/global-tenant-security-settings#patch-auth-org-session-config-v1
       source: |
-        import { GlobalTenantSecuritySettingsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/global_tenant_security_settings/api';
+        import { GlobalTenantSecuritySettingsApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
 
         const configuration = new Configuration();
         const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);

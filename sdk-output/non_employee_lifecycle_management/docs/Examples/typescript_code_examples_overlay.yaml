@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#approve-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NonEmployeeApprovalDecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NonEmployeeApprovalDecision } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -22,9 +22,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NonEmployeeRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NonEmployeeRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -50,9 +50,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NonEmployeeRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NonEmployeeRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -78,9 +78,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-source-schema-attributes-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NonEmployeeSchemaAttributeBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NonEmployeeSchemaAttributeBody } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -101,9 +101,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#create-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NonEmployeeSourceRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NonEmployeeSourceRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -141,8 +141,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -155,9 +155,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-records-in-bulk-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { DeleteNonEmployeeRecordsInBulkV1Request } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { DeleteNonEmployeeRecordsInBulkV1Request } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -170,8 +170,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -184,8 +184,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-schema-attribute-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -199,8 +199,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-source-schema-attributes-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -213,8 +213,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#delete-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -227,8 +227,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#export-non-employee-records-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -241,8 +241,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -255,8 +255,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-approval-summary-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -269,8 +269,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-approval-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -284,8 +284,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-bulk-upload-status-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -298,8 +298,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -312,8 +312,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-request-summary-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -326,8 +326,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -340,8 +340,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-schema-attribute-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -355,8 +355,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-source-schema-attributes-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -369,8 +369,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#get-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -383,8 +383,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#import-non-employee-records-in-bulk-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -398,8 +398,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-approvals-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -417,8 +417,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-records-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -435,8 +435,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-requests-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -454,8 +454,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#list-non-employee-sources-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -473,9 +473,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#patch-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -493,9 +493,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#patch-non-employee-schema-attribute-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -514,9 +514,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#patch-non-employee-source-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { JsonPatchOperation } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -534,9 +534,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#reject-non-employee-request-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NonEmployeeRejectApprovalDecision } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NonEmployeeRejectApprovalDecision } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -552,9 +552,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/non_employee_lifecycle_management/methods/non-employee-lifecycle-management#update-non-employee-record-v1
       source: |
-        import { NonEmployeeLifecycleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { NonEmployeeRequestBody } from 'sailpoint-api-client/dist/non_employee_lifecycle_management/api';
+        import { NonEmployeeLifecycleManagementApi } from '/api-client';
+        import { Configuration } from '/api-client';
+        import { NonEmployeeRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);

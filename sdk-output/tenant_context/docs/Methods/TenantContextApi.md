@@ -45,8 +45,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { TenantContextApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TenantContextApi } from '/api-client';
+import { Configuration } from '/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TenantContextApi(configuration);
@@ -86,9 +86,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TenantContextApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/tenant_context/api';
+import { TenantContextApi } from '/api-client';
+import { Configuration } from '/api-client';
+import { JsonPatchOperation } from '/api-client/dist/tenant_context/api';
 
 const configuration = new Configuration();
 const apiInstance = new TenantContextApi(configuration);
