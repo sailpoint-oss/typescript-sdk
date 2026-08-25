@@ -65,7 +65,7 @@
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const result = await apiInstance.getParameterReferencesV1({ id: id });
         console.log(result);
-- path: /parameter-storage/v1/specification
+- path: /parameter-storage/v1/specifications
   method: GET
   xCodeSample:
     - lang: TypeScript

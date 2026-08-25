@@ -565,7 +565,7 @@ export const ParameterStorageApiAxiosParamCreator = function (configuration?: Co
                 acceptLanguage = 'en';
             }
             
-            const localVarPath = `/parameter-storage/v1/specification`;
+            const localVarPath = `/parameter-storage/v1/specifications`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
