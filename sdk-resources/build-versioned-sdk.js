@@ -389,7 +389,7 @@ function writePartitionConfig(partitionName) {
     `  docs_models_index.mustache:`,
     `    templateType: SupportingFiles`,
     `    destinationFilename: Index.md`,
-    `npmName: ${NPM_NAME}`,
+    `npmName: "${NPM_NAME}"`,
     `npmRepository: sailpoint.com`,
     `npmVersion: ${NPM_VERSION}`,
     `useSingleRequestParameter: true`,
