@@ -153,8 +153,8 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
         // header such as X-SailPoint-SDK forces a CORS preflight that tenants do
         // not allow, which blocks the request outright.
         if (typeof process !== 'undefined' && process.versions?.node) {
-            headers['X-SailPoint-SDK'] = 'typescript-2.1.27';
-            let userAgent = `SailPoint-SDK-TypeScript/2.1.27`;
+            headers['X-SailPoint-SDK'] = 'typescript-2.1.28';
+            let userAgent = `SailPoint-SDK-TypeScript/2.1.28`;
             if (configuration?.consumerIdentifier && configuration?.consumerVersion) {
                 userAgent += ` (${configuration.consumerIdentifier}/${configuration.consumerVersion})`;
             }
