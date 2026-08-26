@@ -50,9 +50,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { OAuthClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CreateOAuthClientRequest } from '/api-client/dist/oauth_clients/api';
+import { OAuthClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreateOAuthClientRequest } from '@sailpoint/api-client/dist/oauth_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
@@ -104,8 +104,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { OAuthClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { OAuthClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
@@ -141,8 +141,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { OAuthClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { OAuthClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
@@ -178,8 +178,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { OAuthClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { OAuthClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
@@ -216,9 +216,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { OAuthClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/oauth_clients/api';
+import { OAuthClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/oauth_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);

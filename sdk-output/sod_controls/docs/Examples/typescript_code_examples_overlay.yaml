@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#create-control-v1
       source: |
-        import { SODControlsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Compensatingcontrolcreate } from '/api-client/dist/sod_controls/api';
+        import { SODControlsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Compensatingcontrolcreate } from '@sailpoint/api-client/dist/sod_controls/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);
@@ -36,8 +36,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#delete-control-v1
       source: |
-        import { SODControlsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SODControlsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);
@@ -51,8 +51,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#get-control-v1
       source: |
-        import { SODControlsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SODControlsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);
@@ -66,8 +66,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#list-controls-v1
       source: |
-        import { SODControlsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SODControlsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);
@@ -85,9 +85,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_controls/methods/sod-controls#put-control-v1
       source: |
-        import { SODControlsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Compensatingcontrolupdate } from '/api-client/dist/sod_controls/api';
+        import { SODControlsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Compensatingcontrolupdate } from '@sailpoint/api-client/dist/sod_controls/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);

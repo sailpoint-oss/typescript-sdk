@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#export-outliers-zip-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -19,8 +19,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-identity-outlier-snapshots-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -38,8 +38,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-identity-outliers-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -58,8 +58,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-latest-identity-outlier-snapshots-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -73,8 +73,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-outlier-contributing-feature-summary-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -88,8 +88,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#get-peer-group-outliers-contributing-features-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -108,8 +108,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#ignore-identity-outliers-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -123,8 +123,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#list-outliers-contributing-feature-access-items-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);
@@ -144,8 +144,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_outliers/methods/iai-outliers#un-ignore-identity-outliers-v1
       source: |
-        import { IAIOutliersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIOutliersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIOutliersApi(configuration);

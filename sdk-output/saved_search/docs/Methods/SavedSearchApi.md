@@ -59,9 +59,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SavedSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CreateSavedSearchV1Request } from '/api-client/dist/saved_search/api';
+import { SavedSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreateSavedSearchV1Request } from '@sailpoint/api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
@@ -98,8 +98,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SavedSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SavedSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
@@ -137,9 +137,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SavedSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SearchArguments } from '/api-client/dist/saved_search/api';
+import { SavedSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SearchArguments } from '@sailpoint/api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
@@ -187,8 +187,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SavedSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SavedSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
@@ -228,8 +228,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SavedSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SavedSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);
@@ -272,9 +272,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SavedSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SavedSearch } from '/api-client/dist/saved_search/api';
+import { SavedSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SavedSearch } from '@sailpoint/api-client/dist/saved_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new SavedSearchApi(configuration);

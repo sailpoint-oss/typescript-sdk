@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/task_management/methods/task-management#get-task-status-list-v1
       source: |
-        import { TaskManagementApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { TaskManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TaskManagementApi(configuration);
@@ -22,8 +22,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/task_management/methods/task-management#get-task-status-v1
       source: |
-        import { TaskManagementApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { TaskManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TaskManagementApi(configuration);
@@ -36,9 +36,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/task_management/methods/task-management#update-task-status-v1
       source: |
-        import { TaskManagementApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/task_management/api';
+        import { TaskManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/task_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new TaskManagementApi(configuration);

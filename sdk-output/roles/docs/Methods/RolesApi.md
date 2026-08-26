@@ -101,9 +101,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { Role } from '/api-client/dist/roles/api';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Role } from '@sailpoint/api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -327,9 +327,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { RoleBulkDeleteRequest } from '/api-client/dist/roles/api';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { RoleBulkDeleteRequest } from '@sailpoint/api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -369,8 +369,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -410,8 +410,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -449,8 +449,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -483,8 +483,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -524,8 +524,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -571,8 +571,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -614,8 +614,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -660,8 +660,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -726,9 +726,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/roles/api';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -777,9 +777,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { RoleListFilterDTO } from '/api-client/dist/roles/api';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { RoleListFilterDTO } from '@sailpoint/api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -830,8 +830,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -872,9 +872,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { RoleMetadataBulkUpdateByFilterRequest } from '/api-client/dist/roles/api';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { RoleMetadataBulkUpdateByFilterRequest } from '@sailpoint/api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -921,9 +921,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { RoleMetadataBulkUpdateByIdRequest } from '/api-client/dist/roles/api';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { RoleMetadataBulkUpdateByIdRequest } from '@sailpoint/api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
@@ -970,9 +970,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { RolesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { RoleMetadataBulkUpdateByQueryRequest } from '/api-client/dist/roles/api';
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { RoleMetadataBulkUpdateByQueryRequest } from '@sailpoint/api-client/dist/roles/api';
 
 const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);

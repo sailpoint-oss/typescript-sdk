@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/lifecycle_states/methods/lifecycle-states#create-lifecycle-state-v1
       source: |
-        import { LifecycleStatesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { LifecycleState } from '/api-client/dist/lifecycle_states/api';
+        import { LifecycleStatesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { LifecycleState } from '@sailpoint/api-client/dist/lifecycle_states/api';
 
         const configuration = new Configuration();
         const apiInstance = new LifecycleStatesApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/lifecycle_states/methods/lifecycle-states#delete-lifecycle-state-v1
       source: |
-        import { LifecycleStatesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { LifecycleStatesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new LifecycleStatesApi(configuration);
@@ -67,8 +67,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/lifecycle_states/methods/lifecycle-states#get-lifecycle-state-v1
       source: |
-        import { LifecycleStatesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { LifecycleStatesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new LifecycleStatesApi(configuration);
@@ -82,8 +82,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/lifecycle_states/methods/lifecycle-states#get-lifecycle-states-v1
       source: |
-        import { LifecycleStatesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { LifecycleStatesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new LifecycleStatesApi(configuration);
@@ -100,9 +100,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/lifecycle_states/methods/lifecycle-states#set-lifecycle-state-v1
       source: |
-        import { LifecycleStatesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { SetLifecycleStateV1Request } from '/api-client/dist/lifecycle_states/api';
+        import { LifecycleStatesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SetLifecycleStateV1Request } from '@sailpoint/api-client/dist/lifecycle_states/api';
 
         const configuration = new Configuration();
         const apiInstance = new LifecycleStatesApi(configuration);
@@ -116,9 +116,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/lifecycle_states/methods/lifecycle-states#update-lifecycle-states-v1
       source: |
-        import { LifecycleStatesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/lifecycle_states/api';
+        import { LifecycleStatesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/lifecycle_states/api';
 
         const configuration = new Configuration();
         const apiInstance = new LifecycleStatesApi(configuration);

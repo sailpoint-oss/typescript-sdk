@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sp_config/methods/sp-config#export-sp-config-v1
       source: |
-        import { SPConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ExportPayload } from '/api-client/dist/sp_config/api';
+        import { SPConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ExportPayload } from '@sailpoint/api-client/dist/sp_config/api';
 
         const configuration = new Configuration();
         const apiInstance = new SPConfigApi(configuration);
@@ -21,8 +21,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sp_config/methods/sp-config#get-sp-config-export-status-v1
       source: |
-        import { SPConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SPConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SPConfigApi(configuration);
@@ -35,8 +35,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sp_config/methods/sp-config#get-sp-config-export-v1
       source: |
-        import { SPConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SPConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SPConfigApi(configuration);
@@ -49,8 +49,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sp_config/methods/sp-config#get-sp-config-import-status-v1
       source: |
-        import { SPConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SPConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SPConfigApi(configuration);
@@ -63,8 +63,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sp_config/methods/sp-config#get-sp-config-import-v1
       source: |
-        import { SPConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SPConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SPConfigApi(configuration);
@@ -77,9 +77,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sp_config/methods/sp-config#import-sp-config-v1
       source: |
-        import { SPConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ImportOptions } from '/api-client/dist/sp_config/api';
+        import { SPConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ImportOptions } from '@sailpoint/api-client/dist/sp_config/api';
 
         const configuration = new Configuration();
         const apiInstance = new SPConfigApi(configuration);
@@ -94,8 +94,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sp_config/methods/sp-config#list-sp-config-objects-v1
       source: |
-        import { SPConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SPConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SPConfigApi(configuration);

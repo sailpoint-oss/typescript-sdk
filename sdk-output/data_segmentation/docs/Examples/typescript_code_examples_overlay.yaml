@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#create-data-segment-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { DataSegment } from '/api-client/dist/data_segmentation/api';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { DataSegment } from '@sailpoint/api-client/dist/data_segmentation/api';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);
@@ -56,8 +56,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#delete-data-segment-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);
@@ -72,8 +72,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#get-data-segment-identity-membership-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);
@@ -87,8 +87,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#get-data-segment-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);
@@ -102,8 +102,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#get-data-segmentation-enabled-for-user-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);
@@ -117,8 +117,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#list-data-segments-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);
@@ -138,8 +138,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#patch-data-segment-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);
@@ -154,8 +154,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/data_segmentation/methods/data-segmentation#publish-data-segment-v1
       source: |
-        import { DataSegmentationApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { DataSegmentationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new DataSegmentationApi(configuration);

@@ -96,9 +96,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccountAttributesCreate } from '/api-client/dist/accounts/api';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccountAttributesCreate } from '@sailpoint/api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -149,8 +149,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -189,8 +189,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -226,8 +226,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -264,9 +264,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccountToggleRequest } from '/api-client/dist/accounts/api';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccountToggleRequest } from '@sailpoint/api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -306,9 +306,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentitiesAccountsBulkRequest } from '/api-client/dist/accounts/api';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentitiesAccountsBulkRequest } from '@sailpoint/api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -346,8 +346,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -384,9 +384,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccountToggleRequest } from '/api-client/dist/accounts/api';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccountToggleRequest } from '@sailpoint/api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -426,9 +426,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentitiesAccountsBulkRequest } from '/api-client/dist/accounts/api';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentitiesAccountsBulkRequest } from '@sailpoint/api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -469,8 +469,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -509,8 +509,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -551,8 +551,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -599,9 +599,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccountAttributes } from '/api-client/dist/accounts/api';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccountAttributes } from '@sailpoint/api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -646,8 +646,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -685,9 +685,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccountUnlockRequest } from '/api-client/dist/accounts/api';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccountUnlockRequest } from '@sailpoint/api-client/dist/accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);
@@ -739,8 +739,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { AccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountsApi(configuration);

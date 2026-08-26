@@ -52,9 +52,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ManagedClientRequest } from '/api-client/dist/managed_clients/api';
+import { ManagedClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ManagedClientRequest } from '@sailpoint/api-client/dist/managed_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
@@ -95,8 +95,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
@@ -132,8 +132,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
@@ -170,8 +170,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
@@ -208,8 +208,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
@@ -248,8 +248,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);
@@ -289,9 +289,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClientsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/managed_clients/api';
+import { ManagedClientsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/managed_clients/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClientsApi(configuration);

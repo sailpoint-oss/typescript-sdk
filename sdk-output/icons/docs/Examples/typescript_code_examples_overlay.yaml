@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/icons/methods/icons#delete-icon-v1
       source: |
-        import { IconsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IconsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IconsApi(configuration);
@@ -20,8 +20,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/icons/methods/icons#set-icon-v1
       source: |
-        import { IconsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IconsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IconsApi(configuration);

@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-definition-dynamic-schema-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { FormDefinitionDynamicSchemaRequest } from '/api-client/dist/custom_forms/api';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { FormDefinitionDynamicSchemaRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -27,8 +27,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-definition-file-request-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -42,9 +42,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-definition-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CreateFormDefinitionRequest } from '/api-client/dist/custom_forms/api';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateFormDefinitionRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -167,9 +167,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#create-form-instance-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CreateFormInstanceRequest } from '/api-client/dist/custom_forms/api';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateFormInstanceRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -202,8 +202,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#delete-form-definition-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -216,8 +216,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#export-form-definitions-by-tenant-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -233,8 +233,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-file-from-s3-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -248,8 +248,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-form-definition-by-key-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -262,8 +262,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-form-instance-by-key-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -276,8 +276,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#get-form-instance-file-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -291,9 +291,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#import-form-definitions-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ImportFormDefinitionsV1RequestInner } from '/api-client/dist/custom_forms/api';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ImportFormDefinitionsV1RequestInner } from '@sailpoint/api-client/dist/custom_forms/api';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -306,8 +306,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#patch-form-definition-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -321,8 +321,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#patch-form-instance-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -336,8 +336,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-form-definitions-by-tenant-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -353,8 +353,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-form-element-data-by-element-idv1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -371,8 +371,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-form-instances-by-tenant-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -387,8 +387,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#search-pre-defined-select-options-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);
@@ -400,9 +400,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/custom_forms/methods/custom-forms#show-preview-data-source-v1
       source: |
-        import { CustomFormsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { FormElementPreviewRequest } from '/api-client/dist/custom_forms/api';
+        import { CustomFormsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { FormElementPreviewRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
         const configuration = new Configuration();
         const apiInstance = new CustomFormsApi(configuration);

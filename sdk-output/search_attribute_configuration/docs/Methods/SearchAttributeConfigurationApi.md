@@ -66,9 +66,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SearchAttributeConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SearchAttributeConfig } from '/api-client/dist/search_attribute_configuration/api';
+import { SearchAttributeConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SearchAttributeConfig } from '@sailpoint/api-client/dist/search_attribute_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
@@ -111,8 +111,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SearchAttributeConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SearchAttributeConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
@@ -149,8 +149,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SearchAttributeConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SearchAttributeConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
@@ -187,8 +187,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SearchAttributeConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SearchAttributeConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);
@@ -227,9 +227,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SearchAttributeConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/search_attribute_configuration/api';
+import { SearchAttributeConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/search_attribute_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new SearchAttributeConfigurationApi(configuration);

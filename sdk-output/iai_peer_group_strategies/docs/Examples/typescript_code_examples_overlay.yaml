@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_peer_group_strategies/methods/iai-peer-group-strategies#get-peer-group-outliers-v1
       source: |
-        import { IAIPeerGroupStrategiesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIPeerGroupStrategiesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIPeerGroupStrategiesApi(configuration);

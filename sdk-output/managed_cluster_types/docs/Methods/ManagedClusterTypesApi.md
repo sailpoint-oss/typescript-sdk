@@ -51,9 +51,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClusterTypesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ManagedClusterType } from '/api-client/dist/managed_cluster_types/api';
+import { ManagedClusterTypesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ManagedClusterType } from '@sailpoint/api-client/dist/managed_cluster_types/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);
@@ -95,8 +95,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClusterTypesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClusterTypesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);
@@ -132,8 +132,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClusterTypesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClusterTypesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);
@@ -173,8 +173,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClusterTypesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ManagedClusterTypesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);
@@ -215,9 +215,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClusterTypesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatch } from '/api-client/dist/managed_cluster_types/api';
+import { ManagedClusterTypesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatch } from '@sailpoint/api-client/dist/managed_cluster_types/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClusterTypesApi(configuration);

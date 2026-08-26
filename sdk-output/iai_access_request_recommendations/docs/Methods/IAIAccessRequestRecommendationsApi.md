@@ -56,9 +56,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -105,9 +105,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -154,9 +154,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -203,9 +203,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -251,8 +251,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -296,8 +296,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -346,8 +346,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -398,8 +398,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -450,8 +450,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -496,9 +496,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIAccessRequestRecommendationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AccessRequestRecommendationConfigDto } from '/api-client/dist/iai_access_request_recommendations/api';
+import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccessRequestRecommendationConfigDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);

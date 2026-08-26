@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#create-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccountAttributesCreate } from '/api-client/dist/accounts/api';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccountAttributesCreate } from '@sailpoint/api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -28,8 +28,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#delete-account-async-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -42,8 +42,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#delete-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -56,8 +56,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#disable-account-for-identity-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -70,9 +70,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#disable-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccountToggleRequest } from '/api-client/dist/accounts/api';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccountToggleRequest } from '@sailpoint/api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -89,9 +89,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#disable-accounts-for-identities-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { IdentitiesAccountsBulkRequest } from '/api-client/dist/accounts/api';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { IdentitiesAccountsBulkRequest } from '@sailpoint/api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -106,8 +106,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#enable-account-for-identity-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -120,9 +120,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#enable-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccountToggleRequest } from '/api-client/dist/accounts/api';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccountToggleRequest } from '@sailpoint/api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -139,9 +139,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#enable-accounts-for-identities-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { IdentitiesAccountsBulkRequest } from '/api-client/dist/accounts/api';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { IdentitiesAccountsBulkRequest } from '@sailpoint/api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -156,8 +156,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#get-account-entitlements-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -173,8 +173,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#get-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -187,8 +187,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#list-accounts-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -206,9 +206,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#put-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccountAttributes } from '/api-client/dist/accounts/api';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccountAttributes } from '@sailpoint/api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -230,8 +230,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#submit-reload-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -244,9 +244,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#unlock-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccountUnlockRequest } from '/api-client/dist/accounts/api';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccountUnlockRequest } from '@sailpoint/api-client/dist/accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);
@@ -264,8 +264,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/accounts/methods/accounts#update-account-v1
       source: |
-        import { AccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountsApi(configuration);

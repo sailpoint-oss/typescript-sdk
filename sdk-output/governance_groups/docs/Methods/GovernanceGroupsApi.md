@@ -57,9 +57,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { WorkgroupDto } from '/api-client/dist/governance_groups/api';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { WorkgroupDto } from '@sailpoint/api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -114,9 +114,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { BulkWorkgroupMembersRequestInner } from '/api-client/dist/governance_groups/api';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkWorkgroupMembersRequestInner } from '@sailpoint/api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -153,8 +153,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -201,9 +201,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { WorkgroupBulkDeleteRequest } from '/api-client/dist/governance_groups/api';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { WorkgroupBulkDeleteRequest } from '@sailpoint/api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -241,8 +241,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -282,8 +282,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -327,8 +327,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -372,8 +372,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -417,9 +417,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/governance_groups/api';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);
@@ -465,9 +465,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GovernanceGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { BulkWorkgroupMembersRequestInner } from '/api-client/dist/governance_groups/api';
+import { GovernanceGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkWorkgroupMembersRequestInner } from '@sailpoint/api-client/dist/governance_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new GovernanceGroupsApi(configuration);

@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#create-branding-item-v1
       source: |
-        import { BrandingApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { BrandingApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new BrandingApi(configuration);
@@ -25,8 +25,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#delete-branding-v1
       source: |
-        import { BrandingApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { BrandingApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new BrandingApi(configuration);
@@ -39,8 +39,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#get-branding-list-v1
       source: |
-        import { BrandingApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { BrandingApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new BrandingApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#get-branding-v1
       source: |
-        import { BrandingApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { BrandingApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new BrandingApi(configuration);
@@ -66,8 +66,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/branding/methods/branding#set-branding-item-v1
       source: |
-        import { BrandingApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { BrandingApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new BrandingApi(configuration);

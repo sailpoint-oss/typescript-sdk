@@ -46,9 +46,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BusinessApplicationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { BusinessApplication } from '/api-client/dist/business_applications/api';
+import { BusinessApplicationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BusinessApplication } from '@sailpoint/api-client/dist/business_applications/api';
 
 const configuration = new Configuration();
 const apiInstance = new BusinessApplicationsApi(configuration);
@@ -119,8 +119,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BusinessApplicationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { BusinessApplicationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new BusinessApplicationsApi(configuration);
@@ -160,8 +160,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BusinessApplicationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { BusinessApplicationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new BusinessApplicationsApi(configuration);
@@ -202,9 +202,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { BusinessApplicationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/business_applications/api';
+import { BusinessApplicationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/business_applications/api';
 
 const configuration = new Configuration();
 const apiInstance = new BusinessApplicationsApi(configuration);

@@ -56,8 +56,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { JITAccessApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { JITAccessApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new JITAccessApi(configuration);
@@ -104,9 +104,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { JITAccessApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JitAccessOperationRequest } from '/api-client/dist/jit_access/api';
+import { JITAccessApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JitAccessOperationRequest } from '@sailpoint/api-client/dist/jit_access/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITAccessApi(configuration);

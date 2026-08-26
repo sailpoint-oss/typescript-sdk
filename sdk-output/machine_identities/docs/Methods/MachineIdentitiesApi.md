@@ -65,9 +65,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { MachineIdentityRequest } from '/api-client/dist/machine_identities/api';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { MachineIdentityRequest } from '@sailpoint/api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -136,9 +136,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { Machineidentityv2 } from '/api-client/dist/machine_identities/api';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Machineidentityv2 } from '@sailpoint/api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -255,8 +255,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -293,8 +293,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -332,8 +332,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -375,8 +375,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -413,8 +413,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -452,8 +452,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -494,8 +494,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -539,8 +539,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -585,8 +585,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -636,8 +636,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -686,8 +686,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -733,8 +733,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -778,9 +778,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/machine_identities/api';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -828,9 +828,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { MachineIdentityAggregationRequest } from '/api-client/dist/machine_identities/api';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { MachineIdentityAggregationRequest } from '@sailpoint/api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -877,8 +877,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
@@ -925,9 +925,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentitiesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/machine_identities/api';
+import { MachineIdentitiesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/machine_identities/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);

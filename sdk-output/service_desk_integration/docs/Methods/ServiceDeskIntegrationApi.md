@@ -76,9 +76,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ServiceDeskIntegrationDto } from '/api-client/dist/service_desk_integration/api';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ServiceDeskIntegrationDto } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -147,8 +147,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -184,8 +184,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -218,8 +218,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -254,8 +254,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -295,8 +295,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -333,8 +333,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -370,9 +370,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/service_desk_integration/api';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -414,9 +414,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ServiceDeskIntegrationDto } from '/api-client/dist/service_desk_integration/api';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ServiceDeskIntegrationDto } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -486,9 +486,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ServiceDeskIntegrationApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { QueuedCheckConfigDetails } from '/api-client/dist/service_desk_integration/api';
+import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { QueuedCheckConfigDetails } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
 const configuration = new Configuration();
 const apiInstance = new ServiceDeskIntegrationApi(configuration);

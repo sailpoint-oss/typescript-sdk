@@ -72,8 +72,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PrivilegeCriteriaConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaConfigurationApi(configuration);
@@ -109,8 +109,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PrivilegeCriteriaConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaConfigurationApi(configuration);
@@ -147,8 +147,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PrivilegeCriteriaConfigurationApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PrivilegeCriteriaConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PrivilegeCriteriaConfigurationApi(configuration);

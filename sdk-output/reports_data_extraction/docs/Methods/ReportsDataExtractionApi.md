@@ -49,8 +49,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ReportsDataExtractionApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ReportsDataExtractionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ReportsDataExtractionApi(configuration);
@@ -87,8 +87,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ReportsDataExtractionApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ReportsDataExtractionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ReportsDataExtractionApi(configuration);
@@ -128,8 +128,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ReportsDataExtractionApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ReportsDataExtractionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ReportsDataExtractionApi(configuration);
@@ -168,9 +168,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ReportsDataExtractionApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ReportDetails } from '/api-client/dist/reports_data_extraction/api';
+import { ReportsDataExtractionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ReportDetails } from '@sailpoint/api-client/dist/reports_data_extraction/api';
 
 const configuration = new Configuration();
 const apiInstance = new ReportsDataExtractionApi(configuration);

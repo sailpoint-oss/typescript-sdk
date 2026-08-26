@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-provisioning-policy-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ProvisioningPolicyDto } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ProvisioningPolicyDto } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -59,9 +59,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-provisioning-policy-v2
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ProvisioningPolicyDtoV2 } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ProvisioningPolicyDtoV2 } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -118,9 +118,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-dataset-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { SourceDataset } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SourceDataset } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -149,9 +149,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-resource-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { SourceDatasetResource } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SourceDatasetResource } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -206,9 +206,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-schedule-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Schedule3 } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Schedule3 } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -222,9 +222,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Schema } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Schema } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -271,9 +271,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#create-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Source } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Source } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -369,8 +369,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-accounts-async-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -383,8 +383,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-native-change-detection-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -397,8 +397,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-provisioning-policy-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -412,8 +412,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-provisioning-policy-v2
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -428,8 +428,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-dataset-objects-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -444,8 +444,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-dataset-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -460,8 +460,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-resource-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -476,8 +476,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-schedule-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -491,8 +491,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -506,8 +506,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#delete-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -520,8 +520,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-account-delete-approval-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -534,8 +534,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-accounts-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -548,8 +548,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-correlation-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -562,8 +562,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-entitlements-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -577,8 +577,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-machine-account-deletion-approval-config-by-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -591,8 +591,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-native-change-detection-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -605,8 +605,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-provisioning-policy-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -620,8 +620,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-provisioning-policy-v2
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -636,8 +636,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-attr-sync-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -651,8 +651,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -666,8 +666,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-connections-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -680,8 +680,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-dataset-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -696,8 +696,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-datasets-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -714,8 +714,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-entitlement-request-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -728,8 +728,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-health-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -742,8 +742,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-resource-mappings-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -757,8 +757,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-resource-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -773,8 +773,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-resources-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -791,8 +791,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schedule-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -806,8 +806,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schedules-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -820,8 +820,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -835,8 +835,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-schemas-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -851,8 +851,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#get-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -865,8 +865,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-accounts-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -880,8 +880,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-accounts-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -896,8 +896,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-connector-file-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -911,8 +911,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-entitlements-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -927,8 +927,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-entitlements-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -942,9 +942,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-source-dataset-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { DatasetAggregationRequest } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { DatasetAggregationRequest } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -964,8 +964,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#import-uncorrelated-accounts-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -979,8 +979,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#list-password-policy-holders-on-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -996,8 +996,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#list-provisioning-policies-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1012,8 +1012,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#list-provisioning-policies-v2
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1030,8 +1030,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#list-sources-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1050,8 +1050,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#ping-cluster-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1064,9 +1064,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-correlation-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CorrelationConfig } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CorrelationConfig } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1100,9 +1100,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-native-change-detection-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { NativeChangeDetectionConfig } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { NativeChangeDetectionConfig } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1123,9 +1123,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-provisioning-policy-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ProvisioningPolicyDto } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ProvisioningPolicyDto } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1179,9 +1179,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-provisioning-policy-v2
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ProvisioningPolicyDtoV2 } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ProvisioningPolicyDtoV2 } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1238,9 +1238,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-attr-sync-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AttrSyncSourceConfig } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AttrSyncSourceConfig } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1272,9 +1272,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-dataset-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { SourceDataset } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SourceDataset } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1304,9 +1304,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-resource-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { SourceDatasetResource } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SourceDatasetResource } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1362,9 +1362,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Schema } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Schema } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1412,9 +1412,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#put-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Source } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Source } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1510,9 +1510,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#search-resource-objects-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ResourceObjectsRequest } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ResourceObjectsRequest } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1529,8 +1529,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#sync-attributes-for-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1544,8 +1544,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#test-source-configuration-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1558,8 +1558,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#test-source-connection-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1572,9 +1572,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-account-deletion-approval-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1592,9 +1592,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-machine-account-deletion-approval-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1612,9 +1612,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-password-policy-holders-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { PasswordPolicyHoldersDtoInner } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { PasswordPolicyHoldersDtoInner } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1628,9 +1628,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-provisioning-policies-in-bulk-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ProvisioningPolicyDto } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ProvisioningPolicyDto } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1683,9 +1683,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-provisioning-policy-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1704,9 +1704,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-provisioning-policy-v2
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1726,9 +1726,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-dataset-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1748,9 +1748,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-entitlement-request-config-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { SourceEntitlementRequestConfig } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SourceEntitlementRequestConfig } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1792,9 +1792,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-resource-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1814,9 +1814,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-schedule-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1835,9 +1835,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-schema-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);
@@ -1856,9 +1856,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sources/methods/sources#update-source-v1
       source: |
-        import { SourcesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/sources/api';
+        import { SourcesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
         const configuration = new Configuration();
         const apiInstance = new SourcesApi(configuration);

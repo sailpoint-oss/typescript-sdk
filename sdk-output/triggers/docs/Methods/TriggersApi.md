@@ -84,9 +84,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CompleteInvocation } from '/api-client/dist/triggers/api';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CompleteInvocation } from '@sailpoint/api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -131,9 +131,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SubscriptionPostRequest } from '/api-client/dist/triggers/api';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SubscriptionPostRequest } from '@sailpoint/api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -193,8 +193,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -234,8 +234,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -281,8 +281,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -326,8 +326,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -370,9 +370,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SubscriptionPatchRequestInner } from '/api-client/dist/triggers/api';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SubscriptionPatchRequestInner } from '@sailpoint/api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -409,9 +409,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { TestInvocation } from '/api-client/dist/triggers/api';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { TestInvocation } from '@sailpoint/api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -457,9 +457,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ValidateFilterInputDto } from '/api-client/dist/triggers/api';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ValidateFilterInputDto } from '@sailpoint/api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);
@@ -510,9 +510,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TriggersApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SubscriptionPutRequest } from '/api-client/dist/triggers/api';
+import { TriggersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SubscriptionPutRequest } from '@sailpoint/api-client/dist/triggers/api';
 
 const configuration = new Configuration();
 const apiInstance = new TriggersApi(configuration);

@@ -63,8 +63,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { JITActivationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { JITActivationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
@@ -116,8 +116,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { JITActivationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { JITActivationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
@@ -166,9 +166,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { JITActivationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JitActivationActivateRequest } from '/api-client/dist/jit_activations/api';
+import { JITActivationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JitActivationActivateRequest } from '@sailpoint/api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
@@ -218,9 +218,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { JITActivationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JitActivationDeactivateRequest } from '/api-client/dist/jit_activations/api';
+import { JITActivationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JitActivationDeactivateRequest } from '@sailpoint/api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
@@ -270,9 +270,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { JITActivationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JitActivationExtendRequest } from '/api-client/dist/jit_activations/api';
+import { JITActivationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JitActivationExtendRequest } from '@sailpoint/api-client/dist/jit_activations/api';
 
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);

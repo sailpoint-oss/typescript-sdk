@@ -51,8 +51,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { PublicIdentitiesConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PublicIdentitiesConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PublicIdentitiesConfigApi(configuration);
@@ -87,9 +87,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PublicIdentitiesConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { PublicIdentityConfig } from '/api-client/dist/public_identities_config/api';
+import { PublicIdentitiesConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PublicIdentityConfig } from '@sailpoint/api-client/dist/public_identities_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new PublicIdentitiesConfigApi(configuration);

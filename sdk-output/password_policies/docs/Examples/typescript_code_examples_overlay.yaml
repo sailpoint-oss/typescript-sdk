@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_policies/methods/password-policies#create-password-policy-v1
       source: |
-        import { PasswordPoliciesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { PasswordPolicyV3Dto } from '/api-client/dist/password_policies/api';
+        import { PasswordPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { PasswordPolicyV3Dto } from '@sailpoint/api-client/dist/password_policies/api';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordPoliciesApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_policies/methods/password-policies#delete-password-policy-v1
       source: |
-        import { PasswordPoliciesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { PasswordPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordPoliciesApi(configuration);
@@ -67,8 +67,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_policies/methods/password-policies#get-password-policy-by-id-v1
       source: |
-        import { PasswordPoliciesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { PasswordPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordPoliciesApi(configuration);
@@ -82,8 +82,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_policies/methods/password-policies#list-password-policies-v1
       source: |
-        import { PasswordPoliciesApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { PasswordPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordPoliciesApi(configuration);
@@ -99,9 +99,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_policies/methods/password-policies#set-password-policy-v1
       source: |
-        import { PasswordPoliciesApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { PasswordPolicyV3Dto } from '/api-client/dist/password_policies/api';
+        import { PasswordPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { PasswordPolicyV3Dto } from '@sailpoint/api-client/dist/password_policies/api';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordPoliciesApi(configuration);

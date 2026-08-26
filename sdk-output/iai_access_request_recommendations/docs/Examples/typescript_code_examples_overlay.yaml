@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-ignored-item-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -26,9 +26,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-requested-item-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -48,9 +48,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-item-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -70,9 +70,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#add-access-request-recommendations-viewed-items-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccessRequestRecommendationActionItemDto } from '/api-client/dist/iai_access_request_recommendations/api';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccessRequestRecommendationActionItemDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -92,8 +92,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-config-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -106,8 +106,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-ignored-items-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -125,8 +125,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-requested-items-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -144,8 +144,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -165,8 +165,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#get-access-request-recommendations-viewed-items-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);
@@ -184,9 +184,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_access_request_recommendations/methods/iai-access-request-recommendations#set-access-request-recommendations-config-v1
       source: |
-        import { IAIAccessRequestRecommendationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AccessRequestRecommendationConfigDto } from '/api-client/dist/iai_access_request_recommendations/api';
+        import { IAIAccessRequestRecommendationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccessRequestRecommendationConfigDto } from '@sailpoint/api-client/dist/iai_access_request_recommendations/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAIAccessRequestRecommendationsApi(configuration);

@@ -52,9 +52,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountMappingsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AttributeMappings } from '/api-client/dist/machine_account_mappings/api';
+import { MachineAccountMappingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AttributeMappings } from '@sailpoint/api-client/dist/machine_account_mappings/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);
@@ -117,8 +117,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountMappingsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineAccountMappingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);
@@ -161,8 +161,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountMappingsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineAccountMappingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);
@@ -202,9 +202,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountMappingsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AttributeMappings } from '/api-client/dist/machine_account_mappings/api';
+import { MachineAccountMappingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AttributeMappings } from '@sailpoint/api-client/dist/machine_account_mappings/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountMappingsApi(configuration);

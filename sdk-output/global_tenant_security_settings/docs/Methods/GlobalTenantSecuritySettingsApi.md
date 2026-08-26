@@ -54,9 +54,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NetworkConfiguration } from '/api-client/dist/global_tenant_security_settings/api';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NetworkConfiguration } from '@sailpoint/api-client/dist/global_tenant_security_settings/api';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -93,8 +93,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -126,8 +126,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -159,8 +159,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -192,8 +192,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -229,9 +229,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/global_tenant_security_settings/api';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -272,9 +272,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/global_tenant_security_settings/api';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -314,9 +314,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/global_tenant_security_settings/api';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);
@@ -356,9 +356,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { GlobalTenantSecuritySettingsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/global_tenant_security_settings/api';
+import { GlobalTenantSecuritySettingsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/global_tenant_security_settings/api';
 
 const configuration = new Configuration();
 const apiInstance = new GlobalTenantSecuritySettingsApi(configuration);

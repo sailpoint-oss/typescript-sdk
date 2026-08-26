@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#complete-campaign-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CampaignCompleteOptions } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignCompleteOptions } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -22,9 +22,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#create-campaign-template-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CampaignTemplate } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignTemplate } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -161,9 +161,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#create-campaign-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Campaign2 } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Campaign2 } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -176,8 +176,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#delete-campaign-template-schedule-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -190,8 +190,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#delete-campaign-template-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -204,9 +204,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#delete-campaigns-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CampaignsDeleteRequest } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignsDeleteRequest } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -221,8 +221,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#get-active-campaigns-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -240,8 +240,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#get-campaign-reports-config-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -253,8 +253,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#get-campaign-reports-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -267,8 +267,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#get-campaign-template-schedule-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -281,8 +281,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#get-campaign-template-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -295,8 +295,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#get-campaign-templates-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -313,8 +313,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#get-campaign-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -328,9 +328,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#move-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AdminReviewReassign } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AdminReviewReassign } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -351,9 +351,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#patch-campaign-template-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -371,9 +371,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#set-campaign-reports-config-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CampaignReportsConfig } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignReportsConfig } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -388,9 +388,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#set-campaign-template-schedule-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { Schedule2 } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Schedule2 } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -404,8 +404,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#start-campaign-remediation-scan-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -418,8 +418,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#start-campaign-report-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -433,9 +433,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#start-campaign-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ActivateCampaignOptions } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ActivateCampaignOptions } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -451,8 +451,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#start-generate-campaign-template-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);
@@ -465,9 +465,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaigns/methods/certification-campaigns#update-campaign-v1
       source: |
-        import { CertificationCampaignsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/certification_campaigns/api';
+        import { CertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignsApi(configuration);

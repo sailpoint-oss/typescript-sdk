@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#delete-tagged-object-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);
@@ -19,9 +19,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#delete-tags-to-many-object-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { BulkRemoveTaggedObject } from '/api-client/dist/tagged_objects/api';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { BulkRemoveTaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);
@@ -45,8 +45,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#get-tagged-object-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);
@@ -60,8 +60,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#list-tagged-objects-by-type-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);
@@ -78,8 +78,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#list-tagged-objects-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);
@@ -95,9 +95,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#put-tagged-object-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { TaggedObject } from '/api-client/dist/tagged_objects/api';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { TaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);
@@ -119,9 +119,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#set-tag-to-object-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { TaggedObject } from '/api-client/dist/tagged_objects/api';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { TaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);
@@ -141,9 +141,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/tagged_objects/methods/tagged-objects#set-tags-to-many-objects-v1
       source: |
-        import { TaggedObjectsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { BulkAddTaggedObject } from '/api-client/dist/tagged_objects/api';
+        import { TaggedObjectsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { BulkAddTaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
         const configuration = new Configuration();
         const apiInstance = new TaggedObjectsApi(configuration);

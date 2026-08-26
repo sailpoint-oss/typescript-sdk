@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#create-campaign-filter-v1
       source: |
-        import { CertificationCampaignFiltersApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CampaignFilterDetails } from '/api-client/dist/certification_campaign_filters/api';
+        import { CertificationCampaignFiltersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignFilterDetails } from '@sailpoint/api-client/dist/certification_campaign_filters/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignFiltersApi(configuration);
@@ -38,8 +38,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#delete-campaign-filters-v1
       source: |
-        import { CertificationCampaignFiltersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignFiltersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignFiltersApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#get-campaign-filter-by-id-v1
       source: |
-        import { CertificationCampaignFiltersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignFiltersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignFiltersApi(configuration);
@@ -66,8 +66,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#list-campaign-filters-v1
       source: |
-        import { CertificationCampaignFiltersApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { CertificationCampaignFiltersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignFiltersApi(configuration);
@@ -82,9 +82,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certification_campaign_filters/methods/certification-campaign-filters#update-campaign-filter-v1
       source: |
-        import { CertificationCampaignFiltersApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CampaignFilterDetails } from '/api-client/dist/certification_campaign_filters/api';
+        import { CertificationCampaignFiltersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignFilterDetails } from '@sailpoint/api-client/dist/certification_campaign_filters/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationCampaignFiltersApi(configuration);

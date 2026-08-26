@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { UserLevelRequest } from '/api-client/dist/custom_user_levels/api';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { UserLevelRequest } from '@sailpoint/api-client/dist/custom_user_levels/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -130,8 +130,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -172,8 +172,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -217,8 +217,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -266,8 +266,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -316,8 +316,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -362,8 +362,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -404,8 +404,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);
@@ -447,9 +447,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomUserLevelsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatch } from '/api-client/dist/custom_user_levels/api';
+import { CustomUserLevelsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatch } from '@sailpoint/api-client/dist/custom_user_levels/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomUserLevelsApi(configuration);

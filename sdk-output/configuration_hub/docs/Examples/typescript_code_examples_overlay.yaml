@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-deploy-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { DeployRequest } from '/api-client/dist/configuration_hub/api';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { DeployRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -21,9 +21,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-object-mapping-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ObjectMappingRequest } from '/api-client/dist/configuration_hub/api';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ObjectMappingRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -43,9 +43,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-object-mappings-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ObjectMappingBulkCreateRequest } from '/api-client/dist/configuration_hub/api';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ObjectMappingBulkCreateRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -73,9 +73,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-scheduled-action-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ScheduledActionPayload } from '/api-client/dist/configuration_hub/api';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ScheduledActionPayload } from '@sailpoint/api-client/dist/configuration_hub/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -110,8 +110,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#create-uploaded-configuration-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -125,8 +125,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-backup-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -139,8 +139,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-draft-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -153,8 +153,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-object-mapping-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -168,8 +168,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-scheduled-action-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -182,8 +182,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#delete-uploaded-configuration-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -196,8 +196,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#get-deploy-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -210,8 +210,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#get-object-mappings-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -224,8 +224,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#get-uploaded-configuration-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -238,8 +238,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-backups-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -252,8 +252,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-deploys-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -265,8 +265,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-drafts-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -279,8 +279,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-scheduled-actions-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -292,8 +292,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#list-uploaded-configurations-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -306,9 +306,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#update-object-mappings-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ObjectMappingBulkPatchRequest } from '/api-client/dist/configuration_hub/api';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ObjectMappingBulkPatchRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
@@ -335,9 +335,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/configuration_hub/methods/configuration-hub#update-scheduled-action-v1
       source: |
-        import { ConfigurationHubApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatch } from '/api-client/dist/configuration_hub/api';
+        import { ConfigurationHubApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatch } from '@sailpoint/api-client/dist/configuration_hub/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);

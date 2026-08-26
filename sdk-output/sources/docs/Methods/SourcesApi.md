@@ -179,9 +179,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ProvisioningPolicyDto } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ProvisioningPolicyDto } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -267,9 +267,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ProvisioningPolicyDtoV2 } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ProvisioningPolicyDtoV2 } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -360,9 +360,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SourceDataset } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SourceDataset } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -427,9 +427,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SourceDatasetResource } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SourceDatasetResource } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -509,9 +509,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { Schedule3 } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Schedule3 } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -550,9 +550,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { Schema } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Schema } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -623,9 +623,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { Source } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Source } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -750,8 +750,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -787,8 +787,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -825,8 +825,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -868,8 +868,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -914,8 +914,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -963,8 +963,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1011,8 +1011,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1051,8 +1051,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1090,8 +1090,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1129,8 +1129,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1167,8 +1167,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1205,8 +1205,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1242,8 +1242,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1282,8 +1282,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1320,8 +1320,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1357,8 +1357,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1395,8 +1395,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1438,8 +1438,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1481,8 +1481,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1520,8 +1520,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1558,8 +1558,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1601,8 +1601,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1648,8 +1648,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1693,8 +1693,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1730,8 +1730,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1775,8 +1775,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1820,8 +1820,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1867,8 +1867,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1910,8 +1910,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1956,8 +1956,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -1995,8 +1995,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2035,8 +2035,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2074,8 +2074,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2118,8 +2118,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2160,8 +2160,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2200,8 +2200,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2246,8 +2246,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2289,8 +2289,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2335,9 +2335,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { DatasetAggregationRequest } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { DatasetAggregationRequest } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2381,8 +2381,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2424,8 +2424,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2466,8 +2466,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2512,8 +2512,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2559,8 +2559,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2602,8 +2602,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2640,9 +2640,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CorrelationConfig } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CorrelationConfig } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2700,9 +2700,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NativeChangeDetectionConfig } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NativeChangeDetectionConfig } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2750,9 +2750,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ProvisioningPolicyDto } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ProvisioningPolicyDto } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2837,9 +2837,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ProvisioningPolicyDtoV2 } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ProvisioningPolicyDtoV2 } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2925,9 +2925,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { AttrSyncSourceConfig } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AttrSyncSourceConfig } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -2994,9 +2994,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SourceDataset } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SourceDataset } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3060,9 +3060,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SourceDatasetResource } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SourceDatasetResource } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3153,9 +3153,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { Schema } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Schema } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3239,9 +3239,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { Source } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Source } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3361,9 +3361,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ResourceObjectsRequest } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ResourceObjectsRequest } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3407,8 +3407,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3445,8 +3445,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3482,8 +3482,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3521,9 +3521,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3569,9 +3569,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3615,9 +3615,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { PasswordPolicyHoldersDtoInner } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PasswordPolicyHoldersDtoInner } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3655,9 +3655,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ProvisioningPolicyDto } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ProvisioningPolicyDto } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3737,9 +3737,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3789,9 +3789,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3845,9 +3845,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3895,9 +3895,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SourceEntitlementRequestConfig } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SourceEntitlementRequestConfig } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -3973,9 +3973,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -4025,9 +4025,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -4100,9 +4100,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);
@@ -4160,9 +4160,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SourcesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sources/api';
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sources/api';
 
 const configuration = new Configuration();
 const apiInstance = new SourcesApi(configuration);

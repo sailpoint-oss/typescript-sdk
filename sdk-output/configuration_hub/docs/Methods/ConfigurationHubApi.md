@@ -73,9 +73,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { DeployRequest } from '/api-client/dist/configuration_hub/api';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { DeployRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -117,9 +117,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ObjectMappingRequest } from '/api-client/dist/configuration_hub/api';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ObjectMappingRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -166,9 +166,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ObjectMappingBulkCreateRequest } from '/api-client/dist/configuration_hub/api';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ObjectMappingBulkCreateRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -219,9 +219,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ScheduledActionPayload } from '/api-client/dist/configuration_hub/api';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ScheduledActionPayload } from '@sailpoint/api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -284,8 +284,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -326,8 +326,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -367,8 +367,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -408,8 +408,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -446,8 +446,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -487,8 +487,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -524,8 +524,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -564,8 +564,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -601,8 +601,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -638,8 +638,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -672,8 +672,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -708,8 +708,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -742,8 +742,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -778,8 +778,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -819,9 +819,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ObjectMappingBulkPatchRequest } from '/api-client/dist/configuration_hub/api';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ObjectMappingBulkPatchRequest } from '@sailpoint/api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);
@@ -872,9 +872,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ConfigurationHubApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatch } from '/api-client/dist/configuration_hub/api';
+import { ConfigurationHubApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatch } from '@sailpoint/api-client/dist/configuration_hub/api';
 
 const configuration = new Configuration();
 const apiInstance = new ConfigurationHubApi(configuration);

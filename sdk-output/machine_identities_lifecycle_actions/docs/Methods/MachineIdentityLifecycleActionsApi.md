@@ -84,9 +84,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentityLifecycleActionsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CancelLifecycleActionRequest } from '/api-client/dist/machine_identities_lifecycle_actions/api';
+import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CancelLifecycleActionRequest } from '@sailpoint/api-client/dist/machine_identities_lifecycle_actions/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
@@ -148,8 +148,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentityLifecycleActionsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
@@ -200,8 +200,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentityLifecycleActionsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
@@ -260,9 +260,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineIdentityLifecycleActionsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { LifecycleActionSubmitRequest } from '/api-client/dist/machine_identities_lifecycle_actions/api';
+import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { LifecycleActionSubmitRequest } from '@sailpoint/api-client/dist/machine_identities_lifecycle_actions/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);

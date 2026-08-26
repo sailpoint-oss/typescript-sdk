@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityAttributesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentityAttribute2 } from '/api-client/dist/identity_attributes/api';
+import { IdentityAttributesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityAttribute2 } from '@sailpoint/api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
@@ -86,8 +86,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityAttributesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityAttributesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
@@ -123,9 +123,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityAttributesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentityAttributeNames } from '/api-client/dist/identity_attributes/api';
+import { IdentityAttributesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityAttributeNames } from '@sailpoint/api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
@@ -163,8 +163,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityAttributesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityAttributesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
@@ -203,8 +203,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityAttributesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityAttributesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);
@@ -244,9 +244,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityAttributesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentityAttribute2 } from '/api-client/dist/identity_attributes/api';
+import { IdentityAttributesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityAttribute2 } from '@sailpoint/api-client/dist/identity_attributes/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityAttributesApi(configuration);

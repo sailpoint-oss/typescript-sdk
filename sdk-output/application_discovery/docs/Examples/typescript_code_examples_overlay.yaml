@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/application_discovery/methods/application-discovery#get-discovered-applications-v1
       source: |
-        import { ApplicationDiscoveryApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ApplicationDiscoveryApi(configuration);
@@ -22,8 +22,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/application_discovery/methods/application-discovery#get-manual-discover-applications-csv-template-v1
       source: |
-        import { ApplicationDiscoveryApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ApplicationDiscoveryApi(configuration);
@@ -35,8 +35,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/application_discovery/methods/application-discovery#send-manual-discover-applications-csv-template-v1
       source: |
-        import { ApplicationDiscoveryApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ApplicationDiscoveryApi(configuration);
@@ -49,9 +49,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/application_discovery/methods/application-discovery#start-application-discovery-v1
       source: |
-        import { ApplicationDiscoveryApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ApplicationDiscoveryRequest } from '/api-client/dist/application_discovery/api';
+        import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ApplicationDiscoveryRequest } from '@sailpoint/api-client/dist/application_discovery/api';
 
         const configuration = new Configuration();
         const apiInstance = new ApplicationDiscoveryApi(configuration);

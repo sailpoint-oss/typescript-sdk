@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#create-parameter-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ParameterStorageNewParameter } from '/api-client/dist/parameter_storage/api';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ParameterStorageNewParameter } from '@sailpoint/api-client/dist/parameter_storage/api';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);
@@ -26,8 +26,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#delete-parameter-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);
@@ -40,8 +40,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#get-attestation-document-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);
@@ -54,8 +54,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#get-parameter-references-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);
@@ -71,8 +71,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#get-parameter-storage-specification-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);
@@ -85,8 +85,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#get-parameter-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);
@@ -99,8 +99,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#search-parameters-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);
@@ -116,9 +116,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/parameter_storage/methods/parameter-storage#update-parameter-v1
       source: |
-        import { ParameterStorageApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ParameterStorageUpdateParameter } from '/api-client/dist/parameter_storage/api';
+        import { ParameterStorageApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ParameterStorageUpdateParameter } from '@sailpoint/api-client/dist/parameter_storage/api';
 
         const configuration = new Configuration();
         const apiInstance = new ParameterStorageApi(configuration);

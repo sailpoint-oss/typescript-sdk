@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#create-stream-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CreateStreamRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateStreamRequest } from '@sailpoint/api-client/dist/shared_signals_framework_ssf/api';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -27,8 +27,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#delete-stream-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -41,8 +41,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-jwks-data-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -54,8 +54,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-ssf-configuration-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -67,8 +67,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-stream-status-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -81,8 +81,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#get-stream-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -95,9 +95,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#send-stream-verification-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { VerificationRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { VerificationRequest } from '@sailpoint/api-client/dist/shared_signals_framework_ssf/api';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -113,9 +113,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#set-stream-configuration-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ReplaceStreamConfigurationRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReplaceStreamConfigurationRequest } from '@sailpoint/api-client/dist/shared_signals_framework_ssf/api';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -137,9 +137,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#update-stream-configuration-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { UpdateStreamConfigurationRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { UpdateStreamConfigurationRequest } from '@sailpoint/api-client/dist/shared_signals_framework_ssf/api';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);
@@ -161,9 +161,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/shared_signals_framework_ssf/methods/shared-signals-framework-ssf#update-stream-status-v1
       source: |
-        import { SharedSignalsFrameworkSSFApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { UpdateStreamStatusRequest } from '/api-client/dist/shared_signals_framework_ssf/api';
+        import { SharedSignalsFrameworkSSFApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { UpdateStreamStatusRequest } from '@sailpoint/api-client/dist/shared_signals_framework_ssf/api';
 
         const configuration = new Configuration();
         const apiInstance = new SharedSignalsFrameworkSSFApi(configuration);

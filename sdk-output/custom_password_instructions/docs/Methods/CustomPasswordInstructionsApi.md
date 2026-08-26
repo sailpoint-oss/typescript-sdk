@@ -80,9 +80,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomPasswordInstructionsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CustomPasswordInstruction } from '/api-client/dist/custom_password_instructions/api';
+import { CustomPasswordInstructionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CustomPasswordInstruction } from '@sailpoint/api-client/dist/custom_password_instructions/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomPasswordInstructionsApi(configuration);
@@ -128,8 +128,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomPasswordInstructionsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomPasswordInstructionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomPasswordInstructionsApi(configuration);
@@ -172,8 +172,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomPasswordInstructionsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CustomPasswordInstructionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomPasswordInstructionsApi(configuration);

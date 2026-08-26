@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#create-domain-dkim-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { DomainAddress } from '/api-client/dist/notifications/api';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { DomainAddress } from '@sailpoint/api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -21,9 +21,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#create-notification-template-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { TemplateDto } from '/api-client/dist/notifications/api';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { TemplateDto } from '@sailpoint/api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -99,9 +99,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#create-verified-from-address-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { EmailStatusDto } from '/api-client/dist/notifications/api';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { EmailStatusDto } from '@sailpoint/api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -120,9 +120,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#delete-notification-templates-in-bulk-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { TemplateBulkDeleteDto } from '/api-client/dist/notifications/api';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { TemplateBulkDeleteDto } from '@sailpoint/api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -139,8 +139,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#delete-verified-from-address-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -153,8 +153,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-dkim-attributes-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -168,8 +168,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-mail-from-attributes-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -182,8 +182,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notification-preferences-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -197,8 +197,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notification-template-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -211,8 +211,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notification-template-variables-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -227,8 +227,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#get-notifications-template-context-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -240,8 +240,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#list-from-addresses-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -258,8 +258,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#list-notification-preferences-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -276,8 +276,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#list-notification-template-defaults-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -292,8 +292,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#list-notification-templates-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -309,9 +309,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#put-mail-from-attributes-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { MailFromAttributesDto } from '/api-client/dist/notifications/api';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { MailFromAttributesDto } from '@sailpoint/api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -327,9 +327,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#send-test-notification-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { SendTestNotificationRequestDto } from '/api-client/dist/notifications/api';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SendTestNotificationRequestDto } from '@sailpoint/api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);
@@ -353,9 +353,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/notifications/methods/notifications#set-notification-preferences-v1
       source: |
-        import { NotificationsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { PreferencesDto } from '/api-client/dist/notifications/api';
+        import { NotificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { PreferencesDto } from '@sailpoint/api-client/dist/notifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new NotificationsApi(configuration);

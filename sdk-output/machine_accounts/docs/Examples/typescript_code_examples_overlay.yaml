@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#create-machine-account-subtype-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CreateMachineAccountSubtypeV1Request } from '/api-client/dist/machine_accounts/api';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateMachineAccountSubtypeV1Request } from '@sailpoint/api-client/dist/machine_accounts/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -21,8 +21,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#delete-machine-account-subtype-by-technical-name-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -37,8 +37,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#get-machine-account-subtype-by-id-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#get-machine-account-subtype-by-technical-name-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -68,8 +68,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#get-machine-account-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -83,8 +83,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#list-machine-account-subtypes-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -103,8 +103,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#list-machine-accounts-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -122,8 +122,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#patch-machine-account-subtype-by-technical-name-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);
@@ -139,8 +139,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_accounts/methods/machine-accounts#update-machine-account-v1
       source: |
-        import { MachineAccountsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { MachineAccountsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountsApi(configuration);

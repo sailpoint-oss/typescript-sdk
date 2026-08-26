@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentityProfile } from '/api-client/dist/identity_profiles/api';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityProfile } from '@sailpoint/api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -150,8 +150,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -191,8 +191,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -232,8 +232,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -273,9 +273,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentityPreviewRequest } from '/api-client/dist/identity_profiles/api';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityPreviewRequest } from '@sailpoint/api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -337,8 +337,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -374,8 +374,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -411,9 +411,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { IdentityProfileExportedObject } from '/api-client/dist/identity_profiles/api';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityProfileExportedObject } from '@sailpoint/api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -509,8 +509,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -554,8 +554,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);
@@ -600,9 +600,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IdentityProfilesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/identity_profiles/api';
+import { IdentityProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/identity_profiles/api';
 
 const configuration = new Configuration();
 const apiInstance = new IdentityProfilesApi(configuration);

@@ -58,8 +58,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -104,8 +104,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -155,8 +155,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -202,8 +202,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -247,8 +247,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -297,8 +297,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -344,8 +344,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -395,8 +395,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);
@@ -443,8 +443,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIOutliersApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { IAIOutliersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIOutliersApi(configuration);

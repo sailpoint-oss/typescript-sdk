@@ -53,8 +53,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApplicationDiscoveryApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApplicationDiscoveryApi(configuration);
@@ -94,8 +94,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { ApplicationDiscoveryApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApplicationDiscoveryApi(configuration);
@@ -131,8 +131,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApplicationDiscoveryApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApplicationDiscoveryApi(configuration);
@@ -173,9 +173,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApplicationDiscoveryApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ApplicationDiscoveryRequest } from '/api-client/dist/application_discovery/api';
+import { ApplicationDiscoveryApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApplicationDiscoveryRequest } from '@sailpoint/api-client/dist/application_discovery/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApplicationDiscoveryApi(configuration);

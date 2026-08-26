@@ -106,9 +106,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NonEmployeeApprovalDecision } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NonEmployeeApprovalDecision } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -148,9 +148,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NonEmployeeRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NonEmployeeRequestBody } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -199,9 +199,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NonEmployeeRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NonEmployeeRequestBody } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -252,9 +252,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NonEmployeeSchemaAttributeBody } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NonEmployeeSchemaAttributeBody } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -298,9 +298,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NonEmployeeSourceRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NonEmployeeSourceRequestBody } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -362,8 +362,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -399,9 +399,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { DeleteNonEmployeeRecordsInBulkV1Request } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { DeleteNonEmployeeRecordsInBulkV1Request } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -438,8 +438,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -478,8 +478,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -516,8 +516,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -553,8 +553,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -590,8 +590,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -627,8 +627,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -668,8 +668,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -709,8 +709,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -749,8 +749,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -787,8 +787,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -828,8 +828,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -869,8 +869,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -907,8 +907,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -946,8 +946,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -987,8 +987,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1025,8 +1025,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1072,8 +1072,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1120,8 +1120,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1170,8 +1170,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1219,8 +1219,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1266,9 +1266,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1313,9 +1313,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1358,9 +1358,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1402,9 +1402,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NonEmployeeRejectApprovalDecision } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NonEmployeeRejectApprovalDecision } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);
@@ -1448,9 +1448,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NonEmployeeLifecycleManagementApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { NonEmployeeRequestBody } from '/api-client/dist/non_employee_lifecycle_management/api';
+import { NonEmployeeLifecycleManagementApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { NonEmployeeRequestBody } from '@sailpoint/api-client/dist/non_employee_lifecycle_management/api';
 
 const configuration = new Configuration();
 const apiInstance = new NonEmployeeLifecycleManagementApi(configuration);

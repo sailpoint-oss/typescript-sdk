@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#approve-access-request-v1
       source: |
-        import { AccessRequestApprovalsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CommentDto } from '/api-client/dist/access_request_approvals/api';
+        import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CommentDto } from '@sailpoint/api-client/dist/access_request_approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -28,9 +28,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#forward-access-request-v1
       source: |
-        import { AccessRequestApprovalsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { ForwardApprovalDto } from '/api-client/dist/access_request_approvals/api';
+        import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ForwardApprovalDto } from '@sailpoint/api-client/dist/access_request_approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -47,8 +47,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#get-access-request-approval-summary-v1
       source: |
-        import { AccessRequestApprovalsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -62,8 +62,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#list-access-request-approvers-v1
       source: |
-        import { AccessRequestApprovalsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -79,8 +79,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#list-completed-approvals-v1
       source: |
-        import { AccessRequestApprovalsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -98,8 +98,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#list-pending-approvals-v1
       source: |
-        import { AccessRequestApprovalsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -117,9 +117,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_approvals/methods/access-request-approvals#reject-access-request-v1
       source: |
-        import { AccessRequestApprovalsApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { CommentDto } from '/api-client/dist/access_request_approvals/api';
+        import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CommentDto } from '@sailpoint/api-client/dist/access_request_approvals/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestApprovalsApi(configuration);

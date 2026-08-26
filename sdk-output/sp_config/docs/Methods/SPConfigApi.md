@@ -50,9 +50,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SPConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ExportPayload } from '/api-client/dist/sp_config/api';
+import { SPConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ExportPayload } from '@sailpoint/api-client/dist/sp_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
@@ -92,8 +92,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SPConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SPConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
@@ -131,8 +131,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SPConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SPConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
@@ -172,8 +172,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SPConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SPConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
@@ -211,8 +211,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SPConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SPConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
@@ -260,9 +260,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SPConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ImportOptions } from '/api-client/dist/sp_config/api';
+import { SPConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ImportOptions } from '@sailpoint/api-client/dist/sp_config/api';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);
@@ -297,8 +297,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { SPConfigApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SPConfigApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SPConfigApi(configuration);

@@ -79,9 +79,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordSyncGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { PasswordSyncGroup } from '/api-client/dist/password_sync_groups/api';
+import { PasswordSyncGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PasswordSyncGroup } from '@sailpoint/api-client/dist/password_sync_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -124,8 +124,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordSyncGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PasswordSyncGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -161,8 +161,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordSyncGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PasswordSyncGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -200,8 +200,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordSyncGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PasswordSyncGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);
@@ -240,9 +240,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordSyncGroupsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { PasswordSyncGroup } from '/api-client/dist/password_sync_groups/api';
+import { PasswordSyncGroupsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PasswordSyncGroup } from '@sailpoint/api-client/dist/password_sync_groups/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordSyncGroupsApi(configuration);

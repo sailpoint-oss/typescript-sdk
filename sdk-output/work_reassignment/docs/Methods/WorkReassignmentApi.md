@@ -65,9 +65,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ConfigurationItemRequest } from '/api-client/dist/work_reassignment/api';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ConfigurationItemRequest } from '@sailpoint/api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -115,8 +115,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -160,8 +160,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -203,8 +203,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -244,8 +244,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -285,8 +285,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -325,8 +325,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -367,9 +367,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ConfigurationItemRequest } from '/api-client/dist/work_reassignment/api';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ConfigurationItemRequest } from '@sailpoint/api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
@@ -417,9 +417,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { WorkReassignmentApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { TenantConfigurationRequest } from '/api-client/dist/work_reassignment/api';
+import { WorkReassignmentApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { TenantConfigurationRequest } from '@sailpoint/api-client/dist/work_reassignment/api';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);

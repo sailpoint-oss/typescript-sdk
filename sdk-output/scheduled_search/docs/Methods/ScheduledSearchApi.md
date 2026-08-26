@@ -75,9 +75,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ScheduledSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CreateScheduledSearchV1Request } from '/api-client/dist/scheduled_search/api';
+import { ScheduledSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreateScheduledSearchV1Request } from '@sailpoint/api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
@@ -114,8 +114,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ScheduledSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ScheduledSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
@@ -151,8 +151,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ScheduledSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ScheduledSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
@@ -192,8 +192,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ScheduledSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { ScheduledSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
@@ -234,9 +234,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ScheduledSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { TypedReference } from '/api-client/dist/scheduled_search/api';
+import { ScheduledSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { TypedReference } from '@sailpoint/api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);
@@ -278,9 +278,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ScheduledSearchApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ScheduledSearch } from '/api-client/dist/scheduled_search/api';
+import { ScheduledSearchApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ScheduledSearch } from '@sailpoint/api-client/dist/scheduled_search/api';
 
 const configuration = new Configuration();
 const apiInstance = new ScheduledSearchApi(configuration);

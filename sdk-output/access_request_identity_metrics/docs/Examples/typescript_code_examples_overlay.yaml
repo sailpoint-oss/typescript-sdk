@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_request_identity_metrics/methods/access-request-identity-metrics#get-access-request-identity-metrics-v1
       source: |
-        import { AccessRequestIdentityMetricsApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessRequestIdentityMetricsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestIdentityMetricsApi(configuration);

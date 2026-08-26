@@ -65,9 +65,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PersonalAccessTokensApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { CreatePersonalAccessTokenRequest } from '/api-client/dist/personal_access_tokens/api';
+import { PersonalAccessTokensApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreatePersonalAccessTokenRequest } from '@sailpoint/api-client/dist/personal_access_tokens/api';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
@@ -109,8 +109,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PersonalAccessTokensApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PersonalAccessTokensApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
@@ -147,8 +147,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PersonalAccessTokensApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { PersonalAccessTokensApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
@@ -195,9 +195,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PersonalAccessTokensApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/personal_access_tokens/api';
+import { PersonalAccessTokensApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/personal_access_tokens/api';
 
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);

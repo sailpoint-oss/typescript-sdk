@@ -76,8 +76,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -118,8 +118,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -160,8 +160,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -201,8 +201,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -247,8 +247,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -297,8 +297,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -347,8 +347,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -390,9 +390,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ReviewDecision } from '/api-client/dist/certifications/api';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ReviewDecision } from '@sailpoint/api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -441,9 +441,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ReviewReassign } from '/api-client/dist/certifications/api';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ReviewReassign } from '@sailpoint/api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -490,8 +490,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);
@@ -533,9 +533,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { ReviewReassign } from '/api-client/dist/certifications/api';
+import { CertificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ReviewReassign } from '@sailpoint/api-client/dist/certifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationsApi(configuration);

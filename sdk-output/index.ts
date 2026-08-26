@@ -4,18 +4,18 @@
 //
 // Named imports — version-explicit class names (preferred in the browser:
 // bundlers can drop every partition you do not import):
-//   import { AccountsApi, Configuration } from "/api-client"
+//   import { AccountsApi, Configuration } from "@sailpoint/api-client"
 //
 // Namespace — resource-named, version-agnostic. Convenient in Node, but it is
 // one object holding every API class, so referencing it puts all of them in a
 // browser bundle:
-//   import { SailPoint, Configuration } from "/api-client"
+//   import { SailPoint, Configuration } from "@sailpoint/api-client"
 //   const api = new SailPoint.AccountsApi(config)
 //   api.listAccountsV1(...)                          // method name shows version
 //   api.listAccountsV2(...)                          // when v2 partition lands
 //
 // Models — import directly from the partition sub-path:
-//   import type { AccountV1 } from "/api-client/accounts/api"
+//   import type { AccountV1 } from "@sailpoint/api-client/accounts/api"
 
 // --- Partition imports (private _ alias avoids TS1194 / TS2303 in namespace) ---
 import { AccessModelMetadataApi as _AccessModelMetadataApi } from "./access_model_metadata/api";

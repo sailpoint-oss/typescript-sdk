@@ -56,8 +56,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { EntitlementConnectionsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { EntitlementConnectionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -107,8 +107,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { EntitlementConnectionsApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { EntitlementConnectionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -151,9 +151,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { EntitlementConnectionsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/entitlement_connections/api';
+import { EntitlementConnectionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/entitlement_connections/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -199,9 +199,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { EntitlementConnectionsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/entitlement_connections/api';
+import { EntitlementConnectionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/entitlement_connections/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);
@@ -246,9 +246,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { EntitlementConnectionsApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { EntitlementConnectionBulkUpdateItem } from '/api-client/dist/entitlement_connections/api';
+import { EntitlementConnectionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { EntitlementConnectionBulkUpdateItem } from '@sailpoint/api-client/dist/entitlement_connections/api';
 
 const configuration = new Configuration();
 const apiInstance = new EntitlementConnectionsApi(configuration);

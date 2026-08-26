@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/org_config/methods/org-config#get-org-config-v1
       source: |
-        import { OrgConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { OrgConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new OrgConfigApi(configuration);
@@ -17,8 +17,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/org_config/methods/org-config#get-valid-time-zones-v1
       source: |
-        import { OrgConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { OrgConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new OrgConfigApi(configuration);
@@ -33,9 +33,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/org_config/methods/org-config#patch-org-config-v1
       source: |
-        import { OrgConfigApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/org_config/api';
+        import { OrgConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/org_config/api';
 
         const configuration = new Configuration();
         const apiInstance = new OrgConfigApi(configuration);

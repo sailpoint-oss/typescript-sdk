@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#create-access-model-metadata-attribute-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AttributeDTO } from '/api-client/dist/access_model_metadata/api';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AttributeDTO } from '@sailpoint/api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -36,9 +36,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#create-access-model-metadata-attribute-value-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { AttributeValueDTO } from '/api-client/dist/access_model_metadata/api';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AttributeValueDTO } from '@sailpoint/api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -56,8 +56,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#get-access-model-metadata-attribute-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -70,8 +70,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#get-access-model-metadata-attribute-value-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -85,8 +85,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#list-access-model-metadata-attribute-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -102,8 +102,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#list-access-model-metadata-attribute-value-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -118,9 +118,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-attribute-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/access_model_metadata/api';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -138,9 +138,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-attribute-value-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { JsonPatchOperation } from '/api-client/dist/access_model_metadata/api';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -159,9 +159,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-by-filter-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { EntitlementAttributeBulkUpdateFilterRequest } from '/api-client/dist/access_model_metadata/api';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { EntitlementAttributeBulkUpdateFilterRequest } from '@sailpoint/api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -182,9 +182,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-by-ids-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { EntitlementAttributeBulkUpdateIdsRequest } from '/api-client/dist/access_model_metadata/api';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { EntitlementAttributeBulkUpdateIdsRequest } from '@sailpoint/api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
@@ -205,9 +205,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#update-access-model-metadata-by-query-v1
       source: |
-        import { AccessModelMetadataApi } from '/api-client';
-        import { Configuration } from '/api-client';
-        import { EntitlementAttributeBulkUpdateQueryRequest } from '/api-client/dist/access_model_metadata/api';
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { EntitlementAttributeBulkUpdateQueryRequest } from '@sailpoint/api-client/dist/access_model_metadata/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);

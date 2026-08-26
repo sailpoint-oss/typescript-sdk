@@ -86,9 +86,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SodPolicy } from '/api-client/dist/sod_policies/api';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SodPolicy } from '@sailpoint/api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -190,8 +190,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -229,8 +229,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -268,8 +268,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -306,8 +306,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -340,8 +340,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -376,8 +376,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -414,8 +414,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -451,8 +451,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -488,8 +488,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -530,8 +530,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -574,9 +574,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { JsonPatchOperation } from '/api-client/dist/sod_policies/api';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -618,9 +618,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SodPolicySchedule } from '/api-client/dist/sod_policies/api';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SodPolicySchedule } from '@sailpoint/api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -696,9 +696,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { SodPolicy } from '/api-client/dist/sod_policies/api';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SodPolicy } from '@sailpoint/api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -801,8 +801,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -838,9 +838,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
-import { MultiPolicyRequest } from '/api-client/dist/sod_policies/api';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { MultiPolicyRequest } from '@sailpoint/api-client/dist/sod_policies/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
@@ -878,8 +878,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODPoliciesApi } from '/api-client';
-import { Configuration } from '/api-client';
+import { SODPoliciesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODPoliciesApi(configuration);
