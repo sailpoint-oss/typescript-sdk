@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LaunchersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { LauncherRequest } from 'sailpoint-api-client/dist/launchers/api';
+import { LaunchersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { LauncherRequest } from '@sailpoint/api-client/dist/launchers/api';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);
@@ -96,8 +96,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LaunchersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { LaunchersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);
@@ -133,8 +133,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LaunchersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { LaunchersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);
@@ -172,8 +172,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LaunchersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { LaunchersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);
@@ -212,9 +212,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LaunchersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { LauncherRequest } from 'sailpoint-api-client/dist/launchers/api';
+import { LaunchersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { LauncherRequest } from '@sailpoint/api-client/dist/launchers/api';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);
@@ -261,8 +261,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LaunchersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { LaunchersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new LaunchersApi(configuration);

@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/classify_source/methods/classify-source#delete-classify-machine-account-from-source-v1
       source: |
-        import { ClassifySourceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ClassifySourceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ClassifySourceApi(configuration);
@@ -19,8 +19,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/classify_source/methods/classify-source#get-classify-machine-account-from-source-status-v1
       source: |
-        import { ClassifySourceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ClassifySourceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ClassifySourceApi(configuration);
@@ -34,8 +34,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/classify_source/methods/classify-source#send-classify-machine-account-from-source-v1
       source: |
-        import { ClassifySourceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ClassifySourceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ClassifySourceApi(configuration);

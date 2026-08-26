@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_common_access/methods/iai-common-access#create-common-access-v1
       source: |
-        import { IAICommonAccessApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CommonAccessItemRequest } from 'sailpoint-api-client/dist/iai_common_access/api';
+        import { IAICommonAccessApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CommonAccessItemRequest } from '@sailpoint/api-client/dist/iai_common_access/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAICommonAccessApi(configuration);
@@ -30,8 +30,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_common_access/methods/iai-common-access#get-common-access-v1
       source: |
-        import { IAICommonAccessApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IAICommonAccessApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IAICommonAccessApi(configuration);
@@ -49,9 +49,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/iai_common_access/methods/iai-common-access#update-common-access-status-in-bulk-v1
       source: |
-        import { IAICommonAccessApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CommonAccessIDStatus } from 'sailpoint-api-client/dist/iai_common_access/api';
+        import { IAICommonAccessApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CommonAccessIDStatus } from '@sailpoint/api-client/dist/iai_common_access/api';
 
         const configuration = new Configuration();
         const apiInstance = new IAICommonAccessApi(configuration);

@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#create-sim-integration-v1
       source: |
-        import { SIMIntegrationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SimIntegrationDetails } from 'sailpoint-api-client/dist/sim_integrations/api';
+        import { SIMIntegrationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SimIntegrationDetails } from '@sailpoint/api-client/dist/sim_integrations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SIMIntegrationsApi(configuration);
@@ -37,8 +37,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#delete-sim-integration-v1
       source: |
-        import { SIMIntegrationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SIMIntegrationsApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#get-sim-integration-v1
       source: |
-        import { SIMIntegrationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SIMIntegrationsApi(configuration);
@@ -67,8 +67,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#get-sim-integrations-v1
       source: |
-        import { SIMIntegrationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SIMIntegrationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SIMIntegrationsApi(configuration);
@@ -81,9 +81,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#patch-before-provisioning-rule-v1
       source: |
-        import { SIMIntegrationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatch } from 'sailpoint-api-client/dist/sim_integrations/api';
+        import { SIMIntegrationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatch } from '@sailpoint/api-client/dist/sim_integrations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SIMIntegrationsApi(configuration);
@@ -108,9 +108,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#patch-sim-attributes-v1
       source: |
-        import { SIMIntegrationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatch } from 'sailpoint-api-client/dist/sim_integrations/api';
+        import { SIMIntegrationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatch } from '@sailpoint/api-client/dist/sim_integrations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SIMIntegrationsApi(configuration);
@@ -135,9 +135,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sim_integrations/methods/sim-integrations#put-sim-integration-v1
       source: |
-        import { SIMIntegrationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SimIntegrationDetails } from 'sailpoint-api-client/dist/sim_integrations/api';
+        import { SIMIntegrationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SimIntegrationDetails } from '@sailpoint/api-client/dist/sim_integrations/api';
 
         const configuration = new Configuration();
         const apiInstance = new SIMIntegrationsApi(configuration);

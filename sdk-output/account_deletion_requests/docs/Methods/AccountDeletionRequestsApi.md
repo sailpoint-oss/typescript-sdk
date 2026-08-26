@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AccountDeleteRequestInput } from 'sailpoint-api-client/dist/account_deletion_requests/api';
+import { AccountDeletionRequestsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AccountDeleteRequestInput } from '@sailpoint/api-client/dist/account_deletion_requests/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccountDeletionRequestsApi(configuration);
@@ -92,8 +92,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountDeletionRequestsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccountDeletionRequestsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountDeletionRequestsApi(configuration);

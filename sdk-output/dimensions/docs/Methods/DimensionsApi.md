@@ -55,9 +55,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Dimension } from 'sailpoint-api-client/dist/dimensions/api';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Dimension } from '@sailpoint/api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -184,9 +184,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { DimensionBulkDeleteRequest } from 'sailpoint-api-client/dist/dimensions/api';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { DimensionBulkDeleteRequest } from '@sailpoint/api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -227,8 +227,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -273,8 +273,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -319,8 +319,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -365,8 +365,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -416,8 +416,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);
@@ -465,9 +465,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DimensionsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/dimensions/api';
+import { DimensionsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/dimensions/api';
 
 const configuration = new Configuration();
 const apiInstance = new DimensionsApi(configuration);

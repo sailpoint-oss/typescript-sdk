@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#create-service-desk-integration-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ServiceDeskIntegrationDto } from 'sailpoint-api-client/dist/service_desk_integration/api';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ServiceDeskIntegrationDto } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#delete-service-desk-integration-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -66,8 +66,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#get-service-desk-integration-template-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -80,8 +80,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#get-service-desk-integration-types-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -93,8 +93,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#get-service-desk-integration-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -107,8 +107,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#get-service-desk-integrations-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -125,8 +125,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#get-status-check-details-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -138,9 +138,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#patch-service-desk-integration-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/service_desk_integration/api';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -158,9 +158,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#put-service-desk-integration-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ServiceDeskIntegrationDto } from 'sailpoint-api-client/dist/service_desk_integration/api';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ServiceDeskIntegrationDto } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);
@@ -207,9 +207,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/service_desk_integration/methods/service-desk-integration#update-status-check-details-v1
       source: |
-        import { ServiceDeskIntegrationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { QueuedCheckConfigDetails } from 'sailpoint-api-client/dist/service_desk_integration/api';
+        import { ServiceDeskIntegrationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { QueuedCheckConfigDetails } from '@sailpoint/api-client/dist/service_desk_integration/api';
 
         const configuration = new Configuration();
         const apiInstance = new ServiceDeskIntegrationApi(configuration);

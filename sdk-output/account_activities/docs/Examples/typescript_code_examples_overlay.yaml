@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_activities/methods/account-activities#get-account-activity-v1
       source: |
-        import { AccountActivitiesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccountActivitiesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountActivitiesApi(configuration);
@@ -18,8 +18,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_activities/methods/account-activities#list-account-activities-v1
       source: |
-        import { AccountActivitiesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccountActivitiesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountActivitiesApi(configuration);

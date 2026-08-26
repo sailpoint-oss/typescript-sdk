@@ -52,9 +52,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODControlsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Compensatingcontrolcreate } from 'sailpoint-api-client/dist/sod_controls/api';
+import { SODControlsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Compensatingcontrolcreate } from '@sailpoint/api-client/dist/sod_controls/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODControlsApi(configuration);
@@ -111,8 +111,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODControlsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SODControlsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODControlsApi(configuration);
@@ -153,8 +153,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODControlsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SODControlsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODControlsApi(configuration);
@@ -199,8 +199,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODControlsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SODControlsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODControlsApi(configuration);
@@ -246,9 +246,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODControlsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Compensatingcontrolupdate } from 'sailpoint-api-client/dist/sod_controls/api';
+import { SODControlsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Compensatingcontrolupdate } from '@sailpoint/api-client/dist/sod_controls/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODControlsApi(configuration);

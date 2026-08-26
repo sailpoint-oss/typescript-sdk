@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#approve-bulk-entitlement-recommendations-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { BulkApproveEntitlementRecommendationRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { BulkApproveEntitlementRecommendationRequest } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -30,9 +30,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#create-auto-write-settings-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AutoWriteSetting } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AutoWriteSetting } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -49,8 +49,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#get-auto-write-settings-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -62,8 +62,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#get-sed-batch-stats-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -76,8 +76,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#get-sed-batches-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -94,8 +94,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#list-pending-entitlement-recommendation-approvals-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -110,8 +110,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#list-privileged-entitlement-recommendations-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -126,8 +126,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#list-seds-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -147,9 +147,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#patch-entitlement-recommendation-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -168,9 +168,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#patch-sed-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SedPatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SedPatch } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -188,9 +188,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-entitlement-recommendations-assignment-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { EntitlementRecommendationAssignRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { EntitlementRecommendationAssignRequest } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -210,9 +210,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-sed-approval-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SedApproval } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SedApproval } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -227,9 +227,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-sed-assignment-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SedAssignment } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SedAssignment } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -248,9 +248,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#submit-sed-batch-request-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SedBatchRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SedBatchRequest } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -289,9 +289,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/suggested_entitlement_description/methods/suggested-entitlement-description#update-auto-write-settings-v1
       source: |
-        import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { AutoWriteSettingPatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+        import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AutoWriteSettingPatch } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
         const configuration = new Configuration();
         const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);

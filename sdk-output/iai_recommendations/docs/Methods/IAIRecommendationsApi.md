@@ -48,8 +48,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRecommendationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IAIRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRecommendationsApi(configuration);
@@ -89,9 +89,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRecommendationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { RecommendationRequestDto } from 'sailpoint-api-client/dist/iai_recommendations/api';
+import { IAIRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { RecommendationRequestDto } from '@sailpoint/api-client/dist/iai_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRecommendationsApi(configuration);
@@ -150,9 +150,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IAIRecommendationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { RecommendationConfigDto } from 'sailpoint-api-client/dist/iai_recommendations/api';
+import { IAIRecommendationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { RecommendationConfigDto } from '@sailpoint/api-client/dist/iai_recommendations/api';
 
 const configuration = new Configuration();
 const apiInstance = new IAIRecommendationsApi(configuration);

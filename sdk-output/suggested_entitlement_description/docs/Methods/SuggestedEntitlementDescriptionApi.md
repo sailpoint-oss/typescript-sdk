@@ -64,9 +64,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BulkApproveEntitlementRecommendationRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkApproveEntitlementRecommendationRequest } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -113,9 +113,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AutoWriteSetting } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AutoWriteSetting } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -152,8 +152,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -192,8 +192,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -234,8 +234,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -280,8 +280,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -324,8 +324,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -384,8 +384,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -433,9 +433,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -478,9 +478,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SedPatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SedPatch } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -525,9 +525,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { EntitlementRecommendationAssignRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { EntitlementRecommendationAssignRequest } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -571,9 +571,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SedApproval } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SedApproval } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -612,9 +612,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SedAssignment } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SedAssignment } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -657,9 +657,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SedBatchRequest } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SedBatchRequest } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);
@@ -721,9 +721,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SuggestedEntitlementDescriptionApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AutoWriteSettingPatch } from 'sailpoint-api-client/dist/suggested_entitlement_description/api';
+import { SuggestedEntitlementDescriptionApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AutoWriteSettingPatch } from '@sailpoint/api-client/dist/suggested_entitlement_description/api';
 
 const configuration = new Configuration();
 const apiInstance = new SuggestedEntitlementDescriptionApi(configuration);

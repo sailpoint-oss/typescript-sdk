@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_usages/methods/account-usages#get-usages-by-account-id-v1
       source: |
-        import { AccountUsagesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccountUsagesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountUsagesApi(configuration);

@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_classification_config/methods/machine-classification-config#delete-machine-classification-config-v1
       source: |
-        import { MachineClassificationConfigApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineClassificationConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineClassificationConfigApi(configuration);
@@ -19,8 +19,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_classification_config/methods/machine-classification-config#get-machine-classification-config-v1
       source: |
-        import { MachineClassificationConfigApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineClassificationConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineClassificationConfigApi(configuration);
@@ -34,9 +34,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_classification_config/methods/machine-classification-config#set-machine-classification-config-v1
       source: |
-        import { MachineClassificationConfigApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { MachineClassificationConfig } from 'sailpoint-api-client/dist/machine_classification_config/api';
+        import { MachineClassificationConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { MachineClassificationConfig } from '@sailpoint/api-client/dist/machine_classification_config/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineClassificationConfigApi(configuration);

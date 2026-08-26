@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#create-identity-profile-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { IdentityProfile } from 'sailpoint-api-client/dist/identity_profiles/api';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { IdentityProfile } from '@sailpoint/api-client/dist/identity_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -67,8 +67,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#delete-identity-profile-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -81,8 +81,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#delete-identity-profiles-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -95,8 +95,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#export-identity-profiles-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -113,9 +113,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#generate-identity-preview-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { IdentityPreviewRequest } from 'sailpoint-api-client/dist/identity_profiles/api';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { IdentityPreviewRequest } from '@sailpoint/api-client/dist/identity_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -154,8 +154,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#get-default-identity-attribute-config-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -168,8 +168,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#get-identity-profile-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -182,9 +182,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#import-identity-profiles-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { IdentityProfileExportedObject } from 'sailpoint-api-client/dist/identity_profiles/api';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { IdentityProfileExportedObject } from '@sailpoint/api-client/dist/identity_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -253,8 +253,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#list-identity-profiles-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -271,8 +271,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#sync-identity-profile-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);
@@ -285,9 +285,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/identity_profiles/methods/identity-profiles#update-identity-profile-v1
       source: |
-        import { IdentityProfilesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/identity_profiles/api';
+        import { IdentityProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/identity_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new IdentityProfilesApi(configuration);

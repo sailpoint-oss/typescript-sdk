@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#create-source-subtype-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CreateSourceSubtypeV1Request } from 'sailpoint-api-client/dist/machine_account_subtypes/api';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateSourceSubtypeV1Request } from '@sailpoint/api-client/dist/machine_account_subtypes/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -20,8 +20,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#delete-machine-account-subtype-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -35,8 +35,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#get-machine-account-subtype-approval-config-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -50,8 +50,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#get-source-subtype-by-id-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -65,8 +65,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#list-source-subtypes-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -84,8 +84,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#load-bulk-source-subtypes-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -99,8 +99,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#patch-machine-account-subtype-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
@@ -115,9 +115,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#update-machine-account-subtype-approval-config-v1
       source: |
-        import { MachineAccountSubtypesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/machine_account_subtypes/api';
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/machine_account_subtypes/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);

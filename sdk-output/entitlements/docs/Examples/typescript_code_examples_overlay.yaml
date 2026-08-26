@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#create-access-model-metadata-for-entitlement-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -20,8 +20,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#delete-access-model-metadata-from-entitlement-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -36,8 +36,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#get-entitlement-request-config-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -50,8 +50,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#get-entitlement-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -64,8 +64,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#import-entitlements-by-source-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -79,8 +79,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#list-entitlement-children-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -99,8 +99,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#list-entitlement-parents-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -119,8 +119,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#list-entitlements-by-account-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -138,8 +138,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#list-entitlements-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -160,9 +160,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#patch-entitlement-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/entitlements/api';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/entitlements/api';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -180,9 +180,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#put-entitlement-request-config-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { EntitlementRequestConfig } from 'sailpoint-api-client/dist/entitlements/api';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { EntitlementRequestConfig } from '@sailpoint/api-client/dist/entitlements/api';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -224,8 +224,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#reset-source-entitlements-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);
@@ -238,9 +238,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#update-entitlements-in-bulk-v1
       source: |
-        import { EntitlementsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { EntitlementBulkUpdateRequest } from 'sailpoint-api-client/dist/entitlements/api';
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { EntitlementBulkUpdateRequest } from '@sailpoint/api-client/dist/entitlements/api';
 
         const configuration = new Configuration();
         const apiInstance = new EntitlementsApi(configuration);

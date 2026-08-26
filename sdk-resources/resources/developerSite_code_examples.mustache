@@ -6,17 +6,17 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/methods/{{#lambda.kebabcase}}{{#lambda.titlecase}}{{baseName}}{{/lambda.titlecase}}{{/lambda.kebabcase}}#{{#lambda.kebabcase}}{{#lambda.titlecase}}{{operationId}}{{/lambda.titlecase}}{{/lambda.kebabcase}}
       source: |
-        import { {{classname}} } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { {{classname}} } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 {{#allParams}}
 {{#isModel}}
 {{^isArray}}
-        import { {{{dataType}}} } from 'sailpoint-api-client/dist/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/api';
+        import { {{{dataType}}} } from '@sailpoint/api-client/dist/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/api';
 {{/isArray}}
 {{/isModel}}
 {{#isArray}}
 {{#items.isModel}}
-        import { {{#items}}{{{dataType}}}{{/items}} } from 'sailpoint-api-client/dist/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/api';
+        import { {{#items}}{{{dataType}}}{{/items}} } from '@sailpoint/api-client/dist/{{#lambda.lowercase}}{{packageName}}{{/lambda.lowercase}}/api';
 {{/items.isModel}}
 {{/isArray}}
 {{/allParams}}

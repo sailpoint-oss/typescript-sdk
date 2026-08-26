@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#create-managed-client-v1
       source: |
-        import { ManagedClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ManagedClientRequest } from 'sailpoint-api-client/dist/managed_clients/api';
+        import { ManagedClientsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ManagedClientRequest } from '@sailpoint/api-client/dist/managed_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
@@ -24,8 +24,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#delete-managed-client-v1
       source: |
-        import { ManagedClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClientsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
@@ -38,8 +38,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-client-health-indicators-v1
       source: |
-        import { ManagedClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClientsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
@@ -52,8 +52,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-client-status-v1
       source: |
-        import { ManagedClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClientsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
@@ -67,8 +67,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-client-v1
       source: |
-        import { ManagedClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClientsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
@@ -81,8 +81,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#get-managed-clients-v1
       source: |
-        import { ManagedClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClientsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);
@@ -98,9 +98,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clients/methods/managed-clients#update-managed-client-v1
       source: |
-        import { ManagedClientsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/managed_clients/api';
+        import { ManagedClientsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/managed_clients/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClientsApi(configuration);

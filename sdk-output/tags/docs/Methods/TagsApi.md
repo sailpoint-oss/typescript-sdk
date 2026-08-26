@@ -48,9 +48,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TagsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Tag2 } from 'sailpoint-api-client/dist/tags/api';
+import { TagsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Tag2 } from '@sailpoint/api-client/dist/tags/api';
 
 const configuration = new Configuration();
 const apiInstance = new TagsApi(configuration);
@@ -88,8 +88,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TagsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TagsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TagsApi(configuration);
@@ -127,8 +127,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TagsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TagsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TagsApi(configuration);
@@ -170,8 +170,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TagsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TagsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TagsApi(configuration);

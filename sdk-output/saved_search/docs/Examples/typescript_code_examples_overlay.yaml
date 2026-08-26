@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#create-saved-search-v1
       source: |
-        import { SavedSearchApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CreateSavedSearchV1Request } from 'sailpoint-api-client/dist/saved_search/api';
+        import { SavedSearchApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateSavedSearchV1Request } from '@sailpoint/api-client/dist/saved_search/api';
 
         const configuration = new Configuration();
         const apiInstance = new SavedSearchApi(configuration);
@@ -19,8 +19,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#delete-saved-search-v1
       source: |
-        import { SavedSearchApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SavedSearchApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SavedSearchApi(configuration);
@@ -33,9 +33,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#execute-saved-search-v1
       source: |
-        import { SavedSearchApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SearchArguments } from 'sailpoint-api-client/dist/saved_search/api';
+        import { SavedSearchApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SearchArguments } from '@sailpoint/api-client/dist/saved_search/api';
 
         const configuration = new Configuration();
         const apiInstance = new SavedSearchApi(configuration);
@@ -59,8 +59,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#get-saved-search-v1
       source: |
-        import { SavedSearchApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SavedSearchApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SavedSearchApi(configuration);
@@ -73,8 +73,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#list-saved-searches-v1
       source: |
-        import { SavedSearchApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SavedSearchApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SavedSearchApi(configuration);
@@ -90,9 +90,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/saved_search/methods/saved-search#put-saved-search-v1
       source: |
-        import { SavedSearchApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SavedSearch } from 'sailpoint-api-client/dist/saved_search/api';
+        import { SavedSearchApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SavedSearch } from '@sailpoint/api-client/dist/saved_search/api';
 
         const configuration = new Configuration();
         const apiInstance = new SavedSearchApi(configuration);

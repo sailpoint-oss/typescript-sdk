@@ -69,8 +69,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -106,9 +106,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BaseCreateApplicationRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BaseCreateApplicationRequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -190,9 +190,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Createidentitycollectorrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Createidentitycollectorrequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -231,9 +231,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreateScheduleRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreateScheduleRequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -280,9 +280,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AssignResourceOwnerRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AssignResourceOwnerRequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -324,8 +324,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -363,9 +363,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ReelectRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ReelectRequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -407,8 +407,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -447,8 +447,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -485,8 +485,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -522,8 +522,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -559,8 +559,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -597,8 +597,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -634,8 +634,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -674,8 +674,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -716,8 +716,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -755,8 +755,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -795,8 +795,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -835,8 +835,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -875,8 +875,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -920,8 +920,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -961,9 +961,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BaseCreateApplicationRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BaseCreateApplicationRequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -1047,9 +1047,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Updateidentitycollectorrequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Updateidentitycollectorrequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -1091,9 +1091,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { UpdateScheduleRequest } from 'sailpoint-api-client/dist/data_access_security/api';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { UpdateScheduleRequest } from '@sailpoint/api-client/dist/data_access_security/api';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
@@ -1141,8 +1141,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { DataAccessSecurityApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);

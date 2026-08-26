@@ -140,9 +140,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CampaignCompleteOptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CampaignCompleteOptions } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -182,9 +182,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CampaignTemplate } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CampaignTemplate } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -348,9 +348,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Campaign2 } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Campaign2 } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -387,8 +387,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -425,8 +425,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -463,9 +463,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CampaignsDeleteRequest } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CampaignsDeleteRequest } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -509,8 +509,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -549,8 +549,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -586,8 +586,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -624,8 +624,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -662,8 +662,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -706,8 +706,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -749,8 +749,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -789,9 +789,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { AdminReviewReassign } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { AdminReviewReassign } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -837,9 +837,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -881,9 +881,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CampaignReportsConfig } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CampaignReportsConfig } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -923,9 +923,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Schedule2 } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Schedule2 } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -963,8 +963,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -1002,8 +1002,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -1042,9 +1042,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ActivateCampaignOptions } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ActivateCampaignOptions } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -1096,8 +1096,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);
@@ -1135,9 +1135,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CertificationCampaignsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/certification_campaigns/api';
+import { CertificationCampaignsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/certification_campaigns/api';
 
 const configuration = new Configuration();
 const apiInstance = new CertificationCampaignsApi(configuration);

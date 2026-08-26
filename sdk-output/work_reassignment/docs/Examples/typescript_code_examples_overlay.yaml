@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#create-reassignment-configuration-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ConfigurationItemRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ConfigurationItemRequest } from '@sailpoint/api-client/dist/work_reassignment/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -26,8 +26,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#delete-reassignment-configuration-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -42,8 +42,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-evaluate-reassignment-configuration-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -59,8 +59,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-reassignment-config-types-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -73,8 +73,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-reassignment-configuration-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -88,8 +88,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#get-tenant-config-configuration-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -102,8 +102,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#list-reassignment-configurations-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -116,9 +116,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#put-reassignment-config-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ConfigurationItemRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ConfigurationItemRequest } from '@sailpoint/api-client/dist/work_reassignment/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
@@ -139,9 +139,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/work_reassignment/methods/work-reassignment#put-tenant-configuration-v1
       source: |
-        import { WorkReassignmentApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { TenantConfigurationRequest } from 'sailpoint-api-client/dist/work_reassignment/api';
+        import { WorkReassignmentApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { TenantConfigurationRequest } from '@sailpoint/api-client/dist/work_reassignment/api';
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);

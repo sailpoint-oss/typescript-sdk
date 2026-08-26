@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#get-certification-task-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -18,8 +18,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#get-identity-certification-item-permissions-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -37,8 +37,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#get-identity-certification-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -51,8 +51,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#get-pending-certification-tasks-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -69,8 +69,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#list-certification-reviewers-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -88,8 +88,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#list-identity-access-review-items-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -110,8 +110,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#list-identity-certifications-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -129,9 +129,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#make-identity-decision-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ReviewDecision } from 'sailpoint-api-client/dist/certifications/api';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReviewDecision } from '@sailpoint/api-client/dist/certifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -156,9 +156,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#reassign-identity-certifications-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ReviewReassign } from 'sailpoint-api-client/dist/certifications/api';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReviewReassign } from '@sailpoint/api-client/dist/certifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -182,8 +182,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#sign-off-identity-certification-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);
@@ -196,9 +196,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/certifications/methods/certifications#submit-reassign-certs-async-v1
       source: |
-        import { CertificationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ReviewReassign } from 'sailpoint-api-client/dist/certifications/api';
+        import { CertificationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReviewReassign } from '@sailpoint/api-client/dist/certifications/api';
 
         const configuration = new Configuration();
         const apiInstance = new CertificationsApi(configuration);

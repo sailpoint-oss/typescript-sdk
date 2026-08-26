@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#create-managed-cluster-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ManagedClusterRequest } from 'sailpoint-api-client/dist/managed_clusters/api';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ManagedClusterRequest } from '@sailpoint/api-client/dist/managed_clusters/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
@@ -27,8 +27,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#delete-managed-cluster-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
@@ -42,8 +42,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#get-client-log-configuration-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
@@ -56,8 +56,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#get-managed-cluster-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
@@ -70,8 +70,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#get-managed-clusters-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
@@ -87,9 +87,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#put-client-log-configuration-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { PutClientLogConfigurationV1Request } from 'sailpoint-api-client/dist/managed_clusters/api';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { PutClientLogConfigurationV1Request } from '@sailpoint/api-client/dist/managed_clusters/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
@@ -103,9 +103,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#update-managed-cluster-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/managed_clusters/api';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/managed_clusters/api';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);
@@ -123,8 +123,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/managed_clusters/methods/managed-clusters#update-v1
       source: |
-        import { ManagedClustersApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ManagedClustersApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ManagedClustersApi(configuration);

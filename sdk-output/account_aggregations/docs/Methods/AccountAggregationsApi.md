@@ -62,8 +62,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccountAggregationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccountAggregationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccountAggregationsApi(configuration);

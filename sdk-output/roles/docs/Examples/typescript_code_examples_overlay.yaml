@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#create-role-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Role } from 'sailpoint-api-client/dist/roles/api';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Role } from '@sailpoint/api-client/dist/roles/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -204,9 +204,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#delete-bulk-roles-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { RoleBulkDeleteRequest } from 'sailpoint-api-client/dist/roles/api';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { RoleBulkDeleteRequest } from '@sailpoint/api-client/dist/roles/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -221,8 +221,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#delete-metadata-from-role-by-key-and-value-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -237,8 +237,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#delete-role-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -251,8 +251,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-bulk-update-status-by-id-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -265,8 +265,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-bulk-update-status-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -278,8 +278,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-role-assigned-identities-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -297,8 +297,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-role-entitlements-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -316,8 +316,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#get-role-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -330,8 +330,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#list-roles-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -351,9 +351,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#patch-role-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/roles/api';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/roles/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -371,9 +371,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#search-roles-by-filter-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { RoleListFilterDTO } from 'sailpoint-api-client/dist/roles/api';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { RoleListFilterDTO } from '@sailpoint/api-client/dist/roles/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -399,8 +399,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-attribute-key-and-value-to-role-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -415,9 +415,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-roles-metadata-by-filter-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { RoleMetadataBulkUpdateByFilterRequest } from 'sailpoint-api-client/dist/roles/api';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { RoleMetadataBulkUpdateByFilterRequest } from '@sailpoint/api-client/dist/roles/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -438,9 +438,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-roles-metadata-by-ids-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { RoleMetadataBulkUpdateByIdRequest } from 'sailpoint-api-client/dist/roles/api';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { RoleMetadataBulkUpdateByIdRequest } from '@sailpoint/api-client/dist/roles/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);
@@ -461,9 +461,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/roles/methods/roles#update-roles-metadata-by-query-v1
       source: |
-        import { RolesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { RoleMetadataBulkUpdateByQueryRequest } from 'sailpoint-api-client/dist/roles/api';
+        import { RolesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { RoleMetadataBulkUpdateByQueryRequest } from '@sailpoint/api-client/dist/roles/api';
 
         const configuration = new Configuration();
         const apiInstance = new RolesApi(configuration);

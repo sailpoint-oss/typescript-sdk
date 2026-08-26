@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { DomainAddress } from 'sailpoint-api-client/dist/notifications/api';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { DomainAddress } from '@sailpoint/api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -103,9 +103,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { TemplateDto } from 'sailpoint-api-client/dist/notifications/api';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { TemplateDto } from '@sailpoint/api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -204,9 +204,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { EmailStatusDto } from 'sailpoint-api-client/dist/notifications/api';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { EmailStatusDto } from '@sailpoint/api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -248,9 +248,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { TemplateBulkDeleteDto } from 'sailpoint-api-client/dist/notifications/api';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { TemplateBulkDeleteDto } from '@sailpoint/api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -290,8 +290,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -328,8 +328,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -366,8 +366,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -404,8 +404,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -442,8 +442,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -484,8 +484,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -521,8 +521,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -561,8 +561,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -606,8 +606,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -649,8 +649,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -691,8 +691,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -731,9 +731,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { MailFromAttributesDto } from 'sailpoint-api-client/dist/notifications/api';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { MailFromAttributesDto } from '@sailpoint/api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -772,9 +772,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SendTestNotificationRequestDto } from 'sailpoint-api-client/dist/notifications/api';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SendTestNotificationRequestDto } from '@sailpoint/api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);
@@ -822,9 +822,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { NotificationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PreferencesDto } from 'sailpoint-api-client/dist/notifications/api';
+import { NotificationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PreferencesDto } from '@sailpoint/api-client/dist/notifications/api';
 
 const configuration = new Configuration();
 const apiInstance = new NotificationsApi(configuration);

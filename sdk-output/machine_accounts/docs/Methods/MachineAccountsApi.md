@@ -59,9 +59,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreateMachineAccountSubtypeV1Request } from 'sailpoint-api-client/dist/machine_accounts/api';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreateMachineAccountSubtypeV1Request } from '@sailpoint/api-client/dist/machine_accounts/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -107,8 +107,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -153,8 +153,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -199,8 +199,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -242,8 +242,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -292,8 +292,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -343,8 +343,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -395,8 +395,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);
@@ -441,8 +441,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountsApi(configuration);

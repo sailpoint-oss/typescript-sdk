@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#create-connector-rule-v1
       source: |
-        import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ConnectorRuleCreateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+        import { ConnectorRuleManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ConnectorRuleCreateRequest } from '@sailpoint/api-client/dist/connector_rule_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -44,8 +44,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#delete-connector-rule-v1
       source: |
-        import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ConnectorRuleManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -58,8 +58,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#get-connector-rule-list-v1
       source: |
-        import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ConnectorRuleManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -74,8 +74,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#get-connector-rule-v1
       source: |
-        import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { ConnectorRuleManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -88,9 +88,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#put-connector-rule-v1
       source: |
-        import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { ConnectorRuleUpdateRequest } from 'sailpoint-api-client/dist/connector_rule_management/api';
+        import { ConnectorRuleManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ConnectorRuleUpdateRequest } from '@sailpoint/api-client/dist/connector_rule_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);
@@ -130,9 +130,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/connector_rule_management/methods/connector-rule-management#test-connector-rule-v1
       source: |
-        import { ConnectorRuleManagementApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SourceCode } from 'sailpoint-api-client/dist/connector_rule_management/api';
+        import { ConnectorRuleManagementApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SourceCode } from '@sailpoint/api-client/dist/connector_rule_management/api';
 
         const configuration = new Configuration();
         const apiInstance = new ConnectorRuleManagementApi(configuration);

@@ -67,9 +67,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CommentDto } from 'sailpoint-api-client/dist/access_request_approvals/api';
+import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CommentDto } from '@sailpoint/api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -115,9 +115,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ForwardApprovalDto } from 'sailpoint-api-client/dist/access_request_approvals/api';
+import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ForwardApprovalDto } from '@sailpoint/api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -158,8 +158,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -200,8 +200,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -247,8 +247,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -297,8 +297,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);
@@ -340,9 +340,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AccessRequestApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CommentDto } from 'sailpoint-api-client/dist/access_request_approvals/api';
+import { AccessRequestApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CommentDto } from '@sailpoint/api-client/dist/access_request_approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestApprovalsApi(configuration);

@@ -55,9 +55,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { MachineAccountCreateRequestInput } from 'sailpoint-api-client/dist/machine_account_creation_request/api';
+import { MachineAccountCreationRequestApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { MachineAccountCreateRequestInput } from '@sailpoint/api-client/dist/machine_account_creation_request/api';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountCreationRequestApi(configuration);
@@ -110,8 +110,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountCreationRequestApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountCreationRequestApi(configuration);
@@ -154,8 +154,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { MachineAccountCreationRequestApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { MachineAccountCreationRequestApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new MachineAccountCreationRequestApi(configuration);

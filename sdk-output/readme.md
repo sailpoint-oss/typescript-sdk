@@ -7,7 +7,7 @@ A typescript sdk for accessing the SailPoint IdentityNow REST API's.
 ## Installation
 
 ```bash
-npm install sailpoint-api-client
+npm install @sailpoint/api-client
 ```
 
 ## Create a configuration file or save your configuration as environment variables
@@ -24,7 +24,7 @@ Simply import the API you want to work with, create a new configuration and get 
 
 ```typescript
 
-import { Configuration, TransformsApi, TransformsApiCreateTransformRequest} from "sailpoint-api-client"
+import { Configuration, TransformsApi, TransformsApiCreateTransformRequest} from "@sailpoint/api-client"
 
 const createTransform = async () => {
 

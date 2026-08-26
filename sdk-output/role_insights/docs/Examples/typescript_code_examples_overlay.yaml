@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#create-role-insight-requests-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -18,8 +18,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#download-role-insights-entitlements-changes-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -35,8 +35,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#get-entitlement-changes-identities-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -57,8 +57,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#get-role-insight-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -72,8 +72,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#get-role-insights-current-entitlements-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -88,8 +88,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#get-role-insights-entitlements-changes-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -105,8 +105,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#get-role-insights-requests-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -120,8 +120,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#get-role-insights-summary-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);
@@ -134,8 +134,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/role_insights/methods/role-insights#get-role-insights-v1
       source: |
-        import { RoleInsightsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { RoleInsightsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new RoleInsightsApi(configuration);

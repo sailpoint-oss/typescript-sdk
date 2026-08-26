@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#create-response-action-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { Responseactioncreaterequest } from 'sailpoint-api-client/dist/intelligence/api';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Responseactioncreaterequest } from '@sailpoint/api-client/dist/intelligence/api';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);
@@ -30,8 +30,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-identity-intelligence-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);
@@ -44,8 +44,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-intel-identity-access-item-history-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);
@@ -61,8 +61,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-intel-identity-accounts-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);
@@ -78,8 +78,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-intel-identity-certification-history-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);
@@ -95,8 +95,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-intel-identity-non-human-identity-ownership-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);
@@ -114,8 +114,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-intel-identity-rare-access-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);
@@ -131,8 +131,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/intelligence/methods/intelligence#get-response-action-status-v1
       source: |
-        import { IntelligenceApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { IntelligenceApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new IntelligenceApi(configuration);

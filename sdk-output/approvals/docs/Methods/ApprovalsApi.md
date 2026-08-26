@@ -60,9 +60,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BulkApproveRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkApproveRequestDTO } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -107,9 +107,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ApprovalApproveRequest } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApprovalApproveRequest } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -157,9 +157,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ApprovalCancelRequest } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApprovalCancelRequest } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -200,9 +200,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BulkCancelRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkCancelRequestDTO } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -243,8 +243,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -282,8 +282,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -319,8 +319,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -377,8 +377,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -426,9 +426,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BulkReassignRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkReassignRequestDTO } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -472,9 +472,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ApprovalConfig } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApprovalConfig } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -555,9 +555,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BulkRejectRequestDTO } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkRejectRequestDTO } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -598,9 +598,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ApprovalRejectRequest } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApprovalRejectRequest } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -641,9 +641,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ApprovalAttributesRequest } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApprovalAttributesRequest } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -689,9 +689,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ApprovalCommentsRequest } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApprovalCommentsRequest } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);
@@ -731,9 +731,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ApprovalsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ApprovalReassignRequest } from 'sailpoint-api-client/dist/approvals/api';
+import { ApprovalsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ApprovalReassignRequest } from '@sailpoint/api-client/dist/approvals/api';
 
 const configuration = new Configuration();
 const apiInstance = new ApprovalsApi(configuration);

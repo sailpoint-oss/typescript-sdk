@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#cancel-machine-identity-lifecycle-action-v1
       source: |
-        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { CancelLifecycleActionRequest } from 'sailpoint-api-client/dist/machine_identities_lifecycle_actions/api';
+        import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CancelLifecycleActionRequest } from '@sailpoint/api-client/dist/machine_identities_lifecycle_actions/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
@@ -23,8 +23,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#get-machine-identity-lifecycle-action-v1
       source: |
-        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
@@ -38,8 +38,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#list-machine-identity-lifecycle-actions-v1
       source: |
-        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);
@@ -57,9 +57,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/machine_identities_lifecycle_actions/methods/machine-identity-lifecycle-actions#submit-machine-identity-lifecycle-action-v1
       source: |
-        import { MachineIdentityLifecycleActionsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { LifecycleActionSubmitRequest } from 'sailpoint-api-client/dist/machine_identities_lifecycle_actions/api';
+        import { MachineIdentityLifecycleActionsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { LifecycleActionSubmitRequest } from '@sailpoint/api-client/dist/machine_identities_lifecycle_actions/api';
 
         const configuration = new Configuration();
         const apiInstance = new MachineIdentityLifecycleActionsApi(configuration);

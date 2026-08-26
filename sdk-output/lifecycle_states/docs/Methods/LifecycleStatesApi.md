@@ -87,9 +87,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LifecycleStatesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { LifecycleState } from 'sailpoint-api-client/dist/lifecycle_states/api';
+import { LifecycleStatesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { LifecycleState } from '@sailpoint/api-client/dist/lifecycle_states/api';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);
@@ -159,8 +159,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LifecycleStatesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { LifecycleStatesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);
@@ -198,8 +198,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LifecycleStatesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { LifecycleStatesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);
@@ -240,8 +240,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LifecycleStatesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { LifecycleStatesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);
@@ -282,9 +282,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LifecycleStatesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { SetLifecycleStateV1Request } from 'sailpoint-api-client/dist/lifecycle_states/api';
+import { LifecycleStatesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { SetLifecycleStateV1Request } from '@sailpoint/api-client/dist/lifecycle_states/api';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);
@@ -323,9 +323,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { LifecycleStatesApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/lifecycle_states/api';
+import { LifecycleStatesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/lifecycle_states/api';
 
 const configuration = new Configuration();
 const apiInstance = new LifecycleStatesApi(configuration);

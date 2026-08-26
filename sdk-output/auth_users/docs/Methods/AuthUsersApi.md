@@ -49,8 +49,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AuthUsersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { AuthUsersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AuthUsersApi(configuration);
@@ -91,9 +91,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { AuthUsersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/auth_users/api';
+import { AuthUsersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/auth_users/api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthUsersApi(configuration);

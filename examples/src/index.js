@@ -43,7 +43,7 @@ var __asyncValues = (this && this.__asyncValues) || function (o) {
     function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var sailpoint_api_client_1 = require("sailpoint-api-client");
+var sailpoint_api_client_1 = require("@sailpoint/api-client");
 var createTransform = function () { return __awaiter(void 0, void 0, void 0, function () {
     var apiConfig, api, transform, val;
     return __generator(this, function (_a) {

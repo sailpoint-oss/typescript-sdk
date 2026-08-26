@@ -4,9 +4,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#create-sod-policy-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SodPolicy } from 'sailpoint-api-client/dist/sod_policies/api';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SodPolicy } from '@sailpoint/api-client/dist/sod_policies/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -85,8 +85,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#delete-sod-policy-schedule-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -99,8 +99,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#delete-sod-policy-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -114,8 +114,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#get-custom-violation-report-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -129,8 +129,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#get-default-violation-report-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -143,8 +143,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#get-sod-all-report-run-status-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -156,8 +156,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#get-sod-policy-schedule-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -170,8 +170,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#get-sod-policy-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -184,8 +184,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#get-sod-violation-report-run-status-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -198,8 +198,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#get-sod-violation-report-status-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -212,8 +212,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#list-sod-policies-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -230,9 +230,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#patch-sod-policy-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { JsonPatchOperation } from 'sailpoint-api-client/dist/sod_policies/api';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/sod_policies/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -250,9 +250,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#put-policy-schedule-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SodPolicySchedule } from 'sailpoint-api-client/dist/sod_policies/api';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SodPolicySchedule } from '@sailpoint/api-client/dist/sod_policies/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -303,9 +303,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#put-sod-policy-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { SodPolicy } from 'sailpoint-api-client/dist/sod_policies/api';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SodPolicy } from '@sailpoint/api-client/dist/sod_policies/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -385,8 +385,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#start-evaluate-sod-policy-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -399,9 +399,9 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#start-sod-all-policies-for-org-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
-        import { MultiPolicyRequest } from 'sailpoint-api-client/dist/sod_policies/api';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { MultiPolicyRequest } from '@sailpoint/api-client/dist/sod_policies/api';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);
@@ -416,8 +416,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/sod_policies/methods/sod-policies#start-sod-policy-v1
       source: |
-        import { SODPoliciesApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { SODPoliciesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new SODPoliciesApi(configuration);

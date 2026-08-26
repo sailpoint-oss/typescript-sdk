@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_dictionary/methods/password-dictionary#get-password-dictionary-v1
       source: |
-        import { PasswordDictionaryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PasswordDictionaryApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordDictionaryApi(configuration);
@@ -17,8 +17,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/password_dictionary/methods/password-dictionary#put-password-dictionary-v1
       source: |
-        import { PasswordDictionaryApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PasswordDictionaryApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PasswordDictionaryApi(configuration);

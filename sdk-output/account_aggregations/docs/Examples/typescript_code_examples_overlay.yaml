@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/account_aggregations/methods/account-aggregations#get-account-aggregation-status-v1
       source: |
-        import { AccountAggregationsApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { AccountAggregationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new AccountAggregationsApi(configuration);

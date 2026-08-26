@@ -104,8 +104,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -142,9 +142,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BulkRemoveTaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkRemoveTaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -192,8 +192,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -234,8 +234,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -278,8 +278,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -320,9 +320,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { TaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { TaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -367,9 +367,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { TaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { TaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);
@@ -412,9 +412,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { TaggedObjectsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { BulkAddTaggedObject } from 'sailpoint-api-client/dist/tagged_objects/api';
+import { TaggedObjectsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { BulkAddTaggedObject } from '@sailpoint/api-client/dist/tagged_objects/api';
 
 const configuration = new Configuration();
 const apiInstance = new TaggedObjectsApi(configuration);

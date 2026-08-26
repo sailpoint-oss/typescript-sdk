@@ -53,9 +53,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PasswordOrgConfig } from 'sailpoint-api-client/dist/password_configuration/api';
+import { PasswordConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PasswordOrgConfig } from '@sailpoint/api-client/dist/password_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordConfigurationApi(configuration);
@@ -93,8 +93,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { PasswordConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { PasswordConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordConfigurationApi(configuration);
@@ -131,9 +131,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { PasswordConfigurationApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PasswordOrgConfig } from 'sailpoint-api-client/dist/password_configuration/api';
+import { PasswordConfigurationApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PasswordOrgConfig } from '@sailpoint/api-client/dist/password_configuration/api';
 
 const configuration = new Configuration();
 const apiInstance = new PasswordConfigurationApi(configuration);

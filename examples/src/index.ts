@@ -1,4 +1,4 @@
-import { AccountsApi, axiosRetry, Configuration, EntitlementsV2025Api, GovernanceGroupsBetaApi, IdentityDocument, Paginator, ProfileTypesNERMApi, Search, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, TransformsBetaApi } from "sailpoint-api-client"
+import { AccountsApi, axiosRetry, Configuration, EntitlementsV2025Api, GovernanceGroupsBetaApi, IdentityDocument, Paginator, ProfileTypesNERMApi, Search, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, TransformsBetaApi } from "@sailpoint/api-client"
 
 const createTransform = async () => {
 

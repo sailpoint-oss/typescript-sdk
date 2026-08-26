@@ -88,9 +88,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Responseactioncreaterequest } from 'sailpoint-api-client/dist/intelligence/api';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Responseactioncreaterequest } from '@sailpoint/api-client/dist/intelligence/api';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);
@@ -194,8 +194,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);
@@ -241,8 +241,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);
@@ -289,8 +289,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);
@@ -339,8 +339,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);
@@ -399,8 +399,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);
@@ -452,8 +452,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);
@@ -498,8 +498,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { IntelligenceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { IntelligenceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new IntelligenceApi(configuration);

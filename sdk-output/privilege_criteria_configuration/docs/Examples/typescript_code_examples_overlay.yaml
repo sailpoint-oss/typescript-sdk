@@ -4,8 +4,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/privilege_criteria_configuration/methods/privilege-criteria-configuration#get-privilege-criteria-config-v1
       source: |
-        import { PrivilegeCriteriaConfigurationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PrivilegeCriteriaConfigurationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PrivilegeCriteriaConfigurationApi(configuration);
@@ -18,8 +18,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/privilege_criteria_configuration/methods/privilege-criteria-configuration#list-privilege-criteria-config-v1
       source: |
-        import { PrivilegeCriteriaConfigurationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PrivilegeCriteriaConfigurationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PrivilegeCriteriaConfigurationApi(configuration);
@@ -32,8 +32,8 @@
     - lang: TypeScript
       label: SDK_tools/sdk/typescript/privilege_criteria_configuration/methods/privilege-criteria-configuration#patch-privilege-criteria-config-v1
       source: |
-        import { PrivilegeCriteriaConfigurationApi } from 'sailpoint-api-client';
-        import { Configuration } from 'sailpoint-api-client';
+        import { PrivilegeCriteriaConfigurationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
 
         const configuration = new Configuration();
         const apiInstance = new PrivilegeCriteriaConfigurationApi(configuration);

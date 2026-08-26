@@ -73,8 +73,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODViolationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SODViolationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
@@ -122,8 +122,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODViolationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SODViolationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
@@ -177,8 +177,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODViolationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { SODViolationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
@@ -224,9 +224,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODViolationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Violationreassigninput } from 'sailpoint-api-client/dist/sod_violations/api';
+import { SODViolationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Violationreassigninput } from '@sailpoint/api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
@@ -275,9 +275,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODViolationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { Appliedcontrolcreate } from 'sailpoint-api-client/dist/sod_violations/api';
+import { SODViolationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Appliedcontrolcreate } from '@sailpoint/api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
@@ -318,9 +318,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODViolationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { IdentityWithNewAccess } from 'sailpoint-api-client/dist/sod_violations/api';
+import { SODViolationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityWithNewAccess } from '@sailpoint/api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);
@@ -365,9 +365,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { SODViolationsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { IdentityWithNewAccess } from 'sailpoint-api-client/dist/sod_violations/api';
+import { SODViolationsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { IdentityWithNewAccess } from '@sailpoint/api-client/dist/sod_violations/api';
 
 const configuration = new Configuration();
 const apiInstance = new SODViolationsApi(configuration);

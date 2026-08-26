@@ -50,8 +50,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ClassifySourceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ClassifySourceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ClassifySourceApi(configuration);
@@ -93,8 +93,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ClassifySourceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ClassifySourceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ClassifySourceApi(configuration);
@@ -136,8 +136,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ClassifySourceApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ClassifySourceApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ClassifySourceApi(configuration);

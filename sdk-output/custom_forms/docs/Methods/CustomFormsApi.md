@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { FormDefinitionDynamicSchemaRequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { FormDefinitionDynamicSchemaRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -115,8 +115,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -153,9 +153,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreateFormDefinitionRequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreateFormDefinitionRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -301,9 +301,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { CreateFormInstanceRequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { CreateFormInstanceRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -359,8 +359,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -399,8 +399,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -440,8 +440,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -478,8 +478,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -517,8 +517,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -555,8 +555,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -593,9 +593,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ImportFormDefinitionsV1RequestInner } from 'sailpoint-api-client/dist/custom_forms/api';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ImportFormDefinitionsV1RequestInner } from '@sailpoint/api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -632,8 +632,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -673,8 +673,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -714,8 +714,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -759,8 +759,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -802,8 +802,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -838,8 +838,8 @@ This endpoint does not need any parameter.
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);
@@ -878,9 +878,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { CustomFormsApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { FormElementPreviewRequest } from 'sailpoint-api-client/dist/custom_forms/api';
+import { CustomFormsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { FormElementPreviewRequest } from '@sailpoint/api-client/dist/custom_forms/api';
 
 const configuration = new Configuration();
 const apiInstance = new CustomFormsApi(configuration);

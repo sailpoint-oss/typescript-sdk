@@ -53,9 +53,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { ManagedClusterRequest } from 'sailpoint-api-client/dist/managed_clusters/api';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { ManagedClusterRequest } from '@sailpoint/api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -100,8 +100,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -138,8 +138,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -175,8 +175,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -215,8 +215,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -256,9 +256,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { PutClientLogConfigurationV1Request } from 'sailpoint-api-client/dist/managed_clusters/api';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { PutClientLogConfigurationV1Request } from '@sailpoint/api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -296,9 +296,9 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
-import { JsonPatchOperation } from 'sailpoint-api-client/dist/managed_clusters/api';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { JsonPatchOperation } from '@sailpoint/api-client/dist/managed_clusters/api';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
@@ -340,8 +340,8 @@ Name | Type | Description  | Notes
 ### Example
 
 ```typescript
-import { ManagedClustersApi } from 'sailpoint-api-client';
-import { Configuration } from 'sailpoint-api-client';
+import { ManagedClustersApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new ManagedClustersApi(configuration);
