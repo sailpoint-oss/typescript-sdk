@@ -12,18 +12,21 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write   # OIDC token for npm trusted publishing
+
     steps:
       - uses: actions/checkout@v6
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v6
         with:
           node-version: 24
+      - name: Upgrade npm for trusted publishing
+        run: |
+          npm install -g npm@latest
+          npm --version
       - run: |
           cd sdk-output
           npm ci
-
-      - id: publish
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./sdk-output/package.json
+      - run: npm publish --provenance
+        working-directory: sdk-output
