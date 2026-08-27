@@ -42,6 +42,8 @@ SearchAggregationSpecification.md
 SearchFilterType.md
 SubSearchAggregationSpecification.md
 TextQuery.md
+TrackerKeyDTO.md
+TrackerValueDTO.md
 TypeAheadQuery.md
 api.ts
 base.ts

@@ -380,13 +380,13 @@ export interface ArrayInner {
  */
 export interface AttributeDTO {
     /**
-     * Technical name of the Attribute. This is unique and cannot be changed after creation.
+     * Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
      * @type {string}
      * @memberof AttributeDTO
      */
     'key'?: string;
     /**
-     * The display name of the key.
+     * The display name of the key. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ -
      * @type {string}
      * @memberof AttributeDTO
      */
@@ -397,6 +397,12 @@ export interface AttributeDTO {
      * @memberof AttributeDTO
      */
     'multiselect'?: boolean;
+    /**
+     * Indicates whether this Attribute supports ad-hoc (dynamically created) values, in addition to pre-defined static values. Ad-hoc values are created dynamically through an internal service-to-service flow rather than through the public create-value API. This field can be set when creating an Attribute; if omitted, it defaults to false.
+     * @type {boolean}
+     * @memberof AttributeDTO
+     */
+    'isAdhoc'?: boolean | null;
     /**
      * The status of the Attribute.
      * @type {string}
@@ -416,7 +422,7 @@ export interface AttributeDTO {
      */
     'objectTypes'?: Array<string> | null;
     /**
-     * The description of the Attribute.
+     * The description of the Attribute. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ : -
      * @type {string}
      * @memberof AttributeDTO
      */
@@ -448,13 +454,13 @@ export interface AttributeDTOList {
  */
 export interface AttributeValueDTO {
     /**
-     * Technical name of the Attribute value. This is unique and cannot be changed after creation.
+     * Technical name of the Attribute value. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
      * @type {string}
      * @memberof AttributeValueDTO
      */
     'value'?: string;
     /**
-     * The display name of the Attribute value.
+     * The display name of the Attribute value. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ -
      * @type {string}
      * @memberof AttributeValueDTO
      */
@@ -465,7 +471,21 @@ export interface AttributeValueDTO {
      * @memberof AttributeValueDTO
      */
     'status'?: string;
+    /**
+     * Indicates how this Attribute value was created. static values are pre-defined and created directly through this API. adhoc values are created dynamically through an internal service-to-service flow when the parent Attribute has isAdhoc set to true, and cannot be created directly through the public create-value API.
+     * @type {string}
+     * @memberof AttributeValueDTO
+     */
+    'type'?: AttributeValueDTOTypeEnum | null;
 }
+
+export const AttributeValueDTOTypeEnum = {
+    Static: 'static',
+    Adhoc: 'adhoc'
+} as const;
+
+export type AttributeValueDTOTypeEnum = typeof AttributeValueDTOTypeEnum[keyof typeof AttributeValueDTOTypeEnum];
+
 /**
  * A Dimension
  * @export

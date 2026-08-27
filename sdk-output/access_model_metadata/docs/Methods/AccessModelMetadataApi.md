@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'v1AccessModelM
 
 # AccessModelMetadataApi
   Use this API to create and manage metadata attributes for your Access Model.
-Access Model Metadata allows you to add contextual information to your ISC Access Model items using pre-defined metadata for risk, regulations, privacy levels, etc., or by creating your own metadata attributes to reflect the unique needs of your organization. This release of the API includes support for entitlement metadata. Support for role and access profile metadata will be introduced in a subsequent release.
+Access Model Metadata allows you to add contextual information to your ISC Access Model items using pre-defined metadata for risk, regulations, privacy levels, etc., or by creating your own metadata attributes to reflect the unique needs of your organization. This release of the API includes support for entitlement, role, and access profile metadata.
 
 Common usages for Access Model metadata include:
 
@@ -27,6 +27,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-access-model-metadata-attribute-v1**](#create-access-model-metadata-attribute-v1) | **POST** `/access-model-metadata/v1/attributes` | Create access model metadata attribute
 [**create-access-model-metadata-attribute-value-v1**](#create-access-model-metadata-attribute-value-v1) | **POST** `/access-model-metadata/v1/attributes/{key}/values` | Create access model metadata value
+[**delete-access-model-metadata-attribute-v1**](#delete-access-model-metadata-attribute-v1) | **DELETE** `/access-model-metadata/v1/attributes/{key}` | Delete access model metadata attribute
+[**delete-access-model-metadata-attribute-value-v1**](#delete-access-model-metadata-attribute-value-v1) | **DELETE** `/access-model-metadata/v1/attributes/{key}/values/{value}` | Delete access model metadata value
 [**get-access-model-metadata-attribute-v1**](#get-access-model-metadata-attribute-v1) | **GET** `/access-model-metadata/v1/attributes/{key}` | Get access model metadata attribute
 [**get-access-model-metadata-attribute-value-v1**](#get-access-model-metadata-attribute-value-v1) | **GET** `/access-model-metadata/v1/attributes/{key}/values/{value}` | Get access model metadata value
 [**list-access-model-metadata-attribute-v1**](#list-access-model-metadata-attribute-v1) | **GET** `/access-model-metadata/v1/attributes` | List access model metadata attributes
@@ -41,6 +43,13 @@ Method | HTTP request | Description
 ## create-access-model-metadata-attribute-v1
 Create access model metadata attribute
 Create a new Access Model Metadata Attribute.
+
+The **isAdhoc** field can be set on creation to indicate whether the Attribute supports ad-hoc
+(dynamically created) values in addition to static values; if omitted, it defaults to *false*.
+
+Any **values** provided at creation time must each have a *type* of *static* (or omit/leave *type*
+blank); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc
+values are created dynamically through an internal service-to-service flow, not through this API.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-attribute-v-1)
@@ -72,12 +81,15 @@ const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
 const attributeDTO: AttributeDTO = {
   "multiselect" : false,
+  "isAdhoc" : false,
   "values" : [ {
     "name" : "Public",
+    "type" : "static",
     "value" : "public",
     "status" : "active"
   }, {
     "name" : "Public",
+    "type" : "static",
     "value" : "public",
     "status" : "active"
   } ],
@@ -96,7 +108,12 @@ console.log(result);
 
 ## create-access-model-metadata-attribute-value-v1
 Create access model metadata value
-Create a new value for an existing Access Model Metadata Attribute.    
+Create a new value for an existing Access Model Metadata Attribute.
+
+The **type** field must be omitted, blank, or *static* (case-insensitive); *adhoc* is not an
+allowed value on this public API and results in a *400* error. Ad-hoc values are created
+dynamically through an internal service-to-service flow when the parent Attribute has *isAdhoc*
+set to *true*, not through this API.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-access-model-metadata-attribute-value-v-1)
@@ -130,10 +147,89 @@ const apiInstance = new AccessModelMetadataApi(configuration);
 const key: string = iscPrivacy; // Technical name of the Attribute.
 const attributeValueDTO: AttributeValueDTO = {
   "name" : "Public",
+  "type" : "static",
   "value" : "public",
   "status" : "active"
 }; // Attribute value to create
 const result = await apiInstance.createAccessModelMetadataAttributeValueV1({ key: key, attributeValueDTO: attributeValueDTO });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## delete-access-model-metadata-attribute-v1
+Delete access model metadata attribute
+Delete an existing Access Model Metadata Attribute and all of its values.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-model-metadata-attribute-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**key** | `string` | Technical name of the Attribute. |  [default to undefined]
+
+### Return type
+
+`TrackerKeyDTO`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { AccessModelMetadataApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new AccessModelMetadataApi(configuration);
+const key: string = iscPrivacy; // Technical name of the Attribute.
+const result = await apiInstance.deleteAccessModelMetadataAttributeV1({ key: key });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## delete-access-model-metadata-attribute-value-v1
+Delete access model metadata value
+Delete an existing Access Model Metadata Attribute Value.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-access-model-metadata-attribute-value-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**key** | `string` | Technical name of the Attribute. |  [default to undefined]
+**value** | `string` | Technical name of the Attribute value. |  [default to undefined]
+
+### Return type
+
+`TrackerValueDTO`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { AccessModelMetadataApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new AccessModelMetadataApi(configuration);
+const key: string = iscPrivacy; // Technical name of the Attribute.
+const value: string = public; // Technical name of the Attribute value.
+const result = await apiInstance.deleteAccessModelMetadataAttributeValueV1({ key: key, value: value });
 console.log(result);
 ```
 
@@ -217,7 +313,7 @@ console.log(result);
 
 ## list-access-model-metadata-attribute-v1
 List access model metadata attributes
-Get a list of Access Model Metadata Attributes
+Get a list of Access Model Metadata Attributes. Supports pagination through limit and offset parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-v-1)
 
@@ -226,9 +322,10 @@ Get a list of Access Model Metadata Attributes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* | [optional] [default to undefined]
-**sorters** | `string` | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** | [optional] [default to undefined]
+**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* | [optional] [default to undefined]
+**sorters** | `string` | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status** | [optional] [default to undefined]
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 **count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
 
 ### Return type
@@ -248,9 +345,10 @@ import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
-const filters: string = name eq "Privacy"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
-const sorters: string = name,-key; // Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+const filters: string = name eq "Privacy"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional)
+const sorters: string = name,-key; // Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status** (optional)
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const result = await apiInstance.listAccessModelMetadataAttributeV1({  });
 console.log(result);
@@ -260,7 +358,7 @@ console.log(result);
 
 ## list-access-model-metadata-attribute-value-v1
 List access model metadata values
-Get a list of Access Model Metadata Attribute Values
+Get a list of Access Model Metadata Attribute Values. Supports pagination through limit and offset parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-access-model-metadata-attribute-value-v-1)
 
@@ -270,7 +368,10 @@ Get a list of Access Model Metadata Attribute Values
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **key** | `string` | Technical name of the Attribute. |  [default to undefined]
+**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or* | [optional] [default to undefined]
+**sorters** | `string` | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type** | [optional] [default to undefined]
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 **count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
 
 ### Return type
@@ -291,7 +392,10 @@ import { Configuration } from '@sailpoint/api-client';
 const configuration = new Configuration();
 const apiInstance = new AccessModelMetadataApi(configuration);
 const key: string = iscPrivacy; // Technical name of the Attribute.
+const filters: string = name eq "Public"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or* (optional)
+const sorters: string = name,-value; // Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type** (optional)
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const result = await apiInstance.listAccessModelMetadataAttributeValueV1({ key: key });
 console.log(result);
@@ -302,7 +406,7 @@ console.log(result);
 ## update-access-model-metadata-attribute-v1
 Update access model metadata attribute
 Update an existing Access Model Metadata Attribute.  
-The following fields are patchable: **name**, **description**, **multiselect**, **values**
+The following fields are patchable: **name**, **description**, **multiselect**, **isAdhoc**, **values**
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/update-access-model-metadata-attribute-v-1)

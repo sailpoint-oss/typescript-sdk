@@ -1,0 +1,24 @@
+---
+id: v1-tracker-value-dto
+title: TrackerValueDTO
+pagination_label: TrackerValueDTO
+sidebar_label: TrackerValueDTO
+sidebar_class_name: typescriptsdk
+keywords: ['typescript', 'TypeScript', 'sdk', 'TrackerValueDTO', 'v1TrackerValueDTO']
+slug: /tools/sdk/typescript/access_model_metadata/models/tracker-value-dto
+tags: ['SDK', 'Software Development Kit', 'TrackerValueDTO', 'v1TrackerValueDTO']
+---
+
+# TrackerValueDTO
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **(optional)** `string` | ID of the tracker created to record this delete operation. | [default to undefined]
+**type** | **(optional)** `string` | The type of object being tracked. | [default to undefined]
+**status** | **(optional)** `string` | The status of the delete operation. | [default to undefined]
+**errors** | **(optional)** `Array<string>` | Any errors encountered while processing the delete operation. | [default to undefined]
+**created** | **(optional)** `string` | The time the delete operation was initiated. | [default to undefined]
+**value** | **(optional)** `string` | Technical name of the deleted Attribute value. | [default to undefined]
+

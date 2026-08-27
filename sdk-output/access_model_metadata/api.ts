@@ -129,13 +129,13 @@ export interface ArrayInner {
  */
 export interface AttributeDTO {
     /**
-     * Technical name of the Attribute. This is unique and cannot be changed after creation.
+     * Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
      * @type {string}
      * @memberof AttributeDTO
      */
     'key'?: string;
     /**
-     * The display name of the key.
+     * The display name of the key. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ -
      * @type {string}
      * @memberof AttributeDTO
      */
@@ -146,6 +146,12 @@ export interface AttributeDTO {
      * @memberof AttributeDTO
      */
     'multiselect'?: boolean;
+    /**
+     * Indicates whether this Attribute supports ad-hoc (dynamically created) values, in addition to pre-defined static values. Ad-hoc values are created dynamically through an internal service-to-service flow rather than through the public create-value API. This field can be set when creating an Attribute; if omitted, it defaults to false.
+     * @type {boolean}
+     * @memberof AttributeDTO
+     */
+    'isAdhoc'?: boolean | null;
     /**
      * The status of the Attribute.
      * @type {string}
@@ -165,7 +171,7 @@ export interface AttributeDTO {
      */
     'objectTypes'?: Array<string> | null;
     /**
-     * The description of the Attribute.
+     * The description of the Attribute. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ : -
      * @type {string}
      * @memberof AttributeDTO
      */
@@ -184,13 +190,13 @@ export interface AttributeDTO {
  */
 export interface AttributeValueDTO {
     /**
-     * Technical name of the Attribute value. This is unique and cannot be changed after creation.
+     * Technical name of the Attribute value. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
      * @type {string}
      * @memberof AttributeValueDTO
      */
     'value'?: string;
     /**
-     * The display name of the Attribute value.
+     * The display name of the Attribute value. Allowed characters are letters, numbers, whitespace, and the following special characters: . / | , ( ) & _ -
      * @type {string}
      * @memberof AttributeValueDTO
      */
@@ -201,7 +207,21 @@ export interface AttributeValueDTO {
      * @memberof AttributeValueDTO
      */
     'status'?: string;
+    /**
+     * Indicates how this Attribute value was created. static values are pre-defined and created directly through this API. adhoc values are created dynamically through an internal service-to-service flow when the parent Attribute has isAdhoc set to true, and cannot be created directly through the public create-value API.
+     * @type {string}
+     * @memberof AttributeValueDTO
+     */
+    'type'?: AttributeValueDTOTypeEnum | null;
 }
+
+export const AttributeValueDTOTypeEnum = {
+    Static: 'static',
+    Adhoc: 'adhoc'
+} as const;
+
+export type AttributeValueDTOTypeEnum = typeof AttributeValueDTOTypeEnum[keyof typeof AttributeValueDTOTypeEnum];
+
 /**
  * 
  * @export
@@ -1065,6 +1085,92 @@ export interface TextQuery {
     'contains'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface TrackerKeyDTO
+ */
+export interface TrackerKeyDTO {
+    /**
+     * ID of the tracker created to record this delete operation.
+     * @type {string}
+     * @memberof TrackerKeyDTO
+     */
+    'id'?: string;
+    /**
+     * The type of object being tracked.
+     * @type {string}
+     * @memberof TrackerKeyDTO
+     */
+    'type'?: string;
+    /**
+     * The status of the delete operation.
+     * @type {string}
+     * @memberof TrackerKeyDTO
+     */
+    'status'?: string;
+    /**
+     * Any errors encountered while processing the delete operation.
+     * @type {Array<string>}
+     * @memberof TrackerKeyDTO
+     */
+    'errors'?: Array<string> | null;
+    /**
+     * The time the delete operation was initiated.
+     * @type {string}
+     * @memberof TrackerKeyDTO
+     */
+    'created'?: string;
+    /**
+     * Technical name of the deleted Attribute.
+     * @type {string}
+     * @memberof TrackerKeyDTO
+     */
+    'key'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface TrackerValueDTO
+ */
+export interface TrackerValueDTO {
+    /**
+     * ID of the tracker created to record this delete operation.
+     * @type {string}
+     * @memberof TrackerValueDTO
+     */
+    'id'?: string;
+    /**
+     * The type of object being tracked.
+     * @type {string}
+     * @memberof TrackerValueDTO
+     */
+    'type'?: string;
+    /**
+     * The status of the delete operation.
+     * @type {string}
+     * @memberof TrackerValueDTO
+     */
+    'status'?: string;
+    /**
+     * Any errors encountered while processing the delete operation.
+     * @type {Array<string>}
+     * @memberof TrackerValueDTO
+     */
+    'errors'?: Array<string> | null;
+    /**
+     * The time the delete operation was initiated.
+     * @type {string}
+     * @memberof TrackerValueDTO
+     */
+    'created'?: string;
+    /**
+     * Technical name of the deleted Attribute value.
+     * @type {string}
+     * @memberof TrackerValueDTO
+     */
+    'value'?: string;
+}
+/**
  * Query parameters used to construct an Elasticsearch type ahead query object.  The typeAheadQuery performs a search for top values beginning with the typed values. For example, typing \"Jo\" results in top hits matching \"Jo.\" Typing \"Job\" results in top hits matching \"Job.\" 
  * @export
  * @interface TypeAheadQuery
@@ -1121,7 +1227,7 @@ export interface TypeAheadQuery {
 export const AccessModelMetadataApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create a new Access Model Metadata Attribute. 
+         * Create a new Access Model Metadata Attribute.  The **isAdhoc** field can be set on creation to indicate whether the Attribute supports ad-hoc (dynamically created) values in addition to static values; if omitted, it defaults to *false*.  Any **values** provided at creation time must each have a *type* of *static* (or omit/leave *type* blank); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow, not through this API. 
          * @summary Create access model metadata attribute
          * @param {AttributeDTO} attributeDTO Attribute to create
          * @param {*} [axiosOptions] Override http request option.
@@ -1157,7 +1263,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
-         * Create a new value for an existing Access Model Metadata Attribute.     
+         * Create a new value for an existing Access Model Metadata Attribute.  The **type** field must be omitted, blank, or *static* (case-insensitive); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow when the parent Attribute has *isAdhoc* set to *true*, not through this API. 
          * @summary Create access model metadata value
          * @param {string} key Technical name of the Attribute.
          * @param {AttributeValueDTO} attributeValueDTO Attribute value to create
@@ -1190,6 +1296,78 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(attributeValueDTO, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete an existing Access Model Metadata Attribute and all of its values. 
+         * @summary Delete access model metadata attribute
+         * @param {string} key Technical name of the Attribute.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessModelMetadataAttributeV1: async (key: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'key' is not null or undefined
+            assertParamExists('deleteAccessModelMetadataAttributeV1', 'key', key)
+            const localVarPath = `/access-model-metadata/v1/attributes/{key}`
+                .replace(`{${"key"}}`, encodeURIComponent(String(key)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete an existing Access Model Metadata Attribute Value. 
+         * @summary Delete access model metadata value
+         * @param {string} key Technical name of the Attribute.
+         * @param {string} value Technical name of the Attribute value.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessModelMetadataAttributeValueV1: async (key: string, value: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'key' is not null or undefined
+            assertParamExists('deleteAccessModelMetadataAttributeValueV1', 'key', key)
+            // verify required parameter 'value' is not null or undefined
+            assertParamExists('deleteAccessModelMetadataAttributeValueV1', 'value', value)
+            const localVarPath = `/access-model-metadata/v1/attributes/{key}/values/{value}`
+                .replace(`{${"key"}}`, encodeURIComponent(String(key)))
+                .replace(`{${"value"}}`, encodeURIComponent(String(value)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1269,16 +1447,17 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
-         * Get a list of Access Model Metadata Attributes
+         * Get a list of Access Model Metadata Attributes. Supports pagination through limit and offset parameters.
          * @summary List access model metadata attributes
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status**
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessModelMetadataAttributeV1: async (filters?: string, sorters?: string, limit?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAccessModelMetadataAttributeV1: async (filters?: string, sorters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/access-model-metadata/v1/attributes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1303,6 +1482,10 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
                 localVarQueryParameter['limit'] = limit;
             }
 
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
             if (count !== undefined) {
                 localVarQueryParameter['count'] = count;
             }
@@ -1319,15 +1502,18 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
-         * Get a list of Access Model Metadata Attribute Values
+         * Get a list of Access Model Metadata Attribute Values. Supports pagination through limit and offset parameters.
          * @summary List access model metadata values
          * @param {string} key Technical name of the Attribute.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type**
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessModelMetadataAttributeValueV1: async (key: string, limit?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAccessModelMetadataAttributeValueV1: async (key: string, filters?: string, sorters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'key' is not null or undefined
             assertParamExists('listAccessModelMetadataAttributeValueV1', 'key', key)
             const localVarPath = `/access-model-metadata/v1/attributes/{key}/values`
@@ -1343,8 +1529,20 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
             if (count !== undefined) {
@@ -1363,7 +1561,7 @@ export const AccessModelMetadataApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
-         * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **values** 
+         * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **isAdhoc**, **values** 
          * @summary Update access model metadata attribute
          * @param {string} key Technical name of the Attribute.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation JSON Patch array to apply
@@ -1568,7 +1766,7 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
     const localVarAxiosParamCreator = AccessModelMetadataApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create a new Access Model Metadata Attribute. 
+         * Create a new Access Model Metadata Attribute.  The **isAdhoc** field can be set on creation to indicate whether the Attribute supports ad-hoc (dynamically created) values in addition to static values; if omitted, it defaults to *false*.  Any **values** provided at creation time must each have a *type* of *static* (or omit/leave *type* blank); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow, not through this API. 
          * @summary Create access model metadata attribute
          * @param {AttributeDTO} attributeDTO Attribute to create
          * @param {*} [axiosOptions] Override http request option.
@@ -1581,7 +1779,7 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Create a new value for an existing Access Model Metadata Attribute.     
+         * Create a new value for an existing Access Model Metadata Attribute.  The **type** field must be omitted, blank, or *static* (case-insensitive); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow when the parent Attribute has *isAdhoc* set to *true*, not through this API. 
          * @summary Create access model metadata value
          * @param {string} key Technical name of the Attribute.
          * @param {AttributeValueDTO} attributeValueDTO Attribute value to create
@@ -1592,6 +1790,33 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessModelMetadataAttributeValueV1(key, attributeValueDTO, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.createAccessModelMetadataAttributeValueV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Delete an existing Access Model Metadata Attribute and all of its values. 
+         * @summary Delete access model metadata attribute
+         * @param {string} key Technical name of the Attribute.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccessModelMetadataAttributeV1(key: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerKeyDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessModelMetadataAttributeV1(key, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.deleteAccessModelMetadataAttributeV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Delete an existing Access Model Metadata Attribute Value. 
+         * @summary Delete access model metadata value
+         * @param {string} key Technical name of the Attribute.
+         * @param {string} value Technical name of the Attribute value.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccessModelMetadataAttributeValueV1(key: string, value: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TrackerValueDTO>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessModelMetadataAttributeValueV1(key, value, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.deleteAccessModelMetadataAttributeValueV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1622,38 +1847,42 @@ export const AccessModelMetadataApiFp = function(configuration?: Configuration) 
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get a list of Access Model Metadata Attributes
+         * Get a list of Access Model Metadata Attributes. Supports pagination through limit and offset parameters.
          * @summary List access model metadata attributes
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status**
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessModelMetadataAttributeV1(filters?: string, sorters?: string, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeDTO>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessModelMetadataAttributeV1(filters, sorters, limit, count, axiosOptions);
+        async listAccessModelMetadataAttributeV1(filters?: string, sorters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeDTO>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessModelMetadataAttributeV1(filters, sorters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.listAccessModelMetadataAttributeV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get a list of Access Model Metadata Attribute Values
+         * Get a list of Access Model Metadata Attribute Values. Supports pagination through limit and offset parameters.
          * @summary List access model metadata values
          * @param {string} key Technical name of the Attribute.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type**
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessModelMetadataAttributeValueV1(key: string, limit?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeValueDTO>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessModelMetadataAttributeValueV1(key, limit, count, axiosOptions);
+        async listAccessModelMetadataAttributeValueV1(key: string, filters?: string, sorters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AttributeValueDTO>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessModelMetadataAttributeValueV1(key, filters, sorters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessModelMetadataApi.listAccessModelMetadataAttributeValueV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **values** 
+         * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **isAdhoc**, **values** 
          * @summary Update access model metadata attribute
          * @param {string} key Technical name of the Attribute.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation JSON Patch array to apply
@@ -1734,7 +1963,7 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
     const localVarFp = AccessModelMetadataApiFp(configuration)
     return {
         /**
-         * Create a new Access Model Metadata Attribute. 
+         * Create a new Access Model Metadata Attribute.  The **isAdhoc** field can be set on creation to indicate whether the Attribute supports ad-hoc (dynamically created) values in addition to static values; if omitted, it defaults to *false*.  Any **values** provided at creation time must each have a *type* of *static* (or omit/leave *type* blank); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow, not through this API. 
          * @summary Create access model metadata attribute
          * @param {AccessModelMetadataApiCreateAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1744,7 +1973,7 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
             return localVarFp.createAccessModelMetadataAttributeV1(requestParameters.attributeDTO, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Create a new value for an existing Access Model Metadata Attribute.     
+         * Create a new value for an existing Access Model Metadata Attribute.  The **type** field must be omitted, blank, or *static* (case-insensitive); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow when the parent Attribute has *isAdhoc* set to *true*, not through this API. 
          * @summary Create access model metadata value
          * @param {AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1752,6 +1981,26 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
          */
         createAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AttributeValueDTO> {
             return localVarFp.createAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.attributeValueDTO, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete an existing Access Model Metadata Attribute and all of its values. 
+         * @summary Delete access model metadata attribute
+         * @param {AccessModelMetadataApiDeleteAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiDeleteAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TrackerKeyDTO> {
+            return localVarFp.deleteAccessModelMetadataAttributeV1(requestParameters.key, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete an existing Access Model Metadata Attribute Value. 
+         * @summary Delete access model metadata value
+         * @param {AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<TrackerValueDTO> {
+            return localVarFp.deleteAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get single Access Model Metadata Attribute
@@ -1774,27 +2023,27 @@ export const AccessModelMetadataApiFactory = function (configuration?: Configura
             return localVarFp.getAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of Access Model Metadata Attributes
+         * Get a list of Access Model Metadata Attributes. Supports pagination through limit and offset parameters.
          * @summary List access model metadata attributes
          * @param {AccessModelMetadataApiListAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         listAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributeDTO>> {
-            return localVarFp.listAccessModelMetadataAttributeV1(requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listAccessModelMetadataAttributeV1(requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of Access Model Metadata Attribute Values
+         * Get a list of Access Model Metadata Attribute Values. Supports pagination through limit and offset parameters.
          * @summary List access model metadata values
          * @param {AccessModelMetadataApiListAccessModelMetadataAttributeValueV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         listAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AttributeValueDTO>> {
-            return localVarFp.listAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **values** 
+         * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **isAdhoc**, **values** 
          * @summary Update access model metadata attribute
          * @param {AccessModelMetadataApiUpdateAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1885,6 +2134,41 @@ export interface AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1
 }
 
 /**
+ * Request parameters for deleteAccessModelMetadataAttributeV1 operation in AccessModelMetadataApi.
+ * @export
+ * @interface AccessModelMetadataApiDeleteAccessModelMetadataAttributeV1Request
+ */
+export interface AccessModelMetadataApiDeleteAccessModelMetadataAttributeV1Request {
+    /**
+     * Technical name of the Attribute.
+     * @type {string}
+     * @memberof AccessModelMetadataApiDeleteAccessModelMetadataAttributeV1
+     */
+    readonly key: string
+}
+
+/**
+ * Request parameters for deleteAccessModelMetadataAttributeValueV1 operation in AccessModelMetadataApi.
+ * @export
+ * @interface AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1Request
+ */
+export interface AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1Request {
+    /**
+     * Technical name of the Attribute.
+     * @type {string}
+     * @memberof AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1
+     */
+    readonly key: string
+
+    /**
+     * Technical name of the Attribute value.
+     * @type {string}
+     * @memberof AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1
+     */
+    readonly value: string
+}
+
+/**
  * Request parameters for getAccessModelMetadataAttributeV1 operation in AccessModelMetadataApi.
  * @export
  * @interface AccessModelMetadataApiGetAccessModelMetadataAttributeV1Request
@@ -1926,14 +2210,14 @@ export interface AccessModelMetadataApiGetAccessModelMetadataAttributeValueV1Req
  */
 export interface AccessModelMetadataApiListAccessModelMetadataAttributeV1Request {
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or*
      * @type {string}
      * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeV1
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status**
      * @type {string}
      * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeV1
      */
@@ -1945,6 +2229,13 @@ export interface AccessModelMetadataApiListAccessModelMetadataAttributeV1Request
      * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeV1
      */
     readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeV1
+     */
+    readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1968,11 +2259,32 @@ export interface AccessModelMetadataApiListAccessModelMetadataAttributeValueV1Re
     readonly key: string
 
     /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeValueV1
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type**
+     * @type {string}
+     * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeValueV1
+     */
+    readonly sorters?: string
+
+    /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeValueV1
      */
     readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessModelMetadataApiListAccessModelMetadataAttributeValueV1
+     */
+    readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2081,7 +2393,7 @@ export interface AccessModelMetadataApiUpdateAccessModelMetadataByQueryV1Request
  */
 export class AccessModelMetadataApi extends BaseAPI {
     /**
-     * Create a new Access Model Metadata Attribute. 
+     * Create a new Access Model Metadata Attribute.  The **isAdhoc** field can be set on creation to indicate whether the Attribute supports ad-hoc (dynamically created) values in addition to static values; if omitted, it defaults to *false*.  Any **values** provided at creation time must each have a *type* of *static* (or omit/leave *type* blank); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow, not through this API. 
      * @summary Create access model metadata attribute
      * @param {AccessModelMetadataApiCreateAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2093,7 +2405,7 @@ export class AccessModelMetadataApi extends BaseAPI {
     }
 
     /**
-     * Create a new value for an existing Access Model Metadata Attribute.     
+     * Create a new value for an existing Access Model Metadata Attribute.  The **type** field must be omitted, blank, or *static* (case-insensitive); *adhoc* is not an allowed value on this public API and results in a *400* error. Ad-hoc values are created dynamically through an internal service-to-service flow when the parent Attribute has *isAdhoc* set to *true*, not through this API. 
      * @summary Create access model metadata value
      * @param {AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2102,6 +2414,30 @@ export class AccessModelMetadataApi extends BaseAPI {
      */
     public createAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiCreateAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return AccessModelMetadataApiFp(this.configuration).createAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.attributeValueDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete an existing Access Model Metadata Attribute and all of its values. 
+     * @summary Delete access model metadata attribute
+     * @param {AccessModelMetadataApiDeleteAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessModelMetadataApi
+     */
+    public deleteAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiDeleteAccessModelMetadataAttributeV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessModelMetadataApiFp(this.configuration).deleteAccessModelMetadataAttributeV1(requestParameters.key, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete an existing Access Model Metadata Attribute Value. 
+     * @summary Delete access model metadata value
+     * @param {AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessModelMetadataApi
+     */
+    public deleteAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiDeleteAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessModelMetadataApiFp(this.configuration).deleteAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.value, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2129,7 +2465,7 @@ export class AccessModelMetadataApi extends BaseAPI {
     }
 
     /**
-     * Get a list of Access Model Metadata Attributes
+     * Get a list of Access Model Metadata Attributes. Supports pagination through limit and offset parameters.
      * @summary List access model metadata attributes
      * @param {AccessModelMetadataApiListAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2137,11 +2473,11 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public listAccessModelMetadataAttributeV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).listAccessModelMetadataAttributeV1(requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).listAccessModelMetadataAttributeV1(requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get a list of Access Model Metadata Attribute Values
+     * Get a list of Access Model Metadata Attribute Values. Supports pagination through limit and offset parameters.
      * @summary List access model metadata values
      * @param {AccessModelMetadataApiListAccessModelMetadataAttributeValueV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2149,11 +2485,11 @@ export class AccessModelMetadataApi extends BaseAPI {
      * @memberof AccessModelMetadataApi
      */
     public listAccessModelMetadataAttributeValueV1(requestParameters: AccessModelMetadataApiListAccessModelMetadataAttributeValueV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessModelMetadataApiFp(this.configuration).listAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessModelMetadataApiFp(this.configuration).listAccessModelMetadataAttributeValueV1(requestParameters.key, requestParameters.filters, requestParameters.sorters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **values** 
+     * Update an existing Access Model Metadata Attribute.   The following fields are patchable: **name**, **description**, **multiselect**, **isAdhoc**, **values** 
      * @summary Update access model metadata attribute
      * @param {AccessModelMetadataApiUpdateAccessModelMetadataAttributeV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

@@ -12,12 +12,15 @@
         const apiInstance = new AccessModelMetadataApi(configuration);
         const attributeDTO: AttributeDTO = {
   "multiselect" : false,
+  "isAdhoc" : false,
   "values" : [ {
     "name" : "Public",
+    "type" : "static",
     "value" : "public",
     "status" : "active"
   }, {
     "name" : "Public",
+    "type" : "static",
     "value" : "public",
     "status" : "active"
   } ],
@@ -45,10 +48,40 @@
         const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
         const attributeValueDTO: AttributeValueDTO = {
   "name" : "Public",
+  "type" : "static",
   "value" : "public",
   "status" : "active"
 }; // AttributeValueDTO | Attribute value to create
         const result = await apiInstance.createAccessModelMetadataAttributeValueV1({ key: key, attributeValueDTO: attributeValueDTO });
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#delete-access-model-metadata-attribute-v1
+      source: |
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessModelMetadataApi(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const result = await apiInstance.deleteAccessModelMetadataAttributeV1({ key: key });
+        console.log(result);
+- path: /access-model-metadata/v1/attributes/{key}/values/{value}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_model_metadata/methods/access-model-metadata#delete-access-model-metadata-attribute-value-v1
+      source: |
+        import { AccessModelMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessModelMetadataApi(configuration);
+        const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const value: string = 'public'; // string | Technical name of the Attribute value. (default to undefined)
+        const result = await apiInstance.deleteAccessModelMetadataAttributeValueV1({ key: key, value: value });
         console.log(result);
 - path: /access-model-metadata/v1/attributes/{key}
   method: GET
@@ -90,9 +123,10 @@
 
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
-        const filters: string = 'name eq "Privacy"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional) (default to undefined)
-        const sorters: string = 'name,-key'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional) (default to undefined)
+        const filters: string = 'name eq "Privacy"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, co*  **name**: *eq, co*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators are *and, or* (optional) (default to undefined)
+        const sorters: string = 'name,-key'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, type, status** (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.listAccessModelMetadataAttributeV1({  });
         console.log(result);
@@ -108,7 +142,10 @@
         const configuration = new Configuration();
         const apiInstance = new AccessModelMetadataApi(configuration);
         const key: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const filters: string = 'name eq "Public"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, co*  **name**: *eq, co*  **status**: *eq*  **type**: *eq*  Supported composite operators are *and, or* (optional) (default to undefined)
+        const sorters: string = 'name,-value'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **value, name, status, type** (optional) (default to undefined)
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.listAccessModelMetadataAttributeValueV1({ key: key });
         console.log(result);
