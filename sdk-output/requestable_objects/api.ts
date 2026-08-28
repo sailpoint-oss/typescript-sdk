@@ -262,9 +262,9 @@ export const RequestableObjectsApiAxiosParamCreator = function (configuration?: 
          * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/list-entitlements-v-1) can be used with the segmented-for-identity parameter. Any authenticated token can call this endpoint to see their requestable access items.
          * @summary Requestable objects list
          * @param {string} [identityId] If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
-         * @param {Array<ListRequestableObjectsV1TypesEnum>} [types] Filters the results to the specified type/types, where each type is one of &#x60;ROLE&#x60; or &#x60;ACCESS_PROFILE&#x60;. If absent, all types are returned. SailPoint may add support for additional types in the future without notice.
+         * @param {string} [types] Filters the results to the specified type/types, where each type is one of &#x60;ROLE&#x60; or &#x60;ACCESS_PROFILE&#x60;. If absent, all types are returned. SailPoint may add support for additional types in the future without notice.
          * @param {string} [term] Allows searching requestable access items with a partial match on the name or description. If &#x60;term&#x60; is provided, then the API will ignore the &#x60;filter&#x60; query parameter.
-         * @param {Array<RequestableObjectRequestStatus>} [statuses] Filters the result to the specified status/statuses, where each status is one of &#x60;AVAILABLE&#x60;, &#x60;ASSIGNED&#x60;, or &#x60;PENDING&#x60;. Specifying this parameter without also specifying an &#x60;identity-id&#x60; parameter results in an error.  SailPoint may add additional statuses in the future without notice.
+         * @param {string} [statuses] Filters the result to the specified status/statuses, where each status is one of &#x60;AVAILABLE&#x60;, &#x60;ASSIGNED&#x60;, or &#x60;PENDING&#x60;. Specifying this parameter without also specifying an &#x60;identity-id&#x60; parameter results in an error.  SailPoint may add additional statuses in the future without notice.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -273,7 +273,7 @@ export const RequestableObjectsApiAxiosParamCreator = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listRequestableObjectsV1: async (identityId?: string, types?: Array<ListRequestableObjectsV1TypesEnum>, term?: string, statuses?: Array<RequestableObjectRequestStatus>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRequestableObjectsV1: async (identityId?: string, types?: string, term?: string, statuses?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/requestable-objects/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -290,16 +290,16 @@ export const RequestableObjectsApiAxiosParamCreator = function (configuration?: 
                 localVarQueryParameter['identity-id'] = identityId;
             }
 
-            if (types) {
-                localVarQueryParameter['types'] = types.join(COLLECTION_FORMATS.csv);
+            if (types !== undefined) {
+                localVarQueryParameter['types'] = types;
             }
 
             if (term !== undefined) {
                 localVarQueryParameter['term'] = term;
             }
 
-            if (statuses) {
-                localVarQueryParameter['statuses'] = statuses.join(COLLECTION_FORMATS.csv);
+            if (statuses !== undefined) {
+                localVarQueryParameter['statuses'] = statuses;
             }
 
             if (limit !== undefined) {
@@ -347,9 +347,9 @@ export const RequestableObjectsApiFp = function(configuration?: Configuration) {
          * Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter. This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/list-entitlements-v-1) can be used with the segmented-for-identity parameter. Any authenticated token can call this endpoint to see their requestable access items.
          * @summary Requestable objects list
          * @param {string} [identityId] If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
-         * @param {Array<ListRequestableObjectsV1TypesEnum>} [types] Filters the results to the specified type/types, where each type is one of &#x60;ROLE&#x60; or &#x60;ACCESS_PROFILE&#x60;. If absent, all types are returned. SailPoint may add support for additional types in the future without notice.
+         * @param {string} [types] Filters the results to the specified type/types, where each type is one of &#x60;ROLE&#x60; or &#x60;ACCESS_PROFILE&#x60;. If absent, all types are returned. SailPoint may add support for additional types in the future without notice.
          * @param {string} [term] Allows searching requestable access items with a partial match on the name or description. If &#x60;term&#x60; is provided, then the API will ignore the &#x60;filter&#x60; query parameter.
-         * @param {Array<RequestableObjectRequestStatus>} [statuses] Filters the result to the specified status/statuses, where each status is one of &#x60;AVAILABLE&#x60;, &#x60;ASSIGNED&#x60;, or &#x60;PENDING&#x60;. Specifying this parameter without also specifying an &#x60;identity-id&#x60; parameter results in an error.  SailPoint may add additional statuses in the future without notice.
+         * @param {string} [statuses] Filters the result to the specified status/statuses, where each status is one of &#x60;AVAILABLE&#x60;, &#x60;ASSIGNED&#x60;, or &#x60;PENDING&#x60;. Specifying this parameter without also specifying an &#x60;identity-id&#x60; parameter results in an error.  SailPoint may add additional statuses in the future without notice.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -358,7 +358,7 @@ export const RequestableObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listRequestableObjectsV1(identityId?: string, types?: Array<ListRequestableObjectsV1TypesEnum>, term?: string, statuses?: Array<RequestableObjectRequestStatus>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestableObject>>> {
+        async listRequestableObjectsV1(identityId?: string, types?: string, term?: string, statuses?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestableObject>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listRequestableObjectsV1(identityId, types, term, statuses, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RequestableObjectsApi.listRequestableObjectsV1']?.[localVarOperationServerIndex]?.url;
@@ -402,10 +402,10 @@ export interface RequestableObjectsApiListRequestableObjectsV1Request {
 
     /**
      * Filters the results to the specified type/types, where each type is one of &#x60;ROLE&#x60; or &#x60;ACCESS_PROFILE&#x60;. If absent, all types are returned. SailPoint may add support for additional types in the future without notice.
-     * @type {Array<'ACCESS_PROFILE' | 'ROLE'>}
+     * @type {string}
      * @memberof RequestableObjectsApiListRequestableObjectsV1
      */
-    readonly types?: Array<ListRequestableObjectsV1TypesEnum>
+    readonly types?: string
 
     /**
      * Allows searching requestable access items with a partial match on the name or description. If &#x60;term&#x60; is provided, then the API will ignore the &#x60;filter&#x60; query parameter.
@@ -416,10 +416,10 @@ export interface RequestableObjectsApiListRequestableObjectsV1Request {
 
     /**
      * Filters the result to the specified status/statuses, where each status is one of &#x60;AVAILABLE&#x60;, &#x60;ASSIGNED&#x60;, or &#x60;PENDING&#x60;. Specifying this parameter without also specifying an &#x60;identity-id&#x60; parameter results in an error.  SailPoint may add additional statuses in the future without notice.
-     * @type {Array<RequestableObjectRequestStatus>}
+     * @type {string}
      * @memberof RequestableObjectsApiListRequestableObjectsV1
      */
-    readonly statuses?: Array<RequestableObjectRequestStatus>
+    readonly statuses?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -477,13 +477,5 @@ export class RequestableObjectsApi extends BaseAPI {
     }
 }
 
-/**
- * @export
- */
-export const ListRequestableObjectsV1TypesEnum = {
-    AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE'
-} as const;
-export type ListRequestableObjectsV1TypesEnum = typeof ListRequestableObjectsV1TypesEnum[keyof typeof ListRequestableObjectsV1TypesEnum];
 
 

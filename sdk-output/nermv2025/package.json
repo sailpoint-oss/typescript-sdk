@@ -1,6 +1,6 @@
 {
   "name": "sailpoint-nerm-sdk",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "OpenAPI client for sailpoint-nerm-sdk",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
