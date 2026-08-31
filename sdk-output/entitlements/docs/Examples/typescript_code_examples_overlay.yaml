@@ -258,3 +258,82 @@
 }; // EntitlementBulkUpdateRequest | 
         const result = await apiInstance.updateEntitlementsInBulkV1({ entitlementBulkUpdateRequest: entitlementBulkUpdateRequest });
         console.log(result);
+- path: /entitlements/v1/access-model-metadata/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#update-entitlements-metadata-by-filter-v1
+      source: |
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Entitlementmetadatabulkupdatebyfilterrequest } from '@sailpoint/api-client/dist/entitlements/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new EntitlementsApi(configuration);
+        const entitlementmetadatabulkupdatebyfilterrequest: Entitlementmetadatabulkupdatebyfilterrequest = {
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Entitlementmetadatabulkupdatebyfilterrequest | Attribute metadata bulk update request body.
+        const result = await apiInstance.updateEntitlementsMetadataByFilterV1({ entitlementmetadatabulkupdatebyfilterrequest: entitlementmetadatabulkupdatebyfilterrequest });
+        console.log(result);
+- path: /entitlements/v1/access-model-metadata/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#update-entitlements-metadata-by-ids-v1
+      source: |
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Entitlementmetadatabulkupdatebyidrequest } from '@sailpoint/api-client/dist/entitlements/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new EntitlementsApi(configuration);
+        const entitlementmetadatabulkupdatebyidrequest: Entitlementmetadatabulkupdatebyidrequest = {
+  "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Entitlementmetadatabulkupdatebyidrequest | Attribute metadata bulk update request body.
+        const result = await apiInstance.updateEntitlementsMetadataByIdsV1({ entitlementmetadatabulkupdatebyidrequest: entitlementmetadatabulkupdatebyidrequest });
+        console.log(result);
+- path: /entitlements/v1/access-model-metadata/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/entitlements/methods/entitlements#update-entitlements-metadata-by-query-v1
+      source: |
+        import { EntitlementsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Entitlementmetadatabulkupdatebyqueryrequest } from '@sailpoint/api-client/dist/entitlements/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new EntitlementsApi(configuration);
+        const entitlementmetadatabulkupdatebyqueryrequest: Entitlementmetadatabulkupdatebyqueryrequest = {
+  "query" : {
+    "indices" : [ "entitlements" ],
+    "queryType" : "TEXT",
+    "textQuery" : {
+      "terms" : [ "test123" ],
+      "fields" : [ "id" ],
+      "matchAny" : false,
+      "contains" : true
+    },
+    "includeNested" : false
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Entitlementmetadatabulkupdatebyqueryrequest | Attribute metadata bulk update request body.
+        const result = await apiInstance.updateEntitlementsMetadataByQueryV1({ entitlementmetadatabulkupdatebyqueryrequest: entitlementmetadatabulkupdatebyqueryrequest });
+        console.log(result);

@@ -15,6 +15,11 @@ AccessProfileUsage.md
 AccessProfileUsageUsedByInner.md
 AccessProfilesApi.md
 AccessProfilesApideveloperSite_code_examples.yaml
+Accessprofilemetadatabulkupdatebyfilterrequest.md
+Accessprofilemetadatabulkupdatebyidrequest.md
+AccessprofilemetadatabulkupdatebyidrequestValuesInner.md
+Accessprofilemetadatabulkupdatebyqueryrequest.md
+Accessprofilemetadatabulkupdateresponse.md
 AdditionalOwnerRef.md
 ArrayInner.md
 AttributeDTO.md

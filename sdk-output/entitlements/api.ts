@@ -807,6 +807,216 @@ export interface EntitlementV2Source {
     'name'?: string;
 }
 /**
+ * Request to bulk update Access Model Metadata on every entitlement matching a filter expression. Adding or replacing custom metadata requires a suite license.
+ * @export
+ * @interface Entitlementmetadatabulkupdatebyfilterrequest
+ */
+export interface Entitlementmetadatabulkupdatebyfilterrequest {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdatebyfilterrequest
+     */
+    'filters': string;
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdatebyfilterrequest
+     */
+    'operation': EntitlementmetadatabulkupdatebyfilterrequestOperationEnum;
+    /**
+     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the entitlement.
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdatebyfilterrequest
+     */
+    'replaceScope'?: EntitlementmetadatabulkupdatebyfilterrequestReplaceScopeEnum;
+    /**
+     * The metadata to be updated, including attribute key and value.
+     * @type {Array<EntitlementmetadatabulkupdatebyidrequestValuesInner>}
+     * @memberof Entitlementmetadatabulkupdatebyfilterrequest
+     */
+    'values': Array<EntitlementmetadatabulkupdatebyidrequestValuesInner>;
+}
+
+export const EntitlementmetadatabulkupdatebyfilterrequestOperationEnum = {
+    Add: 'ADD',
+    Remove: 'REMOVE',
+    Replace: 'REPLACE'
+} as const;
+
+export type EntitlementmetadatabulkupdatebyfilterrequestOperationEnum = typeof EntitlementmetadatabulkupdatebyfilterrequestOperationEnum[keyof typeof EntitlementmetadatabulkupdatebyfilterrequestOperationEnum];
+export const EntitlementmetadatabulkupdatebyfilterrequestReplaceScopeEnum = {
+    All: 'ALL',
+    Attribute: 'ATTRIBUTE'
+} as const;
+
+export type EntitlementmetadatabulkupdatebyfilterrequestReplaceScopeEnum = typeof EntitlementmetadatabulkupdatebyfilterrequestReplaceScopeEnum[keyof typeof EntitlementmetadatabulkupdatebyfilterrequestReplaceScopeEnum];
+
+/**
+ * Request to bulk update Access Model Metadata on a list of entitlements identified by ID. The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.
+ * @export
+ * @interface Entitlementmetadatabulkupdatebyidrequest
+ */
+export interface Entitlementmetadatabulkupdatebyidrequest {
+    /**
+     * The IDs of the entitlements to update.
+     * @type {Array<string>}
+     * @memberof Entitlementmetadatabulkupdatebyidrequest
+     */
+    'entitlements': Array<string>;
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdatebyidrequest
+     */
+    'operation': EntitlementmetadatabulkupdatebyidrequestOperationEnum;
+    /**
+     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the entitlement.
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdatebyidrequest
+     */
+    'replaceScope'?: EntitlementmetadatabulkupdatebyidrequestReplaceScopeEnum;
+    /**
+     * The metadata to be updated, including attribute key and value.
+     * @type {Array<EntitlementmetadatabulkupdatebyidrequestValuesInner>}
+     * @memberof Entitlementmetadatabulkupdatebyidrequest
+     */
+    'values': Array<EntitlementmetadatabulkupdatebyidrequestValuesInner>;
+}
+
+export const EntitlementmetadatabulkupdatebyidrequestOperationEnum = {
+    Add: 'ADD',
+    Remove: 'REMOVE',
+    Replace: 'REPLACE'
+} as const;
+
+export type EntitlementmetadatabulkupdatebyidrequestOperationEnum = typeof EntitlementmetadatabulkupdatebyidrequestOperationEnum[keyof typeof EntitlementmetadatabulkupdatebyidrequestOperationEnum];
+export const EntitlementmetadatabulkupdatebyidrequestReplaceScopeEnum = {
+    All: 'ALL',
+    Attribute: 'ATTRIBUTE'
+} as const;
+
+export type EntitlementmetadatabulkupdatebyidrequestReplaceScopeEnum = typeof EntitlementmetadatabulkupdatebyidrequestReplaceScopeEnum[keyof typeof EntitlementmetadatabulkupdatebyidrequestReplaceScopeEnum];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementmetadatabulkupdatebyidrequestValuesInner
+ */
+export interface EntitlementmetadatabulkupdatebyidrequestValuesInner {
+    /**
+     * The technical name of the metadata attribute.
+     * @type {string}
+     * @memberof EntitlementmetadatabulkupdatebyidrequestValuesInner
+     */
+    'attribute': string;
+    /**
+     * The values of the attribute to be updated.
+     * @type {Array<string>}
+     * @memberof EntitlementmetadatabulkupdatebyidrequestValuesInner
+     */
+    'values': Array<string> | null;
+    /**
+     * The type of the metadata attribute. Set to `custom` for custom metadata attributes, which require a suite license.
+     * @type {string}
+     * @memberof EntitlementmetadatabulkupdatebyidrequestValuesInner
+     */
+    'objectType'?: string;
+}
+/**
+ * Request to bulk update Access Model Metadata on every entitlement matching a search query. Adding or replacing custom metadata requires a suite license.  For more information about the query object, refer to [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post).
+ * @export
+ * @interface Entitlementmetadatabulkupdatebyqueryrequest
+ */
+export interface Entitlementmetadatabulkupdatebyqueryrequest {
+    /**
+     * The search query selecting the entitlements to update.
+     * @type {object}
+     * @memberof Entitlementmetadatabulkupdatebyqueryrequest
+     */
+    'query': object;
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdatebyqueryrequest
+     */
+    'operation': EntitlementmetadatabulkupdatebyqueryrequestOperationEnum;
+    /**
+     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the entitlement.
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdatebyqueryrequest
+     */
+    'replaceScope'?: EntitlementmetadatabulkupdatebyqueryrequestReplaceScopeEnum;
+    /**
+     * The metadata to be updated, including attribute key and value.
+     * @type {Array<EntitlementmetadatabulkupdatebyidrequestValuesInner>}
+     * @memberof Entitlementmetadatabulkupdatebyqueryrequest
+     */
+    'values': Array<EntitlementmetadatabulkupdatebyidrequestValuesInner>;
+}
+
+export const EntitlementmetadatabulkupdatebyqueryrequestOperationEnum = {
+    Add: 'ADD',
+    Remove: 'REMOVE',
+    Replace: 'REPLACE'
+} as const;
+
+export type EntitlementmetadatabulkupdatebyqueryrequestOperationEnum = typeof EntitlementmetadatabulkupdatebyqueryrequestOperationEnum[keyof typeof EntitlementmetadatabulkupdatebyqueryrequestOperationEnum];
+export const EntitlementmetadatabulkupdatebyqueryrequestReplaceScopeEnum = {
+    All: 'ALL',
+    Attribute: 'ATTRIBUTE'
+} as const;
+
+export type EntitlementmetadatabulkupdatebyqueryrequestReplaceScopeEnum = typeof EntitlementmetadatabulkupdatebyqueryrequestReplaceScopeEnum[keyof typeof EntitlementmetadatabulkupdatebyqueryrequestReplaceScopeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Entitlementmetadatabulkupdateresponse
+ */
+export interface Entitlementmetadatabulkupdateresponse {
+    /**
+     * ID of the task that is processing the bulk update.
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdateresponse
+     */
+    'id'?: string;
+    /**
+     * Type of the object the bulk update applies to.
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdateresponse
+     */
+    'type'?: string;
+    /**
+     * The status of the bulk update request.
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdateresponse
+     */
+    'status'?: EntitlementmetadatabulkupdateresponseStatusEnum;
+    /**
+     * Time when the bulk update request was created
+     * @type {string}
+     * @memberof Entitlementmetadatabulkupdateresponse
+     */
+    'created'?: string;
+}
+
+export const EntitlementmetadatabulkupdateresponseStatusEnum = {
+    Created: 'CREATED',
+    PreProcess: 'PRE_PROCESS',
+    PreProcessCompleted: 'PRE_PROCESS_COMPLETED',
+    PostProcess: 'POST_PROCESS',
+    Completed: 'COMPLETED',
+    ChunkPending: 'CHUNK_PENDING',
+    ChunkProcessing: 'CHUNK_PROCESSING',
+    ReProcessing: 'RE_PROCESSING',
+    PreProcessFailed: 'PRE_PROCESS_FAILED',
+    Failed: 'FAILED'
+} as const;
+
+export type EntitlementmetadatabulkupdateresponseStatusEnum = typeof EntitlementmetadatabulkupdateresponseStatusEnum[keyof typeof EntitlementmetadatabulkupdateresponseStatusEnum];
+
+/**
  * 
  * @export
  * @interface ErrorMessageDto
@@ -1661,6 +1871,114 @@ export const EntitlementsApiAxiosParamCreator = function (configuration?: Config
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByFilterV1` operation.
+         * @summary Bulk-update metadata by filter
+         * @param {Entitlementmetadatabulkupdatebyfilterrequest} entitlementmetadatabulkupdatebyfilterrequest Attribute metadata bulk update request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsMetadataByFilterV1: async (entitlementmetadatabulkupdatebyfilterrequest: Entitlementmetadatabulkupdatebyfilterrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementmetadatabulkupdatebyfilterrequest' is not null or undefined
+            assertParamExists('updateEntitlementsMetadataByFilterV1', 'entitlementmetadatabulkupdatebyfilterrequest', entitlementmetadatabulkupdatebyfilterrequest)
+            const localVarPath = `/entitlements/v1/access-model-metadata/bulk-update/filter`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementmetadatabulkupdatebyfilterrequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for one or more entitlements by a list of entitlement IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByIdsV1` operation.
+         * @summary Bulk-update metadata by ids
+         * @param {Entitlementmetadatabulkupdatebyidrequest} entitlementmetadatabulkupdatebyidrequest Attribute metadata bulk update request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsMetadataByIdsV1: async (entitlementmetadatabulkupdatebyidrequest: Entitlementmetadatabulkupdatebyidrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementmetadatabulkupdatebyidrequest' is not null or undefined
+            assertParamExists('updateEntitlementsMetadataByIdsV1', 'entitlementmetadatabulkupdatebyidrequest', entitlementmetadatabulkupdatebyidrequest)
+            const localVarPath = `/entitlements/v1/access-model-metadata/bulk-update/ids`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementmetadatabulkupdatebyidrequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+         * @summary Bulk-update metadata by query
+         * @param {Entitlementmetadatabulkupdatebyqueryrequest} entitlementmetadatabulkupdatebyqueryrequest Attribute metadata bulk update request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsMetadataByQueryV1: async (entitlementmetadatabulkupdatebyqueryrequest: Entitlementmetadatabulkupdatebyqueryrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'entitlementmetadatabulkupdatebyqueryrequest' is not null or undefined
+            assertParamExists('updateEntitlementsMetadataByQueryV1', 'entitlementmetadatabulkupdatebyqueryrequest', entitlementmetadatabulkupdatebyqueryrequest)
+            const localVarPath = `/entitlements/v1/access-model-metadata/bulk-update/query`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementmetadatabulkupdatebyqueryrequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1873,6 +2191,45 @@ export const EntitlementsApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.updateEntitlementsInBulkV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByFilterV1` operation.
+         * @summary Bulk-update metadata by filter
+         * @param {Entitlementmetadatabulkupdatebyfilterrequest} entitlementmetadatabulkupdatebyfilterrequest Attribute metadata bulk update request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateEntitlementsMetadataByFilterV1(entitlementmetadatabulkupdatebyfilterrequest: Entitlementmetadatabulkupdatebyfilterrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementmetadatabulkupdateresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsMetadataByFilterV1(entitlementmetadatabulkupdatebyfilterrequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.updateEntitlementsMetadataByFilterV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for one or more entitlements by a list of entitlement IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByIdsV1` operation.
+         * @summary Bulk-update metadata by ids
+         * @param {Entitlementmetadatabulkupdatebyidrequest} entitlementmetadatabulkupdatebyidrequest Attribute metadata bulk update request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateEntitlementsMetadataByIdsV1(entitlementmetadatabulkupdatebyidrequest: Entitlementmetadatabulkupdatebyidrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementmetadatabulkupdateresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsMetadataByIdsV1(entitlementmetadatabulkupdatebyidrequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.updateEntitlementsMetadataByIdsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+         * @summary Bulk-update metadata by query
+         * @param {Entitlementmetadatabulkupdatebyqueryrequest} entitlementmetadatabulkupdatebyqueryrequest Attribute metadata bulk update request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateEntitlementsMetadataByQueryV1(entitlementmetadatabulkupdatebyqueryrequest: Entitlementmetadatabulkupdatebyqueryrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Entitlementmetadatabulkupdateresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsMetadataByQueryV1(entitlementmetadatabulkupdatebyqueryrequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['EntitlementsApi.updateEntitlementsMetadataByQueryV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -2013,6 +2370,36 @@ export const EntitlementsApiFactory = function (configuration?: Configuration, b
          */
         updateEntitlementsInBulkV1(requestParameters: EntitlementsApiUpdateEntitlementsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.updateEntitlementsInBulkV1(requestParameters.entitlementBulkUpdateRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByFilterV1` operation.
+         * @summary Bulk-update metadata by filter
+         * @param {EntitlementsApiUpdateEntitlementsMetadataByFilterV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsMetadataByFilterV1(requestParameters: EntitlementsApiUpdateEntitlementsMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementmetadatabulkupdateresponse> {
+            return localVarFp.updateEntitlementsMetadataByFilterV1(requestParameters.entitlementmetadatabulkupdatebyfilterrequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for one or more entitlements by a list of entitlement IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByIdsV1` operation.
+         * @summary Bulk-update metadata by ids
+         * @param {EntitlementsApiUpdateEntitlementsMetadataByIdsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsMetadataByIdsV1(requestParameters: EntitlementsApiUpdateEntitlementsMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementmetadatabulkupdateresponse> {
+            return localVarFp.updateEntitlementsMetadataByIdsV1(requestParameters.entitlementmetadatabulkupdatebyidrequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+         * @summary Bulk-update metadata by query
+         * @param {EntitlementsApiUpdateEntitlementsMetadataByQueryV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEntitlementsMetadataByQueryV1(requestParameters: EntitlementsApiUpdateEntitlementsMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Entitlementmetadatabulkupdateresponse> {
+            return localVarFp.updateEntitlementsMetadataByQueryV1(requestParameters.entitlementmetadatabulkupdatebyqueryrequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2424,6 +2811,48 @@ export interface EntitlementsApiUpdateEntitlementsInBulkV1Request {
 }
 
 /**
+ * Request parameters for updateEntitlementsMetadataByFilterV1 operation in EntitlementsApi.
+ * @export
+ * @interface EntitlementsApiUpdateEntitlementsMetadataByFilterV1Request
+ */
+export interface EntitlementsApiUpdateEntitlementsMetadataByFilterV1Request {
+    /**
+     * Attribute metadata bulk update request body.
+     * @type {Entitlementmetadatabulkupdatebyfilterrequest}
+     * @memberof EntitlementsApiUpdateEntitlementsMetadataByFilterV1
+     */
+    readonly entitlementmetadatabulkupdatebyfilterrequest: Entitlementmetadatabulkupdatebyfilterrequest
+}
+
+/**
+ * Request parameters for updateEntitlementsMetadataByIdsV1 operation in EntitlementsApi.
+ * @export
+ * @interface EntitlementsApiUpdateEntitlementsMetadataByIdsV1Request
+ */
+export interface EntitlementsApiUpdateEntitlementsMetadataByIdsV1Request {
+    /**
+     * Attribute metadata bulk update request body.
+     * @type {Entitlementmetadatabulkupdatebyidrequest}
+     * @memberof EntitlementsApiUpdateEntitlementsMetadataByIdsV1
+     */
+    readonly entitlementmetadatabulkupdatebyidrequest: Entitlementmetadatabulkupdatebyidrequest
+}
+
+/**
+ * Request parameters for updateEntitlementsMetadataByQueryV1 operation in EntitlementsApi.
+ * @export
+ * @interface EntitlementsApiUpdateEntitlementsMetadataByQueryV1Request
+ */
+export interface EntitlementsApiUpdateEntitlementsMetadataByQueryV1Request {
+    /**
+     * Attribute metadata bulk update request body.
+     * @type {Entitlementmetadatabulkupdatebyqueryrequest}
+     * @memberof EntitlementsApiUpdateEntitlementsMetadataByQueryV1
+     */
+    readonly entitlementmetadatabulkupdatebyqueryrequest: Entitlementmetadatabulkupdatebyqueryrequest
+}
+
+/**
  * EntitlementsApi - object-oriented interface
  * @export
  * @class EntitlementsApi
@@ -2585,6 +3014,42 @@ export class EntitlementsApi extends BaseAPI {
      */
     public updateEntitlementsInBulkV1(requestParameters: EntitlementsApiUpdateEntitlementsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return EntitlementsApiFp(this.configuration).updateEntitlementsInBulkV1(requestParameters.entitlementBulkUpdateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByFilterV1` operation.
+     * @summary Bulk-update metadata by filter
+     * @param {EntitlementsApiUpdateEntitlementsMetadataByFilterV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsApi
+     */
+    public updateEntitlementsMetadataByFilterV1(requestParameters: EntitlementsApiUpdateEntitlementsMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).updateEntitlementsMetadataByFilterV1(requestParameters.entitlementmetadatabulkupdatebyfilterrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a bulk update of Access Model Metadata for one or more entitlements by a list of entitlement IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByIdsV1` operation.
+     * @summary Bulk-update metadata by ids
+     * @param {EntitlementsApiUpdateEntitlementsMetadataByIdsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsApi
+     */
+    public updateEntitlementsMetadataByIdsV1(requestParameters: EntitlementsApiUpdateEntitlementsMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).updateEntitlementsMetadataByIdsV1(requestParameters.entitlementmetadatabulkupdatebyidrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  Adding or replacing custom metadata requires a suite license.  This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+     * @summary Bulk-update metadata by query
+     * @param {EntitlementsApiUpdateEntitlementsMetadataByQueryV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsApi
+     */
+    public updateEntitlementsMetadataByQueryV1(requestParameters: EntitlementsApiUpdateEntitlementsMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return EntitlementsApiFp(this.configuration).updateEntitlementsMetadataByQueryV1(requestParameters.entitlementmetadatabulkupdatebyqueryrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

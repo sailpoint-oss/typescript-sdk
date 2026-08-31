@@ -52,11 +52,16 @@ Method | HTTP request | Description
 [**create-access-profile-v1**](#create-access-profile-v1) | **POST** `/access-profiles/v1` | Create access profile
 [**delete-access-profile-v1**](#delete-access-profile-v1) | **DELETE** `/access-profiles/v1/{id}` | Delete the specified access profile
 [**delete-access-profiles-in-bulk-v1**](#delete-access-profiles-in-bulk-v1) | **POST** `/access-profiles/v1/bulk-delete` | Delete access profile(s)
+[**delete-metadata-from-access-profile-by-key-and-value-v1**](#delete-metadata-from-access-profile-by-key-and-value-v1) | **DELETE** `/access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from access profile
 [**get-access-profile-entitlements-v1**](#get-access-profile-entitlements-v1) | **GET** `/access-profiles/v1/{id}/entitlements` | List access profile\&#39;s entitlements
 [**get-access-profile-v1**](#get-access-profile-v1) | **GET** `/access-profiles/v1/{id}` | Get an access profile
 [**list-access-profiles-v1**](#list-access-profiles-v1) | **GET** `/access-profiles/v1` | List access profiles
 [**patch-access-profile-v1**](#patch-access-profile-v1) | **PATCH** `/access-profiles/v1/{id}` | Patch a specified access profile
 [**update-access-profiles-in-bulk-v1**](#update-access-profiles-in-bulk-v1) | **POST** `/access-profiles/v1/bulk-update-requestable` | Update access profile(s) requestable field.
+[**update-access-profiles-metadata-by-filter-v1**](#update-access-profiles-metadata-by-filter-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/filter` | Bulk-update metadata by filter
+[**update-access-profiles-metadata-by-ids-v1**](#update-access-profiles-metadata-by-ids-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/ids` | Bulk-update metadata by ids
+[**update-access-profiles-metadata-by-query-v1**](#update-access-profiles-metadata-by-query-v1) | **POST** `/access-profiles/v1/access-model-metadata/bulk-update/query` | Bulk-update metadata by query
+[**update-attribute-key-and-value-to-access-profile-v1**](#update-attribute-key-and-value-to-access-profile-v1) | **POST** `/access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to access profile
 
 
 ## create-access-profile-v1
@@ -298,6 +303,47 @@ const accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest = {
   "bestEffortOnly" : true
 }; // 
 const result = await apiInstance.deleteAccessProfilesInBulkV1({ accessProfileBulkDeleteRequest: accessProfileBulkDeleteRequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## delete-metadata-from-access-profile-by-key-and-value-v1
+Remove metadata from access profile
+This API removes a single Access Model Metadata value from an access profile by attribute key and attribute value.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-metadata-from-access-profile-by-key-and-value-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**id** | `string` | The access profile\&#39;s ID. |  [default to undefined]
+**attributeKey** | `string` | Technical name of the Attribute. |  [default to undefined]
+**attributeValue** | `string` | Technical name of the Attribute Value. |  [default to undefined]
+
+### Return type
+
+(empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { AccessProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new AccessProfilesApi(configuration);
+const id: string = 2c91808c74ff913f0175097daa9d59cd; // The access profile\&#39;s ID.
+const attributeKey: string = iscPrivacy; // Technical name of the Attribute.
+const attributeValue: string = public; // Technical name of the Attribute Value.
+const result = await apiInstance.deleteMetadataFromAccessProfileByKeyAndValueV1({ id: id, attributeKey: attributeKey, attributeValue: attributeValue });
 console.log(result);
 ```
 
@@ -558,6 +604,207 @@ const configuration = new Configuration();
 const apiInstance = new AccessProfilesApi(configuration);
 const accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner> = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // 
 const result = await apiInstance.updateAccessProfilesInBulkV1({ accessProfileBulkUpdateRequestInner: accessProfileBulkUpdateRequestInner });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-access-profiles-metadata-by-filter-v1
+Bulk-update metadata by filter
+This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied filter expression.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-metadata-by-filter-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**accessprofilemetadatabulkupdatebyfilterrequest** | `Accessprofilemetadatabulkupdatebyfilterrequest` |  | 
+
+### Return type
+
+`Accessprofilemetadatabulkupdateresponse`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { AccessProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Accessprofilemetadatabulkupdatebyfilterrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+
+const configuration = new Configuration();
+const apiInstance = new AccessProfilesApi(configuration);
+const accessprofilemetadatabulkupdatebyfilterrequest: Accessprofilemetadatabulkupdatebyfilterrequest = {
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "requestable eq false",
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // 
+const result = await apiInstance.updateAccessProfilesMetadataByFilterV1({ accessprofilemetadatabulkupdatebyfilterrequest: accessprofilemetadatabulkupdatebyfilterrequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-access-profiles-metadata-by-ids-v1
+Bulk-update metadata by ids
+This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-metadata-by-ids-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**accessprofilemetadatabulkupdatebyidrequest** | `Accessprofilemetadatabulkupdatebyidrequest` |  | 
+
+### Return type
+
+`Accessprofilemetadatabulkupdateresponse`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { AccessProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Accessprofilemetadatabulkupdatebyidrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+
+const configuration = new Configuration();
+const apiInstance = new AccessProfilesApi(configuration);
+const accessprofilemetadatabulkupdatebyidrequest: Accessprofilemetadatabulkupdatebyidrequest = {
+  "accessProfiles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // 
+const result = await apiInstance.updateAccessProfilesMetadataByIdsV1({ accessprofilemetadatabulkupdatebyidrequest: accessprofilemetadatabulkupdatebyidrequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-access-profiles-metadata-by-query-v1
+Bulk-update metadata by query
+This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied search query.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-access-profiles-metadata-by-query-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**accessprofilemetadatabulkupdatebyqueryrequest** | `Accessprofilemetadatabulkupdatebyqueryrequest` |  | 
+
+### Return type
+
+`Accessprofilemetadatabulkupdateresponse`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { AccessProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Accessprofilemetadatabulkupdatebyqueryrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+
+const configuration = new Configuration();
+const apiInstance = new AccessProfilesApi(configuration);
+const accessprofilemetadatabulkupdatebyqueryrequest: Accessprofilemetadatabulkupdatebyqueryrequest = {
+  "query" : {
+    "indices" : [ "accessprofiles" ],
+    "queryType" : "TEXT",
+    "textQuery" : {
+      "terms" : [ "test123" ],
+      "fields" : [ "id" ],
+      "matchAny" : false,
+      "contains" : true
+    },
+    "includeNested" : false
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // 
+const result = await apiInstance.updateAccessProfilesMetadataByQueryV1({ accessprofilemetadatabulkupdatebyqueryrequest: accessprofilemetadatabulkupdatebyqueryrequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-attribute-key-and-value-to-access-profile-v1
+Add metadata to access profile
+This API adds a single Access Model Metadata value to an access profile by attribute key and attribute value. A single access profile cannot be assigned more than 25 metadata values. Adding custom metadata requires a suite license.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-attribute-key-and-value-to-access-profile-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**id** | `string` | The access profile\&#39;s ID. |  [default to undefined]
+**attributeKey** | `string` | Technical name of the Attribute. |  [default to undefined]
+**attributeValue** | `string` | Technical name of the Attribute Value. |  [default to undefined]
+
+### Return type
+
+`AccessProfile`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { AccessProfilesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new AccessProfilesApi(configuration);
+const id: string = c24359c389374d0fb8585698a2189e3d; // The access profile\&#39;s ID.
+const attributeKey: string = iscPrivacy; // Technical name of the Attribute.
+const attributeValue: string = public; // Technical name of the Attribute Value.
+const result = await apiInstance.updateAttributeKeyAndValueToAccessProfileV1({ id: id, attributeKey: attributeKey, attributeValue: attributeValue });
 console.log(result);
 ```
 

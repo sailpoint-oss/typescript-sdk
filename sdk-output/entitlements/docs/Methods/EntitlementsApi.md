@@ -28,6 +28,9 @@ Method | HTTP request | Description
 [**put-entitlement-request-config-v1**](#put-entitlement-request-config-v1) | **PUT** `/entitlements/v1/{id}/entitlement-request-config` | Replace entitlement request config
 [**reset-source-entitlements-v1**](#reset-source-entitlements-v1) | **POST** `/entitlements/v1/reset/sources/{id}` | Reset source entitlements
 [**update-entitlements-in-bulk-v1**](#update-entitlements-in-bulk-v1) | **POST** `/entitlements/v1/bulk-update` | Bulk update an entitlement list
+[**update-entitlements-metadata-by-filter-v1**](#update-entitlements-metadata-by-filter-v1) | **POST** `/entitlements/v1/access-model-metadata/bulk-update/filter` | Bulk-update metadata by filter
+[**update-entitlements-metadata-by-ids-v1**](#update-entitlements-metadata-by-ids-v1) | **POST** `/entitlements/v1/access-model-metadata/bulk-update/ids` | Bulk-update metadata by ids
+[**update-entitlements-metadata-by-query-v1**](#update-entitlements-metadata-by-query-v1) | **POST** `/entitlements/v1/access-model-metadata/bulk-update/query` | Bulk-update metadata by query
 
 
 ## create-access-model-metadata-for-entitlement-v1
@@ -642,6 +645,172 @@ const entitlementBulkUpdateRequest: EntitlementBulkUpdateRequest = {
   } ]
 }; // 
 const result = await apiInstance.updateEntitlementsInBulkV1({ entitlementBulkUpdateRequest: entitlementBulkUpdateRequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-entitlements-metadata-by-filter-v1
+Bulk-update metadata by filter
+This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied filter expression.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+Adding or replacing custom metadata requires a suite license.
+
+This API replaces the deprecated `updateAccessModelMetadataByFilterV1` operation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-metadata-by-filter-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**entitlementmetadatabulkupdatebyfilterrequest** | `Entitlementmetadatabulkupdatebyfilterrequest` | Attribute metadata bulk update request body. | 
+
+### Return type
+
+`Entitlementmetadatabulkupdateresponse`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { EntitlementsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Entitlementmetadatabulkupdatebyfilterrequest } from '@sailpoint/api-client/dist/entitlements/api';
+
+const configuration = new Configuration();
+const apiInstance = new EntitlementsApi(configuration);
+const entitlementmetadatabulkupdatebyfilterrequest: Entitlementmetadatabulkupdatebyfilterrequest = {
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Attribute metadata bulk update request body.
+const result = await apiInstance.updateEntitlementsMetadataByFilterV1({ entitlementmetadatabulkupdatebyfilterrequest: entitlementmetadatabulkupdatebyfilterrequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-entitlements-metadata-by-ids-v1
+Bulk-update metadata by ids
+This API initiates a bulk update of Access Model Metadata for one or more entitlements by a list of entitlement IDs.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+The maximum entitlement count in a single request is 3000. Adding or replacing custom metadata requires a suite license.
+
+This API replaces the deprecated `updateAccessModelMetadataByIdsV1` operation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-metadata-by-ids-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**entitlementmetadatabulkupdatebyidrequest** | `Entitlementmetadatabulkupdatebyidrequest` | Attribute metadata bulk update request body. | 
+
+### Return type
+
+`Entitlementmetadatabulkupdateresponse`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { EntitlementsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Entitlementmetadatabulkupdatebyidrequest } from '@sailpoint/api-client/dist/entitlements/api';
+
+const configuration = new Configuration();
+const apiInstance = new EntitlementsApi(configuration);
+const entitlementmetadatabulkupdatebyidrequest: Entitlementmetadatabulkupdatebyidrequest = {
+  "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Attribute metadata bulk update request body.
+const result = await apiInstance.updateEntitlementsMetadataByIdsV1({ entitlementmetadatabulkupdatebyidrequest: entitlementmetadatabulkupdatebyidrequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## update-entitlements-metadata-by-query-v1
+Bulk-update metadata by query
+This API initiates a bulk update of Access Model Metadata for every entitlement matching the supplied search query.
+
+The update is processed asynchronously. The response returns the ID of the task performing the update.
+
+Adding or replacing custom metadata requires a suite license.
+
+This API replaces the deprecated `updateAccessModelMetadataByQueryV1` operation.
+
+[API Spec](https://developer.sailpoint.com/docs/api/update-entitlements-metadata-by-query-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**entitlementmetadatabulkupdatebyqueryrequest** | `Entitlementmetadatabulkupdatebyqueryrequest` | Attribute metadata bulk update request body. | 
+
+### Return type
+
+`Entitlementmetadatabulkupdateresponse`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { EntitlementsApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Entitlementmetadatabulkupdatebyqueryrequest } from '@sailpoint/api-client/dist/entitlements/api';
+
+const configuration = new Configuration();
+const apiInstance = new EntitlementsApi(configuration);
+const entitlementmetadatabulkupdatebyqueryrequest: Entitlementmetadatabulkupdatebyqueryrequest = {
+  "query" : {
+    "indices" : [ "entitlements" ],
+    "queryType" : "TEXT",
+    "textQuery" : {
+      "terms" : [ "test123" ],
+      "fields" : [ "id" ],
+      "matchAny" : false,
+      "contains" : true
+    },
+    "includeNested" : false
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Attribute metadata bulk update request body.
+const result = await apiInstance.updateEntitlementsMetadataByQueryV1({ entitlementmetadatabulkupdatebyqueryrequest: entitlementmetadatabulkupdatebyqueryrequest });
 console.log(result);
 ```
 

@@ -161,6 +161,22 @@
 }; // AccessProfileBulkDeleteRequest | 
         const result = await apiInstance.deleteAccessProfilesInBulkV1({ accessProfileBulkDeleteRequest: accessProfileBulkDeleteRequest });
         console.log(result);
+- path: /access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#delete-metadata-from-access-profile-by-key-and-value-v1
+      source: |
+        import { AccessProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const id: string = '2c91808c74ff913f0175097daa9d59cd'; // string | The access profile\'s ID. (default to undefined)
+        const attributeKey: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const attributeValue: string = 'public'; // string | Technical name of the Attribute Value. (default to undefined)
+        const result = await apiInstance.deleteMetadataFromAccessProfileByKeyAndValueV1({ id: id, attributeKey: attributeKey, attributeValue: attributeValue });
+        console.log(result);
 - path: /access-profiles/v1/{id}/entitlements
   method: GET
   xCodeSample:
@@ -249,4 +265,99 @@
         const apiInstance = new AccessProfilesApi(configuration);
         const accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner> = [{"id":"464ae7bf-791e-49fd-b746-06a2e4a89635","requestable":false}]; // Array<AccessProfileBulkUpdateRequestInner> | 
         const result = await apiInstance.updateAccessProfilesInBulkV1({ accessProfileBulkUpdateRequestInner: accessProfileBulkUpdateRequestInner });
+        console.log(result);
+- path: /access-profiles/v1/access-model-metadata/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#update-access-profiles-metadata-by-filter-v1
+      source: |
+        import { AccessProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Accessprofilemetadatabulkupdatebyfilterrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const accessprofilemetadatabulkupdatebyfilterrequest: Accessprofilemetadatabulkupdatebyfilterrequest = {
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "requestable eq false",
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Accessprofilemetadatabulkupdatebyfilterrequest | 
+        const result = await apiInstance.updateAccessProfilesMetadataByFilterV1({ accessprofilemetadatabulkupdatebyfilterrequest: accessprofilemetadatabulkupdatebyfilterrequest });
+        console.log(result);
+- path: /access-profiles/v1/access-model-metadata/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#update-access-profiles-metadata-by-ids-v1
+      source: |
+        import { AccessProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Accessprofilemetadatabulkupdatebyidrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const accessprofilemetadatabulkupdatebyidrequest: Accessprofilemetadatabulkupdatebyidrequest = {
+  "accessProfiles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Accessprofilemetadatabulkupdatebyidrequest | 
+        const result = await apiInstance.updateAccessProfilesMetadataByIdsV1({ accessprofilemetadatabulkupdatebyidrequest: accessprofilemetadatabulkupdatebyidrequest });
+        console.log(result);
+- path: /access-profiles/v1/access-model-metadata/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#update-access-profiles-metadata-by-query-v1
+      source: |
+        import { AccessProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Accessprofilemetadatabulkupdatebyqueryrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const accessprofilemetadatabulkupdatebyqueryrequest: Accessprofilemetadatabulkupdatebyqueryrequest = {
+  "query" : {
+    "indices" : [ "accessprofiles" ],
+    "queryType" : "TEXT",
+    "textQuery" : {
+      "terms" : [ "test123" ],
+      "fields" : [ "id" ],
+      "matchAny" : false,
+      "contains" : true
+    },
+    "includeNested" : false
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "ATTRIBUTE",
+  "operation" : "REPLACE"
+}; // Accessprofilemetadatabulkupdatebyqueryrequest | 
+        const result = await apiInstance.updateAccessProfilesMetadataByQueryV1({ accessprofilemetadatabulkupdatebyqueryrequest: accessprofilemetadatabulkupdatebyqueryrequest });
+        console.log(result);
+- path: /access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#update-attribute-key-and-value-to-access-profile-v1
+      source: |
+        import { AccessProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const id: string = 'c24359c389374d0fb8585698a2189e3d'; // string | The access profile\'s ID. (default to undefined)
+        const attributeKey: string = 'iscPrivacy'; // string | Technical name of the Attribute. (default to undefined)
+        const attributeValue: string = 'public'; // string | Technical name of the Attribute Value. (default to undefined)
+        const result = await apiInstance.updateAttributeKeyAndValueToAccessProfileV1({ id: id, attributeKey: attributeKey, attributeValue: attributeValue });
         console.log(result);

@@ -20,6 +20,11 @@ EntitlementV2AccessModelMetadata.md
 EntitlementV2Owner.md
 EntitlementV2PrivilegeLevel.md
 EntitlementV2Source.md
+Entitlementmetadatabulkupdatebyfilterrequest.md
+Entitlementmetadatabulkupdatebyidrequest.md
+EntitlementmetadatabulkupdatebyidrequestValuesInner.md
+Entitlementmetadatabulkupdatebyqueryrequest.md
+Entitlementmetadatabulkupdateresponse.md
 EntitlementsApi.md
 EntitlementsApideveloperSite_code_examples.yaml
 ErrorMessageDto.md
