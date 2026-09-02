@@ -68,3 +68,25 @@
 }; // Array<JsonPatchOperation> | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope * expirationDate * userAwareTokenNeverExpires  **Important:** See the endpoint description for validation rules regarding the relationship between `expirationDate` and `userAwareTokenNeverExpires`. 
         const result = await apiInstance.patchPersonalAccessTokenV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
+- path: /personal-access-tokens/v1/bulk-update
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/personal_access_tokens/methods/personal-access-tokens#update-bulk-personal-access-tokens-v1
+      source: |
+        import { PersonalAccessTokensApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { BulkUpdatePersonalAccessTokensRequest } from '@sailpoint/api-client/dist/personal_access_tokens/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new PersonalAccessTokensApi(configuration);
+        const bulkUpdatePersonalAccessTokensRequest: BulkUpdatePersonalAccessTokensRequest = {
+  "patch" : [ {
+    "op" : "replace",
+    "path" : "/expirationDate",
+    "value" : "2026-08-01T00:00:00.000Z"
+  } ],
+  "ids" : [ "695dab70d33d466b81d958dc9fb392db", "abc123def456abc123def456abc12345" ]
+}; // BulkUpdatePersonalAccessTokensRequest | The IDs of the personal access tokens to update, along with a single JSON Patch document to apply to each of them.
+        const result = await apiInstance.updateBulkPersonalAccessTokensV1({ bulkUpdatePersonalAccessTokensRequest: bulkUpdatePersonalAccessTokensRequest });
+        console.log(result);

@@ -2,6 +2,7 @@
 .npmignore
 .openapi-generator-ignore
 ArrayInner.md
+BulkUpdatePersonalAccessTokensRequest.md
 CreatePersonalAccessTokenRequest.md
 CreatePersonalAccessTokenResponse.md
 ErrorMessageDto.md

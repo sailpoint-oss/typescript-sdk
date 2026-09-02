@@ -31,6 +31,25 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 export interface ArrayInner {
 }
 /**
+ * Request body for bulk updating personal access tokens. A single JSON Patch document is applied to every personal access token referenced in `ids`.
+ * @export
+ * @interface BulkUpdatePersonalAccessTokensRequest
+ */
+export interface BulkUpdatePersonalAccessTokensRequest {
+    /**
+     * The IDs of the personal access tokens to update. All IDs must reference personal access tokens that exist in the current tenant. Duplicate and blank values are not allowed.
+     * @type {Set<string>}
+     * @memberof BulkUpdatePersonalAccessTokensRequest
+     */
+    'ids': Set<string>;
+    /**
+     * A single [JSON Patch](https://tools.ietf.org/html/rfc6902) document that is applied identically to every personal access token referenced in `ids`. Only the following paths are allowed for bulk updates: * `/expirationDate` - Set (`replace`) or clear (`remove`) the token\'s expiration. * `/userAwareTokenNeverExpires` - Explicit acknowledgment required when clearing `expirationDate`. Any other path (for example `/name` or `/scope`) results in a `400` response.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof BulkUpdatePersonalAccessTokensRequest
+     */
+    'patch': Array<JsonPatchOperation>;
+}
+/**
  * Object for specifying the name of a personal access token to create
  * @export
  * @interface CreatePersonalAccessTokenRequest
@@ -520,6 +539,42 @@ export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This applies a single [JSON Patch](https://tools.ietf.org/html/rfc6902) document to multiple personal access tokens (PATs) in the current tenant in one request. The same `patch` is applied to every token referenced in `ids`. Up to **25** tokens can be updated per request. This is an administrative operation intended for org admins managing PATs across their tenant. The caller must have the `idn:all-personal-access-tokens:update` right. API OAuth client credentials are not permitted to call this endpoint. Note: This operation is also accessible via `POST` to the same path; both methods behave identically. Unlike the single-token patch endpoint, the request body uses `Content-Type: application/json` (not `application/json-patch+json`). **Allowed patch paths** Only expiration-related paths may be modified in bulk: * `/expirationDate` - Set or clear the token\'s expiration date. Any other path (for example `/name` or `/scope`) results in a `400` response. * `/userAwareTokenNeverExpires` - Explicit acknowledgment that the token will never expire. **expirationDate and userAwareTokenNeverExpires Relationship:** When clearing `expirationDate` (either by removing it or replacing it with `null`), `userAwareTokenNeverExpires` must also be set to `true` in the same patch. This serves as an explicit acknowledgment that the caller is aware of the security implications of creating a token that will never expire. When `expirationDate` is set to a valid future date-time, `userAwareTokenNeverExpires` can be omitted. **Note:** `userAwareTokenNeverExpires` is stored internally and is not returned in the response.
+         * @summary Bulk update personal access tokens
+         * @param {BulkUpdatePersonalAccessTokensRequest} bulkUpdatePersonalAccessTokensRequest The IDs of the personal access tokens to update, along with a single JSON Patch document to apply to each of them.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateBulkPersonalAccessTokensV1: async (bulkUpdatePersonalAccessTokensRequest: BulkUpdatePersonalAccessTokensRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkUpdatePersonalAccessTokensRequest' is not null or undefined
+            assertParamExists('updateBulkPersonalAccessTokensV1', 'bulkUpdatePersonalAccessTokensRequest', bulkUpdatePersonalAccessTokensRequest)
+            const localVarPath = `/personal-access-tokens/v1/bulk-update`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkUpdatePersonalAccessTokensRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -584,6 +639,19 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
             const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensApi.patchPersonalAccessTokenV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * This applies a single [JSON Patch](https://tools.ietf.org/html/rfc6902) document to multiple personal access tokens (PATs) in the current tenant in one request. The same `patch` is applied to every token referenced in `ids`. Up to **25** tokens can be updated per request. This is an administrative operation intended for org admins managing PATs across their tenant. The caller must have the `idn:all-personal-access-tokens:update` right. API OAuth client credentials are not permitted to call this endpoint. Note: This operation is also accessible via `POST` to the same path; both methods behave identically. Unlike the single-token patch endpoint, the request body uses `Content-Type: application/json` (not `application/json-patch+json`). **Allowed patch paths** Only expiration-related paths may be modified in bulk: * `/expirationDate` - Set or clear the token\'s expiration date. Any other path (for example `/name` or `/scope`) results in a `400` response. * `/userAwareTokenNeverExpires` - Explicit acknowledgment that the token will never expire. **expirationDate and userAwareTokenNeverExpires Relationship:** When clearing `expirationDate` (either by removing it or replacing it with `null`), `userAwareTokenNeverExpires` must also be set to `true` in the same patch. This serves as an explicit acknowledgment that the caller is aware of the security implications of creating a token that will never expire. When `expirationDate` is set to a valid future date-time, `userAwareTokenNeverExpires` can be omitted. **Note:** `userAwareTokenNeverExpires` is stored internally and is not returned in the response.
+         * @summary Bulk update personal access tokens
+         * @param {BulkUpdatePersonalAccessTokensRequest} bulkUpdatePersonalAccessTokensRequest The IDs of the personal access tokens to update, along with a single JSON Patch document to apply to each of them.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateBulkPersonalAccessTokensV1(bulkUpdatePersonalAccessTokensRequest: BulkUpdatePersonalAccessTokensRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateBulkPersonalAccessTokensV1(bulkUpdatePersonalAccessTokensRequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PersonalAccessTokensApi.updateBulkPersonalAccessTokensV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -633,6 +701,16 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
          */
         patchPersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiPatchPersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetPersonalAccessTokenResponse> {
             return localVarFp.patchPersonalAccessTokenV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This applies a single [JSON Patch](https://tools.ietf.org/html/rfc6902) document to multiple personal access tokens (PATs) in the current tenant in one request. The same `patch` is applied to every token referenced in `ids`. Up to **25** tokens can be updated per request. This is an administrative operation intended for org admins managing PATs across their tenant. The caller must have the `idn:all-personal-access-tokens:update` right. API OAuth client credentials are not permitted to call this endpoint. Note: This operation is also accessible via `POST` to the same path; both methods behave identically. Unlike the single-token patch endpoint, the request body uses `Content-Type: application/json` (not `application/json-patch+json`). **Allowed patch paths** Only expiration-related paths may be modified in bulk: * `/expirationDate` - Set or clear the token\'s expiration date. Any other path (for example `/name` or `/scope`) results in a `400` response. * `/userAwareTokenNeverExpires` - Explicit acknowledgment that the token will never expire. **expirationDate and userAwareTokenNeverExpires Relationship:** When clearing `expirationDate` (either by removing it or replacing it with `null`), `userAwareTokenNeverExpires` must also be set to `true` in the same patch. This serves as an explicit acknowledgment that the caller is aware of the security implications of creating a token that will never expire. When `expirationDate` is set to a valid future date-time, `userAwareTokenNeverExpires` can be omitted. **Note:** `userAwareTokenNeverExpires` is stored internally and is not returned in the response.
+         * @summary Bulk update personal access tokens
+         * @param {PersonalAccessTokensApiUpdateBulkPersonalAccessTokensV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateBulkPersonalAccessTokensV1(requestParameters: PersonalAccessTokensApiUpdateBulkPersonalAccessTokensV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<GetPersonalAccessTokenResponse>> {
+            return localVarFp.updateBulkPersonalAccessTokensV1(requestParameters.bulkUpdatePersonalAccessTokensRequest, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -708,6 +786,20 @@ export interface PersonalAccessTokensApiPatchPersonalAccessTokenV1Request {
 }
 
 /**
+ * Request parameters for updateBulkPersonalAccessTokensV1 operation in PersonalAccessTokensApi.
+ * @export
+ * @interface PersonalAccessTokensApiUpdateBulkPersonalAccessTokensV1Request
+ */
+export interface PersonalAccessTokensApiUpdateBulkPersonalAccessTokensV1Request {
+    /**
+     * The IDs of the personal access tokens to update, along with a single JSON Patch document to apply to each of them.
+     * @type {BulkUpdatePersonalAccessTokensRequest}
+     * @memberof PersonalAccessTokensApiUpdateBulkPersonalAccessTokensV1
+     */
+    readonly bulkUpdatePersonalAccessTokensRequest: BulkUpdatePersonalAccessTokensRequest
+}
+
+/**
  * PersonalAccessTokensApi - object-oriented interface
  * @export
  * @class PersonalAccessTokensApi
@@ -760,6 +852,18 @@ export class PersonalAccessTokensApi extends BaseAPI {
      */
     public patchPersonalAccessTokenV1(requestParameters: PersonalAccessTokensApiPatchPersonalAccessTokenV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return PersonalAccessTokensApiFp(this.configuration).patchPersonalAccessTokenV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This applies a single [JSON Patch](https://tools.ietf.org/html/rfc6902) document to multiple personal access tokens (PATs) in the current tenant in one request. The same `patch` is applied to every token referenced in `ids`. Up to **25** tokens can be updated per request. This is an administrative operation intended for org admins managing PATs across their tenant. The caller must have the `idn:all-personal-access-tokens:update` right. API OAuth client credentials are not permitted to call this endpoint. Note: This operation is also accessible via `POST` to the same path; both methods behave identically. Unlike the single-token patch endpoint, the request body uses `Content-Type: application/json` (not `application/json-patch+json`). **Allowed patch paths** Only expiration-related paths may be modified in bulk: * `/expirationDate` - Set or clear the token\'s expiration date. Any other path (for example `/name` or `/scope`) results in a `400` response. * `/userAwareTokenNeverExpires` - Explicit acknowledgment that the token will never expire. **expirationDate and userAwareTokenNeverExpires Relationship:** When clearing `expirationDate` (either by removing it or replacing it with `null`), `userAwareTokenNeverExpires` must also be set to `true` in the same patch. This serves as an explicit acknowledgment that the caller is aware of the security implications of creating a token that will never expire. When `expirationDate` is set to a valid future date-time, `userAwareTokenNeverExpires` can be omitted. **Note:** `userAwareTokenNeverExpires` is stored internally and is not returned in the response.
+     * @summary Bulk update personal access tokens
+     * @param {PersonalAccessTokensApiUpdateBulkPersonalAccessTokensV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PersonalAccessTokensApi
+     */
+    public updateBulkPersonalAccessTokensV1(requestParameters: PersonalAccessTokensApiUpdateBulkPersonalAccessTokensV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).updateBulkPersonalAccessTokensV1(requestParameters.bulkUpdatePersonalAccessTokensRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
