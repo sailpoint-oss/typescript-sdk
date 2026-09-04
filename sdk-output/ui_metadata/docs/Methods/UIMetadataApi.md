@@ -98,7 +98,10 @@ const apiInstance = new UIMetadataApi(configuration);
 const tenantUiMetadataItemUpdateRequest: TenantUiMetadataItemUpdateRequest = {
   "usernameEmptyText" : "Please provide your work email address...",
   "usernameLabel" : "Email",
-  "iframeWhiteList" : "http://example.com http://example2.com"
+  "iframeWhiteList" : "http://example.com http://example2.com",
+  "instanceBadgeVisible" : true,
+  "instanceBadgeDisplayName" : "Sandbox",
+  "instanceBadgeColor" : "FFAA00"
 }; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.setTenantUiMetadataV1({ tenantUiMetadataItemUpdateRequest: tenantUiMetadataItemUpdateRequest });

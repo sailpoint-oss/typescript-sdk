@@ -145,6 +145,24 @@ export interface TenantUiMetadataItemResponse {
      * @memberof TenantUiMetadataItemResponse
      */
     'usernameEmptyText'?: string | null;
+    /**
+     * Display name for the instance badge. Null when no display name is configured.
+     * @type {string}
+     * @memberof TenantUiMetadataItemResponse
+     */
+    'instanceBadgeDisplayName'?: string | null;
+    /**
+     * Hex value of color for the instance badge. Null when no color is configured.
+     * @type {string}
+     * @memberof TenantUiMetadataItemResponse
+     */
+    'instanceBadgeColor'?: string | null;
+    /**
+     * Whether the instance badge is visible. Defaults to false when no value is stored.
+     * @type {boolean}
+     * @memberof TenantUiMetadataItemResponse
+     */
+    'instanceBadgeVisible'?: boolean;
 }
 /**
  * 
@@ -170,6 +188,24 @@ export interface TenantUiMetadataItemUpdateRequest {
      * @memberof TenantUiMetadataItemUpdateRequest
      */
     'usernameEmptyText'?: string | null;
+    /**
+     * Display name for the instance badge. Optional. Omit this property to leave the stored value unchanged. Use null to clear it.
+     * @type {string}
+     * @memberof TenantUiMetadataItemUpdateRequest
+     */
+    'instanceBadgeDisplayName'?: string | null;
+    /**
+     * Hex value of color for the instance badge. Optional. Omit this property to leave the stored value unchanged. Use null to clear it.
+     * @type {string}
+     * @memberof TenantUiMetadataItemUpdateRequest
+     */
+    'instanceBadgeColor'?: string | null;
+    /**
+     * Visibility toggle for the instance badge. Optional. Omit this property to leave the stored value unchanged. Null is stored as false.
+     * @type {boolean}
+     * @memberof TenantUiMetadataItemUpdateRequest
+     */
+    'instanceBadgeVisible'?: boolean | null;
 }
 
 /**

@@ -107,6 +107,8 @@
 
         const configuration = new Configuration();
         const apiInstance = new WorkReassignmentApi(configuration);
+        const limit: number = 20; // number | Max number of results to return. (optional) (default to 20)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.listReassignmentConfigurationsV1({  });
         console.log(result);

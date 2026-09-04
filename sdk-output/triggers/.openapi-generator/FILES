@@ -4,6 +4,7 @@
 AccessItemApproverDto.md
 AccessItemRequestedForDto.md
 AccessItemRequesterDto.md
+AccessRequestDynamicApprovalResponse.md
 AccessRequestDynamicApprover.md
 AccessRequestDynamicApprover2.md
 AccessRequestDynamicApproverRequestedItemsInner.md
@@ -16,6 +17,7 @@ AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover.md
 AccessRequestPreApproval.md
 AccessRequestPreApproval2.md
 AccessRequestPreApprovalRequestedItemsInner.md
+AccessRequestSubmittedResponse.md
 AccountAggregationCompleted.md
 AccountAggregationCompletedSource.md
 AccountAggregationCompletedStats.md
@@ -76,6 +78,9 @@ CompleteInvocationInput.md
 ErrorMessageDto.md
 ErrorResponseDto.md
 EventBridgeConfig.md
+FormSubmitted.md
+FormSubmittedCreatedBy.md
+FormSubmittedSubmittedBy.md
 HttpAuthenticationType.md
 HttpConfig.md
 HttpDispatchMode.md
@@ -112,6 +117,8 @@ MachineIdentityUpdatedSingleValueAttributeChangesInnerNewValue.md
 MachineIdentityUpdatedSingleValueAttributeChangesInnerOldValue.md
 MachineIdentityUpdatedUserEntitlementChanges.md
 MachineIdentityUserEntitlements.md
+OutlierDetected.md
+OutlierDetectedIdentity.md
 ProvisioningCompleted.md
 ProvisioningCompletedAccountRequestsInner.md
 ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner.md
@@ -121,6 +128,20 @@ ProvisioningCompletedRequester.md
 README.md
 Reassignment.md
 Reviewer.md
+SODViolationClosedPayload.md
+SODViolationClosedPayloadOwner.md
+SODViolationClosedPayloadPolicy.md
+SODViolationClosedPayloadTarget.md
+SODViolationCreatedPayload.md
+SODViolationCreatedPayloadOwner.md
+SODViolationCreatedPayloadPolicy.md
+SODViolationCreatedPayloadTarget.md
+SODViolationMitigatedPayload.md
+SODViolationMitigatedPayloadAppliedControlsInner.md
+SODViolationMitigatedPayloadAppliedControlsInnerApplier.md
+SODViolationMitigatedPayloadAppliedControlsInnerControl.md
+SODViolationMitigatedPayloadOwner.md
+SODViolationReopenedPayload.md
 SavedSearchComplete.md
 SavedSearchCompleteSearchResults.md
 SavedSearchCompleteSearchResultsAccount.md
@@ -156,6 +177,7 @@ VAClusterStatusChangeEventHealthCheckResult.md
 VAClusterStatusChangeEventPreviousHealthCheckResult.md
 ValidateFilterInputDto.md
 ValidateFilterOutputDto.md
+ViolationAppliedControlStatus.md
 api.ts
 base.ts
 common.ts

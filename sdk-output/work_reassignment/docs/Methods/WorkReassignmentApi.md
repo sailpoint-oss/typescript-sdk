@@ -302,7 +302,7 @@ console.log(result);
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
 List reassignment configurations
-Gets all Reassignment configuration for the current org.
+Gets a paginated list of Reassignment configurations for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-reassignment-configurations-v-1)
 
@@ -311,6 +311,8 @@ Gets all Reassignment configuration for the current org.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+**limit** | `number` | Max number of results to return. | [optional] [default to 20]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 **xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
@@ -330,6 +332,8 @@ import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkReassignmentApi(configuration);
+const limit: number = 20; // Max number of results to return. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.listReassignmentConfigurationsV1({  });
 console.log(result);

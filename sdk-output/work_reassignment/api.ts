@@ -731,13 +731,15 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Gets all Reassignment configuration for the current org.
+         * Gets a paginated list of Reassignment configurations for the current org.
          * @summary List reassignment configurations
+         * @param {number} [limit] Max number of results to return.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listReassignmentConfigurationsV1: async (xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listReassignmentConfigurationsV1: async (limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -753,6 +755,14 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
 
     
@@ -956,14 +966,16 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Gets all Reassignment configuration for the current org.
+         * Gets a paginated list of Reassignment configurations for the current org.
          * @summary List reassignment configurations
+         * @param {number} [limit] Max number of results to return.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listReassignmentConfigurationsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurationsV1(xSailPointExperimental, axiosOptions);
+        async listReassignmentConfigurationsV1(limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurationsV1(limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.listReassignmentConfigurationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1068,14 +1080,14 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
             return localVarFp.getTenantConfigConfigurationV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Gets all Reassignment configuration for the current org.
+         * Gets a paginated list of Reassignment configurations for the current org.
          * @summary List reassignment configurations
          * @param {WorkReassignmentApiListReassignmentConfigurationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
         listReassignmentConfigurationsV1(requestParameters: WorkReassignmentApiListReassignmentConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ConfigurationResponse>> {
-            return localVarFp.listReassignmentConfigurationsV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listReassignmentConfigurationsV1(requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
@@ -1240,6 +1252,20 @@ export interface WorkReassignmentApiGetTenantConfigConfigurationV1Request {
  */
 export interface WorkReassignmentApiListReassignmentConfigurationsV1Request {
     /**
+     * Max number of results to return.
+     * @type {number}
+     * @memberof WorkReassignmentApiListReassignmentConfigurationsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkReassignmentApiListReassignmentConfigurationsV1
+     */
+    readonly offset?: number
+
+    /**
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof WorkReassignmentApiListReassignmentConfigurationsV1
@@ -1376,7 +1402,7 @@ export class WorkReassignmentApi extends BaseAPI {
     }
 
     /**
-     * Gets all Reassignment configuration for the current org.
+     * Gets a paginated list of Reassignment configurations for the current org.
      * @summary List reassignment configurations
      * @param {WorkReassignmentApiListReassignmentConfigurationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1384,7 +1410,7 @@ export class WorkReassignmentApi extends BaseAPI {
      * @memberof WorkReassignmentApi
      */
     public listReassignmentConfigurationsV1(requestParameters: WorkReassignmentApiListReassignmentConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkReassignmentApiFp(this.configuration).listReassignmentConfigurationsV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkReassignmentApiFp(this.configuration).listReassignmentConfigurationsV1(requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

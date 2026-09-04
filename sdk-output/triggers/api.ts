@@ -122,6 +122,39 @@ export type AccessItemRequesterDtoTypeEnum = typeof AccessItemRequesterDtoTypeEn
 /**
  * 
  * @export
+ * @interface AccessRequestDynamicApprovalResponse
+ */
+export interface AccessRequestDynamicApprovalResponse {
+    /**
+     * Unique identifier of the approver to add to the approval process. If there is none, send an empty value \"\".
+     * @type {string}
+     * @memberof AccessRequestDynamicApprovalResponse
+     */
+    'id': string;
+    /**
+     * Type of approver to add to the approval process. If there is none, send an empty value \"\".
+     * @type {string}
+     * @memberof AccessRequestDynamicApprovalResponse
+     */
+    'type': AccessRequestDynamicApprovalResponseTypeEnum;
+    /**
+     * Name of the approver to add to the approval process. If there is none, send an empty value \"\".
+     * @type {string}
+     * @memberof AccessRequestDynamicApprovalResponse
+     */
+    'name': string;
+}
+
+export const AccessRequestDynamicApprovalResponseTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type AccessRequestDynamicApprovalResponseTypeEnum = typeof AccessRequestDynamicApprovalResponseTypeEnum[keyof typeof AccessRequestDynamicApprovalResponseTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface AccessRequestDynamicApprover
  */
 export interface AccessRequestDynamicApprover {
@@ -633,6 +666,31 @@ export const AccessRequestPreApprovalRequestedItemsInnerOperationEnum = {
 
 export type AccessRequestPreApprovalRequestedItemsInnerOperationEnum = typeof AccessRequestPreApprovalRequestedItemsInnerOperationEnum[keyof typeof AccessRequestPreApprovalRequestedItemsInnerOperationEnum];
 
+/**
+ * 
+ * @export
+ * @interface AccessRequestSubmittedResponse
+ */
+export interface AccessRequestSubmittedResponse {
+    /**
+     * Approval or denial of the request by the subscribing service.
+     * @type {boolean}
+     * @memberof AccessRequestSubmittedResponse
+     */
+    'approved': boolean;
+    /**
+     * Comment from the subscribing service approving or denying the request.
+     * @type {string}
+     * @memberof AccessRequestSubmittedResponse
+     */
+    'comment': string;
+    /**
+     * Name of the subscribing service approving the request.  This doesn\'t normally have to be the name of an existing identity in ISC, but it does if you have an active subscription to the [Access Request Decision trigger](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/access-request-decision). If you don\'t provide the `username` of an existing identity in your tenant, your Access Request Decision subscriptions will never trigger.
+     * @type {string}
+     * @memberof AccessRequestSubmittedResponse
+     */
+    'approver': string;
+}
 /**
  * 
  * @export
@@ -2668,6 +2726,120 @@ export interface EventBridgeConfig {
     'awsRegion': string;
 }
 /**
+ * 
+ * @export
+ * @interface FormSubmitted
+ */
+export interface FormSubmitted {
+    /**
+     * Date and time when the user submitted the form.
+     * @type {string}
+     * @memberof FormSubmitted
+     */
+    'submittedAt': string;
+    /**
+     * ISC tenant\'s unique identifier.
+     * @type {string}
+     * @memberof FormSubmitted
+     */
+    'tenantId': string;
+    /**
+     * Form instance\'s unique identifier.
+     * @type {string}
+     * @memberof FormSubmitted
+     */
+    'formInstanceId': string;
+    /**
+     * Form definition\'s unique identifier.
+     * @type {string}
+     * @memberof FormSubmitted
+     */
+    'formDefinitionId': string;
+    /**
+     * Form\'s name.
+     * @type {string}
+     * @memberof FormSubmitted
+     */
+    'name': string;
+    /**
+     * 
+     * @type {FormSubmittedCreatedBy}
+     * @memberof FormSubmitted
+     */
+    'createdBy': FormSubmittedCreatedBy;
+    /**
+     * 
+     * @type {FormSubmittedSubmittedBy}
+     * @memberof FormSubmitted
+     */
+    'submittedBy': FormSubmittedSubmittedBy;
+    /**
+     * Data in the submitted form.
+     * @type {{ [key: string]: any; }}
+     * @memberof FormSubmitted
+     */
+    'formData': { [key: string]: any; } | null;
+}
+/**
+ * Origin of the form creation.
+ * @export
+ * @interface FormSubmittedCreatedBy
+ */
+export interface FormSubmittedCreatedBy {
+    /**
+     * Form creation origin\'s type.
+     * @type {string}
+     * @memberof FormSubmittedCreatedBy
+     */
+    'type': FormSubmittedCreatedByTypeEnum;
+    /**
+     * Unique identifier of the origin of the form creation.
+     * @type {string}
+     * @memberof FormSubmittedCreatedBy
+     */
+    'id': string;
+}
+
+export const FormSubmittedCreatedByTypeEnum = {
+    WorkflowExecution: 'WORKFLOW_EXECUTION',
+    Source: 'SOURCE'
+} as const;
+
+export type FormSubmittedCreatedByTypeEnum = typeof FormSubmittedCreatedByTypeEnum[keyof typeof FormSubmittedCreatedByTypeEnum];
+
+/**
+ * Identity who submitted the form.
+ * @export
+ * @interface FormSubmittedSubmittedBy
+ */
+export interface FormSubmittedSubmittedBy {
+    /**
+     * DTO type of the identity who submitted the form.
+     * @type {string}
+     * @memberof FormSubmittedSubmittedBy
+     */
+    'type': FormSubmittedSubmittedByTypeEnum;
+    /**
+     * Unique identifier of the identity who submitted the form.
+     * @type {string}
+     * @memberof FormSubmittedSubmittedBy
+     */
+    'id': string;
+    /**
+     * Name of the identity who submitted the form.
+     * @type {string}
+     * @memberof FormSubmittedSubmittedBy
+     */
+    'name': string;
+}
+
+export const FormSubmittedSubmittedByTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type FormSubmittedSubmittedByTypeEnum = typeof FormSubmittedSubmittedByTypeEnum[keyof typeof FormSubmittedSubmittedByTypeEnum];
+
+/**
  * Defines the HTTP Authentication type. Additional values may be added in the future.  If *NO_AUTH* is selected, no extra information will be in HttpConfig.  If *BASIC_AUTH* is selected, HttpConfig will include BasicAuthConfig with Username and Password as strings.  If *BEARER_TOKEN* is selected, HttpConfig will include BearerTokenAuthConfig with Token as string.
  * @export
  * @enum {string}
@@ -3791,6 +3963,70 @@ export interface MachineIdentityUserEntitlements {
 /**
  * 
  * @export
+ * @interface OutlierDetected
+ */
+export interface OutlierDetected {
+    /**
+     * 
+     * @type {OutlierDetectedIdentity}
+     * @memberof OutlierDetected
+     */
+    'identity': OutlierDetectedIdentity;
+    /**
+     * Identity\'s outlier type.
+     * @type {string}
+     * @memberof OutlierDetected
+     */
+    'outlierType': OutlierDetectedOutlierTypeEnum;
+    /**
+     * Dissimilarity score that determines whether the identity is an outlier, ranging from `0.0` to `1.0`. The higher the score, the more likely the identity is an outlier.
+     * @type {number}
+     * @memberof OutlierDetected
+     */
+    'score': number;
+}
+
+export const OutlierDetectedOutlierTypeEnum = {
+    LowSimilarity: 'LOW_SIMILARITY'
+} as const;
+
+export type OutlierDetectedOutlierTypeEnum = typeof OutlierDetectedOutlierTypeEnum[keyof typeof OutlierDetectedOutlierTypeEnum];
+
+/**
+ * Identity with unusual access, relative to its peers.
+ * @export
+ * @interface OutlierDetectedIdentity
+ */
+export interface OutlierDetectedIdentity {
+    /**
+     * Identity\'s DTO type.
+     * @type {string}
+     * @memberof OutlierDetectedIdentity
+     */
+    'type': OutlierDetectedIdentityTypeEnum;
+    /**
+     * Identity\'s unique ID.
+     * @type {string}
+     * @memberof OutlierDetectedIdentity
+     */
+    'id': string;
+    /**
+     * Identity\'s name.
+     * @type {string}
+     * @memberof OutlierDetectedIdentity
+     */
+    'name': string;
+}
+
+export const OutlierDetectedIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type OutlierDetectedIdentityTypeEnum = typeof OutlierDetectedIdentityTypeEnum[keyof typeof OutlierDetectedIdentityTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface ProvisioningCompleted
  */
 export interface ProvisioningCompleted {
@@ -4100,6 +4336,619 @@ export const ReviewerTypeEnum = {
 } as const;
 
 export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerTypeEnum];
+
+/**
+ * JSON body delivered for the **SODViolationClosed** webhook.
+ * @export
+ * @interface SODViolationClosedPayload
+ */
+export interface SODViolationClosedPayload {
+    /**
+     * When the violation record was created.
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'created'?: string;
+    /**
+     * When the violation was last modified.
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'modified'?: string;
+    /**
+     * Violation ID.
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'id'?: string;
+    /**
+     * When the violation was last evaluated.
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'lastEvaluatedDate'?: string;
+    /**
+     * Violation severity level.
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'level'?: string;
+    /**
+     * Human-readable violation name.
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {SODViolationClosedPayloadOwner}
+     * @memberof SODViolationClosedPayload
+     */
+    'owner'?: SODViolationClosedPayloadOwner;
+    /**
+     * 
+     * @type {SODViolationClosedPayloadPolicy}
+     * @memberof SODViolationClosedPayload
+     */
+    'policy'?: SODViolationClosedPayloadPolicy;
+    /**
+     * Violation status before closure (**Open** or **Mitigated**).
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'previousStatus'?: SODViolationClosedPayloadPreviousStatusEnum;
+    /**
+     * Violation status after the event (always **Closed** for this webhook).
+     * @type {string}
+     * @memberof SODViolationClosedPayload
+     */
+    'currentStatus'?: SODViolationClosedPayloadCurrentStatusEnum;
+    /**
+     * 
+     * @type {SODViolationClosedPayloadTarget}
+     * @memberof SODViolationClosedPayload
+     */
+    'target'?: SODViolationClosedPayloadTarget;
+}
+
+export const SODViolationClosedPayloadPreviousStatusEnum = {
+    Open: 'Open',
+    Mitigated: 'Mitigated'
+} as const;
+
+export type SODViolationClosedPayloadPreviousStatusEnum = typeof SODViolationClosedPayloadPreviousStatusEnum[keyof typeof SODViolationClosedPayloadPreviousStatusEnum];
+export const SODViolationClosedPayloadCurrentStatusEnum = {
+    Closed: 'Closed'
+} as const;
+
+export type SODViolationClosedPayloadCurrentStatusEnum = typeof SODViolationClosedPayloadCurrentStatusEnum[keyof typeof SODViolationClosedPayloadCurrentStatusEnum];
+
+/**
+ * Owner of the violation (e.g. assigned identity).
+ * @export
+ * @interface SODViolationClosedPayloadOwner
+ */
+export interface SODViolationClosedPayloadOwner {
+    /**
+     * Owner ID.
+     * @type {string}
+     * @memberof SODViolationClosedPayloadOwner
+     */
+    'id'?: string;
+    /**
+     * Owner type.
+     * @type {string}
+     * @memberof SODViolationClosedPayloadOwner
+     */
+    'type'?: SODViolationClosedPayloadOwnerTypeEnum;
+}
+
+export const SODViolationClosedPayloadOwnerTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SODViolationClosedPayloadOwnerTypeEnum = typeof SODViolationClosedPayloadOwnerTypeEnum[keyof typeof SODViolationClosedPayloadOwnerTypeEnum];
+
+/**
+ * SOD policy associated with the violation.
+ * @export
+ * @interface SODViolationClosedPayloadPolicy
+ */
+export interface SODViolationClosedPayloadPolicy {
+    /**
+     * Policy ID.
+     * @type {string}
+     * @memberof SODViolationClosedPayloadPolicy
+     */
+    'id'?: string;
+    /**
+     * Policy type (always **SOD** for this webhook).
+     * @type {string}
+     * @memberof SODViolationClosedPayloadPolicy
+     */
+    'type'?: SODViolationClosedPayloadPolicyTypeEnum;
+}
+
+export const SODViolationClosedPayloadPolicyTypeEnum = {
+    Sod: 'SOD'
+} as const;
+
+export type SODViolationClosedPayloadPolicyTypeEnum = typeof SODViolationClosedPayloadPolicyTypeEnum[keyof typeof SODViolationClosedPayloadPolicyTypeEnum];
+
+/**
+ * Identity or entity the violation applied to.
+ * @export
+ * @interface SODViolationClosedPayloadTarget
+ */
+export interface SODViolationClosedPayloadTarget {
+    /**
+     * Target ID.
+     * @type {string}
+     * @memberof SODViolationClosedPayloadTarget
+     */
+    'id'?: string;
+    /**
+     * Target type.
+     * @type {string}
+     * @memberof SODViolationClosedPayloadTarget
+     */
+    'type'?: SODViolationClosedPayloadTargetTypeEnum;
+}
+
+export const SODViolationClosedPayloadTargetTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SODViolationClosedPayloadTargetTypeEnum = typeof SODViolationClosedPayloadTargetTypeEnum[keyof typeof SODViolationClosedPayloadTargetTypeEnum];
+
+/**
+ * JSON body delivered for the **SODViolationCreated** webhook.
+ * @export
+ * @interface SODViolationCreatedPayload
+ */
+export interface SODViolationCreatedPayload {
+    /**
+     * When the violation record was created.
+     * @type {string}
+     * @memberof SODViolationCreatedPayload
+     */
+    'created'?: string;
+    /**
+     * Violation ID.
+     * @type {string}
+     * @memberof SODViolationCreatedPayload
+     */
+    'id'?: string;
+    /**
+     * When the violation was last evaluated.
+     * @type {string}
+     * @memberof SODViolationCreatedPayload
+     */
+    'lastEvaluatedDate'?: string;
+    /**
+     * Violation severity level.
+     * @type {string}
+     * @memberof SODViolationCreatedPayload
+     */
+    'level'?: string;
+    /**
+     * Human-readable violation name.
+     * @type {string}
+     * @memberof SODViolationCreatedPayload
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadOwner}
+     * @memberof SODViolationCreatedPayload
+     */
+    'owner'?: SODViolationCreatedPayloadOwner;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadPolicy}
+     * @memberof SODViolationCreatedPayload
+     */
+    'policy'?: SODViolationCreatedPayloadPolicy;
+    /**
+     * Violation lifecycle status.
+     * @type {string}
+     * @memberof SODViolationCreatedPayload
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadTarget}
+     * @memberof SODViolationCreatedPayload
+     */
+    'target'?: SODViolationCreatedPayloadTarget;
+}
+/**
+ * Owner of the violation (e.g. assigned identity).
+ * @export
+ * @interface SODViolationCreatedPayloadOwner
+ */
+export interface SODViolationCreatedPayloadOwner {
+    /**
+     * Owner ID.
+     * @type {string}
+     * @memberof SODViolationCreatedPayloadOwner
+     */
+    'id'?: string;
+    /**
+     * DTO type of the owner reference.
+     * @type {string}
+     * @memberof SODViolationCreatedPayloadOwner
+     */
+    'type'?: SODViolationCreatedPayloadOwnerTypeEnum;
+}
+
+export const SODViolationCreatedPayloadOwnerTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SODViolationCreatedPayloadOwnerTypeEnum = typeof SODViolationCreatedPayloadOwnerTypeEnum[keyof typeof SODViolationCreatedPayloadOwnerTypeEnum];
+
+/**
+ * SOD policy associated with the violation.
+ * @export
+ * @interface SODViolationCreatedPayloadPolicy
+ */
+export interface SODViolationCreatedPayloadPolicy {
+    /**
+     * Policy ID.
+     * @type {string}
+     * @memberof SODViolationCreatedPayloadPolicy
+     */
+    'id'?: string;
+    /**
+     * Policy type (always **SOD** for this webhook).
+     * @type {string}
+     * @memberof SODViolationCreatedPayloadPolicy
+     */
+    'type'?: SODViolationCreatedPayloadPolicyTypeEnum;
+}
+
+export const SODViolationCreatedPayloadPolicyTypeEnum = {
+    Sod: 'SOD'
+} as const;
+
+export type SODViolationCreatedPayloadPolicyTypeEnum = typeof SODViolationCreatedPayloadPolicyTypeEnum[keyof typeof SODViolationCreatedPayloadPolicyTypeEnum];
+
+/**
+ * Identity or entity the violation applies to.
+ * @export
+ * @interface SODViolationCreatedPayloadTarget
+ */
+export interface SODViolationCreatedPayloadTarget {
+    /**
+     * Target ID.
+     * @type {string}
+     * @memberof SODViolationCreatedPayloadTarget
+     */
+    'id'?: string;
+    /**
+     * DTO type of the target reference.
+     * @type {string}
+     * @memberof SODViolationCreatedPayloadTarget
+     */
+    'type'?: SODViolationCreatedPayloadTargetTypeEnum;
+}
+
+export const SODViolationCreatedPayloadTargetTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SODViolationCreatedPayloadTargetTypeEnum = typeof SODViolationCreatedPayloadTargetTypeEnum[keyof typeof SODViolationCreatedPayloadTargetTypeEnum];
+
+/**
+ * JSON body delivered for the **SODViolationMitigated** webhook.
+ * @export
+ * @interface SODViolationMitigatedPayload
+ */
+export interface SODViolationMitigatedPayload {
+    /**
+     * Controls applied to mitigate the violation. For now this lists the currently active application(s).
+     * @type {Array<SODViolationMitigatedPayloadAppliedControlsInner>}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'appliedControls'?: Array<SODViolationMitigatedPayloadAppliedControlsInner>;
+    /**
+     * When the violation record was created.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'created'?: string;
+    /**
+     * Violation-level expiration (may be a sentinel when not set).
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'expiration'?: string;
+    /**
+     * Violation ID.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'id'?: string;
+    /**
+     * When the violation was last evaluated.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'lastEvaluatedDate'?: string;
+    /**
+     * Violation severity level.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'level'?: string;
+    /**
+     * When the violation was last modified.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'modified'?: string;
+    /**
+     * Human-readable violation name.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {SODViolationMitigatedPayloadOwner}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'owner'?: SODViolationMitigatedPayloadOwner;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadPolicy}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'policy'?: SODViolationCreatedPayloadPolicy;
+    /**
+     * Violation lifecycle status after mitigation.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadTarget}
+     * @memberof SODViolationMitigatedPayload
+     */
+    'target'?: SODViolationCreatedPayloadTarget;
+}
+/**
+ * 
+ * @export
+ * @interface SODViolationMitigatedPayloadAppliedControlsInner
+ */
+export interface SODViolationMitigatedPayloadAppliedControlsInner {
+    /**
+     * When the control was applied.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'appliedDate'?: string;
+    /**
+     * 
+     * @type {SODViolationMitigatedPayloadAppliedControlsInnerApplier}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'applier'?: SODViolationMitigatedPayloadAppliedControlsInnerApplier;
+    /**
+     * Optional comments from the applier.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'comments'?: string | null;
+    /**
+     * 
+     * @type {SODViolationMitigatedPayloadAppliedControlsInnerControl}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'control'?: SODViolationMitigatedPayloadAppliedControlsInnerControl;
+    /**
+     * When this application of the control expires.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'expiration'?: string;
+    /**
+     * ID of the control application record.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {ViolationAppliedControlStatus}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'status'?: ViolationAppliedControlStatus;
+    /**
+     * ID of the violation this application belongs to.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'violation'?: string;
+    /**
+     * Optional workflow correlation ID.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInner
+     */
+    'workflowId'?: string | null;
+}
+
+
+/**
+ * Identity that applied the control.
+ * @export
+ * @interface SODViolationMitigatedPayloadAppliedControlsInnerApplier
+ */
+export interface SODViolationMitigatedPayloadAppliedControlsInnerApplier {
+    /**
+     * Applier ID.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInnerApplier
+     */
+    'id'?: string;
+    /**
+     * DTO type of the applier reference.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInnerApplier
+     */
+    'type'?: SODViolationMitigatedPayloadAppliedControlsInnerApplierTypeEnum;
+}
+
+export const SODViolationMitigatedPayloadAppliedControlsInnerApplierTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SODViolationMitigatedPayloadAppliedControlsInnerApplierTypeEnum = typeof SODViolationMitigatedPayloadAppliedControlsInnerApplierTypeEnum[keyof typeof SODViolationMitigatedPayloadAppliedControlsInnerApplierTypeEnum];
+
+/**
+ * Reference to the compensating control definition.
+ * @export
+ * @interface SODViolationMitigatedPayloadAppliedControlsInnerControl
+ */
+export interface SODViolationMitigatedPayloadAppliedControlsInnerControl {
+    /**
+     * Control ID.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInnerControl
+     */
+    'id'?: string;
+    /**
+     * Control type (always **COMPENSATING_CONTROL** for this webhook).
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadAppliedControlsInnerControl
+     */
+    'type'?: SODViolationMitigatedPayloadAppliedControlsInnerControlTypeEnum;
+}
+
+export const SODViolationMitigatedPayloadAppliedControlsInnerControlTypeEnum = {
+    CompensatingControl: 'COMPENSATING_CONTROL'
+} as const;
+
+export type SODViolationMitigatedPayloadAppliedControlsInnerControlTypeEnum = typeof SODViolationMitigatedPayloadAppliedControlsInnerControlTypeEnum[keyof typeof SODViolationMitigatedPayloadAppliedControlsInnerControlTypeEnum];
+
+/**
+ * Owner of the violation.
+ * @export
+ * @interface SODViolationMitigatedPayloadOwner
+ */
+export interface SODViolationMitigatedPayloadOwner {
+    /**
+     * Owner ID.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadOwner
+     */
+    'id'?: string;
+    /**
+     * DTO type of the owner reference.
+     * @type {string}
+     * @memberof SODViolationMitigatedPayloadOwner
+     */
+    'type'?: SODViolationMitigatedPayloadOwnerTypeEnum;
+}
+
+export const SODViolationMitigatedPayloadOwnerTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SODViolationMitigatedPayloadOwnerTypeEnum = typeof SODViolationMitigatedPayloadOwnerTypeEnum[keyof typeof SODViolationMitigatedPayloadOwnerTypeEnum];
+
+/**
+ * JSON body delivered for the **SODViolationReopened** webhook.
+ * @export
+ * @interface SODViolationReopenedPayload
+ */
+export interface SODViolationReopenedPayload {
+    /**
+     * When the violation record was created.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'created'?: string;
+    /**
+     * When the violation was last modified.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'modified'?: string;
+    /**
+     * Violation ID.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'id'?: string;
+    /**
+     * When the violation was last evaluated.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'lastEvaluatedDate'?: string;
+    /**
+     * Violation severity level.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'level'?: string;
+    /**
+     * Human-readable violation name.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadOwner}
+     * @memberof SODViolationReopenedPayload
+     */
+    'owner'?: SODViolationCreatedPayloadOwner;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadPolicy}
+     * @memberof SODViolationReopenedPayload
+     */
+    'policy'?: SODViolationCreatedPayloadPolicy;
+    /**
+     * Violation status before the reopen.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'previousStatus'?: string;
+    /**
+     * Violation status after the reopen.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'currentStatus'?: string;
+    /**
+     * 
+     * @type {SODViolationCreatedPayloadTarget}
+     * @memberof SODViolationReopenedPayload
+     */
+    'target'?: SODViolationCreatedPayloadTarget;
+    /**
+     * Why the violation was reopened.
+     * @type {string}
+     * @memberof SODViolationReopenedPayload
+     */
+    'reason'?: SODViolationReopenedPayloadReasonEnum;
+}
+
+export const SODViolationReopenedPayloadReasonEnum = {
+    ConflictingCriteriaUpdated: 'Conflicting Criteria Updated',
+    AppliedControlExpired: 'Applied Control Expired'
+} as const;
+
+export type SODViolationReopenedPayloadReasonEnum = typeof SODViolationReopenedPayloadReasonEnum[keyof typeof SODViolationReopenedPayloadReasonEnum];
 
 /**
  * 
@@ -5223,6 +6072,23 @@ export interface ValidateFilterOutputDto {
      */
     'isPathExist'?: boolean;
 }
+/**
+ * Lifecycle status of a compensating control application on a violation. **Pending** - not yet in effect; **Active** - currently mitigating the violation; **Completed** - finished successfully; **Canceled** - withdrawn before completion; **Failed** - could not be completed successfully.
+ * @export
+ * @enum {string}
+ */
+
+export const ViolationAppliedControlStatus = {
+    Pending: 'Pending',
+    Active: 'Active',
+    Completed: 'Completed',
+    Canceled: 'Canceled',
+    Failed: 'Failed'
+} as const;
+
+export type ViolationAppliedControlStatus = typeof ViolationAppliedControlStatus[keyof typeof ViolationAppliedControlStatus];
+
+
 
 /**
  * TriggersApi - axios parameter creator
