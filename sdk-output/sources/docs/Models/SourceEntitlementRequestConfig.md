@@ -15,6 +15,6 @@ tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'v1S
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessRequestConfig** | **(optional)** `EntitlementAccessRequestConfig` |  | [default to undefined]
-**revocationRequestConfig** | **(optional)** `EntitlementRevocationRequestConfig` |  | [default to undefined]
+**accessRequestConfig** | **(optional)** `SourceEntitlementAccessRequestConfig` |  | [default to undefined]
+**revocationRequestConfig** | **(optional)** `SourceEntitlementRevocationRequestConfig` |  | [default to undefined]
 

@@ -1112,127 +1112,6 @@ export type DtoType = typeof DtoType[keyof typeof DtoType];
 /**
  * 
  * @export
- * @interface EntitlementAccessRequestConfig
- */
-export interface EntitlementAccessRequestConfig {
-    /**
-     * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<EntitlementApprovalScheme>}
-     * @memberof EntitlementAccessRequestConfig
-     */
-    'approvalSchemes'?: Array<EntitlementApprovalScheme>;
-    /**
-     * If the requester must provide a comment during access request.
-     * @type {boolean}
-     * @memberof EntitlementAccessRequestConfig
-     */
-    'requestCommentRequired'?: boolean;
-    /**
-     * If the reviewer must provide a comment when denying the access request.
-     * @type {boolean}
-     * @memberof EntitlementAccessRequestConfig
-     */
-    'denialCommentRequired'?: boolean;
-    /**
-     * Is Reauthorization Required
-     * @type {boolean}
-     * @memberof EntitlementAccessRequestConfig
-     */
-    'reauthorizationRequired'?: boolean;
-    /**
-     * If true, then remove date or sunset date is required in access request of the entitlement.
-     * @type {boolean}
-     * @memberof EntitlementAccessRequestConfig
-     */
-    'requireEndDate'?: boolean;
-    /**
-     * 
-     * @type {EntitlementAccessRequestConfigMaxPermittedAccessDuration}
-     * @memberof EntitlementAccessRequestConfig
-     */
-    'maxPermittedAccessDuration'?: EntitlementAccessRequestConfigMaxPermittedAccessDuration | null;
-    /**
-     * The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
-     * @type {string}
-     * @memberof EntitlementAccessRequestConfig
-     */
-    'formDefinitionId'?: string | null;
-}
-/**
- * The maximum duration for which the access is permitted.
- * @export
- * @interface EntitlementAccessRequestConfigMaxPermittedAccessDuration
- */
-export interface EntitlementAccessRequestConfigMaxPermittedAccessDuration {
-    /**
-     * The numeric value of the duration.
-     * @type {number}
-     * @memberof EntitlementAccessRequestConfigMaxPermittedAccessDuration
-     */
-    'value'?: number;
-    /**
-     * The time unit for the duration.
-     * @type {string}
-     * @memberof EntitlementAccessRequestConfigMaxPermittedAccessDuration
-     */
-    'timeUnit'?: EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum;
-}
-
-export const EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum = {
-    Hours: 'HOURS',
-    Days: 'DAYS',
-    Weeks: 'WEEKS',
-    Months: 'MONTHS'
-} as const;
-
-export type EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum = typeof EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum[keyof typeof EntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum];
-
-/**
- * 
- * @export
- * @interface EntitlementApprovalScheme
- */
-export interface EntitlementApprovalScheme {
-    /**
-     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field, Workflows are exclusive to other types of approvals and License required.     
-     * @type {string}
-     * @memberof EntitlementApprovalScheme
-     */
-    'approverType'?: EntitlementApprovalSchemeApproverTypeEnum;
-    /**
-     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP or WORKFLOW
-     * @type {string}
-     * @memberof EntitlementApprovalScheme
-     */
-    'approverId'?: string | null;
-}
-
-export const EntitlementApprovalSchemeApproverTypeEnum = {
-    EntitlementOwner: 'ENTITLEMENT_OWNER',
-    SourceOwner: 'SOURCE_OWNER',
-    Manager: 'MANAGER',
-    GovernanceGroup: 'GOVERNANCE_GROUP',
-    Workflow: 'WORKFLOW'
-} as const;
-
-export type EntitlementApprovalSchemeApproverTypeEnum = typeof EntitlementApprovalSchemeApproverTypeEnum[keyof typeof EntitlementApprovalSchemeApproverTypeEnum];
-
-/**
- * 
- * @export
- * @interface EntitlementRevocationRequestConfig
- */
-export interface EntitlementRevocationRequestConfig {
-    /**
-     * Ordered list of approval steps for the access request. Empty when no approval is required.
-     * @type {Array<EntitlementApprovalScheme>}
-     * @memberof EntitlementRevocationRequestConfig
-     */
-    'approvalSchemes'?: Array<EntitlementApprovalScheme>;
-}
-/**
- * 
- * @export
  * @interface ErrorMessageDto
  */
 export interface ErrorMessageDto {
@@ -3035,6 +2914,113 @@ export interface SourceDatasetResourceReference {
     'type'?: string;
 }
 /**
+ * 
+ * @export
+ * @interface SourceEntitlementAccessRequestConfig
+ */
+export interface SourceEntitlementAccessRequestConfig {
+    /**
+     * Ordered list of approval steps for the access request. Empty when no approval is required.
+     * @type {Array<SourceEntitlementApprovalScheme>}
+     * @memberof SourceEntitlementAccessRequestConfig
+     */
+    'approvalSchemes'?: Array<SourceEntitlementApprovalScheme>;
+    /**
+     * If the requester must provide a comment during access request.
+     * @type {boolean}
+     * @memberof SourceEntitlementAccessRequestConfig
+     */
+    'requestCommentRequired'?: boolean;
+    /**
+     * If the reviewer must provide a comment when denying the access request.
+     * @type {boolean}
+     * @memberof SourceEntitlementAccessRequestConfig
+     */
+    'denialCommentRequired'?: boolean;
+    /**
+     * Is Reauthorization Required
+     * @type {boolean}
+     * @memberof SourceEntitlementAccessRequestConfig
+     */
+    'reauthorizationRequired'?: boolean;
+    /**
+     * If true, then remove date or sunset date is required in access request of the entitlement.
+     * @type {boolean}
+     * @memberof SourceEntitlementAccessRequestConfig
+     */
+    'requireEndDate'?: boolean;
+    /**
+     * 
+     * @type {SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration}
+     * @memberof SourceEntitlementAccessRequestConfig
+     */
+    'maxPermittedAccessDuration'?: SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration | null;
+    /**
+     * The ID of the form definition used for the access request. If specified, the form is presented to the requester during the access request process.
+     * @type {string}
+     * @memberof SourceEntitlementAccessRequestConfig
+     */
+    'formDefinitionId'?: string | null;
+}
+/**
+ * The maximum duration for which the access is permitted.
+ * @export
+ * @interface SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration
+ */
+export interface SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration {
+    /**
+     * The numeric value of the duration.
+     * @type {number}
+     * @memberof SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration
+     */
+    'value'?: number;
+    /**
+     * The time unit for the duration.
+     * @type {string}
+     * @memberof SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration
+     */
+    'timeUnit'?: SourceEntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum;
+}
+
+export const SourceEntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum = {
+    Hours: 'HOURS',
+    Days: 'DAYS',
+    Weeks: 'WEEKS',
+    Months: 'MONTHS'
+} as const;
+
+export type SourceEntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum = typeof SourceEntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum[keyof typeof SourceEntitlementAccessRequestConfigMaxPermittedAccessDurationTimeUnitEnum];
+
+/**
+ * 
+ * @export
+ * @interface SourceEntitlementApprovalScheme
+ */
+export interface SourceEntitlementApprovalScheme {
+    /**
+     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW** is not supported in source-level entitlement request configuration. Use the entitlement-level [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1) endpoint to configure a workflow approver. A source-level request that contains `WORKFLOW` is rejected with a 400.
+     * @type {string}
+     * @memberof SourceEntitlementApprovalScheme
+     */
+    'approverType'?: SourceEntitlementApprovalSchemeApproverTypeEnum;
+    /**
+     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+     * @type {string}
+     * @memberof SourceEntitlementApprovalScheme
+     */
+    'approverId'?: string | null;
+}
+
+export const SourceEntitlementApprovalSchemeApproverTypeEnum = {
+    EntitlementOwner: 'ENTITLEMENT_OWNER',
+    SourceOwner: 'SOURCE_OWNER',
+    Manager: 'MANAGER',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SourceEntitlementApprovalSchemeApproverTypeEnum = typeof SourceEntitlementApprovalSchemeApproverTypeEnum[keyof typeof SourceEntitlementApprovalSchemeApproverTypeEnum];
+
+/**
  * Entitlement Request Configuration
  * @export
  * @interface SourceEntitlementRequestConfig
@@ -3042,16 +3028,29 @@ export interface SourceDatasetResourceReference {
 export interface SourceEntitlementRequestConfig {
     /**
      * 
-     * @type {EntitlementAccessRequestConfig}
+     * @type {SourceEntitlementAccessRequestConfig}
      * @memberof SourceEntitlementRequestConfig
      */
-    'accessRequestConfig'?: EntitlementAccessRequestConfig;
+    'accessRequestConfig'?: SourceEntitlementAccessRequestConfig;
     /**
      * 
-     * @type {EntitlementRevocationRequestConfig}
+     * @type {SourceEntitlementRevocationRequestConfig}
      * @memberof SourceEntitlementRequestConfig
      */
-    'revocationRequestConfig'?: EntitlementRevocationRequestConfig;
+    'revocationRequestConfig'?: SourceEntitlementRevocationRequestConfig;
+}
+/**
+ * 
+ * @export
+ * @interface SourceEntitlementRevocationRequestConfig
+ */
+export interface SourceEntitlementRevocationRequestConfig {
+    /**
+     * Ordered list of approval steps for the revocation request. Empty when no approval is required.
+     * @type {Array<SourceEntitlementApprovalScheme>}
+     * @memberof SourceEntitlementRevocationRequestConfig
+     */
+    'approvalSchemes'?: Array<SourceEntitlementApprovalScheme>;
 }
 /**
  * Dto for source health data
@@ -4986,7 +4985,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
          * @summary Get source entitlement request configuration
          * @param {string} id The Source id
          * @param {*} [axiosOptions] Override http request option.
@@ -6824,7 +6823,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
          * @param {SourceEntitlementRequestConfig} sourceEntitlementRequestConfig 
@@ -7478,7 +7477,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
          * @summary Get source entitlement request configuration
          * @param {string} id The Source id
          * @param {*} [axiosOptions] Override http request option.
@@ -8093,7 +8092,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
          * @summary Update source entitlement request configuration
          * @param {string} id The Source id
          * @param {SourceEntitlementRequestConfig} sourceEntitlementRequestConfig 
@@ -8477,7 +8476,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceDatasetsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
          * @summary Get source entitlement request configuration
          * @param {SourcesApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8897,7 +8896,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
          * @summary Update source entitlement request configuration
          * @param {SourcesApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -11179,7 +11178,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+     * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
      * @summary Get source entitlement request configuration
      * @param {SourcesApiGetSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11683,7 +11682,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
+     * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  The `WORKFLOW` approver type is not supported in source-level configuration. To use a workflow as an approver, configure it on the entitlement with [Replace entitlement request config](https://developer.sailpoint.com/docs/api/put-entitlement-request-config-v-1). A source-level request that contains `WORKFLOW` fails with a 400.
      * @summary Update source entitlement request configuration
      * @param {SourcesApiUpdateSourceEntitlementRequestConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

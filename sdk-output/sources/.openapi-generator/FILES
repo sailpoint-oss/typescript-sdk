@@ -28,10 +28,6 @@ DependantAppConnectionsAccountSource.md
 DependantAppConnectionsAccountSourcePasswordPoliciesInner.md
 DependantConnectionsMissingDto.md
 DtoType.md
-EntitlementAccessRequestConfig.md
-EntitlementAccessRequestConfigMaxPermittedAccessDuration.md
-EntitlementApprovalScheme.md
-EntitlementRevocationRequestConfig.md
 ErrorMessageDto.md
 ErrorResponseDto.md
 FieldDetailsDto.md
@@ -79,7 +75,11 @@ SourceConnectionsDto.md
 SourceDataset.md
 SourceDatasetResource.md
 SourceDatasetResourceReference.md
+SourceEntitlementAccessRequestConfig.md
+SourceEntitlementAccessRequestConfigMaxPermittedAccessDuration.md
+SourceEntitlementApprovalScheme.md
 SourceEntitlementRequestConfig.md
+SourceEntitlementRevocationRequestConfig.md
 SourceHealthDto.md
 SourceManagementWorkgroup.md
 SourceManagerCorrelationMapping.md
