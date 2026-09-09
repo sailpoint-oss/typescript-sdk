@@ -67,6 +67,12 @@ export interface ConnectorDetail {
      */
     'applicationXml'?: string;
     /**
+     * Default provisioning policies parsed from the connector application XML templates. Always an array; empty when the connector ships no templates.
+     * @type {Array<ProvisioningPolicyDto>}
+     * @memberof ConnectorDetail
+     */
+    'provisioningPolicies'?: Array<ProvisioningPolicyDto>;
+    /**
      * The connector correlation config xml
      * @type {string}
      * @memberof ConnectorDetail
@@ -204,6 +210,61 @@ export interface ErrorResponseDto {
 /**
  * 
  * @export
+ * @interface FieldDetailsDto
+ */
+export interface FieldDetailsDto {
+    /**
+     * The name of the attribute.
+     * @type {string}
+     * @memberof FieldDetailsDto
+     */
+    'name'?: string;
+    /**
+     * The transform to apply to the field
+     * @type {object}
+     * @memberof FieldDetailsDto
+     */
+    'transform'?: object;
+    /**
+     * Attributes required for the transform
+     * @type {object}
+     * @memberof FieldDetailsDto
+     */
+    'attributes'?: object;
+    /**
+     * Flag indicating whether or not the attribute is required.
+     * @type {boolean}
+     * @memberof FieldDetailsDto
+     */
+    'isRequired'?: boolean;
+    /**
+     * The type of the attribute.  string: For text-based data.  int: For whole numbers.  long: For larger whole numbers.  date: For date and time values.  boolean: For true/false values.  secret: For sensitive data like passwords, which will be masked and encrypted. 
+     * @type {string}
+     * @memberof FieldDetailsDto
+     */
+    'type'?: FieldDetailsDtoTypeEnum;
+    /**
+     * Flag indicating whether or not the attribute is multi-valued.
+     * @type {boolean}
+     * @memberof FieldDetailsDto
+     */
+    'isMultiValued'?: boolean;
+}
+
+export const FieldDetailsDtoTypeEnum = {
+    String: 'string',
+    Int: 'int',
+    Long: 'long',
+    Date: 'date',
+    Boolean: 'boolean',
+    Secret: 'secret'
+} as const;
+
+export type FieldDetailsDtoTypeEnum = typeof FieldDetailsDtoTypeEnum[keyof typeof FieldDetailsDtoTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface GetConnectorV1401Response
  */
 export interface GetConnectorV1401Response {
@@ -288,6 +349,39 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 /**
  * 
  * @export
+ * @interface ProvisioningPolicyDto
+ */
+export interface ProvisioningPolicyDto {
+    /**
+     * the provisioning policy name
+     * @type {string}
+     * @memberof ProvisioningPolicyDto
+     */
+    'name': string | null;
+    /**
+     * the description of the provisioning policy
+     * @type {string}
+     * @memberof ProvisioningPolicyDto
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {UsageType}
+     * @memberof ProvisioningPolicyDto
+     */
+    'usageType'?: UsageType;
+    /**
+     * 
+     * @type {Array<FieldDetailsDto>}
+     * @memberof ProvisioningPolicyDto
+     */
+    'fields'?: Array<FieldDetailsDto>;
+}
+
+
+/**
+ * 
+ * @export
  * @interface PutConnectorCorrelationConfigV1Request
  */
 export interface PutConnectorCorrelationConfigV1Request {
@@ -364,6 +458,34 @@ export const UpdateDetailStatusEnum = {
 } as const;
 
 export type UpdateDetailStatusEnum = typeof UpdateDetailStatusEnum[keyof typeof UpdateDetailStatusEnum];
+
+/**
+ * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source. You can use these usage types for all your provisioning policy needs. 
+ * @export
+ * @enum {string}
+ */
+
+export const UsageType = {
+    Create: 'CREATE',
+    Update: 'UPDATE',
+    Enable: 'ENABLE',
+    Disable: 'DISABLE',
+    Delete: 'DELETE',
+    Assign: 'ASSIGN',
+    Unassign: 'UNASSIGN',
+    CreateGroup: 'CREATE_GROUP',
+    UpdateGroup: 'UPDATE_GROUP',
+    DeleteGroup: 'DELETE_GROUP',
+    Register: 'REGISTER',
+    CreateIdentity: 'CREATE_IDENTITY',
+    UpdateIdentity: 'UPDATE_IDENTITY',
+    EditGroup: 'EDIT_GROUP',
+    Unlock: 'UNLOCK',
+    ChangePassword: 'CHANGE_PASSWORD'
+} as const;
+
+export type UsageType = typeof UsageType[keyof typeof UsageType];
+
 
 /**
  * 

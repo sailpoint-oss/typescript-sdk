@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **className** | **(optional)** `string` | The connector class name | [default to undefined]
 **scriptName** | **(optional)** `string` | The connector script name | [default to undefined]
 **applicationXml** | **(optional)** `string` | The connector application xml | [default to undefined]
+**provisioningPolicies** | **(optional)** `Array<ProvisioningPolicyDto>` | Default provisioning policies parsed from the connector application XML templates. Always an array; empty when the connector ships no templates. | [default to undefined]
 **correlationConfigXml** | **(optional)** `string` | The connector correlation config xml | [default to undefined]
 **sourceConfigXml** | **(optional)** `string` | The connector source config xml | [default to undefined]
 **sourceConfig** | **(optional)** `string` | The connector source config | [default to undefined]

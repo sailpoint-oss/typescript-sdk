@@ -200,7 +200,7 @@ const provisioningPolicyDto: ProvisioningPolicyDto = {
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -217,7 +217,7 @@ const provisioningPolicyDto: ProvisioningPolicyDto = {
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -2774,7 +2774,7 @@ const provisioningPolicyDto: ProvisioningPolicyDto = {
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -2791,7 +2791,7 @@ const provisioningPolicyDto: ProvisioningPolicyDto = {
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -3678,7 +3678,7 @@ const provisioningPolicyDto: Array<ProvisioningPolicyDto> = {
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"
@@ -3695,7 +3695,7 @@ const provisioningPolicyDto: Array<ProvisioningPolicyDto> = {
     "isMultiValued" : false,
     "name" : "userName",
     "attributes" : {
-      "template" : "${firstname}.${lastname}${uniqueCounter}",
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
       "cloudMaxUniqueChecks" : "50",
       "cloudMaxSize" : "20",
       "cloudRequired" : "true"

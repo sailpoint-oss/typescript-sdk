@@ -723,6 +723,12 @@ export interface ConnectorDetail {
      */
     'applicationXml'?: string;
     /**
+     * Default provisioning policies parsed from the connector application XML templates. Always an array; empty when the connector ships no templates.
+     * @type {Array<ProvisioningPolicyDto>}
+     * @memberof ConnectorDetail
+     */
+    'provisioningPolicies'?: Array<ProvisioningPolicyDto>;
+    /**
      * The connector correlation config xml
      * @type {string}
      * @memberof ConnectorDetail
