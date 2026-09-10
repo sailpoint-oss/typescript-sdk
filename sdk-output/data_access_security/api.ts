@@ -551,6 +551,35 @@ export interface CreateScheduleRequest {
     'applicationId'?: number | null;
 }
 /**
+ * Request body for creating a custom data dictionary field.
+ * @export
+ * @interface Createdatadictionaryfieldrequest
+ */
+export interface Createdatadictionaryfieldrequest {
+    /**
+     * The unique field name to create.
+     * @type {string}
+     * @memberof Createdatadictionaryfieldrequest
+     */
+    'name': string;
+    /**
+     * The data dictionary that owns this field.
+     * @type {string}
+     * @memberof Createdatadictionaryfieldrequest
+     */
+    'dataDictionaryType': CreatedatadictionaryfieldrequestDataDictionaryTypeEnum;
+}
+
+export const CreatedatadictionaryfieldrequestDataDictionaryTypeEnum = {
+    Users: 'Users',
+    Roles: 'Roles',
+    PermissionTypes: 'Permission Types',
+    BusinessResources: 'Business Resources'
+} as const;
+
+export type CreatedatadictionaryfieldrequestDataDictionaryTypeEnum = typeof CreatedatadictionaryfieldrequestDataDictionaryTypeEnum[keyof typeof CreatedatadictionaryfieldrequestDataDictionaryTypeEnum];
+
+/**
  * 
  * @export
  * @interface Createidentitycollectorrequest
@@ -568,6 +597,18 @@ export interface Createidentitycollectorrequest {
      * @memberof Createidentitycollectorrequest
      */
     'sourceId': string;
+    /**
+     * 
+     * @type {Identitycollectorcollectionsettings}
+     * @memberof Createidentitycollectorrequest
+     */
+    'users'?: Identitycollectorcollectionsettings;
+    /**
+     * 
+     * @type {Identitycollectorcollectionsettings}
+     * @memberof Createidentitycollectorrequest
+     */
+    'groups'?: Identitycollectorcollectionsettings;
 }
 /**
  * 
@@ -613,6 +654,47 @@ export interface DataOwnerModel {
      */
     'fullPath'?: string | null;
 }
+/**
+ * A custom data dictionary field used for permission and identity collector mappings.
+ * @export
+ * @interface Datadictionaryfieldlistitem
+ */
+export interface Datadictionaryfieldlistitem {
+    /**
+     * The unique field name.
+     * @type {string}
+     * @memberof Datadictionaryfieldlistitem
+     */
+    'name': string;
+    /**
+     * The field data type. Custom fields are always String.
+     * @type {string}
+     * @memberof Datadictionaryfieldlistitem
+     */
+    'fieldType': string;
+    /**
+     * The data dictionary that owns this field.
+     * @type {string}
+     * @memberof Datadictionaryfieldlistitem
+     */
+    'dataDictionaryType': DatadictionaryfieldlistitemDataDictionaryTypeEnum;
+    /**
+     * Whether the field is required. Custom fields returned by list are always false.
+     * @type {boolean}
+     * @memberof Datadictionaryfieldlistitem
+     */
+    'required': boolean;
+}
+
+export const DatadictionaryfieldlistitemDataDictionaryTypeEnum = {
+    Users: 'Users',
+    Roles: 'Roles',
+    PermissionTypes: 'Permission Types',
+    BusinessResources: 'Business Resources'
+} as const;
+
+export type DatadictionaryfieldlistitemDataDictionaryTypeEnum = typeof DatadictionaryfieldlistitemDataDictionaryTypeEnum[keyof typeof DatadictionaryfieldlistitemDataDictionaryTypeEnum];
+
 /**
  * 
  * @export
@@ -700,6 +782,82 @@ export interface GetTasksV1429Response {
 /**
  * 
  * @export
+ * @interface Identitycollectorbuiltinpropertiesbytype
+ */
+export interface Identitycollectorbuiltinpropertiesbytype {
+    /**
+     * Identity collector type display name.
+     * @type {string}
+     * @memberof Identitycollectorbuiltinpropertiesbytype
+     */
+    'type': string;
+    /**
+     * Built-in user source attribute names that can be used in field mappings for the identity collector type.
+     * @type {Array<string>}
+     * @memberof Identitycollectorbuiltinpropertiesbytype
+     */
+    'users': Array<string>;
+    /**
+     * Built-in group source attribute names that can be used in field mappings for the identity collector type.
+     * @type {Array<string>}
+     * @memberof Identitycollectorbuiltinpropertiesbytype
+     */
+    'groups': Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface Identitycollectorbuiltinpropertiesresponse
+ */
+export interface Identitycollectorbuiltinpropertiesresponse {
+    /**
+     * Built-in source attribute names grouped by identity collector type.
+     * @type {Array<Identitycollectorbuiltinpropertiesbytype>}
+     * @memberof Identitycollectorbuiltinpropertiesresponse
+     */
+    'types': Array<Identitycollectorbuiltinpropertiesbytype>;
+}
+/**
+ * 
+ * @export
+ * @interface Identitycollectorcollectionsettings
+ */
+export interface Identitycollectorcollectionsettings {
+    /**
+     * Source attribute names to register as datasource columns for this collection. These names must match the attributes sent by Identity Security Cloud. Use an empty array when no custom attributes are required.
+     * @type {Array<string>}
+     * @memberof Identitycollectorcollectionsettings
+     */
+    'properties': Array<string>;
+    /**
+     * Maps source attributes to data dictionary fields and DAS custom field slots. Each `sourceAttributeName` must be either a built-in attribute for the identity collector type or listed in `properties`. Use an empty array when no dynamic field mappings are configured.
+     * @type {Array<Identitycollectorfieldmapping>}
+     * @memberof Identitycollectorcollectionsettings
+     */
+    'fieldMappings': Array<Identitycollectorfieldmapping>;
+}
+/**
+ * 
+ * @export
+ * @interface Identitycollectorfieldmapping
+ */
+export interface Identitycollectorfieldmapping {
+    /**
+     * The name of the data dictionary field to map to. Dictionary fields of type Users apply to the users collection; dictionary fields of type Roles apply to the groups collection.
+     * @type {string}
+     * @memberof Identitycollectorfieldmapping
+     */
+    'fieldDictionaryName': string;
+    /**
+     * The source attribute name to read at runtime. This may be a built-in attribute for the identity collector type or a custom attribute listed in `properties` for the same collection. Built-in attributes can be discovered using the identity collector properties metadata endpoint.
+     * @type {string}
+     * @memberof Identitycollectorfieldmapping
+     */
+    'sourceAttributeName': string;
+}
+/**
+ * 
+ * @export
  * @interface Identitycollectorlistitem
  */
 export interface Identitycollectorlistitem {
@@ -716,7 +874,7 @@ export interface Identitycollectorlistitem {
      */
     'name'?: string;
     /**
-     * The identity collector type, derived from its underlying source. Possible values include \"Active Directory\", \"Azure Active Directory\", \"Google Drive\", \"Dropbox\", \"Box\", \"Microsoft Entra SaaS\", \"Snowflake\", and \"Databricks\".
+     * The identity collector type, derived from its underlying source.
      * @type {string}
      * @memberof Identitycollectorlistitem
      */
@@ -727,6 +885,18 @@ export interface Identitycollectorlistitem {
      * @memberof Identitycollectorlistitem
      */
     'sourceId'?: string;
+    /**
+     * 
+     * @type {Identitycollectorcollectionsettings}
+     * @memberof Identitycollectorlistitem
+     */
+    'users'?: Identitycollectorcollectionsettings;
+    /**
+     * 
+     * @type {Identitycollectorcollectionsettings}
+     * @memberof Identitycollectorlistitem
+     */
+    'groups'?: Identitycollectorcollectionsettings;
 }
 /**
  * 
@@ -1175,7 +1345,48 @@ export interface UpdateScheduleRequest {
     'applicationId'?: number | null;
 }
 /**
- * 
+ * Complete data dictionary field representation for [Replace Data Dictionary Field](https://developer.sailpoint.com/docs/api/put-data-dictionary-field-v-1). The server fully replaces the field using this body. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where `required` is true cannot be updated.
+ * @export
+ * @interface Updatedatadictionaryfieldrequest
+ */
+export interface Updatedatadictionaryfieldrequest {
+    /**
+     * The field name.
+     * @type {string}
+     * @memberof Updatedatadictionaryfieldrequest
+     */
+    'name': string;
+    /**
+     * The field data type. Must match the current value.
+     * @type {string}
+     * @memberof Updatedatadictionaryfieldrequest
+     */
+    'fieldType': string;
+    /**
+     * The data dictionary that owns this field. Must match the current value.
+     * @type {string}
+     * @memberof Updatedatadictionaryfieldrequest
+     */
+    'dataDictionaryType': UpdatedatadictionaryfieldrequestDataDictionaryTypeEnum;
+    /**
+     * Must match the current value. Custom fields must be false.
+     * @type {boolean}
+     * @memberof Updatedatadictionaryfieldrequest
+     */
+    'required': boolean;
+}
+
+export const UpdatedatadictionaryfieldrequestDataDictionaryTypeEnum = {
+    Users: 'Users',
+    Roles: 'Roles',
+    PermissionTypes: 'Permission Types',
+    BusinessResources: 'Business Resources'
+} as const;
+
+export type UpdatedatadictionaryfieldrequestDataDictionaryTypeEnum = typeof UpdatedatadictionaryfieldrequestDataDictionaryTypeEnum[keyof typeof UpdatedatadictionaryfieldrequestDataDictionaryTypeEnum];
+
+/**
+ * Complete identity collector representation for [Replace Identity Collector](https://developer.sailpoint.com/docs/api/put-identity-collector-v-1). The server fully replaces the existing resource with this payload. Partial updates are not supported; `users` and `groups` must always be supplied and replace the current collection settings in their entirety.
  * @export
  * @interface Updateidentitycollectorrequest
  */
@@ -1198,6 +1409,18 @@ export interface Updateidentitycollectorrequest {
      * @memberof Updateidentitycollectorrequest
      */
     'type': string;
+    /**
+     * 
+     * @type {Identitycollectorcollectionsettings}
+     * @memberof Updateidentitycollectorrequest
+     */
+    'users': Identitycollectorcollectionsettings;
+    /**
+     * 
+     * @type {Identitycollectorcollectionsettings}
+     * @memberof Updateidentitycollectorrequest
+     */
+    'groups': Identitycollectorcollectionsettings;
 }
 
 /**
@@ -1277,7 +1500,43 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
-         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+         * Creates a custom data dictionary field. The server assigns fieldType String and required false; callers do not supply those values.
+         * @summary Create data dictionary field
+         * @param {Createdatadictionaryfieldrequest} createdatadictionaryfieldrequest Custom data dictionary field to create.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDataDictionaryFieldV1: async (createdatadictionaryfieldrequest: Createdatadictionaryfieldrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createdatadictionaryfieldrequest' is not null or undefined
+            assertParamExists('createDataDictionaryFieldV1', 'createdatadictionaryfieldrequest', createdatadictionaryfieldrequest)
+            const localVarPath = `/das/v1/permissions/fields`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createdatadictionaryfieldrequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.  Optionally configure `users` and `groups` to register source attributes (`properties`) and map them to data dictionary fields by name (`fieldMappings.fieldDictionaryName`). When omitted, both collections are created with fixed columns only.
          * @summary Create identity collector
          * @param {Createidentitycollectorrequest} createidentitycollectorrequest Request body containing the details required to create a new identity collector.
          * @param {*} [axiosOptions] Override http request option.
@@ -1286,7 +1545,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
         createIdentityCollectorV1: async (createidentitycollectorrequest: Createidentitycollectorrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'createidentitycollectorrequest' is not null or undefined
             assertParamExists('createIdentityCollectorV1', 'createidentitycollectorrequest', createidentitycollectorrequest)
-            const localVarPath = `/das/identity-collectors/v1`;
+            const localVarPath = `/das/v1/identity-collectors`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1581,6 +1840,40 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
+         * Deletes a custom data dictionary field. Built-in fields where required is true cannot be deleted.
+         * @summary Delete data dictionary field
+         * @param {string} name The field name to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDataDictionaryFieldV1: async (name: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('deleteDataDictionaryFieldV1', 'name', name)
+            const localVarPath = `/das/v1/permissions/fields/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
          * @summary Delete identity collector by identifier
          * @param {number} id The unique identifier of the identity collector to delete.
@@ -1590,7 +1883,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
         deleteIdentityCollectorV1: async (id: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteIdentityCollectorV1', 'id', id)
-            const localVarPath = `/das/identity-collectors/v1/{id}`
+            const localVarPath = `/das/v1/identity-collectors/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1753,6 +2046,81 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
 
             if (count !== undefined) {
                 localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns the built-in source attribute names for users and groups collections. When no filter is provided, built-in properties for all public identity collector types are returned (the same base types listed by [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)). When filtered by `type`, only the matching type is returned; the filter accepts any supported type display name, including SaaS variants such as `Box SaaS` or `AWS SaaS`.  These attributes are always available for field mapping without being listed in `properties`.
+         * @summary List built-in identity collector properties
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityCollectorBuiltinPropertiesV1: async (filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/das/v1/identity-collectors/properties`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+         * @summary List identity collector types
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityCollectorTypesV1: async (limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/das/v1/identity-collectors/types`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
 
@@ -1979,6 +2347,56 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
+         * Returns custom data dictionary fields that can be used when configuring identity collector field mappings and other permission-related settings. Built-in fields are not included in list responses; only custom fields created via [Create Data Dictionary Field](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1) are returned. All listed fields have `required: false`.
+         * @summary List data dictionary fields
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDataDictionaryFieldsV1: async (filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/das/v1/permissions/fields`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
          * @summary List identity collectors
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
@@ -1989,7 +2407,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
          * @throws {RequiredError}
          */
         listIdentityCollectorsV1: async (filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/das/identity-collectors/v1`;
+            const localVarPath = `/das/v1/identity-collectors`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -2069,10 +2487,50 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
-         * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
-         * @summary Update identity collector by identifier
-         * @param {number} id The unique identifier of the identity collector to update.
-         * @param {Updateidentitycollectorrequest} updateidentitycollectorrequest Request body containing the updated details for the identity collector.
+         * Fully replaces a custom data dictionary field. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted properties are rejected. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where `required` is true cannot be updated.  List the field first with [List Data Dictionary Fields](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1) to obtain the current representation before replacing it.
+         * @summary Replace data dictionary field
+         * @param {string} name The current field name.
+         * @param {Updatedatadictionaryfieldrequest} updatedatadictionaryfieldrequest Complete data dictionary field representation used to fully replace the existing field.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putDataDictionaryFieldV1: async (name: string, updatedatadictionaryfieldrequest: Updatedatadictionaryfieldrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('putDataDictionaryFieldV1', 'name', name)
+            // verify required parameter 'updatedatadictionaryfieldrequest' is not null or undefined
+            assertParamExists('putDataDictionaryFieldV1', 'updatedatadictionaryfieldrequest', updatedatadictionaryfieldrequest)
+            const localVarPath = `/das/v1/permissions/fields/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(updatedatadictionaryfieldrequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fully replaces an existing identity collector in Data Access Security. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted or null top-level properties are rejected. After a successful request, a subsequent list request returns exactly the configuration that was sent.  Retrieve the current configuration with [List Identity Collectors](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1) before replacing it. The `sourceId` and `type` cannot be changed and must match the current values.
+         * @summary Replace identity collector
+         * @param {number} id The unique identifier of the identity collector to replace.
+         * @param {Updateidentitycollectorrequest} updateidentitycollectorrequest Complete identity collector representation used to fully replace the existing resource. Partial updates are not supported.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2081,7 +2539,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             assertParamExists('putIdentityCollectorV1', 'id', id)
             // verify required parameter 'updateidentitycollectorrequest' is not null or undefined
             assertParamExists('putIdentityCollectorV1', 'updateidentitycollectorrequest', updateidentitycollectorrequest)
-            const localVarPath = `/das/identity-collectors/v1/{id}`
+            const localVarPath = `/das/v1/identity-collectors/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2219,7 +2677,20 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+         * Creates a custom data dictionary field. The server assigns fieldType String and required false; callers do not supply those values.
+         * @summary Create data dictionary field
+         * @param {Createdatadictionaryfieldrequest} createdatadictionaryfieldrequest Custom data dictionary field to create.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createDataDictionaryFieldV1(createdatadictionaryfieldrequest: Createdatadictionaryfieldrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Datadictionaryfieldlistitem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDataDictionaryFieldV1(createdatadictionaryfieldrequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.createDataDictionaryFieldV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.  Optionally configure `users` and `groups` to register source attributes (`properties`) and map them to data dictionary fields by name (`fieldMappings.fieldDictionaryName`). When omitted, both collections are created with fixed columns only.
          * @summary Create identity collector
          * @param {Createidentitycollectorrequest} createidentitycollectorrequest Request body containing the details required to create a new identity collector.
          * @param {*} [axiosOptions] Override http request option.
@@ -2328,6 +2799,19 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Deletes a custom data dictionary field. Built-in fields where required is true cannot be deleted.
+         * @summary Delete data dictionary field
+         * @param {string} name The field name to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteDataDictionaryFieldV1(name: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDataDictionaryFieldV1(name, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.deleteDataDictionaryFieldV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
          * @summary Delete identity collector by identifier
          * @param {number} id The unique identifier of the identity collector to delete.
@@ -2393,6 +2877,33 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationsV1(filters, limit, offset, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getApplicationsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns the built-in source attribute names for users and groups collections. When no filter is provided, built-in properties for all public identity collector types are returned (the same base types listed by [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)). When filtered by `type`, only the matching type is returned; the filter accepts any supported type display name, including SaaS variants such as `Box SaaS` or `AWS SaaS`.  These attributes are always available for field mapping without being listed in `properties`.
+         * @summary List built-in identity collector properties
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentityCollectorBuiltinPropertiesV1(filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycollectorbuiltinpropertiesresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCollectorBuiltinPropertiesV1(filters, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getIdentityCollectorBuiltinPropertiesV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+         * @summary List identity collector types
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentityCollectorTypesV1(limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCollectorTypesV1(limit, offset, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getIdentityCollectorTypesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2469,6 +2980,22 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Returns custom data dictionary fields that can be used when configuring identity collector field mappings and other permission-related settings. Built-in fields are not included in list responses; only custom fields created via [Create Data Dictionary Field](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1) are returned. All listed fields have `required: false`.
+         * @summary List data dictionary fields
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listDataDictionaryFieldsV1(filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Datadictionaryfieldlistitem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listDataDictionaryFieldsV1(filters, limit, offset, count, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.listDataDictionaryFieldsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
          * @summary List identity collectors
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
@@ -2499,10 +3026,24 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
-         * @summary Update identity collector by identifier
-         * @param {number} id The unique identifier of the identity collector to update.
-         * @param {Updateidentitycollectorrequest} updateidentitycollectorrequest Request body containing the updated details for the identity collector.
+         * Fully replaces a custom data dictionary field. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted properties are rejected. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where `required` is true cannot be updated.  List the field first with [List Data Dictionary Fields](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1) to obtain the current representation before replacing it.
+         * @summary Replace data dictionary field
+         * @param {string} name The current field name.
+         * @param {Updatedatadictionaryfieldrequest} updatedatadictionaryfieldrequest Complete data dictionary field representation used to fully replace the existing field.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putDataDictionaryFieldV1(name: string, updatedatadictionaryfieldrequest: Updatedatadictionaryfieldrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Datadictionaryfieldlistitem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putDataDictionaryFieldV1(name, updatedatadictionaryfieldrequest, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.putDataDictionaryFieldV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Fully replaces an existing identity collector in Data Access Security. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted or null top-level properties are rejected. After a successful request, a subsequent list request returns exactly the configuration that was sent.  Retrieve the current configuration with [List Identity Collectors](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1) before replacing it. The `sourceId` and `type` cannot be changed and must match the current values.
+         * @summary Replace identity collector
+         * @param {number} id The unique identifier of the identity collector to replace.
+         * @param {Updateidentitycollectorrequest} updateidentitycollectorrequest Complete identity collector representation used to fully replace the existing resource. Partial updates are not supported.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2570,7 +3111,17 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
             return localVarFp.createApplicationV1(requestParameters.baseCreateApplicationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+         * Creates a custom data dictionary field. The server assigns fieldType String and required false; callers do not supply those values.
+         * @summary Create data dictionary field
+         * @param {DataAccessSecurityApiCreateDataDictionaryFieldV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDataDictionaryFieldV1(requestParameters: DataAccessSecurityApiCreateDataDictionaryFieldV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Datadictionaryfieldlistitem> {
+            return localVarFp.createDataDictionaryFieldV1(requestParameters.createdatadictionaryfieldrequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.  Optionally configure `users` and `groups` to register source attributes (`properties`) and map them to data dictionary fields by name (`fieldMappings.fieldDictionaryName`). When omitted, both collections are created with fixed columns only.
          * @summary Create identity collector
          * @param {DataAccessSecurityApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2650,6 +3201,16 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
             return localVarFp.deleteApplicationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes a custom data dictionary field. Built-in fields where required is true cannot be deleted.
+         * @summary Delete data dictionary field
+         * @param {DataAccessSecurityApiDeleteDataDictionaryFieldV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDataDictionaryFieldV1(requestParameters: DataAccessSecurityApiDeleteDataDictionaryFieldV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteDataDictionaryFieldV1(requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
          * @summary Delete identity collector by identifier
          * @param {DataAccessSecurityApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
@@ -2698,6 +3259,26 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          */
         getApplicationsV1(requestParameters: DataAccessSecurityApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ApplicationItem>> {
             return localVarFp.getApplicationsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the built-in source attribute names for users and groups collections. When no filter is provided, built-in properties for all public identity collector types are returned (the same base types listed by [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)). When filtered by `type`, only the matching type is returned; the filter accepts any supported type display name, including SaaS variants such as `Box SaaS` or `AWS SaaS`.  These attributes are always available for field mapping without being listed in `properties`.
+         * @summary List built-in identity collector properties
+         * @param {DataAccessSecurityApiGetIdentityCollectorBuiltinPropertiesV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityCollectorBuiltinPropertiesV1(requestParameters: DataAccessSecurityApiGetIdentityCollectorBuiltinPropertiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycollectorbuiltinpropertiesresponse> {
+            return localVarFp.getIdentityCollectorBuiltinPropertiesV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+         * @summary List identity collector types
+         * @param {DataAccessSecurityApiGetIdentityCollectorTypesV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityCollectorTypesV1(requestParameters: DataAccessSecurityApiGetIdentityCollectorTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
+            return localVarFp.getIdentityCollectorTypesV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2750,6 +3331,16 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
             return localVarFp.getTasksV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Returns custom data dictionary fields that can be used when configuring identity collector field mappings and other permission-related settings. Built-in fields are not included in list responses; only custom fields created via [Create Data Dictionary Field](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1) are returned. All listed fields have `required: false`.
+         * @summary List data dictionary fields
+         * @param {DataAccessSecurityApiListDataDictionaryFieldsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDataDictionaryFieldsV1(requestParameters: DataAccessSecurityApiListDataDictionaryFieldsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Datadictionaryfieldlistitem>> {
+            return localVarFp.listDataDictionaryFieldsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
          * @summary List identity collectors
          * @param {DataAccessSecurityApiListIdentityCollectorsV1Request} requestParameters Request parameters.
@@ -2770,8 +3361,18 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
             return localVarFp.putApplicationV1(requestParameters.id, requestParameters.baseCreateApplicationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
-         * @summary Update identity collector by identifier
+         * Fully replaces a custom data dictionary field. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted properties are rejected. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where `required` is true cannot be updated.  List the field first with [List Data Dictionary Fields](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1) to obtain the current representation before replacing it.
+         * @summary Replace data dictionary field
+         * @param {DataAccessSecurityApiPutDataDictionaryFieldV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putDataDictionaryFieldV1(requestParameters: DataAccessSecurityApiPutDataDictionaryFieldV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Datadictionaryfieldlistitem> {
+            return localVarFp.putDataDictionaryFieldV1(requestParameters.name, requestParameters.updatedatadictionaryfieldrequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fully replaces an existing identity collector in Data Access Security. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted or null top-level properties are rejected. After a successful request, a subsequent list request returns exactly the configuration that was sent.  Retrieve the current configuration with [List Identity Collectors](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1) before replacing it. The `sourceId` and `type` cannot be changed and must match the current values.
+         * @summary Replace identity collector
          * @param {DataAccessSecurityApiPutIdentityCollectorV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2828,6 +3429,20 @@ export interface DataAccessSecurityApiCreateApplicationV1Request {
      * @memberof DataAccessSecurityApiCreateApplicationV1
      */
     readonly baseCreateApplicationRequest: BaseCreateApplicationRequest
+}
+
+/**
+ * Request parameters for createDataDictionaryFieldV1 operation in DataAccessSecurityApi.
+ * @export
+ * @interface DataAccessSecurityApiCreateDataDictionaryFieldV1Request
+ */
+export interface DataAccessSecurityApiCreateDataDictionaryFieldV1Request {
+    /**
+     * Custom data dictionary field to create.
+     * @type {Createdatadictionaryfieldrequest}
+     * @memberof DataAccessSecurityApiCreateDataDictionaryFieldV1
+     */
+    readonly createdatadictionaryfieldrequest: Createdatadictionaryfieldrequest
 }
 
 /**
@@ -2978,6 +3593,20 @@ export interface DataAccessSecurityApiDeleteApplicationV1Request {
 }
 
 /**
+ * Request parameters for deleteDataDictionaryFieldV1 operation in DataAccessSecurityApi.
+ * @export
+ * @interface DataAccessSecurityApiDeleteDataDictionaryFieldV1Request
+ */
+export interface DataAccessSecurityApiDeleteDataDictionaryFieldV1Request {
+    /**
+     * The field name to delete.
+     * @type {string}
+     * @memberof DataAccessSecurityApiDeleteDataDictionaryFieldV1
+     */
+    readonly name: string
+}
+
+/**
  * Request parameters for deleteIdentityCollectorV1 operation in DataAccessSecurityApi.
  * @export
  * @interface DataAccessSecurityApiDeleteIdentityCollectorV1Request
@@ -3066,6 +3695,41 @@ export interface DataAccessSecurityApiGetApplicationsV1Request {
      * @memberof DataAccessSecurityApiGetApplicationsV1
      */
     readonly count?: boolean
+}
+
+/**
+ * Request parameters for getIdentityCollectorBuiltinPropertiesV1 operation in DataAccessSecurityApi.
+ * @export
+ * @interface DataAccessSecurityApiGetIdentityCollectorBuiltinPropertiesV1Request
+ */
+export interface DataAccessSecurityApiGetIdentityCollectorBuiltinPropertiesV1Request {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq*
+     * @type {string}
+     * @memberof DataAccessSecurityApiGetIdentityCollectorBuiltinPropertiesV1
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for getIdentityCollectorTypesV1 operation in DataAccessSecurityApi.
+ * @export
+ * @interface DataAccessSecurityApiGetIdentityCollectorTypesV1Request
+ */
+export interface DataAccessSecurityApiGetIdentityCollectorTypesV1Request {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DataAccessSecurityApiGetIdentityCollectorTypesV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DataAccessSecurityApiGetIdentityCollectorTypesV1
+     */
+    readonly offset?: number
 }
 
 /**
@@ -3195,6 +3859,41 @@ export interface DataAccessSecurityApiGetTasksV1Request {
 }
 
 /**
+ * Request parameters for listDataDictionaryFieldsV1 operation in DataAccessSecurityApi.
+ * @export
+ * @interface DataAccessSecurityApiListDataDictionaryFieldsV1Request
+ */
+export interface DataAccessSecurityApiListDataDictionaryFieldsV1Request {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and*
+     * @type {string}
+     * @memberof DataAccessSecurityApiListDataDictionaryFieldsV1
+     */
+    readonly filters?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DataAccessSecurityApiListDataDictionaryFieldsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DataAccessSecurityApiListDataDictionaryFieldsV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof DataAccessSecurityApiListDataDictionaryFieldsV1
+     */
+    readonly count?: boolean
+}
+
+/**
  * Request parameters for listIdentityCollectorsV1 operation in DataAccessSecurityApi.
  * @export
  * @interface DataAccessSecurityApiListIdentityCollectorsV1Request
@@ -3251,20 +3950,41 @@ export interface DataAccessSecurityApiPutApplicationV1Request {
 }
 
 /**
+ * Request parameters for putDataDictionaryFieldV1 operation in DataAccessSecurityApi.
+ * @export
+ * @interface DataAccessSecurityApiPutDataDictionaryFieldV1Request
+ */
+export interface DataAccessSecurityApiPutDataDictionaryFieldV1Request {
+    /**
+     * The current field name.
+     * @type {string}
+     * @memberof DataAccessSecurityApiPutDataDictionaryFieldV1
+     */
+    readonly name: string
+
+    /**
+     * Complete data dictionary field representation used to fully replace the existing field.
+     * @type {Updatedatadictionaryfieldrequest}
+     * @memberof DataAccessSecurityApiPutDataDictionaryFieldV1
+     */
+    readonly updatedatadictionaryfieldrequest: Updatedatadictionaryfieldrequest
+}
+
+/**
  * Request parameters for putIdentityCollectorV1 operation in DataAccessSecurityApi.
  * @export
  * @interface DataAccessSecurityApiPutIdentityCollectorV1Request
  */
 export interface DataAccessSecurityApiPutIdentityCollectorV1Request {
     /**
-     * The unique identifier of the identity collector to update.
+     * The unique identifier of the identity collector to replace.
      * @type {number}
      * @memberof DataAccessSecurityApiPutIdentityCollectorV1
      */
     readonly id: number
 
     /**
-     * Request body containing the updated details for the identity collector.
+     * Complete identity collector representation used to fully replace the existing resource. Partial updates are not supported.
      * @type {Updateidentitycollectorrequest}
      * @memberof DataAccessSecurityApiPutIdentityCollectorV1
      */
@@ -3338,7 +4058,19 @@ export class DataAccessSecurityApi extends BaseAPI {
     }
 
     /**
-     * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+     * Creates a custom data dictionary field. The server assigns fieldType String and required false; callers do not supply those values.
+     * @summary Create data dictionary field
+     * @param {DataAccessSecurityApiCreateDataDictionaryFieldV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityApi
+     */
+    public createDataDictionaryFieldV1(requestParameters: DataAccessSecurityApiCreateDataDictionaryFieldV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).createDataDictionaryFieldV1(requestParameters.createdatadictionaryfieldrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.  Optionally configure `users` and `groups` to register source attributes (`properties`) and map them to data dictionary fields by name (`fieldMappings.fieldDictionaryName`). When omitted, both collections are created with fixed columns only.
      * @summary Create identity collector
      * @param {DataAccessSecurityApiCreateIdentityCollectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -3434,6 +4166,18 @@ export class DataAccessSecurityApi extends BaseAPI {
     }
 
     /**
+     * Deletes a custom data dictionary field. Built-in fields where required is true cannot be deleted.
+     * @summary Delete data dictionary field
+     * @param {DataAccessSecurityApiDeleteDataDictionaryFieldV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityApi
+     */
+    public deleteDataDictionaryFieldV1(requestParameters: DataAccessSecurityApiDeleteDataDictionaryFieldV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).deleteDataDictionaryFieldV1(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This endpoint deletes an identity collector from Data Access Security by its unique identifier.
      * @summary Delete identity collector by identifier
      * @param {DataAccessSecurityApiDeleteIdentityCollectorV1Request} requestParameters Request parameters.
@@ -3491,6 +4235,30 @@ export class DataAccessSecurityApi extends BaseAPI {
      */
     public getApplicationsV1(requestParameters: DataAccessSecurityApiGetApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return DataAccessSecurityApiFp(this.configuration).getApplicationsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the built-in source attribute names for users and groups collections. When no filter is provided, built-in properties for all public identity collector types are returned (the same base types listed by [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)). When filtered by `type`, only the matching type is returned; the filter accepts any supported type display name, including SaaS variants such as `Box SaaS` or `AWS SaaS`.  These attributes are always available for field mapping without being listed in `properties`.
+     * @summary List built-in identity collector properties
+     * @param {DataAccessSecurityApiGetIdentityCollectorBuiltinPropertiesV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityApi
+     */
+    public getIdentityCollectorBuiltinPropertiesV1(requestParameters: DataAccessSecurityApiGetIdentityCollectorBuiltinPropertiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getIdentityCollectorBuiltinPropertiesV1(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+     * @summary List identity collector types
+     * @param {DataAccessSecurityApiGetIdentityCollectorTypesV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityApi
+     */
+    public getIdentityCollectorTypesV1(requestParameters: DataAccessSecurityApiGetIdentityCollectorTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).getIdentityCollectorTypesV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3554,6 +4322,18 @@ export class DataAccessSecurityApi extends BaseAPI {
     }
 
     /**
+     * Returns custom data dictionary fields that can be used when configuring identity collector field mappings and other permission-related settings. Built-in fields are not included in list responses; only custom fields created via [Create Data Dictionary Field](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1) are returned. All listed fields have `required: false`.
+     * @summary List data dictionary fields
+     * @param {DataAccessSecurityApiListDataDictionaryFieldsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityApi
+     */
+    public listDataDictionaryFieldsV1(requestParameters: DataAccessSecurityApiListDataDictionaryFieldsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).listDataDictionaryFieldsV1(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
      * @summary List identity collectors
      * @param {DataAccessSecurityApiListIdentityCollectorsV1Request} requestParameters Request parameters.
@@ -3578,8 +4358,20 @@ export class DataAccessSecurityApi extends BaseAPI {
     }
 
     /**
-     * This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
-     * @summary Update identity collector by identifier
+     * Fully replaces a custom data dictionary field. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted properties are rejected. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where `required` is true cannot be updated.  List the field first with [List Data Dictionary Fields](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1) to obtain the current representation before replacing it.
+     * @summary Replace data dictionary field
+     * @param {DataAccessSecurityApiPutDataDictionaryFieldV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DataAccessSecurityApi
+     */
+    public putDataDictionaryFieldV1(requestParameters: DataAccessSecurityApiPutDataDictionaryFieldV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return DataAccessSecurityApiFp(this.configuration).putDataDictionaryFieldV1(requestParameters.name, requestParameters.updatedatadictionaryfieldrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fully replaces an existing identity collector in Data Access Security. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted or null top-level properties are rejected. After a successful request, a subsequent list request returns exactly the configuration that was sent.  Retrieve the current configuration with [List Identity Collectors](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1) before replacing it. The `sourceId` and `type` cannot be changed and must match the current values.
+     * @summary Replace identity collector
      * @param {DataAccessSecurityApiPutIdentityCollectorV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}

@@ -251,6 +251,34 @@
 }; // Array<JsonPatchOperation> | 
         const result = await apiInstance.patchAccessProfileV1({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
+- path: /access-profiles/v1/filter
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/access_profiles/methods/access-profiles#search-access-profiles-by-filter-v1
+      source: |
+        import { AccessProfilesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { AccessProfileListFilterDTO } from '@sailpoint/api-client/dist/access_profiles/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new AccessProfilesApi(configuration);
+        const accessProfileListFilterDTO: AccessProfileListFilterDTO = {
+  "ammKeyValues" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "secret" ]
+  } ],
+  "filters" : "requestable eq false"
+}; // AccessProfileListFilterDTO | 
+        const forSubadmin: string = '8c190e6787aa4ed9a90bd9d5344523fb'; // string | Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\'s ID.  If you specify an identity that isn\'t a subadmin, the API returns a 400 Bad Request error. (optional) (default to undefined)
+        const limit: number = 50; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
+        const forSegmentIds: string = '0b5c9f2d-1e1b-4b2f-9b1a-0e7f4a6c2d3e'; // string | Filters the returned list to those access profiles assigned to the specified segment IDs. (optional) (default to undefined)
+        const includeUnsegmented: boolean = true; // boolean | Whether the returned list includes unsegmented access profiles. (optional) (default to true)
+        const result = await apiInstance.searchAccessProfilesByFilterV1({ accessProfileListFilterDTO: accessProfileListFilterDTO });
+        console.log(result);
 - path: /access-profiles/v1/bulk-update-requestable
   method: POST
   xCodeSample:
@@ -274,11 +302,11 @@
       source: |
         import { AccessProfilesApi } from '@sailpoint/api-client';
         import { Configuration } from '@sailpoint/api-client';
-        import { Accessprofilemetadatabulkupdatebyfilterrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+        import { AccessProfileMetadataBulkUpdateByFilterRequest } from '@sailpoint/api-client/dist/access_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessProfilesApi(configuration);
-        const accessprofilemetadatabulkupdatebyfilterrequest: Accessprofilemetadatabulkupdatebyfilterrequest = {
+        const accessProfileMetadataBulkUpdateByFilterRequest: AccessProfileMetadataBulkUpdateByFilterRequest = {
   "values" : [ {
     "attribute" : "iscFederalClassifications",
     "values" : [ "topSecret" ]
@@ -286,8 +314,8 @@
   "filters" : "requestable eq false",
   "replaceScope" : "ATTRIBUTE",
   "operation" : "REPLACE"
-}; // Accessprofilemetadatabulkupdatebyfilterrequest | 
-        const result = await apiInstance.updateAccessProfilesMetadataByFilterV1({ accessprofilemetadatabulkupdatebyfilterrequest: accessprofilemetadatabulkupdatebyfilterrequest });
+}; // AccessProfileMetadataBulkUpdateByFilterRequest | 
+        const result = await apiInstance.updateAccessProfilesMetadataByFilterV1({ accessProfileMetadataBulkUpdateByFilterRequest: accessProfileMetadataBulkUpdateByFilterRequest });
         console.log(result);
 - path: /access-profiles/v1/access-model-metadata/bulk-update/ids
   method: POST
@@ -297,11 +325,11 @@
       source: |
         import { AccessProfilesApi } from '@sailpoint/api-client';
         import { Configuration } from '@sailpoint/api-client';
-        import { Accessprofilemetadatabulkupdatebyidrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+        import { AccessProfileMetadataBulkUpdateByIdRequest } from '@sailpoint/api-client/dist/access_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessProfilesApi(configuration);
-        const accessprofilemetadatabulkupdatebyidrequest: Accessprofilemetadatabulkupdatebyidrequest = {
+        const accessProfileMetadataBulkUpdateByIdRequest: AccessProfileMetadataBulkUpdateByIdRequest = {
   "accessProfiles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
   "values" : [ {
     "attribute" : "iscFederalClassifications",
@@ -309,8 +337,8 @@
   } ],
   "replaceScope" : "ATTRIBUTE",
   "operation" : "REPLACE"
-}; // Accessprofilemetadatabulkupdatebyidrequest | 
-        const result = await apiInstance.updateAccessProfilesMetadataByIdsV1({ accessprofilemetadatabulkupdatebyidrequest: accessprofilemetadatabulkupdatebyidrequest });
+}; // AccessProfileMetadataBulkUpdateByIdRequest | 
+        const result = await apiInstance.updateAccessProfilesMetadataByIdsV1({ accessProfileMetadataBulkUpdateByIdRequest: accessProfileMetadataBulkUpdateByIdRequest });
         console.log(result);
 - path: /access-profiles/v1/access-model-metadata/bulk-update/query
   method: POST
@@ -320,11 +348,11 @@
       source: |
         import { AccessProfilesApi } from '@sailpoint/api-client';
         import { Configuration } from '@sailpoint/api-client';
-        import { Accessprofilemetadatabulkupdatebyqueryrequest } from '@sailpoint/api-client/dist/access_profiles/api';
+        import { AccessProfileMetadataBulkUpdateByQueryRequest } from '@sailpoint/api-client/dist/access_profiles/api';
 
         const configuration = new Configuration();
         const apiInstance = new AccessProfilesApi(configuration);
-        const accessprofilemetadatabulkupdatebyqueryrequest: Accessprofilemetadatabulkupdatebyqueryrequest = {
+        const accessProfileMetadataBulkUpdateByQueryRequest: AccessProfileMetadataBulkUpdateByQueryRequest = {
   "query" : {
     "indices" : [ "accessprofiles" ],
     "queryType" : "TEXT",
@@ -342,8 +370,8 @@
   } ],
   "replaceScope" : "ATTRIBUTE",
   "operation" : "REPLACE"
-}; // Accessprofilemetadatabulkupdatebyqueryrequest | 
-        const result = await apiInstance.updateAccessProfilesMetadataByQueryV1({ accessprofilemetadatabulkupdatebyqueryrequest: accessprofilemetadatabulkupdatebyqueryrequest });
+}; // AccessProfileMetadataBulkUpdateByQueryRequest | 
+        const result = await apiInstance.updateAccessProfilesMetadataByQueryV1({ accessProfileMetadataBulkUpdateByQueryRequest: accessProfileMetadataBulkUpdateByQueryRequest });
         console.log(result);
 - path: /access-profiles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}
   method: POST

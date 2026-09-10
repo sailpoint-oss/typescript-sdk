@@ -333,6 +333,254 @@ export interface AccessProfileBulkUpdateRequestInner {
     'requestable'?: boolean;
 }
 /**
+ * Filter criteria and Access Model Metadata key/values used to select access profiles.
+ * @export
+ * @interface AccessProfileListFilterDTO
+ */
+export interface AccessProfileListFilterDTO {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof AccessProfileListFilterDTO
+     */
+    'filters'?: string | null;
+    /**
+     * The Access Model Metadata attributes and values used to filter the results.
+     * @type {Array<AccessProfileListFilterDTOAmmKeyValuesInner>}
+     * @memberof AccessProfileListFilterDTO
+     */
+    'ammKeyValues'?: Array<AccessProfileListFilterDTOAmmKeyValuesInner> | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccessProfileListFilterDTOAmmKeyValuesInner
+ */
+export interface AccessProfileListFilterDTOAmmKeyValuesInner {
+    /**
+     * The technical name of the metadata attribute. A blank or missing value is rejected with a 400 error.
+     * @type {string}
+     * @memberof AccessProfileListFilterDTOAmmKeyValuesInner
+     */
+    'attribute'?: string;
+    /**
+     * The attribute values used to filter access profiles. If the list is empty, results are filtered by attribute key only.
+     * @type {Array<string>}
+     * @memberof AccessProfileListFilterDTOAmmKeyValuesInner
+     */
+    'values'?: Array<string>;
+}
+/**
+ * Request to bulk update Access Model Metadata on every access profile matching a filter expression. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+ * @export
+ * @interface AccessProfileMetadataBulkUpdateByFilterRequest
+ */
+export interface AccessProfileMetadataBulkUpdateByFilterRequest {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByFilterRequest
+     */
+    'filters': string;
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByFilterRequest
+     */
+    'operation': AccessProfileMetadataBulkUpdateByFilterRequestOperationEnum;
+    /**
+     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the access profile.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByFilterRequest
+     */
+    'replaceScope': AccessProfileMetadataBulkUpdateByFilterRequestReplaceScopeEnum;
+    /**
+     * The metadata to be updated, including attribute key and value.
+     * @type {Array<AccessProfileMetadataBulkUpdateByIdRequestValuesInner>}
+     * @memberof AccessProfileMetadataBulkUpdateByFilterRequest
+     */
+    'values': Array<AccessProfileMetadataBulkUpdateByIdRequestValuesInner>;
+}
+
+export const AccessProfileMetadataBulkUpdateByFilterRequestOperationEnum = {
+    Add: 'ADD',
+    Remove: 'REMOVE',
+    Replace: 'REPLACE'
+} as const;
+
+export type AccessProfileMetadataBulkUpdateByFilterRequestOperationEnum = typeof AccessProfileMetadataBulkUpdateByFilterRequestOperationEnum[keyof typeof AccessProfileMetadataBulkUpdateByFilterRequestOperationEnum];
+export const AccessProfileMetadataBulkUpdateByFilterRequestReplaceScopeEnum = {
+    All: 'ALL',
+    Attribute: 'ATTRIBUTE'
+} as const;
+
+export type AccessProfileMetadataBulkUpdateByFilterRequestReplaceScopeEnum = typeof AccessProfileMetadataBulkUpdateByFilterRequestReplaceScopeEnum[keyof typeof AccessProfileMetadataBulkUpdateByFilterRequestReplaceScopeEnum];
+
+/**
+ * Request to bulk update Access Model Metadata on a list of access profiles identified by ID. The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
+ * @export
+ * @interface AccessProfileMetadataBulkUpdateByIdRequest
+ */
+export interface AccessProfileMetadataBulkUpdateByIdRequest {
+    /**
+     * The IDs of the access profiles to update.
+     * @type {Array<string>}
+     * @memberof AccessProfileMetadataBulkUpdateByIdRequest
+     */
+    'accessProfiles': Array<string>;
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByIdRequest
+     */
+    'operation': AccessProfileMetadataBulkUpdateByIdRequestOperationEnum;
+    /**
+     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the access profile.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByIdRequest
+     */
+    'replaceScope': AccessProfileMetadataBulkUpdateByIdRequestReplaceScopeEnum;
+    /**
+     * The metadata to be updated, including attribute key and value.
+     * @type {Array<AccessProfileMetadataBulkUpdateByIdRequestValuesInner>}
+     * @memberof AccessProfileMetadataBulkUpdateByIdRequest
+     */
+    'values': Array<AccessProfileMetadataBulkUpdateByIdRequestValuesInner>;
+}
+
+export const AccessProfileMetadataBulkUpdateByIdRequestOperationEnum = {
+    Add: 'ADD',
+    Remove: 'REMOVE',
+    Replace: 'REPLACE'
+} as const;
+
+export type AccessProfileMetadataBulkUpdateByIdRequestOperationEnum = typeof AccessProfileMetadataBulkUpdateByIdRequestOperationEnum[keyof typeof AccessProfileMetadataBulkUpdateByIdRequestOperationEnum];
+export const AccessProfileMetadataBulkUpdateByIdRequestReplaceScopeEnum = {
+    All: 'ALL',
+    Attribute: 'ATTRIBUTE'
+} as const;
+
+export type AccessProfileMetadataBulkUpdateByIdRequestReplaceScopeEnum = typeof AccessProfileMetadataBulkUpdateByIdRequestReplaceScopeEnum[keyof typeof AccessProfileMetadataBulkUpdateByIdRequestReplaceScopeEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccessProfileMetadataBulkUpdateByIdRequestValuesInner
+ */
+export interface AccessProfileMetadataBulkUpdateByIdRequestValuesInner {
+    /**
+     * The technical name of the metadata attribute.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByIdRequestValuesInner
+     */
+    'attribute': string;
+    /**
+     * The values of the attribute to be updated.
+     * @type {Array<string>}
+     * @memberof AccessProfileMetadataBulkUpdateByIdRequestValuesInner
+     */
+    'values': Array<string> | null;
+    /**
+     * The type of the metadata attribute. Set to `custom` for custom metadata attributes, which require a suite license.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByIdRequestValuesInner
+     */
+    'objectType'?: string;
+}
+/**
+ * Request to bulk update Access Model Metadata on every access profile matching a search query. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.  For more information about the query object, refer to [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post).
+ * @export
+ * @interface AccessProfileMetadataBulkUpdateByQueryRequest
+ */
+export interface AccessProfileMetadataBulkUpdateByQueryRequest {
+    /**
+     * The search query selecting the access profiles to update.
+     * @type {object}
+     * @memberof AccessProfileMetadataBulkUpdateByQueryRequest
+     */
+    'query': object;
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByQueryRequest
+     */
+    'operation': AccessProfileMetadataBulkUpdateByQueryRequestOperationEnum;
+    /**
+     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the access profile.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateByQueryRequest
+     */
+    'replaceScope': AccessProfileMetadataBulkUpdateByQueryRequestReplaceScopeEnum;
+    /**
+     * The metadata to be updated, including attribute key and value.
+     * @type {Array<AccessProfileMetadataBulkUpdateByIdRequestValuesInner>}
+     * @memberof AccessProfileMetadataBulkUpdateByQueryRequest
+     */
+    'values': Array<AccessProfileMetadataBulkUpdateByIdRequestValuesInner>;
+}
+
+export const AccessProfileMetadataBulkUpdateByQueryRequestOperationEnum = {
+    Add: 'ADD',
+    Remove: 'REMOVE',
+    Replace: 'REPLACE'
+} as const;
+
+export type AccessProfileMetadataBulkUpdateByQueryRequestOperationEnum = typeof AccessProfileMetadataBulkUpdateByQueryRequestOperationEnum[keyof typeof AccessProfileMetadataBulkUpdateByQueryRequestOperationEnum];
+export const AccessProfileMetadataBulkUpdateByQueryRequestReplaceScopeEnum = {
+    All: 'ALL',
+    Attribute: 'ATTRIBUTE'
+} as const;
+
+export type AccessProfileMetadataBulkUpdateByQueryRequestReplaceScopeEnum = typeof AccessProfileMetadataBulkUpdateByQueryRequestReplaceScopeEnum[keyof typeof AccessProfileMetadataBulkUpdateByQueryRequestReplaceScopeEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccessProfileMetadataBulkUpdateResponse
+ */
+export interface AccessProfileMetadataBulkUpdateResponse {
+    /**
+     * ID of the task that is processing the bulk update.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateResponse
+     */
+    'id'?: string;
+    /**
+     * Type of the object the bulk update applies to.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateResponse
+     */
+    'type'?: string;
+    /**
+     * The status of the bulk update request.
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateResponse
+     */
+    'status'?: AccessProfileMetadataBulkUpdateResponseStatusEnum;
+    /**
+     * Time when the bulk update request was created
+     * @type {string}
+     * @memberof AccessProfileMetadataBulkUpdateResponse
+     */
+    'created'?: string;
+}
+
+export const AccessProfileMetadataBulkUpdateResponseStatusEnum = {
+    Created: 'CREATED',
+    PreProcess: 'PRE_PROCESS',
+    PreProcessCompleted: 'PRE_PROCESS_COMPLETED',
+    PostProcess: 'POST_PROCESS',
+    Completed: 'COMPLETED',
+    ChunkPending: 'CHUNK_PENDING',
+    ChunkProcessing: 'CHUNK_PROCESSING',
+    ReProcessing: 'RE_PROCESSING',
+    PreProcessFailed: 'PRE_PROCESS_FAILED',
+    Failed: 'FAILED'
+} as const;
+
+export type AccessProfileMetadataBulkUpdateResponseStatusEnum = typeof AccessProfileMetadataBulkUpdateResponseStatusEnum[keyof typeof AccessProfileMetadataBulkUpdateResponseStatusEnum];
+
+/**
  * 
  * @export
  * @interface AccessProfileSourceRef
@@ -445,216 +693,6 @@ export const AccessProfileUsageUsedByInnerTypeEnum = {
 } as const;
 
 export type AccessProfileUsageUsedByInnerTypeEnum = typeof AccessProfileUsageUsedByInnerTypeEnum[keyof typeof AccessProfileUsageUsedByInnerTypeEnum];
-
-/**
- * Request to bulk update Access Model Metadata on every access profile matching a filter expression. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
- * @export
- * @interface Accessprofilemetadatabulkupdatebyfilterrequest
- */
-export interface Accessprofilemetadatabulkupdatebyfilterrequest {
-    /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdatebyfilterrequest
-     */
-    'filters': string;
-    /**
-     * The operation to be performed
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdatebyfilterrequest
-     */
-    'operation': AccessprofilemetadatabulkupdatebyfilterrequestOperationEnum;
-    /**
-     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the access profile.
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdatebyfilterrequest
-     */
-    'replaceScope': AccessprofilemetadatabulkupdatebyfilterrequestReplaceScopeEnum;
-    /**
-     * The metadata to be updated, including attribute key and value.
-     * @type {Array<AccessprofilemetadatabulkupdatebyidrequestValuesInner>}
-     * @memberof Accessprofilemetadatabulkupdatebyfilterrequest
-     */
-    'values': Array<AccessprofilemetadatabulkupdatebyidrequestValuesInner>;
-}
-
-export const AccessprofilemetadatabulkupdatebyfilterrequestOperationEnum = {
-    Add: 'ADD',
-    Remove: 'REMOVE',
-    Replace: 'REPLACE'
-} as const;
-
-export type AccessprofilemetadatabulkupdatebyfilterrequestOperationEnum = typeof AccessprofilemetadatabulkupdatebyfilterrequestOperationEnum[keyof typeof AccessprofilemetadatabulkupdatebyfilterrequestOperationEnum];
-export const AccessprofilemetadatabulkupdatebyfilterrequestReplaceScopeEnum = {
-    All: 'ALL',
-    Attribute: 'ATTRIBUTE'
-} as const;
-
-export type AccessprofilemetadatabulkupdatebyfilterrequestReplaceScopeEnum = typeof AccessprofilemetadatabulkupdatebyfilterrequestReplaceScopeEnum[keyof typeof AccessprofilemetadatabulkupdatebyfilterrequestReplaceScopeEnum];
-
-/**
- * Request to bulk update Access Model Metadata on a list of access profiles identified by ID. The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
- * @export
- * @interface Accessprofilemetadatabulkupdatebyidrequest
- */
-export interface Accessprofilemetadatabulkupdatebyidrequest {
-    /**
-     * The IDs of the access profiles to update.
-     * @type {Array<string>}
-     * @memberof Accessprofilemetadatabulkupdatebyidrequest
-     */
-    'accessProfiles': Array<string>;
-    /**
-     * The operation to be performed
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdatebyidrequest
-     */
-    'operation': AccessprofilemetadatabulkupdatebyidrequestOperationEnum;
-    /**
-     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the access profile.
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdatebyidrequest
-     */
-    'replaceScope': AccessprofilemetadatabulkupdatebyidrequestReplaceScopeEnum;
-    /**
-     * The metadata to be updated, including attribute key and value.
-     * @type {Array<AccessprofilemetadatabulkupdatebyidrequestValuesInner>}
-     * @memberof Accessprofilemetadatabulkupdatebyidrequest
-     */
-    'values': Array<AccessprofilemetadatabulkupdatebyidrequestValuesInner>;
-}
-
-export const AccessprofilemetadatabulkupdatebyidrequestOperationEnum = {
-    Add: 'ADD',
-    Remove: 'REMOVE',
-    Replace: 'REPLACE'
-} as const;
-
-export type AccessprofilemetadatabulkupdatebyidrequestOperationEnum = typeof AccessprofilemetadatabulkupdatebyidrequestOperationEnum[keyof typeof AccessprofilemetadatabulkupdatebyidrequestOperationEnum];
-export const AccessprofilemetadatabulkupdatebyidrequestReplaceScopeEnum = {
-    All: 'ALL',
-    Attribute: 'ATTRIBUTE'
-} as const;
-
-export type AccessprofilemetadatabulkupdatebyidrequestReplaceScopeEnum = typeof AccessprofilemetadatabulkupdatebyidrequestReplaceScopeEnum[keyof typeof AccessprofilemetadatabulkupdatebyidrequestReplaceScopeEnum];
-
-/**
- * 
- * @export
- * @interface AccessprofilemetadatabulkupdatebyidrequestValuesInner
- */
-export interface AccessprofilemetadatabulkupdatebyidrequestValuesInner {
-    /**
-     * The technical name of the metadata attribute.
-     * @type {string}
-     * @memberof AccessprofilemetadatabulkupdatebyidrequestValuesInner
-     */
-    'attribute': string;
-    /**
-     * The values of the attribute to be updated.
-     * @type {Array<string>}
-     * @memberof AccessprofilemetadatabulkupdatebyidrequestValuesInner
-     */
-    'values': Array<string> | null;
-    /**
-     * The type of the metadata attribute. Set to `custom` for custom metadata attributes, which require a suite license.
-     * @type {string}
-     * @memberof AccessprofilemetadatabulkupdatebyidrequestValuesInner
-     */
-    'objectType'?: string;
-}
-/**
- * Request to bulk update Access Model Metadata on every access profile matching a search query. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.  For more information about the query object, refer to [V3 API Perform Search](https://developer.sailpoint.com/docs/api/v3/search-post).
- * @export
- * @interface Accessprofilemetadatabulkupdatebyqueryrequest
- */
-export interface Accessprofilemetadatabulkupdatebyqueryrequest {
-    /**
-     * The search query selecting the access profiles to update.
-     * @type {object}
-     * @memberof Accessprofilemetadatabulkupdatebyqueryrequest
-     */
-    'query': object;
-    /**
-     * The operation to be performed
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdatebyqueryrequest
-     */
-    'operation': AccessprofilemetadatabulkupdatebyqueryrequestOperationEnum;
-    /**
-     * The choice of update scope. **ATTRIBUTE** replaces only the values of the attributes named in `values`, and **ALL** replaces every metadata attribute on the access profile.
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdatebyqueryrequest
-     */
-    'replaceScope': AccessprofilemetadatabulkupdatebyqueryrequestReplaceScopeEnum;
-    /**
-     * The metadata to be updated, including attribute key and value.
-     * @type {Array<AccessprofilemetadatabulkupdatebyidrequestValuesInner>}
-     * @memberof Accessprofilemetadatabulkupdatebyqueryrequest
-     */
-    'values': Array<AccessprofilemetadatabulkupdatebyidrequestValuesInner>;
-}
-
-export const AccessprofilemetadatabulkupdatebyqueryrequestOperationEnum = {
-    Add: 'ADD',
-    Remove: 'REMOVE',
-    Replace: 'REPLACE'
-} as const;
-
-export type AccessprofilemetadatabulkupdatebyqueryrequestOperationEnum = typeof AccessprofilemetadatabulkupdatebyqueryrequestOperationEnum[keyof typeof AccessprofilemetadatabulkupdatebyqueryrequestOperationEnum];
-export const AccessprofilemetadatabulkupdatebyqueryrequestReplaceScopeEnum = {
-    All: 'ALL',
-    Attribute: 'ATTRIBUTE'
-} as const;
-
-export type AccessprofilemetadatabulkupdatebyqueryrequestReplaceScopeEnum = typeof AccessprofilemetadatabulkupdatebyqueryrequestReplaceScopeEnum[keyof typeof AccessprofilemetadatabulkupdatebyqueryrequestReplaceScopeEnum];
-
-/**
- * 
- * @export
- * @interface Accessprofilemetadatabulkupdateresponse
- */
-export interface Accessprofilemetadatabulkupdateresponse {
-    /**
-     * ID of the task that is processing the bulk update.
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdateresponse
-     */
-    'id'?: string;
-    /**
-     * Type of the object the bulk update applies to.
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdateresponse
-     */
-    'type'?: string;
-    /**
-     * The status of the bulk update request.
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdateresponse
-     */
-    'status'?: AccessprofilemetadatabulkupdateresponseStatusEnum;
-    /**
-     * Time when the bulk update request was created
-     * @type {string}
-     * @memberof Accessprofilemetadatabulkupdateresponse
-     */
-    'created'?: string;
-}
-
-export const AccessprofilemetadatabulkupdateresponseStatusEnum = {
-    Created: 'CREATED',
-    PreProcess: 'PRE_PROCESS',
-    PreProcessCompleted: 'PRE_PROCESS_COMPLETED',
-    PostProcess: 'POST_PROCESS',
-    Completed: 'COMPLETED',
-    ChunkPending: 'CHUNK_PENDING',
-    ChunkProcessing: 'CHUNK_PROCESSING',
-    ReProcessing: 'RE_PROCESSING',
-    PreProcessFailed: 'PRE_PROCESS_FAILED',
-    Failed: 'FAILED'
-} as const;
-
-export type AccessprofilemetadatabulkupdateresponseStatusEnum = typeof AccessprofilemetadatabulkupdateresponseStatusEnum[keyof typeof AccessprofilemetadatabulkupdateresponseStatusEnum];
 
 /**
  * Reference to an additional owner (identity or governance group).
@@ -1776,6 +1814,77 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
+         * @summary Filter access profiles by metadata
+         * @param {AccessProfileListFilterDTO} accessProfileListFilterDTO 
+         * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] Filters the returned list to those access profiles assigned to the specified segment IDs.
+         * @param {boolean} [includeUnsegmented] Whether the returned list includes unsegmented access profiles.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchAccessProfilesByFilterV1: async (accessProfileListFilterDTO: AccessProfileListFilterDTO, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileListFilterDTO' is not null or undefined
+            assertParamExists('searchAccessProfilesByFilterV1', 'accessProfileListFilterDTO', accessProfileListFilterDTO)
+            const localVarPath = `/access-profiles/v1/filter`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (forSubadmin !== undefined) {
+                localVarQueryParameter['for-subadmin'] = forSubadmin;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileListFilterDTO, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
@@ -1814,13 +1923,13 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
          * @summary Bulk-update metadata by filter
-         * @param {Accessprofilemetadatabulkupdatebyfilterrequest} accessprofilemetadatabulkupdatebyfilterrequest 
+         * @param {AccessProfileMetadataBulkUpdateByFilterRequest} accessProfileMetadataBulkUpdateByFilterRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesMetadataByFilterV1: async (accessprofilemetadatabulkupdatebyfilterrequest: Accessprofilemetadatabulkupdatebyfilterrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessprofilemetadatabulkupdatebyfilterrequest' is not null or undefined
-            assertParamExists('updateAccessProfilesMetadataByFilterV1', 'accessprofilemetadatabulkupdatebyfilterrequest', accessprofilemetadatabulkupdatebyfilterrequest)
+        updateAccessProfilesMetadataByFilterV1: async (accessProfileMetadataBulkUpdateByFilterRequest: AccessProfileMetadataBulkUpdateByFilterRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileMetadataBulkUpdateByFilterRequest' is not null or undefined
+            assertParamExists('updateAccessProfilesMetadataByFilterV1', 'accessProfileMetadataBulkUpdateByFilterRequest', accessProfileMetadataBulkUpdateByFilterRequest)
             const localVarPath = `/access-profiles/v1/access-model-metadata/bulk-update/filter`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1840,7 +1949,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessprofilemetadatabulkupdatebyfilterrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileMetadataBulkUpdateByFilterRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1850,13 +1959,13 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
          * @summary Bulk-update metadata by ids
-         * @param {Accessprofilemetadatabulkupdatebyidrequest} accessprofilemetadatabulkupdatebyidrequest 
+         * @param {AccessProfileMetadataBulkUpdateByIdRequest} accessProfileMetadataBulkUpdateByIdRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesMetadataByIdsV1: async (accessprofilemetadatabulkupdatebyidrequest: Accessprofilemetadatabulkupdatebyidrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessprofilemetadatabulkupdatebyidrequest' is not null or undefined
-            assertParamExists('updateAccessProfilesMetadataByIdsV1', 'accessprofilemetadatabulkupdatebyidrequest', accessprofilemetadatabulkupdatebyidrequest)
+        updateAccessProfilesMetadataByIdsV1: async (accessProfileMetadataBulkUpdateByIdRequest: AccessProfileMetadataBulkUpdateByIdRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileMetadataBulkUpdateByIdRequest' is not null or undefined
+            assertParamExists('updateAccessProfilesMetadataByIdsV1', 'accessProfileMetadataBulkUpdateByIdRequest', accessProfileMetadataBulkUpdateByIdRequest)
             const localVarPath = `/access-profiles/v1/access-model-metadata/bulk-update/ids`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1876,7 +1985,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessprofilemetadatabulkupdatebyidrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileMetadataBulkUpdateByIdRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1886,13 +1995,13 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
          * @summary Bulk-update metadata by query
-         * @param {Accessprofilemetadatabulkupdatebyqueryrequest} accessprofilemetadatabulkupdatebyqueryrequest 
+         * @param {AccessProfileMetadataBulkUpdateByQueryRequest} accessProfileMetadataBulkUpdateByQueryRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesMetadataByQueryV1: async (accessprofilemetadatabulkupdatebyqueryrequest: Accessprofilemetadatabulkupdatebyqueryrequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accessprofilemetadatabulkupdatebyqueryrequest' is not null or undefined
-            assertParamExists('updateAccessProfilesMetadataByQueryV1', 'accessprofilemetadatabulkupdatebyqueryrequest', accessprofilemetadatabulkupdatebyqueryrequest)
+        updateAccessProfilesMetadataByQueryV1: async (accessProfileMetadataBulkUpdateByQueryRequest: AccessProfileMetadataBulkUpdateByQueryRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileMetadataBulkUpdateByQueryRequest' is not null or undefined
+            assertParamExists('updateAccessProfilesMetadataByQueryV1', 'accessProfileMetadataBulkUpdateByQueryRequest', accessProfileMetadataBulkUpdateByQueryRequest)
             const localVarPath = `/access-profiles/v1/access-model-metadata/bulk-update/query`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1912,7 +2021,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(accessprofilemetadatabulkupdatebyqueryrequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileMetadataBulkUpdateByQueryRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2091,6 +2200,26 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
+         * @summary Filter access profiles by metadata
+         * @param {AccessProfileListFilterDTO} accessProfileListFilterDTO 
+         * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] Filters the returned list to those access profiles assigned to the specified segment IDs.
+         * @param {boolean} [includeUnsegmented] Whether the returned list includes unsegmented access profiles.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchAccessProfilesByFilterV1(accessProfileListFilterDTO: AccessProfileListFilterDTO, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAccessProfilesByFilterV1(accessProfileListFilterDTO, forSubadmin, limit, offset, count, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.searchAccessProfilesByFilterV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
@@ -2106,12 +2235,12 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
          * @summary Bulk-update metadata by filter
-         * @param {Accessprofilemetadatabulkupdatebyfilterrequest} accessprofilemetadatabulkupdatebyfilterrequest 
+         * @param {AccessProfileMetadataBulkUpdateByFilterRequest} accessProfileMetadataBulkUpdateByFilterRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessProfilesMetadataByFilterV1(accessprofilemetadatabulkupdatebyfilterrequest: Accessprofilemetadatabulkupdatebyfilterrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofilemetadatabulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesMetadataByFilterV1(accessprofilemetadatabulkupdatebyfilterrequest, axiosOptions);
+        async updateAccessProfilesMetadataByFilterV1(accessProfileMetadataBulkUpdateByFilterRequest: AccessProfileMetadataBulkUpdateByFilterRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileMetadataBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesMetadataByFilterV1(accessProfileMetadataBulkUpdateByFilterRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.updateAccessProfilesMetadataByFilterV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2119,12 +2248,12 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
          * @summary Bulk-update metadata by ids
-         * @param {Accessprofilemetadatabulkupdatebyidrequest} accessprofilemetadatabulkupdatebyidrequest 
+         * @param {AccessProfileMetadataBulkUpdateByIdRequest} accessProfileMetadataBulkUpdateByIdRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessProfilesMetadataByIdsV1(accessprofilemetadatabulkupdatebyidrequest: Accessprofilemetadatabulkupdatebyidrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofilemetadatabulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesMetadataByIdsV1(accessprofilemetadatabulkupdatebyidrequest, axiosOptions);
+        async updateAccessProfilesMetadataByIdsV1(accessProfileMetadataBulkUpdateByIdRequest: AccessProfileMetadataBulkUpdateByIdRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileMetadataBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesMetadataByIdsV1(accessProfileMetadataBulkUpdateByIdRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.updateAccessProfilesMetadataByIdsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2132,12 +2261,12 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
         /**
          * This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
          * @summary Bulk-update metadata by query
-         * @param {Accessprofilemetadatabulkupdatebyqueryrequest} accessprofilemetadatabulkupdatebyqueryrequest 
+         * @param {AccessProfileMetadataBulkUpdateByQueryRequest} accessProfileMetadataBulkUpdateByQueryRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessProfilesMetadataByQueryV1(accessprofilemetadatabulkupdatebyqueryrequest: Accessprofilemetadatabulkupdatebyqueryrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofilemetadatabulkupdateresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesMetadataByQueryV1(accessprofilemetadatabulkupdatebyqueryrequest, axiosOptions);
+        async updateAccessProfilesMetadataByQueryV1(accessProfileMetadataBulkUpdateByQueryRequest: AccessProfileMetadataBulkUpdateByQueryRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileMetadataBulkUpdateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesMetadataByQueryV1(accessProfileMetadataBulkUpdateByQueryRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.updateAccessProfilesMetadataByQueryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2248,6 +2377,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.patchAccessProfileV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
+         * @summary Filter access profiles by metadata
+         * @param {AccessProfilesApiSearchAccessProfilesByFilterV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchAccessProfilesByFilterV1(requestParameters: AccessProfilesApiSearchAccessProfilesByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessProfile>> {
+            return localVarFp.searchAccessProfilesByFilterV1(requestParameters.accessProfileListFilterDTO, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {AccessProfilesApiUpdateAccessProfilesInBulkV1Request} requestParameters Request parameters.
@@ -2264,8 +2403,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesMetadataByFilterV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofilemetadatabulkupdateresponse> {
-            return localVarFp.updateAccessProfilesMetadataByFilterV1(requestParameters.accessprofilemetadatabulkupdatebyfilterrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessProfilesMetadataByFilterV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfileMetadataBulkUpdateResponse> {
+            return localVarFp.updateAccessProfilesMetadataByFilterV1(requestParameters.accessProfileMetadataBulkUpdateByFilterRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initiates a bulk update of Access Model Metadata for one or more access profiles by a list of access profile IDs.  The update is processed asynchronously. The response returns the ID of the task performing the update.  The maximum access profile count in a single request is 3000. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
@@ -2274,8 +2413,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesMetadataByIdsV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofilemetadatabulkupdateresponse> {
-            return localVarFp.updateAccessProfilesMetadataByIdsV1(requestParameters.accessprofilemetadatabulkupdatebyidrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessProfilesMetadataByIdsV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfileMetadataBulkUpdateResponse> {
+            return localVarFp.updateAccessProfilesMetadataByIdsV1(requestParameters.accessProfileMetadataBulkUpdateByIdRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied search query.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
@@ -2284,8 +2423,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessProfilesMetadataByQueryV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofilemetadatabulkupdateresponse> {
-            return localVarFp.updateAccessProfilesMetadataByQueryV1(requestParameters.accessprofilemetadatabulkupdatebyqueryrequest, axiosOptions).then((request) => request(axios, basePath));
+        updateAccessProfilesMetadataByQueryV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfileMetadataBulkUpdateResponse> {
+            return localVarFp.updateAccessProfilesMetadataByQueryV1(requestParameters.accessProfileMetadataBulkUpdateByQueryRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API adds a single Access Model Metadata value to an access profile by attribute key and attribute value. A single access profile cannot be assigned more than 25 metadata values. Adding custom metadata requires a suite license.
@@ -2518,6 +2657,69 @@ export interface AccessProfilesApiPatchAccessProfileV1Request {
 }
 
 /**
+ * Request parameters for searchAccessProfilesByFilterV1 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiSearchAccessProfilesByFilterV1Request
+ */
+export interface AccessProfilesApiSearchAccessProfilesByFilterV1Request {
+    /**
+     * 
+     * @type {AccessProfileListFilterDTO}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly accessProfileListFilterDTO: AccessProfileListFilterDTO
+
+    /**
+     * Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly forSubadmin?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly sorters?: string
+
+    /**
+     * Filters the returned list to those access profiles assigned to the specified segment IDs.
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Whether the returned list includes unsegmented access profiles.
+     * @type {boolean}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV1
+     */
+    readonly includeUnsegmented?: boolean
+}
+
+/**
  * Request parameters for updateAccessProfilesInBulkV1 operation in AccessProfilesApi.
  * @export
  * @interface AccessProfilesApiUpdateAccessProfilesInBulkV1Request
@@ -2539,10 +2741,10 @@ export interface AccessProfilesApiUpdateAccessProfilesInBulkV1Request {
 export interface AccessProfilesApiUpdateAccessProfilesMetadataByFilterV1Request {
     /**
      * 
-     * @type {Accessprofilemetadatabulkupdatebyfilterrequest}
+     * @type {AccessProfileMetadataBulkUpdateByFilterRequest}
      * @memberof AccessProfilesApiUpdateAccessProfilesMetadataByFilterV1
      */
-    readonly accessprofilemetadatabulkupdatebyfilterrequest: Accessprofilemetadatabulkupdatebyfilterrequest
+    readonly accessProfileMetadataBulkUpdateByFilterRequest: AccessProfileMetadataBulkUpdateByFilterRequest
 }
 
 /**
@@ -2553,10 +2755,10 @@ export interface AccessProfilesApiUpdateAccessProfilesMetadataByFilterV1Request 
 export interface AccessProfilesApiUpdateAccessProfilesMetadataByIdsV1Request {
     /**
      * 
-     * @type {Accessprofilemetadatabulkupdatebyidrequest}
+     * @type {AccessProfileMetadataBulkUpdateByIdRequest}
      * @memberof AccessProfilesApiUpdateAccessProfilesMetadataByIdsV1
      */
-    readonly accessprofilemetadatabulkupdatebyidrequest: Accessprofilemetadatabulkupdatebyidrequest
+    readonly accessProfileMetadataBulkUpdateByIdRequest: AccessProfileMetadataBulkUpdateByIdRequest
 }
 
 /**
@@ -2567,10 +2769,10 @@ export interface AccessProfilesApiUpdateAccessProfilesMetadataByIdsV1Request {
 export interface AccessProfilesApiUpdateAccessProfilesMetadataByQueryV1Request {
     /**
      * 
-     * @type {Accessprofilemetadatabulkupdatebyqueryrequest}
+     * @type {AccessProfileMetadataBulkUpdateByQueryRequest}
      * @memberof AccessProfilesApiUpdateAccessProfilesMetadataByQueryV1
      */
-    readonly accessprofilemetadatabulkupdatebyqueryrequest: Accessprofilemetadatabulkupdatebyqueryrequest
+    readonly accessProfileMetadataBulkUpdateByQueryRequest: AccessProfileMetadataBulkUpdateByQueryRequest
 }
 
 /**
@@ -2705,6 +2907,18 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
+     * Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
+     * @summary Filter access profiles by metadata
+     * @param {AccessProfilesApiSearchAccessProfilesByFilterV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public searchAccessProfilesByFilterV1(requestParameters: AccessProfilesApiSearchAccessProfilesByFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).searchAccessProfilesByFilterV1(requestParameters.accessProfileListFilterDTO, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
      * @summary Update access profile(s) requestable field.
      * @param {AccessProfilesApiUpdateAccessProfilesInBulkV1Request} requestParameters Request parameters.
@@ -2725,7 +2939,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public updateAccessProfilesMetadataByFilterV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByFilterV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).updateAccessProfilesMetadataByFilterV1(requestParameters.accessprofilemetadatabulkupdatebyfilterrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).updateAccessProfilesMetadataByFilterV1(requestParameters.accessProfileMetadataBulkUpdateByFilterRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2737,7 +2951,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public updateAccessProfilesMetadataByIdsV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByIdsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).updateAccessProfilesMetadataByIdsV1(requestParameters.accessprofilemetadatabulkupdatebyidrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).updateAccessProfilesMetadataByIdsV1(requestParameters.accessProfileMetadataBulkUpdateByIdRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2749,7 +2963,7 @@ export class AccessProfilesApi extends BaseAPI {
      * @memberof AccessProfilesApi
      */
     public updateAccessProfilesMetadataByQueryV1(requestParameters: AccessProfilesApiUpdateAccessProfilesMetadataByQueryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).updateAccessProfilesMetadataByQueryV1(requestParameters.accessprofilemetadatabulkupdatebyqueryrequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessProfilesApiFp(this.configuration).updateAccessProfilesMetadataByQueryV1(requestParameters.accessProfileMetadataBulkUpdateByQueryRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

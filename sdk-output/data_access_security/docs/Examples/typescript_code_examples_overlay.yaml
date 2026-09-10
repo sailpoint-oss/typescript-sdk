@@ -73,7 +73,25 @@
 }; // BaseCreateApplicationRequest | Request body containing the details required to create a new application.
         const result = await apiInstance.createApplicationV1({ baseCreateApplicationRequest: baseCreateApplicationRequest });
         console.log(result);
-- path: /das/identity-collectors/v1
+- path: /das/v1/permissions/fields
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#create-data-dictionary-field-v1
+      source: |
+        import { DataAccessSecurityApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Createdatadictionaryfieldrequest } from '@sailpoint/api-client/dist/data_access_security/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new DataAccessSecurityApi(configuration);
+        const createdatadictionaryfieldrequest: Createdatadictionaryfieldrequest = {
+  "name" : "Department",
+  "dataDictionaryType" : "Users"
+}; // Createdatadictionaryfieldrequest | Custom data dictionary field to create.
+        const result = await apiInstance.createDataDictionaryFieldV1({ createdatadictionaryfieldrequest: createdatadictionaryfieldrequest });
+        console.log(result);
+- path: /das/v1/identity-collectors
   method: POST
   xCodeSample:
     - lang: TypeScript
@@ -87,7 +105,27 @@
         const apiInstance = new DataAccessSecurityApi(configuration);
         const createidentitycollectorrequest: Createidentitycollectorrequest = {
   "sourceId" : "2c9180835d2e5168015d32f890ca1581",
-  "name" : "Active Directory Identity Collector"
+  "name" : "Active Directory Identity Collector",
+  "groups" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  },
+  "users" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  }
 }; // Createidentitycollectorrequest | Request body containing the details required to create a new identity collector.
         const result = await apiInstance.createIdentityCollectorV1({ createidentitycollectorrequest: createidentitycollectorrequest });
         console.log(result);
@@ -216,7 +254,21 @@
         const id: number = 12345; // number | The unique identifier of the application to delete. (default to undefined)
         const result = await apiInstance.deleteApplicationV1({ id: id });
         console.log(result);
-- path: /das/identity-collectors/v1/{id}
+- path: /das/v1/permissions/fields/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#delete-data-dictionary-field-v1
+      source: |
+        import { DataAccessSecurityApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new DataAccessSecurityApi(configuration);
+        const name: string = 'Department'; // string | The field name to delete. (default to undefined)
+        const result = await apiInstance.deleteDataDictionaryFieldV1({ name: name });
+        console.log(result);
+- path: /das/v1/identity-collectors/{id}
   method: DELETE
   xCodeSample:
     - lang: TypeScript
@@ -288,6 +340,35 @@
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.getApplicationsV1({  });
+        console.log(result);
+- path: /das/v1/identity-collectors/properties
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-identity-collector-builtin-properties-v1
+      source: |
+        import { DataAccessSecurityApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new DataAccessSecurityApi(configuration);
+        const filters: string = 'type eq "Azure Active Directory"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq* (optional) (default to undefined)
+        const result = await apiInstance.getIdentityCollectorBuiltinPropertiesV1({  });
+        console.log(result);
+- path: /das/v1/identity-collectors/types
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#get-identity-collector-types-v1
+      source: |
+        import { DataAccessSecurityApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new DataAccessSecurityApi(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const result = await apiInstance.getIdentityCollectorTypesV1({  });
         console.log(result);
 - path: /das/v1/owners/applications/{appId}
   method: GET
@@ -367,7 +448,24 @@
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
         const result = await apiInstance.getTasksV1({  });
         console.log(result);
-- path: /das/identity-collectors/v1
+- path: /das/v1/permissions/fields
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#list-data-dictionary-fields-v1
+      source: |
+        import { DataAccessSecurityApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new DataAccessSecurityApi(configuration);
+        const filters: string = 'dataDictionaryType eq "Users" and name eq "Department"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and* (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.listDataDictionaryFieldsV1({  });
+        console.log(result);
+- path: /das/v1/identity-collectors
   method: GET
   xCodeSample:
     - lang: TypeScript
@@ -446,7 +544,28 @@
 }; // BaseCreateApplicationRequest | Request body containing the updated details for the application.
         const result = await apiInstance.putApplicationV1({ id: id, baseCreateApplicationRequest: baseCreateApplicationRequest });
         console.log(result);
-- path: /das/identity-collectors/v1/{id}
+- path: /das/v1/permissions/fields/{name}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/data_access_security/methods/data-access-security#put-data-dictionary-field-v1
+      source: |
+        import { DataAccessSecurityApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Updatedatadictionaryfieldrequest } from '@sailpoint/api-client/dist/data_access_security/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new DataAccessSecurityApi(configuration);
+        const name: string = 'Department'; // string | The current field name. (default to undefined)
+        const updatedatadictionaryfieldrequest: Updatedatadictionaryfieldrequest = {
+  "name" : "Cost Center",
+  "dataDictionaryType" : "Users",
+  "fieldType" : "String",
+  "required" : false
+}; // Updatedatadictionaryfieldrequest | Complete data dictionary field representation used to fully replace the existing field.
+        const result = await apiInstance.putDataDictionaryFieldV1({ name: name, updatedatadictionaryfieldrequest: updatedatadictionaryfieldrequest });
+        console.log(result);
+- path: /das/v1/identity-collectors/{id}
   method: PUT
   xCodeSample:
     - lang: TypeScript
@@ -458,12 +577,32 @@
 
         const configuration = new Configuration();
         const apiInstance = new DataAccessSecurityApi(configuration);
-        const id: number = 12345; // number | The unique identifier of the identity collector to update. (default to undefined)
+        const id: number = 12345; // number | The unique identifier of the identity collector to replace. (default to undefined)
         const updateidentitycollectorrequest: Updateidentitycollectorrequest = {
   "sourceId" : "2c9180835d2e5168015d32f890ca1581",
   "name" : "Active Directory Identity Collector",
-  "type" : "Active Directory"
-}; // Updateidentitycollectorrequest | Request body containing the updated details for the identity collector.
+  "groups" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  },
+  "type" : "Active Directory",
+  "users" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  }
+}; // Updateidentitycollectorrequest | Complete identity collector representation used to fully replace the existing resource. Partial updates are not supported.
         const result = await apiInstance.putIdentityCollectorV1({ id: id, updateidentitycollectorrequest: updateidentitycollectorrequest });
         console.log(result);
 - path: /das/v1/tasks/schedules/{id}

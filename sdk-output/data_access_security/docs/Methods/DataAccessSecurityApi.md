@@ -19,7 +19,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel-task-v1**](#cancel-task-v1) | **POST** `/das/v1/tasks/cancel/{id}` | Cancel a DAS task.
 [**create-application-v1**](#create-application-v1) | **POST** `/das/v1/applications` | Create application
-[**create-identity-collector-v1**](#create-identity-collector-v1) | **POST** `/das/identity-collectors/v1` | Create identity collector
+[**create-data-dictionary-field-v1**](#create-data-dictionary-field-v1) | **POST** `/das/v1/permissions/fields` | Create data dictionary field
+[**create-identity-collector-v1**](#create-identity-collector-v1) | **POST** `/das/v1/identity-collectors` | Create identity collector
 [**create-schedule-v1**](#create-schedule-v1) | **POST** `/das/v1/tasks/schedules` | Create a new schedule.
 [**das-v1-owners-assign-post**](#das-v1-owners-assign-post) | **POST** `/das/v1/owners/assign` | Assign owner to application resource.
 [**das-v1-owners-owner-identity-id-resources-get**](#das-v1-owners-owner-identity-id-resources-get) | **GET** `/das/v1/owners/{ownerIdentityId}/resources` | List resources for owner.
@@ -27,19 +28,24 @@ Method | HTTP request | Description
 [**das-v1-owners-resources-resource-id-get**](#das-v1-owners-resources-resource-id-get) | **GET** `/das/v1/owners/resources/{resourceId}` | List owners for resource.
 [**das-v1-owners-source-identity-id-reassign-destination-identity-id-post**](#das-v1-owners-source-identity-id-reassign-destination-identity-id-post) | **POST** `/das/v1/owners/{sourceIdentityId}/reassign/{destinationIdentityId}` | Reassign resource owner.
 [**delete-application-v1**](#delete-application-v1) | **DELETE** `/das/v1/applications/{id}` | Delete an application by identifier.
-[**delete-identity-collector-v1**](#delete-identity-collector-v1) | **DELETE** `/das/identity-collectors/v1/{id}` | Delete identity collector by identifier
+[**delete-data-dictionary-field-v1**](#delete-data-dictionary-field-v1) | **DELETE** `/das/v1/permissions/fields/{name}` | Delete data dictionary field
+[**delete-identity-collector-v1**](#delete-identity-collector-v1) | **DELETE** `/das/v1/identity-collectors/{id}` | Delete identity collector by identifier
 [**delete-schedule-v1**](#delete-schedule-v1) | **DELETE** `/das/v1/tasks/schedules/{id}` | Delete a DAS schedule.
 [**delete-task-v1**](#delete-task-v1) | **DELETE** `/das/v1/tasks/{id}` | Delete a DAS task.
 [**get-application-v1**](#get-application-v1) | **GET** `/das/v1/applications/{id}` | Retrieve application details by identifier.
 [**get-applications-v1**](#get-applications-v1) | **GET** `/das/v1/applications` | Search applications in DAS.
+[**get-identity-collector-builtin-properties-v1**](#get-identity-collector-builtin-properties-v1) | **GET** `/das/v1/identity-collectors/properties` | List built-in identity collector properties
+[**get-identity-collector-types-v1**](#get-identity-collector-types-v1) | **GET** `/das/v1/identity-collectors/types` | List identity collector types
 [**get-owners-v1**](#get-owners-v1) | **GET** `/das/v1/owners/applications/{appId}` | Retrieve owners per application.
 [**get-schedule-v1**](#get-schedule-v1) | **GET** `/das/v1/tasks/schedules/{id}` | Get a DAS schedule.
 [**get-schedules-v1**](#get-schedules-v1) | **GET** `/das/v1/tasks/schedules` | List all schedules.
 [**get-task-v1**](#get-task-v1) | **GET** `/das/v1/tasks/{id}` | Get a DAS task.
 [**get-tasks-v1**](#get-tasks-v1) | **GET** `/das/v1/tasks` | Lists all DAS tasks.
-[**list-identity-collectors-v1**](#list-identity-collectors-v1) | **GET** `/das/identity-collectors/v1` | List identity collectors
+[**list-data-dictionary-fields-v1**](#list-data-dictionary-fields-v1) | **GET** `/das/v1/permissions/fields` | List data dictionary fields
+[**list-identity-collectors-v1**](#list-identity-collectors-v1) | **GET** `/das/v1/identity-collectors` | List identity collectors
 [**put-application-v1**](#put-application-v1) | **PUT** `/das/v1/applications/{id}` | Update application by identifier.
-[**put-identity-collector-v1**](#put-identity-collector-v1) | **PUT** `/das/identity-collectors/v1/{id}` | Update identity collector by identifier
+[**put-data-dictionary-field-v1**](#put-data-dictionary-field-v1) | **PUT** `/das/v1/permissions/fields/{name}` | Replace data dictionary field
+[**put-identity-collector-v1**](#put-identity-collector-v1) | **PUT** `/das/v1/identity-collectors/{id}` | Replace identity collector
 [**put-schedule-v1**](#put-schedule-v1) | **PUT** `/das/v1/tasks/schedules/{id}` | Update a schedule.
 [**start-task-rerun-v1**](#start-task-rerun-v1) | **POST** `/das/v1/tasks/rerun/{id}` | Rerun a DAS task.
 
@@ -165,9 +171,52 @@ console.log(result);
 
 [[Back to top]](#)
 
+## create-data-dictionary-field-v1
+Create data dictionary field
+Creates a custom data dictionary field. The server assigns fieldType String and required false; callers do not supply those values.
+
+[API Spec](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**createdatadictionaryfieldrequest** | `Createdatadictionaryfieldrequest` | Custom data dictionary field to create. | 
+
+### Return type
+
+`Datadictionaryfieldlistitem`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Createdatadictionaryfieldrequest } from '@sailpoint/api-client/dist/data_access_security/api';
+
+const configuration = new Configuration();
+const apiInstance = new DataAccessSecurityApi(configuration);
+const createdatadictionaryfieldrequest: Createdatadictionaryfieldrequest = {
+  "name" : "Department",
+  "dataDictionaryType" : "Users"
+}; // Custom data dictionary field to create.
+const result = await apiInstance.createDataDictionaryFieldV1({ createdatadictionaryfieldrequest: createdatadictionaryfieldrequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
 ## create-identity-collector-v1
 Create identity collector
 This endpoint creates a new identity collector in Data Access Security for the specified source. The identity collector type is derived from the source.
+
+Optionally configure `users` and `groups` to register source attributes (`properties`) and map them to data dictionary fields by name (`fieldMappings.fieldDictionaryName`). When omitted, both collections are created with fixed columns only.
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-identity-collector-v-1)
 
@@ -198,7 +247,27 @@ const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
 const createidentitycollectorrequest: Createidentitycollectorrequest = {
   "sourceId" : "2c9180835d2e5168015d32f890ca1581",
-  "name" : "Active Directory Identity Collector"
+  "name" : "Active Directory Identity Collector",
+  "groups" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  },
+  "users" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  }
 }; // Request body containing the details required to create a new identity collector.
 const result = await apiInstance.createIdentityCollectorV1({ createidentitycollectorrequest: createidentitycollectorrequest });
 console.log(result);
@@ -497,6 +566,43 @@ console.log(result);
 
 [[Back to top]](#)
 
+## delete-data-dictionary-field-v1
+Delete data dictionary field
+Deletes a custom data dictionary field. Built-in fields where required is true cannot be deleted.
+
+[API Spec](https://developer.sailpoint.com/docs/api/delete-data-dictionary-field-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | `string` | The field name to delete. |  [default to undefined]
+
+### Return type
+
+(empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new DataAccessSecurityApi(configuration);
+const name: string = Department; // The field name to delete.
+const result = await apiInstance.deleteDataDictionaryFieldV1({ name: name });
+console.log(result);
+```
+
+[[Back to top]](#)
+
 ## delete-identity-collector-v1
 Delete identity collector by identifier
 This endpoint deletes an identity collector from Data Access Security by its unique identifier.
@@ -684,6 +790,86 @@ const limit: number = 250; // Max number of results to return. See [V3 API Stand
 const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const result = await apiInstance.getApplicationsV1({  });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-identity-collector-builtin-properties-v1
+List built-in identity collector properties
+Returns the built-in source attribute names for users and groups collections. When no filter is provided, built-in properties for all public identity collector types are returned (the same base types listed by [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)). When filtered by `type`, only the matching type is returned; the filter accepts any supported type display name, including SaaS variants such as `Box SaaS` or `AWS SaaS`.
+
+These attributes are always available for field mapping without being listed in `properties`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-collector-builtin-properties-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq* | [optional] [default to undefined]
+
+### Return type
+
+`Identitycollectorbuiltinpropertiesresponse`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new DataAccessSecurityApi(configuration);
+const filters: string = type eq "Azure Active Directory"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq* (optional)
+const result = await apiInstance.getIdentityCollectorBuiltinPropertiesV1({  });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-identity-collector-types-v1
+List identity collector types
+Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.
+
+Pagination is not supported for this endpoint; the full set of public types is always returned.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+
+### Return type
+
+`Array<string>`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new DataAccessSecurityApi(configuration);
+const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const result = await apiInstance.getIdentityCollectorTypesV1({  });
 console.log(result);
 ```
 
@@ -890,6 +1076,49 @@ console.log(result);
 
 [[Back to top]](#)
 
+## list-data-dictionary-fields-v1
+List data dictionary fields
+Returns custom data dictionary fields that can be used when configuring identity collector field mappings and other permission-related settings. Built-in fields are not included in list responses; only custom fields created via [Create Data Dictionary Field](https://developer.sailpoint.com/docs/api/create-data-dictionary-field-v-1) are returned. All listed fields have `required: false`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and* | [optional] [default to undefined]
+**limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
+
+### Return type
+
+`Array<Datadictionaryfieldlistitem>`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new DataAccessSecurityApi(configuration);
+const filters: string = dataDictionaryType eq "Users" and name eq "Department"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **dataDictionaryType**: *eq*  **name**: *eq*  Supported composite operators are *and* (optional)
+const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const result = await apiInstance.listDataDictionaryFieldsV1({  });
+console.log(result);
+```
+
+[[Back to top]](#)
+
 ## list-identity-collectors-v1
 List identity collectors
 This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.
@@ -1021,9 +1250,58 @@ console.log(result);
 
 [[Back to top]](#)
 
+## put-data-dictionary-field-v1
+Replace data dictionary field
+Fully replaces a custom data dictionary field. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted properties are rejected. For custom fields, `fieldType`, `dataDictionaryType`, and `required` must match the current values; only `name` may change. Built-in fields where `required` is true cannot be updated.
+
+List the field first with [List Data Dictionary Fields](https://developer.sailpoint.com/docs/api/list-data-dictionary-fields-v-1) to obtain the current representation before replacing it.
+
+[API Spec](https://developer.sailpoint.com/docs/api/put-data-dictionary-field-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | `string` | The current field name. |  [default to undefined]
+**updatedatadictionaryfieldrequest** | `Updatedatadictionaryfieldrequest` | Complete data dictionary field representation used to fully replace the existing field. | 
+
+### Return type
+
+`Datadictionaryfieldlistitem`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { DataAccessSecurityApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Updatedatadictionaryfieldrequest } from '@sailpoint/api-client/dist/data_access_security/api';
+
+const configuration = new Configuration();
+const apiInstance = new DataAccessSecurityApi(configuration);
+const name: string = Department; // The current field name.
+const updatedatadictionaryfieldrequest: Updatedatadictionaryfieldrequest = {
+  "name" : "Cost Center",
+  "dataDictionaryType" : "Users",
+  "fieldType" : "String",
+  "required" : false
+}; // Complete data dictionary field representation used to fully replace the existing field.
+const result = await apiInstance.putDataDictionaryFieldV1({ name: name, updatedatadictionaryfieldrequest: updatedatadictionaryfieldrequest });
+console.log(result);
+```
+
+[[Back to top]](#)
+
 ## put-identity-collector-v1
-Update identity collector by identifier
-This endpoint updates the name of an existing identity collector in Data Access Security. The `sourceId` and `type` cannot be changed and must match the current values.
+Replace identity collector
+Fully replaces an existing identity collector in Data Access Security. This is a PUT operation, not a partial update: the request body must contain the complete resource representation. Omitted or null top-level properties are rejected. After a successful request, a subsequent list request returns exactly the configuration that was sent.
+
+Retrieve the current configuration with [List Identity Collectors](https://developer.sailpoint.com/docs/api/list-identity-collectors-v-1) before replacing it. The `sourceId` and `type` cannot be changed and must match the current values.
 
 [API Spec](https://developer.sailpoint.com/docs/api/put-identity-collector-v-1)
 
@@ -1032,8 +1310,8 @@ This endpoint updates the name of an existing identity collector in Data Access 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**id** | `number` | The unique identifier of the identity collector to update. |  [default to undefined]
-**updateidentitycollectorrequest** | `Updateidentitycollectorrequest` | Request body containing the updated details for the identity collector. | 
+**id** | `number` | The unique identifier of the identity collector to replace. |  [default to undefined]
+**updateidentitycollectorrequest** | `Updateidentitycollectorrequest` | Complete identity collector representation used to fully replace the existing resource. Partial updates are not supported. | 
 
 ### Return type
 
@@ -1053,12 +1331,32 @@ import { Updateidentitycollectorrequest } from '@sailpoint/api-client/dist/data_
 
 const configuration = new Configuration();
 const apiInstance = new DataAccessSecurityApi(configuration);
-const id: number = 12345; // The unique identifier of the identity collector to update.
+const id: number = 12345; // The unique identifier of the identity collector to replace.
 const updateidentitycollectorrequest: Updateidentitycollectorrequest = {
   "sourceId" : "2c9180835d2e5168015d32f890ca1581",
   "name" : "Active Directory Identity Collector",
-  "type" : "Active Directory"
-}; // Request body containing the updated details for the identity collector.
+  "groups" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  },
+  "type" : "Active Directory",
+  "users" : {
+    "fieldMappings" : [ {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    }, {
+      "sourceAttributeName" : "department",
+      "fieldDictionaryName" : "UPTF-1"
+    } ],
+    "properties" : [ "UserAddress", "department" ]
+  }
+}; // Complete identity collector representation used to fully replace the existing resource. Partial updates are not supported.
 const result = await apiInstance.putIdentityCollectorV1({ id: id, updateidentitycollectorrequest: updateidentitycollectorrequest });
 console.log(result);
 ```
