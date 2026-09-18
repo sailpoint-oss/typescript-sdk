@@ -11,6 +11,8 @@ BaseSettings.md
 BusinessServiceType.md
 CrawlResourcesSizesOptions.md
 CreateIdentityCollectorV1200Response.md
+CreateIdentityCollectorV1409Response.md
+CreateIdentityCollectorV1409ResponseMessagesInner.md
 CreateScheduleRequest.md
 Createdatadictionaryfieldrequest.md
 Createidentitycollectorrequest.md
@@ -26,14 +28,15 @@ GetTasksV1429Response.md
 Identitycollectorbuiltinpropertiesbytype.md
 Identitycollectorbuiltinpropertiesresponse.md
 Identitycollectorcollectionsettings.md
+Identitycollectordependenciesconflicterror.md
+IdentitycollectordependenciesconflicterrorMessagesInner.md
+Identitycollectordependency.md
 Identitycollectorfieldmapping.md
 Identitycollectorlistitem.md
 Index.md
 Int64StringKeyValuePair.md
 LocaleOrigin.md
 PermissionCollectorSettings.md
-PutIdentityCollectorV1409Response.md
-PutIdentityCollectorV1409ResponseMessagesInner.md
 README.md
 ReelectRequest.md
 ResourceModel.md

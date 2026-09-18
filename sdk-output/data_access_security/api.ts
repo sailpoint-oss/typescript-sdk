@@ -486,6 +486,56 @@ export interface CreateIdentityCollectorV1200Response {
 /**
  * 
  * @export
+ * @interface CreateIdentityCollectorV1409Response
+ */
+export interface CreateIdentityCollectorV1409Response {
+    /**
+     * Fine-grained error code providing more detail of the error.
+     * @type {string}
+     * @memberof CreateIdentityCollectorV1409Response
+     */
+    'detailCode'?: string;
+    /**
+     * Unique tracking id for the error.
+     * @type {string}
+     * @memberof CreateIdentityCollectorV1409Response
+     */
+    'trackingId'?: string;
+    /**
+     * Generic localized reason for error.
+     * @type {Array<CreateIdentityCollectorV1409ResponseMessagesInner>}
+     * @memberof CreateIdentityCollectorV1409Response
+     */
+    'messages'?: Array<CreateIdentityCollectorV1409ResponseMessagesInner>;
+}
+/**
+ * 
+ * @export
+ * @interface CreateIdentityCollectorV1409ResponseMessagesInner
+ */
+export interface CreateIdentityCollectorV1409ResponseMessagesInner {
+    /**
+     * The locale for the message text, a BCP 47 language tag.
+     * @type {string}
+     * @memberof CreateIdentityCollectorV1409ResponseMessagesInner
+     */
+    'locale'?: string;
+    /**
+     * An indicator of how the locale was selected.
+     * @type {string}
+     * @memberof CreateIdentityCollectorV1409ResponseMessagesInner
+     */
+    'localeOrigin'?: string;
+    /**
+     * Actual text of the error message in the indicated locale.
+     * @type {string}
+     * @memberof CreateIdentityCollectorV1409ResponseMessagesInner
+     */
+    'text'?: string;
+}
+/**
+ * 
+ * @export
  * @interface CreateScheduleRequest
  */
 export interface CreateScheduleRequest {
@@ -837,6 +887,93 @@ export interface Identitycollectorcollectionsettings {
     'fieldMappings': Array<Identitycollectorfieldmapping>;
 }
 /**
+ * Conflict response returned when an identity collector cannot be deleted because it is in use.
+ * @export
+ * @interface Identitycollectordependenciesconflicterror
+ */
+export interface Identitycollectordependenciesconflicterror {
+    /**
+     * Fine-grained error code providing more detail of the error.
+     * @type {string}
+     * @memberof Identitycollectordependenciesconflicterror
+     */
+    'detailCode'?: string;
+    /**
+     * Unique tracking id for the error.
+     * @type {string}
+     * @memberof Identitycollectordependenciesconflicterror
+     */
+    'trackingId'?: string;
+    /**
+     * Generic localized reason for error.
+     * @type {Array<IdentitycollectordependenciesconflicterrorMessagesInner>}
+     * @memberof Identitycollectordependenciesconflicterror
+     */
+    'messages'?: Array<IdentitycollectordependenciesconflicterrorMessagesInner>;
+    /**
+     * Dependent objects blocking deletion. At most three items are returned.
+     * @type {Array<Identitycollectordependency>}
+     * @memberof Identitycollectordependenciesconflicterror
+     */
+    'dependencies'?: Array<Identitycollectordependency>;
+    /**
+     * Number of additional dependent objects not included in `dependencies`.
+     * @type {number}
+     * @memberof Identitycollectordependenciesconflicterror
+     */
+    'extendedDependenciesCount'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface IdentitycollectordependenciesconflicterrorMessagesInner
+ */
+export interface IdentitycollectordependenciesconflicterrorMessagesInner {
+    /**
+     * The locale for the message text, a BCP 47 language tag.
+     * @type {string}
+     * @memberof IdentitycollectordependenciesconflicterrorMessagesInner
+     */
+    'locale'?: string;
+    /**
+     * An indicator of how the locale was selected.
+     * @type {string}
+     * @memberof IdentitycollectordependenciesconflicterrorMessagesInner
+     */
+    'localeOrigin'?: string;
+    /**
+     * Actual text of the error message in the indicated locale.
+     * @type {string}
+     * @memberof IdentitycollectordependenciesconflicterrorMessagesInner
+     */
+    'text'?: string;
+}
+/**
+ * A dependent object blocking deletion of an identity collector.
+ * @export
+ * @interface Identitycollectordependency
+ */
+export interface Identitycollectordependency {
+    /**
+     * The display name of the dependent object. For applications, the platform dependency query may prefix the object name (for example, `Application - Finance SharePoint`).
+     * @type {string}
+     * @memberof Identitycollectordependency
+     */
+    'name'?: string;
+    /**
+     * The internal dependent object type identifier (fully qualified type name).
+     * @type {string}
+     * @memberof Identitycollectordependency
+     */
+    'type'?: string;
+    /**
+     * The human-readable display name of the dependent object type.
+     * @type {string}
+     * @memberof Identitycollectordependency
+     */
+    'typeDisplayName'?: string;
+}
+/**
  * 
  * @export
  * @interface Identitycollectorfieldmapping
@@ -973,56 +1110,6 @@ export interface PermissionCollectorSettings {
      * @memberof PermissionCollectorSettings
      */
     'effectivePermissionsSource'?: string | null;
-}
-/**
- * 
- * @export
- * @interface PutIdentityCollectorV1409Response
- */
-export interface PutIdentityCollectorV1409Response {
-    /**
-     * Fine-grained error code providing more detail of the error.
-     * @type {string}
-     * @memberof PutIdentityCollectorV1409Response
-     */
-    'detailCode'?: string;
-    /**
-     * Unique tracking id for the error.
-     * @type {string}
-     * @memberof PutIdentityCollectorV1409Response
-     */
-    'trackingId'?: string;
-    /**
-     * Generic localized reason for error.
-     * @type {Array<PutIdentityCollectorV1409ResponseMessagesInner>}
-     * @memberof PutIdentityCollectorV1409Response
-     */
-    'messages'?: Array<PutIdentityCollectorV1409ResponseMessagesInner>;
-}
-/**
- * 
- * @export
- * @interface PutIdentityCollectorV1409ResponseMessagesInner
- */
-export interface PutIdentityCollectorV1409ResponseMessagesInner {
-    /**
-     * The locale for the message text, a BCP 47 language tag.
-     * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseMessagesInner
-     */
-    'locale'?: string;
-    /**
-     * An indicator of how the locale was selected.
-     * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseMessagesInner
-     */
-    'localeOrigin'?: string;
-    /**
-     * Actual text of the error message in the indicated locale.
-     * @type {string}
-     * @memberof PutIdentityCollectorV1409ResponseMessagesInner
-     */
-    'text'?: string;
 }
 /**
  * 
@@ -2399,7 +2486,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
         /**
          * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
          * @summary List identity collectors
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  **name**: *eq, co*  For &#x60;name&#x60;, &#x60;eq&#x60; performs an exact match and &#x60;co&#x60; performs a contains (substring) match. Use public type display names from [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1) with &#x60;type&#x60; filters (for example, &#x60;AWS&#x60;, not &#x60;AWS SaaS&#x60;).  Supported composite operators are *and, or*
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2998,7 +3085,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint lists the identity collectors in Data Access Security with optional filtering and pagination.  Sorting is not supported for this endpoint; supplying the `sorters` query parameter results in a validation error.
          * @summary List identity collectors
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  **name**: *eq, co*  For &#x60;name&#x60;, &#x60;eq&#x60; performs an exact match and &#x60;co&#x60; performs a contains (substring) match. Use public type display names from [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1) with &#x60;type&#x60; filters (for example, &#x60;AWS&#x60;, not &#x60;AWS SaaS&#x60;).  Supported composite operators are *and, or*
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -3900,7 +3987,7 @@ export interface DataAccessSecurityApiListDataDictionaryFieldsV1Request {
  */
 export interface DataAccessSecurityApiListIdentityCollectorsV1Request {
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  Supported composite operators are *and, or*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq*  **type**: *eq, in*  **id**: *eq, in*  **name**: *eq, co*  For &#x60;name&#x60;, &#x60;eq&#x60; performs an exact match and &#x60;co&#x60; performs a contains (substring) match. Use public type display names from [List Identity Collector Types](https://developer.sailpoint.com/docs/api/get-identity-collector-types-v-1) with &#x60;type&#x60; filters (for example, &#x60;AWS&#x60;, not &#x60;AWS SaaS&#x60;).  Supported composite operators are *and, or*
      * @type {string}
      * @memberof DataAccessSecurityApiListIdentityCollectorsV1
      */
