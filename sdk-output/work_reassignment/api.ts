@@ -736,10 +736,11 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
          * @param {number} [limit] Max number of results to return.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listReassignmentConfigurationsV1: async (limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listReassignmentConfigurationsV1: async (limit?: number, offset?: number, xSailPointExperimental?: string, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
@@ -762,6 +763,10 @@ export const WorkReassignmentApiAxiosParamCreator = function (configuration?: Co
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
             }
 
 
@@ -971,11 +976,12 @@ export const WorkReassignmentApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listReassignmentConfigurationsV1(limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurationsV1(limit, offset, xSailPointExperimental, axiosOptions);
+        async listReassignmentConfigurationsV1(limit?: number, offset?: number, xSailPointExperimental?: string, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurationsV1(limit, offset, xSailPointExperimental, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkReassignmentApi.listReassignmentConfigurationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -1087,7 +1093,7 @@ export const WorkReassignmentApiFactory = function (configuration?: Configuratio
          * @throws {RequiredError}
          */
         listReassignmentConfigurationsV1(requestParameters: WorkReassignmentApiListReassignmentConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ConfigurationResponse>> {
-            return localVarFp.listReassignmentConfigurationsV1(requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listReassignmentConfigurationsV1(requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
@@ -1271,6 +1277,13 @@ export interface WorkReassignmentApiListReassignmentConfigurationsV1Request {
      * @memberof WorkReassignmentApiListReassignmentConfigurationsV1
      */
     readonly xSailPointExperimental?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof WorkReassignmentApiListReassignmentConfigurationsV1
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -1410,7 +1423,7 @@ export class WorkReassignmentApi extends BaseAPI {
      * @memberof WorkReassignmentApi
      */
     public listReassignmentConfigurationsV1(requestParameters: WorkReassignmentApiListReassignmentConfigurationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return WorkReassignmentApiFp(this.configuration).listReassignmentConfigurationsV1(requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkReassignmentApiFp(this.configuration).listReassignmentConfigurationsV1(requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -67,7 +67,7 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.listMachineAccountMappingsV1({ sourceId: sourceId });
         console.log(result);
-- path: /sources/v1/{sourceId}/machine-mappings
+- path: /sources/v1/{sourceId}/machine-account-mappings
   method: PUT
   xCodeSample:
     - lang: TypeScript

@@ -419,7 +419,7 @@ export const MachineAccountMappingsApiAxiosParamCreator = function (configuratio
             assertParamExists('setMachineAccountMappingsV1', 'sourceId', sourceId)
             // verify required parameter 'attributeMappings' is not null or undefined
             assertParamExists('setMachineAccountMappingsV1', 'attributeMappings', attributeMappings)
-            const localVarPath = `/sources/v1/{sourceId}/machine-mappings`
+            const localVarPath = `/sources/v1/{sourceId}/machine-account-mappings`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
