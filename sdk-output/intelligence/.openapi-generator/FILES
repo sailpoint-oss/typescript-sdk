@@ -5,6 +5,7 @@ ErrorMessageDto.md
 ErrorResponseDto.md
 GetIdentityIntelligenceV1401Response.md
 GetIdentityIntelligenceV1429Response.md
+GetIntelIdentityAccountsV1200Response.md
 Index.md
 IntelAccessAccountWire.md
 IntelAccessHistory.md

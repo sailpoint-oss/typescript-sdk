@@ -108,6 +108,12 @@ export interface GetIdentityIntelligenceV1429Response {
     'message'?: any;
 }
 /**
+ * @type GetIntelIdentityAccountsV1200Response
+ * @export
+ */
+export type GetIntelIdentityAccountsV1200Response = Array<Intelmachineaccountwire> | IntelAccountsSlice;
+
+/**
  * 
  * @export
  * @interface IntelAccessAccountWire
@@ -982,17 +988,29 @@ export const IntelidentitymachineaggregateMatchConfidenceEnum = {
 export type IntelidentitymachineaggregateMatchConfidenceEnum = typeof IntelidentitymachineaggregateMatchConfidenceEnum[keyof typeof IntelidentitymachineaggregateMatchConfidenceEnum];
 
 /**
- * Correlated machine accounts embedded on the non-human identity aggregate. Returns the correlated account set on the wire today (account paging via child routes is not yet released). 
+ * Machine accounts embedded on the non-human identity aggregate (first page).
  * @export
  * @interface Intelmachineaccountsslice
  */
 export interface Intelmachineaccountsslice {
     /**
-     * Machine account rows correlated to the non-human identity.
+     * Machine accounts correlated to the non-human identity.
      * @type {Array<Intelmachineaccountwire>}
      * @memberof Intelmachineaccountsslice
      */
     'items': Array<Intelmachineaccountwire>;
+    /**
+     * Correlated machine account count from aggregation; omitted when items is empty.
+     * @type {number}
+     * @memberof Intelmachineaccountsslice
+     */
+    'totalCount'?: number;
+    /**
+     * Next page URL when totalCount exceeds items returned. Includes isNHI=true.
+     * @type {string}
+     * @memberof Intelmachineaccountsslice
+     */
+    'next'?: string;
 }
 /**
  * Machine account row on the non-human identity aggregate accounts.items list. Every property in required is always present on the wire. Nullable object refs (source, machineIdentity, ownerIdentity) may be null. String fields may be empty when upstream has no value; booleans, timestamps, attributes, and connectorAttributes are always emitted (empty object when absent).
@@ -1616,7 +1634,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+         * Requires tenant license idn:response-and-remediation.  **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or operators return HTTP 400. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -1702,16 +1720,17 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for `accounts.next`. Pass `count=true` for `X-Total-Count`.  - Human (default): omit `isNHI` or set it to `false`. Slice object (`items`). - Non-human identity (NHI): set `isNHI=true` (required for NHI aggregate `accounts.next` links). Bare JSON array. 
          * @summary List identity accounts
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [isNHI] NHI accounts when &#x60;true&#x60; (bare array). Human accounts when omitted or &#x60;false&#x60; (slice object). 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityAccountsV1: async (id: string, limit?: number, offset?: number, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIntelIdentityAccountsV1: async (id: string, limit?: number, offset?: number, count?: boolean, isNHI?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIntelIdentityAccountsV1', 'id', id)
             const localVarPath = `/intelligence/v1/identities/{id}/accounts`
@@ -1737,6 +1756,10 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
 
             if (count !== undefined) {
                 localVarQueryParameter['count'] = count;
+            }
+
+            if (isNHI !== undefined) {
+                localVarQueryParameter['isNHI'] = isNHI;
             }
 
 
@@ -1964,7 +1987,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+         * Requires tenant license idn:response-and-remediation.  **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or operators return HTTP 400. 
          * @summary Get identity by filter
          * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
@@ -1993,17 +2016,18 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for `accounts.next`. Pass `count=true` for `X-Total-Count`.  - Human (default): omit `isNHI` or set it to `false`. Slice object (`items`). - Non-human identity (NHI): set `isNHI=true` (required for NHI aggregate `accounts.next` links). Bare JSON array. 
          * @summary List identity accounts
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [isNHI] NHI accounts when &#x60;true&#x60; (bare array). Human accounts when omitted or &#x60;false&#x60; (slice object). 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntelIdentityAccountsV1(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IntelAccessAccountWire>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccountsV1(id, limit, offset, count, axiosOptions);
+        async getIntelIdentityAccountsV1(id: string, limit?: number, offset?: number, count?: boolean, isNHI?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetIntelIdentityAccountsV1200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIntelIdentityAccountsV1(id, limit, offset, count, isNHI, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IntelligenceApi.getIntelIdentityAccountsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2092,7 +2116,7 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
             return localVarFp.createResponseActionV1(requestParameters.responseactioncreaterequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+         * Requires tenant license idn:response-and-remediation.  **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or operators return HTTP 400. 
          * @summary Get identity by filter
          * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2112,14 +2136,14 @@ export const IntelligenceApiFactory = function (configuration?: Configuration, b
             return localVarFp.getIntelIdentityAccessItemHistoryV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
+         * Continuation endpoint for `accounts.next`. Pass `count=true` for `X-Total-Count`.  - Human (default): omit `isNHI` or set it to `false`. Slice object (`items`). - Non-human identity (NHI): set `isNHI=true` (required for NHI aggregate `accounts.next` links). Bare JSON array. 
          * @summary List identity accounts
          * @param {IntelligenceApiGetIntelIdentityAccountsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIntelIdentityAccountsV1(requestParameters: IntelligenceApiGetIntelIdentityAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IntelAccessAccountWire>> {
-            return localVarFp.getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
+        getIntelIdentityAccountsV1(requestParameters: IntelligenceApiGetIntelIdentityAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<GetIntelIdentityAccountsV1200Response> {
+            return localVarFp.getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.isNHI, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Continuation endpoint for the parent response\'s `accessHistory.certifications.next` link. Returns one page of certification history events for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Per-record decode failures are dropped server-side. Requires tenant license idn:response-and-remediation.  Not applicable to non-human identities. 
@@ -2260,6 +2284,13 @@ export interface IntelligenceApiGetIntelIdentityAccountsV1Request {
      * @memberof IntelligenceApiGetIntelIdentityAccountsV1
      */
     readonly count?: boolean
+
+    /**
+     * NHI accounts when &#x60;true&#x60; (bare array). Human accounts when omitted or &#x60;false&#x60; (slice object). 
+     * @type {boolean}
+     * @memberof IntelligenceApiGetIntelIdentityAccountsV1
+     */
+    readonly isNHI?: boolean
 }
 
 /**
@@ -2415,7 +2446,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Requires tenant license idn:response-and-remediation.  **Authentication and data segmentation**  Intelligence forwards the caller JWT to downstream identity and search services (context client). Enriched results, including non-human identity resolution, are filtered to the caller\'s Data Segmentation visibility.  **Caution:** Generic API Management API keys are not tied to a user identity. When Data Segmentation is enabled, API key authentication may fail or return incomplete data because downstream calls require a user context. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression.  **Supported filters**  | Filter field | Lookup mode | Notes | |---|---|---| | id eq | Human (+ optional non-human identity when feature-flagged) | Resolves human identities by id; when non-human resolution is enabled, a parallel non-human lookup runs. If both match different identities, returns HTTP 409. | | email eq | Human only | Human identity lookup by email only. | | opaqueIdentifier eq | Non-human identity only | Parallel nativeIdentity eq on machine-identities and machine-accounts, then name-prefix fallback on machine-accounts. Requires feature flag ISCRR-1905_NHI_TYPE_MACHINE_FILTER_ENABLED; when disabled, returns HTTP 400. |  Single-clause filters only; composite and or expressions are rejected with HTTP 400.  **identityGraph deep link**  When the tenant has the idg:base license, Human and NHI aggregate responses may include `identityGraph.href`, a deep link into the Identity Graph UI for the resolved identity. Opening the link requires the **Identity Graph Read Only** user level. The link is omitted when the tenant lacks idg:base.  **Human envelope (type Human)**  Embeds the first page (10 items) of each enrichment slice. Each paged slice includes totalCount from upstream X-Total-Count when items is non-empty, and carries a next continuation URL when totalCount exceeds the items returned on this page. Slices are always present (empty uses items [] with no totalCount). privilegedAccess returns the full privileged-access result and never carries next or totalCount. When the tenant has idn:machine-identity-security, nonHumanIdentityOwnership is included with agents and applications categories; each category is a flat object with independently paged primaryOwned and secondaryOwned buckets, and optional message/reason when upstream ownership fetch fails for that category (reason UPSTREAM_UNAVAILABLE). When the tenant lacks that license, nonHumanIdentityOwnership is omitted. Continue ownership paging with GET .../non-human-identity-ownership/{category} and optional ownershipRole=primary|secondary (defaults to primary). If any enrichment upstream fails, the whole request fails with HTTP 500, except outliers (omitted when the tenant lacks the IDA-outliers license) and nonHumanIdentityOwnership category-level degrade (aggregate still returns HTTP 200).  **Non-human identity envelope (type NHI)**  Returns flat non-human identity fields at the top level plus correlated machine accounts on the aggregate and a derived block (isOrphaned, authorizedHumanIdentities, blastRadiusSummary). Omits Human-only slices (privilegedAccess, outliers, accessHistory, nonHumanIdentityOwnership). Account paging via child routes is not yet released. Opaque prefix resolution that deduplicates to one parent identity returns HTTP 200 with matchConfidence partial; multiple distinct parent identities return HTTP 409 with IDC_IDENTITY_AMBIGUOUS and candidate id and displayName values. 
+     * Requires tenant license idn:response-and-remediation.  **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or operators return HTTP 400. 
      * @summary Get identity by filter
      * @param {IntelligenceApiGetIdentityIntelligenceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2439,7 +2470,7 @@ export class IntelligenceApi extends BaseAPI {
     }
 
     /**
-     * Continuation endpoint for a Human identity\'s `accounts.next` link. Returns one page of account rows for the supplied limit and offset values. Pass `count=true` to receive `X-Total-Count` (including `0` on empty pages). Not applicable to non-human identities (NHI accounts are returned on the NHI aggregate only). Requires tenant license idn:response-and-remediation. 
+     * Continuation endpoint for `accounts.next`. Pass `count=true` for `X-Total-Count`.  - Human (default): omit `isNHI` or set it to `false`. Slice object (`items`). - Non-human identity (NHI): set `isNHI=true` (required for NHI aggregate `accounts.next` links). Bare JSON array. 
      * @summary List identity accounts
      * @param {IntelligenceApiGetIntelIdentityAccountsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2447,7 +2478,7 @@ export class IntelligenceApi extends BaseAPI {
      * @memberof IntelligenceApi
      */
     public getIntelIdentityAccountsV1(requestParameters: IntelligenceApiGetIntelIdentityAccountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return IntelligenceApiFp(this.configuration).getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IntelligenceApiFp(this.configuration).getIntelIdentityAccountsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.isNHI, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
