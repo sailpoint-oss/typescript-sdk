@@ -327,6 +327,19 @@ export const MachineAccountClassificationMethodEnum = {
 export type MachineAccountClassificationMethodEnum = typeof MachineAccountClassificationMethodEnum[keyof typeof MachineAccountClassificationMethodEnum];
 
 /**
+ * Machine account async response containing the id of the started task.
+ * @export
+ * @interface MachineAccountsAsyncResult
+ */
+export interface MachineAccountsAsyncResult {
+    /**
+     * ID of the task.
+     * @type {string}
+     * @memberof MachineAccountsAsyncResult
+     */
+    'id': string;
+}
+/**
  * 
  * @export
  * @interface SourceSubtype
@@ -438,6 +451,48 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+         * @summary Remove machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineAccountAsyncV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteMachineAccountAsyncV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/remove`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a machine account subtype by source ID and technical name.
          * @summary Delete subtype
          * @param {string} sourceId The ID of the source.
@@ -467,6 +522,90 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             }
 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
+         * @summary Disable machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableMachineAccountV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('disableMachineAccountV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/disable`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
+         * @summary Enable machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableMachineAccountV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('enableMachineAccountV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/enable`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -801,6 +940,90 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * This API asynchronously reloads the machine account directly from the connector and performs a one-time aggregation. It returns the task ID.  A caller who owns the machine account can reload it. Other callers need the **idn:mis-account:reload** right. 
+         * @summary Reload machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        reloadMachineAccountV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('reloadMachineAccountV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/reload`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
+         * @summary Unlock machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        unlockMachineAccountV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('unlockMachineAccountV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/unlock`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Use this API to update machine accounts details.  
          * @summary Update machine account details
          * @param {string} id Machine Account ID.
@@ -875,6 +1098,20 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+         * @summary Remove machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteMachineAccountAsyncV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountAsyncV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.deleteMachineAccountAsyncV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Delete a machine account subtype by source ID and technical name.
          * @summary Delete subtype
          * @param {string} sourceId The ID of the source.
@@ -888,6 +1125,34 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountSubtypeByTechnicalNameV1(sourceId, technicalName, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.deleteMachineAccountSubtypeByTechnicalNameV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
+         * @summary Disable machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async disableMachineAccountV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableMachineAccountV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.disableMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
+         * @summary Enable machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async enableMachineAccountV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableMachineAccountV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.enableMachineAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -991,6 +1256,34 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This API asynchronously reloads the machine account directly from the connector and performs a one-time aggregation. It returns the task ID.  A caller who owns the machine account can reload it. Other callers need the **idn:mis-account:reload** right. 
+         * @summary Reload machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async reloadMachineAccountV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadMachineAccountV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.reloadMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
+         * @summary Unlock machine account
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async unlockMachineAccountV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unlockMachineAccountV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.unlockMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Use this API to update machine accounts details.  
          * @summary Update machine account details
          * @param {string} id Machine Account ID.
@@ -1027,6 +1320,16 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
             return localVarFp.createMachineAccountSubtypeV1(requestParameters.sourceId, requestParameters.createMachineAccountSubtypeV1Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+         * @summary Remove machine account
+         * @param {MachineAccountsApiDeleteMachineAccountAsyncV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineAccountAsyncV1(requestParameters: MachineAccountsApiDeleteMachineAccountAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountsAsyncResult> {
+            return localVarFp.deleteMachineAccountAsyncV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a machine account subtype by source ID and technical name.
          * @summary Delete subtype
          * @param {MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
@@ -1036,6 +1339,26 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
          */
         deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
+         * @summary Disable machine account
+         * @param {MachineAccountsApiDisableMachineAccountV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableMachineAccountV1(requestParameters: MachineAccountsApiDisableMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountsAsyncResult> {
+            return localVarFp.disableMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
+         * @summary Enable machine account
+         * @param {MachineAccountsApiEnableMachineAccountV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableMachineAccountV1(requestParameters: MachineAccountsApiEnableMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountsAsyncResult> {
+            return localVarFp.enableMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a machine account subtype by its unique ID.
@@ -1102,6 +1425,26 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
             return localVarFp.patchMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API asynchronously reloads the machine account directly from the connector and performs a one-time aggregation. It returns the task ID.  A caller who owns the machine account can reload it. Other callers need the **idn:mis-account:reload** right. 
+         * @summary Reload machine account
+         * @param {MachineAccountsApiReloadMachineAccountV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        reloadMachineAccountV1(requestParameters: MachineAccountsApiReloadMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountsAsyncResult> {
+            return localVarFp.reloadMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
+         * @summary Unlock machine account
+         * @param {MachineAccountsApiUnlockMachineAccountV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        unlockMachineAccountV1(requestParameters: MachineAccountsApiUnlockMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountsAsyncResult> {
+            return localVarFp.unlockMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Use this API to update machine accounts details.  
          * @summary Update machine account details
          * @param {MachineAccountsApiUpdateMachineAccountV1Request} requestParameters Request parameters.
@@ -1143,6 +1486,27 @@ export interface MachineAccountsApiCreateMachineAccountSubtypeV1Request {
 }
 
 /**
+ * Request parameters for deleteMachineAccountAsyncV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiDeleteMachineAccountAsyncV1Request
+ */
+export interface MachineAccountsApiDeleteMachineAccountAsyncV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiDeleteMachineAccountAsyncV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiDeleteMachineAccountAsyncV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for deleteMachineAccountSubtypeByTechnicalNameV1 operation in MachineAccountsApi.
  * @export
  * @interface MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request
@@ -1166,6 +1530,48 @@ export interface MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1R
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for disableMachineAccountV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiDisableMachineAccountV1Request
+ */
+export interface MachineAccountsApiDisableMachineAccountV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiDisableMachineAccountV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiDisableMachineAccountV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for enableMachineAccountV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiEnableMachineAccountV1Request
+ */
+export interface MachineAccountsApiEnableMachineAccountV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiEnableMachineAccountV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiEnableMachineAccountV1
      */
     readonly xSailPointExperimental?: string
 }
@@ -1381,6 +1787,48 @@ export interface MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Re
 }
 
 /**
+ * Request parameters for reloadMachineAccountV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiReloadMachineAccountV1Request
+ */
+export interface MachineAccountsApiReloadMachineAccountV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiReloadMachineAccountV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiReloadMachineAccountV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for unlockMachineAccountV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiUnlockMachineAccountV1Request
+ */
+export interface MachineAccountsApiUnlockMachineAccountV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiUnlockMachineAccountV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiUnlockMachineAccountV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for updateMachineAccountV1 operation in MachineAccountsApi.
  * @export
  * @interface MachineAccountsApiUpdateMachineAccountV1Request
@@ -1429,6 +1877,18 @@ export class MachineAccountsApi extends BaseAPI {
     }
 
     /**
+     * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+     * @summary Remove machine account
+     * @param {MachineAccountsApiDeleteMachineAccountAsyncV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public deleteMachineAccountAsyncV1(requestParameters: MachineAccountsApiDeleteMachineAccountAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).deleteMachineAccountAsyncV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Delete a machine account subtype by source ID and technical name.
      * @summary Delete subtype
      * @param {MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request} requestParameters Request parameters.
@@ -1439,6 +1899,30 @@ export class MachineAccountsApi extends BaseAPI {
      */
     public deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountsApiFp(this.configuration).deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
+     * @summary Disable machine account
+     * @param {MachineAccountsApiDisableMachineAccountV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public disableMachineAccountV1(requestParameters: MachineAccountsApiDisableMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).disableMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
+     * @summary Enable machine account
+     * @param {MachineAccountsApiEnableMachineAccountV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public enableMachineAccountV1(requestParameters: MachineAccountsApiEnableMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).enableMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1515,6 +1999,30 @@ export class MachineAccountsApi extends BaseAPI {
      */
     public patchMachineAccountSubtypeByTechnicalNameV1(requestParameters: MachineAccountsApiPatchMachineAccountSubtypeByTechnicalNameV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountsApiFp(this.configuration).patchMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API asynchronously reloads the machine account directly from the connector and performs a one-time aggregation. It returns the task ID.  A caller who owns the machine account can reload it. Other callers need the **idn:mis-account:reload** right. 
+     * @summary Reload machine account
+     * @param {MachineAccountsApiReloadMachineAccountV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public reloadMachineAccountV1(requestParameters: MachineAccountsApiReloadMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).reloadMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
+     * @summary Unlock machine account
+     * @param {MachineAccountsApiUnlockMachineAccountV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public unlockMachineAccountV1(requestParameters: MachineAccountsApiUnlockMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).unlockMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

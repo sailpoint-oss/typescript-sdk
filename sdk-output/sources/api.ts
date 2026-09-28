@@ -4039,8 +4039,8 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
-         * @summary Creates a source in identitynow.
+         * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt.
+         * @summary Create source
          * @param {Source} source 
          * @param {boolean} [provisionAsCsv] If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
          * @param {*} [axiosOptions] Override http request option.
@@ -5860,8 +5860,8 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This end-point lists all the sources in IdentityNow.
-         * @summary Lists all sources in identitynow.
+         * This end-point lists all the sources.
+         * @summary List sources
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -7147,8 +7147,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
-         * @summary Creates a source in identitynow.
+         * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt.
+         * @summary Create source
          * @param {Source} source 
          * @param {boolean} [provisionAsCsv] If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
          * @param {*} [axiosOptions] Override http request option.
@@ -7774,8 +7774,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This end-point lists all the sources in IdentityNow.
-         * @summary Lists all sources in identitynow.
+         * This end-point lists all the sources.
+         * @summary List sources
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -8242,8 +8242,8 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createSourceSchemaV1(requestParameters.sourceId, requestParameters.schema, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
-         * @summary Creates a source in identitynow.
+         * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt.
+         * @summary Create source
          * @param {SourcesApiCreateSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -8682,8 +8682,8 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.listProvisioningPoliciesV2(requestParameters.sourceId, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point lists all the sources in IdentityNow.
-         * @summary Lists all sources in identitynow.
+         * This end-point lists all the sources.
+         * @summary List sources
          * @param {SourcesApiListSourcesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -10896,8 +10896,8 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
-     * @summary Creates a source in identitynow.
+     * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt.
+     * @summary Create source
      * @param {SourcesApiCreateSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -11424,8 +11424,8 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This end-point lists all the sources in IdentityNow.
-     * @summary Lists all sources in identitynow.
+     * This end-point lists all the sources.
+     * @summary List sources
      * @param {SourcesApiListSourcesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}

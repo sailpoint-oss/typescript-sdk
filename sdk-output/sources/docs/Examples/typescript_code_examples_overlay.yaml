@@ -360,7 +360,7 @@
   "status" : "SOURCE_STATE_HEALTHY",
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }; // Source | 
-        const provisionAsCsv: boolean = false; // boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\'t set this query parameter and you attempt to set the `type` attribute directly, the request won\'t correctly generate the source.   (optional) (default to undefined)
+        const provisionAsCsv: boolean = false; // boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\'t set this query parameter and you attempt to set the `type` attribute directly, the request won\'t correctly generate the source.   (optional) (default to false)
         const result = await apiInstance.createSourceV1({ source: source });
         console.log(result);
 - path: /sources/v1/{id}/remove-accounts

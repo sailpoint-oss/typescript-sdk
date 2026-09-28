@@ -78,7 +78,7 @@ Method | HTTP request | Description
 [**create-source-resource-v1**](#create-source-resource-v1) | **POST** `/sources/v1/{sourceId}/resources` | Create resource on source
 [**create-source-schedule-v1**](#create-source-schedule-v1) | **POST** `/sources/v1/{sourceId}/schedules` | Create schedule on source
 [**create-source-schema-v1**](#create-source-schema-v1) | **POST** `/sources/v1/{sourceId}/schemas` | Create schema on source
-[**create-source-v1**](#create-source-v1) | **POST** `/sources/v1` | Creates a source in identitynow.
+[**create-source-v1**](#create-source-v1) | **POST** `/sources/v1` | Create source
 [**delete-accounts-async-v1**](#delete-accounts-async-v1) | **POST** `/sources/v1/{id}/remove-accounts` | Remove all accounts in source
 [**delete-native-change-detection-config-v1**](#delete-native-change-detection-config-v1) | **DELETE** `/sources/v1/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**delete-provisioning-policy-v1**](#delete-provisioning-policy-v1) | **DELETE** `/sources/v1/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
@@ -122,7 +122,7 @@ Method | HTTP request | Description
 [**list-password-policy-holders-on-source-v1**](#list-password-policy-holders-on-source-v1) | **GET** `/sources/v1/{sourceId}/password-policies` | Get Password Policy for source
 [**list-provisioning-policies-v1**](#list-provisioning-policies-v1) | **GET** `/sources/v1/{sourceId}/provisioning-policies` | Lists provisioningpolicies
 [**list-provisioning-policies-v2**](#list-provisioning-policies-v2) | **GET** `/sources/v2/{sourceId}/provisioning-policies` | Lists Provisioning Policies
-[**list-sources-v1**](#list-sources-v1) | **GET** `/sources/v1` | Lists all sources in identitynow.
+[**list-sources-v1**](#list-sources-v1) | **GET** `/sources/v1` | List sources
 [**ping-cluster-v1**](#ping-cluster-v1) | **POST** `/sources/v1/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
 [**put-correlation-config-v1**](#put-correlation-config-v1) | **PUT** `/sources/v1/{id}/correlation-config` | Update source correlation configuration
 [**put-native-change-detection-config-v1**](#put-native-change-detection-config-v1) | **PUT** `/sources/v1/{sourceId}/native-change-detection-config` | Update native change detection configuration
@@ -598,8 +598,8 @@ console.log(result);
 [[Back to top]](#)
 
 ## create-source-v1
-Creates a source in identitynow.
-This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
+Create source
+This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt.
 
 [API Spec](https://developer.sailpoint.com/docs/api/create-source-v-1)
 
@@ -609,7 +609,7 @@ This creates a specific source with a full source JSON representation. Any passw
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **source** | `Source` |  | 
-**provisionAsCsv** | `boolean` | If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.   | [optional] [default to undefined]
+**provisionAsCsv** | `boolean` | If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.   | [optional] [default to false]
 
 ### Return type
 
@@ -2531,8 +2531,8 @@ console.log(result);
 [[Back to top]](#)
 
 ## list-sources-v1
-Lists all sources in identitynow.
-This end-point lists all the sources in IdentityNow.
+List sources
+This end-point lists all the sources.
 
 [API Spec](https://developer.sailpoint.com/docs/api/list-sources-v-1)
 
