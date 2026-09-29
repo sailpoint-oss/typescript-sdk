@@ -110,6 +110,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## create-machine-identity-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Create machine identity
 Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.
 
@@ -123,6 +126,7 @@ When Business Applications is enabled for the tenant, callers may optionally inc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **machineidentityv2** | `Machineidentityv2` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -220,6 +224,7 @@ const machineidentityv2: Machineidentityv2 = {
   "existsOnSource" : "TRUE",
   "status" : "ACTIVE"
 }; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.createMachineIdentityV2({ machineidentityv2: machineidentityv2 });
 console.log(result);
 ```
@@ -269,6 +274,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## delete-machine-identity-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Delete machine identity
 The API returns a successful response if the requested machine identity was deleted.
 
@@ -280,6 +288,7 @@ The API returns a successful response if the requested machine identity was dele
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Machine Identity ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -299,6 +308,7 @@ import { Configuration } from '@sailpoint/api-client';
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Machine Identity ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.deleteMachineIdentityV2({ id: id });
 console.log(result);
 ```
@@ -306,6 +316,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## delete-ownership-correlation-config-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Delete ownership correlation config
 Deletes the ownership correlation config with the specified ID for the given source resource.
 
@@ -319,6 +332,7 @@ Name | Type | Description  | Notes
 **sourceId** | `string` | The Source ID. |  [default to undefined]
 **resourceId** | `string` | The source resource ID (for example, account or aws:iam-role). |  [default to undefined]
 **configId** | `string` | The correlation config ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -340,6 +354,7 @@ const apiInstance = new MachineIdentitiesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
 const resourceId: string = aws:iam-role; // The source resource ID (for example, account or aws:iam-role).
 const configId: string = f5dd23fe-3414-42b7-bb1c-869400ad7a10; // The correlation config ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.deleteOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId });
 console.log(result);
 ```
@@ -389,6 +404,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-machine-identity-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get machine identity details
 This API returns a single machine identity using the Machine Identity ID.
 
@@ -400,6 +418,7 @@ This API returns a single machine identity using the Machine Identity ID.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Machine Identity ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -419,6 +438,7 @@ import { Configuration } from '@sailpoint/api-client';
 const configuration = new Configuration();
 const apiInstance = new MachineIdentitiesApi(configuration);
 const id: string = ef38f94347e94562b5bb8424a56397d8; // Machine Identity ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getMachineIdentityV2({ id: id });
 console.log(result);
 ```
@@ -426,6 +446,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-ownership-correlation-config-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get ownership correlation config
 This end-point retrieves a single ownership correlation config by ID for the specified source resource.
 
@@ -439,6 +462,7 @@ Name | Type | Description  | Notes
 **sourceId** | `string` | The Source ID. |  [default to undefined]
 **resourceId** | `string` | The source resource ID (for example, account or aws:iam-role). |  [default to undefined]
 **configId** | `string` | The correlation config ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -460,6 +484,7 @@ const apiInstance = new MachineIdentitiesApi(configuration);
 const sourceId: string = 2c9180835d191a86015d28455b4a2329; // The Source ID.
 const resourceId: string = aws:iam-role; // The source resource ID (for example, account or aws:iam-role).
 const configId: string = f5dd23fe-3414-42b7-bb1c-869400ad7a10; // The correlation config ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId });
 console.log(result);
 ```
@@ -557,6 +582,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## list-machine-identities-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 List machine identities
 This API returns a list of machine identities.
 
@@ -572,6 +600,7 @@ Name | Type | Description  | Notes
 **count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
 **offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -595,6 +624,7 @@ const sorters: string = nativeIdentity; // Sort results using the standard synta
 const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.listMachineIdentitiesV2({  });
 console.log(result);
 ```
@@ -704,6 +734,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## list-ownership-correlation-configs-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 List ownership correlation configs
 Returns the OWNER_PRIMARY and OWNER_SECONDARY correlation configs for the specified source resource, creating default rows if they are missing. Use the optional type query parameter to return a single matching config.
 
@@ -720,6 +753,7 @@ Name | Type | Description  | Notes
 **count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to false]
 **limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
 **offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -744,6 +778,7 @@ const type: string = OWNER_PRIMARY; // When set, filters to the given config typ
 const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
 const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.listOwnershipCorrelationConfigsV1({ sourceId: sourceId, resourceId: resourceId });
 console.log(result);
 ```
@@ -751,6 +786,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## patch-ownership-correlation-config-v1
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Patch ownership correlation config
 Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted from the array) are allowed.
 
@@ -765,6 +803,7 @@ Name | Type | Description  | Notes
 **resourceId** | `string` | The source resource ID (for example, account or aws:iam-role). |  [default to undefined]
 **configId** | `string` | The correlation config ID. |  [default to undefined]
 **jsonPatchOperation** | `Array<JsonPatchOperation>` | The JSONPatch payload used to update the correlation config. | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -792,6 +831,7 @@ const jsonPatchOperation: Array<JsonPatchOperation> = {
   "path" : "/description",
   "value" : "New description"
 }; // The JSONPatch payload used to update the correlation config.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.patchOwnershipCorrelationConfigV1({ sourceId: sourceId, resourceId: resourceId, configId: configId, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```
@@ -892,6 +932,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## update-machine-identity-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Partial update of machine identity
 Use this API to selectively update machine identity details using a JSONPatch payload.
 
@@ -912,6 +955,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **id** | `string` | Machine Identity ID. |  [default to undefined]
 **jsonPatchOperation** | `Array<JsonPatchOperation>` | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -937,6 +981,7 @@ const jsonPatchOperation: Array<JsonPatchOperation> = {
   "path" : "/description",
   "value" : "New description"
 }; // A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.updateMachineIdentityV2({ id: id, jsonPatchOperation: jsonPatchOperation });
 console.log(result);
 ```

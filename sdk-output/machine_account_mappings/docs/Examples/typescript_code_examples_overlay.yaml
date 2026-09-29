@@ -101,5 +101,6 @@
     "type" : "IDENTITY"
   }
 }; // AttributeMappings | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.setMachineAccountMappingsV1({ sourceId: sourceId, attributeMappings: attributeMappings });
         console.log(result);

@@ -527,6 +527,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## get-access-request-config-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Get access request configuration
 This endpoint returns the current access-request configuration.
 
@@ -536,7 +539,10 @@ To manage approval configurations, use the [Put approval config](https://develop
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -555,6 +561,7 @@ import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.getAccessRequestConfigV2({  });
 console.log(result);
 ```
@@ -1086,6 +1093,9 @@ console.log(result);
 [[Back to top]](#)
 
 ## set-access-request-config-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Update access request configuration
 This endpoint replaces the current access-request configuration.
 
@@ -1099,6 +1109,7 @@ To manage approval configurations, use the [Put approval config](https://develop
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **accessRequestConfig2** | `AccessRequestConfig2` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -1119,6 +1130,7 @@ import { AccessRequestConfig2 } from '@sailpoint/api-client/dist/access_requests
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
 const accessRequestConfig2: AccessRequestConfig2 = ; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
 const result = await apiInstance.setAccessRequestConfigV2({ accessRequestConfig2: accessRequestConfig2 });
 console.log(result);
 ```

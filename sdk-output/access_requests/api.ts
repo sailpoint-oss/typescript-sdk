@@ -3114,10 +3114,15 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestConfigV2: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAccessRequestConfigV2: async (xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/access-request-config/v2`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3132,6 +3137,9 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -3434,12 +3442,17 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestConfig2} accessRequestConfig2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setAccessRequestConfigV2: async (accessRequestConfig2: AccessRequestConfig2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setAccessRequestConfigV2: async (accessRequestConfig2: AccessRequestConfig2, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accessRequestConfig2' is not null or undefined
             assertParamExists('setAccessRequestConfigV2', 'accessRequestConfig2', accessRequestConfig2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/access-request-config/v2`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3456,6 +3469,9 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -3557,11 +3573,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestConfigV2(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfigV2(axiosOptions);
+        async getAccessRequestConfigV2(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfigV2(xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.getAccessRequestConfigV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3657,11 +3674,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * This endpoint replaces the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Update access request configuration
          * @param {AccessRequestConfig2} accessRequestConfig2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setAccessRequestConfigV2(accessRequestConfig2: AccessRequestConfig2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfigV2(accessRequestConfig2, axiosOptions);
+        async setAccessRequestConfigV2(accessRequestConfig2: AccessRequestConfig2, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfigV2(accessRequestConfig2, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.setAccessRequestConfigV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3739,11 +3757,12 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
         /**
          * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
          * @summary Get access request configuration
+         * @param {AccessRequestsApiGetAccessRequestConfigV2Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getAccessRequestConfigV2(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig2> {
-            return localVarFp.getAccessRequestConfigV2(axiosOptions).then((request) => request(axios, basePath));
+        getAccessRequestConfigV2(requestParameters: AccessRequestsApiGetAccessRequestConfigV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig2> {
+            return localVarFp.getAccessRequestConfigV2(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to return the details for a entitlement on an identity including specific data relating to remove date and the ability to revoke the identity.
@@ -3804,7 +3823,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         setAccessRequestConfigV2(requestParameters: AccessRequestsApiSetAccessRequestConfigV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessRequestConfig2> {
-            return localVarFp.setAccessRequestConfigV2(requestParameters.accessRequestConfig2, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.setAccessRequestConfigV2(requestParameters.accessRequestConfig2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3877,6 +3896,20 @@ export interface AccessRequestsApiCreateAccessRequestV1Request {
      * @memberof AccessRequestsApiCreateAccessRequestV1
      */
     readonly accessRequest: AccessRequest
+}
+
+/**
+ * Request parameters for getAccessRequestConfigV2 operation in AccessRequestsApi.
+ * @export
+ * @interface AccessRequestsApiGetAccessRequestConfigV2Request
+ */
+export interface AccessRequestsApiGetAccessRequestConfigV2Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessRequestsApiGetAccessRequestConfigV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -4108,6 +4141,13 @@ export interface AccessRequestsApiSetAccessRequestConfigV2Request {
      * @memberof AccessRequestsApiSetAccessRequestConfigV2
      */
     readonly accessRequestConfig2: AccessRequestConfig2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessRequestsApiSetAccessRequestConfigV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -4192,12 +4232,13 @@ export class AccessRequestsApi extends BaseAPI {
     /**
      * This endpoint returns the current access-request configuration.  To manage approval configurations, use the [Put approval config](https://developer.sailpoint.com/docs/api/put-approvals-config-v-1/) endpoint.
      * @summary Get access request configuration
+     * @param {AccessRequestsApiGetAccessRequestConfigV2Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public getAccessRequestConfigV2(axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).getAccessRequestConfigV2(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestConfigV2(requestParameters: AccessRequestsApiGetAccessRequestConfigV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).getAccessRequestConfigV2(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4270,7 +4311,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public setAccessRequestConfigV2(requestParameters: AccessRequestsApiSetAccessRequestConfigV2Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).setAccessRequestConfigV2(requestParameters.accessRequestConfig2, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).setAccessRequestConfigV2(requestParameters.accessRequestConfig2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

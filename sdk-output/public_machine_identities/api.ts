@@ -198,10 +198,15 @@ export const PublicMachineIdentitiesApiAxiosParamCreator = function (configurati
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **subtype**: *eq*  **owner.id**: *eq*  **owner**: *eq*  &#x60;subtype&#x60;, **owner.id**, and **owner** are only available when your tenant returns enriched public machine identity data; otherwise requests using those filters return &#x60;400 Bad Request&#x60;. **owner** is rewritten to **owner.id** when filtering.
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, subtype**  Sorting on &#x60;subtype&#x60; is only available when your tenant returns enriched public machine identity data; otherwise the request returns &#x60;400 Bad Request&#x60;.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPublicMachineIdentitiesV1: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listPublicMachineIdentitiesV1: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/public-machine-identities/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -236,6 +241,9 @@ export const PublicMachineIdentitiesApiAxiosParamCreator = function (configurati
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -263,11 +271,12 @@ export const PublicMachineIdentitiesApiFp = function(configuration?: Configurati
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **subtype**: *eq*  **owner.id**: *eq*  **owner**: *eq*  &#x60;subtype&#x60;, **owner.id**, and **owner** are only available when your tenant returns enriched public machine identity data; otherwise requests using those filters return &#x60;400 Bad Request&#x60;. **owner** is rewritten to **owner.id** when filtering.
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, subtype**  Sorting on &#x60;subtype&#x60; is only available when your tenant returns enriched public machine identity data; otherwise the request returns &#x60;400 Bad Request&#x60;.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPublicMachineIdentitiesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicMachineIdentity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPublicMachineIdentitiesV1(limit, offset, count, filters, sorters, axiosOptions);
+        async listPublicMachineIdentitiesV1(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicMachineIdentity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPublicMachineIdentitiesV1(limit, offset, count, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PublicMachineIdentitiesApi.listPublicMachineIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -290,7 +299,7 @@ export const PublicMachineIdentitiesApiFactory = function (configuration?: Confi
          * @throws {RequiredError}
          */
         listPublicMachineIdentitiesV1(requestParameters: PublicMachineIdentitiesApiListPublicMachineIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PublicMachineIdentity>> {
-            return localVarFp.listPublicMachineIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listPublicMachineIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -335,6 +344,13 @@ export interface PublicMachineIdentitiesApiListPublicMachineIdentitiesV1Request 
      * @memberof PublicMachineIdentitiesApiListPublicMachineIdentitiesV1
      */
     readonly sorters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof PublicMachineIdentitiesApiListPublicMachineIdentitiesV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -353,7 +369,7 @@ export class PublicMachineIdentitiesApi extends BaseAPI {
      * @memberof PublicMachineIdentitiesApi
      */
     public listPublicMachineIdentitiesV1(requestParameters: PublicMachineIdentitiesApiListPublicMachineIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return PublicMachineIdentitiesApiFp(this.configuration).listPublicMachineIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PublicMachineIdentitiesApiFp(this.configuration).listPublicMachineIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

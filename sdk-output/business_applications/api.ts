@@ -469,12 +469,17 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
          * Creates a custom Business Application. Requires the `idn:business-application:create` right, the Machine Identity Security product to be enabled, and the custom Business Application feature to be enabled for the tenant. The `name` must be unique within the tenant, and any provided `signatures` must not already be assigned to another Business Application.
          * @summary Create Business Application
          * @param {BusinessApplication} businessApplication 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createBusinessApplicationV1: async (businessApplication: BusinessApplication, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createBusinessApplicationV1: async (businessApplication: BusinessApplication, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'businessApplication' is not null or undefined
             assertParamExists('createBusinessApplicationV1', 'businessApplication', businessApplication)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/business-applications/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -491,6 +496,9 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -505,12 +513,17 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
          * Returns a single Business Application by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled.
          * @summary Get Business Application
          * @param {string} id Business Application ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getBusinessApplicationV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getBusinessApplicationV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getBusinessApplicationV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/business-applications/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -526,6 +539,9 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -543,10 +559,15 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listBusinessApplicationsV1: async (filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listBusinessApplicationsV1: async (filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/business-applications/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -581,6 +602,9 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -595,14 +619,19 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
          * @summary Update Business Application
          * @param {string} id Business Application ID.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A JSON array of patch operations per RFC 6902.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateBusinessApplicationV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateBusinessApplicationV1: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateBusinessApplicationV1', 'id', id)
             // verify required parameter 'jsonPatchOperation' is not null or undefined
             assertParamExists('updateBusinessApplicationV1', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/business-applications/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -620,6 +649,9 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
     
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -644,11 +676,12 @@ export const BusinessApplicationsApiFp = function(configuration?: Configuration)
          * Creates a custom Business Application. Requires the `idn:business-application:create` right, the Machine Identity Security product to be enabled, and the custom Business Application feature to be enabled for the tenant. The `name` must be unique within the tenant, and any provided `signatures` must not already be assigned to another Business Application.
          * @summary Create Business Application
          * @param {BusinessApplication} businessApplication 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createBusinessApplicationV1(businessApplication: BusinessApplication, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BusinessApplication>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createBusinessApplicationV1(businessApplication, axiosOptions);
+        async createBusinessApplicationV1(businessApplication: BusinessApplication, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BusinessApplication>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBusinessApplicationV1(businessApplication, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.createBusinessApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -657,11 +690,12 @@ export const BusinessApplicationsApiFp = function(configuration?: Configuration)
          * Returns a single Business Application by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled.
          * @summary Get Business Application
          * @param {string} id Business Application ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getBusinessApplicationV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BusinessApplication>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getBusinessApplicationV1(id, axiosOptions);
+        async getBusinessApplicationV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BusinessApplication>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getBusinessApplicationV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.getBusinessApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -674,11 +708,12 @@ export const BusinessApplicationsApiFp = function(configuration?: Configuration)
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listBusinessApplicationsV1(filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BusinessApplication>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listBusinessApplicationsV1(filters, sorters, count, limit, offset, axiosOptions);
+        async listBusinessApplicationsV1(filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BusinessApplication>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listBusinessApplicationsV1(filters, sorters, count, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.listBusinessApplicationsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -688,11 +723,12 @@ export const BusinessApplicationsApiFp = function(configuration?: Configuration)
          * @summary Update Business Application
          * @param {string} id Business Application ID.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A JSON array of patch operations per RFC 6902.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateBusinessApplicationV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BusinessApplication>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateBusinessApplicationV1(id, jsonPatchOperation, axiosOptions);
+        async updateBusinessApplicationV1(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BusinessApplication>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateBusinessApplicationV1(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.updateBusinessApplicationV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -715,7 +751,7 @@ export const BusinessApplicationsApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         createBusinessApplicationV1(requestParameters: BusinessApplicationsApiCreateBusinessApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BusinessApplication> {
-            return localVarFp.createBusinessApplicationV1(requestParameters.businessApplication, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createBusinessApplicationV1(requestParameters.businessApplication, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a single Business Application by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled.
@@ -725,7 +761,7 @@ export const BusinessApplicationsApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         getBusinessApplicationV1(requestParameters: BusinessApplicationsApiGetBusinessApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BusinessApplication> {
-            return localVarFp.getBusinessApplicationV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getBusinessApplicationV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns the list of Business Applications defined for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant.
@@ -735,7 +771,7 @@ export const BusinessApplicationsApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         listBusinessApplicationsV1(requestParameters: BusinessApplicationsApiListBusinessApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BusinessApplication>> {
-            return localVarFp.listBusinessApplicationsV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listBusinessApplicationsV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates a Business Application using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires the `idn:business-application:update` right and the Machine Identity Security product to be enabled. Patchable fields: `name`, `description`, `owner`, `additionalOwners`, `sanctionedStatus`, and `signatures`. Modifying `signatures` additionally requires the custom Business Application feature to be enabled.
@@ -745,7 +781,7 @@ export const BusinessApplicationsApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         updateBusinessApplicationV1(requestParameters: BusinessApplicationsApiUpdateBusinessApplicationV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<BusinessApplication> {
-            return localVarFp.updateBusinessApplicationV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.updateBusinessApplicationV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -762,6 +798,13 @@ export interface BusinessApplicationsApiCreateBusinessApplicationV1Request {
      * @memberof BusinessApplicationsApiCreateBusinessApplicationV1
      */
     readonly businessApplication: BusinessApplication
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiCreateBusinessApplicationV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -776,6 +819,13 @@ export interface BusinessApplicationsApiGetBusinessApplicationV1Request {
      * @memberof BusinessApplicationsApiGetBusinessApplicationV1
      */
     readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiGetBusinessApplicationV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -818,6 +868,13 @@ export interface BusinessApplicationsApiListBusinessApplicationsV1Request {
      * @memberof BusinessApplicationsApiListBusinessApplicationsV1
      */
     readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiListBusinessApplicationsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -839,6 +896,13 @@ export interface BusinessApplicationsApiUpdateBusinessApplicationV1Request {
      * @memberof BusinessApplicationsApiUpdateBusinessApplicationV1
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiUpdateBusinessApplicationV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -857,7 +921,7 @@ export class BusinessApplicationsApi extends BaseAPI {
      * @memberof BusinessApplicationsApi
      */
     public createBusinessApplicationV1(requestParameters: BusinessApplicationsApiCreateBusinessApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return BusinessApplicationsApiFp(this.configuration).createBusinessApplicationV1(requestParameters.businessApplication, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return BusinessApplicationsApiFp(this.configuration).createBusinessApplicationV1(requestParameters.businessApplication, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -869,7 +933,7 @@ export class BusinessApplicationsApi extends BaseAPI {
      * @memberof BusinessApplicationsApi
      */
     public getBusinessApplicationV1(requestParameters: BusinessApplicationsApiGetBusinessApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return BusinessApplicationsApiFp(this.configuration).getBusinessApplicationV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return BusinessApplicationsApiFp(this.configuration).getBusinessApplicationV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -881,7 +945,7 @@ export class BusinessApplicationsApi extends BaseAPI {
      * @memberof BusinessApplicationsApi
      */
     public listBusinessApplicationsV1(requestParameters: BusinessApplicationsApiListBusinessApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return BusinessApplicationsApiFp(this.configuration).listBusinessApplicationsV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return BusinessApplicationsApiFp(this.configuration).listBusinessApplicationsV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -893,7 +957,7 @@ export class BusinessApplicationsApi extends BaseAPI {
      * @memberof BusinessApplicationsApi
      */
     public updateBusinessApplicationV1(requestParameters: BusinessApplicationsApiUpdateBusinessApplicationV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return BusinessApplicationsApiFp(this.configuration).updateBusinessApplicationV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return BusinessApplicationsApiFp(this.configuration).updateBusinessApplicationV1(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -650,10 +650,15 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
          * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listJitActivationHistoryForCurrentIdentityV1: async (limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listJitActivationHistoryForCurrentIdentityV1: async (limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/jit-activation-history/v1/current-identity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -692,6 +697,9 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -710,10 +718,15 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
          * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identityId**: *eq, in*  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listJitActivationHistoryV1: async (limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listJitActivationHistoryV1: async (limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/jit-activation-history/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -752,6 +765,9 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -912,11 +928,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
          * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listJitActivationHistoryForCurrentIdentityV1(limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Jitactivationhistorydocument>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listJitActivationHistoryForCurrentIdentityV1(limit, offset, count, sorters, searchAfter, filters, axiosOptions);
+        async listJitActivationHistoryForCurrentIdentityV1(limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Jitactivationhistorydocument>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJitActivationHistoryForCurrentIdentityV1(limit, offset, count, sorters, searchAfter, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.listJitActivationHistoryForCurrentIdentityV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -930,11 +947,12 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **activationInitiated, provisionCompleted, status**  Default sort is **-activationInitiated** (newest first).
          * @param {string} [searchAfter] Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters. Used to paginate beyond the offset limit of 10,000.  It is recommended to always include the ID of the object in addition to any other sort fields to ensure no duplicate results while paging.  For example, if sorting by activationInitiated you will also want to include ID: searchAfter&#x3D;2026-07-08T14:33:52.029Z,367fb802-1026-1835-a619-11a56e4c5be3&amp;sorters&#x3D;activationInitiated,id
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identityId**: *eq, in*  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in*
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listJitActivationHistoryV1(limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Jitactivationhistorydocument>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listJitActivationHistoryV1(limit, offset, count, sorters, searchAfter, filters, axiosOptions);
+        async listJitActivationHistoryV1(limit?: number, offset?: number, count?: boolean, sorters?: string, searchAfter?: string, filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Jitactivationhistorydocument>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listJitActivationHistoryV1(limit, offset, count, sorters, searchAfter, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.listJitActivationHistoryV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -999,7 +1017,7 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         listJitActivationHistoryForCurrentIdentityV1(requestParameters: JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Jitactivationhistorydocument>> {
-            return localVarFp.listJitActivationHistoryForCurrentIdentityV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listJitActivationHistoryForCurrentIdentityV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns JIT activation history records for the tenant.  This is the admin/operator view - it returns activations across all identities in the tenant. Requires `idn:jit-activation-history:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
@@ -1009,7 +1027,7 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          * @throws {RequiredError}
          */
         listJitActivationHistoryV1(requestParameters: JITActivationsApiListJitActivationHistoryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Jitactivationhistorydocument>> {
-            return localVarFp.listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
@@ -1091,6 +1109,13 @@ export interface JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Re
      * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
      */
     readonly filters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryForCurrentIdentityV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -1140,6 +1165,13 @@ export interface JITActivationsApiListJitActivationHistoryV1Request {
      * @memberof JITActivationsApiListJitActivationHistoryV1
      */
     readonly filters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITActivationsApiListJitActivationHistoryV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -1221,7 +1253,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public listJitActivationHistoryForCurrentIdentityV1(requestParameters: JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).listJitActivationHistoryForCurrentIdentityV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).listJitActivationHistoryForCurrentIdentityV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1233,7 +1265,7 @@ export class JITActivationsApi extends BaseAPI {
      * @memberof JITActivationsApi
      */
     public listJitActivationHistoryV1(requestParameters: JITActivationsApiListJitActivationHistoryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return JITActivationsApiFp(this.configuration).listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return JITActivationsApiFp(this.configuration).listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -278,6 +278,7 @@
 
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getAccessRequestConfigV2({  });
         console.log(result);
 - path: /revocable-objects/v1
@@ -642,5 +643,6 @@
         const configuration = new Configuration();
         const apiInstance = new AccessRequestsApi(configuration);
         const accessRequestConfig2: AccessRequestConfig2 = ; // AccessRequestConfig2 | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.setAccessRequestConfigV2({ accessRequestConfig2: accessRequestConfig2 });
         console.log(result);

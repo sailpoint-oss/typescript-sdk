@@ -1842,12 +1842,17 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.  When Business Applications is enabled for the tenant, callers may optionally include a single `businessApplicationRefs` entry (`type`=`BUSINESS_APPLICATION`, `id`=BA UUID). The assignment is stored as a `MANUAL` correlation. `correlationType` may be omitted or `MANUAL`; `AUTOMATIC` is rejected (`400`). Unknown BA id returns `404`. More than one ref returns `400`. When Business Applications is not enabled, supplying `businessApplicationRefs` returns `400`. `sanctionedStatus` and `effectiveSanctionedStatus` are read-only and ignored on input.
          * @summary Create machine identity
          * @param {Machineidentityv2} machineidentityv2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createMachineIdentityV2: async (machineidentityv2: Machineidentityv2, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createMachineIdentityV2: async (machineidentityv2: Machineidentityv2, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'machineidentityv2' is not null or undefined
             assertParamExists('createMachineIdentityV2', 'machineidentityv2', machineidentityv2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/machine-identities/v2`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1864,6 +1869,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1920,12 +1928,17 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * The API returns a successful response if the requested machine identity was deleted.
          * @summary Delete machine identity
          * @param {string} id Machine Identity ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMachineIdentityV2: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteMachineIdentityV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteMachineIdentityV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/machine-identities/v2/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1941,6 +1954,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1956,16 +1972,21 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * @param {string} sourceId The Source ID.
          * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
          * @param {string} configId The correlation config ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('deleteOwnershipCorrelationConfigV1', 'sourceId', sourceId)
             // verify required parameter 'resourceId' is not null or undefined
             assertParamExists('deleteOwnershipCorrelationConfigV1', 'resourceId', resourceId)
             // verify required parameter 'configId' is not null or undefined
             assertParamExists('deleteOwnershipCorrelationConfigV1', 'configId', configId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)))
@@ -1983,6 +2004,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2038,12 +2062,17 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * This API returns a single machine identity using the Machine Identity ID.
          * @summary Get machine identity details
          * @param {string} id Machine Identity ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMachineIdentityV2: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMachineIdentityV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getMachineIdentityV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/machine-identities/v2/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2059,6 +2088,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2074,16 +2106,21 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * @param {string} sourceId The Source ID.
          * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
          * @param {string} configId The correlation config ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getOwnershipCorrelationConfigV1', 'sourceId', sourceId)
             // verify required parameter 'resourceId' is not null or undefined
             assertParamExists('getOwnershipCorrelationConfigV1', 'resourceId', resourceId)
             // verify required parameter 'configId' is not null or undefined
             assertParamExists('getOwnershipCorrelationConfigV1', 'configId', configId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)))
@@ -2101,6 +2138,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2219,10 +2259,15 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listMachineIdentitiesV2: async (filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listMachineIdentitiesV2: async (filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/machine-identities/v2`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2257,6 +2302,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2400,14 +2448,19 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOwnershipCorrelationConfigsV1: async (sourceId: string, resourceId: string, type?: ListOwnershipCorrelationConfigsV1TypeEnum, count?: boolean, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listOwnershipCorrelationConfigsV1: async (sourceId: string, resourceId: string, type?: ListOwnershipCorrelationConfigsV1TypeEnum, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('listOwnershipCorrelationConfigsV1', 'sourceId', sourceId)
             // verify required parameter 'resourceId' is not null or undefined
             assertParamExists('listOwnershipCorrelationConfigsV1', 'resourceId', resourceId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
@@ -2440,6 +2493,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
 
 
     
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2456,10 +2512,11 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
          * @param {string} configId The correlation config ID.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the correlation config.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchOwnershipCorrelationConfigV1: async (sourceId: string, resourceId: string, configId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('patchOwnershipCorrelationConfigV1', 'sourceId', sourceId)
             // verify required parameter 'resourceId' is not null or undefined
@@ -2468,6 +2525,10 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
             assertParamExists('patchOwnershipCorrelationConfigV1', 'configId', configId)
             // verify required parameter 'jsonPatchOperation' is not null or undefined
             assertParamExists('patchOwnershipCorrelationConfigV1', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/correlation-configs/{configId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)))
@@ -2487,6 +2548,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
     
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2598,14 +2662,19 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
          * @summary Partial update of machine identity
          * @param {string} id Machine Identity ID.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateMachineIdentityV2: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateMachineIdentityV2: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateMachineIdentityV2', 'id', id)
             // verify required parameter 'jsonPatchOperation' is not null or undefined
             assertParamExists('updateMachineIdentityV2', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
             const localVarPath = `/machine-identities/v2/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2623,6 +2692,9 @@ export const MachineIdentitiesApiAxiosParamCreator = function (configuration?: C
     
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
 
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2661,11 +2733,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * Use this API to create a machine identity. Additional owners may be either up to ten human (IDENTITY) references or exactly one GOVERNANCE_GROUP reference - not both. The maximum supported length for the description field is 2000 characters.  When Business Applications is enabled for the tenant, callers may optionally include a single `businessApplicationRefs` entry (`type`=`BUSINESS_APPLICATION`, `id`=BA UUID). The assignment is stored as a `MANUAL` correlation. `correlationType` may be omitted or `MANUAL`; `AUTOMATIC` is rejected (`400`). Unknown BA id returns `404`. More than one ref returns `400`. When Business Applications is not enabled, supplying `businessApplicationRefs` returns `400`. `sanctionedStatus` and `effectiveSanctionedStatus` are read-only and ignored on input.
          * @summary Create machine identity
          * @param {Machineidentityv2} machineidentityv2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createMachineIdentityV2(machineidentityv2: Machineidentityv2, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineIdentityV2(machineidentityv2, axiosOptions);
+        async createMachineIdentityV2(machineidentityv2: Machineidentityv2, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineIdentityV2(machineidentityv2, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.createMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2688,11 +2761,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * The API returns a successful response if the requested machine identity was deleted.
          * @summary Delete machine identity
          * @param {string} id Machine Identity ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteMachineIdentityV2(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineIdentityV2(id, axiosOptions);
+        async deleteMachineIdentityV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineIdentityV2(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.deleteMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2703,11 +2777,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * @param {string} sourceId The Source ID.
          * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
          * @param {string} configId The correlation config ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOwnershipCorrelationConfigV1(sourceId, resourceId, configId, axiosOptions);
+        async deleteOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOwnershipCorrelationConfigV1(sourceId, resourceId, configId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.deleteOwnershipCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2730,11 +2805,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * This API returns a single machine identity using the Machine Identity ID.
          * @summary Get machine identity details
          * @param {string} id Machine Identity ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMachineIdentityV2(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineIdentityV2(id, axiosOptions);
+        async getMachineIdentityV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineIdentityV2(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.getMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2745,11 +2821,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * @param {string} sourceId The Source ID.
          * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
          * @param {string} configId The correlation config ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOwnershipCorrelationConfigV1(sourceId, resourceId, configId, axiosOptions);
+        async getOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOwnershipCorrelationConfigV1(sourceId, resourceId, configId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.getOwnershipCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2793,11 +2870,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listMachineIdentitiesV2(filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Machineidentityv2>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentitiesV2(filters, sorters, count, limit, offset, axiosOptions);
+        async listMachineIdentitiesV2(filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Machineidentityv2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineIdentitiesV2(filters, sorters, count, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listMachineIdentitiesV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2847,11 +2925,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOwnershipCorrelationConfigsV1(sourceId: string, resourceId: string, type?: ListOwnershipCorrelationConfigsV1TypeEnum, count?: boolean, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CorrelationConfig>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listOwnershipCorrelationConfigsV1(sourceId, resourceId, type, count, limit, offset, axiosOptions);
+        async listOwnershipCorrelationConfigsV1(sourceId: string, resourceId: string, type?: ListOwnershipCorrelationConfigsV1TypeEnum, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CorrelationConfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOwnershipCorrelationConfigsV1(sourceId, resourceId, type, count, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.listOwnershipCorrelationConfigsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2863,11 +2942,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * @param {string} resourceId The source resource ID (for example, account or aws:iam-role).
          * @param {string} configId The correlation config ID.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the correlation config.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOwnershipCorrelationConfigV1(sourceId, resourceId, configId, jsonPatchOperation, axiosOptions);
+        async patchOwnershipCorrelationConfigV1(sourceId: string, resourceId: string, configId: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOwnershipCorrelationConfigV1(sourceId, resourceId, configId, jsonPatchOperation, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.patchOwnershipCorrelationConfigV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2907,11 +2987,12 @@ export const MachineIdentitiesApiFp = function(configuration?: Configuration) {
          * @summary Partial update of machine identity
          * @param {string} id Machine Identity ID.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMachineIdentityV2(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineIdentityV2(id, jsonPatchOperation, axiosOptions);
+        async updateMachineIdentityV2(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Machineidentityv2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineIdentityV2(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineIdentitiesApi.updateMachineIdentityV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2944,7 +3025,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         createMachineIdentityV2(requestParameters: MachineIdentitiesApiCreateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityv2> {
-            return localVarFp.createMachineIdentityV2(requestParameters.machineidentityv2, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createMachineIdentityV2(requestParameters.machineidentityv2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The API returns successful response if the requested machine identity was deleted.
@@ -2964,7 +3045,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         deleteMachineIdentityV2(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.deleteMachineIdentityV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the ownership correlation config with the specified ID for the given source resource.
@@ -2974,7 +3055,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         deleteOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.deleteOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a single machine identity using the Machine Identity ID.
@@ -2994,7 +3075,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         getMachineIdentityV2(requestParameters: MachineIdentitiesApiGetMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityv2> {
-            return localVarFp.getMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getMachineIdentityV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point retrieves a single ownership correlation config by ID for the specified source resource.
@@ -3004,7 +3085,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         getOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CorrelationConfig> {
-            return localVarFp.getOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns aggregate counts (distinct agents, distinct owners, and total events) for anomalies of type **unsanctioned_app** across the tenant. Powers the Unsanctioned Agents card on the Agent Registry page.
@@ -3034,7 +3115,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         listMachineIdentitiesV2(requestParameters: MachineIdentitiesApiListMachineIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Machineidentityv2>> {
-            return localVarFp.listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a paginated list of anomalies detected for the specified machine identity (agent).  Set **count=true** to populate the *X-Total-Count* response header with the total number of anomalies for the agent. Combine **limit=0** with **count=true** to retrieve only the count with an empty result body.
@@ -3064,7 +3145,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         listOwnershipCorrelationConfigsV1(requestParameters: MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<CorrelationConfig>> {
-            return localVarFp.listOwnershipCorrelationConfigsV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listOwnershipCorrelationConfigsV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Selectively updates an ownership correlation config using an RFC 6902 JSONPatch payload. Only replace on /attributes (full object) and replace on /rules (full array; merge by stable rule id, remove rules omitted from the array) are allowed.
@@ -3074,7 +3155,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         patchOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CorrelationConfig> {
-            return localVarFp.patchOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.patchOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts a machine identity (AI Agents) aggregation on the specified source.
@@ -3104,7 +3185,7 @@ export const MachineIdentitiesApiFactory = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         updateMachineIdentityV2(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Machineidentityv2> {
-            return localVarFp.updateMachineIdentityV2(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.updateMachineIdentityV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3142,6 +3223,13 @@ export interface MachineIdentitiesApiCreateMachineIdentityV2Request {
      * @memberof MachineIdentitiesApiCreateMachineIdentityV2
      */
     readonly machineidentityv2: Machineidentityv2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiCreateMachineIdentityV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3177,6 +3265,13 @@ export interface MachineIdentitiesApiDeleteMachineIdentityV2Request {
      * @memberof MachineIdentitiesApiDeleteMachineIdentityV2
      */
     readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiDeleteMachineIdentityV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3205,6 +3300,13 @@ export interface MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request {
      * @memberof MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1
      */
     readonly configId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3240,6 +3342,13 @@ export interface MachineIdentitiesApiGetMachineIdentityV2Request {
      * @memberof MachineIdentitiesApiGetMachineIdentityV2
      */
     readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiGetMachineIdentityV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3268,6 +3377,13 @@ export interface MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request {
      * @memberof MachineIdentitiesApiGetOwnershipCorrelationConfigV1
      */
     readonly configId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiGetOwnershipCorrelationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3373,6 +3489,13 @@ export interface MachineIdentitiesApiListMachineIdentitiesV2Request {
      * @memberof MachineIdentitiesApiListMachineIdentitiesV2
      */
     readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiListMachineIdentitiesV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3520,6 +3643,13 @@ export interface MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request {
      * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
      */
     readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiListOwnershipCorrelationConfigsV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3555,6 +3685,13 @@ export interface MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request {
      * @memberof MachineIdentitiesApiPatchOwnershipCorrelationConfigV1
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiPatchOwnershipCorrelationConfigV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3632,6 +3769,13 @@ export interface MachineIdentitiesApiUpdateMachineIdentityV2Request {
      * @memberof MachineIdentitiesApiUpdateMachineIdentityV2
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineIdentitiesApiUpdateMachineIdentityV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3662,7 +3806,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public createMachineIdentityV2(requestParameters: MachineIdentitiesApiCreateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).createMachineIdentityV2(requestParameters.machineidentityv2, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).createMachineIdentityV2(requestParameters.machineidentityv2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3686,7 +3830,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public deleteMachineIdentityV2(requestParameters: MachineIdentitiesApiDeleteMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).deleteMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).deleteMachineIdentityV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3698,7 +3842,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public deleteOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiDeleteOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).deleteOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).deleteOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3722,7 +3866,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public getMachineIdentityV2(requestParameters: MachineIdentitiesApiGetMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).getMachineIdentityV2(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).getMachineIdentityV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3734,7 +3878,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public getOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiGetOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).getOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).getOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3770,7 +3914,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public listMachineIdentitiesV2(requestParameters: MachineIdentitiesApiListMachineIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).listMachineIdentitiesV2(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3806,7 +3950,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public listOwnershipCorrelationConfigsV1(requestParameters: MachineIdentitiesApiListOwnershipCorrelationConfigsV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).listOwnershipCorrelationConfigsV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).listOwnershipCorrelationConfigsV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3818,7 +3962,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public patchOwnershipCorrelationConfigV1(requestParameters: MachineIdentitiesApiPatchOwnershipCorrelationConfigV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).patchOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).patchOwnershipCorrelationConfigV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.configId, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3854,7 +3998,7 @@ export class MachineIdentitiesApi extends BaseAPI {
      * @memberof MachineIdentitiesApi
      */
     public updateMachineIdentityV2(requestParameters: MachineIdentitiesApiUpdateMachineIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
-        return MachineIdentitiesApiFp(this.configuration).updateMachineIdentityV2(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return MachineIdentitiesApiFp(this.configuration).updateMachineIdentityV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
