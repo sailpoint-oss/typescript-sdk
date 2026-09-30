@@ -119,6 +119,18 @@ export interface JitActivationActivateRequest {
      * @memberof JitActivationActivateRequest
      */
     'activationPeriodMins': number;
+    /**
+     * Origin of the request.
+     * @type {string}
+     * @memberof JitActivationActivateRequest
+     */
+    'requestOrigin'?: string;
+    /**
+     * 
+     * @type {JitActivationCallerMetadata}
+     * @memberof JitActivationActivateRequest
+     */
+    'metaData'?: JitActivationCallerMetadata;
 }
 /**
  * 
@@ -166,6 +178,55 @@ export interface JitActivationActivateResponse {
 
 
 /**
+ * Caller-specific context for the request. Field names depend on the request origin. The properties below apply when the request origin is Slack. 
+ * @export
+ * @interface JitActivationCallerMetadata
+ */
+export interface JitActivationCallerMetadata {
+    /**
+     * Request origin type. Matches `requestOrigin` when both are sent.
+     * @type {string}
+     * @memberof JitActivationCallerMetadata
+     */
+    'type'?: string;
+    /**
+     * Slack user identifier of the caller.
+     * @type {string}
+     * @memberof JitActivationCallerMetadata
+     */
+    'slackUserId'?: string;
+    /**
+     * Slack command text that produced this request.
+     * @type {string}
+     * @memberof JitActivationCallerMetadata
+     */
+    'commandText'?: string;
+    /**
+     * Slack channel identifier.
+     * @type {string}
+     * @memberof JitActivationCallerMetadata
+     */
+    'channelId'?: string;
+    /**
+     * Slack thread identifier of the message that produced this request.
+     * @type {string}
+     * @memberof JitActivationCallerMetadata
+     */
+    'threadId'?: string;
+    /**
+     * Slack message identifier of the message that produced this request.
+     * @type {string}
+     * @memberof JitActivationCallerMetadata
+     */
+    'messageId'?: string;
+    /**
+     * Slack workspace identifier.
+     * @type {string}
+     * @memberof JitActivationCallerMetadata
+     */
+    'workspaceId'?: string;
+}
+/**
  * 
  * @export
  * @interface JitActivationDeactivateRequest
@@ -177,6 +238,18 @@ export interface JitActivationDeactivateRequest {
      * @memberof JitActivationDeactivateRequest
      */
     'connectionId': string;
+    /**
+     * Origin of the request.
+     * @type {string}
+     * @memberof JitActivationDeactivateRequest
+     */
+    'requestOrigin'?: string;
+    /**
+     * 
+     * @type {JitActivationCallerMetadata}
+     * @memberof JitActivationDeactivateRequest
+     */
+    'metaData'?: JitActivationCallerMetadata;
 }
 /**
  * 
@@ -235,6 +308,18 @@ export interface JitActivationExtendRequest {
      * @memberof JitActivationExtendRequest
      */
     'activationPeriodExtensionMins': number;
+    /**
+     * Origin of the request.
+     * @type {string}
+     * @memberof JitActivationExtendRequest
+     */
+    'requestOrigin'?: string;
+    /**
+     * 
+     * @type {JitActivationCallerMetadata}
+     * @memberof JitActivationExtendRequest
+     */
+    'metaData'?: JitActivationCallerMetadata;
 }
 /**
  * 

@@ -9,6 +9,7 @@ JITActivationsApi.md
 JITActivationsApideveloperSite_code_examples.yaml
 JitActivationActivateRequest.md
 JitActivationActivateResponse.md
+JitActivationCallerMetadata.md
 JitActivationDeactivateRequest.md
 JitActivationDeactivateResponse.md
 JitActivationExtendRequest.md

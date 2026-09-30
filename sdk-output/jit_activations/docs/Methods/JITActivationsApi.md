@@ -183,7 +183,17 @@ import { JitActivationActivateRequest } from '@sailpoint/api-client/dist/jit_act
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
 const jitActivationActivateRequest: JitActivationActivateRequest = {
+  "metaData" : {
+    "threadId" : "1699887766.123456",
+    "slackUserId" : "U123",
+    "messageId" : "1699887770.654321",
+    "type" : "slack",
+    "commandText" : "/jit activate",
+    "channelId" : "C456",
+    "workspaceId" : "T789"
+  },
   "activationPeriodMins" : 120,
+  "requestOrigin" : "slack",
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
@@ -235,6 +245,16 @@ import { JitActivationDeactivateRequest } from '@sailpoint/api-client/dist/jit_a
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
 const jitActivationDeactivateRequest: JitActivationDeactivateRequest = {
+  "metaData" : {
+    "threadId" : "1699887766.123456",
+    "slackUserId" : "U123",
+    "messageId" : "1699887770.654321",
+    "type" : "slack",
+    "commandText" : "/jit activate",
+    "channelId" : "C456",
+    "workspaceId" : "T789"
+  },
+  "requestOrigin" : "slack",
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
@@ -287,7 +307,17 @@ import { JitActivationExtendRequest } from '@sailpoint/api-client/dist/jit_activ
 const configuration = new Configuration();
 const apiInstance = new JITActivationsApi(configuration);
 const jitActivationExtendRequest: JitActivationExtendRequest = {
+  "metaData" : {
+    "threadId" : "1699887766.123456",
+    "slackUserId" : "U123",
+    "messageId" : "1699887770.654321",
+    "type" : "slack",
+    "commandText" : "/jit activate",
+    "channelId" : "C456",
+    "workspaceId" : "T789"
+  },
   "activationPeriodExtensionMins" : 120,
+  "requestOrigin" : "slack",
   "connectionId" : "757fb803-9024-5861-e510-83a56e4c5bd3"
 }; // 
 const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
