@@ -112,8 +112,11 @@
     "type" : "ENTITLEMENT",
     "id" : "2c918087682f9a86016839c050861ab1"
   }, {
-    "type" : "ENTITLEMENT",
+    "type" : "ACCESS_PROFILE",
     "id" : "2c918087682f9a86016839c0509c1ab2"
+  }, {
+    "type" : "ROLE",
+    "id" : "2c918087682f9a86016839c050a01ab3"
   } ]
 }; // IdentityWithNewAccess | 
         const result = await apiInstance.startPredictSodViolationsV1({ identityWithNewAccess: identityWithNewAccess });
@@ -136,8 +139,11 @@
     "type" : "ENTITLEMENT",
     "id" : "2c918087682f9a86016839c050861ab1"
   }, {
-    "type" : "ENTITLEMENT",
+    "type" : "ACCESS_PROFILE",
     "id" : "2c918087682f9a86016839c0509c1ab2"
+  }, {
+    "type" : "ROLE",
+    "id" : "2c918087682f9a86016839c050a01ab3"
   } ]
 }; // IdentityWithNewAccess | 
         const result = await apiInstance.startViolationCheckV1({ identityWithNewAccess: identityWithNewAccess });

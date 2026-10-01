@@ -15,6 +15,6 @@ tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccessAccessRefsInner'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **(optional)** `string` | Entitlement\'s DTO type. | [default to undefined]
-**id** | **(optional)** `string` | Entitlement\'s ID. | [default to undefined]
+**type** | **(optional)** `string` | Access item DTO type. | [default to undefined]
+**id** | **(optional)** `string` | Access item ID. | [default to undefined]
 

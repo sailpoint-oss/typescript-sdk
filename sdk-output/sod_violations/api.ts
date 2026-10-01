@@ -433,26 +433,26 @@ export interface IdentityWithNewAccess {
      */
     'identityId': string;
     /**
-     * The list of entitlements to consider for possible violations in a preventive check.
+     * The list of access items to consider for possible violations in a preventive check. Supported types are ENTITLEMENT, ACCESS_PROFILE, and ROLE.
      * @type {Array<IdentityWithNewAccessAccessRefsInner>}
      * @memberof IdentityWithNewAccess
      */
     'accessRefs': Array<IdentityWithNewAccessAccessRefsInner>;
 }
 /**
- * Entitlement including a specific set of access.
+ * Reference to an access item that may contribute to an SOD violation.
  * @export
  * @interface IdentityWithNewAccessAccessRefsInner
  */
 export interface IdentityWithNewAccessAccessRefsInner {
     /**
-     * Entitlement\'s DTO type.
+     * Access item DTO type.
      * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInner
      */
     'type'?: IdentityWithNewAccessAccessRefsInnerTypeEnum;
     /**
-     * Entitlement\'s ID.
+     * Access item ID.
      * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInner
      */
@@ -460,7 +460,9 @@ export interface IdentityWithNewAccessAccessRefsInner {
 }
 
 export const IdentityWithNewAccessAccessRefsInnerTypeEnum = {
-    Entitlement: 'ENTITLEMENT'
+    Entitlement: 'ENTITLEMENT',
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE'
 } as const;
 
 export type IdentityWithNewAccessAccessRefsInnerTypeEnum = typeof IdentityWithNewAccessAccessRefsInnerTypeEnum[keyof typeof IdentityWithNewAccessAccessRefsInnerTypeEnum];
@@ -1082,7 +1084,7 @@ export const SODViolationsApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
+         * This API is used to check if granting some additional accesses (entitlements, access profiles, or roles) would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
          * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
@@ -1244,7 +1246,7 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
+         * This API is used to check if granting some additional accesses (entitlements, access profiles, or roles) would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
          * @param {IdentityWithNewAccess} identityWithNewAccess 
          * @param {*} [axiosOptions] Override http request option.
@@ -1330,7 +1332,7 @@ export const SODViolationsApiFactory = function (configuration?: Configuration, 
             return localVarFp.startApplyControlV1(requestParameters.id, requestParameters.appliedcontrolcreate, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
+         * This API is used to check if granting some additional accesses (entitlements, access profiles, or roles) would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
          * @summary Predict sod violations for identity.
          * @param {SODViolationsApiStartPredictSodViolationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1623,7 +1625,7 @@ export class SODViolationsApi extends BaseAPI {
     }
 
     /**
-     * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
+     * This API is used to check if granting some additional accesses (entitlements, access profiles, or roles) would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
      * @summary Predict sod violations for identity.
      * @param {SODViolationsApiStartPredictSodViolationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
