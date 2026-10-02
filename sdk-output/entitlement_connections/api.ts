@@ -185,64 +185,6 @@ export const EntitlementConnectionTypeEnum = {
 export type EntitlementConnectionTypeEnum = typeof EntitlementConnectionTypeEnum[keyof typeof EntitlementConnectionTypeEnum];
 
 /**
- * 
- * @export
- * @interface EntitlementConnectionBulkUpdateItem
- */
-export interface EntitlementConnectionBulkUpdateItem {
-    /**
-     * Connection ID to update.
-     * @type {string}
-     * @memberof EntitlementConnectionBulkUpdateItem
-     */
-    'connectionId': string;
-    /**
-     * Target connection type.
-     * @type {string}
-     * @memberof EntitlementConnectionBulkUpdateItem
-     */
-    'type': EntitlementConnectionBulkUpdateItemTypeEnum;
-}
-
-export const EntitlementConnectionBulkUpdateItemTypeEnum = {
-    Jit: 'JIT',
-    Standing: 'STANDING'
-} as const;
-
-export type EntitlementConnectionBulkUpdateItemTypeEnum = typeof EntitlementConnectionBulkUpdateItemTypeEnum[keyof typeof EntitlementConnectionBulkUpdateItemTypeEnum];
-
-/**
- * 
- * @export
- * @interface EntitlementConnectionBulkUpdateResultItem
- */
-export interface EntitlementConnectionBulkUpdateResultItem {
-    /**
-     * Connection ID processed in this row.
-     * @type {string}
-     * @memberof EntitlementConnectionBulkUpdateResultItem
-     */
-    'connectionId'?: string;
-    /**
-     * Requested or resulting connection type for the row.
-     * @type {string}
-     * @memberof EntitlementConnectionBulkUpdateResultItem
-     */
-    'type'?: string;
-    /**
-     * Item-level result status code.
-     * @type {number}
-     * @memberof EntitlementConnectionBulkUpdateResultItem
-     */
-    'status'?: number;
-    /**
-     * Item-level result message.
-     * @type {string}
-     * @memberof EntitlementConnectionBulkUpdateResultItem
-     */
-    'description'?: string;
-}
-/**
  * Entitlement connection record returned by search-backed list endpoints.
  * @export
  * @interface EntitlementConnectionSearchHit
@@ -708,99 +650,6 @@ export const EntitlementConnectionsApiAxiosParamCreator = function (configuratio
                 axiosOptions: localVarRequestOptions,
             };
         },
-        /**
-         * Applies JSON Patch operations to a single entitlement connection selected by `entitlementId`, `identityId`, and `accountId`. 
-         * @summary Update connection by query
-         * @param {string} entitlementId Entitlement ID (UUID with or without hyphens).
-         * @param {string} identityId Identity ID (UUID with or without hyphens).
-         * @param {string} accountId Account ID (UUID with or without hyphens).
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        patchEntitlementConnectionByQueryV1: async (entitlementId: string, identityId: string, accountId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementId' is not null or undefined
-            assertParamExists('patchEntitlementConnectionByQueryV1', 'entitlementId', entitlementId)
-            // verify required parameter 'identityId' is not null or undefined
-            assertParamExists('patchEntitlementConnectionByQueryV1', 'identityId', identityId)
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('patchEntitlementConnectionByQueryV1', 'accountId', accountId)
-            // verify required parameter 'jsonPatchOperation' is not null or undefined
-            assertParamExists('patchEntitlementConnectionByQueryV1', 'jsonPatchOperation', jsonPatchOperation)
-            const localVarPath = `/entitlement-connections/v1`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (entitlementId !== undefined) {
-                localVarQueryParameter['entitlementId'] = entitlementId;
-            }
-
-            if (identityId !== undefined) {
-                localVarQueryParameter['identityId'] = identityId;
-            }
-
-            if (accountId !== undefined) {
-                localVarQueryParameter['accountId'] = accountId;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
-         * @summary Update connections in bulk
-         * @param {Array<EntitlementConnectionBulkUpdateItem>} entitlementConnectionBulkUpdateItem 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateEntitlementConnectionsBulkV1: async (entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem>, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'entitlementConnectionBulkUpdateItem' is not null or undefined
-            assertParamExists('updateEntitlementConnectionsBulkV1', 'entitlementConnectionBulkUpdateItem', entitlementConnectionBulkUpdateItem)
-            const localVarPath = `/entitlement-connections/v1`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(entitlementConnectionBulkUpdateItem, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -861,35 +710,6 @@ export const EntitlementConnectionsApiFp = function(configuration?: Configuratio
             const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.patchEntitlementConnectionByIdV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
-        /**
-         * Applies JSON Patch operations to a single entitlement connection selected by `entitlementId`, `identityId`, and `accountId`. 
-         * @summary Update connection by query
-         * @param {string} entitlementId Entitlement ID (UUID with or without hyphens).
-         * @param {string} identityId Identity ID (UUID with or without hyphens).
-         * @param {string} accountId Account ID (UUID with or without hyphens).
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async patchEntitlementConnectionByQueryV1(entitlementId: string, identityId: string, accountId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementConnection>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlementConnectionByQueryV1(entitlementId, identityId, accountId, jsonPatchOperation, axiosOptions);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.patchEntitlementConnectionByQueryV1']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
-         * @summary Update connections in bulk
-         * @param {Array<EntitlementConnectionBulkUpdateItem>} entitlementConnectionBulkUpdateItem 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateEntitlementConnectionsBulkV1(entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem>, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementConnectionBulkUpdateResultItem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementConnectionsBulkV1(entitlementConnectionBulkUpdateItem, axiosOptions);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EntitlementConnectionsApi.updateEntitlementConnectionsBulkV1']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
     }
 };
 
@@ -929,26 +749,6 @@ export const EntitlementConnectionsApiFactory = function (configuration?: Config
          */
         patchEntitlementConnectionByIdV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByIdV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementConnection> {
             return localVarFp.patchEntitlementConnectionByIdV1(requestParameters.connectionId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Applies JSON Patch operations to a single entitlement connection selected by `entitlementId`, `identityId`, and `accountId`. 
-         * @summary Update connection by query
-         * @param {EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request} requestParameters Request parameters.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        patchEntitlementConnectionByQueryV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<EntitlementConnection> {
-            return localVarFp.patchEntitlementConnectionByQueryV1(requestParameters.entitlementId, requestParameters.identityId, requestParameters.accountId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
-         * @summary Update connections in bulk
-         * @param {EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request} requestParameters Request parameters.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateEntitlementConnectionsBulkV1(requestParameters: EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementConnectionBulkUpdateResultItem>> {
-            return localVarFp.updateEntitlementConnectionsBulkV1(requestParameters.entitlementConnectionBulkUpdateItem, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1073,55 +873,6 @@ export interface EntitlementConnectionsApiPatchEntitlementConnectionByIdV1Reques
 }
 
 /**
- * Request parameters for patchEntitlementConnectionByQueryV1 operation in EntitlementConnectionsApi.
- * @export
- * @interface EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request
- */
-export interface EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request {
-    /**
-     * Entitlement ID (UUID with or without hyphens).
-     * @type {string}
-     * @memberof EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1
-     */
-    readonly entitlementId: string
-
-    /**
-     * Identity ID (UUID with or without hyphens).
-     * @type {string}
-     * @memberof EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1
-     */
-    readonly identityId: string
-
-    /**
-     * Account ID (UUID with or without hyphens).
-     * @type {string}
-     * @memberof EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1
-     */
-    readonly accountId: string
-
-    /**
-     * 
-     * @type {Array<JsonPatchOperation>}
-     * @memberof EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1
-     */
-    readonly jsonPatchOperation: Array<JsonPatchOperation>
-}
-
-/**
- * Request parameters for updateEntitlementConnectionsBulkV1 operation in EntitlementConnectionsApi.
- * @export
- * @interface EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request
- */
-export interface EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request {
-    /**
-     * 
-     * @type {Array<EntitlementConnectionBulkUpdateItem>}
-     * @memberof EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1
-     */
-    readonly entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem>
-}
-
-/**
  * EntitlementConnectionsApi - object-oriented interface
  * @export
  * @class EntitlementConnectionsApi
@@ -1162,30 +913,6 @@ export class EntitlementConnectionsApi extends BaseAPI {
      */
     public patchEntitlementConnectionByIdV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByIdV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return EntitlementConnectionsApiFp(this.configuration).patchEntitlementConnectionByIdV1(requestParameters.connectionId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Applies JSON Patch operations to a single entitlement connection selected by `entitlementId`, `identityId`, and `accountId`. 
-     * @summary Update connection by query
-     * @param {EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EntitlementConnectionsApi
-     */
-    public patchEntitlementConnectionByQueryV1(requestParameters: EntitlementConnectionsApiPatchEntitlementConnectionByQueryV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementConnectionsApiFp(this.configuration).patchEntitlementConnectionByQueryV1(requestParameters.entitlementId, requestParameters.identityId, requestParameters.accountId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Updates connection type for up to 100 connections in one request. The API returns per-item results in a 207 Multi-Status response. 
-     * @summary Update connections in bulk
-     * @param {EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof EntitlementConnectionsApi
-     */
-    public updateEntitlementConnectionsBulkV1(requestParameters: EntitlementConnectionsApiUpdateEntitlementConnectionsBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return EntitlementConnectionsApiFp(this.configuration).updateEntitlementConnectionsBulkV1(requestParameters.entitlementConnectionBulkUpdateItem, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

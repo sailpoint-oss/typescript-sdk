@@ -3,8 +3,6 @@
 .openapi-generator-ignore
 ArrayInner.md
 EntitlementConnection.md
-EntitlementConnectionBulkUpdateItem.md
-EntitlementConnectionBulkUpdateResultItem.md
 EntitlementConnectionSearchHit.md
 EntitlementConnectionSearchHitEntitlement.md
 EntitlementConnectionSearchHitEntitlementPrivilegeLevel.md

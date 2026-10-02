@@ -20,8 +20,6 @@ Method | HTTP request | Description
 [**list-entitlement-connections-for-current-identity-v1**](#list-entitlement-connections-for-current-identity-v1) | **GET** `/entitlement-connections/v1/current-identity` | List my entitlement connections
 [**list-entitlement-connections-v1**](#list-entitlement-connections-v1) | **GET** `/entitlement-connections/v1` | List entitlement connections
 [**patch-entitlement-connection-by-id-v1**](#patch-entitlement-connection-by-id-v1) | **PATCH** `/entitlement-connections/v1/{connectionId}` | Update entitlement connection
-[**patch-entitlement-connection-by-query-v1**](#patch-entitlement-connection-by-query-v1) | **PATCH** `/entitlement-connections/v1` | Update connection by query
-[**update-entitlement-connections-bulk-v1**](#update-entitlement-connections-bulk-v1) | **POST** `/entitlement-connections/v1` | Update connections in bulk
 
 
 ## list-entitlement-connections-for-current-identity-v1
@@ -164,99 +162,6 @@ const jsonPatchOperation: Array<JsonPatchOperation> = {
   "value" : "New description"
 }; // 
 const result = await apiInstance.patchEntitlementConnectionByIdV1({ connectionId: connectionId, jsonPatchOperation: jsonPatchOperation });
-console.log(result);
-```
-
-[[Back to top]](#)
-
-## patch-entitlement-connection-by-query-v1
-Update connection by query
-Applies JSON Patch operations to a single entitlement connection selected by
-`entitlementId`, `identityId`, and `accountId`.
-
-
-[API Spec](https://developer.sailpoint.com/docs/api/patch-entitlement-connection-by-query-v-1)
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**entitlementId** | `string` | Entitlement ID (UUID with or without hyphens). |  [default to undefined]
-**identityId** | `string` | Identity ID (UUID with or without hyphens). |  [default to undefined]
-**accountId** | `string` | Account ID (UUID with or without hyphens). |  [default to undefined]
-**jsonPatchOperation** | `Array<JsonPatchOperation>` |  | 
-
-### Return type
-
-`EntitlementConnection`
-
-### HTTP request headers
-
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
-
-### Example
-
-```typescript
-import { EntitlementConnectionsApi } from '@sailpoint/api-client';
-import { Configuration } from '@sailpoint/api-client';
-import { JsonPatchOperation } from '@sailpoint/api-client/dist/entitlement_connections/api';
-
-const configuration = new Configuration();
-const apiInstance = new EntitlementConnectionsApi(configuration);
-const entitlementId: string = dcfd09e551644ad5aa162ce977862031; // Entitlement ID (UUID with or without hyphens).
-const identityId: string = 5470d8d4817a4207a8020bf533187da9; // Identity ID (UUID with or without hyphens).
-const accountId: string = 323bfddfb3dd4197b8f10f7735307d27; // Account ID (UUID with or without hyphens).
-const jsonPatchOperation: Array<JsonPatchOperation> = {
-  "op" : "replace",
-  "path" : "/description",
-  "value" : "New description"
-}; // 
-const result = await apiInstance.patchEntitlementConnectionByQueryV1({ entitlementId: entitlementId, identityId: identityId, accountId: accountId, jsonPatchOperation: jsonPatchOperation });
-console.log(result);
-```
-
-[[Back to top]](#)
-
-## update-entitlement-connections-bulk-v1
-Update connections in bulk
-Updates connection type for up to 100 connections in one request.
-The API returns per-item results in a 207 Multi-Status response.
-
-
-[API Spec](https://developer.sailpoint.com/docs/api/update-entitlement-connections-bulk-v-1)
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**entitlementConnectionBulkUpdateItem** | `Array<EntitlementConnectionBulkUpdateItem>` |  | 
-
-### Return type
-
-`Array<EntitlementConnectionBulkUpdateResultItem>`
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-
-```typescript
-import { EntitlementConnectionsApi } from '@sailpoint/api-client';
-import { Configuration } from '@sailpoint/api-client';
-import { EntitlementConnectionBulkUpdateItem } from '@sailpoint/api-client/dist/entitlement_connections/api';
-
-const configuration = new Configuration();
-const apiInstance = new EntitlementConnectionsApi(configuration);
-const entitlementConnectionBulkUpdateItem: Array<EntitlementConnectionBulkUpdateItem> = {
-  "connectionId" : "d532fa5cb15748e2873c6a01e5923ec4",
-  "type" : "JIT"
-}; // 
-const result = await apiInstance.updateEntitlementConnectionsBulkV1({ entitlementConnectionBulkUpdateItem: entitlementConnectionBulkUpdateItem });
 console.log(result);
 ```
 
