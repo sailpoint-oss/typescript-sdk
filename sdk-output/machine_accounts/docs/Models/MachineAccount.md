@@ -36,4 +36,8 @@ Name | Type | Description | Notes
 **enabled** | `boolean` | Indicates if the account is enabled | [default to false]
 **hasEntitlements** | `boolean` | Indicates if the account has entitlements | [default to true]
 **source** | `any` | The source this machine account belongs to. | [default to undefined]
+**risk** | **(optional)** `MachineAccountAllOfRisk` |  | [default to undefined]
+**permissionLevel** | **(optional)** `string` | Entro permission level. Null when not enriched. Read-only; written only by aggregation. | [readonly] [default to undefined]
+**compliance** | **(optional)** `Array<MachineAccountAllOfCompliance>` | Entro compliance control ids. Null when absent; empty when Entro recorded no violations. A violations count is the length of this array. There is no `complianceViolationsCount` field, and `compliance` is not a list filter or sort field. Read-only; written only by aggregation. | [readonly] [default to undefined]
+**lastUsedAt** | **(optional)** `string` | When the machine account was last used, from Entro. Null when not enriched. Read-only; written only by aggregation. | [readonly] [default to undefined]
 

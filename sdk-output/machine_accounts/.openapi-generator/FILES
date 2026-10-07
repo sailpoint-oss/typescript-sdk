@@ -10,6 +10,8 @@ ListMachineAccountsV1401Response.md
 ListMachineAccountsV1429Response.md
 LocaleOrigin.md
 MachineAccount.md
+MachineAccountAllOfCompliance.md
+MachineAccountAllOfRisk.md
 MachineAccountsApi.md
 MachineAccountsApideveloperSite_code_examples.yaml
 MachineAccountsAsyncResult.md
