@@ -380,7 +380,7 @@ export interface ArrayInner {
  */
 export interface AttributeDTO {
     /**
-     * Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
+     * Technical name of the Attribute. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_). Spaces are not supported. The value cannot start or end with a dash or underscore.
      * @type {string}
      * @memberof AttributeDTO
      */
@@ -454,7 +454,7 @@ export interface AttributeDTOList {
  */
 export interface AttributeValueDTO {
     /**
-     * Technical name of the Attribute value. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_); the value cannot start or end with a dash or underscore.
+     * Technical name of the Attribute value. This is unique and cannot be changed after creation. Allowed characters are letters, numbers, dashes (-), and underscores (_). Spaces are not supported. The value cannot start or end with a dash or underscore.
      * @type {string}
      * @memberof AttributeValueDTO
      */
