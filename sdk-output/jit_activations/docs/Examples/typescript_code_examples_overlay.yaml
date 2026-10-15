@@ -1,3 +1,18 @@
+- path: /jit-activations/v1/{activationId}/frictions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/jit_activations/methods/jit-activations#get-jit-activation-frictions-v1
+      source: |
+        import { JITActivationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new JITActivationsApi(configuration);
+        const activationId: string = '857fb802-1034-786a-151e-d3a56e4c5bd9'; // string | Identifier of the activation. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getJitActivationFrictionsV1({ activationId: activationId });
+        console.log(result);
 - path: /jit-activation-history/v1/current-identity
   method: GET
   xCodeSample:
@@ -37,6 +52,27 @@
         const filters: string = 'status eq "PROVISIONED"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identityId**: *eq, in*  **entitlementId**: *eq, in*  **sourceId**: *eq*  **connectionId**: *eq*  **status**: *eq, in*  **activationInitiated**: *gt, lt, ge, le*  **policyFrictionOutcome**: *eq, in* (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.listJitActivationHistoryV1({  });
+        console.log(result);
+- path: /jit-activations/v1/{activationId}/frictions
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/jit_activations/methods/jit-activations#patch-jit-activation-frictions-v1
+      source: |
+        import { JITActivationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JITActivationFrictionPatchRequest } from '@sailpoint/api-client/dist/jit_activations/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new JITActivationsApi(configuration);
+        const activationId: string = '857fb802-1034-786a-151e-d3a56e4c5bd9'; // string | Identifier of the activation. (default to undefined)
+        const jITActivationFrictionPatchRequest: JITActivationFrictionPatchRequest = {
+  "submittedData" : "",
+  "bypass" : false,
+  "type" : ""
+}; // JITActivationFrictionPatchRequest | Submission for the current friction step.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.patchJitActivationFrictionsV1({ activationId: activationId, jITActivationFrictionPatchRequest: jITActivationFrictionPatchRequest });
         console.log(result);
 - path: /jit-activations/v1/activate
   method: POST

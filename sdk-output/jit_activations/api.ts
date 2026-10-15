@@ -102,6 +102,223 @@ export interface ErrorResponseDto {
     'causes'?: Array<ErrorMessageDto>;
 }
 /**
+ * Data submitted for a friction step.
+ * @export
+ * @interface FrictionSubmittedData
+ */
+export interface FrictionSubmittedData {
+    /**
+     * Justification text.
+     * @type {string}
+     * @memberof FrictionSubmittedData
+     */
+    'justification'?: string;
+    /**
+     * Whether this step was bypassed.
+     * @type {boolean}
+     * @memberof FrictionSubmittedData
+     */
+    'bypass'?: boolean;
+    /**
+     * Ticketing system identifier.
+     * @type {string}
+     * @memberof FrictionSubmittedData
+     */
+    'ticketId'?: string;
+    /**
+     * Whether the ticket is valid. Set by the server.
+     * @type {boolean}
+     * @memberof FrictionSubmittedData
+     */
+    'isValidTicket'?: boolean;
+    /**
+     * Count of failed submissions for this step. The server sets this value and ignores it on PATCH.
+     * @type {number}
+     * @memberof FrictionSubmittedData
+     */
+    'attempts'?: number;
+    /**
+     * Whether reauthentication succeeded.
+     * @type {boolean}
+     * @memberof FrictionSubmittedData
+     */
+    'reauthSuccessful'?: boolean;
+    /**
+     * Time of reauthentication.
+     * @type {string}
+     * @memberof FrictionSubmittedData
+     */
+    'reauthDate'?: string;
+    /**
+     * Whether the ticketing integration is disabled. Set by the server.
+     * @type {boolean}
+     * @memberof FrictionSubmittedData
+     */
+    'integrationDisabled'?: boolean;
+}
+/**
+ * Submission for the current friction step.
+ * @export
+ * @interface JITActivationFrictionPatchRequest
+ */
+export interface JITActivationFrictionPatchRequest {
+    /**
+     * Kind of friction step being submitted.
+     * @type {JITActivationFrictionType}
+     * @memberof JITActivationFrictionPatchRequest
+     */
+    'type': JITActivationFrictionType;
+    /**
+     * Data submitted for this friction step. Omit when bypassing a step that allows bypass.
+     * @type {FrictionSubmittedData}
+     * @memberof JITActivationFrictionPatchRequest
+     */
+    'submittedData'?: FrictionSubmittedData;
+    /**
+     * Whether to bypass this friction step.
+     * @type {boolean}
+     * @memberof JITActivationFrictionPatchRequest
+     */
+    'bypass'?: boolean | null;
+}
+
+
+/**
+ * One friction step on an activation.
+ * @export
+ * @interface JITActivationFrictionResponse
+ */
+export interface JITActivationFrictionResponse {
+    /**
+     * Kind of friction step.
+     * @type {JITActivationFrictionType}
+     * @memberof JITActivationFrictionResponse
+     */
+    'type': JITActivationFrictionType | null;
+    /**
+     * Lifecycle of this friction step.
+     * @type {JITActivationFrictionStatus}
+     * @memberof JITActivationFrictionResponse
+     */
+    'status': JITActivationFrictionStatus | null;
+    /**
+     * Data submitted for this friction step.
+     * @type {FrictionSubmittedData}
+     * @memberof JITActivationFrictionResponse
+     */
+    'submittedData': FrictionSubmittedData | null;
+    /**
+     * Whether this step may be bypassed.
+     * @type {boolean}
+     * @memberof JITActivationFrictionResponse
+     */
+    'bypassAllowed': boolean;
+    /**
+     * Minimum word count for a justification step.
+     * @type {number}
+     * @memberof JITActivationFrictionResponse
+     */
+    'minWords'?: number;
+}
+
+
+/**
+ * Aggregate friction state of an activation.
+ * @export
+ * @enum {string}
+ */
+
+export const JITActivationFrictionState = {
+    Pending: 'PENDING',
+    InProgress: 'IN_PROGRESS',
+    TimedOut: 'TIMED_OUT',
+    Complete: 'COMPLETE',
+    NotApplicable: 'NOT_APPLICABLE'
+} as const;
+
+export type JITActivationFrictionState = typeof JITActivationFrictionState[keyof typeof JITActivationFrictionState];
+
+
+/**
+ * Lifecycle of one friction step.
+ * @export
+ * @enum {string}
+ */
+
+export const JITActivationFrictionStatus = {
+    Pending: 'PENDING',
+    Active: 'ACTIVE',
+    TimedOut: 'TIMED_OUT',
+    Complete: 'COMPLETE',
+    NotApplicable: 'NOT_APPLICABLE',
+    Cancelled: 'CANCELLED',
+    Failed: 'FAILED'
+} as const;
+
+export type JITActivationFrictionStatus = typeof JITActivationFrictionStatus[keyof typeof JITActivationFrictionStatus];
+
+
+/**
+ * Kind of friction step.
+ * @export
+ * @enum {string}
+ */
+
+export const JITActivationFrictionType = {
+    Ticket: 'TICKET',
+    Justification: 'JUSTIFICATION',
+    Reauthentication: 'REAUTHENTICATION'
+} as const;
+
+export type JITActivationFrictionType = typeof JITActivationFrictionType[keyof typeof JITActivationFrictionType];
+
+
+/**
+ * Friction state for an activation.
+ * @export
+ * @interface JITActivationFrictionsResponse
+ */
+export interface JITActivationFrictionsResponse {
+    /**
+     * Identifier of the activation.
+     * @type {string}
+     * @memberof JITActivationFrictionsResponse
+     */
+    'activationId': string | null;
+    /**
+     * Aggregate friction state of the activation.
+     * @type {JITActivationFrictionState}
+     * @memberof JITActivationFrictionsResponse
+     */
+    'frictionState': JITActivationFrictionState | null;
+    /**
+     * Identifier of the entitlement connection.
+     * @type {string}
+     * @memberof JITActivationFrictionsResponse
+     */
+    'connectionId': string | null;
+    /**
+     * Time the activation started.
+     * @type {string}
+     * @memberof JITActivationFrictionsResponse
+     */
+    'activationInitTime': string | null;
+    /**
+     * Minutes allowed to complete all frictions.
+     * @type {string}
+     * @memberof JITActivationFrictionsResponse
+     */
+    'expiryMins': string;
+    /**
+     * Friction steps for the activation.
+     * @type {Array<JITActivationFrictionResponse>}
+     * @memberof JITActivationFrictionsResponse
+     */
+    'frictions': Array<JITActivationFrictionResponse>;
+}
+
+
+/**
  * 
  * @export
  * @interface JitActivationActivateRequest
@@ -727,6 +944,48 @@ export interface StartActivateWorkflowV1429Response {
 export const JITActivationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Returns evaluated frictions for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Returns HTTP 404 when the activation does not exist. 
+         * @summary Get JIT activation frictions
+         * @param {string} activationId Identifier of the activation.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJitActivationFrictionsV1: async (activationId: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'activationId' is not null or undefined
+            assertParamExists('getJitActivationFrictionsV1', 'activationId', activationId)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/jit-activations/v1/{activationId}/frictions`
+                .replace(`{${"activationId"}}`, encodeURIComponent(String(activationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
          * @summary List JIT activation history (self)
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -856,6 +1115,54 @@ export const JITActivationsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Submits the current friction step for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Request bodies larger than 16 KB return HTTP 413. 
+         * @summary Submit JIT activation friction
+         * @param {string} activationId Identifier of the activation.
+         * @param {JITActivationFrictionPatchRequest} jITActivationFrictionPatchRequest Submission for the current friction step.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchJitActivationFrictionsV1: async (activationId: string, jITActivationFrictionPatchRequest: JITActivationFrictionPatchRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'activationId' is not null or undefined
+            assertParamExists('patchJitActivationFrictionsV1', 'activationId', activationId)
+            // verify required parameter 'jITActivationFrictionPatchRequest' is not null or undefined
+            assertParamExists('patchJitActivationFrictionsV1', 'jITActivationFrictionPatchRequest', jITActivationFrictionPatchRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/jit-activations/v1/{activationId}/frictions`
+                .replace(`{${"activationId"}}`, encodeURIComponent(String(activationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jITActivationFrictionPatchRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1005,6 +1312,20 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JITActivationsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Returns evaluated frictions for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Returns HTTP 404 when the activation does not exist. 
+         * @summary Get JIT activation frictions
+         * @param {string} activationId Identifier of the activation.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getJitActivationFrictionsV1(activationId: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationFrictionsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getJitActivationFrictionsV1(activationId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.getJitActivationFrictionsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
          * @summary List JIT activation history (self)
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -1040,6 +1361,21 @@ export const JITActivationsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listJitActivationHistoryV1(limit, offset, count, sorters, searchAfter, filters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.listJitActivationHistoryV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Submits the current friction step for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Request bodies larger than 16 KB return HTTP 413. 
+         * @summary Submit JIT activation friction
+         * @param {string} activationId Identifier of the activation.
+         * @param {JITActivationFrictionPatchRequest} jITActivationFrictionPatchRequest Submission for the current friction step.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchJitActivationFrictionsV1(activationId: string, jITActivationFrictionPatchRequest: JITActivationFrictionPatchRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<JITActivationFrictionsResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchJitActivationFrictionsV1(activationId, jITActivationFrictionPatchRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JITActivationsApi.patchJitActivationFrictionsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1095,6 +1431,16 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
     const localVarFp = JITActivationsApiFp(configuration)
     return {
         /**
+         * Returns evaluated frictions for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Returns HTTP 404 when the activation does not exist. 
+         * @summary Get JIT activation frictions
+         * @param {JITActivationsApiGetJitActivationFrictionsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getJitActivationFrictionsV1(requestParameters: JITActivationsApiGetJitActivationFrictionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JITActivationFrictionsResponse> {
+            return localVarFp.getJitActivationFrictionsV1(requestParameters.activationId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
          * @summary List JIT activation history (self)
          * @param {JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request} requestParameters Request parameters.
@@ -1113,6 +1459,16 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
          */
         listJitActivationHistoryV1(requestParameters: JITActivationsApiListJitActivationHistoryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Jitactivationhistorydocument>> {
             return localVarFp.listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Submits the current friction step for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Request bodies larger than 16 KB return HTTP 413. 
+         * @summary Submit JIT activation friction
+         * @param {JITActivationsApiPatchJitActivationFrictionsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchJitActivationFrictionsV1(requestParameters: JITActivationsApiPatchJitActivationFrictionsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<JITActivationFrictionsResponse> {
+            return localVarFp.patchJitActivationFrictionsV1(requestParameters.activationId, requestParameters.jITActivationFrictionPatchRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Starts a JIT Privileged (JIT P) activation workflow for the given entitlement connection and duration. The service performs quick validation; the workflow performs additional validation.  The response is returned with HTTP 202 Accepted while the workflow initializes. 
@@ -1146,6 +1502,27 @@ export const JITActivationsApiFactory = function (configuration?: Configuration,
         },
     };
 };
+
+/**
+ * Request parameters for getJitActivationFrictionsV1 operation in JITActivationsApi.
+ * @export
+ * @interface JITActivationsApiGetJitActivationFrictionsV1Request
+ */
+export interface JITActivationsApiGetJitActivationFrictionsV1Request {
+    /**
+     * Identifier of the activation.
+     * @type {string}
+     * @memberof JITActivationsApiGetJitActivationFrictionsV1
+     */
+    readonly activationId: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITActivationsApiGetJitActivationFrictionsV1
+     */
+    readonly xSailPointExperimental?: string
+}
 
 /**
  * Request parameters for listJitActivationHistoryForCurrentIdentityV1 operation in JITActivationsApi.
@@ -1260,6 +1637,34 @@ export interface JITActivationsApiListJitActivationHistoryV1Request {
 }
 
 /**
+ * Request parameters for patchJitActivationFrictionsV1 operation in JITActivationsApi.
+ * @export
+ * @interface JITActivationsApiPatchJitActivationFrictionsV1Request
+ */
+export interface JITActivationsApiPatchJitActivationFrictionsV1Request {
+    /**
+     * Identifier of the activation.
+     * @type {string}
+     * @memberof JITActivationsApiPatchJitActivationFrictionsV1
+     */
+    readonly activationId: string
+
+    /**
+     * Submission for the current friction step.
+     * @type {JITActivationFrictionPatchRequest}
+     * @memberof JITActivationsApiPatchJitActivationFrictionsV1
+     */
+    readonly jITActivationFrictionPatchRequest: JITActivationFrictionPatchRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof JITActivationsApiPatchJitActivationFrictionsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for startActivateWorkflowV1 operation in JITActivationsApi.
  * @export
  * @interface JITActivationsApiStartActivateWorkflowV1Request
@@ -1330,6 +1735,18 @@ export interface JITActivationsApiStartExtendWorkflowV1Request {
  */
 export class JITActivationsApi extends BaseAPI {
     /**
+     * Returns evaluated frictions for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Returns HTTP 404 when the activation does not exist. 
+     * @summary Get JIT activation frictions
+     * @param {JITActivationsApiGetJitActivationFrictionsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JITActivationsApi
+     */
+    public getJitActivationFrictionsV1(requestParameters: JITActivationsApiGetJitActivationFrictionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return JITActivationsApiFp(this.configuration).getJitActivationFrictionsV1(requestParameters.activationId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns JIT activation history records for the authenticated identity only.  This is the self-service view - results are automatically scoped to the calling identity. Requires `idn:jit-activation-history-self:read`.  Returns HTTP 403 when the `PSPM_858_JIT_ACCESS_ACTIVATION_HISTORY_SEARCH` feature flag is disabled. 
      * @summary List JIT activation history (self)
      * @param {JITActivationsApiListJitActivationHistoryForCurrentIdentityV1Request} requestParameters Request parameters.
@@ -1351,6 +1768,18 @@ export class JITActivationsApi extends BaseAPI {
      */
     public listJitActivationHistoryV1(requestParameters: JITActivationsApiListJitActivationHistoryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return JITActivationsApiFp(this.configuration).listJitActivationHistoryV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.searchAfter, requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Submits the current friction step for a JIT Privileged (JIT P) activation.  Requires OAuth scope **idn:jit-activation-workflow:activate** or **idn:jit-activation-workflow:manage**. The JWT identity id must match the activation identity.  Returns HTTP 403 when **PSPM_JIT_ACCESS_ACTIVATION** or **PSPM_JIT_ACCESS_ACTIVATION_15** is disabled.  Request bodies larger than 16 KB return HTTP 413. 
+     * @summary Submit JIT activation friction
+     * @param {JITActivationsApiPatchJitActivationFrictionsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof JITActivationsApi
+     */
+    public patchJitActivationFrictionsV1(requestParameters: JITActivationsApiPatchJitActivationFrictionsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return JITActivationsApiFp(this.configuration).patchJitActivationFrictionsV1(requestParameters.activationId, requestParameters.jITActivationFrictionPatchRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

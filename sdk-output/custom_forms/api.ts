@@ -1548,7 +1548,7 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * No parameters required.
-         * @summary List form definitions by tenant.
+         * @summary Export form definitions by tenant.
          * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
@@ -1852,7 +1852,7 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * No parameters required.
-         * @summary Export form definitions by tenant.
+         * @summary List form definitions by tenant.
          * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
@@ -1956,13 +1956,12 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Returns a list of form instances for the tenant. Optionally filter by form definition ID.
          * @summary List form instances by tenant.
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchFormInstancesByTenantV1: async (offset?: number, limit?: number, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        searchFormInstancesByTenantV1: async (limit?: number, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-instances/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1974,10 +1973,6 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -2159,7 +2154,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
         },
         /**
          * No parameters required.
-         * @summary List form definitions by tenant.
+         * @summary Export form definitions by tenant.
          * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
@@ -2270,7 +2265,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
         },
         /**
          * No parameters required.
-         * @summary Export form definitions by tenant.
+         * @summary List form definitions by tenant.
          * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
@@ -2304,14 +2299,13 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
         /**
          * Returns a list of form instances for the tenant. Optionally filter by form definition ID.
          * @summary List form instances by tenant.
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **formDefinitionId**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormInstancesByTenantV1(offset?: number, limit?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListFormInstancesByTenantResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenantV1(offset, limit, filters, axiosOptions);
+        async searchFormInstancesByTenantV1(limit?: number, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListFormInstancesByTenantResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenantV1(limit, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.searchFormInstancesByTenantV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2407,7 +2401,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * No parameters required.
-         * @summary List form definitions by tenant.
+         * @summary Export form definitions by tenant.
          * @param {CustomFormsApiExportFormDefinitionsByTenantV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2487,7 +2481,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * No parameters required.
-         * @summary Export form definitions by tenant.
+         * @summary List form definitions by tenant.
          * @param {CustomFormsApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2513,7 +2507,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         searchFormInstancesByTenantV1(requestParameters: CustomFormsApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ListFormInstancesByTenantResponse>> {
-            return localVarFp.searchFormInstancesByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.searchFormInstancesByTenantV1(requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * No parameters required.
@@ -2859,13 +2853,6 @@ export interface CustomFormsApiSearchFormElementDataByElementIDV1Request {
  */
 export interface CustomFormsApiSearchFormInstancesByTenantV1Request {
     /**
-     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-     * @type {number}
-     * @memberof CustomFormsApiSearchFormInstancesByTenantV1
-     */
-    readonly offset?: number
-
-    /**
      * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
      * @memberof CustomFormsApiSearchFormInstancesByTenantV1
@@ -2991,7 +2978,7 @@ export class CustomFormsApi extends BaseAPI {
 
     /**
      * No parameters required.
-     * @summary List form definitions by tenant.
+     * @summary Export form definitions by tenant.
      * @param {CustomFormsApiExportFormDefinitionsByTenantV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -3087,7 +3074,7 @@ export class CustomFormsApi extends BaseAPI {
 
     /**
      * No parameters required.
-     * @summary Export form definitions by tenant.
+     * @summary List form definitions by tenant.
      * @param {CustomFormsApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -3118,7 +3105,7 @@ export class CustomFormsApi extends BaseAPI {
      * @memberof CustomFormsApi
      */
     public searchFormInstancesByTenantV1(requestParameters: CustomFormsApiSearchFormInstancesByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsApiFp(this.configuration).searchFormInstancesByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CustomFormsApiFp(this.configuration).searchFormInstancesByTenantV1(requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

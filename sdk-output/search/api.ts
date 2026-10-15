@@ -298,7 +298,7 @@ export type FilterType = typeof FilterType[keyof typeof FilterType];
 
 
 /**
- * Enum representing the currently supported indices. Additional values may be added in the future without notice.
+ * Enum representing the currently supported indices. Additional values may be added in the future without notice.  The `*` value does not include the `workflowsummaries` index. To search workflow summaries, specify `workflowsummaries` explicitly.
  * @export
  * @enum {string}
  */
@@ -310,6 +310,7 @@ export const Index = {
     Events: 'events',
     Identities: 'identities',
     Roles: 'roles',
+    Workflowsummaries: 'workflowsummaries',
     Star: '*'
 } as const;
 
@@ -894,7 +895,7 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Fetches a single document from the specified index, using the specified document ID. **Note:** Response fields with an underscore (`_`) prefix, such as `_type` and `_index`, are internal metadata fields. These fields are for SailPoint internal use only and are subject to change without notice. Do not rely on them in your integrations.
          * @summary Get a document by id
-         * @param {SearchGetV1IndexEnum} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {SearchGetV1IndexEnum} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -1022,7 +1023,7 @@ export const SearchApiFp = function(configuration?: Configuration) {
         /**
          * Fetches a single document from the specified index, using the specified document ID. **Note:** Response fields with an underscore (`_`) prefix, such as `_type` and `_index`, are internal metadata fields. These fields are for SailPoint internal use only and are subject to change without notice. Do not rely on them in your integrations.
          * @summary Get a document by id
-         * @param {SearchGetV1IndexEnum} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {SearchGetV1IndexEnum} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -1158,8 +1159,8 @@ export interface SearchApiSearchCountV1Request {
  */
 export interface SearchApiSearchGetV1Request {
     /**
-     * The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
-     * @type {'accessprofiles' | 'accountactivities' | 'entitlements' | 'events' | 'identities' | 'roles'}
+     * The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*. 
+     * @type {'accessprofiles' | 'accountactivities' | 'entitlements' | 'events' | 'identities' | 'roles' | 'workflowsummaries'}
      * @memberof SearchApiSearchGetV1
      */
     readonly index: SearchGetV1IndexEnum
@@ -1272,7 +1273,8 @@ export const SearchGetV1IndexEnum = {
     Entitlements: 'entitlements',
     Events: 'events',
     Identities: 'identities',
-    Roles: 'roles'
+    Roles: 'roles',
+    Workflowsummaries: 'workflowsummaries'
 } as const;
 export type SearchGetV1IndexEnum = typeof SearchGetV1IndexEnum[keyof typeof SearchGetV1IndexEnum];
 

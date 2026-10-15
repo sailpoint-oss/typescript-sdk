@@ -282,7 +282,7 @@ export type FilterType = typeof FilterType[keyof typeof FilterType];
 
 
 /**
- * Enum representing the currently supported indices. Additional values may be added in the future without notice.
+ * Enum representing the currently supported indices. Additional values may be added in the future without notice.  The `*` value does not include the `workflowsummaries` index. To search workflow summaries, specify `workflowsummaries` explicitly.
  * @export
  * @enum {string}
  */
@@ -294,6 +294,7 @@ export const Index = {
     Events: 'events',
     Identities: 'identities',
     Roles: 'roles',
+    Workflowsummaries: 'workflowsummaries',
     Star: '*'
 } as const;
 

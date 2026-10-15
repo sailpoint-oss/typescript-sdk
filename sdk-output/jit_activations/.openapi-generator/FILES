@@ -4,7 +4,14 @@
 ActivationWorkflowStatus.md
 ErrorMessageDto.md
 ErrorResponseDto.md
+FrictionSubmittedData.md
 Index.md
+JITActivationFrictionPatchRequest.md
+JITActivationFrictionResponse.md
+JITActivationFrictionState.md
+JITActivationFrictionStatus.md
+JITActivationFrictionType.md
+JITActivationFrictionsResponse.md
 JITActivationsApi.md
 JITActivationsApideveloperSite_code_examples.yaml
 JitActivationActivateRequest.md

@@ -370,7 +370,7 @@ Fetches a single document from the specified index, using the specified document
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**index** | `'accessprofiles' | 'accountactivities' | 'entitlements' | 'events' | 'identities' | 'roles'` | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*.  |  [default to undefined]
+**index** | `'accessprofiles' | 'accountactivities' | 'entitlements' | 'events' | 'identities' | 'roles' | 'workflowsummaries'` | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*.  |  [default to undefined]
 **id** | `string` | ID of the requested document. |  [default to undefined]
 
 ### Return type
@@ -390,7 +390,7 @@ import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new SearchApi(configuration);
-const index: string = identities; // The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+const index: string = identities; // The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, *roles*, and *workflowsummaries*. 
 const id: string = 2c91808568c529c60168cca6f90c1313; // ID of the requested document.
 const result = await apiInstance.searchGetV1({ index: index, id: id });
 console.log(result);
