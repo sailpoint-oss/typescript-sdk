@@ -20,15 +20,14 @@ concurrency:
   group: release-${{ github.repository }}
   cancel-in-progress: false
 
-env:
-  SAIL_CLIENT_ID: ${{ secrets.SDK_TEST_TENANT_CLIENT_ID }}
-  SAIL_CLIENT_SECRET: ${{ secrets.SDK_TEST_TENANT_CLIENT_SECRET }}
-  SAIL_BASE_URL: ${{ secrets.SDK_TEST_TENANT_BASE_URL }}
+permissions: {}
 
 jobs:
   check-changes:
     name: Check for spec changes
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       proceed: ${{ steps.check.outputs.proceed }}
     steps:
@@ -75,13 +74,83 @@ jobs:
             echo "proceed=true" >> "$GITHUB_OUTPUT"
           fi
 
-  release:
-    name: Release TypeScript SDK
+  resolve-version:
+    name: Resolve and validate version
     needs: check-changes
     if: needs.check-changes.outputs.proceed == 'true'
     runs-on: ubuntu-latest
+    # Validation is separated from publishing: the dispatch input is parsed here,
+    # in a job that holds no release token and no tenant credentials. The release
+    # job only ever receives a version string that already parsed.
+    permissions:
+      contents: read
+    outputs:
+      new: ${{ steps.version.outputs.new }}
+      latest: ${{ steps.version.outputs.latest }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Determine version
+        id: version
+        shell: bash
+        env:
+          INPUT_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          # The dispatch input is read from the environment, never interpolated into
+          # this script, and must parse as MAJOR.MINOR.PATCH before it is used.
+          SEMVER_RE='^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'
+
+          LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
+          LATEST_VERSION="${LATEST_TAG#v}"
+
+          if [[ ! "$LATEST_VERSION" =~ $SEMVER_RE ]]; then
+            echo "::error::Latest tag does not parse as MAJOR.MINOR.PATCH"
+            exit 1
+          fi
+
+          echo "latest=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
+
+          if [ -n "$INPUT_VERSION" ]; then
+            NEW_VERSION="${INPUT_VERSION#v}"
+            if [[ ! "$NEW_VERSION" =~ $SEMVER_RE ]]; then
+              # The rejected value is deliberately not echoed: it is untrusted and
+              # could otherwise be read back out of the log as a workflow command.
+              echo "::error::Version input must be MAJOR.MINOR.PATCH (e.g. 2.0.0)"
+              exit 1
+            fi
+          else
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$LATEST_VERSION"
+            PATCH=$((PATCH + 1))
+            NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          fi
+
+          function ver { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+          if [ "$(ver "$LATEST_VERSION")" -ge "$(ver "$NEW_VERSION")" ]; then
+            echo "::error::New version $NEW_VERSION is not greater than current version $LATEST_VERSION"
+            exit 1
+          fi
+
+          echo "new=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "Releasing version $NEW_VERSION (previous: $LATEST_VERSION)"
+
+  release:
+    name: Release TypeScript SDK
+    needs: [check-changes, resolve-version]
+    if: needs.check-changes.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    # Requires approval from the reviewers configured on the "release" environment
+    # before any release credential reaches the runner.
+    environment: release
     permissions:
       contents: write
+    env:
+      SAIL_CLIENT_ID: ${{ secrets.SDK_TEST_TENANT_CLIENT_ID }}
+      SAIL_CLIENT_SECRET: ${{ secrets.SDK_TEST_TENANT_CLIENT_SECRET }}
+      SAIL_BASE_URL: ${{ secrets.SDK_TEST_TENANT_BASE_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -103,37 +172,12 @@ jobs:
           node-version: "24"
 
       - name: Set up yq
-        uses: frenck/action-setup-yq@v1
-
-      - name: Determine version
-        id: version
-        shell: bash
-        run: |
-          LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0.0.0")
-          LATEST_VERSION="${LATEST_TAG#v}"
-          echo "latest=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
-
-          if [ -n "${{ github.event.inputs.version }}" ]; then
-            NEW_VERSION="${{ github.event.inputs.version }}"
-          else
-            IFS='.' read -r MAJOR MINOR PATCH <<< "$LATEST_VERSION"
-            PATCH=$((PATCH + 1))
-            NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-          fi
-
-          function ver { printf "%03d%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
-          if [ "$(ver "$LATEST_VERSION")" -ge "$(ver "$NEW_VERSION")" ]; then
-            echo "::error::New version $NEW_VERSION is not greater than current version $LATEST_VERSION"
-            exit 1
-          fi
-
-          echo "new=$NEW_VERSION" >> "$GITHUB_OUTPUT"
-          echo "Releasing version $NEW_VERSION (previous: $LATEST_VERSION)"
+        uses: frenck/action-setup-yq@c4b5be8b4a215c536a41d436757d9feb92836d4f # v1.0.2
 
       - name: Update config files with new version
         shell: bash
         run: |
-          VERSION="${{ steps.version.outputs.new }}"
+          VERSION="${{ needs.resolve-version.outputs.new }}"
           yq -i ".npmVersion = \"$VERSION\"" sdk-resources/nerm-config.yaml
           yq -i ".npmVersion = \"$VERSION\"" sdk-resources/nerm-v2025-config.yaml
           sed -i "s/const NPM_VERSION = \"[^\"]*\"/const NPM_VERSION = \"$VERSION\"/" sdk-resources/build-versioned-sdk.js
@@ -142,25 +186,25 @@ jobs:
         shell: bash
         run: |
           cd sdk-output
-          jq ".version = \"${{ steps.version.outputs.new }}\"" package.json > package.json.tmp && mv package.json.tmp package.json
+          jq ".version = \"${{ needs.resolve-version.outputs.new }}\"" package.json > package.json.tmp && mv package.json.tmp package.json
 
       - name: Build SDK
         uses: ./.github/actions/build-sdk
 
       - name: Commit changes and tag
-        uses: stefanzweifel/git-auto-commit-action@v7
+        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
         with:
-          commit_message: "Bump version to v${{ steps.version.outputs.new }}"
-          tagging_message: "v${{ steps.version.outputs.new }}"
+          commit_message: "Bump version to v${{ needs.resolve-version.outputs.new }}"
+          tagging_message: "v${{ needs.resolve-version.outputs.new }}"
           commit_user_name: developer-relations-sp
           commit_user_email: devrel-service@sailpoint.com
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         with:
           token: ${{ secrets.DEVREL_SERVICE_TOKEN }}
-          tag_name: "v${{ steps.version.outputs.new }}"
-          name: "v${{ steps.version.outputs.new }}"
+          tag_name: "v${{ needs.resolve-version.outputs.new }}"
+          name: "v${{ needs.resolve-version.outputs.new }}"
           draft: false
           prerelease: false
           generate_release_notes: true
