@@ -175,6 +175,12 @@ export interface AccessRequestAdminItemStatus {
      */
     'approvalDetails'?: Array<ApprovalStatusDto>;
     /**
+     * List of approval IDs associated with the request.
+     * @type {Array<string>}
+     * @memberof AccessRequestAdminItemStatus
+     */
+    'approvalIds'?: Array<string> | null;
+    /**
      * Manual work items created for provisioning the item.
      * @type {Array<ManualWorkItemDetails>}
      * @memberof AccessRequestAdminItemStatus
@@ -853,6 +859,12 @@ export type ApprovalScheme = typeof ApprovalScheme[keyof typeof ApprovalScheme];
  * @interface ApprovalStatusDto
  */
 export interface ApprovalStatusDto {
+    /**
+     * Unique identifier for the approval. May be null; use the `approvalIds` list on the item status to get the populated approval IDs.
+     * @type {string}
+     * @memberof ApprovalStatusDto
+     */
+    'approvalId'?: string | null;
     /**
      * True if the request for this item was forwarded from one owner to another.
      * @type {boolean}

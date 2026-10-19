@@ -467,19 +467,19 @@ export type CrawlResourcesSizesOptions = typeof CrawlResourcesSizesOptions[keyof
 /**
  * 
  * @export
- * @interface CreateIdentityCollectorV1200Response
+ * @interface CreateIdentityCollectorV1201Response
  */
-export interface CreateIdentityCollectorV1200Response {
+export interface CreateIdentityCollectorV1201Response {
     /**
      * The unique identifier of the created identity collector.
      * @type {number}
-     * @memberof CreateIdentityCollectorV1200Response
+     * @memberof CreateIdentityCollectorV1201Response
      */
     'id'?: number;
     /**
      * The display name of the created identity collector.
      * @type {string}
-     * @memberof CreateIdentityCollectorV1200Response
+     * @memberof CreateIdentityCollectorV1201Response
      */
     'name'?: string;
 }
@@ -880,7 +880,7 @@ export interface Identitycollectorcollectionsettings {
      */
     'properties': Array<string>;
     /**
-     * Maps source attributes to data dictionary fields and DAS custom field slots. Each `sourceAttributeName` must be either a built-in attribute for the identity collector type or listed in `properties`. Use an empty array when no dynamic field mappings are configured.
+     * Maps source attributes to data dictionary fields and DAS custom field slots. The same `sourceAttributeName` may be mapped to multiple dictionary fields. Each `sourceAttributeName` must be either a built-in attribute for the identity collector type or listed in `properties`. Use an empty array when no dynamic field mappings are configured.
      * @type {Array<Identitycollectorfieldmapping>}
      * @memberof Identitycollectorcollectionsettings
      */
@@ -1034,6 +1034,38 @@ export interface Identitycollectorlistitem {
      * @memberof Identitycollectorlistitem
      */
     'groups'?: Identitycollectorcollectionsettings;
+}
+/**
+ * A public identity collector type and the ISC `connectorName` values the UI should use when querying `GET /v3/sources` for sources that can back that type.
+ * @export
+ * @interface Identitycollectortype
+ */
+export interface Identitycollectortype {
+    /**
+     * Identity collector type display name. Matches the `type` values returned by list and used by create/update metadata. Base types only (for example `Box`, not `Box SaaS`).
+     * @type {string}
+     * @memberof Identitycollectortype
+     */
+    'type': string;
+    /**
+     * Exact ISC `connectorName` values to use in `GET /v3/sources` filters (`connectorName eq \"...\"`). These are not always equal to `type` (for example Google Drive maps to `G Suite` and `Google Workspace SaaS`).
+     * @type {Array<string>}
+     * @memberof Identitycollectortype
+     */
+    'iscConnectorNames': Array<string>;
+}
+/**
+ * Public identity collector types available for discovery and create flows.
+ * @export
+ * @interface Identitycollectortypesresponse
+ */
+export interface Identitycollectortypesresponse {
+    /**
+     * Enabled public identity collector types. Flagged types (Snowflake, Databricks, Atlassian Suite) are omitted when their feature flags are disabled.
+     * @type {Array<Identitycollectortype>}
+     * @memberof Identitycollectortypesresponse
+     */
+    'types': Array<Identitycollectortype>;
 }
 /**
  * 
@@ -2182,7 +2214,7 @@ export const DataAccessSecurityApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
-         * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+         * Returns the public identity collector types exposed for metadata and UI discovery, including the ISC `connectorName` values to use when listing sources for each type. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed as separate types; create derives the identity collector type from `sourceId`. Existing identity collectors may still report SaaS variant types in list and update responses.  Flagged types (Snowflake, Databricks, Atlassian Suite) are included only when the corresponding tenant feature flag is enabled.  Pagination is not supported for this endpoint; the full set of enabled public types is always returned.
          * @summary List identity collector types
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -2783,7 +2815,7 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createIdentityCollectorV1(createidentitycollectorrequest: Createidentitycollectorrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateIdentityCollectorV1200Response>> {
+        async createIdentityCollectorV1(createidentitycollectorrequest: Createidentitycollectorrequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateIdentityCollectorV1201Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityCollectorV1(createidentitycollectorrequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.createIdentityCollectorV1']?.[localVarOperationServerIndex]?.url;
@@ -2980,14 +3012,14 @@ export const DataAccessSecurityApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+         * Returns the public identity collector types exposed for metadata and UI discovery, including the ISC `connectorName` values to use when listing sources for each type. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed as separate types; create derives the identity collector type from `sourceId`. Existing identity collectors may still report SaaS variant types in list and update responses.  Flagged types (Snowflake, Databricks, Atlassian Suite) are included only when the corresponding tenant feature flag is enabled.  Pagination is not supported for this endpoint; the full set of enabled public types is always returned.
          * @summary List identity collector types
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityCollectorTypesV1(limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
+        async getIdentityCollectorTypesV1(limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Identitycollectortypesresponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCollectorTypesV1(limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['DataAccessSecurityApi.getIdentityCollectorTypesV1']?.[localVarOperationServerIndex]?.url;
@@ -3214,7 +3246,7 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createIdentityCollectorV1(requestParameters: DataAccessSecurityApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CreateIdentityCollectorV1200Response> {
+        createIdentityCollectorV1(requestParameters: DataAccessSecurityApiCreateIdentityCollectorV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CreateIdentityCollectorV1201Response> {
             return localVarFp.createIdentityCollectorV1(requestParameters.createidentitycollectorrequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -3358,13 +3390,13 @@ export const DataAccessSecurityApiFactory = function (configuration?: Configurat
             return localVarFp.getIdentityCollectorBuiltinPropertiesV1(requestParameters.filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+         * Returns the public identity collector types exposed for metadata and UI discovery, including the ISC `connectorName` values to use when listing sources for each type. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed as separate types; create derives the identity collector type from `sourceId`. Existing identity collectors may still report SaaS variant types in list and update responses.  Flagged types (Snowflake, Databricks, Atlassian Suite) are included only when the corresponding tenant feature flag is enabled.  Pagination is not supported for this endpoint; the full set of enabled public types is always returned.
          * @summary List identity collector types
          * @param {DataAccessSecurityApiGetIdentityCollectorTypesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityCollectorTypesV1(requestParameters: DataAccessSecurityApiGetIdentityCollectorTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
+        getIdentityCollectorTypesV1(requestParameters: DataAccessSecurityApiGetIdentityCollectorTypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Identitycollectortypesresponse> {
             return localVarFp.getIdentityCollectorTypesV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -4337,7 +4369,7 @@ export class DataAccessSecurityApi extends BaseAPI {
     }
 
     /**
-     * Returns the public identity collector type display names exposed for metadata and UI discovery. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed here; the identity collector type is derived from `sourceId` when creating an identity collector. Existing identity collectors may still report SaaS variant types in list and update responses.  Pagination is not supported for this endpoint; the full set of public types is always returned.
+     * Returns the public identity collector types exposed for metadata and UI discovery, including the ISC `connectorName` values to use when listing sources for each type. This endpoint lists base types only (for example, `Box` rather than `Box SaaS`). SaaS variants are not listed as separate types; create derives the identity collector type from `sourceId`. Existing identity collectors may still report SaaS variant types in list and update responses.  Flagged types (Snowflake, Databricks, Atlassian Suite) are included only when the corresponding tenant feature flag is enabled.  Pagination is not supported for this endpoint; the full set of enabled public types is always returned.
      * @summary List identity collector types
      * @param {DataAccessSecurityApiGetIdentityCollectorTypesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

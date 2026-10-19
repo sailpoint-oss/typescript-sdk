@@ -15,6 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDto', 'v1ApprovalStatus
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**approvalId** | **(optional)** `string` | Unique identifier for the approval. May be null; use the `approvalIds` list on the item status to get the populated approval IDs. | [default to undefined]
 **forwarded** | **(optional)** `boolean` | True if the request for this item was forwarded from one owner to another. | [default to false]
 **originalOwner** | **(optional)** `ApprovalStatusDtoOriginalOwner` |  | [default to undefined]
 **currentOwner** | **(optional)** `ApprovalStatusDtoCurrentOwner` |  | [default to undefined]

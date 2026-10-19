@@ -10,7 +10,7 @@ BaseCreateApplicationRequest.md
 BaseSettings.md
 BusinessServiceType.md
 CrawlResourcesSizesOptions.md
-CreateIdentityCollectorV1200Response.md
+CreateIdentityCollectorV1201Response.md
 CreateIdentityCollectorV1409Response.md
 CreateIdentityCollectorV1409ResponseMessagesInner.md
 CreateScheduleRequest.md
@@ -33,6 +33,8 @@ IdentitycollectordependenciesconflicterrorMessagesInner.md
 Identitycollectordependency.md
 Identitycollectorfieldmapping.md
 Identitycollectorlistitem.md
+Identitycollectortype.md
+Identitycollectortypesresponse.md
 Index.md
 Int64StringKeyValuePair.md
 LocaleOrigin.md

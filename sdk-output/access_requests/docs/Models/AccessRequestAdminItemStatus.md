@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **errorMessages** | **(optional)** `Array<Array<ErrorMessageDto>>` | List of localized error messages, if any, encountered during the approval/provisioning process. | [default to undefined]
 **state** | **(optional)** `RequestedItemStatusRequestState` |  | [default to undefined]
 **approvalDetails** | **(optional)** `Array<ApprovalStatusDto>` | Approval details for each item. | [default to undefined]
+**approvalIds** | **(optional)** `Array<string>` | List of approval IDs associated with the request. | [default to undefined]
 **manualWorkItemDetails** | **(optional)** `Array<ManualWorkItemDetails>` | Manual work items created for provisioning the item. | [default to undefined]
 **accountActivityItemId** | **(optional)** `string` | Id of associated account activity item. | [default to undefined]
 **requestType** | **(optional)** `AccessRequestType` |  | [default to undefined]
