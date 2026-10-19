@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Generic Identity Security Cloud V2025 API
-  description: Generic API specification for the Identity Security Cloud platform
+  title: Generic SailPoint Identity Security V2025 API
+  description: Generic API specification for the SailPoint Identity Security platform
   termsOfService: https://developer.sailpoint.com/discuss/tos
   contact:
     name: Developer Relations
