@@ -401,17 +401,12 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
          * Creates a compensating control associated with separation-of-duties policies.
          * @summary Create Compensating Control
          * @param {Compensatingcontrolcreate} compensatingcontrolcreate Data needed to create a Compensating Control
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createControlV1: async (compensatingcontrolcreate: Compensatingcontrolcreate, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createControlV1: async (compensatingcontrolcreate: Compensatingcontrolcreate, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'compensatingcontrolcreate' is not null or undefined
             assertParamExists('createControlV1', 'compensatingcontrolcreate', compensatingcontrolcreate)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/controls/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -428,9 +423,6 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -445,17 +437,12 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
          * Deletes the specified compensating control from the data store.
          * @summary Delete compensating control by ID
          * @param {string} id the ID (UUID) of the compensating control to delete.
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteControlV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteControlV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteControlV1', 'id', id)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/controls/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -471,9 +458,6 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -487,17 +471,12 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
          * Returns a single compensating control by ID.
          * @summary Get compensating control by ID
          * @param {string} id The ID of the compensating control to fetch
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getControlV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getControlV1: async (id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getControlV1', 'id', id)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/controls/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -513,9 +492,6 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -528,7 +504,6 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Returns a list of compensating controls associated with separation-of-duties policies.
          * @summary List Compensating Controls
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -537,11 +512,7 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listControlsV1: async (xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sort?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
+        listControlsV1: async (limit?: number, offset?: number, count?: boolean, filters?: string, sort?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/controls/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -576,9 +547,6 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -593,19 +561,14 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Put Compensating Control
          * @param {string} id The unique identifier of the Compensating Control to be updated.
          * @param {Compensatingcontrolupdate} compensatingcontrolupdate Data needed to put a Compensating Control
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putControlV1: async (id: string, compensatingcontrolupdate: Compensatingcontrolupdate, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putControlV1: async (id: string, compensatingcontrolupdate: Compensatingcontrolupdate, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putControlV1', 'id', id)
             // verify required parameter 'compensatingcontrolupdate' is not null or undefined
             assertParamExists('putControlV1', 'compensatingcontrolupdate', compensatingcontrolupdate)
-            if (xSailPointExperimental === undefined) {
-                xSailPointExperimental = 'true';
-            }
-            
             const localVarPath = `/controls/v1/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -623,9 +586,6 @@ export const SODControlsApiAxiosParamCreator = function (configuration?: Configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            if (xSailPointExperimental != null) {
-                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -650,12 +610,11 @@ export const SODControlsApiFp = function(configuration?: Configuration) {
          * Creates a compensating control associated with separation-of-duties policies.
          * @summary Create Compensating Control
          * @param {Compensatingcontrolcreate} compensatingcontrolcreate Data needed to create a Compensating Control
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createControlV1(compensatingcontrolcreate: Compensatingcontrolcreate, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Compensatingcontrolresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createControlV1(compensatingcontrolcreate, xSailPointExperimental, axiosOptions);
+        async createControlV1(compensatingcontrolcreate: Compensatingcontrolcreate, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Compensatingcontrolresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createControlV1(compensatingcontrolcreate, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODControlsApi.createControlV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -664,12 +623,11 @@ export const SODControlsApiFp = function(configuration?: Configuration) {
          * Deletes the specified compensating control from the data store.
          * @summary Delete compensating control by ID
          * @param {string} id the ID (UUID) of the compensating control to delete.
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteControlV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteControlV1(id, xSailPointExperimental, axiosOptions);
+        async deleteControlV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteControlV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODControlsApi.deleteControlV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -678,12 +636,11 @@ export const SODControlsApiFp = function(configuration?: Configuration) {
          * Returns a single compensating control by ID.
          * @summary Get compensating control by ID
          * @param {string} id The ID of the compensating control to fetch
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getControlV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Compensatingcontrolresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getControlV1(id, xSailPointExperimental, axiosOptions);
+        async getControlV1(id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Compensatingcontrolresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getControlV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODControlsApi.getControlV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -691,7 +648,6 @@ export const SODControlsApiFp = function(configuration?: Configuration) {
         /**
          * Returns a list of compensating controls associated with separation-of-duties policies.
          * @summary List Compensating Controls
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -700,8 +656,8 @@ export const SODControlsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listControlsV1(xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sort?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Compensatingcontrolresponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listControlsV1(xSailPointExperimental, limit, offset, count, filters, sort, axiosOptions);
+        async listControlsV1(limit?: number, offset?: number, count?: boolean, filters?: string, sort?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Compensatingcontrolresponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listControlsV1(limit, offset, count, filters, sort, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODControlsApi.listControlsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -711,12 +667,11 @@ export const SODControlsApiFp = function(configuration?: Configuration) {
          * @summary Put Compensating Control
          * @param {string} id The unique identifier of the Compensating Control to be updated.
          * @param {Compensatingcontrolupdate} compensatingcontrolupdate Data needed to put a Compensating Control
-         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putControlV1(id: string, compensatingcontrolupdate: Compensatingcontrolupdate, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Compensatingcontrolresponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putControlV1(id, compensatingcontrolupdate, xSailPointExperimental, axiosOptions);
+        async putControlV1(id: string, compensatingcontrolupdate: Compensatingcontrolupdate, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Compensatingcontrolresponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putControlV1(id, compensatingcontrolupdate, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SODControlsApi.putControlV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -739,7 +694,7 @@ export const SODControlsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         createControlV1(requestParameters: SODControlsApiCreateControlV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Compensatingcontrolresponse> {
-            return localVarFp.createControlV1(requestParameters.compensatingcontrolcreate, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.createControlV1(requestParameters.compensatingcontrolcreate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the specified compensating control from the data store.
@@ -749,7 +704,7 @@ export const SODControlsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         deleteControlV1(requestParameters: SODControlsApiDeleteControlV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.deleteControlV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.deleteControlV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a single compensating control by ID.
@@ -759,7 +714,7 @@ export const SODControlsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         getControlV1(requestParameters: SODControlsApiGetControlV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Compensatingcontrolresponse> {
-            return localVarFp.getControlV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.getControlV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of compensating controls associated with separation-of-duties policies.
@@ -769,7 +724,7 @@ export const SODControlsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         listControlsV1(requestParameters: SODControlsApiListControlsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Compensatingcontrolresponse>> {
-            return localVarFp.listControlsV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sort, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.listControlsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sort, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates the specified compensating control.
@@ -779,7 +734,7 @@ export const SODControlsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         putControlV1(requestParameters: SODControlsApiPutControlV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Compensatingcontrolresponse> {
-            return localVarFp.putControlV1(requestParameters.id, requestParameters.compensatingcontrolupdate, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.putControlV1(requestParameters.id, requestParameters.compensatingcontrolupdate, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -796,13 +751,6 @@ export interface SODControlsApiCreateControlV1Request {
      * @memberof SODControlsApiCreateControlV1
      */
     readonly compensatingcontrolcreate: Compensatingcontrolcreate
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof SODControlsApiCreateControlV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -817,13 +765,6 @@ export interface SODControlsApiDeleteControlV1Request {
      * @memberof SODControlsApiDeleteControlV1
      */
     readonly id: string
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof SODControlsApiDeleteControlV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -838,13 +779,6 @@ export interface SODControlsApiGetControlV1Request {
      * @memberof SODControlsApiGetControlV1
      */
     readonly id: string
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof SODControlsApiGetControlV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -853,13 +787,6 @@ export interface SODControlsApiGetControlV1Request {
  * @interface SODControlsApiListControlsV1Request
  */
 export interface SODControlsApiListControlsV1Request {
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof SODControlsApiListControlsV1
-     */
-    readonly xSailPointExperimental?: string
-
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
@@ -915,13 +842,6 @@ export interface SODControlsApiPutControlV1Request {
      * @memberof SODControlsApiPutControlV1
      */
     readonly compensatingcontrolupdate: Compensatingcontrolupdate
-
-    /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof SODControlsApiPutControlV1
-     */
-    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -940,7 +860,7 @@ export class SODControlsApi extends BaseAPI {
      * @memberof SODControlsApi
      */
     public createControlV1(requestParameters: SODControlsApiCreateControlV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODControlsApiFp(this.configuration).createControlV1(requestParameters.compensatingcontrolcreate, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODControlsApiFp(this.configuration).createControlV1(requestParameters.compensatingcontrolcreate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -952,7 +872,7 @@ export class SODControlsApi extends BaseAPI {
      * @memberof SODControlsApi
      */
     public deleteControlV1(requestParameters: SODControlsApiDeleteControlV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODControlsApiFp(this.configuration).deleteControlV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODControlsApiFp(this.configuration).deleteControlV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -964,7 +884,7 @@ export class SODControlsApi extends BaseAPI {
      * @memberof SODControlsApi
      */
     public getControlV1(requestParameters: SODControlsApiGetControlV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODControlsApiFp(this.configuration).getControlV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODControlsApiFp(this.configuration).getControlV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -976,7 +896,7 @@ export class SODControlsApi extends BaseAPI {
      * @memberof SODControlsApi
      */
     public listControlsV1(requestParameters: SODControlsApiListControlsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return SODControlsApiFp(this.configuration).listControlsV1(requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sort, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODControlsApiFp(this.configuration).listControlsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sort, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -988,7 +908,7 @@ export class SODControlsApi extends BaseAPI {
      * @memberof SODControlsApi
      */
     public putControlV1(requestParameters: SODControlsApiPutControlV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return SODControlsApiFp(this.configuration).putControlV1(requestParameters.id, requestParameters.compensatingcontrolupdate, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODControlsApiFp(this.configuration).putControlV1(requestParameters.id, requestParameters.compensatingcontrolupdate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

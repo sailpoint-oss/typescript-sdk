@@ -3282,7 +3282,6 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters. Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses When a requested object has an associated form, each status item may include a `form` object with the form definition ID, instance ID, and answers (`formData`).
          * @summary Access request status for administrators
-         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
          * @param {string} [requestedFor] Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [requestedBy] Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [regardingIdentity] Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
@@ -3293,16 +3292,15 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId**
          * @param {string} [requestState] Filter the results by the state of the request. The only valid value is *EXECUTING*.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAdministratorsAccessRequestStatusV1: async (xSailPointExperimental: string, requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAdministratorsAccessRequestStatusV1: async (requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             if (xSailPointExperimental === undefined) {
                 xSailPointExperimental = 'true';
             }
             
-            // verify required parameter 'xSailPointExperimental' is not null or undefined
-            assertParamExists('listAdministratorsAccessRequestStatusV1', 'xSailPointExperimental', xSailPointExperimental)
             const localVarPath = `/access-request-administration/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -3634,7 +3632,6 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
         /**
          * Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters. Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses When a requested object has an associated form, each status item may include a `form` object with the form definition ID, instance ID, and answers (`formData`).
          * @summary Access request status for administrators
-         * @param {string} xSailPointExperimental Use this header to enable this experimental API.
          * @param {string} [requestedFor] Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [requestedBy] Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [regardingIdentity] Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
@@ -3645,11 +3642,12 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId**
          * @param {string} [requestState] Filter the results by the state of the request. The only valid value is *EXECUTING*.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAdministratorsAccessRequestStatusV1(xSailPointExperimental: string, requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestAdminItemStatus>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAdministratorsAccessRequestStatusV1(xSailPointExperimental, requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, requestState, axiosOptions);
+        async listAdministratorsAccessRequestStatusV1(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, requestState?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestAdminItemStatus>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAdministratorsAccessRequestStatusV1(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, requestState, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessRequestsApi.listAdministratorsAccessRequestStatusV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3803,8 +3801,8 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAdministratorsAccessRequestStatusV1(requestParameters: AccessRequestsApiListAdministratorsAccessRequestStatusV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessRequestAdminItemStatus>> {
-            return localVarFp.listAdministratorsAccessRequestStatusV1(requestParameters.xSailPointExperimental, requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, requestParameters.requestState, axiosOptions).then((request) => request(axios, basePath));
+        listAdministratorsAccessRequestStatusV1(requestParameters: AccessRequestsApiListAdministratorsAccessRequestStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessRequestAdminItemStatus>> {
+            return localVarFp.listAdministratorsAccessRequestStatusV1(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, requestParameters.requestState, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to fetch account information for an identity against the items in an access request.  Used to fetch accountSelection for the AccessRequest prior to submitting for async processing.  __Machine identities__  * Must use `requestedForWithRequestedItems` with `identityType: MACHINE` on each entry.  * Fields `requestedFor` / `requestedItems` are not supported and should be omitted.  * Only `ENTITLEMENT` items are supported.  * Mixed human and machine identities in one request are not supported.  * Response identities use `type: MACHINE_IDENTITY`. Use the returned account `accountUuid` / `nativeIdentity` values when submitting the access request; invalid or mismatched account details are rejected on create.  * If the machine has no account on a requested source, the item may be returned with `accountsSelectionBlocked: true` and `accountsSelectionBlockedReason: NO_ACCOUNT_ON_SOURCE` (empty accounts on the response in that blocked case is expected).  * Same licensing, `machineIdentityAccessRequestEnabled`, and request-on-behalf-of rules as create access request apply. 
@@ -4029,13 +4027,6 @@ export interface AccessRequestsApiListAccessRequestStatusV1Request {
  */
 export interface AccessRequestsApiListAdministratorsAccessRequestStatusV1Request {
     /**
-     * Use this header to enable this experimental API.
-     * @type {string}
-     * @memberof AccessRequestsApiListAdministratorsAccessRequestStatusV1
-     */
-    readonly xSailPointExperimental: string
-
-    /**
      * Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
      * @type {string}
      * @memberof AccessRequestsApiListAdministratorsAccessRequestStatusV1
@@ -4104,6 +4095,13 @@ export interface AccessRequestsApiListAdministratorsAccessRequestStatusV1Request
      * @memberof AccessRequestsApiListAdministratorsAccessRequestStatusV1
      */
     readonly requestState?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessRequestsApiListAdministratorsAccessRequestStatusV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -4285,8 +4283,8 @@ export class AccessRequestsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public listAdministratorsAccessRequestStatusV1(requestParameters: AccessRequestsApiListAdministratorsAccessRequestStatusV1Request, axiosOptions?: RawAxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).listAdministratorsAccessRequestStatusV1(requestParameters.xSailPointExperimental, requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, requestParameters.requestState, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAdministratorsAccessRequestStatusV1(requestParameters: AccessRequestsApiListAdministratorsAccessRequestStatusV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).listAdministratorsAccessRequestStatusV1(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, requestParameters.requestState, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

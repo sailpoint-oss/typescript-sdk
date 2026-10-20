@@ -27,7 +27,6 @@
   "justificationRequired" : true,
   "workflowID" : "3e07886555ed43cfb83c85c58d2016e6"
 }; // Compensatingcontrolcreate | Data needed to create a Compensating Control
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.createControlV1({ compensatingcontrolcreate: compensatingcontrolcreate });
         console.log(result);
 - path: /controls/v1/{id}
@@ -42,7 +41,6 @@
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);
         const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | the ID (UUID) of the compensating control to delete. (default to undefined)
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteControlV1({ id: id });
         console.log(result);
 - path: /controls/v1/{id}
@@ -57,7 +55,6 @@
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);
         const id: string = '3e078865-55ed-43cf-b83c-85c58d2016e6'; // string | The ID of the compensating control to fetch (default to undefined)
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getControlV1({ id: id });
         console.log(result);
 - path: /controls/v1
@@ -71,7 +68,6 @@
 
         const configuration = new Configuration();
         const apiInstance = new SODControlsApi(configuration);
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -109,6 +105,5 @@
   "justificationRequired" : true,
   "workflowID" : "3e07886555ed43cfb83c85c58d2016e6"
 }; // Compensatingcontrolupdate | Data needed to put a Compensating Control
-        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.putControlV1({ id: id, compensatingcontrolupdate: compensatingcontrolupdate });
         console.log(result);

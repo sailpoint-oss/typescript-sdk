@@ -681,7 +681,6 @@ When a requested object has an associated form, each status item may include a `
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**xSailPointExperimental** | `string` | Use this header to enable this experimental API. |  [default to &#39;true&#39;]
 **requestedFor** | `string` | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. | [optional] [default to undefined]
 **requestedBy** | `string` | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. | [optional] [default to undefined]
 **regardingIdentity** | `string` | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. | [optional] [default to undefined]
@@ -692,6 +691,7 @@ Name | Type | Description  | Notes
 **filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* | [optional] [default to undefined]
 **sorters** | `string` | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** | [optional] [default to undefined]
 **requestState** | `string` | Filter the results by the state of the request. The only valid value is *EXECUTING*. | [optional] [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
 
 ### Return type
 
@@ -710,7 +710,6 @@ import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new AccessRequestsApi(configuration);
-const xSailPointExperimental: string = true; // Use this header to enable this experimental API.
 const requestedFor: string = 2c9180877b2b6ea4017b2c545f971429; // Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
 const requestedBy: string = 2c9180877b2b6ea4017b2c545f971429; // Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
 const regardingIdentity: string = 2c9180877b2b6ea4017b2c545f971429; // Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
@@ -721,7 +720,8 @@ const offset: number = 10; // Offset into the full result set. Usually specified
 const filters: string = accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in, eq, ne, ge, gt, le, lt, sw*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
 const sorters: string = created; // Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
 const requestState: string = request-state=EXECUTING; // Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
-const result = await apiInstance.listAdministratorsAccessRequestStatusV1({ xSailPointExperimental: xSailPointExperimental });
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.listAdministratorsAccessRequestStatusV1({  });
 console.log(result);
 ```
 
