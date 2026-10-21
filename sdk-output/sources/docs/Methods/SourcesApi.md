@@ -111,6 +111,7 @@ Method | HTTP request | Description
 [**get-source-schedules-v1**](#get-source-schedules-v1) | **GET** `/sources/v1/{sourceId}/schedules` | List schedules on source
 [**get-source-schema-v1**](#get-source-schema-v1) | **GET** `/sources/v1/{sourceId}/schemas/{schemaId}` | Get source schema by id
 [**get-source-schemas-v1**](#get-source-schemas-v1) | **GET** `/sources/v1/{sourceId}/schemas` | List schemas on source
+[**get-source-service-desk-integrations-v1**](#get-source-service-desk-integrations-v1) | **GET** `/sources/v1/{sourceId}/service-desk-integrations` | List source service desk integrations
 [**get-source-v1**](#get-source-v1) | **GET** `/sources/v1/{id}` | Get source by id
 [**import-accounts-schema-v1**](#import-accounts-schema-v1) | **POST** `/sources/v1/{id}/schemas/accounts` | Uploads source accounts schema template
 [**import-accounts-v1**](#import-accounts-v1) | **POST** `/sources/v1/{id}/load-accounts` | Account aggregation
@@ -2046,6 +2047,51 @@ const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
 const includeTypes: string = group; // If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
 const includeNames: string = account; // A comma-separated list of schema names to filter result. (optional)
 const result = await apiInstance.getSourceSchemasV1({ sourceId: sourceId });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-source-service-desk-integrations-v1
+List source service desk integrations
+Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).
+
+A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source's own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.
+
+Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-source-service-desk-integrations-v-1)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**sourceId** | `string` | Source ID. |  [default to undefined]
+**limit** | `number` | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+
+### Return type
+
+`Array<SourceServiceDeskIntegrationDto>`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { SourcesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new SourcesApi(configuration);
+const sourceId: string = 2c9180835d191a86015d28455b4a2329; // Source ID.
+const limit: number = 250; // Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional)
+const result = await apiInstance.getSourceServiceDeskIntegrationsV1({ sourceId: sourceId });
 console.log(result);
 ```
 

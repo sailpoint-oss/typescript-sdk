@@ -3347,6 +3347,31 @@ export const SourceSchemasInnerTypeEnum = {
 export type SourceSchemasInnerTypeEnum = typeof SourceSchemasInnerTypeEnum[keyof typeof SourceSchemasInnerTypeEnum];
 
 /**
+ * A Service Desk Integration that carries out provisioning for a source.
+ * @export
+ * @interface SourceServiceDeskIntegrationDto
+ */
+export interface SourceServiceDeskIntegrationDto {
+    /**
+     * ID of the Service Desk Integration.
+     * @type {string}
+     * @memberof SourceServiceDeskIntegrationDto
+     */
+    'id': string;
+    /**
+     * Name of the Service Desk Integration, as given by the administrator who created it. Use this to find the integration in the Service Desk Integrations list.
+     * @type {string}
+     * @memberof SourceServiceDeskIntegrationDto
+     */
+    'name': string;
+    /**
+     * Type of the Service Desk Integration, matching the connector it was created from. This is the same value the Service Desk Integration APIs report as `type`, for example: - ServiceNowSDIM - ServiceNow  The supported types are not fixed, so use [List service desk integration types](https://developer.sailpoint.com/docs/api/get-service-desk-integration-types-v-1) for the current set rather than hard coding them.
+     * @type {string}
+     * @memberof SourceServiceDeskIntegrationDto
+     */
+    'type': string;
+}
+/**
  * 
  * @export
  * @interface SourceSyncJob
@@ -5344,6 +5369,50 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
             if (includeNames !== undefined) {
                 localVarQueryParameter['include-names'] = includeNames;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+         * @summary List source service desk integrations
+         * @param {string} sourceId Source ID.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceServiceDeskIntegrationsV1: async (sourceId: string, limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceServiceDeskIntegrationsV1', 'sourceId', sourceId)
+            const localVarPath = `/sources/v1/{sourceId}/service-desk-integrations`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
             }
 
 
@@ -7611,6 +7680,21 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+         * @summary List source service desk integrations
+         * @param {string} sourceId Source ID.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceServiceDeskIntegrationsV1(sourceId: string, limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceServiceDeskIntegrationDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceServiceDeskIntegrationsV1(sourceId, limit, offset, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceServiceDeskIntegrationsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
          * @summary Get source by id
          * @param {string} id Source ID.
@@ -8570,6 +8654,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         getSourceSchemasV1(requestParameters: SourcesApiGetSourceSchemasV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Schema>> {
             return localVarFp.getSourceSchemasV1(requestParameters.sourceId, requestParameters.includeTypes, requestParameters.includeNames, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+         * @summary List source service desk integrations
+         * @param {SourcesApiGetSourceServiceDeskIntegrationsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceServiceDeskIntegrationsV1(requestParameters: SourcesApiGetSourceServiceDeskIntegrationsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceServiceDeskIntegrationDto>> {
+            return localVarFp.getSourceServiceDeskIntegrationsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
@@ -9813,6 +9907,34 @@ export interface SourcesApiGetSourceSchemasV1Request {
      * @memberof SourcesApiGetSourceSchemasV1
      */
     readonly includeNames?: string
+}
+
+/**
+ * Request parameters for getSourceServiceDeskIntegrationsV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceServiceDeskIntegrationsV1Request
+ */
+export interface SourcesApiGetSourceServiceDeskIntegrationsV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceServiceDeskIntegrationsV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiGetSourceServiceDeskIntegrationsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiGetSourceServiceDeskIntegrationsV1
+     */
+    readonly offset?: number
 }
 
 /**
@@ -11289,6 +11411,18 @@ export class SourcesApi extends BaseAPI {
      */
     public getSourceSchemasV1(requestParameters: SourcesApiGetSourceSchemasV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).getSourceSchemasV1(requestParameters.sourceId, requestParameters.includeTypes, requestParameters.includeNames, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+     * @summary List source service desk integrations
+     * @param {SourcesApiGetSourceServiceDeskIntegrationsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceServiceDeskIntegrationsV1(requestParameters: SourcesApiGetSourceServiceDeskIntegrationsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceServiceDeskIntegrationsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

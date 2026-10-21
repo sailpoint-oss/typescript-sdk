@@ -55,6 +55,7 @@ import { DimensionsApi as _DimensionsApi } from "./dimensions/api";
 import { EntitlementConnectionsApi as _EntitlementConnectionsApi } from "./entitlement_connections/api";
 import { EntitlementsApi as _EntitlementsApi } from "./entitlements/api";
 import { GlobalTenantSecuritySettingsApi as _GlobalTenantSecuritySettingsApi } from "./global_tenant_security_settings/api";
+import { NextGenerationCertificationCampaignsApi as _NextGenerationCertificationCampaignsApi } from "./gov_certification/api";
 import { GovernanceGroupsApi as _GovernanceGroupsApi } from "./governance_groups/api";
 import { IAIAccessRequestRecommendationsApi as _IAIAccessRequestRecommendationsApi } from "./iai_access_request_recommendations/api";
 import { IAICommonAccessApi as _IAICommonAccessApi } from "./iai_common_access/api";
@@ -69,6 +70,7 @@ import { IdentityHistoryApi as _IdentityHistoryApi } from "./identity_history/ap
 import { IdentityProfilesApi as _IdentityProfilesApi } from "./identity_profiles/api";
 import { IntelligenceApi as _IntelligenceApi } from "./intelligence/api";
 import { JITAccessApi as _JITAccessApi } from "./jit_access/api";
+import { JITActivationConvertApi as _JITActivationConvertApi } from "./jit_activation_convert/api";
 import { JITActivationsApi as _JITActivationsApi } from "./jit_activations/api";
 import { LaunchersApi as _LaunchersApi } from "./launchers/api";
 import { LifecycleStatesApi as _LifecycleStatesApi } from "./lifecycle_states/api";
@@ -171,6 +173,7 @@ export { _DimensionsApi as DimensionsApi };
 export { _EntitlementConnectionsApi as EntitlementConnectionsApi };
 export { _EntitlementsApi as EntitlementsApi };
 export { _GlobalTenantSecuritySettingsApi as GlobalTenantSecuritySettingsApi };
+export { _NextGenerationCertificationCampaignsApi as NextGenerationCertificationCampaignsApi };
 export { _GovernanceGroupsApi as GovernanceGroupsApi };
 export { _IAIAccessRequestRecommendationsApi as IAIAccessRequestRecommendationsApi };
 export { _IAICommonAccessApi as IAICommonAccessApi };
@@ -185,6 +188,7 @@ export { _IdentityHistoryApi as IdentityHistoryApi };
 export { _IdentityProfilesApi as IdentityProfilesApi };
 export { _IntelligenceApi as IntelligenceApi };
 export { _JITAccessApi as JITAccessApi };
+export { _JITActivationConvertApi as JITActivationConvertApi };
 export { _JITActivationsApi as JITActivationsApi };
 export { _LaunchersApi as LaunchersApi };
 export { _LifecycleStatesApi as LifecycleStatesApi };
@@ -308,6 +312,7 @@ export const SailPoint = {
   EntitlementConnectionsApi: _EntitlementConnectionsApi,
   EntitlementsApi: _EntitlementsApi,
   GlobalTenantSecuritySettingsApi: _GlobalTenantSecuritySettingsApi,
+  NextGenerationCertificationCampaignsApi: _NextGenerationCertificationCampaignsApi,
   GovernanceGroupsApi: _GovernanceGroupsApi,
   IAIAccessRequestRecommendationsApi: _IAIAccessRequestRecommendationsApi,
   IAICommonAccessApi: _IAICommonAccessApi,
@@ -322,6 +327,7 @@ export const SailPoint = {
   IdentityProfilesApi: _IdentityProfilesApi,
   IntelligenceApi: _IntelligenceApi,
   JITAccessApi: _JITAccessApi,
+  JITActivationConvertApi: _JITActivationConvertApi,
   JITActivationsApi: _JITActivationsApi,
   LaunchersApi: _LaunchersApi,
   LifecycleStatesApi: _LifecycleStatesApi,

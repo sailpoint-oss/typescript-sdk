@@ -1,0 +1,1096 @@
+- path: /certification-campaigns/v1/campaigns/{id}/complete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#complete-gov-certification-campaign-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CompleteCampaignOptions } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The campaign id (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const completeCampaignOptions: CompleteCampaignOptions = {
+  "autoCompleteAction" : "REVOKE"
+}; // CompleteCampaignOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless we specify explicitly REVOKE in autoCompleteAction (optional)
+        const result = await apiInstance.completeGovCertificationCampaignV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/{id}/generate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#create-campaign-from-template-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918083-5d19-1a86-a15d-28455b4a2329'; // string | The desired campaign template\'s ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createCampaignFromTemplateV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-filters
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#create-gov-certification-campaign-filter-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignFilterCreate } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignFilterCreate: CampaignFilterCreate = {
+  "mode" : "INCLUSION",
+  "name" : "Identity Attribute Campaign Filter",
+  "description" : "Campaign filter to certify data based on specified property of Identity Attribute.",
+  "criteriaList" : [ {
+    "criteriaType" : "IDENTITY",
+    "criteriaProperty" : "DISPLAY_NAME",
+    "criteriaValue" : "support",
+    "operation" : "EQUALS"
+  } ]
+}; // CampaignFilterCreate | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createGovCertificationCampaignFilterV1({ campaignFilterCreate: campaignFilterCreate });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#create-gov-certification-campaign-template-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignTemplateCreate } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignTemplateCreate: CampaignTemplateCreate = {
+  "recommendationsEnabled" : true,
+  "sunsetCommentsRequired" : true,
+  "deadlineDuration" : "P2W",
+  "searchBasedParams" : {
+    "identityIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ],
+    "searchType" : "ACCESS",
+    "query" : "admin",
+    "accessConstraints" : [ {
+      "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+      "type" : "ENTITLEMENT",
+      "operator" : "SELECTED"
+    }, {
+      "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+      "type" : "ENTITLEMENT",
+      "operator" : "SELECTED"
+    } ]
+  },
+  "description" : "Template for the annual manager campaign.",
+  "reviewer" : {
+    "name" : "William Wilson",
+    "id" : "0fbe863c063c4c88a35fd7f17e8a3df5",
+    "type" : "IDENTITY"
+  },
+  "type" : "IDENTITY",
+  "filterRef" : {
+    "id" : "e9f9a139-7b84-2fd5-a658-42087040d3ac"
+  },
+  "emailNotificationEnabled" : false,
+  "remediatorRef" : {
+    "name" : "Role Admin",
+    "id" : "2c90ad2a70ace7d50170acf22ca90010"
+  },
+  "autoRevokeAllowed" : false,
+  "name" : "Manager Campaign Template",
+  "mandatoryCommentRequirement" : "NO_DECISIONS",
+  "campaignDescription" : "Everyone needs to be reviewed by their manager",
+  "campaignName" : "Manager Campaign",
+  "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+}; // CampaignTemplateCreate | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createGovCertificationCampaignTemplateV1({ campaignTemplateCreate: campaignTemplateCreate });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#create-gov-certification-campaign-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignCreate } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignCreate: CampaignCreate = {
+  "inlineFilter" : {
+    "mode" : "INCLUSION",
+    "criteriaList" : [ {
+      "criteriaType" : "IDENTITY",
+      "criteriaProperty" : "DISPLAY_NAME",
+      "criteriaValue" : "support",
+      "operation" : "EQUALS"
+    } ]
+  },
+  "recommendationsEnabled" : true,
+  "sunsetCommentsRequired" : true,
+  "searchBasedParams" : {
+    "identityIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ],
+    "searchType" : "ACCESS",
+    "query" : "admin",
+    "accessConstraints" : [ {
+      "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+      "type" : "ENTITLEMENT",
+      "operator" : "SELECTED"
+    }, {
+      "ids" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
+      "type" : "ENTITLEMENT",
+      "operator" : "SELECTED"
+    } ]
+  },
+  "description" : "Everyone needs to be reviewed by their manager",
+  "reviewer" : {
+    "name" : "William Wilson",
+    "id" : "0fbe863c063c4c88a35fd7f17e8a3df5",
+    "type" : "IDENTITY"
+  },
+  "autoActivate" : true,
+  "type" : "IDENTITY",
+  "filterRef" : {
+    "id" : "e9f9a139-7b84-2fd5-a658-42087040d3ac"
+  },
+  "emailNotificationEnabled" : false,
+  "remediatorRef" : {
+    "name" : "Role Admin",
+    "id" : "2c90ad2a70ace7d50170acf22ca90010"
+  },
+  "autoRevokeAllowed" : false,
+  "name" : "Manager Campaign",
+  "mandatoryCommentRequirement" : "NO_DECISIONS",
+  "deadlineTimezone" : "-05:00",
+  "deadline" : "2020-03-15",
+  "sourceIds" : [ "0fbe863c063c4c88a35fd7f17e8a3df5" ]
+}; // CampaignCreate | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createGovCertificationCampaignV1({ campaignCreate: campaignCreate });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#create-report-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { TriggerCampaignReportRequest } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignId: string = 'e1aeb0b6-0021-4f40-8bc7-5c56533214b3'; // string | The ID of the campaign to generate a report for (default to undefined)
+        const triggerCampaignReportRequest: TriggerCampaignReportRequest = {
+  "format" : "PDF",
+  "name" : "My Campaign Report",
+  "type" : "REMEDIATION"
+}; // TriggerCampaignReportRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createReportV1({ campaignId: campaignId, triggerCampaignReportRequest: triggerCampaignReportRequest });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-filters/delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#delete-gov-certification-campaign-filters-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const requestBody: Array<string> = ; // Array<string> | A JSON list of IDs of campaign filters to delete.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteGovCertificationCampaignFiltersV1({ requestBody: requestBody });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/{id}/schedule
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#delete-gov-certification-campaign-template-schedule-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918083-5d19-1a86-a15d-28455b4a2329'; // string | The ID of the campaign template whose schedule is being deleted. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteGovCertificationCampaignTemplateScheduleV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#delete-gov-certification-campaign-template-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918083-5d19-1a86-a15d-28455b4a2329'; // string | The ID of the campaign template being deleted. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteGovCertificationCampaignTemplateV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/delete
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#delete-gov-certification-campaigns-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignsDeleteRequest } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignsDeleteRequest: CampaignsDeleteRequest = {
+  "ids" : [ "ef38f943-47e9-4562-b5bb-8424a56397d8", "ef38f943-47e9-4562-b5bb-8424a56397d9" ]
+}; // CampaignsDeleteRequest | IDs of the campaigns to delete.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteGovCertificationCampaignsV1({ campaignsDeleteRequest: campaignsDeleteRequest });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/access-summaries/{type}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-access-summaries-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const type: CertificationItemType = ACCESS_PROFILE; // CertificationItemType | The type of review item to retrieve summaries for (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'completed eq false and sourceName sw 'AD''; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **targetReference.id**: *eq, ne, in*  **targetReference.name**: *eq, sw, co*  **sourceName**: *eq, sw, co* (optional) (default to undefined)
+        const sorters: string = 'targetReference.name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetReference.name** (optional) (default to undefined)
+        const result = await apiInstance.getAccessSummariesV1({ certificationId: certificationId, type: type });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}/children
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-certification-entitlement-children-details-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const reviewItemId: string = '2478b87b-f0d2-4585-b42d-45e4d580c5cf'; // string | The certification item ID (default to undefined)
+        const entitlementId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The entitlement ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'name eq 'Read Only''; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional) (default to undefined)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id** (optional) (default to undefined)
+        const result = await apiInstance.getCertificationEntitlementChildrenDetailsV1({ certificationId: certificationId, reviewItemId: reviewItemId, entitlementId: entitlementId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-certification-entitlement-details-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const reviewItemId: string = '2478b87b-f0d2-4585-b42d-45e4d580c5cf'; // string | The certification item ID (default to undefined)
+        const entitlementId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The entitlement ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getCertificationEntitlementDetailsV1({ certificationId: certificationId, reviewItemId: reviewItemId, entitlementId: entitlementId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}/parents
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-certification-entitlement-parents-details-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const reviewItemId: string = '2478b87b-f0d2-4585-b42d-45e4d580c5cf'; // string | The certification item ID (default to undefined)
+        const entitlementId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The entitlement ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'attribute eq 'role''; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le* (optional) (default to undefined)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id** (optional) (default to undefined)
+        const result = await apiInstance.getCertificationEntitlementParentsDetailsV1({ certificationId: certificationId, reviewItemId: reviewItemId, entitlementId: entitlementId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/entitlements/{entitlementId}/permissions
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-certification-entitlement-permissions-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const reviewItemId: string = '2478b87b-f0d2-4585-b42d-45e4d580c5cf'; // string | The certification item ID (default to undefined)
+        const entitlementId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The entitlement ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const result = await apiInstance.getCertificationEntitlementPermissionsV1({ certificationId: certificationId, reviewItemId: reviewItemId, entitlementId: entitlementId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/item-id/{entitlementId}/cert-account-details
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-certification-item-account-details-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const reviewItemId: string = '2478b87b-f0d2-4585-b42d-45e4d580c5cf'; // string | The certification item ID (default to undefined)
+        const entitlementId: string = 'ef38f94347e94562b5bb8424a56397d8'; // string | The entitlement ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getCertificationItemAccountDetailsV1({ certificationId: certificationId, reviewItemId: reviewItemId, entitlementId: entitlementId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-certification-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getCertificationV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/decision-summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-decision-summary-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const filters: string = 'certificationSubjectSummary.id in ('2c918085-71bc-fcf8-0171-c23e4b4221fc','2c918085-71bc-fcf8-0171-c23e4b4221fd')'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **certificationSubjectSummary.id**: *eq, in* (optional) (default to undefined)
+        const result = await apiInstance.getDecisionSummaryV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports/{reportId}/download-url
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-download-url-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignId: string = 'e1aeb0b6-0021-4f40-8bc7-5c56533214b3'; // string | The ID of the campaign to be retrieved (default to undefined)
+        const reportId: string = 'e1aeb0b6-0021-4f40-8bc7-5c56533214b3'; // string | The ID of the report to be retrieved (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getDownloadUrlV1({ campaignId: campaignId, reportId: reportId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/{reviewItemId}/access-profiles/{accessProfileId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-gov-certification-access-profile-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const reviewItemId: string = '2478b87b-f0d2-4585-b42d-45e4d580c5cf'; // string | The certification item ID. This must of review item type either ROLE or ACCESS_PROFILE. (default to undefined)
+        const accessProfileId: string = '2c9180837ca6693d017ca8d097500149'; // string | The Access Profile ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGovCertificationAccessProfileV1({ certificationId: certificationId, reviewItemId: reviewItemId, accessProfileId: accessProfileId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-filters/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-filter-by-id-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = 'e9f9a139-7b84-2fd5-a658-42087040d3ac'; // string | The ID of the campaign filter to be retrieved. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGovCertificationCampaignFilterByIdV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports/{reportId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-report-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignId: string = 'e1aeb0b6-0021-4f40-8bc7-5c56533214b3'; // string | The ID of the campaign to be retrieved (default to undefined)
+        const reportId: string = 'e1aeb0b6-0021-4f40-8bc7-5c56533214b3'; // string | The ID of the report to be retrieved (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGovCertificationCampaignReportV1({ campaignId: campaignId, reportId: reportId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/{id}/schedule
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-template-schedule-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918083-5d19-1a86-a15d-28455b4a2329'; // string | The campaign template\'s ID for the desired campaign template schedule. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGovCertificationCampaignTemplateScheduleV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-template-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918083-5d19-1a86-a15d-28455b4a2329'; // string | The desired campaign template\'s ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGovCertificationCampaignTemplateV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-gov-certification-campaign-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918085-71bc-4cf8-a171-c23e4b4221fc'; // string | The ID of the campaign to be retrieved (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGovCertificationCampaignV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/certification-tasks/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-gov-certification-task-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '63b32151-26c0-42f4-9299-8898dc1c9daa'; // string | The task ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGovCertificationTaskV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/certification-tasks
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-pending-tasks-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const reviewerIdentity: string = 'Ada.1de82e55078344'; // string | The ID of reviewer identity. *me* indicates the current user. (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'type eq "REASSIGN_SUBJECTS_AND_ITEMS"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in* (optional) (default to undefined)
+        const result = await apiInstance.getPendingTasksV1({  });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/status-summary
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-status-summary-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getStatusSummaryV1({  });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/subject-summary/{subjectId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#get-subject-summary-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const subjectId: string = '2c918087-72a5-44f5-a172-a9540e501ba8'; // string | The subject summary ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSubjectSummaryV1({ certificationId: certificationId, subjectId: subjectId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-campaign-templates-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
+        const filters: string = 'name eq "Campaign Template"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in, gt, ge, lt, le, sw, co*  **name**: *eq, ne, in, gt, ge, lt, le, sw, co* (optional) (default to undefined)
+        const result = await apiInstance.listCampaignTemplatesV1({  });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-campaigns-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'name eq "Manager Campaign"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw, co*  **status**: *eq, in, ne*  Possible values are [PENDING, STAGED, CANCELING, ACTIVATING, ACTIVE, COMPLETING, COMPLETED, ERROR] (optional) (default to undefined)
+        const sorters: string = 'name,-created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, deadline, status, totalCertifications, completedCertifications** (optional) (default to undefined)
+        const result = await apiInstance.listCampaignsV1({  });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-certifications-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const reviewerIdentity: string = 'me'; // string | The ID of reviewer identity. *me* indicates the current user. (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'name eq "Bob"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in*  **reviewProgress**: *eq, in*  **reviewerDeleted**: *eq*  **reviewerName**: *sw, co* (optional) (default to undefined)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, dueDate, dateSigned** (optional) (default to undefined)
+        const result = await apiInstance.listCertificationsV1({  });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-filters
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-gov-certification-campaign-filters-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const result = await apiInstance.listGovCertificationCampaignFiltersV1({  });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/reviewers
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-gov-certification-reviewers-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'name eq "Bob"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw, co*  **email**: *eq, sw, co* (optional) (default to undefined)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional) (default to undefined)
+        const result = await apiInstance.listGovCertificationReviewersV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reports
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-reports-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignId: string = 'e1aeb0b6-0021-4f40-8bc7-5c56533214b3'; // string | The ID of the campaign to be retrieved (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'type eq "SIGN_OFF"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **name**: *eq, sw, co*  **type**: *eq, in, ne*  Possible values are [STATUS, SIGN_OFF, COMPOSITION, REMEDIATION]  **format**: *eq, in, ne*  Possible values are [PDF, CSV]  **status**: *eq, in, ne*  Possible values are [IN_PROGRESS, FAILED, SUCCESS] (optional) (default to undefined)
+        const sorters: string = 'name,-created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, type, format, created, modified** (optional) (default to undefined)
+        const result = await apiInstance.listReportsV1({ campaignId: campaignId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-review-items-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'id eq "ef38f943-47e9-4562-b5bb-8424a56397d8"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **completed**: *eq, ne*  **certificationSubjectSummary.id**: *eq, ne, in*  **certificationSubjectSummary.subjectName**: *eq, sw, co*  **certificationSubjectSummary.subjectManagerName**: *eq, sw, co*  **certificationSubjectSummary.subjectEmail**: *eq, sw, co*  **certificationSubjectSummary.identityState**: *eq, in, ne*  **reviewData.targetReference.id**: *eq, ne, in*  **reviewData.targetReference.name**: *eq, sw, co*  **reviewData.targetReference.type**: *eq*  **reviewData.entitlement.provisioningType**: *eq, ne, in*  **sourceName**: *eq, sw, co*  **accountName**: *eq, sw, co*  **reauthRequired**: *eq, ne* (optional) (default to undefined)
+        const sorters: string = 'certificationSubjectSummary.subjectName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **certificationSubjectSummary.subjectName, certificationSubjectSummary.subjectManagerName, reviewData.targetReference.id, reviewData.targetReference.name, sourceName, accountName** (optional) (default to undefined)
+        const activityData: boolean = false; // boolean | If set to true, the response will include HTTP header \"SLPT-Activity-Data-ID\" which will allow the caller to query for certification items activity data in a separate call. (optional) (default to false)
+        const result = await apiInstance.listReviewItemsV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/subject-summaries
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#list-subject-summaries-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'completed eq false and subjectName sw 'Derek''; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, ne, in*  **completed**: *eq, ne*  **subjectName**: *eq, sw, co* (optional) (default to undefined)
+        const sorters: string = 'subjectName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **subjectName, targetDisplayName** (optional) (default to undefined)
+        const result = await apiInstance.listSubjectSummariesV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{campaignId}/reassign
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#move-certifications-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReassignCertifications } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const campaignId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification campaign ID. (default to undefined)
+        const reassignCertifications: ReassignCertifications = {
+  "certificationIds" : [ "af385946-4779-4712-91bb-8424a563abc1", "af385946-4779-4712-91bb-8424a563abc2", "af385946-4779-4712-91bb-8424a563abc3" ],
+  "reason" : "Reassigning the certifications",
+  "reassignTo" : {
+    "id" : "0fbe863c-063c-4c88-a35f-d7f17e8a3df5",
+    "type" : "IDENTITY"
+  }
+}; // ReassignCertifications | A non-empty array of items and identities which reviewer is going to reassign.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.moveCertificationsV1({ campaignId: campaignId, reassignCertifications: reassignCertifications });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/reassign-async
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#move-subject-and-items-async-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReassignReference } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The ID of the certification which we are going to reassign. (default to undefined)
+        const reassignReference: ReassignReference = {
+  "reason" : "Reassigning this item to the appropriate reviewer.",
+  "reassignTo" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}; // ReassignReference | A non-empty array of items and identities which reviewer is going to reassign.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.moveSubjectAndItemsAsyncV1({ certificationId: certificationId, reassignReference: reassignReference });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/reassign
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#move-subject-and-items-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReassignReference } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The ID of the certification which we are going to reassign. (default to undefined)
+        const reassignReference: ReassignReference = {
+  "reason" : "Reassigning this item to the appropriate reviewer.",
+  "reassignTo" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+  "reassign" : [ {
+    "id" : "ef38f943-47e9-4562-b5bb-8424a56397d8",
+    "type" : "ITEM"
+  } ]
+}; // ReassignReference | A non-empty array of items and identities which reviewer is going to reassign.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.moveSubjectAndItemsV1({ certificationId: certificationId, reassignReference: reassignReference });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#patch-campaign-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | ID of the campaign being modified. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.patchCampaignV1({ id: id, jsonPatchOperation: jsonPatchOperation });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#patch-gov-certification-campaign-template-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918083-5d19-1a86-a15d-28455b4a2329'; // string | The ID of the campaign template being modified. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of campaign template update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: - name - description - campaignName - campaignDescription - remediatorRef - reviewer (id and type only; name is resolved server-side) - mandatoryCommentRequirement - emailNotificationEnabled - autoRevokeAllowed - recommendationsEnabled - sunsetCommentsRequired - deadlineDuration - filterRef - searchBasedParams - sourceIds 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.patchGovCertificationCampaignTemplateV1({ id: id, jsonPatchOperation: jsonPatchOperation });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/sign-off
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#process-sign-off-certification-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.processSignOffCertificationV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-filters/{id}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#put-campaign-filter-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CampaignFilterUpdate } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = 'e9f9a139-7b84-2fd5-a658-42087040d3ac'; // string | The ID of the campaign filter being modified. (default to undefined)
+        const campaignFilterUpdate: CampaignFilterUpdate = {
+  "mode" : "INCLUSION",
+  "name" : "Identity Attribute Campaign Filter",
+  "description" : "Campaign filter to certify data based on specified property of Identity Attribute.",
+  "criteriaList" : [ {
+    "criteriaType" : "IDENTITY",
+    "criteriaProperty" : "DISPLAY_NAME",
+    "criteriaValue" : "support",
+    "operation" : "EQUALS"
+  } ]
+}; // CampaignFilterUpdate | A campaign filter details with updated field values.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.putCampaignFilterV1({ id: id, campaignFilterUpdate: campaignFilterUpdate });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/search
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#search-campaign-templates-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SearchRequest } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const searchRequest: SearchRequest = {
+  "queryString" : "identity 2023"
+}; // SearchRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) (default to undefined)
+        const filters: string = 'name eq "Campaign Template"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in, gt, ge, lt, le, sw, co*  **name**: *eq, ne, in, gt, ge, lt, le, sw, co* (optional) (default to undefined)
+        const result = await apiInstance.searchCampaignTemplatesV1({ searchRequest: searchRequest });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/search
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#search-certifications-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SearchRequest } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const reviewerIdentity: string = 'me'; // string | The ID of reviewer identity. *me* indicates the current user. (optional) (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'reviewerName sw "Bob"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in*  **reviewProgress**: *eq, in*  **reviewerDeleted**: *eq*  **reviewerName**: *sw, co* (optional) (default to undefined)
+        const sorters: string = 'name'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, dueDate, dateSigned** (optional) (default to undefined)
+        const searchRequest: SearchRequest = {
+  "queryString" : "identity 2023"
+}; // SearchRequest |  (optional)
+        const result = await apiInstance.searchCertificationsV1({  });
+        console.log(result);
+- path: /certification-campaigns/v1/insights/access-summary
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#search-insights-access-summary-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { InsightDetails } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const insightDetails: InsightDetails = {
+  "campaignType" : "IDENTITY",
+  "identityIdFilter" : [ "2c918085718230600171993742c63558" ],
+  "query" : "admin",
+  "type" : "ENTITLEMENT"
+}; // InsightDetails | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.searchInsightsAccessSummaryV1({ insightDetails: insightDetails });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/review-items/search
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#search-review-items-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SearchRequest } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'id eq "ef38f943-47e9-4562-b5bb-8424a56397d8"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **completed**: *eq, ne*  **certificationSubjectSummary.id**: *eq, ne, in*  **certificationSubjectSummary.subjectName**: *eq, sw, co*  **certificationSubjectSummary.subjectManagerName**: *eq, sw, co*  **certificationSubjectSummary.subjectEmail**: *eq, sw, co*  **certificationSubjectSummary.identityState**: *eq, in, ne*  **reviewData.targetReference.id**: *eq, ne, in*  **reviewData.targetReference.name**: *eq, sw, co*  **reviewData.targetReference.type**: *eq*  **reviewData.entitlement.provisioningType**: *eq, ne, in*  **sourceName**: *eq, sw, co*  **accountName**: *eq, sw, co*  **reauthRequired**: *eq, ne* (optional) (default to undefined)
+        const sorters: string = 'certificationSubjectSummary.subjectName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **certificationSubjectSummary.subjectName, certificationSubjectSummary.subjectManagerName, reviewData.targetReference.id, reviewData.targetReference.name, sourceName, accountName** (optional) (default to undefined)
+        const activityData: boolean = false; // boolean | If set to true, the response will include HTTP header \"SLPT-Activity-Data-ID\" which will allow the caller to query for certification items activity data in a separate call. (optional) (default to false)
+        const searchRequest: SearchRequest = {
+  "queryString" : "identity 2023"
+}; // SearchRequest |  (optional)
+        const result = await apiInstance.searchReviewItemsV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/subject-summaries/search
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#search-subject-summaries-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SearchRequest } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The certification ID (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'completed eq false and subjectName sw 'Derek''; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, ne, in*  **completed**: *eq, ne*  **subjectName**: *eq, sw, co* (optional) (default to undefined)
+        const sorters: string = 'subjectName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **subjectName, targetDisplayName** (optional) (default to undefined)
+        const searchRequest: SearchRequest = {
+  "queryString" : "identity 2023"
+}; // SearchRequest |  (optional)
+        const result = await apiInstance.searchSubjectSummariesV1({ certificationId: certificationId });
+        console.log(result);
+- path: /certification-campaigns/v1/campaign-templates/{id}/schedule
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#set-or-update-campaign-template-schedule-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Schedule } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = '2c918083-5d19-1a86-a15d-28455b4a2329'; // string | The ID of the campaign template whose schedule is being modified or created. (default to undefined)
+        const schedule: Schedule = {
+  "hours" : {
+    "values" : [ "1", "2", "3" ],
+    "interval" : 2,
+    "type" : "LIST"
+  },
+  "months" : {
+    "values" : [ "1", "2", "3" ],
+    "interval" : 2,
+    "type" : "LIST"
+  },
+  "timeZoneId" : "America/Chicago",
+  "days" : {
+    "values" : [ "1", "2", "3" ],
+    "interval" : 2,
+    "type" : "LIST"
+  },
+  "expiration" : "2025-09-15T16:00:00Z",
+  "type" : "DAILY"
+}; // Schedule | The data for the schedule for the given campaign template ID.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.setOrUpdateCampaignTemplateScheduleV1({ id: id, schedule: schedule });
+        console.log(result);
+- path: /certification-campaigns/v1/campaigns/{id}/activate
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#start-gov-certification-campaign-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ActivateCampaignOptions } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const id: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The campaign id (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const activateCampaignOptions: ActivateCampaignOptions = {
+  "timeZone" : "-05:00"
+}; // ActivateCampaignOptions | Optional. If the timezone is not specified, we will continue using the campaign\'s timezone, which was set during campaign creation. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
+        const result = await apiInstance.startGovCertificationCampaignV1({ id: id });
+        console.log(result);
+- path: /certification-campaigns/v1/certifications/{certificationId}/decide
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/gov_certification/methods/next-generation-certification-campaigns#submit-decisions-v1
+      source: |
+        import { NextGenerationCertificationCampaignsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { ReviewDecision } from '@sailpoint/api-client/dist/gov_certification/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new NextGenerationCertificationCampaignsApi(configuration);
+        const certificationId: string = 'ef38f943-47e9-4562-b5bb-8424a56397d8'; // string | The ID of the certification on which to make decisions (default to undefined)
+        const reviewDecision: Array<ReviewDecision> = {
+  "comments" : "This user no longer needs access to this source",
+  "decision" : "APPROVED",
+  "proposedEndDate" : "2017-07-11T18:45:37.098Z",
+  "recommendation" : {
+    "reasons" : [ "Reason 1", "Reason 2" ],
+    "recommendation" : "APPROVE",
+    "timestamp" : "2020-06-01T13:49:37.385Z"
+  },
+  "id" : "ef38f943-47e9-4562-b5bb-8424a56397d8"
+}; // Array<ReviewDecision> | A non-empty array of decisions to be made.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.submitDecisionsV1({ certificationId: certificationId, reviewDecision: reviewDecision });
+        console.log(result);

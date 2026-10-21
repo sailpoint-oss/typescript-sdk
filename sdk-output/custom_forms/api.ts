@@ -1553,10 +1553,11 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportFormDefinitionsByTenantV1: async (offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        exportFormDefinitionsByTenantV1: async (offset?: number, limit?: number, filters?: string, sorters?: string, count?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/form-definitions/v1/export`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1583,6 +1584,10 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
 
             if (sorters !== undefined) {
                 localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
             }
 
 
@@ -1858,6 +1863,7 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         searchFormDefinitionsByTenantV1: async (offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -1906,7 +1912,7 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} formInstanceID Form instance ID
          * @param {string} formElementID Form element ID
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators are *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2028,7 +2034,7 @@ export const CustomFormsApiAxiosParamCreator = function (configuration?: Configu
          * @summary Preview form definition data source.
          * @param {string} formDefinitionID Form definition ID
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators are *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
          * @param {FormElementPreviewRequest} [formElementPreviewRequest] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
@@ -2159,11 +2165,12 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenantV1200ResponseInner>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportFormDefinitionsByTenantV1(offset, limit, filters, sorters, axiosOptions);
+        async exportFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, count?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenantV1200ResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportFormDefinitionsByTenantV1(offset, limit, filters, sorters, count, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CustomFormsApi.exportFormDefinitionsByTenantV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2271,6 +2278,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified**
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async searchFormDefinitionsByTenantV1(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormDefinitionsByTenantResponse>> {
@@ -2285,7 +2293,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @param {string} formInstanceID Form instance ID
          * @param {string} formElementID Form element ID
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators are *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2327,7 +2335,7 @@ export const CustomFormsApiFp = function(configuration?: Configuration) {
          * @summary Preview form definition data source.
          * @param {string} formDefinitionID Form definition ID
          * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators are *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
          * @param {string} [query] String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \&quot;starts with\&quot; filter against  several fields.
          * @param {FormElementPreviewRequest} [formElementPreviewRequest] Body is the request payload to create a form definition dynamic schema
          * @param {*} [axiosOptions] Override http request option.
@@ -2407,7 +2415,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         exportFormDefinitionsByTenantV1(requestParameters: CustomFormsApiExportFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<ExportFormDefinitionsByTenantV1200ResponseInner>> {
-            return localVarFp.exportFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+            return localVarFp.exportFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, requestParameters.count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2484,6 +2492,7 @@ export const CustomFormsApiFactory = function (configuration?: Configuration, ba
          * @summary List form definitions by tenant.
          * @param {CustomFormsApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         searchFormDefinitionsByTenantV1(requestParameters: CustomFormsApiSearchFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ListFormDefinitionsByTenantResponse> {
@@ -2641,6 +2650,13 @@ export interface CustomFormsApiExportFormDefinitionsByTenantV1Request {
      * @memberof CustomFormsApiExportFormDefinitionsByTenantV1
      */
     readonly sorters?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof CustomFormsApiExportFormDefinitionsByTenantV1
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -2832,7 +2848,7 @@ export interface CustomFormsApiSearchFormElementDataByElementIDV1Request {
     readonly limit?: number
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators are *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
      * @type {string}
      * @memberof CustomFormsApiSearchFormElementDataByElementIDV1
      */
@@ -2888,7 +2904,7 @@ export interface CustomFormsApiShowPreviewDataSourceV1Request {
     readonly limit?: number
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators are *not*  Only a single *not* may be used, and it can only be used with the &#x60;in&#x60; operator. The &#x60;not&#x60; composite operator must be used in front of the field. For example, the following is valid: &#x60;not value in (\&quot;ID01\&quot;)&#x60;
      * @type {string}
      * @memberof CustomFormsApiShowPreviewDataSourceV1
      */
@@ -2985,7 +3001,7 @@ export class CustomFormsApi extends BaseAPI {
      * @memberof CustomFormsApi
      */
     public exportFormDefinitionsByTenantV1(requestParameters: CustomFormsApiExportFormDefinitionsByTenantV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
-        return CustomFormsApiFp(this.configuration).exportFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CustomFormsApiFp(this.configuration).exportFormDefinitionsByTenantV1(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3077,6 +3093,7 @@ export class CustomFormsApi extends BaseAPI {
      * @summary List form definitions by tenant.
      * @param {CustomFormsApiSearchFormDefinitionsByTenantV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CustomFormsApi
      */
