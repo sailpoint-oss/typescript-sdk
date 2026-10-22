@@ -25,6 +25,10 @@ IdentityOwnershipAssociationDetails.md
 IdentityOwnershipAssociationDetailsAssociationDetailsInner.md
 IdentitySyncJob.md
 IdentitySyncPayload.md
+IdentityV2.md
+IdentityV2LifecycleState.md
+IdentityV2Manager.md
+IdentityV2PrivilegeLevel.md
 Index.md
 InviteIdentitiesRequest.md
 LifecycleStateDto.md

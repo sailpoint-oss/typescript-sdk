@@ -657,6 +657,200 @@ export interface IdentitySyncPayload {
     'dataJson': string;
 }
 /**
+ * Identity record returned by the search-backed identities v2 API.
+ * @export
+ * @interface IdentityV2
+ */
+export interface IdentityV2 {
+    /**
+     * System-generated unique ID of the identity.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'id'?: string | null;
+    /**
+     * Display name of the identity.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'name'?: string | null;
+    /**
+     * Alternate unique identifier of the identity. Equivalent to the account name on the authoritative source.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'alias'?: string | null;
+    /**
+     * The identity type.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'type'?: string | null;
+    /**
+     * Email address of the identity.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'emailAddress'?: string | null;
+    /**
+     * The identity\'s status in the system.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'identityStatus'?: string | null;
+    /**
+     * The processing state of the identity.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'processingState'?: string | null;
+    /**
+     * Whether the identity is protected from accidental deletion or modification.
+     * @type {boolean}
+     * @memberof IdentityV2
+     */
+    'protected'?: boolean;
+    /**
+     * Whether the identity is correlated to an authoritative account.
+     * @type {boolean}
+     * @memberof IdentityV2
+     */
+    'correlated'?: boolean;
+    /**
+     * Whether the identity is inactive.
+     * @type {boolean}
+     * @memberof IdentityV2
+     */
+    'inactive'?: boolean;
+    /**
+     * Whether this identity is a manager of another identity.
+     * @type {boolean}
+     * @memberof IdentityV2
+     */
+    'isManager'?: boolean;
+    /**
+     * Whether the identity is locked.
+     * @type {boolean}
+     * @memberof IdentityV2
+     */
+    'locked'?: boolean;
+    /**
+     * Whether the identity is disabled.
+     * @type {boolean}
+     * @memberof IdentityV2
+     */
+    'disabled'?: boolean;
+    /**
+     * 
+     * @type {IdentityV2Manager}
+     * @memberof IdentityV2
+     */
+    'manager'?: IdentityV2Manager | null;
+    /**
+     * 
+     * @type {IdentityV2LifecycleState}
+     * @memberof IdentityV2
+     */
+    'lifecycleState'?: IdentityV2LifecycleState;
+    /**
+     * Creation date of the identity.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'created'?: string | null;
+    /**
+     * Last modification date of the identity.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'modified'?: string | null;
+    /**
+     * Last time the identity was synchronized to search.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'synced'?: string | null;
+    /**
+     * The last time the identity was refreshed by the system.
+     * @type {string}
+     * @memberof IdentityV2
+     */
+    'lastRefresh'?: string | null;
+    /**
+     * 
+     * @type {IdentityV2PrivilegeLevel}
+     * @memberof IdentityV2
+     */
+    'privilegeLevel'?: IdentityV2PrivilegeLevel | null;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityV2LifecycleState
+ */
+export interface IdentityV2LifecycleState {
+    /**
+     * The name of the lifecycle state
+     * @type {string}
+     * @memberof IdentityV2LifecycleState
+     */
+    'stateName': string;
+    /**
+     * Whether the lifecycle state has been manually or automatically set
+     * @type {boolean}
+     * @memberof IdentityV2LifecycleState
+     */
+    'manuallyUpdated': boolean;
+}
+/**
+ * The identity\'s manager.
+ * @export
+ * @interface IdentityV2Manager
+ */
+export interface IdentityV2Manager {
+    /**
+     * ID of the identity\'s manager.
+     * @type {string}
+     * @memberof IdentityV2Manager
+     */
+    'id'?: string | null;
+    /**
+     * Display name of the identity\'s manager.
+     * @type {string}
+     * @memberof IdentityV2Manager
+     */
+    'name'?: string | null;
+    /**
+     * DTO type of the identity\'s manager.
+     * @type {string}
+     * @memberof IdentityV2Manager
+     */
+    'type'?: string | null;
+}
+/**
+ * Effective privilege level of the identity. This object is null when the IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE feature flag is disabled. When the flag is enabled, an identity with no privilege level is returned with effective set to NONE.
+ * @export
+ * @interface IdentityV2PrivilegeLevel
+ */
+export interface IdentityV2PrivilegeLevel {
+    /**
+     * The effective privilege level of the identity. Returned values are uppercase. Filter and sort comparisons are case-insensitive. An identity with no privilege level is NONE.
+     * @type {string}
+     * @memberof IdentityV2PrivilegeLevel
+     */
+    'effective'?: IdentityV2PrivilegeLevelEffectiveEnum | null;
+}
+
+export const IdentityV2PrivilegeLevelEffectiveEnum = {
+    High: 'HIGH',
+    Medium: 'MEDIUM',
+    Low: 'LOW',
+    None: 'NONE'
+} as const;
+
+export type IdentityV2PrivilegeLevelEffectiveEnum = typeof IdentityV2PrivilegeLevelEffectiveEnum[keyof typeof IdentityV2PrivilegeLevelEffectiveEnum];
+
+/**
  * 
  * @export
  * @interface InviteIdentitiesRequest
@@ -1456,6 +1650,48 @@ export const IdentitiesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
+         * This API returns a single identity from the identities search index.  `privilegeLevel.effective` is `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level is returned as `NONE`. `privilegeLevel` is null when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is disabled. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase.
+         * @summary Identity details (search)
+         * @param {string} id Identity Id
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getIdentityV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/identities/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * 
          * @summary Role assignment details
          * @param {string} identityId Identity Id
@@ -1637,6 +1873,74 @@ export const IdentitiesApiAxiosParamCreator = function (configuration?: Configur
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * List identities from the identities search index.  Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250. `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset. `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information.  `privilegeLevel` is returned when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is enabled. When the flag is disabled, `privilegeLevel` is null and a filter or sort on `privilegeLevel.effective` is rejected. When the flag is enabled, an identity with no privilege level is returned as `NONE`. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase: `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level matches `privilegeLevel.effective eq \"NONE\"` and does not match `isnull`.
+         * @summary List identities (search)
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [searchAfter] Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  &#x60;searchAfter&#x60; cannot be combined with &#x60;offset&#x60;. When &#x60;searchAfter&#x60; is provided, &#x60;id&#x60; must be included in &#x60;sorters&#x60;.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don\&#39;t get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter&#x3D;John Mathews,01f04e428c484542a241dc89c303b178&amp;sorters&#x3D;name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement &#x60;searchAfter&#x60; paging.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **alias**: *eq, in, sw, isnull, pr*  **type**: *eq, in, sw, isnull, pr*  **emailAddress**: *eq, in, sw, isnull, pr*  **identityStatus**: *eq, in, sw, isnull, pr*  **processingState**: *eq, in, sw, isnull, pr*  **protected**: *eq*  **correlated**: *eq*  **inactive**: *eq*  **isManager**: *eq*  **locked**: *eq*  **disabled**: *eq*  **manager.id**: *eq, in, sw*  **manager.name**: *eq, in, sw, isnull, pr*  **manager.type**: *eq, in, sw, isnull, pr*  **lifecycleState.stateName**: *eq, in, sw, isnull, pr*  **lifecycleState.manuallyUpdated**: *eq*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **lastRefresh**: *eq, ge, gt, le, lt*  **privilegeLevel.effective**: *eq, in, isnull, pr*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, alias, type, emailAddress, identityStatus, processingState, protected, correlated, inactive, isManager, locked, disabled, manager.id, manager.name, manager.type, lifecycleState.stateName, lifecycleState.manuallyUpdated, created, modified, synced, lastRefresh, privilegeLevel.effective**  Sorting on **privilegeLevel.effective** is case-insensitive and is accepted only when &#x60;IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE&#x60; is enabled. Returned values are uppercase.  Default sort is **created** when no collection parameters are sent.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentitiesV2: async (limit?: number, offset?: number, count?: boolean, searchAfter?: string, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/identities/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (searchAfter !== undefined) {
+                localVarQueryParameter['searchAfter'] = searchAfter;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1908,6 +2212,20 @@ export const IdentitiesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This API returns a single identity from the identities search index.  `privilegeLevel.effective` is `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level is returned as `NONE`. `privilegeLevel` is null when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is disabled. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase.
+         * @summary Identity details (search)
+         * @param {string} id Identity Id
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentityV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdentitiesApi.getIdentityV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * 
          * @summary Role assignment details
          * @param {string} identityId Identity Id
@@ -1968,6 +2286,25 @@ export const IdentitiesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitiesV1(filters, sorters, defaultFilter, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['IdentitiesApi.listIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List identities from the identities search index.  Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250. `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset. `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information.  `privilegeLevel` is returned when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is enabled. When the flag is disabled, `privilegeLevel` is null and a filter or sort on `privilegeLevel.effective` is rejected. When the flag is enabled, an identity with no privilege level is returned as `NONE`. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase: `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level matches `privilegeLevel.effective eq \"NONE\"` and does not match `isnull`.
+         * @summary List identities (search)
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [searchAfter] Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  &#x60;searchAfter&#x60; cannot be combined with &#x60;offset&#x60;. When &#x60;searchAfter&#x60; is provided, &#x60;id&#x60; must be included in &#x60;sorters&#x60;.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don\&#39;t get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter&#x3D;John Mathews,01f04e428c484542a241dc89c303b178&amp;sorters&#x3D;name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement &#x60;searchAfter&#x60; paging.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **alias**: *eq, in, sw, isnull, pr*  **type**: *eq, in, sw, isnull, pr*  **emailAddress**: *eq, in, sw, isnull, pr*  **identityStatus**: *eq, in, sw, isnull, pr*  **processingState**: *eq, in, sw, isnull, pr*  **protected**: *eq*  **correlated**: *eq*  **inactive**: *eq*  **isManager**: *eq*  **locked**: *eq*  **disabled**: *eq*  **manager.id**: *eq, in, sw*  **manager.name**: *eq, in, sw, isnull, pr*  **manager.type**: *eq, in, sw, isnull, pr*  **lifecycleState.stateName**: *eq, in, sw, isnull, pr*  **lifecycleState.manuallyUpdated**: *eq*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **lastRefresh**: *eq, ge, gt, le, lt*  **privilegeLevel.effective**: *eq, in, isnull, pr*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, alias, type, emailAddress, identityStatus, processingState, protected, correlated, inactive, isManager, locked, disabled, manager.id, manager.name, manager.type, lifecycleState.stateName, lifecycleState.manuallyUpdated, created, modified, synced, lastRefresh, privilegeLevel.effective**  Sorting on **privilegeLevel.effective** is case-insensitive and is accepted only when &#x60;IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE&#x60; is enabled. Returned values are uppercase.  Default sort is **created** when no collection parameters are sent.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listIdentitiesV2(limit?: number, offset?: number, count?: boolean, searchAfter?: string, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitiesV2(limit, offset, count, searchAfter, filters, sorters, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['IdentitiesApi.listIdentitiesV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2081,6 +2418,16 @@ export const IdentitiesApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getIdentityV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API returns a single identity from the identities search index.  `privilegeLevel.effective` is `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level is returned as `NONE`. `privilegeLevel` is null when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is disabled. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase.
+         * @summary Identity details (search)
+         * @param {IdentitiesApiGetIdentityV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityV2(requestParameters: IdentitiesApiGetIdentityV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<IdentityV2> {
+            return localVarFp.getIdentityV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * 
          * @summary Role assignment details
          * @param {IdentitiesApiGetRoleAssignmentV1Request} requestParameters Request parameters.
@@ -2119,6 +2466,16 @@ export const IdentitiesApiFactory = function (configuration?: Configuration, bas
          */
         listIdentitiesV1(requestParameters: IdentitiesApiListIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Identity>> {
             return localVarFp.listIdentitiesV1(requestParameters.filters, requestParameters.sorters, requestParameters.defaultFilter, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * List identities from the identities search index.  Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250. `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset. `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information.  `privilegeLevel` is returned when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is enabled. When the flag is disabled, `privilegeLevel` is null and a filter or sort on `privilegeLevel.effective` is rejected. When the flag is enabled, an identity with no privilege level is returned as `NONE`. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase: `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level matches `privilegeLevel.effective eq \"NONE\"` and does not match `isnull`.
+         * @summary List identities (search)
+         * @param {IdentitiesApiListIdentitiesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentitiesV2(requestParameters: IdentitiesApiListIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<IdentityV2>> {
+            return localVarFp.listIdentitiesV2(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this endpoint to reset a user\'s identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
@@ -2213,6 +2570,27 @@ export interface IdentitiesApiGetIdentityV1Request {
      * @memberof IdentitiesApiGetIdentityV1
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getIdentityV2 operation in IdentitiesApi.
+ * @export
+ * @interface IdentitiesApiGetIdentityV2Request
+ */
+export interface IdentitiesApiGetIdentityV2Request {
+    /**
+     * Identity Id
+     * @type {string}
+     * @memberof IdentitiesApiGetIdentityV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof IdentitiesApiGetIdentityV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2346,6 +2724,62 @@ export interface IdentitiesApiListIdentitiesV1Request {
      * @memberof IdentitiesApiListIdentitiesV1
      */
     readonly offset?: number
+}
+
+/**
+ * Request parameters for listIdentitiesV2 operation in IdentitiesApi.
+ * @export
+ * @interface IdentitiesApiListIdentitiesV2Request
+ */
+export interface IdentitiesApiListIdentitiesV2Request {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentitiesApiListIdentitiesV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentitiesApiListIdentitiesV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IdentitiesApiListIdentitiesV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Used to begin the search window at the values specified.  This parameter consists of the last values of the sorted fields in the current record set.  searchAfter length must match the number of sorters.  This is used to page beyond the offset limit of 10,000 records by shifting the search window to begin at this value.  &#x60;searchAfter&#x60; cannot be combined with &#x60;offset&#x60;. When &#x60;searchAfter&#x60; is provided, &#x60;id&#x60; must be included in &#x60;sorters&#x60;.  It is recommended that you always include the ID of the object in addition to any other sort fields in order to ensure you don\&#39;t get duplicate results while paging.  For example, if you are sorting by name you will also want to include ID, for example searchAfter&#x3D;John Mathews,01f04e428c484542a241dc89c303b178&amp;sorters&#x3D;name,id.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement &#x60;searchAfter&#x60; paging.
+     * @type {string}
+     * @memberof IdentitiesApiListIdentitiesV2
+     */
+    readonly searchAfter?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw, isnull, pr*  **alias**: *eq, in, sw, isnull, pr*  **type**: *eq, in, sw, isnull, pr*  **emailAddress**: *eq, in, sw, isnull, pr*  **identityStatus**: *eq, in, sw, isnull, pr*  **processingState**: *eq, in, sw, isnull, pr*  **protected**: *eq*  **correlated**: *eq*  **inactive**: *eq*  **isManager**: *eq*  **locked**: *eq*  **disabled**: *eq*  **manager.id**: *eq, in, sw*  **manager.name**: *eq, in, sw, isnull, pr*  **manager.type**: *eq, in, sw, isnull, pr*  **lifecycleState.stateName**: *eq, in, sw, isnull, pr*  **lifecycleState.manuallyUpdated**: *eq*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*  **synced**: *eq, ge, gt, le, lt*  **lastRefresh**: *eq, ge, gt, le, lt*  **privilegeLevel.effective**: *eq, in, isnull, pr*
+     * @type {string}
+     * @memberof IdentitiesApiListIdentitiesV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, alias, type, emailAddress, identityStatus, processingState, protected, correlated, inactive, isManager, locked, disabled, manager.id, manager.name, manager.type, lifecycleState.stateName, lifecycleState.manuallyUpdated, created, modified, synced, lastRefresh, privilegeLevel.effective**  Sorting on **privilegeLevel.effective** is case-insensitive and is accepted only when &#x60;IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE&#x60; is enabled. Returned values are uppercase.  Default sort is **created** when no collection parameters are sent.
+     * @type {string}
+     * @memberof IdentitiesApiListIdentitiesV2
+     */
+    readonly sorters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof IdentitiesApiListIdentitiesV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2497,6 +2931,18 @@ export class IdentitiesApi extends BaseAPI {
     }
 
     /**
+     * This API returns a single identity from the identities search index.  `privilegeLevel.effective` is `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level is returned as `NONE`. `privilegeLevel` is null when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is disabled. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase.
+     * @summary Identity details (search)
+     * @param {IdentitiesApiGetIdentityV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesApi
+     */
+    public getIdentityV2(requestParameters: IdentitiesApiGetIdentityV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentitiesApiFp(this.configuration).getIdentityV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * 
      * @summary Role assignment details
      * @param {IdentitiesApiGetRoleAssignmentV1Request} requestParameters Request parameters.
@@ -2542,6 +2988,18 @@ export class IdentitiesApi extends BaseAPI {
      */
     public listIdentitiesV1(requestParameters: IdentitiesApiListIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return IdentitiesApiFp(this.configuration).listIdentitiesV1(requestParameters.filters, requestParameters.sorters, requestParameters.defaultFilter, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List identities from the identities search index.  Use standard collection parameters for paging (`limit`, `offset`, `count`). Default page size is 25 when no collection parameters are sent. Maximum `limit` is 250. Requests that specify a larger `limit` are capped at 250. `offset + limit` cannot exceed 10,000. To page beyond that window, use `searchAfter` instead of a large offset. `searchAfter` cannot be combined with `offset`. Always include `id` in `sorters` when using `searchAfter`. Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information.  `privilegeLevel` is returned when the `IDNARC_ENABLE_IDENTITY_EFFECTIVE_PRIVILEGE` feature flag is enabled. When the flag is disabled, `privilegeLevel` is null and a filter or sort on `privilegeLevel.effective` is rejected. When the flag is enabled, an identity with no privilege level is returned as `NONE`. Comparisons on `privilegeLevel.effective` are case-insensitive, and returned values are uppercase: `HIGH`, `MEDIUM`, `LOW`, or `NONE`. An identity with no privilege level matches `privilegeLevel.effective eq \"NONE\"` and does not match `isnull`.
+     * @summary List identities (search)
+     * @param {IdentitiesApiListIdentitiesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesApi
+     */
+    public listIdentitiesV2(requestParameters: IdentitiesApiListIdentitiesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return IdentitiesApiFp(this.configuration).listIdentitiesV2(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.searchAfter, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
