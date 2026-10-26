@@ -190,6 +190,214 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
+ * @type PublicIdentitiesCompositeEntry
+ * A querySet entry that is either a TEXT clause or a nested COMPOSITE querySet.
+ * @export
+ */
+export type PublicIdentitiesCompositeEntry = { queryType: 'COMPOSITE' } & PublicIdentitiesNestedCompositeEntry | { queryType: 'TEXT' } & PublicIdentitiesTextEntry;
+
+/**
+ * A COMPOSITE query entry that nests another querySet.
+ * @export
+ * @interface PublicIdentitiesNestedCompositeEntry
+ */
+export interface PublicIdentitiesNestedCompositeEntry {
+    /**
+     * Entry type discriminator. Must be COMPOSITE for nested query sets.
+     * @type {string}
+     * @memberof PublicIdentitiesNestedCompositeEntry
+     */
+    'queryType': PublicIdentitiesNestedCompositeEntryQueryTypeEnum;
+    /**
+     * Nested query set for this COMPOSITE entry.
+     * @type {PublicIdentitiesNestedQuerySet}
+     * @memberof PublicIdentitiesNestedCompositeEntry
+     */
+    'querySet': PublicIdentitiesNestedQuerySet;
+}
+
+export const PublicIdentitiesNestedCompositeEntryQueryTypeEnum = {
+    Composite: 'COMPOSITE'
+} as const;
+
+export type PublicIdentitiesNestedCompositeEntryQueryTypeEnum = typeof PublicIdentitiesNestedCompositeEntryQueryTypeEnum[keyof typeof PublicIdentitiesNestedCompositeEntryQueryTypeEnum];
+
+/**
+ * Query set nested inside a COMPOSITE entry. TEXT entries combined with AND (matchAny false) or OR (matchAny true).
+ * @export
+ * @interface PublicIdentitiesNestedQuerySet
+ */
+export interface PublicIdentitiesNestedQuerySet {
+    /**
+     * When true, entries are OR\'d; when false, entries are AND\'d.
+     * @type {boolean}
+     * @memberof PublicIdentitiesNestedQuerySet
+     */
+    'matchAny': boolean;
+    /**
+     * One or more TEXT entries.
+     * @type {Array<PublicIdentitiesTextEntry>}
+     * @memberof PublicIdentitiesNestedQuerySet
+     */
+    'entries': Array<PublicIdentitiesTextEntry>;
+}
+/**
+ * A set of COMPOSITE query entries combined with AND (matchAny false) or OR (matchAny true).
+ * @export
+ * @interface PublicIdentitiesQuerySet
+ */
+export interface PublicIdentitiesQuerySet {
+    /**
+     * When true, entries are OR\'d; when false, entries are AND\'d.
+     * @type {boolean}
+     * @memberof PublicIdentitiesQuerySet
+     */
+    'matchAny': boolean;
+    /**
+     * One or more TEXT or nested COMPOSITE entries.
+     * @type {Array<PublicIdentitiesCompositeEntry>}
+     * @memberof PublicIdentitiesQuerySet
+     */
+    'entries': Array<PublicIdentitiesCompositeEntry>;
+}
+/**
+ * COMPOSITE search request for public identities. Root querySet must use matchAny false (AND). The first entries item must be the ACTIVE identityState TEXT gate; identityState may not appear elsewhere in the query tree.
+ * @export
+ * @interface PublicIdentitiesSearchRequest
+ */
+export interface PublicIdentitiesSearchRequest {
+    /**
+     * Search query type. Must be COMPOSITE.
+     * @type {string}
+     * @memberof PublicIdentitiesSearchRequest
+     */
+    'queryType': PublicIdentitiesSearchRequestQueryTypeEnum;
+    /**
+     * Search indices. Must be exactly [\"identities\"].
+     * @type {Array<string>}
+     * @memberof PublicIdentitiesSearchRequest
+     */
+    'indices': Array<PublicIdentitiesSearchRequestIndicesEnum>;
+    /**
+     * Must be false for public identities search.
+     * @type {boolean}
+     * @memberof PublicIdentitiesSearchRequest
+     */
+    'includeNested': boolean;
+    /**
+     * Optional attribute keys to sort by. Base keys must match those returned by GET /public-identities/v2/visible-attributes (defaultAttributes + configuredAttributes). Optional \"attributes.\" prefix and/or \".exact\" suffix.
+     * @type {Array<string>}
+     * @memberof PublicIdentitiesSearchRequest
+     */
+    'sort'?: Array<string>;
+    /**
+     * 
+     * @type {PublicIdentitiesSearchRequestQuerySet}
+     * @memberof PublicIdentitiesSearchRequest
+     */
+    'querySet': PublicIdentitiesSearchRequestQuerySet;
+}
+
+export const PublicIdentitiesSearchRequestQueryTypeEnum = {
+    Composite: 'COMPOSITE'
+} as const;
+
+export type PublicIdentitiesSearchRequestQueryTypeEnum = typeof PublicIdentitiesSearchRequestQueryTypeEnum[keyof typeof PublicIdentitiesSearchRequestQueryTypeEnum];
+export const PublicIdentitiesSearchRequestIndicesEnum = {
+    Identities: 'identities'
+} as const;
+
+export type PublicIdentitiesSearchRequestIndicesEnum = typeof PublicIdentitiesSearchRequestIndicesEnum[keyof typeof PublicIdentitiesSearchRequestIndicesEnum];
+
+/**
+ * 
+ * @export
+ * @interface PublicIdentitiesSearchRequestQuerySet
+ */
+export interface PublicIdentitiesSearchRequestQuerySet {
+    /**
+     * When true, entries are OR\'d; when false, entries are AND\'d.
+     * @type {boolean}
+     * @memberof PublicIdentitiesSearchRequestQuerySet
+     */
+    'matchAny': boolean;
+    /**
+     * One or more TEXT or nested COMPOSITE entries.
+     * @type {Array<PublicIdentitiesCompositeEntry>}
+     * @memberof PublicIdentitiesSearchRequestQuerySet
+     */
+    'entries': Array<PublicIdentitiesCompositeEntry>;
+}
+/**
+ * A COMPOSITE query entry that contains a TEXT query.
+ * @export
+ * @interface PublicIdentitiesTextEntry
+ */
+export interface PublicIdentitiesTextEntry {
+    /**
+     * Entry type discriminator. Must be TEXT for text query entries.
+     * @type {string}
+     * @memberof PublicIdentitiesTextEntry
+     */
+    'queryType': PublicIdentitiesTextEntryQueryTypeEnum;
+    /**
+     * Text query clause for this TEXT entry.
+     * @type {PublicIdentitiesTextQuery}
+     * @memberof PublicIdentitiesTextEntry
+     */
+    'textQuery': PublicIdentitiesTextQuery;
+}
+
+export const PublicIdentitiesTextEntryQueryTypeEnum = {
+    Text: 'TEXT'
+} as const;
+
+export type PublicIdentitiesTextEntryQueryTypeEnum = typeof PublicIdentitiesTextEntryQueryTypeEnum[keyof typeof PublicIdentitiesTextEntryQueryTypeEnum];
+
+/**
+ * Text query clause used inside a TEXT composite entry.
+ * @export
+ * @interface PublicIdentitiesTextQuery
+ */
+export interface PublicIdentitiesTextQuery {
+    /**
+     * Attribute keys to search. Base keys must match GET /public-identities/v2/visible-attributes (defaultAttributes + configuredAttributes). Optional \"attributes.\" prefix and/or \".exact\" suffix (e.g. email, attributes.email, email.exact, attributes.email.exact).
+     * @type {Array<string>}
+     * @memberof PublicIdentitiesTextQuery
+     */
+    'fields': Array<string>;
+    /**
+     * Search terms. Each value must be a non-blank string or a JSON boolean.
+     * @type {Array<PublicIdentitiesTextQueryTermsInner>}
+     * @memberof PublicIdentitiesTextQuery
+     */
+    'terms': Array<PublicIdentitiesTextQueryTermsInner>;
+    /**
+     * When true, terms/fields are OR\'d within this text query. Optional for normal search clauses. The mandatory ACTIVE identityState gate entry must set this to false.
+     * @type {boolean}
+     * @memberof PublicIdentitiesTextQuery
+     */
+    'matchAny'?: boolean;
+    /**
+     * When true, matches substrings. Optional for normal search clauses. The mandatory ACTIVE identityState gate entry must set this to false.
+     * @type {boolean}
+     * @memberof PublicIdentitiesTextQuery
+     */
+    'contains'?: boolean;
+    /**
+     * When true, applies strict matching. Optional for normal search clauses. The mandatory ACTIVE identityState gate entry must set this to true.
+     * @type {boolean}
+     * @memberof PublicIdentitiesTextQuery
+     */
+    'strict'?: boolean;
+}
+/**
+ * @type PublicIdentitiesTextQueryTermsInner
+ * @export
+ */
+export type PublicIdentitiesTextQueryTermsInner = boolean | string;
+
+/**
  * Details about a public identity
  * @export
  * @interface PublicIdentity
@@ -254,6 +462,25 @@ export const PublicIdentityIdentityStateEnum = {
 export type PublicIdentityIdentityStateEnum = typeof PublicIdentityIdentityStateEnum[keyof typeof PublicIdentityIdentityStateEnum];
 
 /**
+ * Maps an identity attribute key to its display name.
+ * @export
+ * @interface PublicIdentityAttributeConfig
+ */
+export interface PublicIdentityAttributeConfig {
+    /**
+     * Attribute / search field key (e.g. email, manager.displayName).
+     * @type {string}
+     * @memberof PublicIdentityAttributeConfig
+     */
+    'key': string;
+    /**
+     * Human-readable display name for the attribute.
+     * @type {string}
+     * @memberof PublicIdentityAttributeConfig
+     */
+    'name': string;
+}
+/**
  * 
  * @export
  * @interface PublicIdentityAttributesInner
@@ -277,6 +504,114 @@ export interface PublicIdentityAttributesInner {
      * @memberof PublicIdentityAttributesInner
      */
     'value'?: string | null;
+}
+/**
+ * Projected public identity returned by POST /public-identities/v2/search. Root fields are always present (null when unavailable). attributes contains only keys from GET /public-identities/v2/visible-attributes configuredAttributes.
+ * @export
+ * @interface PublicIdentityV2
+ */
+export interface PublicIdentityV2 {
+    /**
+     * Identity id
+     * @type {string}
+     * @memberof PublicIdentityV2
+     */
+    'id': string | null;
+    /**
+     * Alternate unique identifier for the identity (alias / search field name).
+     * @type {string}
+     * @memberof PublicIdentityV2
+     */
+    'name': string | null;
+    /**
+     * Human-readable display name of the identity.
+     * @type {string}
+     * @memberof PublicIdentityV2
+     */
+    'displayName': string | null;
+    /**
+     * Email address of identity.
+     * @type {string}
+     * @memberof PublicIdentityV2
+     */
+    'email': string | null;
+    /**
+     * The current state of the identity, which determines how Identity Security Cloud interacts with the identity.
+     * @type {string}
+     * @memberof PublicIdentityV2
+     */
+    'identityState': PublicIdentityV2IdentityStateEnum | null;
+    /**
+     * The lifecycle status for the identity
+     * @type {string}
+     * @memberof PublicIdentityV2
+     */
+    'cloudLifecycleState': string | null;
+    /**
+     * Manager of this identity, or null when none
+     * @type {PublicIdentityV2Manager}
+     * @memberof PublicIdentityV2
+     */
+    'manager': PublicIdentityV2Manager | null;
+    /**
+     * Configured public identity attributes only (from visible-attributes configuredAttributes). Missing keys are omitted; present null values are returned as null.
+     * @type {{ [key: string]: string | null; }}
+     * @memberof PublicIdentityV2
+     */
+    'attributes': { [key: string]: string | null; };
+}
+
+export const PublicIdentityV2IdentityStateEnum = {
+    Active: 'ACTIVE',
+    InactiveShortTerm: 'INACTIVE_SHORT_TERM',
+    InactiveLongTerm: 'INACTIVE_LONG_TERM'
+} as const;
+
+export type PublicIdentityV2IdentityStateEnum = typeof PublicIdentityV2IdentityStateEnum[keyof typeof PublicIdentityV2IdentityStateEnum];
+
+/**
+ * Manager reference for a public identity search result
+ * @export
+ * @interface PublicIdentityV2Manager
+ */
+export interface PublicIdentityV2Manager {
+    /**
+     * Manager identity id
+     * @type {string}
+     * @memberof PublicIdentityV2Manager
+     */
+    'id': string | null;
+    /**
+     * Manager alias / technical name
+     * @type {string}
+     * @memberof PublicIdentityV2Manager
+     */
+    'name': string | null;
+    /**
+     * Manager display name. Null when absent from the search hit.
+     * @type {string}
+     * @memberof PublicIdentityV2Manager
+     */
+    'displayName': string | null;
+}
+/**
+ * Default and configured identity attribute keys with display names exposed by the public identities API.
+ * @export
+ * @interface PublicIdentityVisibleAttributes
+ */
+export interface PublicIdentityVisibleAttributes {
+    /**
+     * Always-available public-identity field keys for search and sort. Fixed platform list. `key` is the search field name; `name` is the display label.
+     * @type {Array<PublicIdentityAttributeConfig>}
+     * @memberof PublicIdentityVisibleAttributes
+     */
+    'defaultAttributes': Array<PublicIdentityAttributeConfig>;
+    /**
+     * Tenant-configured public attributes from public-identities config (same source as public-identities-config). These keys are also allowed in search/sort and appear under `attributes` on search results.
+     * @type {Array<PublicIdentityAttributeConfig>}
+     * @memberof PublicIdentityVisibleAttributes
+     */
+    'configuredAttributes': Array<PublicIdentityAttributeConfig>;
 }
 
 /**
@@ -345,6 +680,103 @@ export const PublicIdentitiesApiAxiosParamCreator = function (configuration?: Co
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Returns the default and configured identity attribute keys (with display names) that are allowed for public-identity search and projection. Call this before POST /public-identities/v2/search to learn which field keys are valid in query fields and sort.  Any authenticated user with the default scope can call this endpoint.
+         * @summary Get public identity visible attributes
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPublicIdentitiesVisibleAttributesV2: async (xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/public-identities/v2/visible-attributes`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Search public identities using a composite query and return matching records.  The root query set combines criteria with AND and must include attributes.identityState.exact = ACTIVE. The field keys must come from GET /public-identities/v2/visible-attributes and may use the prefix \"attributes.\" and/or the suffix \".exact\". See the request examples for the required exact payload structure.  Any authenticated user with the default scope can call this endpoint.
+         * @summary Search public identities
+         * @param {PublicIdentitiesSearchRequest} publicIdentitiesSearchRequest 
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPublicIdentitiesV2: async (publicIdentitiesSearchRequest: PublicIdentitiesSearchRequest, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'publicIdentitiesSearchRequest' is not null or undefined
+            assertParamExists('searchPublicIdentitiesV2', 'publicIdentitiesSearchRequest', publicIdentitiesSearchRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/public-identities/v2/search`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(publicIdentitiesSearchRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -373,6 +805,36 @@ export const PublicIdentitiesApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesApi.getPublicIdentitiesV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Returns the default and configured identity attribute keys (with display names) that are allowed for public-identity search and projection. Call this before POST /public-identities/v2/search to learn which field keys are valid in query fields and sort.  Any authenticated user with the default scope can call this endpoint.
+         * @summary Get public identity visible attributes
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPublicIdentitiesVisibleAttributesV2(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityVisibleAttributes>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentitiesVisibleAttributesV2(xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesApi.getPublicIdentitiesVisibleAttributesV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Search public identities using a composite query and return matching records.  The root query set combines criteria with AND and must include attributes.identityState.exact = ACTIVE. The field keys must come from GET /public-identities/v2/visible-attributes and may use the prefix \"attributes.\" and/or the suffix \".exact\". See the request examples for the required exact payload structure.  Any authenticated user with the default scope can call this endpoint.
+         * @summary Search public identities
+         * @param {PublicIdentitiesSearchRequest} publicIdentitiesSearchRequest 
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchPublicIdentitiesV2(publicIdentitiesSearchRequest: PublicIdentitiesSearchRequest, limit?: number, offset?: number, count?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicIdentityV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPublicIdentitiesV2(publicIdentitiesSearchRequest, limit, offset, count, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PublicIdentitiesApi.searchPublicIdentitiesV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -392,6 +854,26 @@ export const PublicIdentitiesApiFactory = function (configuration?: Configuratio
          */
         getPublicIdentitiesV1(requestParameters: PublicIdentitiesApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PublicIdentity>> {
             return localVarFp.getPublicIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the default and configured identity attribute keys (with display names) that are allowed for public-identity search and projection. Call this before POST /public-identities/v2/search to learn which field keys are valid in query fields and sort.  Any authenticated user with the default scope can call this endpoint.
+         * @summary Get public identity visible attributes
+         * @param {PublicIdentitiesApiGetPublicIdentitiesVisibleAttributesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPublicIdentitiesVisibleAttributesV2(requestParameters: PublicIdentitiesApiGetPublicIdentitiesVisibleAttributesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<PublicIdentityVisibleAttributes> {
+            return localVarFp.getPublicIdentitiesVisibleAttributesV2(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search public identities using a composite query and return matching records.  The root query set combines criteria with AND and must include attributes.identityState.exact = ACTIVE. The field keys must come from GET /public-identities/v2/visible-attributes and may use the prefix \"attributes.\" and/or the suffix \".exact\". See the request examples for the required exact payload structure.  Any authenticated user with the default scope can call this endpoint.
+         * @summary Search public identities
+         * @param {PublicIdentitiesApiSearchPublicIdentitiesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPublicIdentitiesV2(requestParameters: PublicIdentitiesApiSearchPublicIdentitiesV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<PublicIdentityV2>> {
+            return localVarFp.searchPublicIdentitiesV2(requestParameters.publicIdentitiesSearchRequest, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -446,6 +928,62 @@ export interface PublicIdentitiesApiGetPublicIdentitiesV1Request {
 }
 
 /**
+ * Request parameters for getPublicIdentitiesVisibleAttributesV2 operation in PublicIdentitiesApi.
+ * @export
+ * @interface PublicIdentitiesApiGetPublicIdentitiesVisibleAttributesV2Request
+ */
+export interface PublicIdentitiesApiGetPublicIdentitiesVisibleAttributesV2Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof PublicIdentitiesApiGetPublicIdentitiesVisibleAttributesV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for searchPublicIdentitiesV2 operation in PublicIdentitiesApi.
+ * @export
+ * @interface PublicIdentitiesApiSearchPublicIdentitiesV2Request
+ */
+export interface PublicIdentitiesApiSearchPublicIdentitiesV2Request {
+    /**
+     * 
+     * @type {PublicIdentitiesSearchRequest}
+     * @memberof PublicIdentitiesApiSearchPublicIdentitiesV2
+     */
+    readonly publicIdentitiesSearchRequest: PublicIdentitiesSearchRequest
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PublicIdentitiesApiSearchPublicIdentitiesV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PublicIdentitiesApiSearchPublicIdentitiesV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof PublicIdentitiesApiSearchPublicIdentitiesV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof PublicIdentitiesApiSearchPublicIdentitiesV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * PublicIdentitiesApi - object-oriented interface
  * @export
  * @class PublicIdentitiesApi
@@ -462,6 +1000,30 @@ export class PublicIdentitiesApi extends BaseAPI {
      */
     public getPublicIdentitiesV1(requestParameters: PublicIdentitiesApiGetPublicIdentitiesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return PublicIdentitiesApiFp(this.configuration).getPublicIdentitiesV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the default and configured identity attribute keys (with display names) that are allowed for public-identity search and projection. Call this before POST /public-identities/v2/search to learn which field keys are valid in query fields and sort.  Any authenticated user with the default scope can call this endpoint.
+     * @summary Get public identity visible attributes
+     * @param {PublicIdentitiesApiGetPublicIdentitiesVisibleAttributesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PublicIdentitiesApi
+     */
+    public getPublicIdentitiesVisibleAttributesV2(requestParameters: PublicIdentitiesApiGetPublicIdentitiesVisibleAttributesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return PublicIdentitiesApiFp(this.configuration).getPublicIdentitiesVisibleAttributesV2(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Search public identities using a composite query and return matching records.  The root query set combines criteria with AND and must include attributes.identityState.exact = ACTIVE. The field keys must come from GET /public-identities/v2/visible-attributes and may use the prefix \"attributes.\" and/or the suffix \".exact\". See the request examples for the required exact payload structure.  Any authenticated user with the default scope can call this endpoint.
+     * @summary Search public identities
+     * @param {PublicIdentitiesApiSearchPublicIdentitiesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PublicIdentitiesApi
+     */
+    public searchPublicIdentitiesV2(requestParameters: PublicIdentitiesApiSearchPublicIdentitiesV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return PublicIdentitiesApiFp(this.configuration).searchPublicIdentitiesV2(requestParameters.publicIdentitiesSearchRequest, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
