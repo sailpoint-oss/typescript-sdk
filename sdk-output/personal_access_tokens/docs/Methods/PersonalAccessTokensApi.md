@@ -11,12 +11,12 @@ tags: ['SDK', 'Software Development Kit', 'PersonalAccessTokens', 'v1PersonalAcc
 
 # PersonalAccessTokensApi
   Use this API to implement personal access token (PAT) functionality. 
-With this functionality in place, users can use PATs as an alternative to passwords for authentication in Identity Security Cloud. 
+With this functionality in place, users can use PATs as an alternative to passwords for authentication in SailPoint Identity Security. 
 
 PATs embed user information into the client ID and secret. 
-This replaces the API clients&#39; need to store and provide a username and password to establish a connection, improving Identity Security Cloud organizations&#39; integration security. 
+This replaces the API clients&#39; need to store and provide a username and password to establish a connection, improving SailPoint Identity Security organizations&#39; integration security. 
 
-In Identity Security Cloud, users can do the following to create and manage their PATs: Select the dropdown menu under their names, select Preferences, and then select Personal Access Tokens. 
+In SailPoint Identity Security, users can do the following to create and manage their PATs: Select the dropdown menu under their names, select Preferences, and then select Personal Access Tokens. 
 They must then provide a description about the token&#39;s purpose. 
 They can then select &#39;Create Token&#39; at the bottom of the page to generate and view the Secret and Client ID. 
 
@@ -134,7 +134,7 @@ This gets a collection of personal access tokens associated with the optional `o
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ownerId** | `string` | The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39; | [optional] [default to undefined]
-**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* | [optional] [default to undefined]
+**filters** | `string` | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* | [optional] [default to undefined]
 
 ### Return type
 
@@ -154,7 +154,7 @@ import { Configuration } from '@sailpoint/api-client';
 const configuration = new Configuration();
 const apiInstance = new PersonalAccessTokensApi(configuration);
 const ownerId: string = 2c9180867b50d088017b554662fb281e; // The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39; (optional)
-const filters: string = lastUsed le 2023-02-05T10:59:27.214Z; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
+const filters: string = lastUsed le 2023-02-05T10:59:27.214Z; // Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 const result = await apiInstance.listPersonalAccessTokensV1({  });
 console.log(result);
 ```

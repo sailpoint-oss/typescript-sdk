@@ -1,0 +1,69 @@
+- path: /devices/v1/device-counts
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/devices/methods/devices#get-device-counts-v1
+      source: |
+        import { DevicesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new DevicesApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getDeviceCountsV1({  });
+        console.log(result);
+- path: /devices/v1/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/devices/methods/devices#get-device-v1
+      source: |
+        import { DevicesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new DevicesApi(configuration);
+        const id: string = '5be33d3e-c54d-4ed7-af73-2380543e8283'; // string | Device ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getDeviceV1({ id: id });
+        console.log(result);
+- path: /devices/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/devices/methods/devices#list-devices-v1
+      source: |
+        import { DevicesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new DevicesApi(configuration);
+        const filters: string = 'hostname sw "lab-"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **subtype**: *eq, in*  **hostname**: *eq, in, sw*  **os.type**: *eq, in, sw*  **os.version**: *eq, in, sw*  **sentinelVersion**: *eq, in, sw*  **detectionModuleVersion**: *eq, in, sw*  **email**: *eq, in, sw*  **description**: *eq, in, sw*  **environment**: *eq, in, sw*  **datasetId**: *eq, in, sw*  **resource.id**: *eq, in*  **resource.type**: *eq, in*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **owners.primary.id**: *eq, in*  **owners.primary.name**: *eq, in, sw*  **owners.primaryIdentity.id**: *eq, in*  **owners.primaryIdentity.name**: *eq, in, sw*  **owners.secondaryIdentity.id**: *eq, in*  **owners.secondaryIdentity.name**: *eq, in, sw*  **owners.secondaryGovernanceGroup.id**: *eq, in*  **owners.secondaryGovernanceGroup.name**: *eq, in, sw*  **owners.governanceGroup.id**: *eq, in*  **owners.governanceGroup.name**: *eq, in, sw*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le* (optional) (default to undefined)
+        const sorters: string = 'hostname'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, name, nativeIdentity, hostname, os.type, os.version, sentinelVersion, detectionModuleVersion, email, description, environment, datasetId, resource.id, resource.type, source.name, owners.primaryIdentity.name, owners.secondaryIdentity.name, owners.secondaryGovernanceGroup.id, owners.secondaryGovernanceGroup.name, owners.governanceGroup.id, owners.governanceGroup.name** (optional) (default to undefined)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const limit: number = 250; // number | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listDevicesV1({  });
+        console.log(result);
+- path: /devices/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/devices/methods/devices#update-device-v1
+      source: |
+        import { DevicesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/devices/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new DevicesApi(configuration);
+        const id: string = '5be33d3e-c54d-4ed7-af73-2380543e8283'; // string | Device ID. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.updateDeviceV1({ id: id, jsonPatchOperation: jsonPatchOperation });
+        console.log(result);

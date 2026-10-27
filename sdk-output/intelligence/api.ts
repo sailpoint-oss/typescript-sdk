@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Intelligence
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Intelligence
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -120,7 +120,7 @@ export type GetIntelIdentityAccountsV1200Response = Array<Intelmachineaccountwir
  */
 export interface IntelAccessAccountWire {
     /**
-     * Unique account identifier in Identity Security Cloud.
+     * Unique account identifier in SailPoint Identity Security.
      * @type {string}
      * @memberof IntelAccessAccountWire
      */
@@ -180,13 +180,13 @@ export interface IntelAccessAccountWire {
      */
     'nativeIdentity'?: string | null;
     /**
-     * Timestamp when the account record was created in Identity Security Cloud.
+     * Timestamp when the account record was created in SailPoint Identity Security.
      * @type {string}
      * @memberof IntelAccessAccountWire
      */
     'created': string;
     /**
-     * Timestamp when the account record was last modified in Identity Security Cloud.
+     * Timestamp when the account record was last modified in SailPoint Identity Security.
      * @type {string}
      * @memberof IntelAccessAccountWire
      */
@@ -388,7 +388,7 @@ export type IntelCertificationHistoryEventEventTypeEnum = typeof IntelCertificat
  */
 export interface IntelIdentityAggregate {
     /**
-     * Identity Security Cloud identifier for this identity.
+     * SailPoint Identity Security identifier for this identity.
      * @type {string}
      * @memberof IntelIdentityAggregate
      */
@@ -424,13 +424,13 @@ export interface IntelIdentityAggregate {
      */
     'attributes'?: { [key: string]: any; };
     /**
-     * Timestamp when the identity record was created in Identity Security Cloud.
+     * Timestamp when the identity record was created in SailPoint Identity Security.
      * @type {string}
      * @memberof IntelIdentityAggregate
      */
     'created'?: string;
     /**
-     * Timestamp when the identity record was last modified in Identity Security Cloud.
+     * Timestamp when the identity record was last modified in SailPoint Identity Security.
      * @type {string}
      * @memberof IntelIdentityAggregate
      */
@@ -448,7 +448,7 @@ export interface IntelIdentityAggregate {
      */
     'email'?: string;
     /**
-     * Current identity lifecycle status label from Identity Security Cloud.
+     * Current identity lifecycle status label from SailPoint Identity Security.
      * @type {string}
      * @memberof IntelIdentityAggregate
      */
@@ -816,7 +816,7 @@ export type IntelidentityambiguousbodyDetailCodeEnum = typeof Intelidentityambig
  */
 export interface Intelidentityambiguouscandidate {
     /**
-     * Identity Security Cloud identifier for a matching candidate.
+     * SailPoint Identity Security identifier for a matching candidate.
      * @type {string}
      * @memberof Intelidentityambiguouscandidate
      */
@@ -854,7 +854,7 @@ export interface Intelidentitygraphlink {
  */
 export interface Intelidentitymachineaggregate {
     /**
-     * Identity Security Cloud identifier for this non-human identity.
+     * SailPoint Identity Security identifier for this non-human identity.
      * @type {string}
      * @memberof Intelidentitymachineaggregate
      */
@@ -884,13 +884,13 @@ export interface Intelidentitymachineaggregate {
      */
     'subtype'?: string | null;
     /**
-     * Timestamp when the identity record was created in Identity Security Cloud.
+     * Timestamp when the identity record was created in SailPoint Identity Security.
      * @type {string}
      * @memberof Intelidentitymachineaggregate
      */
     'created'?: string;
     /**
-     * Timestamp when the identity record was last modified in Identity Security Cloud.
+     * Timestamp when the identity record was last modified in SailPoint Identity Security.
      * @type {string}
      * @memberof Intelidentitymachineaggregate
      */
@@ -944,7 +944,7 @@ export interface Intelidentitymachineaggregate {
      */
     'manuallyEdited'?: boolean;
     /**
-     * True when the machine identity was created manually in Identity Security Cloud.
+     * True when the machine identity was created manually in SailPoint Identity Security.
      * @type {boolean}
      * @memberof Intelidentitymachineaggregate
      */
@@ -1019,7 +1019,7 @@ export interface Intelmachineaccountsslice {
  */
 export interface Intelmachineaccountwire {
     /**
-     * Unique account identifier in Identity Security Cloud.
+     * Unique account identifier in SailPoint Identity Security.
      * @type {string}
      * @memberof Intelmachineaccountwire
      */
@@ -1359,7 +1359,7 @@ export type IntelnonhumanidentityownershipcategoryReasonEnum = typeof Intelnonhu
  */
 export interface Intelnonhumanidentityownershipitem {
     /**
-     * Identity Security Cloud identifier for the owned non-human identity.
+     * SailPoint Identity Security identifier for the owned non-human identity.
      * @type {string}
      * @memberof Intelnonhumanidentityownershipitem
      */
@@ -1636,7 +1636,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
         /**
          * Requires tenant license idn:response-and-remediation.  **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or operators return HTTP 400. 
          * @summary Get identity by filter
-         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
+         * @param {string} filters Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1676,7 +1676,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1725,7 +1725,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {boolean} [isNHI] NHI accounts when &#x60;true&#x60; (bare array). Human accounts when omitted or &#x60;false&#x60; (slice object). 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -1779,7 +1779,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1830,7 +1830,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
          * @param {GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum} [ownershipRole] Optional ownership role discriminator. When set to &#x60;primary&#x60; or &#x60;secondary&#x60;, returns one paged role bucket. When omitted, defaults to &#x60;primary&#x60;. 
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1886,7 +1886,7 @@ export const IntelligenceApiAxiosParamCreator = function (configuration?: Config
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1989,7 +1989,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
         /**
          * Requires tenant license idn:response-and-remediation.  **Caution:** When Data Segmentation is enabled, generic API Management API keys are not tied to a user identity and may fail or return incomplete data. Use a [personal access token](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or other user-scoped OAuth token. See [API keys](https://documentation.sailpoint.com/saas/help/common/api_keys.html) and [Data Segmentation](https://documentation.sailpoint.com/saas/help/segmentation/index.html).  Resolves exactly one identity using a single SCIM-style filters expression. Returns an enriched Human or non-human identity (NHI) envelope. Single-clause filters only; unsupported fields or operators return HTTP 400. 
          * @summary Get identity by filter
-         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
+         * @param {string} filters Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2005,7 +2005,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2021,7 +2021,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {boolean} [isNHI] NHI accounts when &#x60;true&#x60; (bare array). Human accounts when omitted or &#x60;false&#x60; (slice object). 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2038,7 +2038,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2056,7 +2056,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {GetIntelIdentityNonHumanIdentityOwnershipV1OwnershipRoleEnum} [ownershipRole] Optional ownership role discriminator. When set to &#x60;primary&#x60; or &#x60;secondary&#x60;, returns one paged role bucket. When omitted, defaults to &#x60;primary&#x60;. 
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2072,7 +2072,7 @@ export const IntelligenceApiFp = function(configuration?: Configuration) {
          * @param {string} id Non-empty identity id path segment for Intelligence sub-resources.
          * @param {number} [limit] Page size. Defaults to 250; values above 250 are rejected with 400.
          * @param {number} [offset] Zero-based page offset. Defaults to 0.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2209,7 +2209,7 @@ export interface IntelligenceApiCreateResponseActionV1Request {
  */
 export interface IntelligenceApiGetIdentityIntelligenceV1Request {
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **email**: *eq*  **opaqueIdentifier**: *eq*
      * @type {string}
      * @memberof IntelligenceApiGetIdentityIntelligenceV1
      */
@@ -2244,7 +2244,7 @@ export interface IntelligenceApiGetIntelIdentityAccessItemHistoryV1Request {
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof IntelligenceApiGetIntelIdentityAccessItemHistoryV1
      */
@@ -2279,7 +2279,7 @@ export interface IntelligenceApiGetIntelIdentityAccountsV1Request {
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof IntelligenceApiGetIntelIdentityAccountsV1
      */
@@ -2321,7 +2321,7 @@ export interface IntelligenceApiGetIntelIdentityCertificationHistoryV1Request {
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof IntelligenceApiGetIntelIdentityCertificationHistoryV1
      */
@@ -2370,7 +2370,7 @@ export interface IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1Reque
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof IntelligenceApiGetIntelIdentityNonHumanIdentityOwnershipV1
      */
@@ -2405,7 +2405,7 @@ export interface IntelligenceApiGetIntelIdentityRareAccessV1Request {
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof IntelligenceApiGetIntelIdentityRareAccessV1
      */

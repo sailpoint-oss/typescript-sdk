@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Business Applications
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Business Applications
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -29,6 +29,37 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
  * @interface ArrayInner
  */
 export interface ArrayInner {
+}
+/**
+ * 
+ * @export
+ * @interface BaseCommonDto
+ */
+export interface BaseCommonDto {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof BaseCommonDto
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof BaseCommonDto
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof BaseCommonDto
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof BaseCommonDto
+     */
+    'modified'?: string;
 }
 /**
  * 
@@ -444,6 +475,388 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
+ * 
+ * @export
+ * @interface MCPConnectedAgentBusinessApplicationRefs
+ */
+export interface MCPConnectedAgentBusinessApplicationRefs {
+    /**
+     * Reference type.
+     * @type {string}
+     * @memberof MCPConnectedAgentBusinessApplicationRefs
+     */
+    'type'?: MCPConnectedAgentBusinessApplicationRefsTypeEnum;
+    /**
+     * Business Application ID.
+     * @type {string}
+     * @memberof MCPConnectedAgentBusinessApplicationRefs
+     */
+    'id'?: string;
+    /**
+     * Business Application name.
+     * @type {string}
+     * @memberof MCPConnectedAgentBusinessApplicationRefs
+     */
+    'name'?: string | null;
+    /**
+     * Sanctioned status of the linked Business Application.
+     * @type {SanctionedStatus}
+     * @memberof MCPConnectedAgentBusinessApplicationRefs
+     */
+    'sanctionedStatus'?: SanctionedStatus;
+    /**
+     * Whether the link was assigned manually or correlated automatically.
+     * @type {string}
+     * @memberof MCPConnectedAgentBusinessApplicationRefs
+     */
+    'correlationType'?: MCPConnectedAgentBusinessApplicationRefsCorrelationTypeEnum;
+}
+
+export const MCPConnectedAgentBusinessApplicationRefsTypeEnum = {
+    BusinessApplication: 'BUSINESS_APPLICATION'
+} as const;
+
+export type MCPConnectedAgentBusinessApplicationRefsTypeEnum = typeof MCPConnectedAgentBusinessApplicationRefsTypeEnum[keyof typeof MCPConnectedAgentBusinessApplicationRefsTypeEnum];
+export const MCPConnectedAgentBusinessApplicationRefsCorrelationTypeEnum = {
+    Manual: 'MANUAL',
+    Automatic: 'AUTOMATIC'
+} as const;
+
+export type MCPConnectedAgentBusinessApplicationRefsCorrelationTypeEnum = typeof MCPConnectedAgentBusinessApplicationRefsCorrelationTypeEnum[keyof typeof MCPConnectedAgentBusinessApplicationRefsCorrelationTypeEnum];
+
+/**
+ * Owners of the AI agent.
+ * @export
+ * @interface MCPConnectedAgentOwners
+ */
+export interface MCPConnectedAgentOwners {
+    /**
+     * Primary owner.
+     * @type {BaseReferenceDto}
+     * @memberof MCPConnectedAgentOwners
+     */
+    'primaryIdentity'?: BaseReferenceDto | null;
+    /**
+     * Secondary owners.
+     * @type {Array<BaseReferenceDto>}
+     * @memberof MCPConnectedAgentOwners
+     */
+    'secondaryIdentities'?: Array<BaseReferenceDto>;
+}
+/**
+ * Source the AI agent was aggregated from.
+ * @export
+ * @interface MCPConnectedAgentSource
+ */
+export interface MCPConnectedAgentSource {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof MCPConnectedAgentSource
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof MCPConnectedAgentSource
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof MCPConnectedAgentSource
+     */
+    'name'?: string;
+}
+
+
+/**
+ * 
+ * @export
+ * @interface MCPConnectedAgentUserEntitlements
+ */
+export interface MCPConnectedAgentUserEntitlements {
+    /**
+     * Source ID of the entitlement.
+     * @type {string}
+     * @memberof MCPConnectedAgentUserEntitlements
+     */
+    'sourceId'?: string;
+    /**
+     * Entitlement ID.
+     * @type {string}
+     * @memberof MCPConnectedAgentUserEntitlements
+     */
+    'entitlementId'?: string;
+    /**
+     * Entitlement display name.
+     * @type {string}
+     * @memberof MCPConnectedAgentUserEntitlements
+     */
+    'displayName'?: string;
+    /**
+     * Source of the entitlement.
+     * @type {BaseReferenceDto}
+     * @memberof MCPConnectedAgentUserEntitlements
+     */
+    'source'?: BaseReferenceDto;
+}
+/**
+ * A package an MCP server can be installed or launched from. Every property is always present in the response and is `null` when the registry does not supply it.
+ * @export
+ * @interface MCPPackage
+ */
+export interface MCPPackage {
+    /**
+     * Package registry that hosts the package.
+     * @type {string}
+     * @memberof MCPPackage
+     */
+    'registryType'?: string | null;
+    /**
+     * Package identifier within the registry.
+     * @type {string}
+     * @memberof MCPPackage
+     */
+    'identifier'?: string | null;
+    /**
+     * Command used to launch the package.
+     * @type {string}
+     * @memberof MCPPackage
+     */
+    'command'?: string | null;
+    /**
+     * Arguments passed to the launch command, in the order they are applied.
+     * @type {Array<string>}
+     * @memberof MCPPackage
+     */
+    'args'?: Array<string> | null;
+}
+/**
+ * An MCP (Model Context Protocol) server discovered for the tenant and tracked as a Business Application.
+ * @export
+ * @interface MCPServer
+ */
+export interface MCPServer {
+    /**
+     * MCP server ID.
+     * @type {string}
+     * @memberof MCPServer
+     */
+    'id'?: string;
+    /**
+     * MCP server name.
+     * @type {string}
+     * @memberof MCPServer
+     */
+    'serverName'?: string;
+    /**
+     * Sanctioned status of the MCP server. MCP servers are currently always `UNKNOWN`.
+     * @type {SanctionedStatus}
+     * @memberof MCPServer
+     */
+    'sanctionedStatus'?: SanctionedStatus;
+    /**
+     * MCP server description.
+     * @type {string}
+     * @memberof MCPServer
+     */
+    'description'?: string | null;
+    /**
+     * MCP server version.
+     * @type {string}
+     * @memberof MCPServer
+     */
+    'version'?: string | null;
+    /**
+     * Remote endpoints the MCP server can be reached at.
+     * @type {Array<string>}
+     * @memberof MCPServer
+     */
+    'remotes'?: Array<string>;
+    /**
+     * Packages the MCP server can be installed or launched from.
+     * @type {Array<MCPPackage>}
+     * @memberof MCPServer
+     */
+    'packages'?: Array<MCPPackage>;
+    /**
+     * Number of AI agents connected to the MCP server.
+     * @type {number}
+     * @memberof MCPServer
+     */
+    'connectedAgentCount'?: number;
+    /**
+     * Date and time the MCP server was created.
+     * @type {string}
+     * @memberof MCPServer
+     */
+    'created'?: string;
+    /**
+     * Date and time the MCP server was last modified.
+     * @type {string}
+     * @memberof MCPServer
+     */
+    'modified'?: string;
+}
+
+
+/**
+ * Tenant-wide MCP server totals. All values are `0` when the tenant has no MCP servers.
+ * @export
+ * @interface MCPServerCounts
+ */
+export interface MCPServerCounts {
+    /**
+     * Total number of MCP servers in the tenant.
+     * @type {number}
+     * @memberof MCPServerCounts
+     */
+    'registryEntries'?: number;
+    /**
+     * Number of MCP servers that have at least one remote endpoint.
+     * @type {number}
+     * @memberof MCPServerCounts
+     */
+    'remote'?: number;
+    /**
+     * Number of distinct AI agents connected to at least one MCP server. An agent connected to several MCP servers is counted once, so this can be less than the sum of each server\'s `connectedAgentCount`.
+     * @type {number}
+     * @memberof MCPServerCounts
+     */
+    'connectedAgentCount'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface Mcpconnectedagent
+ */
+export interface Mcpconnectedagent {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'modified'?: string;
+    /**
+     * Native identity of the AI agent, as aggregated from the source.
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'nativeIdentity'?: string;
+    /**
+     * AI agent description.
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'description'?: string | null;
+    /**
+     * Map of custom machine identity attributes.
+     * @type {{ [key: string]: any; }}
+     * @memberof Mcpconnectedagent
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * Machine identity subtype.
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'subtype'?: string;
+    /**
+     * 
+     * @type {MCPConnectedAgentOwners}
+     * @memberof Mcpconnectedagent
+     */
+    'owners'?: MCPConnectedAgentOwners | null;
+    /**
+     * ID of the source the AI agent was aggregated from.
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'sourceId'?: string;
+    /**
+     * UUID of the AI agent, as aggregated from the source.
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'uuid'?: string;
+    /**
+     * Dataset ID of the source the AI agent was aggregated from.
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'datasetId'?: string;
+    /**
+     * 
+     * @type {MCPConnectedAgentSource}
+     * @memberof Mcpconnectedagent
+     */
+    'source'?: MCPConnectedAgentSource;
+    /**
+     * Indicates whether the AI agent has been manually edited.
+     * @type {boolean}
+     * @memberof Mcpconnectedagent
+     */
+    'manuallyEdited'?: boolean;
+    /**
+     * Indicates whether the AI agent was manually created.
+     * @type {boolean}
+     * @memberof Mcpconnectedagent
+     */
+    'manuallyCreated'?: boolean;
+    /**
+     * Whether the AI agent still exists on its source.
+     * @type {string}
+     * @memberof Mcpconnectedagent
+     */
+    'existsOnSource'?: McpconnectedagentExistsOnSourceEnum;
+    /**
+     * User entitlements associated with the AI agent.
+     * @type {Array<MCPConnectedAgentUserEntitlements>}
+     * @memberof Mcpconnectedagent
+     */
+    'userEntitlements'?: Array<MCPConnectedAgentUserEntitlements>;
+    /**
+     * Business Applications the AI agent is linked to. Omitted when Business Application context is not available for the tenant.
+     * @type {Array<MCPConnectedAgentBusinessApplicationRefs>}
+     * @memberof Mcpconnectedagent
+     */
+    'businessApplicationRefs'?: Array<MCPConnectedAgentBusinessApplicationRefs>;
+    /**
+     * Sanctioned status the AI agent inherits from its linked Business Applications. Omitted when Business Application context is not available for the tenant.
+     * @type {SanctionedStatus}
+     * @memberof Mcpconnectedagent
+     */
+    'effectiveSanctionedStatus'?: SanctionedStatus;
+}
+
+export const McpconnectedagentExistsOnSourceEnum = {
+    True: 'TRUE',
+    False: 'FALSE',
+    NotApplicable: 'NOT_APPLICABLE'
+} as const;
+
+export type McpconnectedagentExistsOnSourceEnum = typeof McpconnectedagentExistsOnSourceEnum[keyof typeof McpconnectedagentExistsOnSourceEnum];
+
+/**
  * Indicates whether a Business Application is sanctioned for use within the organization. Machine identities linked to a Business Application inherit this value. Defaults to `UNKNOWN` when not explicitly set.
  * @export
  * @enum {string}
@@ -552,13 +965,93 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
             };
         },
         /**
+         * Returns tenant-wide MCP server totals: the number of MCP servers, the number with a remote endpoint, and the number of distinct connected AI agents. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary Get MCP server counts
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMcpServerCountsV1: async (xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/business-applications/v1/mcp-servers/count`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns a single MCP server by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary Get MCP server
+         * @param {string} id MCP server ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMcpServerV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getMcpServerV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/business-applications/v1/mcp-servers/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Returns the list of Business Applications defined for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant.
          * @summary List Business Applications
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus**
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -569,6 +1062,131 @@ export const BusinessApplicationsApiAxiosParamCreator = function (configuration?
             }
             
             const localVarPath = `/business-applications/v1`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns the AI agents connected to an MCP server. Results are sorted by `name` ascending unless `sorters` is provided. Filtering is not supported on this endpoint. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary List MCP server connected agents
+         * @param {string} id MCP server ID.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, name, nativeIdentity, owners.primaryIdentity.name, owners.secondaryIdentity.name, source.name, resource.id**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMcpServerConnectedAgentsV1: async (id: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('listMcpServerConnectedAgentsV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/business-applications/v1/mcp-servers/{id}/connected-agents`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns the MCP (Model Context Protocol) servers discovered for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary List MCP servers
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **serverName**: *eq, co, sw*  **description**: *eq, co*  **sanctionedStatus**: *eq, in*  **remotes**: *eq*  Matching on &#x60;serverName&#x60; and &#x60;description&#x60; is case-insensitive. For &#x60;remotes&#x60;, &#x60;true&#x60; matches MCP servers with at least one remote endpoint.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **serverName, description, modified, connectedAgentCount**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMcpServersV1: async (filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/business-applications/v1/mcp-servers`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -701,13 +1319,40 @@ export const BusinessApplicationsApiFp = function(configuration?: Configuration)
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Returns tenant-wide MCP server totals: the number of MCP servers, the number with a remote endpoint, and the number of distinct connected AI agents. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary Get MCP server counts
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMcpServerCountsV1(xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MCPServerCounts>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMcpServerCountsV1(xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.getMcpServerCountsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns a single MCP server by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary Get MCP server
+         * @param {string} id MCP server ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMcpServerV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MCPServer>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMcpServerV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.getMcpServerV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Returns the list of Business Applications defined for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant.
          * @summary List Business Applications
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus**
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -716,6 +1361,42 @@ export const BusinessApplicationsApiFp = function(configuration?: Configuration)
             const localVarAxiosArgs = await localVarAxiosParamCreator.listBusinessApplicationsV1(filters, sorters, count, limit, offset, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.listBusinessApplicationsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns the AI agents connected to an MCP server. Results are sorted by `name` ascending unless `sorters` is provided. Filtering is not supported on this endpoint. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary List MCP server connected agents
+         * @param {string} id MCP server ID.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, name, nativeIdentity, owners.primaryIdentity.name, owners.secondaryIdentity.name, source.name, resource.id**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMcpServerConnectedAgentsV1(id: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Mcpconnectedagent>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMcpServerConnectedAgentsV1(id, sorters, count, limit, offset, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.listMcpServerConnectedAgentsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Returns the MCP (Model Context Protocol) servers discovered for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary List MCP servers
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **serverName**: *eq, co, sw*  **description**: *eq, co*  **sanctionedStatus**: *eq, in*  **remotes**: *eq*  Matching on &#x60;serverName&#x60; and &#x60;description&#x60; is case-insensitive. For &#x60;remotes&#x60;, &#x60;true&#x60; matches MCP servers with at least one remote endpoint.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **serverName, description, modified, connectedAgentCount**
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMcpServersV1(filters?: string, sorters?: string, count?: boolean, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MCPServer>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMcpServersV1(filters, sorters, count, limit, offset, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BusinessApplicationsApi.listMcpServersV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -764,6 +1445,26 @@ export const BusinessApplicationsApiFactory = function (configuration?: Configur
             return localVarFp.getBusinessApplicationV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Returns tenant-wide MCP server totals: the number of MCP servers, the number with a remote endpoint, and the number of distinct connected AI agents. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary Get MCP server counts
+         * @param {BusinessApplicationsApiGetMcpServerCountsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMcpServerCountsV1(requestParameters: BusinessApplicationsApiGetMcpServerCountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MCPServerCounts> {
+            return localVarFp.getMcpServerCountsV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns a single MCP server by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary Get MCP server
+         * @param {BusinessApplicationsApiGetMcpServerV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMcpServerV1(requestParameters: BusinessApplicationsApiGetMcpServerV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MCPServer> {
+            return localVarFp.getMcpServerV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Returns the list of Business Applications defined for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant.
          * @summary List Business Applications
          * @param {BusinessApplicationsApiListBusinessApplicationsV1Request} requestParameters Request parameters.
@@ -772,6 +1473,26 @@ export const BusinessApplicationsApiFactory = function (configuration?: Configur
          */
         listBusinessApplicationsV1(requestParameters: BusinessApplicationsApiListBusinessApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BusinessApplication>> {
             return localVarFp.listBusinessApplicationsV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the AI agents connected to an MCP server. Results are sorted by `name` ascending unless `sorters` is provided. Filtering is not supported on this endpoint. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary List MCP server connected agents
+         * @param {BusinessApplicationsApiListMcpServerConnectedAgentsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMcpServerConnectedAgentsV1(requestParameters: BusinessApplicationsApiListMcpServerConnectedAgentsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Mcpconnectedagent>> {
+            return localVarFp.listMcpServerConnectedAgentsV1(requestParameters.id, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns the MCP (Model Context Protocol) servers discovered for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+         * @summary List MCP servers
+         * @param {BusinessApplicationsApiListMcpServersV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMcpServersV1(requestParameters: BusinessApplicationsApiListMcpServersV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MCPServer>> {
+            return localVarFp.listMcpServersV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates a Business Application using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires the `idn:business-application:update` right and the Machine Identity Security product to be enabled. Patchable fields: `name`, `description`, `owner`, `additionalOwners`, `sanctionedStatus`, and `signatures`. Modifying `signatures` additionally requires the custom Business Application feature to be enabled.
@@ -829,41 +1550,76 @@ export interface BusinessApplicationsApiGetBusinessApplicationV1Request {
 }
 
 /**
+ * Request parameters for getMcpServerCountsV1 operation in BusinessApplicationsApi.
+ * @export
+ * @interface BusinessApplicationsApiGetMcpServerCountsV1Request
+ */
+export interface BusinessApplicationsApiGetMcpServerCountsV1Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiGetMcpServerCountsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getMcpServerV1 operation in BusinessApplicationsApi.
+ * @export
+ * @interface BusinessApplicationsApiGetMcpServerV1Request
+ */
+export interface BusinessApplicationsApiGetMcpServerV1Request {
+    /**
+     * MCP server ID.
+     * @type {string}
+     * @memberof BusinessApplicationsApiGetMcpServerV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiGetMcpServerV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for listBusinessApplicationsV1 operation in BusinessApplicationsApi.
  * @export
  * @interface BusinessApplicationsApiListBusinessApplicationsV1Request
  */
 export interface BusinessApplicationsApiListBusinessApplicationsV1Request {
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq*
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq, co*  **vendor**: *eq, co*  **signatures.type**: *eq, co*  **signatures.name**: *eq, co*  **source.name**: *eq, co*  **sanctionedStatus**: *eq*
      * @type {string}
      * @memberof BusinessApplicationsApiListBusinessApplicationsV1
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, sanctionedStatus**
      * @type {string}
      * @memberof BusinessApplicationsApiListBusinessApplicationsV1
      */
     readonly sorters?: string
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof BusinessApplicationsApiListBusinessApplicationsV1
      */
     readonly count?: boolean
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof BusinessApplicationsApiListBusinessApplicationsV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof BusinessApplicationsApiListBusinessApplicationsV1
      */
@@ -873,6 +1629,104 @@ export interface BusinessApplicationsApiListBusinessApplicationsV1Request {
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof BusinessApplicationsApiListBusinessApplicationsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for listMcpServerConnectedAgentsV1 operation in BusinessApplicationsApi.
+ * @export
+ * @interface BusinessApplicationsApiListMcpServerConnectedAgentsV1Request
+ */
+export interface BusinessApplicationsApiListMcpServerConnectedAgentsV1Request {
+    /**
+     * MCP server ID.
+     * @type {string}
+     * @memberof BusinessApplicationsApiListMcpServerConnectedAgentsV1
+     */
+    readonly id: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, name, nativeIdentity, owners.primaryIdentity.name, owners.secondaryIdentity.name, source.name, resource.id**
+     * @type {string}
+     * @memberof BusinessApplicationsApiListMcpServerConnectedAgentsV1
+     */
+    readonly sorters?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof BusinessApplicationsApiListMcpServerConnectedAgentsV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof BusinessApplicationsApiListMcpServerConnectedAgentsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof BusinessApplicationsApiListMcpServerConnectedAgentsV1
+     */
+    readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiListMcpServerConnectedAgentsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for listMcpServersV1 operation in BusinessApplicationsApi.
+ * @export
+ * @interface BusinessApplicationsApiListMcpServersV1Request
+ */
+export interface BusinessApplicationsApiListMcpServersV1Request {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **serverName**: *eq, co, sw*  **description**: *eq, co*  **sanctionedStatus**: *eq, in*  **remotes**: *eq*  Matching on &#x60;serverName&#x60; and &#x60;description&#x60; is case-insensitive. For &#x60;remotes&#x60;, &#x60;true&#x60; matches MCP servers with at least one remote endpoint.
+     * @type {string}
+     * @memberof BusinessApplicationsApiListMcpServersV1
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **serverName, description, modified, connectedAgentCount**
+     * @type {string}
+     * @memberof BusinessApplicationsApiListMcpServersV1
+     */
+    readonly sorters?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof BusinessApplicationsApiListMcpServersV1
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof BusinessApplicationsApiListMcpServersV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof BusinessApplicationsApiListMcpServersV1
+     */
+    readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof BusinessApplicationsApiListMcpServersV1
      */
     readonly xSailPointExperimental?: string
 }
@@ -937,6 +1791,30 @@ export class BusinessApplicationsApi extends BaseAPI {
     }
 
     /**
+     * Returns tenant-wide MCP server totals: the number of MCP servers, the number with a remote endpoint, and the number of distinct connected AI agents. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+     * @summary Get MCP server counts
+     * @param {BusinessApplicationsApiGetMcpServerCountsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BusinessApplicationsApi
+     */
+    public getMcpServerCountsV1(requestParameters: BusinessApplicationsApiGetMcpServerCountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return BusinessApplicationsApiFp(this.configuration).getMcpServerCountsV1(requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns a single MCP server by ID for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+     * @summary Get MCP server
+     * @param {BusinessApplicationsApiGetMcpServerV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BusinessApplicationsApi
+     */
+    public getMcpServerV1(requestParameters: BusinessApplicationsApiGetMcpServerV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return BusinessApplicationsApiFp(this.configuration).getMcpServerV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Returns the list of Business Applications defined for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant.
      * @summary List Business Applications
      * @param {BusinessApplicationsApiListBusinessApplicationsV1Request} requestParameters Request parameters.
@@ -946,6 +1824,30 @@ export class BusinessApplicationsApi extends BaseAPI {
      */
     public listBusinessApplicationsV1(requestParameters: BusinessApplicationsApiListBusinessApplicationsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return BusinessApplicationsApiFp(this.configuration).listBusinessApplicationsV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the AI agents connected to an MCP server. Results are sorted by `name` ascending unless `sorters` is provided. Filtering is not supported on this endpoint. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+     * @summary List MCP server connected agents
+     * @param {BusinessApplicationsApiListMcpServerConnectedAgentsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BusinessApplicationsApi
+     */
+    public listMcpServerConnectedAgentsV1(requestParameters: BusinessApplicationsApiListMcpServerConnectedAgentsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return BusinessApplicationsApiFp(this.configuration).listMcpServerConnectedAgentsV1(requestParameters.id, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns the MCP (Model Context Protocol) servers discovered for the requesting tenant. Requires the `idn:business-application:read` right and the Machine Identity Security product to be enabled for the tenant. Returns `404` if MCP server discovery is not enabled for the tenant.
+     * @summary List MCP servers
+     * @param {BusinessApplicationsApiListMcpServersV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BusinessApplicationsApi
+     */
+    public listMcpServersV1(requestParameters: BusinessApplicationsApiListMcpServersV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return BusinessApplicationsApiFp(this.configuration).listMcpServersV1(requestParameters.filters, requestParameters.sorters, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

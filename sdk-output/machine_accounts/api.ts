@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Machine Accounts
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Machine Accounts
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -23,6 +23,13 @@ import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
+/**
+ * 
+ * @export
+ * @interface ArrayInner
+ */
+export interface ArrayInner {
+}
 /**
  * 
  * @export
@@ -57,6 +64,33 @@ export interface BaseCommonDto {
 /**
  * 
  * @export
+ * @interface BaseReferenceDto
+ */
+export interface BaseReferenceDto {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof BaseReferenceDto
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof BaseReferenceDto
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof BaseReferenceDto
+     */
+    'name'?: string;
+}
+
+
+/**
+ * 
+ * @export
  * @interface CreateMachineAccountSubtypeV1Request
  */
 export interface CreateMachineAccountSubtypeV1Request {
@@ -85,6 +119,47 @@ export interface CreateMachineAccountSubtypeV1Request {
      */
     'type'?: string;
 }
+/**
+ * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
+ * @export
+ * @enum {string}
+ */
+
+export const DtoType = {
+    AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG',
+    AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestApproval: 'ACCESS_REQUEST_APPROVAL',
+    Account: 'ACCOUNT',
+    Application: 'APPLICATION',
+    Campaign: 'CAMPAIGN',
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    Certification: 'CERTIFICATION',
+    Cluster: 'CLUSTER',
+    ConnectorSchema: 'CONNECTOR_SCHEMA',
+    Entitlement: 'ENTITLEMENT',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    IdentityRequest: 'IDENTITY_REQUEST',
+    MachineIdentity: 'MACHINE_IDENTITY',
+    LifecycleState: 'LIFECYCLE_STATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    Role: 'ROLE',
+    Rule: 'RULE',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE',
+    Tag: 'TAG',
+    TagCategory: 'TAG_CATEGORY',
+    TaskResult: 'TASK_RESULT',
+    ReportResult: 'REPORT_RESULT',
+    SodViolation: 'SOD_VIOLATION',
+    AccountActivity: 'ACCOUNT_ACTIVITY',
+    Workgroup: 'WORKGROUP'
+} as const;
+
+export type DtoType = typeof DtoType[keyof typeof DtoType];
+
+
 /**
  * 
  * @export
@@ -143,6 +218,50 @@ export interface ErrorResponseDto {
      */
     'causes'?: Array<ErrorMessageDto>;
 }
+/**
+ * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
+ * @export
+ * @interface JsonPatchOperation
+ */
+export interface JsonPatchOperation {
+    /**
+     * The operation to be performed
+     * @type {string}
+     * @memberof JsonPatchOperation
+     */
+    'op': JsonPatchOperationOpEnum;
+    /**
+     * A string JSON Pointer representing the target path to an element to be affected by the operation
+     * @type {string}
+     * @memberof JsonPatchOperation
+     */
+    'path': string;
+    /**
+     * 
+     * @type {JsonPatchOperationValue}
+     * @memberof JsonPatchOperation
+     */
+    'value'?: JsonPatchOperationValue;
+}
+
+export const JsonPatchOperationOpEnum = {
+    Add: 'add',
+    Remove: 'remove',
+    Replace: 'replace',
+    Move: 'move',
+    Copy: 'copy',
+    Test: 'test'
+} as const;
+
+export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
+
+/**
+ * @type JsonPatchOperationValue
+ * The value to be used for the operation, required for \"add\" and \"replace\" operations
+ * @export
+ */
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
+
 /**
  * 
  * @export
@@ -402,6 +521,842 @@ export const MachineAccountAllOfRiskSeverityEnum = {
 export type MachineAccountAllOfRiskSeverityEnum = typeof MachineAccountAllOfRiskSeverityEnum[keyof typeof MachineAccountAllOfRiskSeverityEnum];
 
 /**
+ * The machine accounts to process in a bulk operation.
+ * @export
+ * @interface MachineAccountBulkRequest
+ */
+export interface MachineAccountBulkRequest {
+    /**
+     * IDs of the machine accounts to process. Provide between 1 and 100 IDs.
+     * @type {Array<string>}
+     * @memberof MachineAccountBulkRequest
+     */
+    'ids': Array<string>;
+}
+/**
+ * The outcome of a bulk operation for one machine account.
+ * @export
+ * @interface MachineAccountBulkResult
+ */
+export interface MachineAccountBulkResult {
+    /**
+     * ID of the machine account this result applies to.
+     * @type {string}
+     * @memberof MachineAccountBulkResult
+     */
+    'id'?: string;
+    /**
+     * HTTP-style status code for this machine account. `200` means the operation succeeded or was queued. Other values, such as `400`, `404` or `500`, describe why it failed.
+     * @type {number}
+     * @memberof MachineAccountBulkResult
+     */
+    'status'?: number;
+    /**
+     * A message that describes the outcome for this machine account.
+     * @type {string}
+     * @memberof MachineAccountBulkResult
+     */
+    'message'?: string;
+}
+/**
+ * The machine accounts to update and the JSON Patch to apply to each of them.
+ * @export
+ * @interface MachineAccountBulkUpdateRequest
+ */
+export interface MachineAccountBulkUpdateRequest {
+    /**
+     * IDs of the machine accounts to update. Provide between 1 and 100 IDs.
+     * @type {Array<string>}
+     * @memberof MachineAccountBulkUpdateRequest
+     */
+    'ids': Array<string>;
+    /**
+     * [JSON Patch](https://tools.ietf.org/html/rfc6902) operations to apply to every machine account in `ids`. Each operation must target one of these top-level fields: `description`, `subtype`, `environment`, `machineIdentity`, `ownerIdentity`, `manuallyEdited`.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof MachineAccountBulkUpdateRequest
+     */
+    'jsonPatch': Array<JsonPatchOperation>;
+}
+/**
+ * The number of machine account candidates found by one classification method.
+ * @export
+ * @interface MachineAccountClassificationCount
+ */
+export interface MachineAccountClassificationCount {
+    /**
+     * The classification method that found the candidates.
+     * @type {string}
+     * @memberof MachineAccountClassificationCount
+     */
+    'classificationMethod'?: MachineAccountClassificationCountClassificationMethodEnum;
+    /**
+     * The number of candidates found by this classification method.
+     * @type {number}
+     * @memberof MachineAccountClassificationCount
+     */
+    'count'?: number;
+}
+
+export const MachineAccountClassificationCountClassificationMethodEnum = {
+    Criteria: 'CRITERIA',
+    Source: 'SOURCE',
+    Discovery: 'DISCOVERY'
+} as const;
+
+export type MachineAccountClassificationCountClassificationMethodEnum = typeof MachineAccountClassificationCountClassificationMethodEnum[keyof typeof MachineAccountClassificationCountClassificationMethodEnum];
+
+/**
+ * Details for a request to delete a machine account.
+ * @export
+ * @interface MachineAccountDeleteRequest
+ */
+export interface MachineAccountDeleteRequest {
+    /**
+     * Comments about the deletion request. Depending on the tenant\'s account deletion approval settings, comments can be required.
+     * @type {string}
+     * @memberof MachineAccountDeleteRequest
+     */
+    'comments'?: string | null;
+}
+/**
+ * An entitlement held by a machine account.
+ * @export
+ * @interface MachineAccountEntitlement
+ */
+export interface MachineAccountEntitlement {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'modified'?: string;
+    /**
+     * The name of the account attribute that holds the entitlement.
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'attribute'?: string;
+    /**
+     * The value of the entitlement.
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'value'?: string;
+    /**
+     * The description of the entitlement.
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'description'?: string | null;
+    /**
+     * The source schema object type of the entitlement.
+     * @type {string}
+     * @memberof MachineAccountEntitlement
+     */
+    'sourceSchemaObjectType'?: string;
+    /**
+     * Indicates whether the entitlement is privileged.
+     * @type {boolean}
+     * @memberof MachineAccountEntitlement
+     */
+    'privileged'?: boolean;
+    /**
+     * Indicates whether the entitlement is governed in the cloud.
+     * @type {boolean}
+     * @memberof MachineAccountEntitlement
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * Indicates whether the entitlement can be requested.
+     * @type {boolean}
+     * @memberof MachineAccountEntitlement
+     */
+    'requestable'?: boolean;
+    /**
+     * Additional attributes of the entitlement.
+     * @type {{ [key: string]: any; }}
+     * @memberof MachineAccountEntitlement
+     */
+    'attributes'?: { [key: string]: any; } | null;
+    /**
+     * The source the entitlement belongs to.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountEntitlement
+     */
+    'source'?: BaseReferenceDto;
+    /**
+     * The owner of the entitlement.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountEntitlement
+     */
+    'owner'?: BaseReferenceDto | null;
+}
+/**
+ * A machine identity that is linked to a machine account.
+ * @export
+ * @interface MachineAccountLinkedMachineIdentity
+ */
+export interface MachineAccountLinkedMachineIdentity {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'modified'?: string;
+    /**
+     * The description of the machine identity.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'description'?: string | null;
+    /**
+     * The attributes of the machine identity, including the attributes read from the source.
+     * @type {{ [key: string]: any; }}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'attributes'?: { [key: string]: any; } | null;
+    /**
+     * Indicates whether the machine identity has been manually edited.
+     * @type {boolean}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'manuallyEdited'?: boolean;
+    /**
+     * Indicates whether the machine identity was created manually rather than by aggregation.
+     * @type {boolean}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'manuallyCreated'?: boolean;
+    /**
+     * 
+     * @type {MachineAccountLinkedMachineIdentityAllOfOwners}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'owners'?: MachineAccountLinkedMachineIdentityAllOfOwners | null;
+    /**
+     * The subtype of the machine identity.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'subtype'?: string | null;
+    /**
+     * ID of the source the machine identity comes from.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'sourceId'?: string | null;
+    /**
+     * The UUID of the machine identity, as read from the source.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'uuid'?: string | null;
+    /**
+     * The native identity of the machine identity, as read from the source.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'nativeIdentity'?: string | null;
+    /**
+     * ID of the dataset the machine identity was aggregated from.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'datasetId'?: string | null;
+    /**
+     * The source the machine identity comes from.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'source'?: BaseReferenceDto | null;
+    /**
+     * The user entitlements associated with the machine identity.
+     * @type {Array<MachineAccountLinkedMachineIdentityAllOfUserEntitlements>}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'userEntitlements'?: Array<MachineAccountLinkedMachineIdentityAllOfUserEntitlements> | null;
+    /**
+     * Indicates whether the machine identity still exists on the source.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'existsOnSource'?: MachineAccountLinkedMachineIdentityExistsOnSourceEnum | null;
+    /**
+     * The business applications linked to the machine identity. This field is omitted when business application links are not available for the machine identity.
+     * @type {Array<MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs>}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'businessApplicationRefs'?: Array<MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs>;
+    /**
+     * The sanctioned status derived from the linked business applications. This field is present only when `businessApplicationRefs` is present.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentity
+     */
+    'effectiveSanctionedStatus'?: MachineAccountLinkedMachineIdentityEffectiveSanctionedStatusEnum;
+}
+
+export const MachineAccountLinkedMachineIdentityExistsOnSourceEnum = {
+    True: 'TRUE',
+    False: 'FALSE',
+    NotApplicable: 'NOT_APPLICABLE'
+} as const;
+
+export type MachineAccountLinkedMachineIdentityExistsOnSourceEnum = typeof MachineAccountLinkedMachineIdentityExistsOnSourceEnum[keyof typeof MachineAccountLinkedMachineIdentityExistsOnSourceEnum];
+export const MachineAccountLinkedMachineIdentityEffectiveSanctionedStatusEnum = {
+    Sanctioned: 'SANCTIONED',
+    Unsanctioned: 'UNSANCTIONED',
+    Unknown: 'UNKNOWN'
+} as const;
+
+export type MachineAccountLinkedMachineIdentityEffectiveSanctionedStatusEnum = typeof MachineAccountLinkedMachineIdentityEffectiveSanctionedStatusEnum[keyof typeof MachineAccountLinkedMachineIdentityEffectiveSanctionedStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs
+ */
+export interface MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs {
+    /**
+     * The reference type.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs
+     */
+    'type'?: MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsTypeEnum;
+    /**
+     * ID of the business application.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs
+     */
+    'id'?: string;
+    /**
+     * The display name of the business application.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs
+     */
+    'name'?: string | null;
+    /**
+     * The sanctioned status of the business application.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs
+     */
+    'sanctionedStatus'?: MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsSanctionedStatusEnum | null;
+    /**
+     * How the business application was linked to the machine identity.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefs
+     */
+    'correlationType'?: MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsCorrelationTypeEnum | null;
+}
+
+export const MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsTypeEnum = {
+    BusinessApplication: 'BUSINESS_APPLICATION'
+} as const;
+
+export type MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsTypeEnum = typeof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsTypeEnum[keyof typeof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsTypeEnum];
+export const MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsSanctionedStatusEnum = {
+    Sanctioned: 'SANCTIONED',
+    Unsanctioned: 'UNSANCTIONED',
+    Unknown: 'UNKNOWN'
+} as const;
+
+export type MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsSanctionedStatusEnum = typeof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsSanctionedStatusEnum[keyof typeof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsSanctionedStatusEnum];
+export const MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsCorrelationTypeEnum = {
+    Manual: 'MANUAL',
+    Automatic: 'AUTOMATIC'
+} as const;
+
+export type MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsCorrelationTypeEnum = typeof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsCorrelationTypeEnum[keyof typeof MachineAccountLinkedMachineIdentityAllOfBusinessApplicationRefsCorrelationTypeEnum];
+
+/**
+ * The owners of the machine identity.
+ * @export
+ * @interface MachineAccountLinkedMachineIdentityAllOfOwners
+ */
+export interface MachineAccountLinkedMachineIdentityAllOfOwners {
+    /**
+     * The identity selected as the primary owner.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfOwners
+     */
+    'primaryIdentity'?: BaseReferenceDto;
+    /**
+     * The identities selected as secondary owners.
+     * @type {Array<BaseReferenceDto>}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfOwners
+     */
+    'secondaryIdentities'?: Array<BaseReferenceDto>;
+}
+/**
+ * 
+ * @export
+ * @interface MachineAccountLinkedMachineIdentityAllOfUserEntitlements
+ */
+export interface MachineAccountLinkedMachineIdentityAllOfUserEntitlements {
+    /**
+     * ID of the source the entitlement belongs to.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfUserEntitlements
+     */
+    'sourceId'?: string;
+    /**
+     * ID of the entitlement.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfUserEntitlements
+     */
+    'entitlementId'?: string;
+    /**
+     * The display name of the entitlement.
+     * @type {string}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfUserEntitlements
+     */
+    'displayName'?: string;
+    /**
+     * The source the entitlement belongs to.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountLinkedMachineIdentityAllOfUserEntitlements
+     */
+    'source'?: BaseReferenceDto;
+}
+/**
+ * Response for a machine account request that is processed asynchronously.
+ * @export
+ * @interface MachineAccountRequestAsyncResult
+ */
+export interface MachineAccountRequestAsyncResult {
+    /**
+     * ID of the task that tracks the account request.
+     * @type {string}
+     * @memberof MachineAccountRequestAsyncResult
+     */
+    'accountRequestId': string;
+}
+/**
+ * A machine account. Machine identities are returned as the `machineIdentities` list, which includes the machine identity the account is directly linked to and machine identities linked to the account through its source resource.
+ * @export
+ * @interface MachineAccountV2
+ */
+export interface MachineAccountV2 {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'name': string | null;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'modified'?: string;
+    /**
+     * The machine identities linked to this machine account. The list is empty when there are none.
+     * @type {Array<MachineAccountV2AllOfMachineIdentities>}
+     * @memberof MachineAccountV2
+     */
+    'machineIdentities'?: Array<MachineAccountV2AllOfMachineIdentities>;
+    /**
+     * The description of the machine account.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'description'?: string | null;
+    /**
+     * The unique ID of the machine account generated by the source system.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'nativeIdentity'?: string;
+    /**
+     * The unique ID of the account as determined by the account schema.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'uuid'?: string | null;
+    /**
+     * The identity that owns this machine account.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountV2
+     */
+    'ownerIdentity'?: BaseReferenceDto | null;
+    /**
+     * 
+     * @type {MachineAccountV2AllOfOwners}
+     * @memberof MachineAccountV2
+     */
+    'owners'?: MachineAccountV2AllOfOwners | null;
+    /**
+     * 
+     * @type {MachineAccountV2AllOfSubtype}
+     * @memberof MachineAccountV2
+     */
+    'subtype'?: MachineAccountV2AllOfSubtype | null;
+    /**
+     * The connection type of the source this account is from.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'accessType'?: string | null;
+    /**
+     * The environment of the machine account.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'environment'?: string | null;
+    /**
+     * Custom attributes specific to the machine account.
+     * @type {{ [key: string]: any; }}
+     * @memberof MachineAccountV2
+     */
+    'attributes'?: { [key: string]: any; } | null;
+    /**
+     * The connector attributes for the account.
+     * @type {{ [key: string]: any; }}
+     * @memberof MachineAccountV2
+     */
+    'connectorAttributes'?: { [key: string]: any; } | null;
+    /**
+     * How the account was classified as a machine account.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'classificationMethod'?: MachineAccountV2ClassificationMethodEnum | null;
+    /**
+     * Indicates whether the machine account has been manually edited.
+     * @type {boolean}
+     * @memberof MachineAccountV2
+     */
+    'manuallyEdited'?: boolean;
+    /**
+     * Indicates whether the account has been manually correlated to an identity.
+     * @type {boolean}
+     * @memberof MachineAccountV2
+     */
+    'manuallyCorrelated'?: boolean;
+    /**
+     * Indicates whether the account is enabled.
+     * @type {boolean}
+     * @memberof MachineAccountV2
+     */
+    'enabled'?: boolean;
+    /**
+     * Indicates whether the account is currently locked.
+     * @type {boolean}
+     * @memberof MachineAccountV2
+     */
+    'locked'?: boolean;
+    /**
+     * Indicates whether the account has entitlements.
+     * @type {boolean}
+     * @memberof MachineAccountV2
+     */
+    'hasEntitlements'?: boolean;
+    /**
+     * The source this machine account belongs to.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountV2
+     */
+    'source'?: BaseReferenceDto;
+    /**
+     * 
+     * @type {MachineAccountV2AllOfResource}
+     * @memberof MachineAccountV2
+     */
+    'resource'?: MachineAccountV2AllOfResource | null;
+    /**
+     * ID of the dataset the machine account was aggregated from. Null for accounts that were not aggregated from a dataset.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'datasetId'?: string | null;
+    /**
+     * The classification of the machine account.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'type'?: MachineAccountV2TypeEnum | null;
+    /**
+     * Deprecated. Use `type`, which always has the same value.
+     * @type {string}
+     * @memberof MachineAccountV2
+     * @deprecated
+     */
+    'accountType'?: MachineAccountV2AccountTypeEnum | null;
+    /**
+     * 
+     * @type {MachineAccountV2AllOfRisk}
+     * @memberof MachineAccountV2
+     */
+    'risk'?: MachineAccountV2AllOfRisk | null;
+    /**
+     * The permission level set by enrichment. Null when not enriched. Read-only.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'permissionLevel'?: MachineAccountV2PermissionLevelEnum | null;
+    /**
+     * Compliance control IDs the machine account violates, set by enrichment. Null when not enriched; empty when no violations were recorded. Read-only.
+     * @type {Array<MachineAccountV2AllOfCompliance>}
+     * @memberof MachineAccountV2
+     */
+    'compliance'?: Array<MachineAccountV2AllOfCompliance> | null;
+    /**
+     * When the machine account was last used, set by enrichment. Null when not enriched. Read-only.
+     * @type {string}
+     * @memberof MachineAccountV2
+     */
+    'lastUsedAt'?: string | null;
+}
+
+export const MachineAccountV2ClassificationMethodEnum = {
+    Criteria: 'CRITERIA',
+    Source: 'SOURCE',
+    Discovery: 'DISCOVERY',
+    Manual: 'MANUAL',
+    ManuallyUnclassified: 'MANUALLY_UNCLASSIFIED'
+} as const;
+
+export type MachineAccountV2ClassificationMethodEnum = typeof MachineAccountV2ClassificationMethodEnum[keyof typeof MachineAccountV2ClassificationMethodEnum];
+export const MachineAccountV2TypeEnum = {
+    Machine: 'MACHINE',
+    MachineDataset: 'MACHINE_DATASET',
+    Candidate: 'CANDIDATE',
+    CandidateBySource: 'CANDIDATE_BY_SOURCE',
+    Discovered: 'DISCOVERED',
+    Agent: 'AGENT'
+} as const;
+
+export type MachineAccountV2TypeEnum = typeof MachineAccountV2TypeEnum[keyof typeof MachineAccountV2TypeEnum];
+export const MachineAccountV2AccountTypeEnum = {
+    Machine: 'MACHINE',
+    MachineDataset: 'MACHINE_DATASET',
+    Candidate: 'CANDIDATE',
+    CandidateBySource: 'CANDIDATE_BY_SOURCE',
+    Discovered: 'DISCOVERED',
+    Agent: 'AGENT'
+} as const;
+
+export type MachineAccountV2AccountTypeEnum = typeof MachineAccountV2AccountTypeEnum[keyof typeof MachineAccountV2AccountTypeEnum];
+export const MachineAccountV2PermissionLevelEnum = {
+    Privileged: 'PRIVILEGED',
+    Elevated: 'ELEVATED',
+    Basic: 'BASIC',
+    Unknown: 'UNKNOWN'
+} as const;
+
+export type MachineAccountV2PermissionLevelEnum = typeof MachineAccountV2PermissionLevelEnum[keyof typeof MachineAccountV2PermissionLevelEnum];
+
+/**
+ * 
+ * @export
+ * @interface MachineAccountV2AllOfCompliance
+ */
+export interface MachineAccountV2AllOfCompliance {
+    /**
+     * Framework control ID.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfCompliance
+     */
+    'id'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface MachineAccountV2AllOfMachineIdentities
+ */
+export interface MachineAccountV2AllOfMachineIdentities {
+    /**
+     * The reference type.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfMachineIdentities
+     */
+    'type'?: MachineAccountV2AllOfMachineIdentitiesTypeEnum;
+    /**
+     * ID of the machine identity.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfMachineIdentities
+     */
+    'id'?: string;
+    /**
+     * The display name of the machine identity.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfMachineIdentities
+     */
+    'name'?: string;
+    /**
+     * The subtype of the machine identity.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfMachineIdentities
+     */
+    'subtype'?: MachineAccountV2AllOfMachineIdentitiesSubtypeEnum | null;
+}
+
+export const MachineAccountV2AllOfMachineIdentitiesTypeEnum = {
+    MachineIdentity: 'MACHINE_IDENTITY'
+} as const;
+
+export type MachineAccountV2AllOfMachineIdentitiesTypeEnum = typeof MachineAccountV2AllOfMachineIdentitiesTypeEnum[keyof typeof MachineAccountV2AllOfMachineIdentitiesTypeEnum];
+export const MachineAccountV2AllOfMachineIdentitiesSubtypeEnum = {
+    AiAgent: 'AI_AGENT',
+    Application: 'APPLICATION',
+    Device: 'DEVICE'
+} as const;
+
+export type MachineAccountV2AllOfMachineIdentitiesSubtypeEnum = typeof MachineAccountV2AllOfMachineIdentitiesSubtypeEnum[keyof typeof MachineAccountV2AllOfMachineIdentitiesSubtypeEnum];
+
+/**
+ * The owners of the machine account: a primary owner plus secondary owners, which are either up to ten identities or one governance group.
+ * @export
+ * @interface MachineAccountV2AllOfOwners
+ */
+export interface MachineAccountV2AllOfOwners {
+    /**
+     * The identity selected as the primary owner.
+     * @type {BaseReferenceDto}
+     * @memberof MachineAccountV2AllOfOwners
+     */
+    'primary'?: BaseReferenceDto;
+    /**
+     * The secondary owners. Entries are either up to ten identities (type `IDENTITY`) or one governance group (type `GOVERNANCE_GROUP`), not both.
+     * @type {Array<BaseReferenceDto>}
+     * @memberof MachineAccountV2AllOfOwners
+     */
+    'secondary'?: Array<BaseReferenceDto>;
+}
+/**
+ * The source resource the machine account is derived from. Null when the account has no source resource.
+ * @export
+ * @interface MachineAccountV2AllOfResource
+ */
+export interface MachineAccountV2AllOfResource {
+    /**
+     * The source resource identifier.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfResource
+     */
+    'id'?: string;
+    /**
+     * The type of the source resource.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfResource
+     */
+    'type'?: string;
+    /**
+     * The display name of the source resource.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfResource
+     */
+    'name'?: string | null;
+    /**
+     * The features supported by the source resource.
+     * @type {Array<string>}
+     * @memberof MachineAccountV2AllOfResource
+     */
+    'features'?: Array<string> | null;
+}
+/**
+ * Risk for this machine account, set by enrichment. Null when no risk has been recorded or when risk enrichment is not enabled for the tenant. Read-only.
+ * @export
+ * @interface MachineAccountV2AllOfRisk
+ */
+export interface MachineAccountV2AllOfRisk {
+    /**
+     * Risk score from 0 to 100. Null when only a severity has been recorded.
+     * @type {number}
+     * @memberof MachineAccountV2AllOfRisk
+     */
+    'score'?: number | null;
+    /**
+     * Risk severity.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfRisk
+     */
+    'severity'?: MachineAccountV2AllOfRiskSeverityEnum | null;
+}
+
+export const MachineAccountV2AllOfRiskSeverityEnum = {
+    Unknown: 'UNKNOWN',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    High: 'HIGH',
+    Critical: 'CRITICAL'
+} as const;
+
+export type MachineAccountV2AllOfRiskSeverityEnum = typeof MachineAccountV2AllOfRiskSeverityEnum[keyof typeof MachineAccountV2AllOfRiskSeverityEnum];
+
+/**
+ * The machine account subtype assigned to this machine account.
+ * @export
+ * @interface MachineAccountV2AllOfSubtype
+ */
+export interface MachineAccountV2AllOfSubtype {
+    /**
+     * ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfSubtype
+     */
+    'id'?: string;
+    /**
+     * The technical name of the subtype.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfSubtype
+     */
+    'technicalName'?: string;
+    /**
+     * The display name of the subtype.
+     * @type {string}
+     * @memberof MachineAccountV2AllOfSubtype
+     */
+    'displayName'?: string;
+}
+/**
  * Machine account async response containing the id of the started task.
  * @export
  * @interface MachineAccountsAsyncResult
@@ -413,6 +1368,25 @@ export interface MachineAccountsAsyncResult {
      * @memberof MachineAccountsAsyncResult
      */
     'id': string;
+}
+/**
+ * Counts of machine account candidates that are not yet linked to a machine identity, grouped by classification method.
+ * @export
+ * @interface MachineAccountsSummary
+ */
+export interface MachineAccountsSummary {
+    /**
+     * Counts of candidates that are correlated to a human identity, with one entry each for the `CRITERIA`, `SOURCE` and `DISCOVERY` classification methods.
+     * @type {Array<MachineAccountClassificationCount>}
+     * @memberof MachineAccountsSummary
+     */
+    'human'?: Array<MachineAccountClassificationCount>;
+    /**
+     * Counts of candidates that are not correlated to any identity. This list has one entry, for the `DISCOVERY` classification method.
+     * @type {Array<MachineAccountClassificationCount>}
+     * @memberof MachineAccountsSummary
+     */
+    'uncorrelated'?: Array<MachineAccountClassificationCount>;
 }
 /**
  * 
@@ -526,7 +1500,7 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+         * Use this API to remove a machine account from SailPoint Identity Security. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
          * @summary Remove machine account
          * @param {string} id Machine Account ID.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
@@ -615,6 +1589,54 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Use this API to submit a request to delete a machine account from its source. Depending on the tenant\'s account deletion approval settings, the request can need approval before the account is deleted. The response returns the ID of the account request.  The machine account must be linked to a machine identity; otherwise this API returns `404`. Machine accounts aggregated from a dataset can be rejected with `400`.  A caller who owns the machine account can delete it. Other callers need the **idn:mis-account:delete** right. 
+         * @summary Delete machine account
+         * @param {string} id Machine Account ID.
+         * @param {MachineAccountDeleteRequest} machineAccountDeleteRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineAccountV1: async (id: string, machineAccountDeleteRequest: MachineAccountDeleteRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteMachineAccountV1', 'id', id)
+            // verify required parameter 'machineAccountDeleteRequest' is not null or undefined
+            assertParamExists('deleteMachineAccountV1', 'machineAccountDeleteRequest', machineAccountDeleteRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/delete`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountDeleteRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
          * @summary Disable machine account
          * @param {string} id Machine Account ID.
@@ -657,6 +1679,50 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Use this API to submit one task that disables up to 100 machine accounts, and get the task ID. Machine accounts that are already disabled or that can\'t be disabled are skipped. When none of the machine accounts can be disabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can disable them. Other callers need the **idn:mis-account:disable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Disable machine accounts in bulk
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableMachineAccountsInBulkV1: async (machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineAccountBulkRequest' is not null or undefined
+            assertParamExists('disableMachineAccountsInBulkV1', 'machineAccountBulkRequest', machineAccountBulkRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/bulk-disable`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountBulkRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
          * @summary Enable machine account
          * @param {string} id Machine Account ID.
@@ -683,6 +1749,102 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to submit one task that enables up to 100 machine accounts, and get the task ID. Machine accounts that are already enabled or that can\'t be enabled are skipped. When none of the machine accounts can be enabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can enable them. Other callers need the **idn:mis-account:enable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Enable machine accounts in bulk
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableMachineAccountsInBulkV1: async (machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineAccountBulkRequest' is not null or undefined
+            assertParamExists('enableMachineAccountsInBulkV1', 'machineAccountBulkRequest', machineAccountBulkRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/bulk-enable`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountBulkRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to list the entitlements held by a machine account. Use `limit` and `offset` to page through the results.  This API requires the **idn:mis-account:read** right. Owning the machine account is not enough.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List machine account entitlements
+         * @param {string} id Machine Account ID.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountEntitlementsV1: async (id: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getMachineAccountEntitlementsV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/entitlements`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
 
     
@@ -831,15 +1993,142 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Use this API to get the details of a machine account, including all of its linked machine identities.  A caller who owns the machine account can get it. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Get machine account details
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getMachineAccountV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to count the machine account candidates that are not yet linked to a machine identity, grouped by the classification method that found them. Candidates that are correlated to a human identity are counted in `human`; candidates that are not correlated to any identity are counted in `uncorrelated`.  This API requires the **idn:mis-account-list:read** right. 
+         * @summary Get machine account candidate summary
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **source.id**: *eq, in*  Filtering on any other field returns &#x60;400&#x60;.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountsSummaryV1: async (filters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/machine-accounts-summary`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to list the machine identities that are linked to a machine account through source resource links. The response is an empty list when no machine identities are linked.  This API returns `400` when the machine account has no native identity or source.  A caller who owns the machine account can list its machine identities. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List linked machine identities
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineAccountMachineIdentitiesV1: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('listMachineAccountMachineIdentitiesV1', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/{id}/machine-identities`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Get all machine account subtypes for a given source.
          * @summary Retrieve all subtypes by source
          * @param {string} sourceId The ID of the source.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
@@ -901,11 +2190,11 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
         /**
          * This returns a list of machine accounts.  
          * @summary List machine accounts
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled for the tenant. When it is not, those filters return &#x60;400&#x60;. &#x60;compliance&#x60; and &#x60;complianceViolationsCount&#x60; are not filter fields. With unknown-severity enabled, a null stored severity matches &#x60;risk.severity eq \&quot;UNKNOWN\&quot;&#x60;.
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled; otherwise those sorters return &#x60;400&#x60;. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. &#x60;compliance&#x60; is not sortable.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled for the tenant. When it is not, those filters return &#x60;400&#x60;. &#x60;compliance&#x60; and &#x60;complianceViolationsCount&#x60; are not filter fields. With unknown-severity enabled, a null stored severity matches &#x60;risk.severity eq \&quot;UNKNOWN\&quot;&#x60;.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled; otherwise those sorters return &#x60;400&#x60;. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. &#x60;compliance&#x60; is not sortable.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -937,6 +2226,74 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
 
             if (count !== undefined) {
                 localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to get a list of machine accounts. By default, the list includes machine accounts that are linked to a machine identity or to a source resource.  When the whole filter is a single comparison on `machineIdentity.id` or `machineIdentity.name`, the list also includes machine accounts linked to the matching machine identities through source resource links.  A caller without the **idn:mis-account-list:read** right can call this API only when every returned machine account is one they own; otherwise this API returns `403`. Use `ownerIdentity=self` to list only the caller\'s own machine accounts.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List machine accounts
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [ownerIdentity] Return only machine accounts whose owner identity is this identity ID. Use &#x60;self&#x60; for the caller\&#39;s own identity. This parameter can\&#39;t be combined with a filter on &#x60;ownerIdentity.id&#x60;; that combination returns &#x60;400&#x60;.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **owners.primary.id**: *eq, in*  **owners.primary.name**: *eq, in, sw*  **owners.secondaryIdentity.id**: *eq, in*  **owners.secondaryIdentity.name**: *eq, in, sw*  **owners.governanceGroup.id**: *eq, in*  **owners.governanceGroup.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **connectorAttributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **datasetId**: *eq, in*  **resource.id**: *eq, in*  **type**: *eq, in*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  Use &#x60;me&#x60; as the value of &#x60;ownerIdentity.id&#x60; to match the caller\&#39;s own identity.  The &#x60;owners.*&#x60; fields are available only when expanded machine account ownership is enabled for the tenant. The &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60; and &#x60;lastUsedAt&#x60; fields are available only when machine account risk enrichment is enabled for the tenant. Filtering on an unavailable field returns &#x60;400&#x60;.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, ownerIdentity, ownerIdentity.id, ownerIdentity.name, owners.primary.id, owners.primary.name, owners.secondaryIdentity.id, owners.secondaryIdentity.name, owners.governanceGroup.id, owners.governanceGroup.name, manuallyCorrelated, enabled, locked, hasEntitlements, attributes, connectorAttributes, source.id, source.name, datasetId, resource.id, type, created, modified, risk.severity, permissionLevel, lastUsedAt**  The same availability rules as for &#x60;filters&#x60; apply to the &#x60;owners.*&#x60;, &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60; and &#x60;lastUsedAt&#x60; fields. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineAccountsV2: async (limit?: number, offset?: number, count?: boolean, ownerIdentity?: string, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (ownerIdentity !== undefined) {
+                localVarQueryParameter['ownerIdentity'] = ownerIdentity;
             }
 
             if (filters !== undefined) {
@@ -1057,6 +2414,94 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Use this API to submit one task that reloads up to 100 machine accounts from their sources, and get the task ID. Machine accounts that can\'t be reloaded are skipped. When none of the machine accounts can be reloaded, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Bulk reload machine accounts asynchronously
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        reloadMachineAccountsInBulkAsyncV1: async (machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineAccountBulkRequest' is not null or undefined
+            assertParamExists('reloadMachineAccountsInBulkAsyncV1', 'machineAccountBulkRequest', machineAccountBulkRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/bulk-reload-async`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountBulkRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to reload up to 100 machine accounts from their sources. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the reload was queued, or an error status such as `400`, `404` or `500`.  To track the whole reload with a single task instead, use the asynchronous bulk reload API.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Reload machine accounts in bulk
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        reloadMachineAccountsInBulkV1: async (machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineAccountBulkRequest' is not null or undefined
+            assertParamExists('reloadMachineAccountsInBulkV1', 'machineAccountBulkRequest', machineAccountBulkRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/bulk-reload`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountBulkRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
          * @summary Unlock machine account
          * @param {string} id Machine Account ID.
@@ -1146,6 +2591,98 @@ export const MachineAccountsApiAxiosParamCreator = function (configuration?: Con
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Use this API to update a machine account with a [JSON Patch](https://tools.ietf.org/html/rfc6902) document. The response is the updated machine account.  A caller who owns the machine account can update it. Other callers need the **idn:mis-account:update** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Update machine account details
+         * @param {string} id Machine Account ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * environment           * accessType           * attributes           * manuallyEdited           * ownerIdentity           * subtype           * machineIdentities           * owners  Non-dataset accounts may patch ownerIdentity, subtype, and machineIdentities. Dataset accounts may patch owners. When expanded ownership is enabled, non-dataset accounts may also patch owners, and dataset accounts may also patch ownerIdentity. Patching ownerIdentity and owners in the same request returns &#x60;400&#x60;.  To change the machine identity, use a single &#x60;replace&#x60; operation on &#x60;/machineIdentities&#x60; whose value is a list of exactly one machine identity reference with its &#x60;id&#x60;. The &#x60;/machineIdentity&#x60; path, indexed or nested paths such as &#x60;/machineIdentities/0&#x60;, other operations on &#x60;/machineIdentities&#x60;, and a value that is not a one-element list all return &#x60;400&#x60;.  All other fields, including &#x60;risk&#x60;, &#x60;permissionLevel&#x60;, &#x60;compliance&#x60;, and &#x60;lastUsedAt&#x60;, are read-only. A patch that changes one of them returns &#x60;400&#x60;.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountV2: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateMachineAccountV2', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateMachineAccountV2', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, or an error status such as `400` or `404`.  Each patch operation must target one of these top-level fields:   * description   * subtype   * environment   * machineIdentity   * ownerIdentity   * manuallyEdited  The request fails with `400` when `ids` is empty or has more than 100 entries, when `jsonPatch` is missing, or when a patch operation targets any other field. A patch that changes `subtype` must only include machine accounts from one source; otherwise every result has status `400`.  A caller who owns the machine accounts can update them. Other callers need the **idn:mis-account:update** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Update machine accounts in bulk
+         * @param {MachineAccountBulkUpdateRequest} machineAccountBulkUpdateRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountsInBulkV1: async (machineAccountBulkUpdateRequest: MachineAccountBulkUpdateRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineAccountBulkUpdateRequest' is not null or undefined
+            assertParamExists('updateMachineAccountsInBulkV1', 'machineAccountBulkUpdateRequest', machineAccountBulkUpdateRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v1/bulk-update`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountBulkUpdateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1173,7 +2710,7 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+         * Use this API to remove a machine account from SailPoint Identity Security. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
          * @summary Remove machine account
          * @param {string} id Machine Account ID.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
@@ -1203,6 +2740,21 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to submit a request to delete a machine account from its source. Depending on the tenant\'s account deletion approval settings, the request can need approval before the account is deleted. The response returns the ID of the account request.  The machine account must be linked to a machine identity; otherwise this API returns `404`. Machine accounts aggregated from a dataset can be rejected with `400`.  A caller who owns the machine account can delete it. Other callers need the **idn:mis-account:delete** right. 
+         * @summary Delete machine account
+         * @param {string} id Machine Account ID.
+         * @param {MachineAccountDeleteRequest} machineAccountDeleteRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteMachineAccountV1(id: string, machineAccountDeleteRequest: MachineAccountDeleteRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountRequestAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountV1(id, machineAccountDeleteRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.deleteMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
          * @summary Disable machine account
          * @param {string} id Machine Account ID.
@@ -1217,6 +2769,20 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to submit one task that disables up to 100 machine accounts, and get the task ID. Machine accounts that are already disabled or that can\'t be disabled are skipped. When none of the machine accounts can be disabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can disable them. Other callers need the **idn:mis-account:disable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Disable machine accounts in bulk
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async disableMachineAccountsInBulkV1(machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountRequestAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableMachineAccountsInBulkV1(machineAccountBulkRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.disableMachineAccountsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
          * @summary Enable machine account
          * @param {string} id Machine Account ID.
@@ -1228,6 +2794,36 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.enableMachineAccountV1(id, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.enableMachineAccountV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to submit one task that enables up to 100 machine accounts, and get the task ID. Machine accounts that are already enabled or that can\'t be enabled are skipped. When none of the machine accounts can be enabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can enable them. Other callers need the **idn:mis-account:enable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Enable machine accounts in bulk
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async enableMachineAccountsInBulkV1(machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountRequestAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableMachineAccountsInBulkV1(machineAccountBulkRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.enableMachineAccountsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to list the entitlements held by a machine account. Use `limit` and `offset` to page through the results.  This API requires the **idn:mis-account:read** right. Owning the machine account is not enough.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List machine account entitlements
+         * @param {string} id Machine Account ID.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMachineAccountEntitlementsV1(id: string, limit?: number, offset?: number, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineAccountEntitlement>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountEntitlementsV1(id, limit, offset, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.getMachineAccountEntitlementsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1276,15 +2872,57 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to get the details of a machine account, including all of its linked machine identities.  A caller who owns the machine account can get it. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Get machine account details
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMachineAccountV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.getMachineAccountV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to count the machine account candidates that are not yet linked to a machine identity, grouped by the classification method that found them. Candidates that are correlated to a human identity are counted in `human`; candidates that are not correlated to any identity are counted in `uncorrelated`.  This API requires the **idn:mis-account-list:read** right. 
+         * @summary Get machine account candidate summary
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **source.id**: *eq, in*  Filtering on any other field returns &#x60;400&#x60;.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMachineAccountsSummaryV1(filters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountsSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMachineAccountsSummaryV1(filters, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.getMachineAccountsSummaryV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to list the machine identities that are linked to a machine account through source resource links. The response is an empty list when no machine identities are linked.  This API returns `400` when the machine account has no native identity or source.  A caller who owns the machine account can list its machine identities. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List linked machine identities
+         * @param {string} id Machine Account ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMachineAccountMachineIdentitiesV1(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineAccountLinkedMachineIdentity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountMachineIdentitiesV1(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.listMachineAccountMachineIdentitiesV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Get all machine account subtypes for a given source.
          * @summary Retrieve all subtypes by source
          * @param {string} sourceId The ID of the source.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @deprecated
          * @throws {RequiredError}
@@ -1298,11 +2936,11 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
         /**
          * This returns a list of machine accounts.  
          * @summary List machine accounts
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled for the tenant. When it is not, those filters return &#x60;400&#x60;. &#x60;compliance&#x60; and &#x60;complianceViolationsCount&#x60; are not filter fields. With unknown-severity enabled, a null stored severity matches &#x60;risk.severity eq \&quot;UNKNOWN\&quot;&#x60;.
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled; otherwise those sorters return &#x60;400&#x60;. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. &#x60;compliance&#x60; is not sortable.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled for the tenant. When it is not, those filters return &#x60;400&#x60;. &#x60;compliance&#x60; and &#x60;complianceViolationsCount&#x60; are not filter fields. With unknown-severity enabled, a null stored severity matches &#x60;risk.severity eq \&quot;UNKNOWN\&quot;&#x60;.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled; otherwise those sorters return &#x60;400&#x60;. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. &#x60;compliance&#x60; is not sortable.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -1311,6 +2949,25 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountsV1(limit, offset, count, filters, sorters, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.listMachineAccountsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to get a list of machine accounts. By default, the list includes machine accounts that are linked to a machine identity or to a source resource.  When the whole filter is a single comparison on `machineIdentity.id` or `machineIdentity.name`, the list also includes machine accounts linked to the matching machine identities through source resource links.  A caller without the **idn:mis-account-list:read** right can call this API only when every returned machine account is one they own; otherwise this API returns `403`. Use `ownerIdentity=self` to list only the caller\'s own machine accounts.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List machine accounts
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [ownerIdentity] Return only machine accounts whose owner identity is this identity ID. Use &#x60;self&#x60; for the caller\&#39;s own identity. This parameter can\&#39;t be combined with a filter on &#x60;ownerIdentity.id&#x60;; that combination returns &#x60;400&#x60;.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **owners.primary.id**: *eq, in*  **owners.primary.name**: *eq, in, sw*  **owners.secondaryIdentity.id**: *eq, in*  **owners.secondaryIdentity.name**: *eq, in, sw*  **owners.governanceGroup.id**: *eq, in*  **owners.governanceGroup.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **connectorAttributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **datasetId**: *eq, in*  **resource.id**: *eq, in*  **type**: *eq, in*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  Use &#x60;me&#x60; as the value of &#x60;ownerIdentity.id&#x60; to match the caller\&#39;s own identity.  The &#x60;owners.*&#x60; fields are available only when expanded machine account ownership is enabled for the tenant. The &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60; and &#x60;lastUsedAt&#x60; fields are available only when machine account risk enrichment is enabled for the tenant. Filtering on an unavailable field returns &#x60;400&#x60;.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, ownerIdentity, ownerIdentity.id, ownerIdentity.name, owners.primary.id, owners.primary.name, owners.secondaryIdentity.id, owners.secondaryIdentity.name, owners.governanceGroup.id, owners.governanceGroup.name, manuallyCorrelated, enabled, locked, hasEntitlements, attributes, connectorAttributes, source.id, source.name, datasetId, resource.id, type, created, modified, risk.severity, permissionLevel, lastUsedAt**  The same availability rules as for &#x60;filters&#x60; apply to the &#x60;owners.*&#x60;, &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60; and &#x60;lastUsedAt&#x60; fields. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listMachineAccountsV2(limit?: number, offset?: number, count?: boolean, ownerIdentity?: string, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineAccountV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMachineAccountsV2(limit, offset, count, ownerIdentity, filters, sorters, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.listMachineAccountsV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1345,6 +3002,34 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Use this API to submit one task that reloads up to 100 machine accounts from their sources, and get the task ID. Machine accounts that can\'t be reloaded are skipped. When none of the machine accounts can be reloaded, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Bulk reload machine accounts asynchronously
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async reloadMachineAccountsInBulkAsyncV1(machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountRequestAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadMachineAccountsInBulkAsyncV1(machineAccountBulkRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.reloadMachineAccountsInBulkAsyncV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to reload up to 100 machine accounts from their sources. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the reload was queued, or an error status such as `400`, `404` or `500`.  To track the whole reload with a single task instead, use the asynchronous bulk reload API.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Reload machine accounts in bulk
+         * @param {MachineAccountBulkRequest} machineAccountBulkRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async reloadMachineAccountsInBulkV1(machineAccountBulkRequest: MachineAccountBulkRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineAccountBulkResult>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadMachineAccountsInBulkV1(machineAccountBulkRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.reloadMachineAccountsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
          * @summary Unlock machine account
          * @param {string} id Machine Account ID.
@@ -1373,6 +3058,35 @@ export const MachineAccountsApiFp = function(configuration?: Configuration) {
             const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.updateMachineAccountV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * Use this API to update a machine account with a [JSON Patch](https://tools.ietf.org/html/rfc6902) document. The response is the updated machine account.  A caller who owns the machine account can update it. Other callers need the **idn:mis-account:update** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Update machine account details
+         * @param {string} id Machine Account ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * environment           * accessType           * attributes           * manuallyEdited           * ownerIdentity           * subtype           * machineIdentities           * owners  Non-dataset accounts may patch ownerIdentity, subtype, and machineIdentities. Dataset accounts may patch owners. When expanded ownership is enabled, non-dataset accounts may also patch owners, and dataset accounts may also patch ownerIdentity. Patching ownerIdentity and owners in the same request returns &#x60;400&#x60;.  To change the machine identity, use a single &#x60;replace&#x60; operation on &#x60;/machineIdentities&#x60; whose value is a list of exactly one machine identity reference with its &#x60;id&#x60;. The &#x60;/machineIdentity&#x60; path, indexed or nested paths such as &#x60;/machineIdentities/0&#x60;, other operations on &#x60;/machineIdentities&#x60;, and a value that is not a one-element list all return &#x60;400&#x60;.  All other fields, including &#x60;risk&#x60;, &#x60;permissionLevel&#x60;, &#x60;compliance&#x60;, and &#x60;lastUsedAt&#x60;, are read-only. A patch that changes one of them returns &#x60;400&#x60;.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMachineAccountV2(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MachineAccountV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountV2(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.updateMachineAccountV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, or an error status such as `400` or `404`.  Each patch operation must target one of these top-level fields:   * description   * subtype   * environment   * machineIdentity   * ownerIdentity   * manuallyEdited  The request fails with `400` when `ids` is empty or has more than 100 entries, when `jsonPatch` is missing, or when a patch operation targets any other field. A patch that changes `subtype` must only include machine accounts from one source; otherwise every result has status `400`.  A caller who owns the machine accounts can update them. Other callers need the **idn:mis-account:update** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Update machine accounts in bulk
+         * @param {MachineAccountBulkUpdateRequest} machineAccountBulkUpdateRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMachineAccountsInBulkV1(machineAccountBulkUpdateRequest: MachineAccountBulkUpdateRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MachineAccountBulkResult>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMachineAccountsInBulkV1(machineAccountBulkUpdateRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountsApi.updateMachineAccountsInBulkV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -1395,7 +3109,7 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
             return localVarFp.createMachineAccountSubtypeV1(requestParameters.sourceId, requestParameters.createMachineAccountSubtypeV1Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+         * Use this API to remove a machine account from SailPoint Identity Security. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
          * @summary Remove machine account
          * @param {MachineAccountsApiDeleteMachineAccountAsyncV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -1416,6 +3130,16 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
             return localVarFp.deleteMachineAccountSubtypeByTechnicalNameV1(requestParameters.sourceId, requestParameters.technicalName, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to submit a request to delete a machine account from its source. Depending on the tenant\'s account deletion approval settings, the request can need approval before the account is deleted. The response returns the ID of the account request.  The machine account must be linked to a machine identity; otherwise this API returns `404`. Machine accounts aggregated from a dataset can be rejected with `400`.  A caller who owns the machine account can delete it. Other callers need the **idn:mis-account:delete** right. 
+         * @summary Delete machine account
+         * @param {MachineAccountsApiDeleteMachineAccountV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineAccountV1(requestParameters: MachineAccountsApiDeleteMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountRequestAsyncResult> {
+            return localVarFp.deleteMachineAccountV1(requestParameters.id, requestParameters.machineAccountDeleteRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
          * @summary Disable machine account
          * @param {MachineAccountsApiDisableMachineAccountV1Request} requestParameters Request parameters.
@@ -1426,6 +3150,16 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
             return localVarFp.disableMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to submit one task that disables up to 100 machine accounts, and get the task ID. Machine accounts that are already disabled or that can\'t be disabled are skipped. When none of the machine accounts can be disabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can disable them. Other callers need the **idn:mis-account:disable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Disable machine accounts in bulk
+         * @param {MachineAccountsApiDisableMachineAccountsInBulkV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableMachineAccountsInBulkV1(requestParameters: MachineAccountsApiDisableMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountRequestAsyncResult> {
+            return localVarFp.disableMachineAccountsInBulkV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
          * @summary Enable machine account
          * @param {MachineAccountsApiEnableMachineAccountV1Request} requestParameters Request parameters.
@@ -1434,6 +3168,26 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
          */
         enableMachineAccountV1(requestParameters: MachineAccountsApiEnableMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountsAsyncResult> {
             return localVarFp.enableMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to submit one task that enables up to 100 machine accounts, and get the task ID. Machine accounts that are already enabled or that can\'t be enabled are skipped. When none of the machine accounts can be enabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can enable them. Other callers need the **idn:mis-account:enable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Enable machine accounts in bulk
+         * @param {MachineAccountsApiEnableMachineAccountsInBulkV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableMachineAccountsInBulkV1(requestParameters: MachineAccountsApiEnableMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountRequestAsyncResult> {
+            return localVarFp.enableMachineAccountsInBulkV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to list the entitlements held by a machine account. Use `limit` and `offset` to page through the results.  This API requires the **idn:mis-account:read** right. Owning the machine account is not enough.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List machine account entitlements
+         * @param {MachineAccountsApiGetMachineAccountEntitlementsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountEntitlementsV1(requestParameters: MachineAccountsApiGetMachineAccountEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineAccountEntitlement>> {
+            return localVarFp.getMachineAccountEntitlementsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a machine account subtype by its unique ID.
@@ -1468,6 +3222,36 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
             return localVarFp.getMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to get the details of a machine account, including all of its linked machine identities.  A caller who owns the machine account can get it. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Get machine account details
+         * @param {MachineAccountsApiGetMachineAccountV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountV2(requestParameters: MachineAccountsApiGetMachineAccountV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountV2> {
+            return localVarFp.getMachineAccountV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to count the machine account candidates that are not yet linked to a machine identity, grouped by the classification method that found them. Candidates that are correlated to a human identity are counted in `human`; candidates that are not correlated to any identity are counted in `uncorrelated`.  This API requires the **idn:mis-account-list:read** right. 
+         * @summary Get machine account candidate summary
+         * @param {MachineAccountsApiGetMachineAccountsSummaryV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMachineAccountsSummaryV1(requestParameters: MachineAccountsApiGetMachineAccountsSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountsSummary> {
+            return localVarFp.getMachineAccountsSummaryV1(requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to list the machine identities that are linked to a machine account through source resource links. The response is an empty list when no machine identities are linked.  This API returns `400` when the machine account has no native identity or source.  A caller who owns the machine account can list its machine identities. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List linked machine identities
+         * @param {MachineAccountsApiListMachineAccountMachineIdentitiesV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineAccountMachineIdentitiesV1(requestParameters: MachineAccountsApiListMachineAccountMachineIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineAccountLinkedMachineIdentity>> {
+            return localVarFp.listMachineAccountMachineIdentitiesV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Get all machine account subtypes for a given source.
          * @summary Retrieve all subtypes by source
          * @param {MachineAccountsApiListMachineAccountSubtypesV1Request} requestParameters Request parameters.
@@ -1487,6 +3271,16 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
          */
         listMachineAccountsV1(requestParameters: MachineAccountsApiListMachineAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineAccount>> {
             return localVarFp.listMachineAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to get a list of machine accounts. By default, the list includes machine accounts that are linked to a machine identity or to a source resource.  When the whole filter is a single comparison on `machineIdentity.id` or `machineIdentity.name`, the list also includes machine accounts linked to the matching machine identities through source resource links.  A caller without the **idn:mis-account-list:read** right can call this API only when every returned machine account is one they own; otherwise this API returns `403`. Use `ownerIdentity=self` to list only the caller\'s own machine accounts.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary List machine accounts
+         * @param {MachineAccountsApiListMachineAccountsV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMachineAccountsV2(requestParameters: MachineAccountsApiListMachineAccountsV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineAccountV2>> {
+            return localVarFp.listMachineAccountsV2(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerIdentity, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update fields of a machine account subtype by source ID and technical name. Patchable fields include: `displayName`, `description`.
@@ -1510,6 +3304,26 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
             return localVarFp.reloadMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to submit one task that reloads up to 100 machine accounts from their sources, and get the task ID. Machine accounts that can\'t be reloaded are skipped. When none of the machine accounts can be reloaded, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Bulk reload machine accounts asynchronously
+         * @param {MachineAccountsApiReloadMachineAccountsInBulkAsyncV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        reloadMachineAccountsInBulkAsyncV1(requestParameters: MachineAccountsApiReloadMachineAccountsInBulkAsyncV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountRequestAsyncResult> {
+            return localVarFp.reloadMachineAccountsInBulkAsyncV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to reload up to 100 machine accounts from their sources. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the reload was queued, or an error status such as `400`, `404` or `500`.  To track the whole reload with a single task instead, use the asynchronous bulk reload API.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Reload machine accounts in bulk
+         * @param {MachineAccountsApiReloadMachineAccountsInBulkV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        reloadMachineAccountsInBulkV1(requestParameters: MachineAccountsApiReloadMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineAccountBulkResult>> {
+            return localVarFp.reloadMachineAccountsInBulkV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
          * @summary Unlock machine account
          * @param {MachineAccountsApiUnlockMachineAccountV1Request} requestParameters Request parameters.
@@ -1528,6 +3342,26 @@ export const MachineAccountsApiFactory = function (configuration?: Configuration
          */
         updateMachineAccountV1(requestParameters: MachineAccountsApiUpdateMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccount> {
             return localVarFp.updateMachineAccountV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to update a machine account with a [JSON Patch](https://tools.ietf.org/html/rfc6902) document. The response is the updated machine account.  A caller who owns the machine account can update it. Other callers need the **idn:mis-account:update** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Update machine account details
+         * @param {MachineAccountsApiUpdateMachineAccountV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountV2(requestParameters: MachineAccountsApiUpdateMachineAccountV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<MachineAccountV2> {
+            return localVarFp.updateMachineAccountV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, or an error status such as `400` or `404`.  Each patch operation must target one of these top-level fields:   * description   * subtype   * environment   * machineIdentity   * ownerIdentity   * manuallyEdited  The request fails with `400` when `ids` is empty or has more than 100 entries, when `jsonPatch` is missing, or when a patch operation targets any other field. A patch that changes `subtype` must only include machine accounts from one source; otherwise every result has status `400`.  A caller who owns the machine accounts can update them. Other callers need the **idn:mis-account:update** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+         * @summary Update machine accounts in bulk
+         * @param {MachineAccountsApiUpdateMachineAccountsInBulkV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMachineAccountsInBulkV1(requestParameters: MachineAccountsApiUpdateMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<MachineAccountBulkResult>> {
+            return localVarFp.updateMachineAccountsInBulkV1(requestParameters.machineAccountBulkUpdateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1610,6 +3444,34 @@ export interface MachineAccountsApiDeleteMachineAccountSubtypeByTechnicalNameV1R
 }
 
 /**
+ * Request parameters for deleteMachineAccountV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiDeleteMachineAccountV1Request
+ */
+export interface MachineAccountsApiDeleteMachineAccountV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiDeleteMachineAccountV1
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {MachineAccountDeleteRequest}
+     * @memberof MachineAccountsApiDeleteMachineAccountV1
+     */
+    readonly machineAccountDeleteRequest: MachineAccountDeleteRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiDeleteMachineAccountV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for disableMachineAccountV1 operation in MachineAccountsApi.
  * @export
  * @interface MachineAccountsApiDisableMachineAccountV1Request
@@ -1631,6 +3493,27 @@ export interface MachineAccountsApiDisableMachineAccountV1Request {
 }
 
 /**
+ * Request parameters for disableMachineAccountsInBulkV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiDisableMachineAccountsInBulkV1Request
+ */
+export interface MachineAccountsApiDisableMachineAccountsInBulkV1Request {
+    /**
+     * 
+     * @type {MachineAccountBulkRequest}
+     * @memberof MachineAccountsApiDisableMachineAccountsInBulkV1
+     */
+    readonly machineAccountBulkRequest: MachineAccountBulkRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiDisableMachineAccountsInBulkV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for enableMachineAccountV1 operation in MachineAccountsApi.
  * @export
  * @interface MachineAccountsApiEnableMachineAccountV1Request
@@ -1647,6 +3530,62 @@ export interface MachineAccountsApiEnableMachineAccountV1Request {
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof MachineAccountsApiEnableMachineAccountV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for enableMachineAccountsInBulkV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiEnableMachineAccountsInBulkV1Request
+ */
+export interface MachineAccountsApiEnableMachineAccountsInBulkV1Request {
+    /**
+     * 
+     * @type {MachineAccountBulkRequest}
+     * @memberof MachineAccountsApiEnableMachineAccountsInBulkV1
+     */
+    readonly machineAccountBulkRequest: MachineAccountBulkRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiEnableMachineAccountsInBulkV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getMachineAccountEntitlementsV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiGetMachineAccountEntitlementsV1Request
+ */
+export interface MachineAccountsApiGetMachineAccountEntitlementsV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiGetMachineAccountEntitlementsV1
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountsApiGetMachineAccountEntitlementsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountsApiGetMachineAccountEntitlementsV1
+     */
+    readonly offset?: number
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiGetMachineAccountEntitlementsV1
      */
     readonly xSailPointExperimental?: string
 }
@@ -1722,6 +3661,69 @@ export interface MachineAccountsApiGetMachineAccountV1Request {
 }
 
 /**
+ * Request parameters for getMachineAccountV2 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiGetMachineAccountV2Request
+ */
+export interface MachineAccountsApiGetMachineAccountV2Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiGetMachineAccountV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiGetMachineAccountV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getMachineAccountsSummaryV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiGetMachineAccountsSummaryV1Request
+ */
+export interface MachineAccountsApiGetMachineAccountsSummaryV1Request {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **source.id**: *eq, in*  Filtering on any other field returns &#x60;400&#x60;.
+     * @type {string}
+     * @memberof MachineAccountsApiGetMachineAccountsSummaryV1
+     */
+    readonly filters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiGetMachineAccountsSummaryV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for listMachineAccountMachineIdentitiesV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiListMachineAccountMachineIdentitiesV1Request
+ */
+export interface MachineAccountsApiListMachineAccountMachineIdentitiesV1Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiListMachineAccountMachineIdentitiesV1
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiListMachineAccountMachineIdentitiesV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for listMachineAccountSubtypesV1 operation in MachineAccountsApi.
  * @export
  * @interface MachineAccountsApiListMachineAccountSubtypesV1Request
@@ -1735,14 +3737,14 @@ export interface MachineAccountsApiListMachineAccountSubtypesV1Request {
     readonly sourceId: string
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw*
      * @type {string}
      * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
      * @type {string}
      * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
@@ -1756,21 +3758,21 @@ export interface MachineAccountsApiListMachineAccountSubtypesV1Request {
     readonly xSailPointExperimental?: string
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly count?: boolean
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof MachineAccountsApiListMachineAccountSubtypesV1
      */
@@ -1784,35 +3786,35 @@ export interface MachineAccountsApiListMachineAccountSubtypesV1Request {
  */
 export interface MachineAccountsApiListMachineAccountsV1Request {
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled for the tenant. When it is not, those filters return &#x60;400&#x60;. &#x60;compliance&#x60; and &#x60;complianceViolationsCount&#x60; are not filter fields. With unknown-severity enabled, a null stored severity matches &#x60;risk.severity eq \&quot;UNKNOWN\&quot;&#x60;.
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled for the tenant. When it is not, those filters return &#x60;400&#x60;. &#x60;compliance&#x60; and &#x60;complianceViolationsCount&#x60; are not filter fields. With unknown-severity enabled, a null stored severity matches &#x60;risk.severity eq \&quot;UNKNOWN\&quot;&#x60;.
      * @type {string}
      * @memberof MachineAccountsApiListMachineAccountsV1
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled; otherwise those sorters return &#x60;400&#x60;. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. &#x60;compliance&#x60; is not sortable.
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, ownerIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, manuallyCorrelated, enabled, locked, hasEntitlements, ownerIdentity.id, ownerIdentity.name, attributes, source.id, source.name, created, modified, risk.severity, permissionLevel, lastUsedAt**  &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60;, and &#x60;lastUsedAt&#x60; require Entro enrichment to be enabled; otherwise those sorters return &#x60;400&#x60;. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically. Null Entro values sort last. &#x60;compliance&#x60; is not sortable.
      * @type {string}
      * @memberof MachineAccountsApiListMachineAccountsV1
      */
@@ -1822,6 +3824,62 @@ export interface MachineAccountsApiListMachineAccountsV1Request {
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof MachineAccountsApiListMachineAccountsV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for listMachineAccountsV2 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiListMachineAccountsV2Request
+ */
+export interface MachineAccountsApiListMachineAccountsV2Request {
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountsApiListMachineAccountsV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountsApiListMachineAccountsV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof MachineAccountsApiListMachineAccountsV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Return only machine accounts whose owner identity is this identity ID. Use &#x60;self&#x60; for the caller\&#39;s own identity. This parameter can\&#39;t be combined with a filter on &#x60;ownerIdentity.id&#x60;; that combination returns &#x60;400&#x60;.
+     * @type {string}
+     * @memberof MachineAccountsApiListMachineAccountsV2
+     */
+    readonly ownerIdentity?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **uuid**: *eq, in*  **description**: *eq, in, sw*  **machineIdentity.id**: *eq, in*  **machineIdentity.name**: *eq, in, sw*  **subtype.technicalName**: *eq, in, sw*  **subtype.displayName**: *eq, in, sw*  **accessType**: *eq, in, sw*  **environment**: *eq, in, sw*  **ownerIdentity**: *eq, in*  **ownerIdentity.id**: *eq, in*  **ownerIdentity.name**: *eq, in, sw*  **owners.primary.id**: *eq, in*  **owners.primary.name**: *eq, in, sw*  **owners.secondaryIdentity.id**: *eq, in*  **owners.secondaryIdentity.name**: *eq, in, sw*  **owners.governanceGroup.id**: *eq, in*  **owners.governanceGroup.name**: *eq, in, sw*  **manuallyCorrelated**: *eq*  **enabled**: *eq*  **locked**: *eq*  **hasEntitlements**: *eq*  **attributes**: *eq*  **connectorAttributes**: *eq*  **source.id**: *eq, in*  **source.name**: *eq, in, sw*  **datasetId**: *eq, in*  **resource.id**: *eq, in*  **type**: *eq, in*  **created**: *eq, gt, lt, ge, le*  **modified**: *eq, gt, lt, ge, le*  **risk.severity**: *eq, in*  **permissionLevel**: *eq, in*  **lastUsedAt**: *gt, lt, ge, le*  Use &#x60;me&#x60; as the value of &#x60;ownerIdentity.id&#x60; to match the caller\&#39;s own identity.  The &#x60;owners.*&#x60; fields are available only when expanded machine account ownership is enabled for the tenant. The &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60; and &#x60;lastUsedAt&#x60; fields are available only when machine account risk enrichment is enabled for the tenant. Filtering on an unavailable field returns &#x60;400&#x60;.
+     * @type {string}
+     * @memberof MachineAccountsApiListMachineAccountsV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, nativeIdentity, uuid, description, machineIdentity.id, machineIdentity.name, subtype.technicalName, subtype.displayName, accessType, environment, ownerIdentity, ownerIdentity.id, ownerIdentity.name, owners.primary.id, owners.primary.name, owners.secondaryIdentity.id, owners.secondaryIdentity.name, owners.governanceGroup.id, owners.governanceGroup.name, manuallyCorrelated, enabled, locked, hasEntitlements, attributes, connectorAttributes, source.id, source.name, datasetId, resource.id, type, created, modified, risk.severity, permissionLevel, lastUsedAt**  The same availability rules as for &#x60;filters&#x60; apply to the &#x60;owners.*&#x60;, &#x60;risk.severity&#x60;, &#x60;permissionLevel&#x60; and &#x60;lastUsedAt&#x60; fields. &#x60;risk.severity&#x60; sorts by rank (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL), not alphabetically.
+     * @type {string}
+     * @memberof MachineAccountsApiListMachineAccountsV2
+     */
+    readonly sorters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiListMachineAccountsV2
      */
     readonly xSailPointExperimental?: string
 }
@@ -1883,6 +3941,48 @@ export interface MachineAccountsApiReloadMachineAccountV1Request {
 }
 
 /**
+ * Request parameters for reloadMachineAccountsInBulkAsyncV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiReloadMachineAccountsInBulkAsyncV1Request
+ */
+export interface MachineAccountsApiReloadMachineAccountsInBulkAsyncV1Request {
+    /**
+     * 
+     * @type {MachineAccountBulkRequest}
+     * @memberof MachineAccountsApiReloadMachineAccountsInBulkAsyncV1
+     */
+    readonly machineAccountBulkRequest: MachineAccountBulkRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiReloadMachineAccountsInBulkAsyncV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for reloadMachineAccountsInBulkV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiReloadMachineAccountsInBulkV1Request
+ */
+export interface MachineAccountsApiReloadMachineAccountsInBulkV1Request {
+    /**
+     * 
+     * @type {MachineAccountBulkRequest}
+     * @memberof MachineAccountsApiReloadMachineAccountsInBulkV1
+     */
+    readonly machineAccountBulkRequest: MachineAccountBulkRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiReloadMachineAccountsInBulkV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for unlockMachineAccountV1 operation in MachineAccountsApi.
  * @export
  * @interface MachineAccountsApiUnlockMachineAccountV1Request
@@ -1932,6 +4032,55 @@ export interface MachineAccountsApiUpdateMachineAccountV1Request {
 }
 
 /**
+ * Request parameters for updateMachineAccountV2 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiUpdateMachineAccountV2Request
+ */
+export interface MachineAccountsApiUpdateMachineAccountV2Request {
+    /**
+     * Machine Account ID.
+     * @type {string}
+     * @memberof MachineAccountsApiUpdateMachineAccountV2
+     */
+    readonly id: string
+
+    /**
+     * A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * environment           * accessType           * attributes           * manuallyEdited           * ownerIdentity           * subtype           * machineIdentities           * owners  Non-dataset accounts may patch ownerIdentity, subtype, and machineIdentities. Dataset accounts may patch owners. When expanded ownership is enabled, non-dataset accounts may also patch owners, and dataset accounts may also patch ownerIdentity. Patching ownerIdentity and owners in the same request returns &#x60;400&#x60;.  To change the machine identity, use a single &#x60;replace&#x60; operation on &#x60;/machineIdentities&#x60; whose value is a list of exactly one machine identity reference with its &#x60;id&#x60;. The &#x60;/machineIdentity&#x60; path, indexed or nested paths such as &#x60;/machineIdentities/0&#x60;, other operations on &#x60;/machineIdentities&#x60;, and a value that is not a one-element list all return &#x60;400&#x60;.  All other fields, including &#x60;risk&#x60;, &#x60;permissionLevel&#x60;, &#x60;compliance&#x60;, and &#x60;lastUsedAt&#x60;, are read-only. A patch that changes one of them returns &#x60;400&#x60;.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof MachineAccountsApiUpdateMachineAccountV2
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiUpdateMachineAccountV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for updateMachineAccountsInBulkV1 operation in MachineAccountsApi.
+ * @export
+ * @interface MachineAccountsApiUpdateMachineAccountsInBulkV1Request
+ */
+export interface MachineAccountsApiUpdateMachineAccountsInBulkV1Request {
+    /**
+     * 
+     * @type {MachineAccountBulkUpdateRequest}
+     * @memberof MachineAccountsApiUpdateMachineAccountsInBulkV1
+     */
+    readonly machineAccountBulkUpdateRequest: MachineAccountBulkUpdateRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountsApiUpdateMachineAccountsInBulkV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * MachineAccountsApi - object-oriented interface
  * @export
  * @class MachineAccountsApi
@@ -1952,7 +4101,7 @@ export class MachineAccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to remove a machine account from Identity Security Cloud. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
+     * Use this API to remove a machine account from SailPoint Identity Security. The source account is left unchanged, and a removed machine account can be re-created during the next aggregation. The response returns the task ID.  This endpoint is intended for:  * Removing machine accounts that no longer exist on the source.  * Removing machine accounts that will not be aggregated after a source configuration change.  * Forcing machine accounts to be re-created on the next aggregation so account processing can run again.  A caller who owns the machine account can remove it. Other callers need the **idn:mis-account:remove** right. 
      * @summary Remove machine account
      * @param {MachineAccountsApiDeleteMachineAccountAsyncV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -1977,6 +4126,18 @@ export class MachineAccountsApi extends BaseAPI {
     }
 
     /**
+     * Use this API to submit a request to delete a machine account from its source. Depending on the tenant\'s account deletion approval settings, the request can need approval before the account is deleted. The response returns the ID of the account request.  The machine account must be linked to a machine identity; otherwise this API returns `404`. Machine accounts aggregated from a dataset can be rejected with `400`.  A caller who owns the machine account can delete it. Other callers need the **idn:mis-account:delete** right. 
+     * @summary Delete machine account
+     * @param {MachineAccountsApiDeleteMachineAccountV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public deleteMachineAccountV1(requestParameters: MachineAccountsApiDeleteMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).deleteMachineAccountV1(requestParameters.id, requestParameters.machineAccountDeleteRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API submits a task to disable a machine account and returns the task ID.  A caller who owns the machine account can disable it. Other callers need the **idn:mis-account:disable** right. 
      * @summary Disable machine account
      * @param {MachineAccountsApiDisableMachineAccountV1Request} requestParameters Request parameters.
@@ -1989,6 +4150,18 @@ export class MachineAccountsApi extends BaseAPI {
     }
 
     /**
+     * Use this API to submit one task that disables up to 100 machine accounts, and get the task ID. Machine accounts that are already disabled or that can\'t be disabled are skipped. When none of the machine accounts can be disabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can disable them. Other callers need the **idn:mis-account:disable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary Disable machine accounts in bulk
+     * @param {MachineAccountsApiDisableMachineAccountsInBulkV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public disableMachineAccountsInBulkV1(requestParameters: MachineAccountsApiDisableMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).disableMachineAccountsInBulkV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API submits a task to enable a machine account and returns the task ID.  A caller who owns the machine account can enable it. Other callers need the **idn:mis-account:enable** right. 
      * @summary Enable machine account
      * @param {MachineAccountsApiEnableMachineAccountV1Request} requestParameters Request parameters.
@@ -1998,6 +4171,30 @@ export class MachineAccountsApi extends BaseAPI {
      */
     public enableMachineAccountV1(requestParameters: MachineAccountsApiEnableMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountsApiFp(this.configuration).enableMachineAccountV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to submit one task that enables up to 100 machine accounts, and get the task ID. Machine accounts that are already enabled or that can\'t be enabled are skipped. When none of the machine accounts can be enabled, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can enable them. Other callers need the **idn:mis-account:enable** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary Enable machine accounts in bulk
+     * @param {MachineAccountsApiEnableMachineAccountsInBulkV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public enableMachineAccountsInBulkV1(requestParameters: MachineAccountsApiEnableMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).enableMachineAccountsInBulkV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to list the entitlements held by a machine account. Use `limit` and `offset` to page through the results.  This API requires the **idn:mis-account:read** right. Owning the machine account is not enough.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary List machine account entitlements
+     * @param {MachineAccountsApiGetMachineAccountEntitlementsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public getMachineAccountEntitlementsV1(requestParameters: MachineAccountsApiGetMachineAccountEntitlementsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).getMachineAccountEntitlementsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2039,6 +4236,42 @@ export class MachineAccountsApi extends BaseAPI {
     }
 
     /**
+     * Use this API to get the details of a machine account, including all of its linked machine identities.  A caller who owns the machine account can get it. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary Get machine account details
+     * @param {MachineAccountsApiGetMachineAccountV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public getMachineAccountV2(requestParameters: MachineAccountsApiGetMachineAccountV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).getMachineAccountV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to count the machine account candidates that are not yet linked to a machine identity, grouped by the classification method that found them. Candidates that are correlated to a human identity are counted in `human`; candidates that are not correlated to any identity are counted in `uncorrelated`.  This API requires the **idn:mis-account-list:read** right. 
+     * @summary Get machine account candidate summary
+     * @param {MachineAccountsApiGetMachineAccountsSummaryV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public getMachineAccountsSummaryV1(requestParameters: MachineAccountsApiGetMachineAccountsSummaryV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).getMachineAccountsSummaryV1(requestParameters.filters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to list the machine identities that are linked to a machine account through source resource links. The response is an empty list when no machine identities are linked.  This API returns `400` when the machine account has no native identity or source.  A caller who owns the machine account can list its machine identities. Other callers need the **idn:mis-account:read** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary List linked machine identities
+     * @param {MachineAccountsApiListMachineAccountMachineIdentitiesV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public listMachineAccountMachineIdentitiesV1(requestParameters: MachineAccountsApiListMachineAccountMachineIdentitiesV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).listMachineAccountMachineIdentitiesV1(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get all machine account subtypes for a given source.
      * @summary Retrieve all subtypes by source
      * @param {MachineAccountsApiListMachineAccountSubtypesV1Request} requestParameters Request parameters.
@@ -2061,6 +4294,18 @@ export class MachineAccountsApi extends BaseAPI {
      */
     public listMachineAccountsV1(requestParameters: MachineAccountsApiListMachineAccountsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountsApiFp(this.configuration).listMachineAccountsV1(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to get a list of machine accounts. By default, the list includes machine accounts that are linked to a machine identity or to a source resource.  When the whole filter is a single comparison on `machineIdentity.id` or `machineIdentity.name`, the list also includes machine accounts linked to the matching machine identities through source resource links.  A caller without the **idn:mis-account-list:read** right can call this API only when every returned machine account is one they own; otherwise this API returns `403`. Use `ownerIdentity=self` to list only the caller\'s own machine accounts.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary List machine accounts
+     * @param {MachineAccountsApiListMachineAccountsV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public listMachineAccountsV2(requestParameters: MachineAccountsApiListMachineAccountsV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).listMachineAccountsV2(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerIdentity, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2089,6 +4334,30 @@ export class MachineAccountsApi extends BaseAPI {
     }
 
     /**
+     * Use this API to submit one task that reloads up to 100 machine accounts from their sources, and get the task ID. Machine accounts that can\'t be reloaded are skipped. When none of the machine accounts can be reloaded, the task completes with an error.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own are skipped.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary Bulk reload machine accounts asynchronously
+     * @param {MachineAccountsApiReloadMachineAccountsInBulkAsyncV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public reloadMachineAccountsInBulkAsyncV1(requestParameters: MachineAccountsApiReloadMachineAccountsInBulkAsyncV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).reloadMachineAccountsInBulkAsyncV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to reload up to 100 machine accounts from their sources. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the reload was queued, or an error status such as `400`, `404` or `500`.  To track the whole reload with a single task instead, use the asynchronous bulk reload API.  The request fails with `400` when `ids` is empty or has more than 100 entries.  A caller who owns the machine accounts can reload them. Other callers need the **idn:mis-account:reload** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary Reload machine accounts in bulk
+     * @param {MachineAccountsApiReloadMachineAccountsInBulkV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public reloadMachineAccountsInBulkV1(requestParameters: MachineAccountsApiReloadMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).reloadMachineAccountsInBulkV1(requestParameters.machineAccountBulkRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API submits a task to unlock a machine account and returns the task ID.  A caller who owns the machine account can unlock it. Other callers need the **idn:mis-account:unlock** right. 
      * @summary Unlock machine account
      * @param {MachineAccountsApiUnlockMachineAccountV1Request} requestParameters Request parameters.
@@ -2110,6 +4379,30 @@ export class MachineAccountsApi extends BaseAPI {
      */
     public updateMachineAccountV1(requestParameters: MachineAccountsApiUpdateMachineAccountV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountsApiFp(this.configuration).updateMachineAccountV1(requestParameters.id, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to update a machine account with a [JSON Patch](https://tools.ietf.org/html/rfc6902) document. The response is the updated machine account.  A caller who owns the machine account can update it. Other callers need the **idn:mis-account:update** right.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary Update machine account details
+     * @param {MachineAccountsApiUpdateMachineAccountV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public updateMachineAccountV2(requestParameters: MachineAccountsApiUpdateMachineAccountV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).updateMachineAccountV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to apply the same [JSON Patch](https://tools.ietf.org/html/rfc6902) to up to 100 machine accounts. The response has one result per requested machine account, in no particular order. Each result has its own HTTP-style `status`: `200` when the update succeeded, or an error status such as `400` or `404`.  Each patch operation must target one of these top-level fields:   * description   * subtype   * environment   * machineIdentity   * ownerIdentity   * manuallyEdited  The request fails with `400` when `ids` is empty or has more than 100 entries, when `jsonPatch` is missing, or when a patch operation targets any other field. A patch that changes `subtype` must only include machine accounts from one source; otherwise every result has status `400`.  A caller who owns the machine accounts can update them. Other callers need the **idn:mis-account:update** right. For a caller without the right, machine accounts they do not own get a result with status `404`.  When this capability is not enabled for the tenant, this API returns `403`. 
+     * @summary Update machine accounts in bulk
+     * @param {MachineAccountsApiUpdateMachineAccountsInBulkV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountsApi
+     */
+    public updateMachineAccountsInBulkV1(requestParameters: MachineAccountsApiUpdateMachineAccountsInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountsApiFp(this.configuration).updateMachineAccountsInBulkV1(requestParameters.machineAccountBulkUpdateRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

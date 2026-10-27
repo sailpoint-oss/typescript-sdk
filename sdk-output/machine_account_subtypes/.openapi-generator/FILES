@@ -3,6 +3,7 @@
 .openapi-generator-ignore
 ArrayInner.md
 CreateSourceSubtypeV1Request.md
+CreateSourceSubtypeV2Request.md
 ErrorMessageDto.md
 ErrorResponseDto.md
 Index.md
@@ -18,8 +19,18 @@ MachineAccountSubtypesApi.md
 MachineAccountSubtypesApideveloperSite_code_examples.yaml
 MachineSubtypeApprovalConfig.md
 README.md
+SourceSubtypeOverrideRequest.md
+SourceSubtypeV2.md
+SourceSubtypeV2Profile.md
+SourceSubtypeV2WithConfig.md
+SourceSubtypeV2WithConfigAllOfConfig.md
+SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate.md
 SourceSubtypeWithSource.md
 SourceSubtypeWithSourceSource.md
+SubtypeProvisioningPolicy.md
+SubtypeProvisioningPolicyField.md
+SubtypeTarget.md
+SubtypeTargetSummary.md
 api.ts
 base.ts
 common.ts

@@ -243,7 +243,7 @@
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
-        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) (default to undefined)
+        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) (default to undefined)
         const result = await apiInstance.listBackupsV1({  });
         console.log(result);
 - path: /configuration-hub/v1/deploys
@@ -270,7 +270,7 @@
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
-        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional) (default to undefined)
+        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional) (default to undefined)
         const result = await apiInstance.listDraftsV1({  });
         console.log(result);
 - path: /configuration-hub/v1/scheduled-actions
@@ -297,7 +297,7 @@
 
         const configuration = new Configuration();
         const apiInstance = new ConfigurationHubApi(configuration);
-        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) (default to undefined)
+        const filters: string = 'status eq "COMPLETE"'; // string | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) (default to undefined)
         const result = await apiInstance.listUploadedConfigurationsV1({  });
         console.log(result);
 - path: /configuration-hub/v1/object-mappings/{sourceOrg}/bulk-patch

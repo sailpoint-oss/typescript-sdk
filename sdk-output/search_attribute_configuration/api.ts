@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Search Attribute Configuration
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Search Attribute Configuration
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -275,10 +275,10 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             };
         },
         /**
-         * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
+         * Get a list of attribute/application attributes currently configured in SailPoint Identity Security.
          * @summary List extended search attributes
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -425,10 +425,10 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
+         * Get a list of attribute/application attributes currently configured in SailPoint Identity Security.
          * @summary List extended search attributes
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -496,7 +496,7 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
             return localVarFp.deleteSearchAttributeConfigV1(requestParameters.name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
+         * Get a list of attribute/application attributes currently configured in SailPoint Identity Security.
          * @summary List extended search attributes
          * @param {SearchAttributeConfigurationApiGetSearchAttributeConfigV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -563,14 +563,14 @@ export interface SearchAttributeConfigurationApiDeleteSearchAttributeConfigV1Req
  */
 export interface SearchAttributeConfigurationApiGetSearchAttributeConfigV1Request {
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SearchAttributeConfigurationApiGetSearchAttributeConfigV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SearchAttributeConfigurationApiGetSearchAttributeConfigV1
      */
@@ -644,7 +644,7 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
     }
 
     /**
-     * Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
+     * Get a list of attribute/application attributes currently configured in SailPoint Identity Security.
      * @summary List extended search attributes
      * @param {SearchAttributeConfigurationApiGetSearchAttributeConfigV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

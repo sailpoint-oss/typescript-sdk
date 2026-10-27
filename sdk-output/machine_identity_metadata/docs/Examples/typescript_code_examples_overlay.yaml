@@ -1,0 +1,14 @@
+- path: /machine-identity-metadata/v1/subtypes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_identity_metadata/methods/machine-identity-metadata#list-machine-identity-subtypes-v1
+      source: |
+        import { MachineIdentityMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineIdentityMetadataApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listMachineIdentitySubtypesV1({  });
+        console.log(result);

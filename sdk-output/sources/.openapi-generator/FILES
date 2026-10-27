@@ -21,7 +21,10 @@ BaseReferenceDto.md
 ConnectorDetail.md
 CorrelationConfig.md
 CorrelationConfigAttributeAssignmentsInner.md
+CorrelationReprocessStatus.md
+CorrelationReprocessStatusStartedBy.md
 DatasetAggregationRequest.md
+DeleteSourceAgentsRequest.md
 DeleteSourceV1202Response.md
 DependantAppConnections.md
 DependantAppConnectionsAccountSource.md
@@ -53,6 +56,7 @@ LoadUncorrelatedAccountsTaskTask.md
 LoadUncorrelatedAccountsTaskTaskAttributes.md
 LoadUncorrelatedAccountsTaskTaskMessagesInner.md
 LocaleOrigin.md
+LocalizedMessage.md
 ManagerCorrelationMapping.md
 NativeChangeDetectionConfig.md
 PasswordPolicyHoldersDtoAttributes.md
@@ -69,6 +73,8 @@ Schema.md
 Source.md
 SourceAccountCorrelationConfig.md
 SourceAccountCorrelationRule.md
+SourceAgentDeletionTaskStatus.md
+SourceAgentDeletionTaskStatusTarget.md
 SourceBeforeProvisioningRule.md
 SourceCluster.md
 SourceConnectionsDto.md
@@ -94,8 +100,12 @@ SourceSyncPayload.md
 SourcesApi.md
 SourcesApideveloperSite_code_examples.yaml
 StatusResponse.md
+TaskDefinitionSummary.md
 TaskResultDetails.md
 TaskResultDto.md
+TaskReturnDetails.md
+TaskStatusMessage.md
+TaskStatusMessageParametersInner.md
 Transform.md
 TransformRead.md
 UsageType.md

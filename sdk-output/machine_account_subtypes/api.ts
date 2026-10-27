@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Machine Account Subtypes
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Machine Account Subtypes
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -67,6 +67,74 @@ export interface CreateSourceSubtypeV1Request {
      */
     'type'?: string;
 }
+/**
+ * Request body for creating a machine account subtype at the source tier or the connector tier.
+ * @export
+ * @interface CreateSourceSubtypeV2Request
+ */
+export interface CreateSourceSubtypeV2Request {
+    /**
+     * Tier to create the subtype at. Defaults to `SOURCE`.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'targetType'?: CreateSourceSubtypeV2RequestTargetTypeEnum;
+    /**
+     * Scope key of the subtype. The source ID for a `SOURCE` subtype, or a registered connector type for a `CONNECTOR` subtype.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'targetId': string;
+    /**
+     * Display name of the target. For a `CONNECTOR` subtype, a supplied value must match the connector\'s registered name and is replaced by the registered spelling. When omitted, the registered name is used.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'targetName'?: string;
+    /**
+     * Technical name of the subtype.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'technicalName': string;
+    /**
+     * Display name of the subtype.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'displayName': string;
+    /**
+     * Description of the subtype.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'description': string;
+    /**
+     * Entity type of the subtype. Defaults to `MACHINE`.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'type'?: string;
+    /**
+     * Classification of the subtype. Defaults to `MACHINE`.
+     * @type {string}
+     * @memberof CreateSourceSubtypeV2Request
+     */
+    'classification'?: CreateSourceSubtypeV2RequestClassificationEnum;
+}
+
+export const CreateSourceSubtypeV2RequestTargetTypeEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR'
+} as const;
+
+export type CreateSourceSubtypeV2RequestTargetTypeEnum = typeof CreateSourceSubtypeV2RequestTargetTypeEnum[keyof typeof CreateSourceSubtypeV2RequestTargetTypeEnum];
+export const CreateSourceSubtypeV2RequestClassificationEnum = {
+    Machine: 'MACHINE'
+} as const;
+
+export type CreateSourceSubtypeV2RequestClassificationEnum = typeof CreateSourceSubtypeV2RequestClassificationEnum[keyof typeof CreateSourceSubtypeV2RequestClassificationEnum];
+
 /**
  * 
  * @export
@@ -331,6 +399,312 @@ export interface MachineSubtypeApprovalConfig {
     'comments'?: string;
 }
 /**
+ * Request body for overriding a connector subtype on one source.
+ * @export
+ * @interface SourceSubtypeOverrideRequest
+ */
+export interface SourceSubtypeOverrideRequest {
+    /**
+     * ID of the source to create the overriding source subtype on.
+     * @type {string}
+     * @memberof SourceSubtypeOverrideRequest
+     */
+    'sourceId': string;
+}
+/**
+ * A machine account subtype defined at the source tier or the connector tier.
+ * @export
+ * @interface SourceSubtypeV2
+ */
+export interface SourceSubtypeV2 {
+    /**
+     * Unique identifier for the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'id'?: string;
+    /**
+     * Technical name of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'technicalName'?: string;
+    /**
+     * Display name of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'displayName'?: string;
+    /**
+     * Description of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'description'?: string;
+    /**
+     * Entity type of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'type'?: string;
+    /**
+     * Tier the subtype is defined at. `SOURCE` subtypes apply to one source. `CONNECTOR` subtypes apply to every source of a connector type. `CONNECTOR_VARIANT` is reserved for future use.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'targetType'?: SourceSubtypeV2TargetTypeEnum;
+    /**
+     * Scope key of the subtype. The source ID for `SOURCE` subtypes, or the connector type for `CONNECTOR` subtypes.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'targetId'?: string;
+    /**
+     * Display name of the target source or connector.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'targetName'?: string | null;
+    /**
+     * Classification of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'classification'?: SourceSubtypeV2ClassificationEnum;
+    /**
+     * Tier of the parent subtype this subtype overrides. Set to `CONNECTOR` when a source subtype replaces a connector subtype with the same technical name in a source\'s effective subtype list. Otherwise `null`.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'origin'?: SourceSubtypeV2OriginEnum | null;
+    /**
+     * 
+     * @type {SourceSubtypeV2Profile}
+     * @memberof SourceSubtypeV2
+     */
+    'profile'?: SourceSubtypeV2Profile | null;
+    /**
+     * Indicates whether the subtype is managed by the system.
+     * @type {boolean}
+     * @memberof SourceSubtypeV2
+     */
+    'systemManaged'?: boolean;
+    /**
+     * Creation timestamp.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'created'?: string;
+    /**
+     * Last modified timestamp.
+     * @type {string}
+     * @memberof SourceSubtypeV2
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {SubtypeTarget}
+     * @memberof SourceSubtypeV2
+     */
+    'target'?: SubtypeTarget;
+}
+
+export const SourceSubtypeV2TargetTypeEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR',
+    ConnectorVariant: 'CONNECTOR_VARIANT'
+} as const;
+
+export type SourceSubtypeV2TargetTypeEnum = typeof SourceSubtypeV2TargetTypeEnum[keyof typeof SourceSubtypeV2TargetTypeEnum];
+export const SourceSubtypeV2ClassificationEnum = {
+    Machine: 'MACHINE'
+} as const;
+
+export type SourceSubtypeV2ClassificationEnum = typeof SourceSubtypeV2ClassificationEnum[keyof typeof SourceSubtypeV2ClassificationEnum];
+export const SourceSubtypeV2OriginEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR',
+    ConnectorVariant: 'CONNECTOR_VARIANT'
+} as const;
+
+export type SourceSubtypeV2OriginEnum = typeof SourceSubtypeV2OriginEnum[keyof typeof SourceSubtypeV2OriginEnum];
+
+/**
+ * Connector variant profile. Reserved for future use and currently always `null`.
+ * @export
+ * @interface SourceSubtypeV2Profile
+ */
+export interface SourceSubtypeV2Profile {
+    /**
+     * Unique identifier for the connector variant profile.
+     * @type {string}
+     * @memberof SourceSubtypeV2Profile
+     */
+    'id'?: string;
+    /**
+     * Connector type of the variant.
+     * @type {string}
+     * @memberof SourceSubtypeV2Profile
+     */
+    'connectorType'?: string;
+    /**
+     * Name of the connector variant.
+     * @type {string}
+     * @memberof SourceSubtypeV2Profile
+     */
+    'variant'?: string;
+}
+/**
+ * A machine account subtype list item, returned when `includeConfigs=true`.
+ * @export
+ * @interface SourceSubtypeV2WithConfig
+ */
+export interface SourceSubtypeV2WithConfig {
+    /**
+     * Unique identifier for the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'id'?: string;
+    /**
+     * Technical name of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'technicalName'?: string;
+    /**
+     * Display name of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'displayName'?: string;
+    /**
+     * Description of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'description'?: string;
+    /**
+     * Entity type of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'type'?: string;
+    /**
+     * Tier the subtype is defined at. `SOURCE` subtypes apply to one source. `CONNECTOR` subtypes apply to every source of a connector type. `CONNECTOR_VARIANT` is reserved for future use.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'targetType'?: SourceSubtypeV2WithConfigTargetTypeEnum;
+    /**
+     * Scope key of the subtype. The source ID for `SOURCE` subtypes, or the connector type for `CONNECTOR` subtypes.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'targetId'?: string;
+    /**
+     * Display name of the target source or connector.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'targetName'?: string | null;
+    /**
+     * Classification of the subtype.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'classification'?: SourceSubtypeV2WithConfigClassificationEnum;
+    /**
+     * Tier of the parent subtype this subtype overrides. Set to `CONNECTOR` when a source subtype replaces a connector subtype with the same technical name in a source\'s effective subtype list. Otherwise `null`.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'origin'?: SourceSubtypeV2WithConfigOriginEnum | null;
+    /**
+     * 
+     * @type {SourceSubtypeV2Profile}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'profile'?: SourceSubtypeV2Profile | null;
+    /**
+     * Indicates whether the subtype is managed by the system.
+     * @type {boolean}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'systemManaged'?: boolean;
+    /**
+     * Creation timestamp.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'created'?: string;
+    /**
+     * Last modified timestamp.
+     * @type {string}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {SubtypeTarget}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'target'?: SubtypeTarget;
+    /**
+     * 
+     * @type {SourceSubtypeV2WithConfigAllOfConfig}
+     * @memberof SourceSubtypeV2WithConfig
+     */
+    'config'?: SourceSubtypeV2WithConfigAllOfConfig | null;
+}
+
+export const SourceSubtypeV2WithConfigTargetTypeEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR',
+    ConnectorVariant: 'CONNECTOR_VARIANT'
+} as const;
+
+export type SourceSubtypeV2WithConfigTargetTypeEnum = typeof SourceSubtypeV2WithConfigTargetTypeEnum[keyof typeof SourceSubtypeV2WithConfigTargetTypeEnum];
+export const SourceSubtypeV2WithConfigClassificationEnum = {
+    Machine: 'MACHINE'
+} as const;
+
+export type SourceSubtypeV2WithConfigClassificationEnum = typeof SourceSubtypeV2WithConfigClassificationEnum[keyof typeof SourceSubtypeV2WithConfigClassificationEnum];
+export const SourceSubtypeV2WithConfigOriginEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR',
+    ConnectorVariant: 'CONNECTOR_VARIANT'
+} as const;
+
+export type SourceSubtypeV2WithConfigOriginEnum = typeof SourceSubtypeV2WithConfigOriginEnum[keyof typeof SourceSubtypeV2WithConfigOriginEnum];
+
+/**
+ * Summary of the subtype\'s machine account creation configuration. `null` when the subtype is not a `MACHINE` subtype or has no machine account creation configuration.
+ * @export
+ * @interface SourceSubtypeV2WithConfigAllOfConfig
+ */
+export interface SourceSubtypeV2WithConfigAllOfConfig {
+    /**
+     * 
+     * @type {SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate}
+     * @memberof SourceSubtypeV2WithConfigAllOfConfig
+     */
+    'machineAccountCreate'?: SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate;
+}
+/**
+ * Machine account creation settings.
+ * @export
+ * @interface SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate
+ */
+export interface SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate {
+    /**
+     * Indicates whether machine account creation is enabled for the subtype.
+     * @type {boolean}
+     * @memberof SourceSubtypeV2WithConfigAllOfConfigMachineAccountCreate
+     */
+    'accountCreateEnabled'?: boolean;
+}
+/**
  * 
  * @export
  * @interface SourceSubtypeWithSource
@@ -429,6 +803,189 @@ export const SourceSubtypeWithSourceSourceTypeEnum = {
 
 export type SourceSubtypeWithSourceSourceTypeEnum = typeof SourceSubtypeWithSourceSourceTypeEnum[keyof typeof SourceSubtypeWithSourceSourceTypeEnum];
 
+/**
+ * The machine account creation provisioning policy of a subtype.
+ * @export
+ * @interface SubtypeProvisioningPolicy
+ */
+export interface SubtypeProvisioningPolicy {
+    /**
+     * System-generated unique ID of the provisioning policy. Must not be supplied on create.
+     * @type {string}
+     * @memberof SubtypeProvisioningPolicy
+     */
+    'id'?: string;
+    /**
+     * ID of the subtype the policy belongs to. Must not be supplied on create.
+     * @type {string}
+     * @memberof SubtypeProvisioningPolicy
+     */
+    'subtypeId'?: string;
+    /**
+     * Name of the provisioning policy. Defaults to the subtype\'s display name when omitted or blank.
+     * @type {string}
+     * @memberof SubtypeProvisioningPolicy
+     */
+    'name'?: string | null;
+    /**
+     * Description of the provisioning policy.
+     * @type {string}
+     * @memberof SubtypeProvisioningPolicy
+     */
+    'description'?: string | null;
+    /**
+     * Usage type of the provisioning policy. Only `CREATE_MACHINE_ACCOUNT` is supported.
+     * @type {string}
+     * @memberof SubtypeProvisioningPolicy
+     */
+    'usageType'?: SubtypeProvisioningPolicyUsageTypeEnum;
+    /**
+     * Fields of the provisioning policy. Every field must have a non-blank `name`. When two fields share a name, only the first is kept.
+     * @type {Array<SubtypeProvisioningPolicyField>}
+     * @memberof SubtypeProvisioningPolicy
+     */
+    'fields'?: Array<SubtypeProvisioningPolicyField>;
+}
+
+export const SubtypeProvisioningPolicyUsageTypeEnum = {
+    CreateMachineAccount: 'CREATE_MACHINE_ACCOUNT'
+} as const;
+
+export type SubtypeProvisioningPolicyUsageTypeEnum = typeof SubtypeProvisioningPolicyUsageTypeEnum[keyof typeof SubtypeProvisioningPolicyUsageTypeEnum];
+
+/**
+ * One field of a subtype provisioning policy.
+ * @export
+ * @interface SubtypeProvisioningPolicyField
+ */
+export interface SubtypeProvisioningPolicyField {
+    /**
+     * Name of the attribute.
+     * @type {string}
+     * @memberof SubtypeProvisioningPolicyField
+     */
+    'name': string;
+    /**
+     * Transform to apply to the field.
+     * @type {{ [key: string]: any; }}
+     * @memberof SubtypeProvisioningPolicyField
+     */
+    'transform'?: { [key: string]: any; } | null;
+    /**
+     * Attributes required for the transform.
+     * @type {{ [key: string]: any; }}
+     * @memberof SubtypeProvisioningPolicyField
+     */
+    'attributes'?: { [key: string]: any; } | null;
+    /**
+     * Indicates whether the attribute is required.
+     * @type {boolean}
+     * @memberof SubtypeProvisioningPolicyField
+     */
+    'isRequired'?: boolean;
+    /**
+     * Type of the attribute.
+     * @type {string}
+     * @memberof SubtypeProvisioningPolicyField
+     */
+    'type'?: string | null;
+    /**
+     * Indicates whether the attribute is multi-valued.
+     * @type {boolean}
+     * @memberof SubtypeProvisioningPolicyField
+     */
+    'isMultiValued'?: boolean;
+}
+/**
+ * Reference to the source or connector the subtype is defined for.
+ * @export
+ * @interface SubtypeTarget
+ */
+export interface SubtypeTarget {
+    /**
+     * Type of the target.
+     * @type {string}
+     * @memberof SubtypeTarget
+     */
+    'type'?: SubtypeTargetTypeEnum;
+    /**
+     * Source ID for a `SOURCE` target, or connector type for a `CONNECTOR` target.
+     * @type {string}
+     * @memberof SubtypeTarget
+     */
+    'id'?: string;
+    /**
+     * Name of the source or connector.
+     * @type {string}
+     * @memberof SubtypeTarget
+     */
+    'name'?: string;
+    /**
+     * Indicates whether the target supports provisioning. Only returned when you get a single subtype by ID.
+     * @type {boolean}
+     * @memberof SubtypeTarget
+     */
+    'supportsProvisioning'?: boolean;
+}
+
+export const SubtypeTargetTypeEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR'
+} as const;
+
+export type SubtypeTargetTypeEnum = typeof SubtypeTargetTypeEnum[keyof typeof SubtypeTargetTypeEnum];
+
+/**
+ * Summary of the subtypes defined for one target. There is one item per connector type for `CONNECTOR` targets, and one item per source subtype for `SOURCE` targets.
+ * @export
+ * @interface SubtypeTargetSummary
+ */
+export interface SubtypeTargetSummary {
+    /**
+     * Tier of the target.
+     * @type {string}
+     * @memberof SubtypeTargetSummary
+     */
+    'targetType'?: SubtypeTargetSummaryTargetTypeEnum;
+    /**
+     * Connector type for a `CONNECTOR` target, or source ID for a `SOURCE` target.
+     * @type {string}
+     * @memberof SubtypeTargetSummary
+     */
+    'targetId'?: string;
+    /**
+     * Display name of the target. Falls back to `targetId` when no name is stored.
+     * @type {string}
+     * @memberof SubtypeTargetSummary
+     */
+    'targetName'?: string;
+    /**
+     * Number of subtypes defined for the target.
+     * @type {number}
+     * @memberof SubtypeTargetSummary
+     */
+    'subtypeCount'?: number;
+    /**
+     * Number of sources the target\'s subtypes apply to.
+     * @type {number}
+     * @memberof SubtypeTargetSummary
+     */
+    'sourceCount'?: number;
+    /**
+     * Most recent modification time across the target\'s subtypes.
+     * @type {string}
+     * @memberof SubtypeTargetSummary
+     */
+    'lastModified'?: string | null;
+}
+
+export const SubtypeTargetSummaryTargetTypeEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR'
+} as const;
+
+export type SubtypeTargetSummaryTargetTypeEnum = typeof SubtypeTargetSummaryTargetTypeEnum[keyof typeof SubtypeTargetSummaryTargetTypeEnum];
+
 
 /**
  * MachineAccountSubtypesApi - axios parameter creator
@@ -436,6 +993,107 @@ export type SourceSubtypeWithSourceSourceTypeEnum = typeof SourceSubtypeWithSour
  */
 export const MachineAccountSubtypesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Create a source subtype that overrides a connector subtype on one source. The new source subtype copies the connector subtype\'s machine account configuration and provisioning policy at the time of the request. Later changes to the connector subtype are not applied to the override.  The subtype identified by `id` must be a `CONNECTOR` subtype (otherwise `400`) that is in the source\'s effective subtypes. An unknown subtype or source returns `404`. The request is rejected if the tenant\'s subtype configuration cannot be changed this way.  The caller needs the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins. A caller without it receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Override source connector subtype
+         * @param {string} id The ID of the connector subtype to override.
+         * @param {SourceSubtypeOverrideRequest} sourceSubtypeOverrideRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSubtypeOverrideV2: async (id: string, sourceSubtypeOverrideRequest: SourceSubtypeOverrideRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('createSourceSubtypeOverrideV2', 'id', id)
+            // verify required parameter 'sourceSubtypeOverrideRequest' is not null or undefined
+            assertParamExists('createSourceSubtypeOverrideV2', 'sourceSubtypeOverrideRequest', sourceSubtypeOverrideRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}/overrides`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceSubtypeOverrideRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create the machine account creation provisioning policy of a subtype of any tier. A subtype has at most one provisioning policy; the request is rejected if one already exists.  `id` and `subtypeId` must not be supplied (otherwise `400`). `usageType` must be `CREATE_MACHINE_ACCOUNT` or omitted. `name` defaults to the subtype\'s display name.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Create subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {SubtypeProvisioningPolicy} subtypeProvisioningPolicy 
+         * @param {boolean} [useDefaultFields] When &#x60;true&#x60; and the request body has no &#x60;fields&#x60;, a &#x60;CONNECTOR&#x60; subtype\&#39;s policy is created with the connector\&#39;s default account creation fields. Ignored for &#x60;SOURCE&#x60; subtypes.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSubtypeProvisioningPolicyV2: async (id: string, subtypeProvisioningPolicy: SubtypeProvisioningPolicy, useDefaultFields?: boolean, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('createSourceSubtypeProvisioningPolicyV2', 'id', id)
+            // verify required parameter 'subtypeProvisioningPolicy' is not null or undefined
+            assertParamExists('createSourceSubtypeProvisioningPolicyV2', 'subtypeProvisioningPolicy', subtypeProvisioningPolicy)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}/provisioning-policy`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (useDefaultFields !== undefined) {
+                localVarQueryParameter['useDefaultFields'] = useDefaultFields;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(subtypeProvisioningPolicy, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
         /**
          * Create a new machine account subtype.
          * @summary Create subtype
@@ -481,6 +1139,50 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Create a machine account subtype at the source tier or the connector tier.  A `SOURCE` subtype applies to the one source identified by `targetId`. A `CONNECTOR` subtype applies to every source of the connector type identified by `targetId`, which must be a registered connector type. `targetType` defaults to `SOURCE`. `CONNECTOR_VARIANT` is not supported and returns `400`. `technicalName`, `displayName` and `description` are required, and the technical name and display name must be unique within the tier\'s scope.  Who can call this API depends on the requested tier:  * `SOURCE` (or omitted): requires the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:create` right, held by org admins.  A caller without the right for the requested tier receives `404`, not `403`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Create subtype
+         * @param {CreateSourceSubtypeV2Request} createSourceSubtypeV2Request 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSubtypeV2: async (createSourceSubtypeV2Request: CreateSourceSubtypeV2Request, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createSourceSubtypeV2Request' is not null or undefined
+            assertParamExists('createSourceSubtypeV2', 'createSourceSubtypeV2Request', createSourceSubtypeV2Request)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createSourceSubtypeV2Request, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a machine account subtype by subtype ID.  Note: If subtype has approval settings or entitlement for machine account creation enablement then it\'ll be also deleted.
          * @summary Delete subtype by ID
          * @param {string} subtypeId The ID of the subtype.
@@ -497,6 +1199,90 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
             
             const localVarPath = `/source-subtypes/v1/{subtypeId}`
                 .replace(`{${"subtypeId"}}`, encodeURIComponent(String(subtypeId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a machine account subtype of any tier by subtype ID. System-managed subtypes, and subtypes still assigned to accounts, cannot be deleted and the request is rejected.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Delete subtype by ID
+         * @param {string} id The ID of the subtype.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineAccountSubtypeV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteMachineAccountSubtypeV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Delete subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceSubtypeProvisioningPolicyV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteSourceSubtypeProvisioningPolicyV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}/provisioning-policy`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -609,14 +1395,168 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Get a machine account subtype of any tier by subtype ID. The response may include `target.supportsProvisioning`.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Get subtype by ID
+         * @param {string} id The ID of the subtype.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceSubtypeByIdV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSourceSubtypeByIdV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Get subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {string} [sourceId] ID of the source the subtype belongs to. Supply it for &#x60;SOURCE&#x60; subtypes so that a policy stored with the source can be found.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceSubtypeProvisioningPolicyV2: async (id: string, sourceId?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSourceSubtypeProvisioningPolicyV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}/provisioning-policy`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (sourceId !== undefined) {
+                localVarQueryParameter['sourceId'] = sourceId;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * List the targets that have machine account subtypes, with subtype and source counts for each.  A `targetType` filter is required. `targetType eq \"CONNECTOR\"` returns one item per connector type. `targetType eq \"SOURCE\"` returns one item per source subtype. A missing or unsupported `targetType` filter returns `400`.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary List subtype targets
+         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A &#x60;targetType&#x60; filter with the value &#x60;CONNECTOR&#x60; or &#x60;SOURCE&#x60; is required.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSourceSubtypeTargetsV2: async (filters: string, limit?: number, offset?: number, count?: boolean, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'filters' is not null or undefined
+            assertParamExists('listSourceSubtypeTargetsV2', 'filters', filters)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/targets`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Get all machine account subtypes.
          * @summary Retrieve all subtypes
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -655,6 +1595,89 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * List machine account subtypes defined at the source tier and the connector tier.  Without `sourceId`, the API lists every subtype in the tenant, and `filters` and `sorters` apply.  With `sourceId`, the API returns the source\'s effective subtypes: the subtypes defined for the source plus the subtypes defined for the source\'s connector type. When a source subtype has the same technical name as a connector subtype, only the source subtype is returned and its `origin` is `CONNECTOR`. `filters` cannot be used in this mode. Use `targetType` to return only one tier of the effective set. An unknown `sourceId` returns `404`.  With `sourceId` and `effectiveSet=false`, the API returns only the subtypes defined for that source, and `filters` apply.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary List subtypes
+         * @param {string} [sourceId] ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant.
+         * @param {boolean} [effectiveSet] Controls what is returned for &#x60;sourceId&#x60;. When &#x60;true&#x60;, which is the default when &#x60;sourceId&#x60; is supplied, the API returns the source\&#39;s effective subtypes across both tiers. When &#x60;false&#x60;, the API returns only the subtypes defined for the source. Passing &#x60;effectiveSet&#x3D;true&#x60; explicitly without &#x60;sourceId&#x60; returns &#x60;400&#x60;.
+         * @param {ListSourceSubtypesV2TargetTypeEnum} [targetType] Returns only effective subtypes of this tier. Requires &#x60;sourceId&#x60;, and cannot be combined with &#x60;effectiveSet&#x3D;false&#x60;; otherwise the API returns &#x60;400&#x60;.
+         * @param {boolean} [includeConfigs] When &#x60;true&#x60;, each item includes a summary of its machine account creation configuration in &#x60;config&#x60;.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with &#x60;sourceId&#x60; unless &#x60;effectiveSet&#x3D;false&#x60;; otherwise the API returns &#x60;400&#x60;.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified**
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSourceSubtypesV2: async (sourceId?: string, effectiveSet?: boolean, targetType?: ListSourceSubtypesV2TargetTypeEnum, includeConfigs?: boolean, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (sourceId !== undefined) {
+                localVarQueryParameter['sourceId'] = sourceId;
+            }
+
+            if (effectiveSet !== undefined) {
+                localVarQueryParameter['effectiveSet'] = effectiveSet;
+            }
+
+            if (targetType !== undefined) {
+                localVarQueryParameter['targetType'] = targetType;
+            }
+
+            if (includeConfigs !== undefined) {
+                localVarQueryParameter['includeConfigs'] = includeConfigs;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
             }
 
 
@@ -766,6 +1789,102 @@ export const MachineAccountSubtypesApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Update a machine account subtype of any tier by subtype ID, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `displayName` and `description` are patchable, and both must remain present. Changing `targetType`, `targetId`, `profile`, `classification`, `type` or `technicalName` returns `400`; to move a subtype to another tier or target, delete it and create a new one.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Patch subtype by ID
+         * @param {string} id The ID of the subtype.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of subtype update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchMachineAccountSubtypeV2: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchMachineAccountSubtypeV2', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchMachineAccountSubtypeV2', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update the machine account creation provisioning policy of a subtype of any tier, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Only `name`, `description` and `fields` are patchable. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Patch subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSourceSubtypeProvisioningPolicyV2: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchSourceSubtypeProvisioningPolicyV2', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchSourceSubtypeProvisioningPolicyV2', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/source-subtypes/v2/{id}/provisioning-policy`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
          * @summary Machine Subtype Approval Config
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
@@ -826,6 +1945,37 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = MachineAccountSubtypesApiAxiosParamCreator(configuration)
     return {
         /**
+         * Create a source subtype that overrides a connector subtype on one source. The new source subtype copies the connector subtype\'s machine account configuration and provisioning policy at the time of the request. Later changes to the connector subtype are not applied to the override.  The subtype identified by `id` must be a `CONNECTOR` subtype (otherwise `400`) that is in the source\'s effective subtypes. An unknown subtype or source returns `404`. The request is rejected if the tenant\'s subtype configuration cannot be changed this way.  The caller needs the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins. A caller without it receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Override source connector subtype
+         * @param {string} id The ID of the connector subtype to override.
+         * @param {SourceSubtypeOverrideRequest} sourceSubtypeOverrideRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSourceSubtypeOverrideV2(id: string, sourceSubtypeOverrideRequest: SourceSubtypeOverrideRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSubtypeV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSubtypeOverrideV2(id, sourceSubtypeOverrideRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.createSourceSubtypeOverrideV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Create the machine account creation provisioning policy of a subtype of any tier. A subtype has at most one provisioning policy; the request is rejected if one already exists.  `id` and `subtypeId` must not be supplied (otherwise `400`). `usageType` must be `CREATE_MACHINE_ACCOUNT` or omitted. `name` defaults to the subtype\'s display name.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Create subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {SubtypeProvisioningPolicy} subtypeProvisioningPolicy 
+         * @param {boolean} [useDefaultFields] When &#x60;true&#x60; and the request body has no &#x60;fields&#x60;, a &#x60;CONNECTOR&#x60; subtype\&#39;s policy is created with the connector\&#39;s default account creation fields. Ignored for &#x60;SOURCE&#x60; subtypes.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSourceSubtypeProvisioningPolicyV2(id: string, subtypeProvisioningPolicy: SubtypeProvisioningPolicy, useDefaultFields?: boolean, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubtypeProvisioningPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSubtypeProvisioningPolicyV2(id, subtypeProvisioningPolicy, useDefaultFields, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.createSourceSubtypeProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Create a new machine account subtype.
          * @summary Create subtype
          * @param {CreateSourceSubtypeV1Request} createSourceSubtypeV1Request 
@@ -840,6 +1990,20 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Create a machine account subtype at the source tier or the connector tier.  A `SOURCE` subtype applies to the one source identified by `targetId`. A `CONNECTOR` subtype applies to every source of the connector type identified by `targetId`, which must be a registered connector type. `targetType` defaults to `SOURCE`. `CONNECTOR_VARIANT` is not supported and returns `400`. `technicalName`, `displayName` and `description` are required, and the technical name and display name must be unique within the tier\'s scope.  Who can call this API depends on the requested tier:  * `SOURCE` (or omitted): requires the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:create` right, held by org admins.  A caller without the right for the requested tier receives `404`, not `403`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Create subtype
+         * @param {CreateSourceSubtypeV2Request} createSourceSubtypeV2Request 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSourceSubtypeV2(createSourceSubtypeV2Request: CreateSourceSubtypeV2Request, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSubtypeV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSubtypeV2(createSourceSubtypeV2Request, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.createSourceSubtypeV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Delete a machine account subtype by subtype ID.  Note: If subtype has approval settings or entitlement for machine account creation enablement then it\'ll be also deleted.
          * @summary Delete subtype by ID
          * @param {string} subtypeId The ID of the subtype.
@@ -851,6 +2015,34 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountSubtypeV1(subtypeId, xSailPointExperimental, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.deleteMachineAccountSubtypeV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Delete a machine account subtype of any tier by subtype ID. System-managed subtypes, and subtypes still assigned to accounts, cannot be deleted and the request is rejected.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Delete subtype by ID
+         * @param {string} id The ID of the subtype.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteMachineAccountSubtypeV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMachineAccountSubtypeV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.deleteMachineAccountSubtypeV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Delete the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Delete subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSourceSubtypeProvisioningPolicyV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSubtypeProvisioningPolicyV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.deleteSourceSubtypeProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -882,14 +2074,61 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Get a machine account subtype of any tier by subtype ID. The response may include `target.supportsProvisioning`.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Get subtype by ID
+         * @param {string} id The ID of the subtype.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceSubtypeByIdV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSubtypeV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSubtypeByIdV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.getSourceSubtypeByIdV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Get the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Get subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {string} [sourceId] ID of the source the subtype belongs to. Supply it for &#x60;SOURCE&#x60; subtypes so that a policy stored with the source can be found.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceSubtypeProvisioningPolicyV2(id: string, sourceId?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubtypeProvisioningPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSubtypeProvisioningPolicyV2(id, sourceId, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.getSourceSubtypeProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List the targets that have machine account subtypes, with subtype and source counts for each.  A `targetType` filter is required. `targetType eq \"CONNECTOR\"` returns one item per connector type. `targetType eq \"SOURCE\"` returns one item per source subtype. A missing or unsupported `targetType` filter returns `400`.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary List subtype targets
+         * @param {string} filters Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A &#x60;targetType&#x60; filter with the value &#x60;CONNECTOR&#x60; or &#x60;SOURCE&#x60; is required.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSourceSubtypeTargetsV2(filters: string, limit?: number, offset?: number, count?: boolean, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SubtypeTargetSummary>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSubtypeTargetsV2(filters, limit, offset, count, sorters, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.listSourceSubtypeTargetsV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Get all machine account subtypes.
          * @summary Retrieve all subtypes
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -897,6 +2136,28 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSubtypesV1(filters, sorters, xSailPointExperimental, count, limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.listSourceSubtypesV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * List machine account subtypes defined at the source tier and the connector tier.  Without `sourceId`, the API lists every subtype in the tenant, and `filters` and `sorters` apply.  With `sourceId`, the API returns the source\'s effective subtypes: the subtypes defined for the source plus the subtypes defined for the source\'s connector type. When a source subtype has the same technical name as a connector subtype, only the source subtype is returned and its `origin` is `CONNECTOR`. `filters` cannot be used in this mode. Use `targetType` to return only one tier of the effective set. An unknown `sourceId` returns `404`.  With `sourceId` and `effectiveSet=false`, the API returns only the subtypes defined for that source, and `filters` apply.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary List subtypes
+         * @param {string} [sourceId] ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant.
+         * @param {boolean} [effectiveSet] Controls what is returned for &#x60;sourceId&#x60;. When &#x60;true&#x60;, which is the default when &#x60;sourceId&#x60; is supplied, the API returns the source\&#39;s effective subtypes across both tiers. When &#x60;false&#x60;, the API returns only the subtypes defined for the source. Passing &#x60;effectiveSet&#x3D;true&#x60; explicitly without &#x60;sourceId&#x60; returns &#x60;400&#x60;.
+         * @param {ListSourceSubtypesV2TargetTypeEnum} [targetType] Returns only effective subtypes of this tier. Requires &#x60;sourceId&#x60;, and cannot be combined with &#x60;effectiveSet&#x3D;false&#x60;; otherwise the API returns &#x60;400&#x60;.
+         * @param {boolean} [includeConfigs] When &#x60;true&#x60;, each item includes a summary of its machine account creation configuration in &#x60;config&#x60;.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with &#x60;sourceId&#x60; unless &#x60;effectiveSet&#x3D;false&#x60;; otherwise the API returns &#x60;400&#x60;.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified**
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSourceSubtypesV2(sourceId?: string, effectiveSet?: boolean, targetType?: ListSourceSubtypesV2TargetTypeEnum, includeConfigs?: boolean, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceSubtypeV2WithConfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSubtypesV2(sourceId, effectiveSet, targetType, includeConfigs, limit, offset, count, filters, sorters, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.listSourceSubtypesV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -929,6 +2190,36 @@ export const MachineAccountSubtypesApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Update a machine account subtype of any tier by subtype ID, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `displayName` and `description` are patchable, and both must remain present. Changing `targetType`, `targetId`, `profile`, `classification`, `type` or `technicalName` returns `400`; to move a subtype to another tier or target, delete it and create a new one.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Patch subtype by ID
+         * @param {string} id The ID of the subtype.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of subtype update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchMachineAccountSubtypeV2(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSubtypeV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchMachineAccountSubtypeV2(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.patchMachineAccountSubtypeV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Update the machine account creation provisioning policy of a subtype of any tier, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Only `name`, `description` and `fields` are patchable. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Patch subtype provisioning policy
+         * @param {string} id The ID of the subtype.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchSourceSubtypeProvisioningPolicyV2(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubtypeProvisioningPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSourceSubtypeProvisioningPolicyV2(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountSubtypesApi.patchSourceSubtypeProvisioningPolicyV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
          * @summary Machine Subtype Approval Config
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
@@ -954,6 +2245,26 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
     const localVarFp = MachineAccountSubtypesApiFp(configuration)
     return {
         /**
+         * Create a source subtype that overrides a connector subtype on one source. The new source subtype copies the connector subtype\'s machine account configuration and provisioning policy at the time of the request. Later changes to the connector subtype are not applied to the override.  The subtype identified by `id` must be a `CONNECTOR` subtype (otherwise `400`) that is in the source\'s effective subtypes. An unknown subtype or source returns `404`. The request is rejected if the tenant\'s subtype configuration cannot be changed this way.  The caller needs the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins. A caller without it receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Override source connector subtype
+         * @param {MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSubtypeOverrideV2(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceSubtypeV2> {
+            return localVarFp.createSourceSubtypeOverrideV2(requestParameters.id, requestParameters.sourceSubtypeOverrideRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create the machine account creation provisioning policy of a subtype of any tier. A subtype has at most one provisioning policy; the request is rejected if one already exists.  `id` and `subtypeId` must not be supplied (otherwise `400`). `usageType` must be `CREATE_MACHINE_ACCOUNT` or omitted. `name` defaults to the subtype\'s display name.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Create subtype provisioning policy
+         * @param {MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SubtypeProvisioningPolicy> {
+            return localVarFp.createSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.subtypeProvisioningPolicy, requestParameters.useDefaultFields, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new machine account subtype.
          * @summary Create subtype
          * @param {MachineAccountSubtypesApiCreateSourceSubtypeV1Request} requestParameters Request parameters.
@@ -964,6 +2275,16 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
             return localVarFp.createSourceSubtypeV1(requestParameters.createSourceSubtypeV1Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Create a machine account subtype at the source tier or the connector tier.  A `SOURCE` subtype applies to the one source identified by `targetId`. A `CONNECTOR` subtype applies to every source of the connector type identified by `targetId`, which must be a registered connector type. `targetType` defaults to `SOURCE`. `CONNECTOR_VARIANT` is not supported and returns `400`. `technicalName`, `displayName` and `description` are required, and the technical name and display name must be unique within the tier\'s scope.  Who can call this API depends on the requested tier:  * `SOURCE` (or omitted): requires the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:create` right, held by org admins.  A caller without the right for the requested tier receives `404`, not `403`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Create subtype
+         * @param {MachineAccountSubtypesApiCreateSourceSubtypeV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSubtypeV2(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceSubtypeV2> {
+            return localVarFp.createSourceSubtypeV2(requestParameters.createSourceSubtypeV2Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a machine account subtype by subtype ID.  Note: If subtype has approval settings or entitlement for machine account creation enablement then it\'ll be also deleted.
          * @summary Delete subtype by ID
          * @param {MachineAccountSubtypesApiDeleteMachineAccountSubtypeV1Request} requestParameters Request parameters.
@@ -972,6 +2293,26 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          */
         deleteMachineAccountSubtypeV1(requestParameters: MachineAccountSubtypesApiDeleteMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteMachineAccountSubtypeV1(requestParameters.subtypeId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a machine account subtype of any tier by subtype ID. System-managed subtypes, and subtypes still assigned to accounts, cannot be deleted and the request is rejected.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Delete subtype by ID
+         * @param {MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMachineAccountSubtypeV2(requestParameters: MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteMachineAccountSubtypeV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Delete subtype provisioning policy
+         * @param {MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint retrieves the approval configuration for machine account creation and deletion at the machine subtype level. By providing a specific subtypeId in the path, clients can fetch the approval rules and settings (such as required approvers and comments policy) that govern account creation and deletion for that particular machine subtype. The response includes a MachineAccountSubtypeConfigDto object detailing these configurations, enabling clients to understand or display the approval workflow required for creating and deleting machine accounts of the given subtype. Use this endpoint to get machine subtype level approval config for account creation and deletion.
@@ -994,6 +2335,36 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
             return localVarFp.getSourceSubtypeByIdV1(requestParameters.subtypeId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get a machine account subtype of any tier by subtype ID. The response may include `target.supportsProvisioning`.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Get subtype by ID
+         * @param {MachineAccountSubtypesApiGetSourceSubtypeByIdV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceSubtypeByIdV2(requestParameters: MachineAccountSubtypesApiGetSourceSubtypeByIdV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceSubtypeV2> {
+            return localVarFp.getSourceSubtypeByIdV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Get subtype provisioning policy
+         * @param {MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SubtypeProvisioningPolicy> {
+            return localVarFp.getSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * List the targets that have machine account subtypes, with subtype and source counts for each.  A `targetType` filter is required. `targetType eq \"CONNECTOR\"` returns one item per connector type. `targetType eq \"SOURCE\"` returns one item per source subtype. A missing or unsupported `targetType` filter returns `400`.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary List subtype targets
+         * @param {MachineAccountSubtypesApiListSourceSubtypeTargetsV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSourceSubtypeTargetsV2(requestParameters: MachineAccountSubtypesApiListSourceSubtypeTargetsV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SubtypeTargetSummary>> {
+            return localVarFp.listSourceSubtypeTargetsV2(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Get all machine account subtypes.
          * @summary Retrieve all subtypes
          * @param {MachineAccountSubtypesApiListSourceSubtypesV1Request} requestParameters Request parameters.
@@ -1002,6 +2373,16 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
          */
         listSourceSubtypesV1(requestParameters: MachineAccountSubtypesApiListSourceSubtypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceSubtypeWithSource>> {
             return localVarFp.listSourceSubtypesV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * List machine account subtypes defined at the source tier and the connector tier.  Without `sourceId`, the API lists every subtype in the tenant, and `filters` and `sorters` apply.  With `sourceId`, the API returns the source\'s effective subtypes: the subtypes defined for the source plus the subtypes defined for the source\'s connector type. When a source subtype has the same technical name as a connector subtype, only the source subtype is returned and its `origin` is `CONNECTOR`. `filters` cannot be used in this mode. Use `targetType` to return only one tier of the effective set. An unknown `sourceId` returns `404`.  With `sourceId` and `effectiveSet=false`, the API returns only the subtypes defined for that source, and `filters` apply.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary List subtypes
+         * @param {MachineAccountSubtypesApiListSourceSubtypesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSourceSubtypesV2(requestParameters: MachineAccountSubtypesApiListSourceSubtypesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<SourceSubtypeV2WithConfig>> {
+            return localVarFp.listSourceSubtypesV2(requestParameters.sourceId, requestParameters.effectiveSet, requestParameters.targetType, requestParameters.includeConfigs, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint retrieves the subtypes for given subtypeIds.
@@ -1024,6 +2405,26 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
             return localVarFp.patchMachineAccountSubtypeV1(requestParameters.subtypeId, requestParameters.requestBody, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Update a machine account subtype of any tier by subtype ID, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `displayName` and `description` are patchable, and both must remain present. Changing `targetType`, `targetId`, `profile`, `classification`, `type` or `technicalName` returns `400`; to move a subtype to another tier or target, delete it and create a new one.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Patch subtype by ID
+         * @param {MachineAccountSubtypesApiPatchMachineAccountSubtypeV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchMachineAccountSubtypeV2(requestParameters: MachineAccountSubtypesApiPatchMachineAccountSubtypeV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceSubtypeV2> {
+            return localVarFp.patchMachineAccountSubtypeV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update the machine account creation provisioning policy of a subtype of any tier, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Only `name`, `description` and `fields` are patchable. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+         * @summary Patch subtype provisioning policy
+         * @param {MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SubtypeProvisioningPolicy> {
+            return localVarFp.patchSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
          * @summary Machine Subtype Approval Config
          * @param {MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalConfigV1Request} requestParameters Request parameters.
@@ -1035,6 +2436,69 @@ export const MachineAccountSubtypesApiFactory = function (configuration?: Config
         },
     };
 };
+
+/**
+ * Request parameters for createSourceSubtypeOverrideV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2Request
+ */
+export interface MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2Request {
+    /**
+     * The ID of the connector subtype to override.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {SourceSubtypeOverrideRequest}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2
+     */
+    readonly sourceSubtypeOverrideRequest: SourceSubtypeOverrideRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for createSourceSubtypeProvisioningPolicyV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2Request
+ */
+export interface MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2Request {
+    /**
+     * The ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {SubtypeProvisioningPolicy}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2
+     */
+    readonly subtypeProvisioningPolicy: SubtypeProvisioningPolicy
+
+    /**
+     * When &#x60;true&#x60; and the request body has no &#x60;fields&#x60;, a &#x60;CONNECTOR&#x60; subtype\&#39;s policy is created with the connector\&#39;s default account creation fields. Ignored for &#x60;SOURCE&#x60; subtypes.
+     * @type {boolean}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2
+     */
+    readonly useDefaultFields?: boolean
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
+}
 
 /**
  * Request parameters for createSourceSubtypeV1 operation in MachineAccountSubtypesApi.
@@ -1058,6 +2522,27 @@ export interface MachineAccountSubtypesApiCreateSourceSubtypeV1Request {
 }
 
 /**
+ * Request parameters for createSourceSubtypeV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiCreateSourceSubtypeV2Request
+ */
+export interface MachineAccountSubtypesApiCreateSourceSubtypeV2Request {
+    /**
+     * 
+     * @type {CreateSourceSubtypeV2Request}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeV2
+     */
+    readonly createSourceSubtypeV2Request: CreateSourceSubtypeV2Request
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiCreateSourceSubtypeV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for deleteMachineAccountSubtypeV1 operation in MachineAccountSubtypesApi.
  * @export
  * @interface MachineAccountSubtypesApiDeleteMachineAccountSubtypeV1Request
@@ -1074,6 +2559,48 @@ export interface MachineAccountSubtypesApiDeleteMachineAccountSubtypeV1Request {
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof MachineAccountSubtypesApiDeleteMachineAccountSubtypeV1
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for deleteMachineAccountSubtypeV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2Request
+ */
+export interface MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2Request {
+    /**
+     * The ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for deleteSourceSubtypeProvisioningPolicyV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2Request
+ */
+export interface MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2Request {
+    /**
+     * The ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2
      */
     readonly xSailPointExperimental?: string
 }
@@ -1121,20 +2648,118 @@ export interface MachineAccountSubtypesApiGetSourceSubtypeByIdV1Request {
 }
 
 /**
+ * Request parameters for getSourceSubtypeByIdV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiGetSourceSubtypeByIdV2Request
+ */
+export interface MachineAccountSubtypesApiGetSourceSubtypeByIdV2Request {
+    /**
+     * The ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiGetSourceSubtypeByIdV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiGetSourceSubtypeByIdV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for getSourceSubtypeProvisioningPolicyV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2Request
+ */
+export interface MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2Request {
+    /**
+     * The ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * ID of the source the subtype belongs to. Supply it for &#x60;SOURCE&#x60; subtypes so that a policy stored with the source can be found.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2
+     */
+    readonly sourceId?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for listSourceSubtypeTargetsV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiListSourceSubtypeTargetsV2Request
+ */
+export interface MachineAccountSubtypesApiListSourceSubtypeTargetsV2Request {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A &#x60;targetType&#x60; filter with the value &#x60;CONNECTOR&#x60; or &#x60;SOURCE&#x60; is required.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypeTargetsV2
+     */
+    readonly filters: string
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypeTargetsV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypeTargetsV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypeTargetsV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypeTargetsV2
+     */
+    readonly sorters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypeTargetsV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for listSourceSubtypesV1 operation in MachineAccountSubtypesApi.
  * @export
  * @interface MachineAccountSubtypesApiListSourceSubtypesV1Request
  */
 export interface MachineAccountSubtypesApiListSourceSubtypesV1Request {
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in*
      * @type {string}
      * @memberof MachineAccountSubtypesApiListSourceSubtypesV1
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName**
      * @type {string}
      * @memberof MachineAccountSubtypesApiListSourceSubtypesV1
      */
@@ -1148,25 +2773,102 @@ export interface MachineAccountSubtypesApiListSourceSubtypesV1Request {
     readonly xSailPointExperimental?: string
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof MachineAccountSubtypesApiListSourceSubtypesV1
      */
     readonly count?: boolean
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof MachineAccountSubtypesApiListSourceSubtypesV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof MachineAccountSubtypesApiListSourceSubtypesV1
      */
     readonly offset?: number
+}
+
+/**
+ * Request parameters for listSourceSubtypesV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiListSourceSubtypesV2Request
+ */
+export interface MachineAccountSubtypesApiListSourceSubtypesV2Request {
+    /**
+     * ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly sourceId?: string
+
+    /**
+     * Controls what is returned for &#x60;sourceId&#x60;. When &#x60;true&#x60;, which is the default when &#x60;sourceId&#x60; is supplied, the API returns the source\&#39;s effective subtypes across both tiers. When &#x60;false&#x60;, the API returns only the subtypes defined for the source. Passing &#x60;effectiveSet&#x3D;true&#x60; explicitly without &#x60;sourceId&#x60; returns &#x60;400&#x60;.
+     * @type {boolean}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly effectiveSet?: boolean
+
+    /**
+     * Returns only effective subtypes of this tier. Requires &#x60;sourceId&#x60;, and cannot be combined with &#x60;effectiveSet&#x3D;false&#x60;; otherwise the API returns &#x60;400&#x60;.
+     * @type {'SOURCE' | 'CONNECTOR'}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly targetType?: ListSourceSubtypesV2TargetTypeEnum
+
+    /**
+     * When &#x60;true&#x60;, each item includes a summary of its machine account creation configuration in &#x60;config&#x60;.
+     * @type {boolean}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly includeConfigs?: boolean
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with &#x60;sourceId&#x60; unless &#x60;effectiveSet&#x3D;false&#x60;; otherwise the API returns &#x60;400&#x60;.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified**
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly sorters?: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiListSourceSubtypesV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -1219,6 +2921,62 @@ export interface MachineAccountSubtypesApiPatchMachineAccountSubtypeV1Request {
 }
 
 /**
+ * Request parameters for patchMachineAccountSubtypeV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiPatchMachineAccountSubtypeV2Request
+ */
+export interface MachineAccountSubtypesApiPatchMachineAccountSubtypeV2Request {
+    /**
+     * The ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiPatchMachineAccountSubtypeV2
+     */
+    readonly id: string
+
+    /**
+     * A list of subtype update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof MachineAccountSubtypesApiPatchMachineAccountSubtypeV2
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiPatchMachineAccountSubtypeV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for patchSourceSubtypeProvisioningPolicyV2 operation in MachineAccountSubtypesApi.
+ * @export
+ * @interface MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2Request
+ */
+export interface MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2Request {
+    /**
+     * The ID of the subtype.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2
+     */
+    readonly id: string
+
+    /**
+     * A list of policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for updateMachineAccountSubtypeApprovalConfigV1 operation in MachineAccountSubtypesApi.
  * @export
  * @interface MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalConfigV1Request
@@ -1254,6 +3012,30 @@ export interface MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalCon
  */
 export class MachineAccountSubtypesApi extends BaseAPI {
     /**
+     * Create a source subtype that overrides a connector subtype on one source. The new source subtype copies the connector subtype\'s machine account configuration and provisioning policy at the time of the request. Later changes to the connector subtype are not applied to the override.  The subtype identified by `id` must be a `CONNECTOR` subtype (otherwise `400`) that is in the source\'s effective subtypes. An unknown subtype or source returns `404`. The request is rejected if the tenant\'s subtype configuration cannot be changed this way.  The caller needs the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins. A caller without it receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Override source connector subtype
+     * @param {MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public createSourceSubtypeOverrideV2(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeOverrideV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).createSourceSubtypeOverrideV2(requestParameters.id, requestParameters.sourceSubtypeOverrideRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create the machine account creation provisioning policy of a subtype of any tier. A subtype has at most one provisioning policy; the request is rejected if one already exists.  `id` and `subtypeId` must not be supplied (otherwise `400`). `usageType` must be `CREATE_MACHINE_ACCOUNT` or omitted. `name` defaults to the subtype\'s display name.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Create subtype provisioning policy
+     * @param {MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public createSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).createSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.subtypeProvisioningPolicy, requestParameters.useDefaultFields, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Create a new machine account subtype.
      * @summary Create subtype
      * @param {MachineAccountSubtypesApiCreateSourceSubtypeV1Request} requestParameters Request parameters.
@@ -1266,6 +3048,18 @@ export class MachineAccountSubtypesApi extends BaseAPI {
     }
 
     /**
+     * Create a machine account subtype at the source tier or the connector tier.  A `SOURCE` subtype applies to the one source identified by `targetId`. A `CONNECTOR` subtype applies to every source of the connector type identified by `targetId`, which must be a registered connector type. `targetType` defaults to `SOURCE`. `CONNECTOR_VARIANT` is not supported and returns `400`. `technicalName`, `displayName` and `description` are required, and the technical name and display name must be unique within the tier\'s scope.  Who can call this API depends on the requested tier:  * `SOURCE` (or omitted): requires the `idn:source-subtypes:create` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:create` right, held by org admins.  A caller without the right for the requested tier receives `404`, not `403`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Create subtype
+     * @param {MachineAccountSubtypesApiCreateSourceSubtypeV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public createSourceSubtypeV2(requestParameters: MachineAccountSubtypesApiCreateSourceSubtypeV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).createSourceSubtypeV2(requestParameters.createSourceSubtypeV2Request, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Delete a machine account subtype by subtype ID.  Note: If subtype has approval settings or entitlement for machine account creation enablement then it\'ll be also deleted.
      * @summary Delete subtype by ID
      * @param {MachineAccountSubtypesApiDeleteMachineAccountSubtypeV1Request} requestParameters Request parameters.
@@ -1275,6 +3069,30 @@ export class MachineAccountSubtypesApi extends BaseAPI {
      */
     public deleteMachineAccountSubtypeV1(requestParameters: MachineAccountSubtypesApiDeleteMachineAccountSubtypeV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountSubtypesApiFp(this.configuration).deleteMachineAccountSubtypeV1(requestParameters.subtypeId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a machine account subtype of any tier by subtype ID. System-managed subtypes, and subtypes still assigned to accounts, cannot be deleted and the request is rejected.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Delete subtype by ID
+     * @param {MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public deleteMachineAccountSubtypeV2(requestParameters: MachineAccountSubtypesApiDeleteMachineAccountSubtypeV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).deleteMachineAccountSubtypeV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:delete` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:delete` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Delete subtype provisioning policy
+     * @param {MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public deleteSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiDeleteSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).deleteSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1302,6 +3120,42 @@ export class MachineAccountSubtypesApi extends BaseAPI {
     }
 
     /**
+     * Get a machine account subtype of any tier by subtype ID. The response may include `target.supportsProvisioning`.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Get subtype by ID
+     * @param {MachineAccountSubtypesApiGetSourceSubtypeByIdV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public getSourceSubtypeByIdV2(requestParameters: MachineAccountSubtypesApiGetSourceSubtypeByIdV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).getSourceSubtypeByIdV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the machine account creation provisioning policy of a subtype of any tier. Returns `404` when the subtype has no provisioning policy.  The caller needs the `idn:source-subtypes:read` right. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Get subtype provisioning policy
+     * @param {MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public getSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiGetSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).getSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List the targets that have machine account subtypes, with subtype and source counts for each.  A `targetType` filter is required. `targetType eq \"CONNECTOR\"` returns one item per connector type. `targetType eq \"SOURCE\"` returns one item per source subtype. A missing or unsupported `targetType` filter returns `400`.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary List subtype targets
+     * @param {MachineAccountSubtypesApiListSourceSubtypeTargetsV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public listSourceSubtypeTargetsV2(requestParameters: MachineAccountSubtypesApiListSourceSubtypeTargetsV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).listSourceSubtypeTargetsV2(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get all machine account subtypes.
      * @summary Retrieve all subtypes
      * @param {MachineAccountSubtypesApiListSourceSubtypesV1Request} requestParameters Request parameters.
@@ -1311,6 +3165,18 @@ export class MachineAccountSubtypesApi extends BaseAPI {
      */
     public listSourceSubtypesV1(requestParameters: MachineAccountSubtypesApiListSourceSubtypesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountSubtypesApiFp(this.configuration).listSourceSubtypesV1(requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List machine account subtypes defined at the source tier and the connector tier.  Without `sourceId`, the API lists every subtype in the tenant, and `filters` and `sorters` apply.  With `sourceId`, the API returns the source\'s effective subtypes: the subtypes defined for the source plus the subtypes defined for the source\'s connector type. When a source subtype has the same technical name as a connector subtype, only the source subtype is returned and its `origin` is `CONNECTOR`. `filters` cannot be used in this mode. Use `targetType` to return only one tier of the effective set. An unknown `sourceId` returns `404`.  With `sourceId` and `effectiveSet=false`, the API returns only the subtypes defined for that source, and `filters` apply.  The caller needs the `idn:source-subtypes:read` right.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary List subtypes
+     * @param {MachineAccountSubtypesApiListSourceSubtypesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public listSourceSubtypesV2(requestParameters: MachineAccountSubtypesApiListSourceSubtypesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).listSourceSubtypesV2(requestParameters.sourceId, requestParameters.effectiveSet, requestParameters.targetType, requestParameters.includeConfigs, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1338,6 +3204,30 @@ export class MachineAccountSubtypesApi extends BaseAPI {
     }
 
     /**
+     * Update a machine account subtype of any tier by subtype ID, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `displayName` and `description` are patchable, and both must remain present. Changing `targetType`, `targetId`, `profile`, `classification`, `type` or `technicalName` returns `400`; to move a subtype to another tier or target, delete it and create a new one.  Who can call this API depends on the tier of the stored subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Patch subtype by ID
+     * @param {MachineAccountSubtypesApiPatchMachineAccountSubtypeV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public patchMachineAccountSubtypeV2(requestParameters: MachineAccountSubtypesApiPatchMachineAccountSubtypeV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).patchMachineAccountSubtypeV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update the machine account creation provisioning policy of a subtype of any tier, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Only `name`, `description` and `fields` are patchable. Returns `404` when the subtype has no provisioning policy.  Who can call this API depends on the tier of the subtype:  * `SOURCE`: requires the `idn:source-subtypes:update` right, held by org admins, source admins and source sub-admins.  * `CONNECTOR`: requires the `idn:connector-subtypes:update` right, held by org admins.  A caller without the right for the subtype\'s tier receives `404`, not `403`. A malformed ID returns `400`.  This API returns `404` when Machine Identity Security or tiered subtype configuration is not enabled for the tenant.
+     * @summary Patch subtype provisioning policy
+     * @param {MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountSubtypesApi
+     */
+    public patchSourceSubtypeProvisioningPolicyV2(requestParameters: MachineAccountSubtypesApiPatchSourceSubtypeProvisioningPolicyV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountSubtypesApiFp(this.configuration).patchSourceSubtypeProvisioningPolicyV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Updates the approval configuration for machine account deletion at the specified machine subtype level. This endpoint allows clients to modify approval rules and settings (such as required approvers and comments policy) for account creation and deletion workflows associated with a given subtypeId. Use this to customize or enforce approval requirements for creating and deleting machine accounts of a particular subtype.
      * @summary Machine Subtype Approval Config
      * @param {MachineAccountSubtypesApiUpdateMachineAccountSubtypeApprovalConfigV1Request} requestParameters Request parameters.
@@ -1350,5 +3240,13 @@ export class MachineAccountSubtypesApi extends BaseAPI {
     }
 }
 
+/**
+ * @export
+ */
+export const ListSourceSubtypesV2TargetTypeEnum = {
+    Source: 'SOURCE',
+    Connector: 'CONNECTOR'
+} as const;
+export type ListSourceSubtypesV2TargetTypeEnum = typeof ListSourceSubtypesV2TargetTypeEnum[keyof typeof ListSourceSubtypesV2TargetTypeEnum];
 
 

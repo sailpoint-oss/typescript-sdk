@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'Intelmachineaccountwire', 'v1Intelmac
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | `string` | Unique account identifier in Identity Security Cloud. | [default to undefined]
+**id** | `string` | Unique account identifier in SailPoint Identity Security. | [default to undefined]
 **name** | `string` | Account name on the correlated source. | [default to undefined]
 **nativeIdentity** | `string` | Native identifier on the source system. | [default to undefined]
 **source** | `Intelmachinesourcewire` | Source metadata for the machine account when present upstream. | [default to undefined]

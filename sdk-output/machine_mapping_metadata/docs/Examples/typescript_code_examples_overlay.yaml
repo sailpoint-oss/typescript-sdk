@@ -1,0 +1,28 @@
+- path: /machine-mapping-metadata/v1/target-account-attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_mapping_metadata/methods/machine-mapping-metadata#get-machine-mapping-target-account-attributes-v1
+      source: |
+        import { MachineMappingMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineMappingMetadataApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getMachineMappingTargetAccountAttributesV1({  });
+        console.log(result);
+- path: /machine-mapping-metadata/v1/target-identity-attributes
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_mapping_metadata/methods/machine-mapping-metadata#get-machine-mapping-target-identity-attributes-v1
+      source: |
+        import { MachineMappingMetadataApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineMappingMetadataApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getMachineMappingTargetIdentityAttributesV1({  });
+        console.log(result);

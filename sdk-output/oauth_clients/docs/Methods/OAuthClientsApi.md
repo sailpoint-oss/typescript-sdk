@@ -11,8 +11,8 @@ tags: ['SDK', 'Software Development Kit', 'OAuthClients', 'v1OAuthClients']
 
 # OAuthClientsApi
   Use this API to implement OAuth client functionality.   
-With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the Identity Security Cloud REST API.
-Refer to [Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information about OAuth and how it works with the Identity Security Cloud REST API.
+With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the SailPoint Identity Security REST API.
+Refer to [Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information about OAuth and how it works with the SailPoint Identity Security REST API.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com*
 
@@ -164,7 +164,7 @@ This gets a list of OAuth clients.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**filters** | `string` | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* | [optional] [default to undefined]
+**filters** | `string` | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* | [optional] [default to undefined]
 
 ### Return type
 
@@ -183,7 +183,7 @@ import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new OAuthClientsApi(configuration);
-const filters: string = lastUsed le 2023-02-05T10:59:27.214Z; // Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
+const filters: string = lastUsed le 2023-02-05T10:59:27.214Z; // Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 const result = await apiInstance.listOauthClientsV1({  });
 console.log(result);
 ```

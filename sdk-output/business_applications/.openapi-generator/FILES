@@ -2,6 +2,7 @@
 .npmignore
 .openapi-generator-ignore
 ArrayInner.md
+BaseCommonDto.md
 BaseReferenceDto.md
 BusinessApplication.md
 BusinessApplicationAdditionalOwnersInner.md
@@ -20,6 +21,14 @@ JsonPatchOperationValue.md
 ListBusinessApplicationsV1401Response.md
 ListBusinessApplicationsV1429Response.md
 LocaleOrigin.md
+MCPConnectedAgentBusinessApplicationRefs.md
+MCPConnectedAgentOwners.md
+MCPConnectedAgentSource.md
+MCPConnectedAgentUserEntitlements.md
+MCPPackage.md
+MCPServer.md
+MCPServerCounts.md
+Mcpconnectedagent.md
 README.md
 SanctionedStatus.md
 api.ts

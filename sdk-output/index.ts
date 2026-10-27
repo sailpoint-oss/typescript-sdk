@@ -36,6 +36,7 @@ import { AuthProfileApi as _AuthProfileApi } from "./auth_profile/api";
 import { AuthUsersApi as _AuthUsersApi } from "./auth_users/api";
 import { BrandingApi as _BrandingApi } from "./branding/api";
 import { BusinessApplicationsApi as _BusinessApplicationsApi } from "./business_applications/api";
+import { CapabilitiesApi as _CapabilitiesApi } from "./capabilities/api";
 import { CertificationCampaignFiltersApi as _CertificationCampaignFiltersApi } from "./certification_campaign_filters/api";
 import { CertificationCampaignsApi as _CertificationCampaignsApi } from "./certification_campaigns/api";
 import { CertificationSummariesApi as _CertificationSummariesApi } from "./certification_summaries/api";
@@ -45,15 +46,18 @@ import { ConfigurationHubApi as _ConfigurationHubApi } from "./configuration_hub
 import { ConnectorCustomizersApi as _ConnectorCustomizersApi } from "./connector_customizers/api";
 import { ConnectorRuleManagementApi as _ConnectorRuleManagementApi } from "./connector_rule_management/api";
 import { ConnectorsApi as _ConnectorsApi } from "./connectors/api";
+import { CredentialsApi as _CredentialsApi } from "./credentials/api";
 import { CustomFormsApi as _CustomFormsApi } from "./custom_forms/api";
 import { CustomPasswordInstructionsApi as _CustomPasswordInstructionsApi } from "./custom_password_instructions/api";
 import { CustomUserLevelsApi as _CustomUserLevelsApi } from "./custom_user_levels/api";
 import { DataAccessSecurityApi as _DataAccessSecurityApi } from "./data_access_security/api";
 import { DataSegmentationApi as _DataSegmentationApi } from "./data_segmentation/api";
 import { DeclassifySourceApi as _DeclassifySourceApi } from "./declassify_source/api";
+import { DevicesApi as _DevicesApi } from "./devices/api";
 import { DimensionsApi as _DimensionsApi } from "./dimensions/api";
 import { EntitlementConnectionsApi as _EntitlementConnectionsApi } from "./entitlement_connections/api";
 import { EntitlementsApi as _EntitlementsApi } from "./entitlements/api";
+import { GenericRequestApprovalConfigApi as _GenericRequestApprovalConfigApi } from "./generic_request_approval_config/api";
 import { GlobalTenantSecuritySettingsApi as _GlobalTenantSecuritySettingsApi } from "./global_tenant_security_settings/api";
 import { NextGenerationCertificationCampaignsApi as _NextGenerationCertificationCampaignsApi } from "./gov_certification/api";
 import { GovernanceGroupsApi as _GovernanceGroupsApi } from "./governance_groups/api";
@@ -77,11 +81,14 @@ import { LifecycleStatesApi as _LifecycleStatesApi } from "./lifecycle_states/ap
 import { MachineAccountClassifyApi as _MachineAccountClassifyApi } from "./machine_account_classify/api";
 import { MachineAccountCreationRequestApi as _MachineAccountCreationRequestApi } from "./machine_account_creation_request/api";
 import { MachineAccountMappingsApi as _MachineAccountMappingsApi } from "./machine_account_mappings/api";
+import { MachineAccountRecommendationApi as _MachineAccountRecommendationApi } from "./machine_account_recommendation/api";
 import { MachineAccountSubtypesApi as _MachineAccountSubtypesApi } from "./machine_account_subtypes/api";
 import { MachineAccountsApi as _MachineAccountsApi } from "./machine_accounts/api";
 import { MachineClassificationConfigApi as _MachineClassificationConfigApi } from "./machine_classification_config/api";
 import { MachineIdentitiesApi as _MachineIdentitiesApi } from "./machine_identities/api";
 import { MachineIdentityLifecycleActionsApi as _MachineIdentityLifecycleActionsApi } from "./machine_identities_lifecycle_actions/api";
+import { MachineIdentityMetadataApi as _MachineIdentityMetadataApi } from "./machine_identity_metadata/api";
+import { MachineMappingMetadataApi as _MachineMappingMetadataApi } from "./machine_mapping_metadata/api";
 import { ManagedClientsApi as _ManagedClientsApi } from "./managed_clients/api";
 import { ManagedClusterTypesApi as _ManagedClusterTypesApi } from "./managed_cluster_types/api";
 import { ManagedClustersApi as _ManagedClustersApi } from "./managed_clusters/api";
@@ -154,6 +161,7 @@ export { _AuthProfileApi as AuthProfileApi };
 export { _AuthUsersApi as AuthUsersApi };
 export { _BrandingApi as BrandingApi };
 export { _BusinessApplicationsApi as BusinessApplicationsApi };
+export { _CapabilitiesApi as CapabilitiesApi };
 export { _CertificationCampaignFiltersApi as CertificationCampaignFiltersApi };
 export { _CertificationCampaignsApi as CertificationCampaignsApi };
 export { _CertificationSummariesApi as CertificationSummariesApi };
@@ -163,15 +171,18 @@ export { _ConfigurationHubApi as ConfigurationHubApi };
 export { _ConnectorCustomizersApi as ConnectorCustomizersApi };
 export { _ConnectorRuleManagementApi as ConnectorRuleManagementApi };
 export { _ConnectorsApi as ConnectorsApi };
+export { _CredentialsApi as CredentialsApi };
 export { _CustomFormsApi as CustomFormsApi };
 export { _CustomPasswordInstructionsApi as CustomPasswordInstructionsApi };
 export { _CustomUserLevelsApi as CustomUserLevelsApi };
 export { _DataAccessSecurityApi as DataAccessSecurityApi };
 export { _DataSegmentationApi as DataSegmentationApi };
 export { _DeclassifySourceApi as DeclassifySourceApi };
+export { _DevicesApi as DevicesApi };
 export { _DimensionsApi as DimensionsApi };
 export { _EntitlementConnectionsApi as EntitlementConnectionsApi };
 export { _EntitlementsApi as EntitlementsApi };
+export { _GenericRequestApprovalConfigApi as GenericRequestApprovalConfigApi };
 export { _GlobalTenantSecuritySettingsApi as GlobalTenantSecuritySettingsApi };
 export { _NextGenerationCertificationCampaignsApi as NextGenerationCertificationCampaignsApi };
 export { _GovernanceGroupsApi as GovernanceGroupsApi };
@@ -195,11 +206,14 @@ export { _LifecycleStatesApi as LifecycleStatesApi };
 export { _MachineAccountClassifyApi as MachineAccountClassifyApi };
 export { _MachineAccountCreationRequestApi as MachineAccountCreationRequestApi };
 export { _MachineAccountMappingsApi as MachineAccountMappingsApi };
+export { _MachineAccountRecommendationApi as MachineAccountRecommendationApi };
 export { _MachineAccountSubtypesApi as MachineAccountSubtypesApi };
 export { _MachineAccountsApi as MachineAccountsApi };
 export { _MachineClassificationConfigApi as MachineClassificationConfigApi };
 export { _MachineIdentitiesApi as MachineIdentitiesApi };
 export { _MachineIdentityLifecycleActionsApi as MachineIdentityLifecycleActionsApi };
+export { _MachineIdentityMetadataApi as MachineIdentityMetadataApi };
+export { _MachineMappingMetadataApi as MachineMappingMetadataApi };
 export { _ManagedClientsApi as ManagedClientsApi };
 export { _ManagedClusterTypesApi as ManagedClusterTypesApi };
 export { _ManagedClustersApi as ManagedClustersApi };
@@ -293,6 +307,7 @@ export const SailPoint = {
   AuthUsersApi: _AuthUsersApi,
   BrandingApi: _BrandingApi,
   BusinessApplicationsApi: _BusinessApplicationsApi,
+  CapabilitiesApi: _CapabilitiesApi,
   CertificationCampaignFiltersApi: _CertificationCampaignFiltersApi,
   CertificationCampaignsApi: _CertificationCampaignsApi,
   CertificationSummariesApi: _CertificationSummariesApi,
@@ -302,15 +317,18 @@ export const SailPoint = {
   ConnectorCustomizersApi: _ConnectorCustomizersApi,
   ConnectorRuleManagementApi: _ConnectorRuleManagementApi,
   ConnectorsApi: _ConnectorsApi,
+  CredentialsApi: _CredentialsApi,
   CustomFormsApi: _CustomFormsApi,
   CustomPasswordInstructionsApi: _CustomPasswordInstructionsApi,
   CustomUserLevelsApi: _CustomUserLevelsApi,
   DataAccessSecurityApi: _DataAccessSecurityApi,
   DataSegmentationApi: _DataSegmentationApi,
   DeclassifySourceApi: _DeclassifySourceApi,
+  DevicesApi: _DevicesApi,
   DimensionsApi: _DimensionsApi,
   EntitlementConnectionsApi: _EntitlementConnectionsApi,
   EntitlementsApi: _EntitlementsApi,
+  GenericRequestApprovalConfigApi: _GenericRequestApprovalConfigApi,
   GlobalTenantSecuritySettingsApi: _GlobalTenantSecuritySettingsApi,
   NextGenerationCertificationCampaignsApi: _NextGenerationCertificationCampaignsApi,
   GovernanceGroupsApi: _GovernanceGroupsApi,
@@ -334,11 +352,14 @@ export const SailPoint = {
   MachineAccountClassifyApi: _MachineAccountClassifyApi,
   MachineAccountCreationRequestApi: _MachineAccountCreationRequestApi,
   MachineAccountMappingsApi: _MachineAccountMappingsApi,
+  MachineAccountRecommendationApi: _MachineAccountRecommendationApi,
   MachineAccountSubtypesApi: _MachineAccountSubtypesApi,
   MachineAccountsApi: _MachineAccountsApi,
   MachineClassificationConfigApi: _MachineClassificationConfigApi,
   MachineIdentitiesApi: _MachineIdentitiesApi,
   MachineIdentityLifecycleActionsApi: _MachineIdentityLifecycleActionsApi,
+  MachineIdentityMetadataApi: _MachineIdentityMetadataApi,
+  MachineMappingMetadataApi: _MachineMappingMetadataApi,
   ManagedClientsApi: _ManagedClientsApi,
   ManagedClusterTypesApi: _ManagedClusterTypesApi,
   ManagedClustersApi: _ManagedClustersApi,

@@ -1,3 +1,81 @@
+- path: /source-subtypes/v2/{id}/overrides
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#create-source-subtype-override-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SourceSubtypeOverrideRequest } from '@sailpoint/api-client/dist/machine_account_subtypes/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the connector subtype to override. (default to undefined)
+        const sourceSubtypeOverrideRequest: SourceSubtypeOverrideRequest = {
+  "sourceId" : "6d0458373bec4b4b80460992b76016da"
+}; // SourceSubtypeOverrideRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createSourceSubtypeOverrideV2({ id: id, sourceSubtypeOverrideRequest: sourceSubtypeOverrideRequest });
+        console.log(result);
+- path: /source-subtypes/v2/{id}/provisioning-policy
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#create-source-subtype-provisioning-policy-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { SubtypeProvisioningPolicy } from '@sailpoint/api-client/dist/machine_account_subtypes/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the subtype. (default to undefined)
+        const subtypeProvisioningPolicy: SubtypeProvisioningPolicy = {
+  "name" : "Service Account",
+  "description" : "Fields collected when creating a service account.",
+  "id" : "d7ae9ea3-507f-4d00-9d4f-b4464b344b88",
+  "subtypeId" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
+  "fields" : [ {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  }, {
+    "isRequired" : false,
+    "transform" : {
+      "type" : "rule",
+      "attributes" : {
+        "name" : "Create Unique LDAP Attribute"
+      }
+    },
+    "isMultiValued" : false,
+    "name" : "userName",
+    "attributes" : {
+      "template" : "{firstname}.{lastname}{uniqueCounter}",
+      "cloudMaxUniqueChecks" : "50",
+      "cloudMaxSize" : "20",
+      "cloudRequired" : "true"
+    },
+    "type" : "string"
+  } ],
+  "usageType" : "CREATE_MACHINE_ACCOUNT"
+}; // SubtypeProvisioningPolicy | 
+        const useDefaultFields: boolean = true; // boolean | When `true` and the request body has no `fields`, a `CONNECTOR` subtype\'s policy is created with the connector\'s default account creation fields. Ignored for `SOURCE` subtypes. (optional) (default to true)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createSourceSubtypeProvisioningPolicyV2({ id: id, subtypeProvisioningPolicy: subtypeProvisioningPolicy });
+        console.log(result);
 - path: /source-subtypes/v1
   method: POST
   xCodeSample:
@@ -14,6 +92,31 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.createSourceSubtypeV1({ createSourceSubtypeV1Request: createSourceSubtypeV1Request });
         console.log(result);
+- path: /source-subtypes/v2
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#create-source-subtype-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateSourceSubtypeV2Request } from '@sailpoint/api-client/dist/machine_account_subtypes/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const createSourceSubtypeV2Request: CreateSourceSubtypeV2Request = {
+  "targetName" : "Active Directory",
+  "targetId" : "active-directory",
+  "displayName" : "Service Account",
+  "description" : "Accounts used by automated services.",
+  "targetType" : "CONNECTOR",
+  "type" : "MACHINE",
+  "classification" : "MACHINE",
+  "technicalName" : "service-account"
+}; // CreateSourceSubtypeV2Request | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createSourceSubtypeV2({ createSourceSubtypeV2Request: createSourceSubtypeV2Request });
+        console.log(result);
 - path: /source-subtypes/v1/{subtypeId}
   method: DELETE
   xCodeSample:
@@ -28,6 +131,36 @@
         const subtypeId: string = '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa'; // string | The ID of the subtype. (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.deleteMachineAccountSubtypeV1({ subtypeId: subtypeId });
+        console.log(result);
+- path: /source-subtypes/v2/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#delete-machine-account-subtype-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the subtype. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteMachineAccountSubtypeV2({ id: id });
+        console.log(result);
+- path: /source-subtypes/v2/{id}/provisioning-policy
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#delete-source-subtype-provisioning-policy-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the subtype. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteSourceSubtypeProvisioningPolicyV2({ id: id });
         console.log(result);
 - path: /source-subtypes/v1/{subtypeId}/machine-config
   method: GET
@@ -59,6 +192,56 @@
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.getSourceSubtypeByIdV1({ subtypeId: subtypeId });
         console.log(result);
+- path: /source-subtypes/v2/{id}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#get-source-subtype-by-id-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the subtype. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSourceSubtypeByIdV2({ id: id });
+        console.log(result);
+- path: /source-subtypes/v2/{id}/provisioning-policy
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#get-source-subtype-provisioning-policy-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the subtype. (default to undefined)
+        const sourceId: string = '6d0458373bec4b4b80460992b76016da'; // string | ID of the source the subtype belongs to. Supply it for `SOURCE` subtypes so that a policy stored with the source can be found. (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getSourceSubtypeProvisioningPolicyV2({ id: id });
+        console.log(result);
+- path: /source-subtypes/v2/targets
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#list-source-subtype-targets-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const filters: string = 'targetType eq "CONNECTOR"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **targetType**: *eq*  **targetName**: *eq, sw*  A `targetType` filter with the value `CONNECTOR` or `SOURCE` is required. (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const sorters: string = '-subtypeCount'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **targetType, targetName, subtypeCount, sourceCount**  Results are sorted by **targetName** ascending by default. (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listSourceSubtypeTargetsV2({ filters: filters });
+        console.log(result);
 - path: /source-subtypes/v1
   method: GET
   xCodeSample:
@@ -70,13 +253,36 @@
 
         const configuration = new Configuration();
         const apiInstance = new MachineAccountSubtypesApi(configuration);
-        const filters: string = 'displayName eq "sail"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in* (optional) (default to undefined)
-        const sorters: string = 'displayName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional) (default to undefined)
+        const filters: string = 'displayName eq "sail"'; // string | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, sw*  **technicalName**: *eq, sw*  **source.id**: *eq, in* (optional) (default to undefined)
+        const sorters: string = 'displayName'; // string | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional) (default to undefined)
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-        const limit: number = 250; // number | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const limit: number = 250; // number | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
         const result = await apiInstance.listSourceSubtypesV1({  });
+        console.log(result);
+- path: /source-subtypes/v2
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#list-source-subtypes-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const sourceId: string = '6d0458373bec4b4b80460992b76016da'; // string | ID of a source. When supplied, the API returns subtypes for that source instead of the whole tenant. (optional) (default to undefined)
+        const effectiveSet: boolean = true; // boolean | Controls what is returned for `sourceId`. When `true`, which is the default when `sourceId` is supplied, the API returns the source\'s effective subtypes across both tiers. When `false`, the API returns only the subtypes defined for the source. Passing `effectiveSet=true` explicitly without `sourceId` returns `400`. (optional) (default to true)
+        const targetType: string = 'CONNECTOR'; // 'SOURCE' | 'CONNECTOR' | Returns only effective subtypes of this tier. Requires `sourceId`, and cannot be combined with `effectiveSet=false`; otherwise the API returns `400`. (optional) (default to undefined)
+        const includeConfigs: boolean = false; // boolean | When `true`, each item includes a summary of its machine account creation configuration in `config`. (optional) (default to false)
+        const limit: number = 250; // number | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const filters: string = 'targetType eq "CONNECTOR"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, in*  **technicalName**: *eq, ne, in, sw, co*  **displayName**: *eq, ne, in, sw, co*  **source.id**: *eq, ne, in, sw, co*  **targetType**: *eq, ne, in, sw, co*  **targetId**: *eq, ne, in, sw, co*  **targetName**: *eq, ne, in, sw, co, isnull*  **classification**: *eq, ne, in, sw, co*  **type**: *eq, ne, in, sw, co*  **created**: *gt, ge, lt, le*  **modified**: *gt, ge, lt, le*  Filters cannot be used with `sourceId` unless `effectiveSet=false`; otherwise the API returns `400`. (optional) (default to undefined)
+        const sorters: string = 'displayName'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, technicalName, displayName, source.id, targetType, targetId, targetName, classification, type, created, modified** (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listSourceSubtypesV2({  });
         console.log(result);
 - path: /source-subtypes/v1/bulk-retrieve
   method: POST
@@ -108,6 +314,48 @@
         const requestBody: Array<object> = [{"op":"replace","path":"/displayName","value":"Test New DisplayName"}]; // Array<object> | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
         const result = await apiInstance.patchMachineAccountSubtypeV1({ subtypeId: subtypeId, requestBody: requestBody });
+        console.log(result);
+- path: /source-subtypes/v2/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#patch-machine-account-subtype-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/machine_account_subtypes/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the subtype. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of subtype update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.patchMachineAccountSubtypeV2({ id: id, jsonPatchOperation: jsonPatchOperation });
+        console.log(result);
+- path: /source-subtypes/v2/{id}/provisioning-policy
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_subtypes/methods/machine-account-subtypes#patch-source-subtype-provisioning-policy-v2
+      source: |
+        import { MachineAccountSubtypesApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/machine_account_subtypes/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountSubtypesApi(configuration);
+        const id: string = '43bdd144-4b17-4fce-a744-17c7fd3e717b'; // string | The ID of the subtype. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A list of policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.patchSourceSubtypeProvisioningPolicyV2({ id: id, jsonPatchOperation: jsonPatchOperation });
         console.log(result);
 - path: /source-subtypes/v1/{subtypeId}/machine-config
   method: PATCH

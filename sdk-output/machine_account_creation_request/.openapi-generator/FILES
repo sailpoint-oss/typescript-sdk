@@ -16,7 +16,9 @@ Index.md
 LocaleOrigin.md
 MachineAccountCreateAccessDto.md
 MachineAccountCreateAccessDtoSubtypesInner.md
+MachineAccountCreateEntitlement.md
 MachineAccountCreateRequestInput.md
+MachineAccountCreateRequestInputV2.md
 MachineAccountCreationRequestApi.md
 MachineAccountCreationRequestApideveloperSite_code_examples.yaml
 README.md

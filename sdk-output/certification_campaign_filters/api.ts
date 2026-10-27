@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Certification Campaign Filters
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Certification Campaign Filters
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -424,8 +424,8 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
         /**
          * Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
          * @summary List campaign filters
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {boolean} [includeSystemFilters] If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -558,8 +558,8 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
         /**
          * Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
          * @summary List campaign filters
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {boolean} [includeSystemFilters] If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -696,14 +696,14 @@ export interface CertificationCampaignFiltersApiGetCampaignFilterByIdV1Request {
  */
 export interface CertificationCampaignFiltersApiListCampaignFiltersV1Request {
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof CertificationCampaignFiltersApiListCampaignFiltersV1
      */
     readonly limit?: number
 
     /**
-     * Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof CertificationCampaignFiltersApiListCampaignFiltersV1
      */

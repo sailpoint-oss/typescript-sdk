@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Sources
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Sources
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -894,6 +894,122 @@ export const CorrelationConfigAttributeAssignmentsInnerMatchModeEnum = {
 export type CorrelationConfigAttributeAssignmentsInnerMatchModeEnum = typeof CorrelationConfigAttributeAssignmentsInnerMatchModeEnum[keyof typeof CorrelationConfigAttributeAssignmentsInnerMatchModeEnum];
 
 /**
+ * Progress of a correlation reprocess run for one resource on a source.
+ * @export
+ * @interface CorrelationReprocessStatus
+ */
+export interface CorrelationReprocessStatus {
+    /**
+     * ID of the source the run applies to.
+     * @type {string}
+     * @memberof CorrelationReprocessStatus
+     */
+    'sourceId'?: string;
+    /**
+     * ID of the source resource the run applies to.
+     * @type {string}
+     * @memberof CorrelationReprocessStatus
+     */
+    'resourceId'?: string;
+    /**
+     * Kind of correlation the run reprocesses.
+     * @type {string}
+     * @memberof CorrelationReprocessStatus
+     */
+    'type'?: CorrelationReprocessStatusTypeEnum;
+    /**
+     * Status of the run. `STARTED` means the run is planning or processing. `COMPLETED` means every object was evaluated. `COMPLETED_WITH_ERRORS` means the run finished but part of the work could not be processed. `FAILED` means the run could not be planned. `ABORTED_AGGREGATION_STARTED` means the run stopped because an aggregation started on the same resource.
+     * @type {string}
+     * @memberof CorrelationReprocessStatus
+     */
+    'status'?: CorrelationReprocessStatusStatusEnum;
+    /**
+     * Number of objects in scope for the run. `null` until planning finishes; after that it does not change, so you can compute progress as `processed` divided by `total`.
+     * @type {number}
+     * @memberof CorrelationReprocessStatus
+     */
+    'total'?: number | null;
+    /**
+     * Number of objects evaluated so far.
+     * @type {number}
+     * @memberof CorrelationReprocessStatus
+     */
+    'processed'?: number;
+    /**
+     * Number of evaluated objects whose owner changed.
+     * @type {number}
+     * @memberof CorrelationReprocessStatus
+     */
+    'updated'?: number;
+    /**
+     * Number of objects that could not be processed. Individual errors do not fail the run.
+     * @type {number}
+     * @memberof CorrelationReprocessStatus
+     */
+    'errored'?: number;
+    /**
+     * Date and time when the run was accepted.
+     * @type {string}
+     * @memberof CorrelationReprocessStatus
+     */
+    'startedAt'?: string;
+    /**
+     * Date and time when the run reached a final status. `null` while the run is in progress.
+     * @type {string}
+     * @memberof CorrelationReprocessStatus
+     */
+    'finishedAt'?: string | null;
+    /**
+     * 
+     * @type {CorrelationReprocessStatusStartedBy}
+     * @memberof CorrelationReprocessStatus
+     */
+    'startedBy'?: CorrelationReprocessStatusStartedBy | null;
+}
+
+export const CorrelationReprocessStatusTypeEnum = {
+    OwnerCorrelation: 'OWNER_CORRELATION'
+} as const;
+
+export type CorrelationReprocessStatusTypeEnum = typeof CorrelationReprocessStatusTypeEnum[keyof typeof CorrelationReprocessStatusTypeEnum];
+export const CorrelationReprocessStatusStatusEnum = {
+    Started: 'STARTED',
+    Completed: 'COMPLETED',
+    CompletedWithErrors: 'COMPLETED_WITH_ERRORS',
+    Failed: 'FAILED',
+    AbortedAggregationStarted: 'ABORTED_AGGREGATION_STARTED'
+} as const;
+
+export type CorrelationReprocessStatusStatusEnum = typeof CorrelationReprocessStatusStatusEnum[keyof typeof CorrelationReprocessStatusStatusEnum];
+
+/**
+ * Identity that started the run. `null` when the run was not started by an identity.
+ * @export
+ * @interface CorrelationReprocessStatusStartedBy
+ */
+export interface CorrelationReprocessStatusStartedBy {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof CorrelationReprocessStatusStartedBy
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof CorrelationReprocessStatusStartedBy
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof CorrelationReprocessStatusStartedBy
+     */
+    'name'?: string;
+}
+
+
+/**
  * Optional request body for starting a dataset aggregation.
  * @export
  * @interface DatasetAggregationRequest
@@ -905,6 +1021,19 @@ export interface DatasetAggregationRequest {
      * @memberof DatasetAggregationRequest
      */
     'config'?: { [key: string]: any; };
+}
+/**
+ * Datasets whose AI agents should be deleted from the source.
+ * @export
+ * @interface DeleteSourceAgentsRequest
+ */
+export interface DeleteSourceAgentsRequest {
+    /**
+     * IDs of the datasets to delete AI agents for. All AI agents from these datasets on the source are deleted. Must contain at least one ID, and IDs cannot be blank.
+     * @type {Array<string>}
+     * @memberof DeleteSourceAgentsRequest
+     */
+    'datasetIds': Array<string>;
 }
 /**
  * 
@@ -1899,6 +2028,25 @@ export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
 
 
 /**
+ * Localized error message to indicate a failed invocation or error if any.
+ * @export
+ * @interface LocalizedMessage
+ */
+export interface LocalizedMessage {
+    /**
+     * Message locale
+     * @type {string}
+     * @memberof LocalizedMessage
+     */
+    'locale': string;
+    /**
+     * Message text
+     * @type {string}
+     * @memberof LocalizedMessage
+     */
+    'message': string;
+}
+/**
  * 
  * @export
  * @interface ManagerCorrelationMapping
@@ -2321,7 +2469,7 @@ export interface Schema {
      */
     'includePermissions'?: boolean;
     /**
-     * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
+     * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in SailPoint Identity Security Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
      * @type {Array<string>}
      * @memberof Schema
      */
@@ -2469,7 +2617,7 @@ export interface Source {
      */
     'passwordPolicies'?: Array<SourcePasswordPoliciesInner> | null;
     /**
-     * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
+     * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in SailPoint Identity Security Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
      * @type {Array<string>}
      * @memberof Source
      */
@@ -2700,6 +2848,166 @@ export const SourceAccountCorrelationRuleTypeEnum = {
 } as const;
 
 export type SourceAccountCorrelationRuleTypeEnum = typeof SourceAccountCorrelationRuleTypeEnum[keyof typeof SourceAccountCorrelationRuleTypeEnum];
+
+/**
+ * Details and current status of the task that deletes AI agents from a source.
+ * @export
+ * @interface SourceAgentDeletionTaskStatus
+ */
+export interface SourceAgentDeletionTaskStatus {
+    /**
+     * System-generated unique ID of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'id'?: string;
+    /**
+     * Type of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'type'?: SourceAgentDeletionTaskStatusTypeEnum;
+    /**
+     * Name of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'uniqueName'?: string;
+    /**
+     * Description of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'description'?: string;
+    /**
+     * Name of the parent of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'parentName'?: string | null;
+    /**
+     * Service or user that launched the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'launcher'?: string;
+    /**
+     * 
+     * @type {SourceAgentDeletionTaskStatusTarget}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'target'?: SourceAgentDeletionTaskStatusTarget;
+    /**
+     * Creation date of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'modified'?: string | null;
+    /**
+     * Launch date of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'launched'?: string | null;
+    /**
+     * Completion date of the deletion task. `null` until the task finishes.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'completed'?: string | null;
+    /**
+     * 
+     * @type {TaskDefinitionSummary}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'taskDefinitionSummary'?: TaskDefinitionSummary;
+    /**
+     * Completion status of the deletion task. `null` until the task finishes.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'completionStatus'?: SourceAgentDeletionTaskStatusCompletionStatusEnum | null;
+    /**
+     * Messages associated with the deletion task.
+     * @type {Array<TaskStatusMessage>}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'messages'?: Array<TaskStatusMessage>;
+    /**
+     * Return values from the deletion task.
+     * @type {Array<TaskReturnDetails>}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'returns'?: Array<TaskReturnDetails>;
+    /**
+     * Attributes of the deletion task.
+     * @type {{ [key: string]: any; }}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * Current progress of the deletion task.
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'progress'?: string | null;
+    /**
+     * Current percentage completion of the deletion task.
+     * @type {number}
+     * @memberof SourceAgentDeletionTaskStatus
+     */
+    'percentComplete'?: number;
+}
+
+export const SourceAgentDeletionTaskStatusTypeEnum = {
+    Quartz: 'QUARTZ',
+    Qpoc: 'QPOC',
+    QueuedTask: 'QUEUED_TASK'
+} as const;
+
+export type SourceAgentDeletionTaskStatusTypeEnum = typeof SourceAgentDeletionTaskStatusTypeEnum[keyof typeof SourceAgentDeletionTaskStatusTypeEnum];
+export const SourceAgentDeletionTaskStatusCompletionStatusEnum = {
+    Success: 'SUCCESS',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Terminated: 'TERMINATED',
+    Temperror: 'TEMPERROR'
+} as const;
+
+export type SourceAgentDeletionTaskStatusCompletionStatusEnum = typeof SourceAgentDeletionTaskStatusCompletionStatusEnum[keyof typeof SourceAgentDeletionTaskStatusCompletionStatusEnum];
+
+/**
+ * The source that AI agents are deleted from.
+ * @export
+ * @interface SourceAgentDeletionTaskStatusTarget
+ */
+export interface SourceAgentDeletionTaskStatusTarget {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof SourceAgentDeletionTaskStatusTarget
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatusTarget
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceAgentDeletionTaskStatusTarget
+     */
+    'name'?: string;
+}
+
 
 /**
  * Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector. 
@@ -3471,6 +3779,49 @@ export const StatusResponseStatusEnum = {
 export type StatusResponseStatusEnum = typeof StatusResponseStatusEnum[keyof typeof StatusResponseStatusEnum];
 
 /**
+ * Definition of a type of task, used to invoke tasks
+ * @export
+ * @interface TaskDefinitionSummary
+ */
+export interface TaskDefinitionSummary {
+    /**
+     * System-generated unique ID of the TaskDefinition
+     * @type {string}
+     * @memberof TaskDefinitionSummary
+     */
+    'id': string;
+    /**
+     * Name of the TaskDefinition
+     * @type {string}
+     * @memberof TaskDefinitionSummary
+     */
+    'uniqueName': string;
+    /**
+     * Description of the TaskDefinition
+     * @type {string}
+     * @memberof TaskDefinitionSummary
+     */
+    'description': string | null;
+    /**
+     * Name of the parent of the TaskDefinition
+     * @type {string}
+     * @memberof TaskDefinitionSummary
+     */
+    'parentName': string;
+    /**
+     * Executor of the TaskDefinition
+     * @type {string}
+     * @memberof TaskDefinitionSummary
+     */
+    'executor': string | null;
+    /**
+     * Formal parameters of the TaskDefinition, without values
+     * @type {{ [key: string]: any; }}
+     * @memberof TaskDefinitionSummary
+     */
+    'arguments': { [key: string]: any; };
+}
+/**
  * Details of an asynchronous task started by a source dataset operation.
  * @export
  * @interface TaskResultDetails
@@ -3586,6 +3937,72 @@ export const TaskResultDtoTypeEnum = {
 
 export type TaskResultDtoTypeEnum = typeof TaskResultDtoTypeEnum[keyof typeof TaskResultDtoTypeEnum];
 
+/**
+ * Task return details
+ * @export
+ * @interface TaskReturnDetails
+ */
+export interface TaskReturnDetails {
+    /**
+     * Display name of the TaskReturnDetails
+     * @type {string}
+     * @memberof TaskReturnDetails
+     */
+    'name': string;
+    /**
+     * Attribute the TaskReturnDetails is for
+     * @type {string}
+     * @memberof TaskReturnDetails
+     */
+    'attributeName': string;
+}
+/**
+ * TaskStatus Message
+ * @export
+ * @interface TaskStatusMessage
+ */
+export interface TaskStatusMessage {
+    /**
+     * Type of the message
+     * @type {string}
+     * @memberof TaskStatusMessage
+     */
+    'type': TaskStatusMessageTypeEnum;
+    /**
+     * 
+     * @type {LocalizedMessage}
+     * @memberof TaskStatusMessage
+     */
+    'localizedText': LocalizedMessage | null;
+    /**
+     * Key of the message
+     * @type {string}
+     * @memberof TaskStatusMessage
+     */
+    'key': string;
+    /**
+     * Message parameters for internationalization
+     * @type {Array<TaskStatusMessageParametersInner>}
+     * @memberof TaskStatusMessage
+     */
+    'parameters': Array<TaskStatusMessageParametersInner> | null;
+}
+
+export const TaskStatusMessageTypeEnum = {
+    Info: 'INFO',
+    Warn: 'WARN',
+    Error: 'ERROR'
+} as const;
+
+export type TaskStatusMessageTypeEnum = typeof TaskStatusMessageTypeEnum[keyof typeof TaskStatusMessageTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface TaskStatusMessageParametersInner
+ */
+export interface TaskStatusMessageParametersInner {
+}
 /**
  * The representation of an internally- or customer-defined transform.
  * @export
@@ -3888,7 +4305,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+         * Use this API to create a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
          * @summary Create dataset on source
          * @param {string} sourceId Source ID.
          * @param {SourceDataset} sourceDataset 
@@ -3936,7 +4353,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+         * Use this API to create a resource on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
          * @summary Create resource on source
          * @param {string} sourceId Source ID.
          * @param {SourceDatasetResource} sourceDatasetResource 
@@ -3984,7 +4401,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to create a new schedule for a type on the specified source in SailPoint Identity Security. 
          * @summary Create schedule on source
          * @param {string} sourceId Source ID.
          * @param {Schedule3} schedule3 
@@ -4024,7 +4441,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to create a new schema on the specified source in SailPoint Identity Security. 
          * @summary Create schema on source
          * @param {string} sourceId Source ID.
          * @param {Schema} schema 
@@ -4257,7 +4674,55 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+         * Use this API to delete all AI agents that were aggregated into the given datasets on a source. Deletion runs as an asynchronous task, and the response contains the task\'s initial status.   This API returns `400` when the source has no connector instance, when `datasetIds` is missing or empty, or when a deletion or aggregation is already running for the source.   When agentic identity governance is not enabled for the tenant, or AI agent deletion is not available, this API returns `404`. 
+         * @summary Delete source AI agents
+         * @param {string} id Source ID.
+         * @param {DeleteSourceAgentsRequest} deleteSourceAgentsRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceAgentsV1: async (id: string, deleteSourceAgentsRequest: DeleteSourceAgentsRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteSourceAgentsV1', 'id', id)
+            // verify required parameter 'deleteSourceAgentsRequest' is not null or undefined
+            assertParamExists('deleteSourceAgentsV1', 'deleteSourceAgentsRequest', deleteSourceAgentsRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{id}/agents-delete`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(deleteSourceAgentsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Starts a task to delete aggregated objects for the specified dataset on the source in SailPoint Identity Security (SailPoint Identity Security). Linked dataset and resource definitions are not deleted. 
          * @summary Delete objects for source dataset
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -4303,7 +4768,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+         * Use this API to delete a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
          * @summary Delete source dataset by id
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -4349,7 +4814,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+         * Use this API to delete a resource on the specified source in SailPoint Identity Security.   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
          * @summary Delete source resource by id
          * @param {string} sourceId Source ID.
          * @param {string} resourceId Resource ID.
@@ -4471,7 +4936,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
+         * Use this API to delete a specific source in SailPoint Identity Security. The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
          * @summary Delete source by id
          * @param {string} id Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -4752,7 +5217,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in SailPoint Identity Security.
          * @summary Get provisioning policy by ID
          * @param {string} sourceId The Source ID.
          * @param {string} id The provisioning policy ID.
@@ -4879,7 +5344,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in SailPoint Identity Security.
          * @summary Get source connections by id
          * @param {string} sourceId Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -4913,7 +5378,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+         * Use this API to get a dataset by id for the specified source in SailPoint Identity Security. 
          * @summary Get source dataset by id
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -4959,12 +5424,12 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list datasets for the specified source in SailPoint Identity Security. 
          * @summary List datasets on source
          * @param {string} sourceId Source ID.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -5084,7 +5549,60 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+         * Use this API to get the progress of the latest correlation reprocess run of the given `type` for a resource on a source. You can call it whatever state the run is in. Finished runs are kept for a limited time. This API returns `404` when no run is found for the source resource and `type`.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+         * @summary Get resource correlation reprocess status
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {GetSourceResourceCorrelationReprocessV1TypeEnum} type Kind of correlation reprocess run to get.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourceCorrelationReprocessV1: async (sourceId: string, resourceId: string, type: GetSourceResourceCorrelationReprocessV1TypeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceResourceCorrelationReprocessV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('getSourceResourceCorrelationReprocessV1', 'resourceId', resourceId)
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('getSourceResourceCorrelationReprocessV1', 'type', type)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/reprocess-correlations`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to get aggregation metadata for resources on the specified source in SailPoint Identity Security (SailPoint Identity Security). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
          * @summary Get source resource mappings
          * @param {string} sourceId Source ID.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
@@ -5126,7 +5644,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+         * Use this API to get a resource by id on the specified source in SailPoint Identity Security. The response includes the full CIS schema for the resource. 
          * @summary Get source resource by id
          * @param {string} sourceId Source ID.
          * @param {string} resourceId Resource ID.
@@ -5172,12 +5690,12 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list resources defined on the specified source in SailPoint Identity Security. 
          * @summary List resources for a source
          * @param {string} sourceId Source ID.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -5229,7 +5747,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Get the source schedule by type in Identity Security Cloud (ISC). 
+         * Get the source schedule by type in SailPoint Identity Security. 
          * @summary Get source schedule by type
          * @param {string} sourceId The Source id.
          * @param {GetSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
@@ -5267,7 +5785,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC). :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
+         * Use this API to list the schedules that exist on the specified source in SailPoint Identity Security. :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
          * @summary List schedules on source
          * @param {string} sourceId Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -5339,7 +5857,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+         * Use this API to list the schemas that exist on the specified source in SailPoint Identity Security.
          * @summary List schemas on source
          * @param {string} sourceId Source ID.
          * @param {GetSourceSchemasV1IncludeTypesEnum} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
@@ -5383,11 +5901,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in SailPoint Identity Security (SailPoint Identity Security).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
          * @summary List source service desk integrations
          * @param {string} sourceId Source ID.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -5427,7 +5945,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+         * Use this API to get a source by a specified ID in SailPoint Identity Security.
          * @summary Get source by id
          * @param {string} id Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -5686,7 +6204,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+         * Starts an aggregation for the specified dataset on the source in SailPoint Identity Security. An optional `config` object can be supplied for connector-specific aggregation settings. 
          * @summary Aggregate source dataset
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -5782,9 +6300,9 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * This API can be used to get Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
          * @summary Get Password Policy for source
          * @param {string} sourceId The Source id
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -5831,8 +6349,8 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * This end-point lists all the ProvisioningPolicies in IdentityNow.
          * @summary Lists provisioningpolicies
          * @param {string} sourceId The Source id
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-         * @param {number} [limit] Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -5875,9 +6393,9 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * This end-point lists all the ProvisioningPolicies in IdentityNow.
          * @summary Lists Provisioning Policies
          * @param {string} sourceId The Source id
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-         * @param {number} [limit] Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -5931,11 +6449,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * This end-point lists all the sources.
          * @summary List sources
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {boolean} [includeIDNSource] Include the IdentityNow source in the response.
          * @param {*} [axiosOptions] Override http request option.
@@ -6152,7 +6670,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * This end-point updates the provisioning policy with the specified ID on the specified source in SailPoint Identity Security. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Update provisioning policy by ID
          * @param {string} sourceId The Source ID.
          * @param {string} id The provisioning policy ID.
@@ -6252,7 +6770,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+         * Use this API to replace a dataset on the specified source in SailPoint Identity Security.   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
          * @summary Update source dataset (full)
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -6304,7 +6822,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * Use this API to replace a resource on the specified source in SailPoint Identity Security.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
          * @summary Update source resource (full)
          * @param {string} sourceId Source ID.
          * @param {string} resourceId Resource ID.
@@ -6400,7 +6918,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+         * Use this API to update a source in SailPoint Identity Security, using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (full)
          * @param {string} id Source ID.
          * @param {Source} source 
@@ -6473,6 +6991,59 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(resourceObjectsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this API to re-run correlation for the machine objects aggregated from a resource on a source, without running a new aggregation. The run is asynchronous. Poll its progress with the `GET` method on the same path and `type`.   Only one run of a given `type` can be in progress for a source resource at a time. Starting another run while one is in progress returns `400`. This API returns `404` when the source or resource does not exist.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+         * @summary Start resource correlation reprocess
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {StartSourceResourceCorrelationReprocessV1TypeEnum} type Kind of correlation to reprocess. &#x60;OWNER_CORRELATION&#x60; re-runs owner correlation.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startSourceResourceCorrelationReprocessV1: async (sourceId: string, resourceId: string, type: StartSourceResourceCorrelationReprocessV1TypeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('startSourceResourceCorrelationReprocessV1', 'sourceId', sourceId)
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('startSourceResourceCorrelationReprocessV1', 'resourceId', resourceId)
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('startSourceResourceCorrelationReprocessV1', 'type', type)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/sources/v1/{sourceId}/resources/{resourceId}/reprocess-correlations`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"resourceId"}}`, encodeURIComponent(String(resourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -7078,10 +7649,10 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+         * Use this API to partially update a source in SailPoint Identity Security, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (partial)
          * @param {string} id Source ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in SailPoint Identity Security.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -7158,7 +7729,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+         * Use this API to create a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
          * @summary Create dataset on source
          * @param {string} sourceId Source ID.
          * @param {SourceDataset} sourceDataset 
@@ -7173,7 +7744,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+         * Use this API to create a resource on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
          * @summary Create resource on source
          * @param {string} sourceId Source ID.
          * @param {SourceDatasetResource} sourceDatasetResource 
@@ -7188,7 +7759,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to create a new schedule for a type on the specified source in SailPoint Identity Security. 
          * @summary Create schedule on source
          * @param {string} sourceId Source ID.
          * @param {Schedule3} schedule3 
@@ -7202,7 +7773,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to create a new schema on the specified source in SailPoint Identity Security. 
          * @summary Create schema on source
          * @param {string} sourceId Source ID.
          * @param {Schema} schema 
@@ -7285,7 +7856,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+         * Use this API to delete all AI agents that were aggregated into the given datasets on a source. Deletion runs as an asynchronous task, and the response contains the task\'s initial status.   This API returns `400` when the source has no connector instance, when `datasetIds` is missing or empty, or when a deletion or aggregation is already running for the source.   When agentic identity governance is not enabled for the tenant, or AI agent deletion is not available, this API returns `404`. 
+         * @summary Delete source AI agents
+         * @param {string} id Source ID.
+         * @param {DeleteSourceAgentsRequest} deleteSourceAgentsRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSourceAgentsV1(id: string, deleteSourceAgentsRequest: DeleteSourceAgentsRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceAgentDeletionTaskStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceAgentsV1(id, deleteSourceAgentsRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.deleteSourceAgentsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Starts a task to delete aggregated objects for the specified dataset on the source in SailPoint Identity Security (SailPoint Identity Security). Linked dataset and resource definitions are not deleted. 
          * @summary Delete objects for source dataset
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -7300,7 +7886,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+         * Use this API to delete a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
          * @summary Delete source dataset by id
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -7315,7 +7901,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+         * Use this API to delete a resource on the specified source in SailPoint Identity Security.   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
          * @summary Delete source resource by id
          * @param {string} sourceId Source ID.
          * @param {string} resourceId Resource ID.
@@ -7358,7 +7944,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
+         * Use this API to delete a specific source in SailPoint Identity Security. The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
          * @summary Delete source by id
          * @param {string} id Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -7464,7 +8050,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in SailPoint Identity Security.
          * @summary Get provisioning policy by ID
          * @param {string} sourceId The Source ID.
          * @param {string} id The provisioning policy ID.
@@ -7507,7 +8093,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in SailPoint Identity Security.
          * @summary Get source connections by id
          * @param {string} sourceId Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -7520,7 +8106,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+         * Use this API to get a dataset by id for the specified source in SailPoint Identity Security. 
          * @summary Get source dataset by id
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -7535,12 +8121,12 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list datasets for the specified source in SailPoint Identity Security. 
          * @summary List datasets on source
          * @param {string} sourceId Source ID.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -7578,7 +8164,23 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+         * Use this API to get the progress of the latest correlation reprocess run of the given `type` for a resource on a source. You can call it whatever state the run is in. Finished runs are kept for a limited time. This API returns `404` when no run is found for the source resource and `type`.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+         * @summary Get resource correlation reprocess status
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {GetSourceResourceCorrelationReprocessV1TypeEnum} type Kind of correlation reprocess run to get.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceResourceCorrelationReprocessV1(sourceId: string, resourceId: string, type: GetSourceResourceCorrelationReprocessV1TypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationReprocessStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceResourceCorrelationReprocessV1(sourceId, resourceId, type, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceResourceCorrelationReprocessV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to get aggregation metadata for resources on the specified source in SailPoint Identity Security (SailPoint Identity Security). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
          * @summary Get source resource mappings
          * @param {string} sourceId Source ID.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
@@ -7592,7 +8194,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+         * Use this API to get a resource by id on the specified source in SailPoint Identity Security. The response includes the full CIS schema for the resource. 
          * @summary Get source resource by id
          * @param {string} sourceId Source ID.
          * @param {string} resourceId Resource ID.
@@ -7607,12 +8209,12 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list resources defined on the specified source in SailPoint Identity Security. 
          * @summary List resources for a source
          * @param {string} sourceId Source ID.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -7624,7 +8226,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get the source schedule by type in Identity Security Cloud (ISC). 
+         * Get the source schedule by type in SailPoint Identity Security. 
          * @summary Get source schedule by type
          * @param {string} sourceId The Source id.
          * @param {GetSourceScheduleV1ScheduleTypeEnum} scheduleType The Schedule type.
@@ -7638,7 +8240,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC). :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
+         * Use this API to list the schedules that exist on the specified source in SailPoint Identity Security. :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
          * @summary List schedules on source
          * @param {string} sourceId Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -7665,7 +8267,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+         * Use this API to list the schemas that exist on the specified source in SailPoint Identity Security.
          * @summary List schemas on source
          * @param {string} sourceId Source ID.
          * @param {GetSourceSchemasV1IncludeTypesEnum} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
@@ -7680,11 +8282,11 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in SailPoint Identity Security (SailPoint Identity Security).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
          * @summary List source service desk integrations
          * @param {string} sourceId Source ID.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -7695,7 +8297,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+         * Use this API to get a source by a specified ID in SailPoint Identity Security.
          * @summary Get source by id
          * @param {string} id Source ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -7780,7 +8382,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+         * Starts an aggregation for the specified dataset on the source in SailPoint Identity Security. An optional `config` object can be supplied for connector-specific aggregation settings. 
          * @summary Aggregate source dataset
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -7813,9 +8415,9 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * This API can be used to get Password Policy in IdentityNow for the specified Source. Source must support PASSWORD feature. 
          * @summary Get Password Policy for source
          * @param {string} sourceId The Source id
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -7829,8 +8431,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * This end-point lists all the ProvisioningPolicies in IdentityNow.
          * @summary Lists provisioningpolicies
          * @param {string} sourceId The Source id
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-         * @param {number} [limit] Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -7844,9 +8446,9 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * This end-point lists all the ProvisioningPolicies in IdentityNow.
          * @summary Lists Provisioning Policies
          * @param {string} sourceId The Source id
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-         * @param {number} [limit] Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -7860,11 +8462,11 @@ export const SourcesApiFp = function(configuration?: Configuration) {
         /**
          * This end-point lists all the sources.
          * @summary List sources
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {boolean} [includeIDNSource] Include the IdentityNow source in the response.
          * @param {*} [axiosOptions] Override http request option.
@@ -7933,7 +8535,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * This end-point updates the provisioning policy with the specified ID on the specified source in SailPoint Identity Security. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Update provisioning policy by ID
          * @param {string} sourceId The Source ID.
          * @param {string} id The provisioning policy ID.
@@ -7964,7 +8566,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+         * Use this API to replace a dataset on the specified source in SailPoint Identity Security.   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
          * @summary Update source dataset (full)
          * @param {string} sourceId Source ID.
          * @param {string} datasetId Dataset ID.
@@ -7980,7 +8582,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * Use this API to replace a resource on the specified source in SailPoint Identity Security.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
          * @summary Update source resource (full)
          * @param {string} sourceId Source ID.
          * @param {string} resourceId Resource ID.
@@ -8011,7 +8613,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+         * Use this API to update a source in SailPoint Identity Security, using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (full)
          * @param {string} id Source ID.
          * @param {Source} source 
@@ -8036,6 +8638,22 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchResourceObjectsV1(sourceId, resourceObjectsRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.searchResourceObjectsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Use this API to re-run correlation for the machine objects aggregated from a resource on a source, without running a new aggregation. The run is asynchronous. Poll its progress with the `GET` method on the same path and `type`.   Only one run of a given `type` can be in progress for a source resource at a time. Starting another run while one is in progress returns `400`. This API returns `404` when the source or resource does not exist.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+         * @summary Start resource correlation reprocess
+         * @param {string} sourceId Source ID.
+         * @param {string} resourceId Resource ID.
+         * @param {StartSourceResourceCorrelationReprocessV1TypeEnum} type Kind of correlation to reprocess. &#x60;OWNER_CORRELATION&#x60; re-runs owner correlation.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startSourceResourceCorrelationReprocessV1(sourceId: string, resourceId: string, type: StartSourceResourceCorrelationReprocessV1TypeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CorrelationReprocessStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSourceResourceCorrelationReprocessV1(sourceId, resourceId, type, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['SourcesApi.startSourceResourceCorrelationReprocessV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -8242,10 +8860,10 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+         * Use this API to partially update a source in SailPoint Identity Security, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (partial)
          * @param {string} id Source ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in SailPoint Identity Security.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -8286,7 +8904,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createProvisioningPolicyV2(requestParameters.sourceId, requestParameters.provisioningPolicyDtoV2, requestParameters.useDefaultFields, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+         * Use this API to create a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
          * @summary Create dataset on source
          * @param {SourcesApiCreateSourceDatasetV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8296,7 +8914,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createSourceDatasetV1(requestParameters.sourceId, requestParameters.sourceDataset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+         * Use this API to create a resource on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
          * @summary Create resource on source
          * @param {SourcesApiCreateSourceResourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8306,7 +8924,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createSourceResourceV1(requestParameters.sourceId, requestParameters.sourceDatasetResource, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to create a new schedule for a type on the specified source in SailPoint Identity Security. 
          * @summary Create schedule on source
          * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8316,7 +8934,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createSourceScheduleV1(requestParameters.sourceId, requestParameters.schedule3, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to create a new schema on the specified source in SailPoint Identity Security. 
          * @summary Create schema on source
          * @param {SourcesApiCreateSourceSchemaV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8376,7 +8994,17 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteProvisioningPolicyV2(requestParameters.sourceId, requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+         * Use this API to delete all AI agents that were aggregated into the given datasets on a source. Deletion runs as an asynchronous task, and the response contains the task\'s initial status.   This API returns `400` when the source has no connector instance, when `datasetIds` is missing or empty, or when a deletion or aggregation is already running for the source.   When agentic identity governance is not enabled for the tenant, or AI agent deletion is not available, this API returns `404`. 
+         * @summary Delete source AI agents
+         * @param {SourcesApiDeleteSourceAgentsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceAgentsV1(requestParameters: SourcesApiDeleteSourceAgentsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<SourceAgentDeletionTaskStatus> {
+            return localVarFp.deleteSourceAgentsV1(requestParameters.id, requestParameters.deleteSourceAgentsRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Starts a task to delete aggregated objects for the specified dataset on the source in SailPoint Identity Security (SailPoint Identity Security). Linked dataset and resource definitions are not deleted. 
          * @summary Delete objects for source dataset
          * @param {SourcesApiDeleteSourceDatasetObjectsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8386,7 +9014,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteSourceDatasetObjectsV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+         * Use this API to delete a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
          * @summary Delete source dataset by id
          * @param {SourcesApiDeleteSourceDatasetV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8396,7 +9024,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+         * Use this API to delete a resource on the specified source in SailPoint Identity Security.   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
          * @summary Delete source resource by id
          * @param {SourcesApiDeleteSourceResourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8426,7 +9054,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
+         * Use this API to delete a specific source in SailPoint Identity Security. The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
          * @summary Delete source by id
          * @param {SourcesApiDeleteSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8506,7 +9134,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+         * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in SailPoint Identity Security.
          * @summary Get provisioning policy by ID
          * @param {SourcesApiGetProvisioningPolicyV2Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8536,7 +9164,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceConfigV1(requestParameters.id, requestParameters.locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in SailPoint Identity Security.
          * @summary Get source connections by id
          * @param {SourcesApiGetSourceConnectionsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8546,7 +9174,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceConnectionsV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+         * Use this API to get a dataset by id for the specified source in SailPoint Identity Security. 
          * @summary Get source dataset by id
          * @param {SourcesApiGetSourceDatasetV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8556,7 +9184,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list datasets for the specified source in SailPoint Identity Security. 
          * @summary List datasets on source
          * @param {SourcesApiGetSourceDatasetsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8586,7 +9214,17 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceHealthV1(requestParameters.sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+         * Use this API to get the progress of the latest correlation reprocess run of the given `type` for a resource on a source. You can call it whatever state the run is in. Finished runs are kept for a limited time. This API returns `404` when no run is found for the source resource and `type`.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+         * @summary Get resource correlation reprocess status
+         * @param {SourcesApiGetSourceResourceCorrelationReprocessV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceResourceCorrelationReprocessV1(requestParameters: SourcesApiGetSourceResourceCorrelationReprocessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CorrelationReprocessStatus> {
+            return localVarFp.getSourceResourceCorrelationReprocessV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to get aggregation metadata for resources on the specified source in SailPoint Identity Security (SailPoint Identity Security). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
          * @summary Get source resource mappings
          * @param {SourcesApiGetSourceResourceMappingsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8596,7 +9234,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceResourceMappingsV1(requestParameters.sourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+         * Use this API to get a resource by id on the specified source in SailPoint Identity Security. The response includes the full CIS schema for the resource. 
          * @summary Get source resource by id
          * @param {SourcesApiGetSourceResourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8606,7 +9244,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceResourceV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list resources defined on the specified source in SailPoint Identity Security. 
          * @summary List resources for a source
          * @param {SourcesApiGetSourceResourcesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8616,7 +9254,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceResourcesV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get the source schedule by type in Identity Security Cloud (ISC). 
+         * Get the source schedule by type in SailPoint Identity Security. 
          * @summary Get source schedule by type
          * @param {SourcesApiGetSourceScheduleV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8626,7 +9264,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceScheduleV1(requestParameters.sourceId, requestParameters.scheduleType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC). :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
+         * Use this API to list the schedules that exist on the specified source in SailPoint Identity Security. :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
          * @summary List schedules on source
          * @param {SourcesApiGetSourceSchedulesV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8646,7 +9284,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+         * Use this API to list the schemas that exist on the specified source in SailPoint Identity Security.
          * @summary List schemas on source
          * @param {SourcesApiGetSourceSchemasV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8656,7 +9294,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceSchemasV1(requestParameters.sourceId, requestParameters.includeTypes, requestParameters.includeNames, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+         * Use this API to list the Service Desk Integrations that carry out provisioning for a source in SailPoint Identity Security (SailPoint Identity Security).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
          * @summary List source service desk integrations
          * @param {SourcesApiGetSourceServiceDeskIntegrationsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8666,7 +9304,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceServiceDeskIntegrationsV1(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+         * Use this API to get a source by a specified ID in SailPoint Identity Security.
          * @summary Get source by id
          * @param {SourcesApiGetSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8726,7 +9364,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.importEntitlementsV1(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+         * Starts an aggregation for the specified dataset on the source in SailPoint Identity Security. An optional `config` object can be supplied for connector-specific aggregation settings. 
          * @summary Aggregate source dataset
          * @param {SourcesApiImportSourceDatasetV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8826,7 +9464,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.putProvisioningPolicyV1(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+         * This end-point updates the provisioning policy with the specified ID on the specified source in SailPoint Identity Security. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
          * @summary Update provisioning policy by ID
          * @param {SourcesApiPutProvisioningPolicyV2Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8846,7 +9484,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.putSourceAttrSyncConfigV1(requestParameters.id, requestParameters.attrSyncSourceConfig, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+         * Use this API to replace a dataset on the specified source in SailPoint Identity Security.   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
          * @summary Update source dataset (full)
          * @param {SourcesApiPutSourceDatasetV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8856,7 +9494,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.putSourceDatasetV1(requestParameters.sourceId, requestParameters.datasetId, requestParameters.sourceDataset, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+         * Use this API to replace a resource on the specified source in SailPoint Identity Security.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
          * @summary Update source resource (full)
          * @param {SourcesApiPutSourceResourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8876,7 +9514,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.putSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+         * Use this API to update a source in SailPoint Identity Security, using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (full)
          * @param {SourcesApiPutSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -8894,6 +9532,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         searchResourceObjectsV1(requestParameters: SourcesApiSearchResourceObjectsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<ResourceObjectsResponse> {
             return localVarFp.searchResourceObjectsV1(requestParameters.sourceId, requestParameters.resourceObjectsRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to re-run correlation for the machine objects aggregated from a resource on a source, without running a new aggregation. The run is asynchronous. Poll its progress with the `GET` method on the same path and `type`.   Only one run of a given `type` can be in progress for a source resource at a time. Starting another run while one is in progress returns `400`. This API returns `404` when the source or resource does not exist.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+         * @summary Start resource correlation reprocess
+         * @param {SourcesApiStartSourceResourceCorrelationReprocessV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startSourceResourceCorrelationReprocessV1(requestParameters: SourcesApiStartSourceResourceCorrelationReprocessV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<CorrelationReprocessStatus> {
+            return localVarFp.startSourceResourceCorrelationReprocessV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point performs attribute synchronization for a selected source.
@@ -9036,7 +9684,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateSourceSchemaV1(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+         * Use this API to partially update a source in SailPoint Identity Security, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
          * @summary Update source (partial)
          * @param {SourcesApiUpdateSourceV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -9296,6 +9944,34 @@ export interface SourcesApiDeleteProvisioningPolicyV2Request {
      * Use this header to enable this experimental API.
      * @type {string}
      * @memberof SourcesApiDeleteProvisioningPolicyV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for deleteSourceAgentsV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteSourceAgentsV1Request
+ */
+export interface SourcesApiDeleteSourceAgentsV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceAgentsV1
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {DeleteSourceAgentsRequest}
+     * @memberof SourcesApiDeleteSourceAgentsV1
+     */
+    readonly deleteSourceAgentsRequest: DeleteSourceAgentsRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceAgentsV1
      */
     readonly xSailPointExperimental?: string
 }
@@ -9678,21 +10354,21 @@ export interface SourcesApiGetSourceDatasetsV1Request {
     readonly sourceId: string
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiGetSourceDatasetsV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiGetSourceDatasetsV1
      */
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof SourcesApiGetSourceDatasetsV1
      */
@@ -9732,6 +10408,41 @@ export interface SourcesApiGetSourceHealthV1Request {
      * @memberof SourcesApiGetSourceHealthV1
      */
     readonly sourceId: string
+}
+
+/**
+ * Request parameters for getSourceResourceCorrelationReprocessV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceResourceCorrelationReprocessV1Request
+ */
+export interface SourcesApiGetSourceResourceCorrelationReprocessV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceCorrelationReprocessV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Resource ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceCorrelationReprocessV1
+     */
+    readonly resourceId: string
+
+    /**
+     * Kind of correlation reprocess run to get.
+     * @type {'OWNER_CORRELATION'}
+     * @memberof SourcesApiGetSourceResourceCorrelationReprocessV1
+     */
+    readonly type: GetSourceResourceCorrelationReprocessV1TypeEnum
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiGetSourceResourceCorrelationReprocessV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -9797,21 +10508,21 @@ export interface SourcesApiGetSourceResourcesV1Request {
     readonly sourceId: string
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiGetSourceResourcesV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiGetSourceResourcesV1
      */
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof SourcesApiGetSourceResourcesV1
      */
@@ -9923,14 +10634,14 @@ export interface SourcesApiGetSourceServiceDeskIntegrationsV1Request {
     readonly sourceId: string
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiGetSourceServiceDeskIntegrationsV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiGetSourceServiceDeskIntegrationsV1
      */
@@ -10140,21 +10851,21 @@ export interface SourcesApiListPasswordPolicyHoldersOnSourceV1Request {
     readonly sourceId: string
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiListPasswordPolicyHoldersOnSourceV1
      */
     readonly offset?: number
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiListPasswordPolicyHoldersOnSourceV1
      */
     readonly limit?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof SourcesApiListPasswordPolicyHoldersOnSourceV1
      */
@@ -10175,14 +10886,14 @@ export interface SourcesApiListProvisioningPoliciesV1Request {
     readonly sourceId: string
 
     /**
-     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
      * @memberof SourcesApiListProvisioningPoliciesV1
      */
     readonly offset?: number
 
     /**
-     * Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * Limit        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
      * @memberof SourcesApiListProvisioningPoliciesV1
      */
@@ -10203,21 +10914,21 @@ export interface SourcesApiListProvisioningPoliciesV2Request {
     readonly sourceId: string
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **subtypeId**: *eq*  **usageType**: *eq*
      * @type {string}
      * @memberof SourcesApiListProvisioningPoliciesV2
      */
     readonly filters?: string
 
     /**
-     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
      * @memberof SourcesApiListProvisioningPoliciesV2
      */
     readonly offset?: number
 
     /**
-     * Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * Limit Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
      * @memberof SourcesApiListProvisioningPoliciesV2
      */
@@ -10238,35 +10949,35 @@ export interface SourcesApiListProvisioningPoliciesV2Request {
  */
 export interface SourcesApiListSourcesV1Request {
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiListSourcesV1
      */
     readonly limit?: number
 
     /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {number}
      * @memberof SourcesApiListSourcesV1
      */
     readonly offset?: number
 
     /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof SourcesApiListSourcesV1
      */
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*  **category**: *co, eq, ge, gt, in, le, lt, ne, sw*
      * @type {string}
      * @memberof SourcesApiListSourcesV1
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
      * @type {string}
      * @memberof SourcesApiListSourcesV1
      */
@@ -10572,6 +11283,41 @@ export interface SourcesApiSearchResourceObjectsV1Request {
      * @memberof SourcesApiSearchResourceObjectsV1
      */
     readonly resourceObjectsRequest: ResourceObjectsRequest
+}
+
+/**
+ * Request parameters for startSourceResourceCorrelationReprocessV1 operation in SourcesApi.
+ * @export
+ * @interface SourcesApiStartSourceResourceCorrelationReprocessV1Request
+ */
+export interface SourcesApiStartSourceResourceCorrelationReprocessV1Request {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiStartSourceResourceCorrelationReprocessV1
+     */
+    readonly sourceId: string
+
+    /**
+     * Resource ID.
+     * @type {string}
+     * @memberof SourcesApiStartSourceResourceCorrelationReprocessV1
+     */
+    readonly resourceId: string
+
+    /**
+     * Kind of correlation to reprocess. &#x60;OWNER_CORRELATION&#x60; re-runs owner correlation.
+     * @type {'OWNER_CORRELATION'}
+     * @memberof SourcesApiStartSourceResourceCorrelationReprocessV1
+     */
+    readonly type: StartSourceResourceCorrelationReprocessV1TypeEnum
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof SourcesApiStartSourceResourceCorrelationReprocessV1
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -10931,7 +11677,7 @@ export interface SourcesApiUpdateSourceV1Request {
     readonly id: string
 
     /**
-     * A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+     * A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in SailPoint Identity Security.
      * @type {Array<JsonPatchOperation>}
      * @memberof SourcesApiUpdateSourceV1
      */
@@ -10970,7 +11716,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
+     * Use this API to create a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name` is required. The dataset `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. 
      * @summary Create dataset on source
      * @param {SourcesApiCreateSourceDatasetV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -10982,7 +11728,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a resource on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
+     * Use this API to create a resource on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. `name`, `type`, `datasetId`, and `schema` are required. The `schema` must define at least one attribute plus `identityAttribute` and `displayAttribute`. The resource `id` is always server-generated from `name` as `customer:` plus a normalized form of the name; any client-supplied `id` is ignored. After creation, schema attribute edits are made through the source schema APIs. 
      * @summary Create resource on source
      * @param {SourcesApiCreateSourceResourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -10994,7 +11740,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC). 
+     * Use this API to create a new schedule for a type on the specified source in SailPoint Identity Security. 
      * @summary Create schedule on source
      * @param {SourcesApiCreateSourceScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11006,7 +11752,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a new schema on the specified source in Identity Security Cloud (ISC). 
+     * Use this API to create a new schema on the specified source in SailPoint Identity Security. 
      * @summary Create schema on source
      * @param {SourcesApiCreateSourceSchemaV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11078,7 +11824,19 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Starts a task to delete aggregated objects for the specified dataset on the source in Identity Security Cloud (ISC). Linked dataset and resource definitions are not deleted. 
+     * Use this API to delete all AI agents that were aggregated into the given datasets on a source. Deletion runs as an asynchronous task, and the response contains the task\'s initial status.   This API returns `400` when the source has no connector instance, when `datasetIds` is missing or empty, or when a deletion or aggregation is already running for the source.   When agentic identity governance is not enabled for the tenant, or AI agent deletion is not available, this API returns `404`. 
+     * @summary Delete source AI agents
+     * @param {SourcesApiDeleteSourceAgentsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public deleteSourceAgentsV1(requestParameters: SourcesApiDeleteSourceAgentsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceAgentsV1(requestParameters.id, requestParameters.deleteSourceAgentsRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Starts a task to delete aggregated objects for the specified dataset on the source in SailPoint Identity Security (SailPoint Identity Security). Linked dataset and resource definitions are not deleted. 
      * @summary Delete objects for source dataset
      * @param {SourcesApiDeleteSourceDatasetObjectsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11090,7 +11848,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete a dataset on the specified source in Identity Security Cloud (ISC).   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
+     * Use this API to delete a dataset on the specified source in SailPoint Identity Security.   This operation requires a connector with the `supportDatasetCreation` label. Linked resource schemas are not deleted. 
      * @summary Delete source dataset by id
      * @param {SourcesApiDeleteSourceDatasetV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11102,7 +11860,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete a resource on the specified source in Identity Security Cloud (ISC).   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
+     * Use this API to delete a resource on the specified source in SailPoint Identity Security.   The resource schema is deleted and the resource is unlinked from any dataset rows on the source. 
      * @summary Delete source resource by id
      * @param {SourcesApiDeleteSourceResourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11138,7 +11896,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete a specific source in Identity Security Cloud (ISC). The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
+     * Use this API to delete a specific source in SailPoint Identity Security. The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
      * @summary Delete source by id
      * @param {SourcesApiDeleteSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11234,7 +11992,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in Identity Security Cloud.
+     * This end-point retrieves the ProvisioningPolicy with the specified ID on the specified Source in SailPoint Identity Security.
      * @summary Get provisioning policy by ID
      * @param {SourcesApiGetProvisioningPolicyV2Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11270,7 +12028,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+     * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in SailPoint Identity Security.
      * @summary Get source connections by id
      * @param {SourcesApiGetSourceConnectionsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11282,7 +12040,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a dataset by id for the specified source in Identity Security Cloud (ISC). 
+     * Use this API to get a dataset by id for the specified source in SailPoint Identity Security. 
      * @summary Get source dataset by id
      * @param {SourcesApiGetSourceDatasetV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11294,7 +12052,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to list datasets for the specified source in Identity Security Cloud (ISC). 
+     * Use this API to list datasets for the specified source in SailPoint Identity Security. 
      * @summary List datasets on source
      * @param {SourcesApiGetSourceDatasetsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11330,7 +12088,19 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get aggregation metadata for resources on the specified source in Identity Security Cloud (ISC). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
+     * Use this API to get the progress of the latest correlation reprocess run of the given `type` for a resource on a source. You can call it whatever state the run is in. Finished runs are kept for a limited time. This API returns `404` when no run is found for the source resource and `type`.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+     * @summary Get resource correlation reprocess status
+     * @param {SourcesApiGetSourceResourceCorrelationReprocessV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceResourceCorrelationReprocessV1(requestParameters: SourcesApiGetSourceResourceCorrelationReprocessV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceResourceCorrelationReprocessV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to get aggregation metadata for resources on the specified source in SailPoint Identity Security (SailPoint Identity Security). The response is keyed by resource id. Each value includes the linked dataset id, resource type, and connector object type. Resources without a matching schema are omitted. 
      * @summary Get source resource mappings
      * @param {SourcesApiGetSourceResourceMappingsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11342,7 +12112,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a resource by id on the specified source in Identity Security Cloud (ISC). The response includes the full CIS schema for the resource. 
+     * Use this API to get a resource by id on the specified source in SailPoint Identity Security. The response includes the full CIS schema for the resource. 
      * @summary Get source resource by id
      * @param {SourcesApiGetSourceResourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11354,7 +12124,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to list resources defined on the specified source in Identity Security Cloud (ISC). 
+     * Use this API to list resources defined on the specified source in SailPoint Identity Security. 
      * @summary List resources for a source
      * @param {SourcesApiGetSourceResourcesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11366,7 +12136,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Get the source schedule by type in Identity Security Cloud (ISC). 
+     * Get the source schedule by type in SailPoint Identity Security. 
      * @summary Get source schedule by type
      * @param {SourcesApiGetSourceScheduleV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11378,7 +12148,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC). :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
+     * Use this API to list the schedules that exist on the specified source in SailPoint Identity Security. :::info This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.  For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.  **Days of the week are represented as 1-7 (Sunday-Saturday).** ::: 
      * @summary List schedules on source
      * @param {SourcesApiGetSourceSchedulesV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11402,7 +12172,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
+     * Use this API to list the schemas that exist on the specified source in SailPoint Identity Security.
      * @summary List schemas on source
      * @param {SourcesApiGetSourceSchemasV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11414,7 +12184,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to list the Service Desk Integrations that carry out provisioning for a source in Identity Security Cloud (ISC).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
+     * Use this API to list the Service Desk Integrations that carry out provisioning for a source in SailPoint Identity Security (SailPoint Identity Security).  A source is provisioned either entirely through its own connector or entirely through a Service Desk Integration; provisioning is never split between the two. An empty list therefore means the source\'s own connector handles provisioning, and a non-empty list means every provisioning request for the source is routed to the integrations named in the response.  Use this API to determine why provisioning settings on the source itself have no effect, and to identify the integration an administrator must change instead.
      * @summary List source service desk integrations
      * @param {SourcesApiGetSourceServiceDeskIntegrationsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11426,7 +12196,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
+     * Use this API to get a source by a specified ID in SailPoint Identity Security.
      * @summary Get source by id
      * @param {SourcesApiGetSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11498,7 +12268,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Starts an aggregation for the specified dataset on the source in Identity Security Cloud (ISC). An optional `config` object can be supplied for connector-specific aggregation settings. 
+     * Starts an aggregation for the specified dataset on the source in SailPoint Identity Security. An optional `config` object can be supplied for connector-specific aggregation settings. 
      * @summary Aggregate source dataset
      * @param {SourcesApiImportSourceDatasetV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11618,7 +12388,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This end-point updates the provisioning policy with the specified ID on the specified source in Identity Security Cloud. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
+     * This end-point updates the provisioning policy with the specified ID on the specified source in SailPoint Identity Security. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
      * @summary Update provisioning policy by ID
      * @param {SourcesApiPutProvisioningPolicyV2Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11642,7 +12412,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to replace a dataset on the specified source in Identity Security Cloud (ISC).   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
+     * Use this API to replace a dataset on the specified source in SailPoint Identity Security.   Callers should round-trip the GET representation. `id` is required in the request body and must match the path. `aggregationEnabled` may always be updated. `name`, `description`, and `resources` can be changed only when the connector has the `supportDatasetCreation` label. 
      * @summary Update source dataset (full)
      * @param {SourcesApiPutSourceDatasetV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11654,7 +12424,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to replace a resource on the specified source in Identity Security Cloud (ISC).   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
+     * Use this API to replace a resource on the specified source in SailPoint Identity Security.   After creation, schema attribute edits should be made through the source schema APIs. Connectors with the `supportDatasetCreation` label can update additional resource fields. 
      * @summary Update source resource (full)
      * @param {SourcesApiPutSourceResourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11678,7 +12448,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+     * Use this API to update a source in SailPoint Identity Security, using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
      * @summary Update source (full)
      * @param {SourcesApiPutSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11699,6 +12469,18 @@ export class SourcesApi extends BaseAPI {
      */
     public searchResourceObjectsV1(requestParameters: SourcesApiSearchResourceObjectsV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return SourcesApiFp(this.configuration).searchResourceObjectsV1(requestParameters.sourceId, requestParameters.resourceObjectsRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to re-run correlation for the machine objects aggregated from a resource on a source, without running a new aggregation. The run is asynchronous. Poll its progress with the `GET` method on the same path and `type`.   Only one run of a given `type` can be in progress for a source resource at a time. Starting another run while one is in progress returns `400`. This API returns `404` when the source or resource does not exist.   When machine identity security is not enabled for the tenant, or correlation reprocessing is not available, this API returns `404`. 
+     * @summary Start resource correlation reprocess
+     * @param {SourcesApiStartSourceResourceCorrelationReprocessV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public startSourceResourceCorrelationReprocessV1(requestParameters: SourcesApiStartSourceResourceCorrelationReprocessV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).startSourceResourceCorrelationReprocessV1(requestParameters.sourceId, requestParameters.resourceId, requestParameters.type, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -11870,7 +12652,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
+     * Use this API to partially update a source in SailPoint Identity Security, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  These fields are immutable, so they cannot be changed:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error. 
      * @summary Update source (partial)
      * @param {SourcesApiUpdateSourceV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -11918,6 +12700,13 @@ export type GetSourceConfigV1LocaleEnum = typeof GetSourceConfigV1LocaleEnum[key
 /**
  * @export
  */
+export const GetSourceResourceCorrelationReprocessV1TypeEnum = {
+    OwnerCorrelation: 'OWNER_CORRELATION'
+} as const;
+export type GetSourceResourceCorrelationReprocessV1TypeEnum = typeof GetSourceResourceCorrelationReprocessV1TypeEnum[keyof typeof GetSourceResourceCorrelationReprocessV1TypeEnum];
+/**
+ * @export
+ */
 export const GetSourceScheduleV1ScheduleTypeEnum = {
     AccountAggregation: 'ACCOUNT_AGGREGATION',
     GroupAggregation: 'GROUP_AGGREGATION'
@@ -11931,6 +12720,13 @@ export const GetSourceSchemasV1IncludeTypesEnum = {
     User: 'user'
 } as const;
 export type GetSourceSchemasV1IncludeTypesEnum = typeof GetSourceSchemasV1IncludeTypesEnum[keyof typeof GetSourceSchemasV1IncludeTypesEnum];
+/**
+ * @export
+ */
+export const StartSourceResourceCorrelationReprocessV1TypeEnum = {
+    OwnerCorrelation: 'OWNER_CORRELATION'
+} as const;
+export type StartSourceResourceCorrelationReprocessV1TypeEnum = typeof StartSourceResourceCorrelationReprocessV1TypeEnum[keyof typeof StartSourceResourceCorrelationReprocessV1TypeEnum];
 /**
  * @export
  */

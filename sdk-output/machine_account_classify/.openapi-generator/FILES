@@ -1,6 +1,8 @@
 .gitignore
 .npmignore
 .openapi-generator-ignore
+BulkClassifyMachineAccountResult.md
+BulkClassifyMachineAccountsRequest.md
 ErrorMessageDto.md
 ErrorResponseDto.md
 Index.md

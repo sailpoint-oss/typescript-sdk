@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Machine Account Classify
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Machine Account Classify
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -23,6 +23,50 @@ import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
+/**
+ * Classification result for one account in a bulk classify request.
+ * @export
+ * @interface BulkClassifyMachineAccountResult
+ */
+export interface BulkClassifyMachineAccountResult {
+    /**
+     * Account ID from the request.
+     * @type {string}
+     * @memberof BulkClassifyMachineAccountResult
+     */
+    'id'?: string;
+    /**
+     * HTTP status code for this account. `200` means the account was classified, `404` means the account was not found, and other codes describe why classification failed.
+     * @type {number}
+     * @memberof BulkClassifyMachineAccountResult
+     */
+    'status'?: number;
+    /**
+     * Indicates if the account is classified as machine. `false` when classification did not succeed.
+     * @type {boolean}
+     * @memberof BulkClassifyMachineAccountResult
+     */
+    'isMachine'?: boolean;
+    /**
+     * Result message for this account.
+     * @type {string}
+     * @memberof BulkClassifyMachineAccountResult
+     */
+    'message'?: string;
+}
+/**
+ * Accounts to classify.
+ * @export
+ * @interface BulkClassifyMachineAccountsRequest
+ */
+export interface BulkClassifyMachineAccountsRequest {
+    /**
+     * IDs of the accounts to classify. Provide between 1 and 250 account IDs.
+     * @type {Array<string>}
+     * @memberof BulkClassifyMachineAccountsRequest
+     */
+    'ids': Array<string>;
+}
 /**
  * 
  * @export
@@ -142,6 +186,55 @@ export interface SendClassifyMachineAccountV1429Response {
 export const MachineAccountClassifyApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Use this API to classify up to 250 accounts in one request. The response lists a result for each requested account, with its own status code, so some accounts can succeed while others fail. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. When machine account classification is not enabled for the tenant, this API returns `404`.
+         * @summary Classify multiple machine accounts
+         * @param {BulkClassifyMachineAccountsRequest} bulkClassifyMachineAccountsRequest 
+         * @param {SendBulkClassifyMachineAccountsV1ClassificationModeEnum} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendBulkClassifyMachineAccountsV1: async (bulkClassifyMachineAccountsRequest: BulkClassifyMachineAccountsRequest, classificationMode?: SendBulkClassifyMachineAccountsV1ClassificationModeEnum, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkClassifyMachineAccountsRequest' is not null or undefined
+            assertParamExists('sendBulkClassifyMachineAccountsV1', 'bulkClassifyMachineAccountsRequest', bulkClassifyMachineAccountsRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/accounts/v1/bulk-classify`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (classificationMode !== undefined) {
+                localVarQueryParameter['classificationMode'] = classificationMode;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkClassifyMachineAccountsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify single machine account
          * @param {string} id Account ID.
@@ -199,6 +292,21 @@ export const MachineAccountClassifyApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = MachineAccountClassifyApiAxiosParamCreator(configuration)
     return {
         /**
+         * Use this API to classify up to 250 accounts in one request. The response lists a result for each requested account, with its own status code, so some accounts can succeed while others fail. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. When machine account classification is not enabled for the tenant, this API returns `404`.
+         * @summary Classify multiple machine accounts
+         * @param {BulkClassifyMachineAccountsRequest} bulkClassifyMachineAccountsRequest 
+         * @param {SendBulkClassifyMachineAccountsV1ClassificationModeEnum} [classificationMode] Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendBulkClassifyMachineAccountsV1(bulkClassifyMachineAccountsRequest: BulkClassifyMachineAccountsRequest, classificationMode?: SendBulkClassifyMachineAccountsV1ClassificationModeEnum, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkClassifyMachineAccountResult>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendBulkClassifyMachineAccountsV1(bulkClassifyMachineAccountsRequest, classificationMode, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountClassifyApi.sendBulkClassifyMachineAccountsV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify single machine account
          * @param {string} id Account ID.
@@ -224,6 +332,16 @@ export const MachineAccountClassifyApiFactory = function (configuration?: Config
     const localVarFp = MachineAccountClassifyApiFp(configuration)
     return {
         /**
+         * Use this API to classify up to 250 accounts in one request. The response lists a result for each requested account, with its own status code, so some accounts can succeed while others fail. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. When machine account classification is not enabled for the tenant, this API returns `404`.
+         * @summary Classify multiple machine accounts
+         * @param {MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendBulkClassifyMachineAccountsV1(requestParameters: MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<BulkClassifyMachineAccountResult>> {
+            return localVarFp.sendBulkClassifyMachineAccountsV1(requestParameters.bulkClassifyMachineAccountsRequest, requestParameters.classificationMode, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Classify single machine account
          * @param {MachineAccountClassifyApiSendClassifyMachineAccountV1Request} requestParameters Request parameters.
@@ -235,6 +353,34 @@ export const MachineAccountClassifyApiFactory = function (configuration?: Config
         },
     };
 };
+
+/**
+ * Request parameters for sendBulkClassifyMachineAccountsV1 operation in MachineAccountClassifyApi.
+ * @export
+ * @interface MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1Request
+ */
+export interface MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1Request {
+    /**
+     * 
+     * @type {BulkClassifyMachineAccountsRequest}
+     * @memberof MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1
+     */
+    readonly bulkClassifyMachineAccountsRequest: BulkClassifyMachineAccountsRequest
+
+    /**
+     * Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human.
+     * @type {'default' | 'ignoreManual' | 'forceMachine' | 'forceHuman'}
+     * @memberof MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1
+     */
+    readonly classificationMode?: SendBulkClassifyMachineAccountsV1ClassificationModeEnum
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1
+     */
+    readonly xSailPointExperimental?: string
+}
 
 /**
  * Request parameters for sendClassifyMachineAccountV1 operation in MachineAccountClassifyApi.
@@ -272,6 +418,18 @@ export interface MachineAccountClassifyApiSendClassifyMachineAccountV1Request {
  */
 export class MachineAccountClassifyApi extends BaseAPI {
     /**
+     * Use this API to classify up to 250 accounts in one request. The response lists a result for each requested account, with its own status code, so some accounts can succeed while others fail. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. When machine account classification is not enabled for the tenant, this API returns `404`.
+     * @summary Classify multiple machine accounts
+     * @param {MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountClassifyApi
+     */
+    public sendBulkClassifyMachineAccountsV1(requestParameters: MachineAccountClassifyApiSendBulkClassifyMachineAccountsV1Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountClassifyApiFp(this.configuration).sendBulkClassifyMachineAccountsV1(requestParameters.bulkClassifyMachineAccountsRequest, requestParameters.classificationMode, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Use this API to classify a single machine account. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Classify single machine account
      * @param {MachineAccountClassifyApiSendClassifyMachineAccountV1Request} requestParameters Request parameters.
@@ -284,6 +442,16 @@ export class MachineAccountClassifyApi extends BaseAPI {
     }
 }
 
+/**
+ * @export
+ */
+export const SendBulkClassifyMachineAccountsV1ClassificationModeEnum = {
+    Default: 'default',
+    IgnoreManual: 'ignoreManual',
+    ForceMachine: 'forceMachine',
+    ForceHuman: 'forceHuman'
+} as const;
+export type SendBulkClassifyMachineAccountsV1ClassificationModeEnum = typeof SendBulkClassifyMachineAccountsV1ClassificationModeEnum[keyof typeof SendBulkClassifyMachineAccountsV1ClassificationModeEnum];
 /**
  * @export
  */

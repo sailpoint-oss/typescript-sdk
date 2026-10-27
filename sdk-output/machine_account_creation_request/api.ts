@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Identity Security Cloud API - Machine Account Creation Request
- * Use these APIs to interact with the Identity Security Cloud platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
+ * SailPoint Identity Security API - Machine Account Creation Request
+ * Use these APIs to interact with the SailPoint Identity Security platform to achieve repeatable, automated processes with greater scalability. We encourage you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss to connect with other developers using our APIs.
  *
  * The version of the OpenAPI document: v1
  * 
@@ -399,6 +399,37 @@ export interface MachineAccountCreateAccessDtoSubtypesInner {
     'subtypeTechnicalName'?: string;
 }
 /**
+ * An entitlement to request for the machine account, with optional comment and access dates.
+ * @export
+ * @interface MachineAccountCreateEntitlement
+ */
+export interface MachineAccountCreateEntitlement {
+    /**
+     * ID of the entitlement to request.
+     * @type {string}
+     * @memberof MachineAccountCreateEntitlement
+     */
+    'id': string;
+    /**
+     * Comment to include with the entitlement request.
+     * @type {string}
+     * @memberof MachineAccountCreateEntitlement
+     */
+    'comment'?: string;
+    /**
+     * Date and time when access to the entitlement starts. Must be in the future and, when `removeDate` is also set, before `removeDate`.
+     * @type {string}
+     * @memberof MachineAccountCreateEntitlement
+     */
+    'startDate'?: string;
+    /**
+     * Date and time when access to the entitlement is removed. Must be in the future.
+     * @type {string}
+     * @memberof MachineAccountCreateEntitlement
+     */
+    'removeDate'?: string;
+}
+/**
  * Contains the required information for processing a user-initiated machine account creation request.
  * @export
  * @interface MachineAccountCreateRequestInput
@@ -450,6 +481,73 @@ export interface MachineAccountCreateRequestInput {
      * List of entitlement IDs to provision for created machine account.
      * @type {Array<string>}
      * @memberof MachineAccountCreateRequestInput
+     */
+    'entitlementIds'?: Array<string>;
+}
+/**
+ * Contains the information for processing a user-initiated machine account creation request. Adds a target source and per-entitlement request details to the v1 request.
+ * @export
+ * @interface MachineAccountCreateRequestInputV2
+ */
+export interface MachineAccountCreateRequestInputV2 {
+    /**
+     * Subtype ID for which machine account create is enabled and user have the entitlement to create the machine account.
+     * @type {string}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'subtypeId': string;
+    /**
+     * ID of the source to create the machine account on. The subtype must be available on this source. Required when subtypes can be configured per source for the tenant; otherwise it is ignored and the subtype\'s own source is used.
+     * @type {string}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'sourceId'?: string;
+    /**
+     * Form ID selected by user for the machine account create request.
+     * @type {string}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'formId'?: string;
+    /**
+     * Owner Identity ID. This identity will be assigned as an owner of the created machine account.
+     * @type {string}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'ownerIdentityId': string;
+    /**
+     * Machine identity to correlate with the created machine account. If not provided, a new machine identity will be created.
+     * @type {string}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'machineIdentityId'?: string | null;
+    /**
+     * Environment type to use for the machine account.
+     * @type {string}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'environment'?: string;
+    /**
+     * Description for the machine account.
+     * @type {string}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'description'?: string;
+    /**
+     * Fields of the form linked to the subtype in approval settings.
+     * @type {object}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'userInput'?: object;
+    /**
+     * Entitlements to request for the created machine account, each with an optional comment, start date, and remove date. Duplicate IDs are ignored and up to 20 unique entitlements are allowed. Use either `entitlements` or `entitlementIds`, depending on which one your tenant supports; sending a non-empty list that your tenant does not support returns `400`.
+     * @type {Array<MachineAccountCreateEntitlement>}
+     * @memberof MachineAccountCreateRequestInputV2
+     */
+    'entitlements'?: Array<MachineAccountCreateEntitlement>;
+    /**
+     * List of entitlement IDs to provision for created machine account. Up to 20 unique entitlements are allowed. Use either `entitlements` or `entitlementIds`, depending on which one your tenant supports; sending a non-empty list that your tenant does not support returns `400`.
+     * @type {Array<string>}
+     * @memberof MachineAccountCreateRequestInputV2
      */
     'entitlementIds'?: Array<string>;
 }
@@ -505,6 +603,94 @@ export const MachineAccountCreationRequestApiAxiosParamCreator = function (confi
             };
         },
         /**
+         * Submits a machine account creation request on the account-requests API. This operation accepts the same request and runs the same creation process as [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2). Use this operation when the integration already calls the account-requests APIs. New integrations should call [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2).  This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+         * @summary Submit Machine Account Creation Request
+         * @param {MachineAccountCreateRequestInputV2} machineAccountCreateRequestInputV2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineAccountRequestV2: async (machineAccountCreateRequestInputV2: MachineAccountCreateRequestInputV2, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineAccountCreateRequestInputV2' is not null or undefined
+            assertParamExists('createMachineAccountRequestV2', 'machineAccountCreateRequestInputV2', machineAccountCreateRequestInputV2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/account-requests/v2/machine-account-create`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountCreateRequestInputV2, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Submits a machine account creation request. New integrations should use this operation. This operation accepts the same request and runs the same creation process as [Submit Machine Account Creation Request](https://developer.sailpoint.com/docs/api/create-machine-account-request-v-2). That operation stays on the account-requests API for integrations that already call it. When version 1 cannot create the account because the subtype is not tied to a single source, the error directs the caller here. This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+         * @summary Create Machine Account V2
+         * @param {MachineAccountCreateRequestInputV2} machineAccountCreateRequestInputV2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineAccountV2: async (machineAccountCreateRequestInputV2: MachineAccountCreateRequestInputV2, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'machineAccountCreateRequestInputV2' is not null or undefined
+            assertParamExists('createMachineAccountV2', 'machineAccountCreateRequestInputV2', machineAccountCreateRequestInputV2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/machine-accounts/v2/machine-account-create`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(machineAccountCreateRequestInputV2, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieves a account request details for machine account creation. This allows the user to view all details for given account request.
          * @summary Get Machine Account Creation Request
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
@@ -552,8 +738,8 @@ export const MachineAccountCreationRequestApiAxiosParamCreator = function (confi
          * This endpoint retrieves the list of sources and subtypes for which logged in user has the entitlement to create a machine account. The response includes a list of object detailing the source, subtype and entitlement details which enables the clients to understand if they can submit the request to create a machine account for the given subtype.
          * @summary Machine Account Create Access
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -623,6 +809,34 @@ export const MachineAccountCreationRequestApiFp = function(configuration?: Confi
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Submits a machine account creation request on the account-requests API. This operation accepts the same request and runs the same creation process as [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2). Use this operation when the integration already calls the account-requests APIs. New integrations should call [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2).  This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+         * @summary Submit Machine Account Creation Request
+         * @param {MachineAccountCreateRequestInputV2} machineAccountCreateRequestInputV2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createMachineAccountRequestV2(machineAccountCreateRequestInputV2: MachineAccountCreateRequestInputV2, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountRequestAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountRequestV2(machineAccountCreateRequestInputV2, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestApi.createMachineAccountRequestV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Submits a machine account creation request. New integrations should use this operation. This operation accepts the same request and runs the same creation process as [Submit Machine Account Creation Request](https://developer.sailpoint.com/docs/api/create-machine-account-request-v-2). That operation stays on the account-requests API for integrations that already call it. When version 1 cannot create the account because the subtype is not tied to a single source, the error directs the caller here. This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+         * @summary Create Machine Account V2
+         * @param {MachineAccountCreateRequestInputV2} machineAccountCreateRequestInputV2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createMachineAccountV2(machineAccountCreateRequestInputV2: MachineAccountCreateRequestInputV2, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountRequestAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMachineAccountV2(machineAccountCreateRequestInputV2, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MachineAccountCreationRequestApi.createMachineAccountV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Retrieves a account request details for machine account creation. This allows the user to view all details for given account request.
          * @summary Get Machine Account Creation Request
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
@@ -640,8 +854,8 @@ export const MachineAccountCreationRequestApiFp = function(configuration?: Confi
          * This endpoint retrieves the list of sources and subtypes for which logged in user has the entitlement to create a machine account. The response includes a list of object detailing the source, subtype and entitlement details which enables the clients to understand if they can submit the request to create a machine account for the given subtype.
          * @summary Machine Account Create Access
          * @param {string} xSailPointExperimental Use this header to enable this experimental API.
-         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
-         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -670,6 +884,26 @@ export const MachineAccountCreationRequestApiFactory = function (configuration?:
          */
         createMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountRequestAsyncResult> {
             return localVarFp.createMachineAccountRequestV1(requestParameters.machineAccountCreateRequestInput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Submits a machine account creation request on the account-requests API. This operation accepts the same request and runs the same creation process as [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2). Use this operation when the integration already calls the account-requests APIs. New integrations should call [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2).  This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+         * @summary Submit Machine Account Creation Request
+         * @param {MachineAccountCreationRequestApiCreateMachineAccountRequestV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineAccountRequestV2(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountRequestV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountRequestAsyncResult> {
+            return localVarFp.createMachineAccountRequestV2(requestParameters.machineAccountCreateRequestInputV2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Submits a machine account creation request. New integrations should use this operation. This operation accepts the same request and runs the same creation process as [Submit Machine Account Creation Request](https://developer.sailpoint.com/docs/api/create-machine-account-request-v-2). That operation stays on the account-requests API for integrations that already call it. When version 1 cannot create the account because the subtype is not tied to a single source, the error directs the caller here. This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+         * @summary Create Machine Account V2
+         * @param {MachineAccountCreationRequestApiCreateMachineAccountV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMachineAccountV2(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccountRequestAsyncResult> {
+            return localVarFp.createMachineAccountV2(requestParameters.machineAccountCreateRequestInputV2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Retrieves a account request details for machine account creation. This allows the user to view all details for given account request.
@@ -716,6 +950,48 @@ export interface MachineAccountCreationRequestApiCreateMachineAccountRequestV1Re
 }
 
 /**
+ * Request parameters for createMachineAccountRequestV2 operation in MachineAccountCreationRequestApi.
+ * @export
+ * @interface MachineAccountCreationRequestApiCreateMachineAccountRequestV2Request
+ */
+export interface MachineAccountCreationRequestApiCreateMachineAccountRequestV2Request {
+    /**
+     * 
+     * @type {MachineAccountCreateRequestInputV2}
+     * @memberof MachineAccountCreationRequestApiCreateMachineAccountRequestV2
+     */
+    readonly machineAccountCreateRequestInputV2: MachineAccountCreateRequestInputV2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountCreationRequestApiCreateMachineAccountRequestV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
+ * Request parameters for createMachineAccountV2 operation in MachineAccountCreationRequestApi.
+ * @export
+ * @interface MachineAccountCreationRequestApiCreateMachineAccountV2Request
+ */
+export interface MachineAccountCreationRequestApiCreateMachineAccountV2Request {
+    /**
+     * 
+     * @type {MachineAccountCreateRequestInputV2}
+     * @memberof MachineAccountCreationRequestApiCreateMachineAccountV2
+     */
+    readonly machineAccountCreateRequestInputV2: MachineAccountCreateRequestInputV2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof MachineAccountCreationRequestApiCreateMachineAccountV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for getCreateMachineAccountRequestV1 operation in MachineAccountCreationRequestApi.
  * @export
  * @interface MachineAccountCreationRequestApiGetCreateMachineAccountRequestV1Request
@@ -750,14 +1026,14 @@ export interface MachineAccountCreationRequestApiGetMachineAccountCreateAccessIn
     readonly xSailPointExperimental: string
 
     /**
-     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
      * @type {number}
      * @memberof MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1
      */
     readonly offset?: number
 
     /**
-     * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
      * @type {number}
      * @memberof MachineAccountCreationRequestApiGetMachineAccountCreateAccessInfoV1
      */
@@ -781,6 +1057,30 @@ export class MachineAccountCreationRequestApi extends BaseAPI {
      */
     public createMachineAccountRequestV1(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountRequestV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return MachineAccountCreationRequestApiFp(this.configuration).createMachineAccountRequestV1(requestParameters.machineAccountCreateRequestInput, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Submits a machine account creation request on the account-requests API. This operation accepts the same request and runs the same creation process as [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2). Use this operation when the integration already calls the account-requests APIs. New integrations should call [Create Machine Account](https://developer.sailpoint.com/docs/api/create-machine-account-v-2).  This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+     * @summary Submit Machine Account Creation Request
+     * @param {MachineAccountCreationRequestApiCreateMachineAccountRequestV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountCreationRequestApi
+     */
+    public createMachineAccountRequestV2(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountRequestV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountCreationRequestApiFp(this.configuration).createMachineAccountRequestV2(requestParameters.machineAccountCreateRequestInputV2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Submits a machine account creation request. New integrations should use this operation. This operation accepts the same request and runs the same creation process as [Submit Machine Account Creation Request](https://developer.sailpoint.com/docs/api/create-machine-account-request-v-2). That operation stays on the account-requests API for integrations that already call it. When version 1 cannot create the account because the subtype is not tied to a single source, the error directs the caller here. This method validates the input data, processes the machine account creation request, and returns an asynchronous result containing a tracking ID.  Compared with v1, this version: - Accepts a `sourceId` so you can choose the source to create the account on. When subtypes can be configured per source for the tenant, `sourceId` is required and the subtype must be available on that source. - Accepts `entitlements`, which lets you add a comment, start date, and remove date to each requested entitlement. - Supports subtypes that are not tied to a single source. Version 1 rejects those subtypes.  There is no v2 status endpoint. Use the returned `accountRequestId` with [Get Machine Account Creation Request](https://developer.sailpoint.com/docs/api/get-create-machine-account-request-v-1) to track the request.  This API returns `403` when machine identity creation is not included in the tenant\'s plan. When machine account creation is not enabled for the tenant, this API returns `404`.  >**NOTE: You can only request a machine account on a subtype for which you have a create machine account entitlement provisioned. Otherwise, this API returns `403`.** 
+     * @summary Create Machine Account V2
+     * @param {MachineAccountCreationRequestApiCreateMachineAccountV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MachineAccountCreationRequestApi
+     */
+    public createMachineAccountV2(requestParameters: MachineAccountCreationRequestApiCreateMachineAccountV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return MachineAccountCreationRequestApiFp(this.configuration).createMachineAccountV2(requestParameters.machineAccountCreateRequestInputV2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

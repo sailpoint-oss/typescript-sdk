@@ -10,7 +10,7 @@
         const configuration = new Configuration();
         const apiInstance = new ApiUsageApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const filters: string = 'method eq "GET", startDate gt "2025-08-01"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) (default to undefined)
+        const filters: string = 'method eq "GET", startDate gt "2025-08-01"'; // string | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) (default to undefined)
         const result = await apiInstance.getTotalCountV1({  });
         console.log(result);
 - path: /api-usage/v1/summary
@@ -25,7 +25,7 @@
         const configuration = new Configuration();
         const apiInstance = new ApiUsageApi(configuration);
         const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
-        const filters: string = 'method eq "GET", startDate gt "2025-08-01"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) (default to undefined)
+        const filters: string = 'method eq "GET", startDate gt "2025-08-01"'; // string | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **method**: *eq*  **startDate**: *gt, eq*  **endDate**: *lt, eq* (optional) (default to undefined)
         const limit: number = 100; // number | Max number of results to return. (optional) (default to 250)
         const offset: number = 10; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) (default to undefined)
         const result = await apiInstance.listApiSummaryV1({  });

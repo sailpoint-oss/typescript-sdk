@@ -1,0 +1,38 @@
+- path: /generic-request-approval-config/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/generic_request_approval_config/methods/generic-request-approval-config#get-generic-request-approval-config-v1
+      source: |
+        import { GenericRequestApprovalConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new GenericRequestApprovalConfigApi(configuration);
+        const targetType: string = 'RESOURCE'; // 'RESOURCE' | 'SUBTYPE' | 'SOURCE' | 'GLOBAL' | The kind of scope to read. (default to undefined)
+        const targetId: string = 'aws:bedrock-agent-alias-version'; // string | The scope target. Required for **RESOURCE** (the source resource ID) and **SUBTYPE** (the subtype ID). For **SOURCE** the target is the `sourceId`, and for **GLOBAL** it is the tenant; when you supply it for those target types, it must match that value or the request returns `400`. (optional) (default to undefined)
+        const sourceId: string = '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa'; // string | The source that owns the scope. Required for **RESOURCE**, **SUBTYPE**, and **SOURCE**. Must be omitted for **GLOBAL**. (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getGenericRequestApprovalConfigV1({ targetType: targetType });
+        console.log(result);
+- path: /generic-request-approval-config/v1/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/generic_request_approval_config/methods/generic-request-approval-config#update-generic-request-approval-config-v1
+      source: |
+        import { GenericRequestApprovalConfigApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { JsonPatchOperation } from '@sailpoint/api-client/dist/generic_request_approval_config/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new GenericRequestApprovalConfigApi(configuration);
+        const id: string = '0f2c7a9e-3b4d-4e5f-8a6b-7c8d9e0f1a2b'; // string | Approval configuration ID. (default to undefined)
+        const jsonPatchOperation: Array<JsonPatchOperation> = {
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}; // Array<JsonPatchOperation> | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.updateGenericRequestApprovalConfigV1({ id: id, jsonPatchOperation: jsonPatchOperation });
+        console.log(result);

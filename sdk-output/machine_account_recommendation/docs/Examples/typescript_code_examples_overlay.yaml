@@ -1,0 +1,30 @@
+- path: /accounts/v1/{id}/recommendation
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_recommendation/methods/machine-account-recommendation#get-machine-account-recommendation-v1
+      source: |
+        import { MachineAccountRecommendationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountRecommendationApi(configuration);
+        const id: string = '2c9180835d2e5168015d32f890ca1581'; // string | Account ID. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getMachineAccountRecommendationV1({ id: id });
+        console.log(result);
+- path: /ai-recommendations/v1/reasons/machine-account-discovery
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/machine_account_recommendation/methods/machine-account-recommendation#list-machine-account-discovery-reasons-v1
+      source: |
+        import { MachineAccountRecommendationApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new MachineAccountRecommendationApi(configuration);
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const acceptLanguage: string = 'en-US'; // string | Preferred language for the reason messages. (optional) (default to 'en')
+        const result = await apiInstance.listMachineAccountDiscoveryReasonsV1({  });
+        console.log(result);
