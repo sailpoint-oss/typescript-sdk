@@ -2641,7 +2641,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  :::note  A STAGED campaign can be activated only when its `deadline` is in the future. Activating with a deadline of today or in the past returns a 400 error. List and get campaign APIs still report `STAGED` after the deadline; set a future deadline with `PATCH /campaigns/v1/{id}` before activating.  ::: 
          * @summary Activate a campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -3024,7 +3024,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  :::note  A STAGED campaign can be activated only when its `deadline` is in the future. Activating with a deadline of today or in the past returns a 400 error. List and get campaign APIs still report `STAGED` after the deadline; set a future deadline with `PATCH /campaigns/v1/{id}` before activating.  ::: 
          * @summary Activate a campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -3264,7 +3264,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startCampaignReportV1(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  :::note  A STAGED campaign can be activated only when its `deadline` is in the future. Activating with a deadline of today or in the past returns a 400 error. List and get campaign APIs still report `STAGED` after the deadline; set a future deadline with `PATCH /campaigns/v1/{id}` before activating.  ::: 
          * @summary Activate a campaign
          * @param {CertificationCampaignsApiStartCampaignV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -3944,7 +3944,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. 
+     * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  :::note  A STAGED campaign can be activated only when its `deadline` is in the future. Activating with a deadline of today or in the past returns a 400 error. List and get campaign APIs still report `STAGED` after the deadline; set a future deadline with `PATCH /campaigns/v1/{id}` before activating.  ::: 
      * @summary Activate a campaign
      * @param {CertificationCampaignsApiStartCampaignV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
