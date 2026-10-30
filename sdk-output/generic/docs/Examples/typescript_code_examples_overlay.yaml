@@ -1,0 +1,83 @@
+- path: /{path}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/generic/methods/generic#generic-delete
+      source: |
+        import { GenericApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new GenericApi(configuration);
+        const path: string = 'accounts/v1'; // string | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional) (default to undefined)
+        const result = await apiInstance.genericDelete({ path: path });
+        console.log(result);
+- path: /{path}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/generic/methods/generic#generic-get
+      source: |
+        import { GenericApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new GenericApi(configuration);
+        const path: string = 'accounts/v1'; // string | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`. (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [Standard Collection Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters) for more information. (optional) (default to undefined)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. (optional) (default to undefined)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored. (optional) (default to undefined)
+        const filters: string = 'name eq "Example"'; // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters#filtering-results). (optional) (default to undefined)
+        const sorters: string = 'name,-created'; // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/docs/standard-collection-parameters#sorting-results). (optional) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional) (default to undefined)
+        const result = await apiInstance.genericGet({ path: path });
+        console.log(result);
+- path: /{path}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/generic/methods/generic#generic-patch
+      source: |
+        import { GenericApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new GenericApi(configuration);
+        const path: string = 'accounts/v1'; // string | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional) (default to undefined)
+        const requestBody: any = ; // any |  (optional)
+        const result = await apiInstance.genericPatch({ path: path });
+        console.log(result);
+- path: /{path}
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/generic/methods/generic#generic-post
+      source: |
+        import { GenericApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new GenericApi(configuration);
+        const path: string = 'accounts/v1'; // string | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional) (default to undefined)
+        const requestBody: any = ; // any |  (optional)
+        const result = await apiInstance.genericPost({ path: path });
+        console.log(result);
+- path: /{path}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/generic/methods/generic#generic-put
+      source: |
+        import { GenericApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new GenericApi(configuration);
+        const path: string = 'accounts/v1'; // string | API path relative to the tenant base URL, including the API version, for example `accounts/v1`, `sources/v1/2c9180835d2e5168015d32f890ca1581` or `sources/v2/2c9180835d2e5168015d32f890ca1581/provisioning-policies`. Use whichever version the endpoint has. A leading slash is optional. Slashes separate path segments, and the SDK URL-encodes each segment, so pass the segments unencoded. Anything after a `?` is sent as query parameters, for example `accounts/v1?detailLevel=SLIM`. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Set this header to `true` to call an experimental API. The SDK configuration must also enable experimental APIs. (optional) (default to undefined)
+        const requestBody: any = ; // any |  (optional)
+        const result = await apiInstance.genericPut({ path: path });
+        console.log(result);

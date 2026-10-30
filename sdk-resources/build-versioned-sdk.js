@@ -54,17 +54,25 @@ const NPM_NAME     = "@sailpoint/api-client";
 const NPM_VERSION  = "1.0.0";
 const API_VERSION  = "v1";
 
+// The generic API is built from a standalone spec in sdk-resources/, not from a
+// partition under apis/. It is written with a .sdk-generic marker instead of
+// .sdk-partition, so stale cleanup and index generation leave it alone.
+const GENERIC_SPEC = path.join(__dirname, "generic-api.yaml");
+const GENERIC_DIR  = "generic";
+
 // ---------------------------------------------------------------------------
 // CLI args
 // ---------------------------------------------------------------------------
 
 const args = process.argv.slice(2);
-if (args.length === 0 || args[0].startsWith("--")) {
+const genericOnly = args.includes("--generic-only");
+if (!genericOnly && (args.length === 0 || args[0].startsWith("--"))) {
   console.error("Usage: node sdk-resources/build-versioned-sdk.js <path-to-apis-dir> [--partition <name>] [--keep-tmp]");
+  console.error("       node sdk-resources/build-versioned-sdk.js --generic-only");
   process.exit(1);
 }
 
-const apisDir       = path.resolve(args[0]);
+const apisDir       = genericOnly ? null : path.resolve(args[0]);
 const keepTmp       = args.includes("--keep-tmp");
 const partitionIdx  = args.indexOf("--partition");
 const onlyPartition = partitionIdx !== -1 ? args[partitionIdx + 1] : null;
@@ -366,7 +374,9 @@ function normalizeSchemaNames(bundledJsonPath, idnRoot) {
 // Generate per-partition config YAML (TypeScript-specific)
 // ---------------------------------------------------------------------------
 
-function writePartitionConfig(partitionName) {
+// apiVersion labels the docs and builds the NERM URL. The generic API passes
+// null, because it is not tied to one API version: the version is in the path.
+function writePartitionConfig(partitionName, apiVersion = API_VERSION) {
   const packageDir = partitionName.replaceAll("-", "_");
   const config = [
     `templateDir: ${TEMPLATE_DIR}`,
@@ -393,7 +403,7 @@ function writePartitionConfig(partitionName) {
     `npmRepository: sailpoint.com`,
     `npmVersion: ${NPM_VERSION}`,
     `useSingleRequestParameter: true`,
-    `apiVersion: ${API_VERSION}`,
+    ...(apiVersion ? [`apiVersion: ${apiVersion}`] : []),
     `packageName: ${packageDir}`,
   ].join("\n");
 
@@ -406,7 +416,7 @@ function writePartitionConfig(partitionName) {
 // Run openapi-generator for a single partition
 // ---------------------------------------------------------------------------
 
-function generatePartition(partitionName, bundledSpec, configPath) {
+function generatePartition(partitionName, bundledSpec, configPath, marker = ".sdk-partition") {
   const packageDir = partitionName.replaceAll("-", "_");
   const outputDir  = path.join(SDK_OUTPUT, packageDir);
 
@@ -432,7 +442,7 @@ function generatePartition(partitionName, bundledSpec, configPath) {
   // Write a marker so cleanup and index generation can identify generated dirs
   // without relying on a version suffix in the folder name.
   if (result.status === 0) {
-    fs.writeFileSync(path.join(outputDir, ".sdk-partition"), partitionName, "utf8");
+    fs.writeFileSync(path.join(outputDir, marker), partitionName, "utf8");
   }
 
   return {
@@ -460,6 +470,95 @@ function runPostscript(outputDir) {
     stdout: result.stdout || "",
     stderr: result.stderr || "",
   };
+}
+
+// ---------------------------------------------------------------------------
+// Generic API package  (sdk-output/generic)
+//
+// The generic API calls any versioned endpoint by path, including endpoints
+// that have no resource-specific client yet. It uses the same templates and
+// generator options as the partitions, so it shares their auth, retry and
+// experimental handling. The spec has no version segment in its server URL,
+// because the version is part of the path (for example "accounts/v1").
+// ---------------------------------------------------------------------------
+
+// The generator encodes every path parameter with encodeURIComponent. For the
+// generic `path` parameter that is wrong: it turns the slashes of a
+// multi-segment path ("accounts/v1/1234") into %2F and the request fails.
+const GENERIC_PATH_HELPER = `
+/**
+ * Encode the \`path\` parameter of a generic request.
+ *
+ * \`path\` is everything after the tenant base URL, including the API version,
+ * for example \`accounts/v1\` or \`sources/v1/2c918085/schemas\`. Leading and
+ * trailing slashes are optional. Each segment is URL-encoded on its own, so the
+ * slashes between segments are kept. Anything after a \`?\` is kept as a query
+ * string, for example \`accounts/v1?detailLevel=SLIM\`.
+ */
+function encodeGenericPath(value: string): string {
+    const raw = String(value);
+    const queryStart = raw.indexOf('?');
+    const pathPart = queryStart === -1 ? raw : raw.slice(0, queryStart);
+    const query = queryStart === -1 ? '' : raw.slice(queryStart);
+    const segments = pathPart.split('/').filter((segment) => segment.length > 0);
+    return segments.map((segment) => encodeURIComponent(segment)).join('/') + query;
+}
+`;
+
+function patchGenericPathEncoding(outputDir) {
+  const apiPath = path.join(outputDir, "api.ts");
+  let content = fs.readFileSync(apiPath, "utf8");
+
+  const encodeCall = 'encodeURIComponent(String(path))';
+  const found = content.split(encodeCall).length - 1;
+  if (found === 0) {
+    throw new Error("no encodeURIComponent call for the path parameter found in generic/api.ts");
+  }
+  content = content.replaceAll(encodeCall, "encodeGenericPath(path)");
+
+  const importAnchor = /^import \{ BASE_PATH, .*\} from '\.\/base';$/m;
+  if (!importAnchor.test(content)) {
+    throw new Error("base import anchor not found in generic/api.ts");
+  }
+  content = content.replace(importAnchor, (line) => line + "\n" + GENERIC_PATH_HELPER);
+
+  fs.writeFileSync(apiPath, content, "utf8");
+  return { patched: found };
+}
+
+function buildGenericPackage() {
+  if (!fs.existsSync(GENERIC_SPEC)) {
+    return { ok: false, step: "setup", output: `generic spec not found at ${GENERIC_SPEC}` };
+  }
+  fs.mkdirSync(TEMP_DIR, { recursive: true });
+
+  const gen = generatePartition(GENERIC_DIR, GENERIC_SPEC, writePartitionConfig(GENERIC_DIR, null), ".sdk-generic");
+  if (!gen.ok) {
+    return { ok: false, step: "generation", output: [gen.stdout, gen.stderr].filter(Boolean).join("\n") };
+  }
+
+  const post = runPostscript(gen.outputDir);
+  if (!post.ok) {
+    return { ok: false, step: "postscript", output: [post.stdout, post.stderr].filter(Boolean).join("\n") };
+  }
+
+  try {
+    const { patched } = patchGenericPathEncoding(gen.outputDir);
+    return { ok: true, outputDir: gen.outputDir, patched };
+  } catch (err) {
+    return { ok: false, step: "path-encoding", output: String(err.stack || err) };
+  }
+}
+
+// Print the outcome of buildGenericPackage() and return whether it succeeded.
+function reportGenericBuild(built) {
+  if (built.ok) {
+    console.log(`  ✓ generic → sdk-output/${GENERIC_DIR}/ (${built.patched} path encoder(s) patched)`);
+    return true;
+  }
+  console.error(`  ✗ generic API failed at ${built.step}`);
+  console.error(built.output);
+  return false;
 }
 
 // ---------------------------------------------------------------------------
@@ -730,7 +829,10 @@ ${importLines.join("\n")}
 ${exportLines.join("\n")}
 
 // --- Generic / NERM / shared exports ---
+// GenericApi calls any versioned endpoint by path, e.g. genericGet({ path: "accounts/v1" }).
 export * from "./generic/api";
+/** @deprecated Use GenericApi. */
+export { GenericApi as DefaultApi } from "./generic/api";
 
 export * from "./nerm/api";
 export { Configuration as ConfigurationNerm, ConfigurationParameters as ConfigurationParametersNerm } from "./nerm/configuration";
@@ -764,6 +866,20 @@ ${nsLines.join("\n")}
 // ---------------------------------------------------------------------------
 
 function main() {
+  if (genericOnly) {
+    if (!fs.existsSync(JAR)) {
+      console.error(`Error: openapi-generator-cli.jar not found at ${JAR}`);
+      process.exit(1);
+    }
+    console.log("\n[GENERIC] Building the generic API package ...");
+    const ok = reportGenericBuild(buildGenericPackage());
+    if (!keepTmp) fs.rmSync(TEMP_DIR, { recursive: true, force: true });
+    console.log("\n[INDEX] Regenerating sdk-output/index.ts ...");
+    generateIndexTs();
+    if (!ok) process.exit(1);
+    return;
+  }
+
   if (!fs.existsSync(apisDir)) {
     console.error(`Error: apis directory not found: ${apisDir}`);
     process.exit(1);
@@ -889,6 +1005,21 @@ function main() {
 
     results.success.push(partition);
     console.log(`  ✓ ${partition} → sdk-output/${gen.packageDir}/`);
+  }
+
+  // Build the generic API package (independent of the apis/ partitions).
+  // A single-partition rebuild leaves it as it is.
+  if (!onlyPartition) {
+    console.log(`\n${"=".repeat(60)}`);
+    console.log("  Building: generic API");
+    console.log(`${"=".repeat(60)}`);
+    results.total += 1;
+    if (reportGenericBuild(buildGenericPackage())) {
+      results.success.push("generic");
+    } else {
+      // The generic spec is not under apis/, so there is no partition report to write.
+      results.failed.push({ partition: "generic", step: "generic", reportPath: GENERIC_SPEC });
+    }
   }
 
   // Cleanup
