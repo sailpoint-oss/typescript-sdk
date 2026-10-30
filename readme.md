@@ -20,6 +20,29 @@ The TypeScript SDK allows you to use TypeScript to interact with the SailPoint A
 
 To get started with the TypeScript SDK and learn about its various functionalities, refer to the [documentation](https://developer.sailpoint.com/idn/tools/sdk/typescript) on https://developer.sailpoint.com. 
 
+## Calling any API with the generic client
+
+The generic client calls any SailPoint versioned API by its path, including APIs
+that do not have a resource-specific client or documentation yet. The path
+includes the API version, for example `accounts/v1`. The client uses the same
+configuration, authentication and retries as the other clients.
+
+- Each path segment is URL-encoded. Pass the segments unencoded.
+- Anything after a `?` in the path is sent as query parameters.
+- A PATCH body is a JSON Patch list, sent as `application/json-patch+json`.
+
+```typescript
+import { Configuration, GenericApi } from "@sailpoint/api-client";
+
+const api = new GenericApi(new Configuration());
+
+const accounts = await api.genericGet({ path: "accounts/v1", limit: 10, filters: 'sourceId eq "2c91808a"' });
+await api.genericPatch({
+  path: "transforms/v1/2c91808a",
+  requestBody: [{ op: "replace", path: "/attributes/input", value: "lower" }],
+});
+```
+
 ## Examples
 
 In addition to the examples shown in the [documentation](https://developer.sailpoint.com/idn/tools/sdk/typescript), you can find more uses of the TypeScript SDK in the [examples](./examples/src/index.ts).
