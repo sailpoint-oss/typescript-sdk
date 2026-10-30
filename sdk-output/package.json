@@ -24,7 +24,8 @@
   "module": "./dist/esm/index.js",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "sailpoint-scopes.json"
   ],
   "exports": {
     ".": {
