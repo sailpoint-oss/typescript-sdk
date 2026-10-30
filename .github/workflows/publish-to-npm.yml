@@ -23,9 +23,6 @@ jobs:
           REF_NAME: ${{ github.ref_name }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
-          # Read from the environment rather than interpolating: expressions resolve
-          # before bash parses this step, so a ref name spliced into the script text
-          # would be evaluated here -- in the job holding the npm publishing token.
           if [ "$REF_NAME" != "$DEFAULT_BRANCH" ]; then
             echo "Error: manual publish must run from the default branch ($DEFAULT_BRANCH), got: $REF_NAME"
             exit 1
