@@ -1,10 +1,15 @@
 .gitignore
 .npmignore
+.openapi-generator-ignore
+GenericApi.md
+GenericApideveloperSite_code_examples.yaml
+Index.md
 README.md
 api.ts
 base.ts
 common.ts
 configuration.ts
+docs/Methods/Index.md
 git_push.sh
 index.ts
 package.json

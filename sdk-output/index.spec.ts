@@ -1,4 +1,4 @@
-import { SailPoint, Configuration, Paginator, UsersNERMApi, DelegationsNERMV2025Api } from "./index"
+import { SailPoint, Configuration, Paginator, GenericApi, UsersNERMApi, DelegationsNERMV2025Api } from "./index"
 import type { Search } from "./search/api"
 
 describe('accounts', () => {
@@ -20,6 +20,34 @@ describe('accounts', () => {
     
         expect(resp.data.length).toStrictEqual(100)
         expect(resp.status).toStrictEqual(200)
+    }, 30000)
+})
+
+// The generic client calls any versioned endpoint by path, with the same
+// configuration and token as the resource clients.
+describe('generic', () => {
+    it('gets a v1 endpoint', async () => {
+        const api = new GenericApi(new Configuration())
+
+        const resp = await api.genericGet({ path: 'sources/v1', limit: 10 })
+
+        expect(resp.status).toStrictEqual(200)
+        expect(Array.isArray(resp.data)).toStrictEqual(true)
+        expect(resp.data.length).toBeLessThanOrEqual(10)
+    }, 30000)
+
+    // access-request-config/v2 is experimental, so this also covers the
+    // experimental opt-in.
+    it('gets a v2 endpoint', async () => {
+        const apiConfig = new Configuration()
+        apiConfig.experimental = true
+        const api = new GenericApi(apiConfig)
+
+        const resp = await api.genericGet({ path: 'access-request-config/v2', xSailPointExperimental: 'true' })
+
+        expect(resp.status).toStrictEqual(200)
+        expect(typeof resp.data).toStrictEqual('object')
+        expect(Array.isArray(resp.data)).toStrictEqual(false)
     }, 30000)
 })
 

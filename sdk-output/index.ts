@@ -268,7 +268,10 @@ export { _WorkReassignmentApi as WorkReassignmentApi };
 export { _WorkflowsApi as WorkflowsApi };
 
 // --- Generic / NERM / shared exports ---
+// GenericApi calls any versioned endpoint by path, e.g. genericGet({ path: "accounts/v1" }).
 export * from "./generic/api";
+/** @deprecated Use GenericApi. */
+export { GenericApi as DefaultApi } from "./generic/api";
 
 export * from "./nerm/api";
 export { Configuration as ConfigurationNerm, ConfigurationParameters as ConfigurationParametersNerm } from "./nerm/configuration";
