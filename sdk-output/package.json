@@ -1,6 +1,6 @@
 {
   "name": "@sailpoint/api-client",
-  "version": "2.2.47",
+  "version": "2.2.48",
   "description": "Official library for using the SailPoint API",
   "author": "SailPoint DevOps",
   "repository": {
@@ -24,7 +24,8 @@
   "module": "./dist/esm/index.js",
   "typings": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "sailpoint-scopes.json"
   ],
   "exports": {
     ".": {
