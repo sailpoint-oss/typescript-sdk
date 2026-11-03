@@ -13,6 +13,14 @@ AccountAttributesCreate.md
 AccountAttributesCreateAttributes.md
 AccountToggleRequest.md
 AccountUnlockRequest.md
+AccountV2.md
+AccountV2CorrelatedEntity.md
+AccountV2CorrelatedIdentity.md
+AccountV2Identity.md
+AccountV2Owner.md
+AccountV2PrivilegeLevel.md
+AccountV2Recommendation.md
+AccountV2Source.md
 AccountsApi.md
 AccountsApideveloperSite_code_examples.yaml
 AccountsAsyncResult.md
