@@ -26,4 +26,5 @@ Name | Type | Description | Notes
 **isDynamicSchema** | **(optional)** `boolean` | Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [default to false]
 **inputExample** | **(optional)** `object` | Example trigger payload if applicable | [default to undefined]
 **formFields** | **(optional)** `Array<WorkflowLibraryFormFields>` | One or more inputs that the trigger accepts | [default to undefined]
+**filterMode** | **(optional)** `Array<string>` | Modes that the trigger uses, however no filterMode means the trigger is not filtered | [default to undefined]
 

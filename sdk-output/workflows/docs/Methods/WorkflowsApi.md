@@ -182,7 +182,7 @@ import { CreateWorkflowV1Request } from '@sailpoint/api-client/dist/workflows/ap
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
-const createWorkflowV1Request: CreateWorkflowV1Request = {"name":"Send Email","owner":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"},"description":"Send an email to the identity who's attributes changed.","definition":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}},"enabled":false,"trigger":{"type":"EVENT","attributes":{"id":"idn:identity-attributes-changed","filter":"$.changes[?(@.attribute == 'manager')]"}}}; // 
+const createWorkflowV1Request: CreateWorkflowV1Request = {"name":"Send Email","owner":{"type":"IDENTITY","id":"2c91808568c529c60168cca6f90c1313","name":"William Wilson"},"description":"Send an email to the identity who's attributes changed.","definition":{"start":"Send Email Test","steps":{"Send Email":{"actionId":"sp:send-email","attributes":{"body":"This is a test","from":"sailpoint@sailpoint.com","recipientId.$":"$.identity.id","subject":"test"},"nextStep":"success","selectResult":null,"type":"action"},"success":{"type":"success"}}},"enabled":false,"trigger":{"type":"EVENT","mode":"advanced","attributes":{"id":"idn:identity-attributes-changed","filter.$":"$.changes[?(@.attribute == 'manager')]"}}}; // 
 const result = await apiInstance.createWorkflowV1({ createWorkflowV1Request: createWorkflowV1Request });
 console.log(result);
 ```
@@ -596,7 +596,11 @@ List all workflows in the tenant.
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**limit** | `number` | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 250]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 0]
 
 ### Return type
 
@@ -615,6 +619,8 @@ import { Configuration } from '@sailpoint/api-client';
 
 const configuration = new Configuration();
 const apiInstance = new WorkflowsApi(configuration);
+const limit: number = 250; // Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
 const result = await apiInstance.listWorkflowsV1({  });
 console.log(result);
 ```
@@ -727,6 +733,7 @@ const workflowBody: WorkflowBody = {
     }
   },
   "trigger" : {
+    "mode" : "advanced",
     "displayName" : "displayName",
     "attributes" : "{}",
     "type" : "EVENT"

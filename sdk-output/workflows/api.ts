@@ -291,7 +291,21 @@ export interface ListCompleteWorkflowLibraryV1200ResponseInner {
      * @memberof ListCompleteWorkflowLibraryV1200ResponseInner
      */
     'inputExample'?: object | null;
+    /**
+     * Modes that the trigger uses, however no filterMode means the trigger is not filtered
+     * @type {Array<string>}
+     * @memberof ListCompleteWorkflowLibraryV1200ResponseInner
+     */
+    'filterMode'?: Array<ListCompleteWorkflowLibraryV1200ResponseInnerFilterModeEnum>;
 }
+
+export const ListCompleteWorkflowLibraryV1200ResponseInnerFilterModeEnum = {
+    Basic: 'basic',
+    Advanced: 'advanced'
+} as const;
+
+export type ListCompleteWorkflowLibraryV1200ResponseInnerFilterModeEnum = typeof ListCompleteWorkflowLibraryV1200ResponseInnerFilterModeEnum[keyof typeof ListCompleteWorkflowLibraryV1200ResponseInnerFilterModeEnum];
+
 /**
  * 
  * @export
@@ -1013,6 +1027,12 @@ export interface WorkflowLibraryTrigger {
      * @memberof WorkflowLibraryTrigger
      */
     'formFields'?: Array<WorkflowLibraryFormFields> | null;
+    /**
+     * Modes that the trigger uses, however no filterMode means the trigger is not filtered
+     * @type {Array<string>}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'filterMode'?: Array<WorkflowLibraryTriggerFilterModeEnum>;
 }
 
 export const WorkflowLibraryTriggerTypeEnum = {
@@ -1023,6 +1043,12 @@ export const WorkflowLibraryTriggerTypeEnum = {
 } as const;
 
 export type WorkflowLibraryTriggerTypeEnum = typeof WorkflowLibraryTriggerTypeEnum[keyof typeof WorkflowLibraryTriggerTypeEnum];
+export const WorkflowLibraryTriggerFilterModeEnum = {
+    Basic: 'basic',
+    Advanced: 'advanced'
+} as const;
+
+export type WorkflowLibraryTriggerFilterModeEnum = typeof WorkflowLibraryTriggerFilterModeEnum[keyof typeof WorkflowLibraryTriggerFilterModeEnum];
 
 /**
  * 
@@ -1100,6 +1126,12 @@ export interface WorkflowTrigger {
      */
     'displayName'?: string | null;
     /**
+     * Mode used by the trigger.
+     * @type {string}
+     * @memberof WorkflowTrigger
+     */
+    'mode'?: WorkflowTriggerModeEnum;
+    /**
      * Workflow Trigger Attributes.
      * @type {object}
      * @memberof WorkflowTrigger
@@ -1115,6 +1147,12 @@ export const WorkflowTriggerTypeEnum = {
 } as const;
 
 export type WorkflowTriggerTypeEnum = typeof WorkflowTriggerTypeEnum[keyof typeof WorkflowTriggerTypeEnum];
+export const WorkflowTriggerModeEnum = {
+    Basic: 'basic',
+    Advanced: 'advanced'
+} as const;
+
+export type WorkflowTriggerModeEnum = typeof WorkflowTriggerModeEnum[keyof typeof WorkflowTriggerModeEnum];
 
 
 /**
@@ -1658,10 +1696,12 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List all workflows in the tenant.
          * @summary List workflows
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflowsV1: async (axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listWorkflowsV1: async (limit?: number, offset?: number, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/workflows/v1`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1673,6 +1713,14 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
 
 
     
@@ -2049,11 +2097,13 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
         /**
          * List all workflows in the tenant.
          * @summary List workflows
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowsV1(axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowsV1(axiosOptions);
+        async listWorkflowsV1(limit?: number, offset?: number, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowsV1(limit, offset, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['WorkflowsApi.listWorkflowsV1']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2267,11 +2317,12 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
         /**
          * List all workflows in the tenant.
          * @summary List workflows
+         * @param {WorkflowsApiListWorkflowsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflowsV1(axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflow>> {
-            return localVarFp.listWorkflowsV1(axiosOptions).then((request) => request(axios, basePath));
+        listWorkflowsV1(requestParameters: WorkflowsApiListWorkflowsV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Workflow>> {
+            return localVarFp.listWorkflowsV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
@@ -2576,6 +2627,27 @@ export interface WorkflowsApiListWorkflowLibraryTriggersV1Request {
 }
 
 /**
+ * Request parameters for listWorkflowsV1 operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiListWorkflowsV1Request
+ */
+export interface WorkflowsApiListWorkflowsV1Request {
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowsV1
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowsV1
+     */
+    readonly offset?: number
+}
+
+/**
  * Request parameters for patchWorkflowV1 operation in WorkflowsApi.
  * @export
  * @interface WorkflowsApiPatchWorkflowV1Request
@@ -2837,12 +2909,13 @@ export class WorkflowsApi extends BaseAPI {
     /**
      * List all workflows in the tenant.
      * @summary List workflows
+     * @param {WorkflowsApiListWorkflowsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkflowsApi
      */
-    public listWorkflowsV1(axiosOptions?: RawAxiosRequestConfig) {
-        return WorkflowsApiFp(this.configuration).listWorkflowsV1(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkflowsV1(requestParameters: WorkflowsApiListWorkflowsV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listWorkflowsV1(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
