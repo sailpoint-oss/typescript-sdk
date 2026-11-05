@@ -333,6 +333,77 @@ export interface AccessProfileBulkUpdateRequestInner {
     'requestable'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface AccessProfileEntitlementPrivilegeLevel
+ */
+export interface AccessProfileEntitlementPrivilegeLevel {
+    /**
+     * Direct privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof AccessProfileEntitlementPrivilegeLevel
+     */
+    'direct'?: AccessProfileEntitlementPrivilegeLevelDirectEnum;
+    /**
+     * User or process that set the privilege level
+     * @type {string}
+     * @memberof AccessProfileEntitlementPrivilegeLevel
+     */
+    'setBy'?: string;
+    /**
+     * Method by which the privilege level was set
+     * @type {string}
+     * @memberof AccessProfileEntitlementPrivilegeLevel
+     */
+    'setByType'?: AccessProfileEntitlementPrivilegeLevelSetByTypeEnum | null;
+    /**
+     * Inherited privilege level on the entitlement, if any
+     * @type {string}
+     * @memberof AccessProfileEntitlementPrivilegeLevel
+     */
+    'inherited'?: AccessProfileEntitlementPrivilegeLevelInheritedEnum | null;
+    /**
+     * Effective privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof AccessProfileEntitlementPrivilegeLevel
+     */
+    'effective'?: AccessProfileEntitlementPrivilegeLevelEffectiveEnum;
+}
+
+export const AccessProfileEntitlementPrivilegeLevelDirectEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type AccessProfileEntitlementPrivilegeLevelDirectEnum = typeof AccessProfileEntitlementPrivilegeLevelDirectEnum[keyof typeof AccessProfileEntitlementPrivilegeLevelDirectEnum];
+export const AccessProfileEntitlementPrivilegeLevelSetByTypeEnum = {
+    Override: 'OVERRIDE',
+    CustomCriteria: 'CUSTOM_CRITERIA',
+    ConnectorCriteria: 'CONNECTOR_CRITERIA',
+    SingleLevelCriteria: 'SINGLE_LEVEL_CRITERIA'
+} as const;
+
+export type AccessProfileEntitlementPrivilegeLevelSetByTypeEnum = typeof AccessProfileEntitlementPrivilegeLevelSetByTypeEnum[keyof typeof AccessProfileEntitlementPrivilegeLevelSetByTypeEnum];
+export const AccessProfileEntitlementPrivilegeLevelInheritedEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type AccessProfileEntitlementPrivilegeLevelInheritedEnum = typeof AccessProfileEntitlementPrivilegeLevelInheritedEnum[keyof typeof AccessProfileEntitlementPrivilegeLevelInheritedEnum];
+export const AccessProfileEntitlementPrivilegeLevelEffectiveEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type AccessProfileEntitlementPrivilegeLevelEffectiveEnum = typeof AccessProfileEntitlementPrivilegeLevelEffectiveEnum[keyof typeof AccessProfileEntitlementPrivilegeLevelEffectiveEnum];
+
+/**
  * Filter criteria and Access Model Metadata key/values used to select access profiles.
  * @export
  * @interface AccessProfileListFilterDTO
@@ -369,6 +440,25 @@ export interface AccessProfileListFilterDTOAmmKeyValuesInner {
      * @memberof AccessProfileListFilterDTOAmmKeyValuesInner
      */
     'values'?: Array<string>;
+}
+/**
+ * Filter criteria and Access Model Metadata key/values used to select access profiles.
+ * @export
+ * @interface AccessProfileListFilterV2
+ */
+export interface AccessProfileListFilterV2 {
+    /**
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  **dimensional**: *eq*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof AccessProfileListFilterV2
+     */
+    'filters'?: string | null;
+    /**
+     * The Access Model Metadata attributes and values used to filter the results.
+     * @type {Array<AccessProfileListFilterDTOAmmKeyValuesInner>}
+     * @memberof AccessProfileListFilterV2
+     */
+    'ammKeyValues'?: Array<AccessProfileListFilterDTOAmmKeyValuesInner> | null;
 }
 /**
  * Request to bulk update Access Model Metadata on every access profile matching a filter expression. A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
@@ -581,6 +671,30 @@ export const AccessProfileMetadataBulkUpdateResponseStatusEnum = {
 export type AccessProfileMetadataBulkUpdateResponseStatusEnum = typeof AccessProfileMetadataBulkUpdateResponseStatusEnum[keyof typeof AccessProfileMetadataBulkUpdateResponseStatusEnum];
 
 /**
+ * Effective privilege level calculated for the access profile.
+ * @export
+ * @interface AccessProfilePrivilegeLevel
+ */
+export interface AccessProfilePrivilegeLevel {
+    /**
+     * Effective privilege level of the access profile, derived from the highest privilege level of the entitlements it contains. `UNDETERMINED` indicates the level could not be calculated.
+     * @type {string}
+     * @memberof AccessProfilePrivilegeLevel
+     */
+    'effective'?: AccessProfilePrivilegeLevelEffectiveEnum;
+}
+
+export const AccessProfilePrivilegeLevelEffectiveEnum = {
+    None: 'NONE',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    High: 'HIGH',
+    Undetermined: 'UNDETERMINED'
+} as const;
+
+export type AccessProfilePrivilegeLevelEffectiveEnum = typeof AccessProfilePrivilegeLevelEffectiveEnum[keyof typeof AccessProfilePrivilegeLevelEffectiveEnum];
+
+/**
  * 
  * @export
  * @interface AccessProfileSourceRef
@@ -693,6 +807,272 @@ export const AccessProfileUsageUsedByInnerTypeEnum = {
 } as const;
 
 export type AccessProfileUsageUsedByInnerTypeEnum = typeof AccessProfileUsageUsedByInnerTypeEnum[keyof typeof AccessProfileUsageUsedByInnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface Accessprofileentitlementv2
+ */
+export interface Accessprofileentitlementv2 {
+    /**
+     * The entitlement id
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'id'?: string;
+    /**
+     * The entitlement name
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'name'?: string;
+    /**
+     * The entitlement attribute name
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'attribute'?: string;
+    /**
+     * The value of the entitlement
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'value'?: string;
+    /**
+     * The object type of the entitlement from the source schema
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'sourceSchemaObjectType'?: string;
+    /**
+     * The description of the entitlement
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'description'?: string | null;
+    /**
+     * True if the entitlement is privileged
+     * @type {boolean}
+     * @memberof Accessprofileentitlementv2
+     */
+    'privileged'?: boolean;
+    /**
+     * True if the entitlement is cloud governed
+     * @type {boolean}
+     * @memberof Accessprofileentitlementv2
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * True if the entitlement is able to be directly requested
+     * @type {boolean}
+     * @memberof Accessprofileentitlementv2
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {EntitlementOwner}
+     * @memberof Accessprofileentitlementv2
+     */
+    'owner'?: EntitlementOwner | null;
+    /**
+     * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
+     * @type {Array<AdditionalOwnerRef>}
+     * @memberof Accessprofileentitlementv2
+     */
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
+    /**
+     * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
+     * @type {{ [key: string]: any; }}
+     * @memberof Accessprofileentitlementv2
+     */
+    'manuallyUpdatedFields'?: { [key: string]: any; } | null;
+    /**
+     * 
+     * @type {EntitlementAccessModelMetadata}
+     * @memberof Accessprofileentitlementv2
+     */
+    'accessModelMetadata'?: EntitlementAccessModelMetadata;
+    /**
+     * Time when the entitlement was created
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'created'?: string;
+    /**
+     * Time when the entitlement was last modified
+     * @type {string}
+     * @memberof Accessprofileentitlementv2
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {EntitlementSource}
+     * @memberof Accessprofileentitlementv2
+     */
+    'source'?: EntitlementSource;
+    /**
+     * A map of free-form key-value pairs from the source system
+     * @type {{ [key: string]: any; }}
+     * @memberof Accessprofileentitlementv2
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * List of IDs of segments, if any, to which this Entitlement is assigned.
+     * @type {Array<string>}
+     * @memberof Accessprofileentitlementv2
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<PermissionDTO>}
+     * @memberof Accessprofileentitlementv2
+     */
+    'directPermissions'?: Array<PermissionDTO>;
+    /**
+     * List of tags assigned to the entitlement
+     * @type {Array<string>}
+     * @memberof Accessprofileentitlementv2
+     */
+    'tags'?: Array<string> | null;
+    /**
+     * 
+     * @type {AccessProfileEntitlementPrivilegeLevel}
+     * @memberof Accessprofileentitlementv2
+     */
+    'privilegeLevel'?: AccessProfileEntitlementPrivilegeLevel;
+}
+/**
+ * Access profile.
+ * @export
+ * @interface Accessprofilev2
+ */
+export interface Accessprofilev2 {
+    /**
+     * Access profile ID.
+     * @type {string}
+     * @memberof Accessprofilev2
+     */
+    'id'?: string;
+    /**
+     * Access profile name.
+     * @type {string}
+     * @memberof Accessprofilev2
+     */
+    'name': string;
+    /**
+     * Access profile description.
+     * @type {string}
+     * @memberof Accessprofilev2
+     */
+    'description'?: string | null;
+    /**
+     * Date and time when the access profile was created.
+     * @type {string}
+     * @memberof Accessprofilev2
+     */
+    'created'?: string;
+    /**
+     * Date and time when the access profile was last modified.
+     * @type {string}
+     * @memberof Accessprofilev2
+     */
+    'modified'?: string;
+    /**
+     * Indicates whether the access profile is enabled. If it\'s enabled, you must include at least one entitlement.
+     * @type {boolean}
+     * @memberof Accessprofilev2
+     */
+    'enabled'?: boolean;
+    /**
+     * 
+     * @type {OwnerReference}
+     * @memberof Accessprofilev2
+     */
+    'owner': OwnerReference | null;
+    /**
+     * 
+     * @type {AccessProfileSourceRef}
+     * @memberof Accessprofilev2
+     */
+    'source': AccessProfileSourceRef;
+    /**
+     * List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement.
+     * @type {Array<EntitlementRef>}
+     * @memberof Accessprofilev2
+     */
+    'entitlements'?: Array<EntitlementRef> | null;
+    /**
+     * Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value  **false** in this field results in a 400 error.
+     * @type {boolean}
+     * @memberof Accessprofilev2
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {Requestability}
+     * @memberof Accessprofilev2
+     */
+    'accessRequestConfig'?: Requestability | null;
+    /**
+     * 
+     * @type {Revocability}
+     * @memberof Accessprofilev2
+     */
+    'revocationRequestConfig'?: Revocability | null;
+    /**
+     * List of segment IDs, if any, that the access profile is assigned to.
+     * @type {Array<string>}
+     * @memberof Accessprofilev2
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {AttributeDTOList}
+     * @memberof Accessprofilev2
+     */
+    'accessModelMetadata'?: AttributeDTOList;
+    /**
+     * 
+     * @type {ProvisioningCriteriaLevel1}
+     * @memberof Accessprofilev2
+     */
+    'provisioningCriteria'?: ProvisioningCriteriaLevel1 | null;
+    /**
+     * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
+     * @type {Array<AdditionalOwnerRef>}
+     * @memberof Accessprofilev2
+     */
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
+    /**
+     * 
+     * @type {Accessprofilev2PrivilegeLevel}
+     * @memberof Accessprofilev2
+     */
+    'privilegeLevel'?: Accessprofilev2PrivilegeLevel;
+}
+/**
+ * 
+ * @export
+ * @interface Accessprofilev2PrivilegeLevel
+ */
+export interface Accessprofilev2PrivilegeLevel {
+    /**
+     * Effective privilege level of the access profile, derived from the highest privilege level of the entitlements it contains. `UNDETERMINED` indicates the level could not be calculated.
+     * @type {string}
+     * @memberof Accessprofilev2PrivilegeLevel
+     */
+    'effective'?: Accessprofilev2PrivilegeLevelEffectiveEnum;
+}
+
+export const Accessprofilev2PrivilegeLevelEffectiveEnum = {
+    None: 'NONE',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    High: 'HIGH',
+    Undetermined: 'UNDETERMINED'
+} as const;
+
+export type Accessprofilev2PrivilegeLevelEffectiveEnum = typeof Accessprofilev2PrivilegeLevelEffectiveEnum[keyof typeof Accessprofilev2PrivilegeLevelEffectiveEnum];
 
 /**
  * Reference to an additional owner (identity or governance group).
@@ -1012,6 +1392,77 @@ export const EntitlementOwnerTypeEnum = {
 } as const;
 
 export type EntitlementOwnerTypeEnum = typeof EntitlementOwnerTypeEnum[keyof typeof EntitlementOwnerTypeEnum];
+
+/**
+ * Privilege level detail for an entitlement.
+ * @export
+ * @interface EntitlementPrivilegeLevel
+ */
+export interface EntitlementPrivilegeLevel {
+    /**
+     * Direct privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevel
+     */
+    'direct'?: EntitlementPrivilegeLevelDirectEnum;
+    /**
+     * User or process that set the privilege level
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevel
+     */
+    'setBy'?: string;
+    /**
+     * Method by which the privilege level was set
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevel
+     */
+    'setByType'?: EntitlementPrivilegeLevelSetByTypeEnum | null;
+    /**
+     * Inherited privilege level on the entitlement, if any
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevel
+     */
+    'inherited'?: EntitlementPrivilegeLevelInheritedEnum | null;
+    /**
+     * Effective privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevel
+     */
+    'effective'?: EntitlementPrivilegeLevelEffectiveEnum;
+}
+
+export const EntitlementPrivilegeLevelDirectEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelDirectEnum = typeof EntitlementPrivilegeLevelDirectEnum[keyof typeof EntitlementPrivilegeLevelDirectEnum];
+export const EntitlementPrivilegeLevelSetByTypeEnum = {
+    Override: 'OVERRIDE',
+    CustomCriteria: 'CUSTOM_CRITERIA',
+    ConnectorCriteria: 'CONNECTOR_CRITERIA',
+    SingleLevelCriteria: 'SINGLE_LEVEL_CRITERIA'
+} as const;
+
+export type EntitlementPrivilegeLevelSetByTypeEnum = typeof EntitlementPrivilegeLevelSetByTypeEnum[keyof typeof EntitlementPrivilegeLevelSetByTypeEnum];
+export const EntitlementPrivilegeLevelInheritedEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelInheritedEnum = typeof EntitlementPrivilegeLevelInheritedEnum[keyof typeof EntitlementPrivilegeLevelInheritedEnum];
+export const EntitlementPrivilegeLevelEffectiveEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelEffectiveEnum = typeof EntitlementPrivilegeLevelEffectiveEnum[keyof typeof EntitlementPrivilegeLevelEffectiveEnum];
 
 /**
  * Entitlement including a specific set of access.
@@ -1499,6 +1950,50 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Create an access profile.  This version accepts the same request body and applies the same validation as [Create Access Profile V1](https://developer.sailpoint.com/docs/api/create-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes. >**Note:** `privilegeLevel` is read-only and is ignored if supplied in the request body. It is calculated asynchronously from the access profile\'s entitlements, so it is typically absent from the create response.
+         * @summary Create access profile
+         * @param {Accessprofilev2} accessprofilev2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAccessProfileV2: async (accessprofilev2: Accessprofilev2, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessprofilev2' is not null or undefined
+            assertParamExists('createAccessProfileV2', 'accessprofilev2', accessprofilev2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessprofilev2, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
          * @summary Delete the specified access profile
          * @param {string} id ID of the Access Profile to delete
@@ -1523,6 +2018,48 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API deletes an existing Access Profile.  This version behaves identically to [Delete the Specified Access Profile V1](https://developer.sailpoint.com/docs/api/delete-access-profile-v-1).  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
+         * @summary Delete the specified access profile
+         * @param {string} id ID of the Access Profile to delete
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfileV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteAccessProfileV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1558,6 +2095,50 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileBulkDeleteRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint initiates a bulk deletion of one or more access profiles.  This version behaves identically to [Delete Access Profile(s) V1](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-1).  When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
+         * @summary Delete access profile(s)
+         * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfilesInBulkV2: async (accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileBulkDeleteRequest' is not null or undefined
+            assertParamExists('deleteAccessProfilesInBulkV2', 'accessProfileBulkDeleteRequest', accessProfileBulkDeleteRequest)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1670,6 +2251,78 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get a list of an access profile\'s entitlements.  This version reads from Search Lite and returns a superset of the entitlement returned by [List Access Profile\'s Entitlements V1](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-1), adding the entitlement\'s `tags` and calculated `privilegeLevel`. It also supports opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
+         * @summary List access profile\'s entitlements
+         * @param {string} id ID of the access profile containing the entitlements.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **attribute**: *eq, co*  **value**: *eq, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **privilegeLevel.effective**: *eq, in*  Results are automatically scoped to entitlements belonging to the access profile.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+         * @param {string} [cursor] Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfileEntitlementsV2: async (id: string, xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, cursor?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getAccessProfileEntitlementsV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2/{id}/entitlements`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns an Access Profile by its ID. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with access profile access requests.
          * @summary Get an access profile
          * @param {string} id ID of the Access Profile
@@ -1694,6 +2347,48 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get an access profile by its ID.  This version reads from Search Lite and returns the same access profile shape as [Get Access Profile V1](https://developer.sailpoint.com/docs/api/get-access-profile-v-1), with the calculated `privilegeLevel` field added.
+         * @summary Get an access profile
+         * @param {string} id ID of the Access Profile
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfileV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getAccessProfileV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1774,6 +2469,89 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get a list of access profiles.  This version reads from Search Lite and returns the same access profile shape as [List Access Profiles V1](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1), with two additions: the calculated `privilegeLevel` field, and opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  >**Note:** When you omit `sorters`, results are sorted by `created` ascending. For deterministic ordering across pages, always specify explicit sorters. When you use cursor pagination, include `id` in `sorters`; the service appends it automatically if you omit it.  >**Note:** `offset` and `cursor` are mutually exclusive. Use `offset=0` along with a cursor value taken from a prior response\'s `X-Next-Cursor` header.
+         * @summary List access profiles
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **requestable**: *eq*  **source.id**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **dimensional**: *eq*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+         * @param {string} [forSegmentIds] Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
+         * @param {string} [cursor] Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAccessProfilesV2: async (xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, cursor?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (forSubadmin !== undefined) {
+                localVarQueryParameter['for-subadmin'] = forSubadmin;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with access profile access requests.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {string} id ID of the Access Profile to patch
@@ -1803,6 +2581,54 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
 
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates an existing Access Profile.  This version patches the same fields as [Patch a Specified Access Profile V1](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revocationRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >**Note:** `privilegeLevel` is read-only and cannot be patched. Changing the access profile\'s entitlements recalculates it asynchronously, so the patch response may still show the previous value.
+         * @summary Patch a specified access profile
+         * @param {string} id ID of the Access Profile to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAccessProfileV2: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchAccessProfileV2', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchAccessProfileV2', 'jsonPatchOperation', jsonPatchOperation)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -1885,6 +2711,90 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get a list of access profiles, supplying the filter criteria and access model metadata key/values in the request body rather than as query parameters.  Use this endpoint when you need to filter by access model metadata, or when your filter expression is too long to pass as a query parameter. Pagination, sorting, subadmin scoping, and segment scoping behave the same as [List Access Profiles V2](https://developer.sailpoint.com/docs/api/list-access-profiles-v-2), including opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+         * @summary List access profiles by filter
+         * @param {AccessProfileListFilterV2} accessProfileListFilterV2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+         * @param {string} [forSegmentIds] Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
+         * @param {string} [cursor] Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchAccessProfilesByFilterV2: async (accessProfileListFilterV2: AccessProfileListFilterV2, xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, cursor?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileListFilterV2' is not null or undefined
+            assertParamExists('searchAccessProfilesByFilterV2', 'accessProfileListFilterV2', accessProfileListFilterV2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2/filter`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (forSubadmin !== undefined) {
+                localVarQueryParameter['for-subadmin'] = forSubadmin;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileListFilterV2, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
@@ -1910,6 +2820,50 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileBulkUpdateRequestInner, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API initiates a bulk update of field requestable for one or more Access Profiles.  This version behaves identically to [Update Access Profile(s) Requestable Field V1](https://developer.sailpoint.com/docs/api/update-access-profiles-in-bulk-v-1).  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+         * @summary Update access profile(s) requestable field.
+         * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAccessProfilesInBulkV2: async (accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileBulkUpdateRequestInner' is not null or undefined
+            assertParamExists('updateAccessProfilesInBulkV2', 'accessProfileBulkUpdateRequestInner', accessProfileBulkUpdateRequestInner)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/access-profiles/v2/bulk-update-requestable`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2094,6 +3048,20 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Create an access profile.  This version accepts the same request body and applies the same validation as [Create Access Profile V1](https://developer.sailpoint.com/docs/api/create-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes. >**Note:** `privilegeLevel` is read-only and is ignored if supplied in the request body. It is calculated asynchronously from the access profile\'s entitlements, so it is typically absent from the create response.
+         * @summary Create access profile
+         * @param {Accessprofilev2} accessprofilev2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createAccessProfileV2(accessprofilev2: Accessprofilev2, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofilev2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfileV2(accessprofilev2, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.createAccessProfileV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
          * @summary Delete the specified access profile
          * @param {string} id ID of the Access Profile to delete
@@ -2107,6 +3075,20 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * This API deletes an existing Access Profile.  This version behaves identically to [Delete the Specified Access Profile V1](https://developer.sailpoint.com/docs/api/delete-access-profile-v-1).  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
+         * @summary Delete the specified access profile
+         * @param {string} id ID of the Access Profile to delete
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccessProfileV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfileV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.deleteAccessProfileV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
          * @summary Delete access profile(s)
          * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
@@ -2117,6 +3099,20 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulkV1(accessProfileBulkDeleteRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.deleteAccessProfilesInBulkV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This endpoint initiates a bulk deletion of one or more access profiles.  This version behaves identically to [Delete Access Profile(s) V1](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-1).  When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
+         * @summary Delete access profile(s)
+         * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccessProfilesInBulkV2(accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulkV2(accessProfileBulkDeleteRequest, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.deleteAccessProfilesInBulkV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2153,6 +3149,26 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Get a list of an access profile\'s entitlements.  This version reads from Search Lite and returns a superset of the entitlement returned by [List Access Profile\'s Entitlements V1](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-1), adding the entitlement\'s `tags` and calculated `privilegeLevel`. It also supports opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
+         * @summary List access profile\'s entitlements
+         * @param {string} id ID of the access profile containing the entitlements.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **attribute**: *eq, co*  **value**: *eq, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **privilegeLevel.effective**: *eq, in*  Results are automatically scoped to entitlements belonging to the access profile.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+         * @param {string} [cursor] Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccessProfileEntitlementsV2(id: string, xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, cursor?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofileentitlementv2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileEntitlementsV2(id, xSailPointExperimental, limit, offset, count, filters, sorters, cursor, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.getAccessProfileEntitlementsV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API returns an Access Profile by its ID. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with access profile access requests.
          * @summary Get an access profile
          * @param {string} id ID of the Access Profile
@@ -2163,6 +3179,20 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.getAccessProfileV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Get an access profile by its ID.  This version reads from Search Lite and returns the same access profile shape as [Get Access Profile V1](https://developer.sailpoint.com/docs/api/get-access-profile-v-1), with the calculated `privilegeLevel` field added.
+         * @summary Get an access profile
+         * @param {string} id ID of the Access Profile
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccessProfileV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofilev2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.getAccessProfileV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2186,6 +3216,28 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Get a list of access profiles.  This version reads from Search Lite and returns the same access profile shape as [List Access Profiles V1](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1), with two additions: the calculated `privilegeLevel` field, and opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  >**Note:** When you omit `sorters`, results are sorted by `created` ascending. For deterministic ordering across pages, always specify explicit sorters. When you use cursor pagination, include `id` in `sorters`; the service appends it automatically if you omit it.  >**Note:** `offset` and `cursor` are mutually exclusive. Use `offset=0` along with a cursor value taken from a prior response\'s `X-Next-Cursor` header.
+         * @summary List access profiles
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **requestable**: *eq*  **source.id**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **dimensional**: *eq*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+         * @param {string} [forSegmentIds] Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
+         * @param {string} [cursor] Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAccessProfilesV2(xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, cursor?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofilev2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfilesV2(xSailPointExperimental, forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, cursor, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.listAccessProfilesV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with access profile access requests.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {string} id ID of the Access Profile to patch
@@ -2197,6 +3249,21 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfileV1(id, jsonPatchOperation, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.patchAccessProfileV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API updates an existing Access Profile.  This version patches the same fields as [Patch a Specified Access Profile V1](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revocationRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >**Note:** `privilegeLevel` is read-only and cannot be patched. Changing the access profile\'s entitlements recalculates it asynchronously, so the patch response may still show the previous value.
+         * @summary Patch a specified access profile
+         * @param {string} id ID of the Access Profile to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchAccessProfileV2(id: string, jsonPatchOperation: Array<JsonPatchOperation>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Accessprofilev2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfileV2(id, jsonPatchOperation, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.patchAccessProfileV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2220,6 +3287,28 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Get a list of access profiles, supplying the filter criteria and access model metadata key/values in the request body rather than as query parameters.  Use this endpoint when you need to filter by access model metadata, or when your filter expression is too long to pass as a query parameter. Pagination, sorting, subadmin scoping, and segment scoping behave the same as [List Access Profiles V2](https://developer.sailpoint.com/docs/api/list-access-profiles-v-2), including opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+         * @summary List access profiles by filter
+         * @param {AccessProfileListFilterV2} accessProfileListFilterV2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+         * @param {string} [forSegmentIds] Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
+         * @param {string} [cursor] Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchAccessProfilesByFilterV2(accessProfileListFilterV2: AccessProfileListFilterV2, xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, cursor?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Accessprofilev2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAccessProfilesByFilterV2(accessProfileListFilterV2, xSailPointExperimental, forSubadmin, limit, offset, count, sorters, forSegmentIds, includeUnsegmented, cursor, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.searchAccessProfilesByFilterV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
@@ -2230,6 +3319,20 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesInBulkV1(accessProfileBulkUpdateRequestInner, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.updateAccessProfilesInBulkV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API initiates a bulk update of field requestable for one or more Access Profiles.  This version behaves identically to [Update Access Profile(s) Requestable Field V1](https://developer.sailpoint.com/docs/api/update-access-profiles-in-bulk-v-1).  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+         * @summary Update access profile(s) requestable field.
+         * @param {Array<AccessProfileBulkUpdateRequestInner>} accessProfileBulkUpdateRequestInner 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateAccessProfilesInBulkV2(accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileUpdateItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesInBulkV2(accessProfileBulkUpdateRequestInner, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccessProfilesApi.updateAccessProfilesInBulkV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2307,6 +3410,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.createAccessProfileV1(requestParameters.accessProfile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Create an access profile.  This version accepts the same request body and applies the same validation as [Create Access Profile V1](https://developer.sailpoint.com/docs/api/create-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes. >**Note:** `privilegeLevel` is read-only and is ignored if supplied in the request body. It is calculated asynchronously from the access profile\'s entitlements, so it is typically absent from the create response.
+         * @summary Create access profile
+         * @param {AccessProfilesApiCreateAccessProfileV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAccessProfileV2(requestParameters: AccessProfilesApiCreateAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofilev2> {
+            return localVarFp.createAccessProfileV2(requestParameters.accessprofilev2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
          * @summary Delete the specified access profile
          * @param {AccessProfilesApiDeleteAccessProfileV1Request} requestParameters Request parameters.
@@ -2317,6 +3430,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.deleteAccessProfileV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API deletes an existing Access Profile.  This version behaves identically to [Delete the Specified Access Profile V1](https://developer.sailpoint.com/docs/api/delete-access-profile-v-1).  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
+         * @summary Delete the specified access profile
+         * @param {AccessProfilesApiDeleteAccessProfileV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfileV2(requestParameters: AccessProfilesApiDeleteAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteAccessProfileV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
          * @summary Delete access profile(s)
          * @param {AccessProfilesApiDeleteAccessProfilesInBulkV1Request} requestParameters Request parameters.
@@ -2325,6 +3448,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          */
         deleteAccessProfilesInBulkV1(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfileBulkDeleteResponse> {
             return localVarFp.deleteAccessProfilesInBulkV1(requestParameters.accessProfileBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint initiates a bulk deletion of one or more access profiles.  This version behaves identically to [Delete Access Profile(s) V1](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-1).  When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
+         * @summary Delete access profile(s)
+         * @param {AccessProfilesApiDeleteAccessProfilesInBulkV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfilesInBulkV2(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfileBulkDeleteResponse> {
+            return localVarFp.deleteAccessProfilesInBulkV2(requestParameters.accessProfileBulkDeleteRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API removes a single Access Model Metadata value from an access profile by attribute key and attribute value.
@@ -2347,6 +3480,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.getAccessProfileEntitlementsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get a list of an access profile\'s entitlements.  This version reads from Search Lite and returns a superset of the entitlement returned by [List Access Profile\'s Entitlements V1](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-1), adding the entitlement\'s `tags` and calculated `privilegeLevel`. It also supports opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
+         * @summary List access profile\'s entitlements
+         * @param {AccessProfilesApiGetAccessProfileEntitlementsV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfileEntitlementsV2(requestParameters: AccessProfilesApiGetAccessProfileEntitlementsV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofileentitlementv2>> {
+            return localVarFp.getAccessProfileEntitlementsV2(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.cursor, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns an Access Profile by its ID. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with access profile access requests.
          * @summary Get an access profile
          * @param {AccessProfilesApiGetAccessProfileV1Request} requestParameters Request parameters.
@@ -2355,6 +3498,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          */
         getAccessProfileV1(requestParameters: AccessProfilesApiGetAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfile> {
             return localVarFp.getAccessProfileV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get an access profile by its ID.  This version reads from Search Lite and returns the same access profile shape as [Get Access Profile V1](https://developer.sailpoint.com/docs/api/get-access-profile-v-1), with the calculated `privilegeLevel` field added.
+         * @summary Get an access profile
+         * @param {AccessProfilesApiGetAccessProfileV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfileV2(requestParameters: AccessProfilesApiGetAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofilev2> {
+            return localVarFp.getAccessProfileV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of access profiles. >**Note:** When you filter for access profiles that have the \'+\' symbol in their names, the response is blank. 
@@ -2367,6 +3520,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.listAccessProfilesV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get a list of access profiles.  This version reads from Search Lite and returns the same access profile shape as [List Access Profiles V1](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1), with two additions: the calculated `privilegeLevel` field, and opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  >**Note:** When you omit `sorters`, results are sorted by `created` ascending. For deterministic ordering across pages, always specify explicit sorters. When you use cursor pagination, include `id` in `sorters`; the service appends it automatically if you omit it.  >**Note:** `offset` and `cursor` are mutually exclusive. Use `offset=0` along with a cursor value taken from a prior response\'s `X-Next-Cursor` header.
+         * @summary List access profiles
+         * @param {AccessProfilesApiListAccessProfilesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAccessProfilesV2(requestParameters: AccessProfilesApiListAccessProfilesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofilev2>> {
+            return localVarFp.listAccessProfilesV2(requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.cursor, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with access profile access requests.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
          * @summary Patch a specified access profile
          * @param {AccessProfilesApiPatchAccessProfileV1Request} requestParameters Request parameters.
@@ -2375,6 +3538,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          */
         patchAccessProfileV1(requestParameters: AccessProfilesApiPatchAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<AccessProfile> {
             return localVarFp.patchAccessProfileV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates an existing Access Profile.  This version patches the same fields as [Patch a Specified Access Profile V1](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revocationRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >**Note:** `privilegeLevel` is read-only and cannot be patched. Changing the access profile\'s entitlements recalculates it asynchronously, so the patch response may still show the previous value.
+         * @summary Patch a specified access profile
+         * @param {AccessProfilesApiPatchAccessProfileV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAccessProfileV2(requestParameters: AccessProfilesApiPatchAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Accessprofilev2> {
+            return localVarFp.patchAccessProfileV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of access profiles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together.
@@ -2387,6 +3560,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.searchAccessProfilesByFilterV1(requestParameters.accessProfileListFilterDTO, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get a list of access profiles, supplying the filter criteria and access model metadata key/values in the request body rather than as query parameters.  Use this endpoint when you need to filter by access model metadata, or when your filter expression is too long to pass as a query parameter. Pagination, sorting, subadmin scoping, and segment scoping behave the same as [List Access Profiles V2](https://developer.sailpoint.com/docs/api/list-access-profiles-v-2), including opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+         * @summary List access profiles by filter
+         * @param {AccessProfilesApiSearchAccessProfilesByFilterV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchAccessProfilesByFilterV2(requestParameters: AccessProfilesApiSearchAccessProfilesByFilterV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Accessprofilev2>> {
+            return localVarFp.searchAccessProfilesByFilterV2(requestParameters.accessProfileListFilterV2, requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.cursor, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
          * @summary Update access profile(s) requestable field.
          * @param {AccessProfilesApiUpdateAccessProfilesInBulkV1Request} requestParameters Request parameters.
@@ -2395,6 +3578,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
          */
         updateAccessProfilesInBulkV1(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessProfileUpdateItem>> {
             return localVarFp.updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a bulk update of field requestable for one or more Access Profiles.  This version behaves identically to [Update Access Profile(s) Requestable Field V1](https://developer.sailpoint.com/docs/api/update-access-profiles-in-bulk-v-1).  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+         * @summary Update access profile(s) requestable field.
+         * @param {AccessProfilesApiUpdateAccessProfilesInBulkV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAccessProfilesInBulkV2(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<AccessProfileUpdateItem>> {
+            return localVarFp.updateAccessProfilesInBulkV2(requestParameters.accessProfileBulkUpdateRequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initiates a bulk update of Access Model Metadata for every access profile matching the supplied filter expression.  The update is processed asynchronously. The response returns the ID of the task performing the update.  A single access profile cannot be assigned more than 25 metadata values. Adding or replacing custom metadata requires a suite license.
@@ -2454,6 +3647,27 @@ export interface AccessProfilesApiCreateAccessProfileV1Request {
 }
 
 /**
+ * Request parameters for createAccessProfileV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiCreateAccessProfileV2Request
+ */
+export interface AccessProfilesApiCreateAccessProfileV2Request {
+    /**
+     * 
+     * @type {Accessprofilev2}
+     * @memberof AccessProfilesApiCreateAccessProfileV2
+     */
+    readonly accessprofilev2: Accessprofilev2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiCreateAccessProfileV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for deleteAccessProfileV1 operation in AccessProfilesApi.
  * @export
  * @interface AccessProfilesApiDeleteAccessProfileV1Request
@@ -2468,6 +3682,27 @@ export interface AccessProfilesApiDeleteAccessProfileV1Request {
 }
 
 /**
+ * Request parameters for deleteAccessProfileV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiDeleteAccessProfileV2Request
+ */
+export interface AccessProfilesApiDeleteAccessProfileV2Request {
+    /**
+     * ID of the Access Profile to delete
+     * @type {string}
+     * @memberof AccessProfilesApiDeleteAccessProfileV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiDeleteAccessProfileV2
+     */
+    readonly xSailPointExperimental?: string
+}
+
+/**
  * Request parameters for deleteAccessProfilesInBulkV1 operation in AccessProfilesApi.
  * @export
  * @interface AccessProfilesApiDeleteAccessProfilesInBulkV1Request
@@ -2479,6 +3714,27 @@ export interface AccessProfilesApiDeleteAccessProfilesInBulkV1Request {
      * @memberof AccessProfilesApiDeleteAccessProfilesInBulkV1
      */
     readonly accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest
+}
+
+/**
+ * Request parameters for deleteAccessProfilesInBulkV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiDeleteAccessProfilesInBulkV2Request
+ */
+export interface AccessProfilesApiDeleteAccessProfilesInBulkV2Request {
+    /**
+     * 
+     * @type {AccessProfileBulkDeleteRequest}
+     * @memberof AccessProfilesApiDeleteAccessProfilesInBulkV2
+     */
+    readonly accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiDeleteAccessProfilesInBulkV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2559,6 +3815,69 @@ export interface AccessProfilesApiGetAccessProfileEntitlementsV1Request {
 }
 
 /**
+ * Request parameters for getAccessProfileEntitlementsV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiGetAccessProfileEntitlementsV2Request
+ */
+export interface AccessProfilesApiGetAccessProfileEntitlementsV2Request {
+    /**
+     * ID of the access profile containing the entitlements.
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **attribute**: *eq, co*  **value**: *eq, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **privilegeLevel.effective**: *eq, in*  Results are automatically scoped to entitlements belonging to the access profile.
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly sorters?: string
+
+    /**
+     * Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlementsV2
+     */
+    readonly cursor?: string
+}
+
+/**
  * Request parameters for getAccessProfileV1 operation in AccessProfilesApi.
  * @export
  * @interface AccessProfilesApiGetAccessProfileV1Request
@@ -2570,6 +3889,27 @@ export interface AccessProfilesApiGetAccessProfileV1Request {
      * @memberof AccessProfilesApiGetAccessProfileV1
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getAccessProfileV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiGetAccessProfileV2Request
+ */
+export interface AccessProfilesApiGetAccessProfileV2Request {
+    /**
+     * ID of the Access Profile
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2636,6 +3976,83 @@ export interface AccessProfilesApiListAccessProfilesV1Request {
 }
 
 /**
+ * Request parameters for listAccessProfilesV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiListAccessProfilesV2Request
+ */
+export interface AccessProfilesApiListAccessProfilesV2Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly forSubadmin?: string
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, co*  **created**: *lt, le, gt, ge*  **modified**: *lt, le, gt, ge*  **requestable**: *eq*  **source.id**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **dimensional**: *eq*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly sorters?: string
+
+    /**
+     * Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
+     * @type {boolean}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly includeUnsegmented?: boolean
+
+    /**
+     * Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfilesV2
+     */
+    readonly cursor?: string
+}
+
+/**
  * Request parameters for patchAccessProfileV1 operation in AccessProfilesApi.
  * @export
  * @interface AccessProfilesApiPatchAccessProfileV1Request
@@ -2654,6 +4071,34 @@ export interface AccessProfilesApiPatchAccessProfileV1Request {
      * @memberof AccessProfilesApiPatchAccessProfileV1
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for patchAccessProfileV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiPatchAccessProfileV2Request
+ */
+export interface AccessProfilesApiPatchAccessProfileV2Request {
+    /**
+     * ID of the Access Profile to patch
+     * @type {string}
+     * @memberof AccessProfilesApiPatchAccessProfileV2
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof AccessProfilesApiPatchAccessProfileV2
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiPatchAccessProfileV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2720,6 +4165,83 @@ export interface AccessProfilesApiSearchAccessProfilesByFilterV1Request {
 }
 
 /**
+ * Request parameters for searchAccessProfilesByFilterV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiSearchAccessProfilesByFilterV2Request
+ */
+export interface AccessProfilesApiSearchAccessProfilesByFilterV2Request {
+    /**
+     * 
+     * @type {AccessProfileListFilterV2}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly accessProfileListFilterV2: AccessProfileListFilterV2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * Filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN identity. The value of the parameter is either an identity ID or the special value **me**, which is shorthand for the calling identity\&#39;s ID.  If you specify an identity that isn\&#39;t a subadmin, the API returns a 400 Bad Request error.
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly forSubadmin?: string
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 when you supply a &#x60;cursor&#x60;, and &#x60;offset&#x60; plus &#x60;limit&#x60; must not exceed 10000.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, privilegeLevel.effective**  Defaults to **created** ascending when omitted.
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly sorters?: string
+
+    /**
+     * Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Indicates whether the response list should contain unsegmented access profiles. If &#x60;for-segment-ids&#x60; is absent or empty, specifying *include-unsegmented* as &#x60;false&#x60; results in an error.
+     * @type {boolean}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly includeUnsegmented?: boolean
+
+    /**
+     * Opaque cursor taken from the &#x60;X-Next-Cursor&#x60; header of a previous response, used to retrieve the next page of results. When you supply a cursor, &#x60;offset&#x60; must be 0.
+     * @type {string}
+     * @memberof AccessProfilesApiSearchAccessProfilesByFilterV2
+     */
+    readonly cursor?: string
+}
+
+/**
  * Request parameters for updateAccessProfilesInBulkV1 operation in AccessProfilesApi.
  * @export
  * @interface AccessProfilesApiUpdateAccessProfilesInBulkV1Request
@@ -2731,6 +4253,27 @@ export interface AccessProfilesApiUpdateAccessProfilesInBulkV1Request {
      * @memberof AccessProfilesApiUpdateAccessProfilesInBulkV1
      */
     readonly accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>
+}
+
+/**
+ * Request parameters for updateAccessProfilesInBulkV2 operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiUpdateAccessProfilesInBulkV2Request
+ */
+export interface AccessProfilesApiUpdateAccessProfilesInBulkV2Request {
+    /**
+     * 
+     * @type {Array<AccessProfileBulkUpdateRequestInner>}
+     * @memberof AccessProfilesApiUpdateAccessProfilesInBulkV2
+     */
+    readonly accessProfileBulkUpdateRequestInner: Array<AccessProfileBulkUpdateRequestInner>
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof AccessProfilesApiUpdateAccessProfilesInBulkV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -2823,6 +4366,18 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
+     * Create an access profile.  This version accepts the same request body and applies the same validation as [Create Access Profile V1](https://developer.sailpoint.com/docs/api/create-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile\'s source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters. >**Note:** To use this endpoint, you need all the listed scopes. >**Note:** `privilegeLevel` is read-only and is ignored if supplied in the request body. It is calculated asynchronously from the access profile\'s entitlements, so it is typically absent from the create response.
+     * @summary Create access profile
+     * @param {AccessProfilesApiCreateAccessProfileV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public createAccessProfileV2(requestParameters: AccessProfilesApiCreateAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).createAccessProfileV2(requestParameters.accessprofilev2, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
      * @summary Delete the specified access profile
      * @param {AccessProfilesApiDeleteAccessProfileV1Request} requestParameters Request parameters.
@@ -2835,6 +4390,18 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
+     * This API deletes an existing Access Profile.  This version behaves identically to [Delete the Specified Access Profile V1](https://developer.sailpoint.com/docs/api/delete-access-profile-v-1).  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A user with SOURCE_SUBADMIN must be able to administer the Source associated with the Access Profile.
+     * @summary Delete the specified access profile
+     * @param {AccessProfilesApiDeleteAccessProfileV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public deleteAccessProfileV2(requestParameters: AccessProfilesApiDeleteAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).deleteAccessProfileV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
      * @summary Delete access profile(s)
      * @param {AccessProfilesApiDeleteAccessProfilesInBulkV1Request} requestParameters Request parameters.
@@ -2844,6 +4411,18 @@ export class AccessProfilesApi extends BaseAPI {
      */
     public deleteAccessProfilesInBulkV1(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return AccessProfilesApiFp(this.configuration).deleteAccessProfilesInBulkV1(requestParameters.accessProfileBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint initiates a bulk deletion of one or more access profiles.  This version behaves identically to [Delete Access Profile(s) V1](https://developer.sailpoint.com/docs/api/delete-access-profiles-in-bulk-v-1).  When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/get-task-status-v-1), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A SOURCE_SUBADMIN user can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
+     * @summary Delete access profile(s)
+     * @param {AccessProfilesApiDeleteAccessProfilesInBulkV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public deleteAccessProfilesInBulkV2(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).deleteAccessProfilesInBulkV2(requestParameters.accessProfileBulkDeleteRequest, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2871,6 +4450,18 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
+     * Get a list of an access profile\'s entitlements.  This version reads from Search Lite and returns a superset of the entitlement returned by [List Access Profile\'s Entitlements V1](https://developer.sailpoint.com/docs/api/get-access-profile-entitlements-v-1), adding the entitlement\'s `tags` and calculated `privilegeLevel`. It also supports opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
+     * @summary List access profile\'s entitlements
+     * @param {AccessProfilesApiGetAccessProfileEntitlementsV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public getAccessProfileEntitlementsV2(requestParameters: AccessProfilesApiGetAccessProfileEntitlementsV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).getAccessProfileEntitlementsV2(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.cursor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API returns an Access Profile by its ID. The `accessRequestConfig.formDefinitionId` field associates an optional custom form with access profile access requests.
      * @summary Get an access profile
      * @param {AccessProfilesApiGetAccessProfileV1Request} requestParameters Request parameters.
@@ -2880,6 +4471,18 @@ export class AccessProfilesApi extends BaseAPI {
      */
     public getAccessProfileV1(requestParameters: AccessProfilesApiGetAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return AccessProfilesApiFp(this.configuration).getAccessProfileV1(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get an access profile by its ID.  This version reads from Search Lite and returns the same access profile shape as [Get Access Profile V1](https://developer.sailpoint.com/docs/api/get-access-profile-v-1), with the calculated `privilegeLevel` field added.
+     * @summary Get an access profile
+     * @param {AccessProfilesApiGetAccessProfileV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public getAccessProfileV2(requestParameters: AccessProfilesApiGetAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).getAccessProfileV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2895,6 +4498,18 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
+     * Get a list of access profiles.  This version reads from Search Lite and returns the same access profile shape as [List Access Profiles V1](https://developer.sailpoint.com/docs/api/list-access-profiles-v-1), with two additions: the calculated `privilegeLevel` field, and opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.  >**Note:** When you omit `sorters`, results are sorted by `created` ascending. For deterministic ordering across pages, always specify explicit sorters. When you use cursor pagination, include `id` in `sorters`; the service appends it automatically if you omit it.  >**Note:** `offset` and `cursor` are mutually exclusive. Use `offset=0` along with a cursor value taken from a prior response\'s `X-Next-Cursor` header.
+     * @summary List access profiles
+     * @param {AccessProfilesApiListAccessProfilesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public listAccessProfilesV2(requestParameters: AccessProfilesApiListAccessProfilesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).listAccessProfilesV2(requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.cursor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API updates an existing Access Profile. The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revokeRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  Set `accessRequestConfig.formDefinitionId` to associate an optional custom form with access profile access requests.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.
      * @summary Patch a specified access profile
      * @param {AccessProfilesApiPatchAccessProfileV1Request} requestParameters Request parameters.
@@ -2904,6 +4519,18 @@ export class AccessProfilesApi extends BaseAPI {
      */
     public patchAccessProfileV1(requestParameters: AccessProfilesApiPatchAccessProfileV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return AccessProfilesApiFp(this.configuration).patchAccessProfileV1(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates an existing Access Profile.  This version patches the same fields as [Patch a Specified Access Profile V1](https://developer.sailpoint.com/docs/api/patch-access-profile-v-1). It returns the v2 access profile shape, which adds the read-only `privilegeLevel` field.  The following fields are patchable:  **name**  **description**  **enabled**  **owner**  **additionalOwners**  **requestable**  **accessRequestConfig**  **revocationRequestConfig**  **segments**  **entitlements**  **provisioningCriteria**  **source** (must be updated with entitlements belonging to new source in the same API call)  If you need to change the `source` of the access profile, you can do so only if you update the `entitlements` in the same API call.  The new entitlements can only come from the target source that you want to change to.  Look for the example \"Replace Source\" in the examples dropdown.  A user with SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >**Note:** `privilegeLevel` is read-only and cannot be patched. Changing the access profile\'s entitlements recalculates it asynchronously, so the patch response may still show the previous value.
+     * @summary Patch a specified access profile
+     * @param {AccessProfilesApiPatchAccessProfileV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public patchAccessProfileV2(requestParameters: AccessProfilesApiPatchAccessProfileV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).patchAccessProfileV2(requestParameters.id, requestParameters.jsonPatchOperation, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2919,6 +4546,18 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
+     * Get a list of access profiles, supplying the filter criteria and access model metadata key/values in the request body rather than as query parameters.  Use this endpoint when you need to filter by access model metadata, or when your filter expression is too long to pass as a query parameter. Pagination, sorting, subadmin scoping, and segment scoping behave the same as [List Access Profiles V2](https://developer.sailpoint.com/docs/api/list-access-profiles-v-2), including opaque cursor pagination through the `cursor` parameter and `X-Next-Cursor` response header.
+     * @summary List access profiles by filter
+     * @param {AccessProfilesApiSearchAccessProfilesByFilterV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public searchAccessProfilesByFilterV2(requestParameters: AccessProfilesApiSearchAccessProfilesByFilterV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).searchAccessProfilesByFilterV2(requestParameters.accessProfileListFilterV2, requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.cursor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
      * @summary Update access profile(s) requestable field.
      * @param {AccessProfilesApiUpdateAccessProfilesInBulkV1Request} requestParameters Request parameters.
@@ -2928,6 +4567,18 @@ export class AccessProfilesApi extends BaseAPI {
      */
     public updateAccessProfilesInBulkV1(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV1Request, axiosOptions?: RawAxiosRequestConfig) {
         return AccessProfilesApiFp(this.configuration).updateAccessProfilesInBulkV1(requestParameters.accessProfileBulkUpdateRequestInner, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a bulk update of field requestable for one or more Access Profiles.  This version behaves identically to [Update Access Profile(s) Requestable Field V1](https://developer.sailpoint.com/docs/api/update-access-profiles-in-bulk-v-1).  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated.  A SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+     * @summary Update access profile(s) requestable field.
+     * @param {AccessProfilesApiUpdateAccessProfilesInBulkV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public updateAccessProfilesInBulkV2(requestParameters: AccessProfilesApiUpdateAccessProfilesInBulkV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).updateAccessProfilesInBulkV2(requestParameters.accessProfileBulkUpdateRequestInner, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
