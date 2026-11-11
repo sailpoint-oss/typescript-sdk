@@ -7652,7 +7652,7 @@ export interface UserNERM {
      */
     'group_strings'?: string;
     /**
-     * The identity ID of the user in ISC
+     * The identity ID of the user in SailPoint Identity Security
      * @type {string}
      * @memberof UserNERM
      */
@@ -13598,7 +13598,7 @@ export const IscAccountsNERMApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Updates a profile only through ISC schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
+         * Updates a profile only through SailPoint Identity Security schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
          * @summary Update Profile
          * @param {string} id ID of the object to retrieve, update, or delete
          * @param {UpdateProfileRequestNERM} [updateProfileRequestNERM] 
@@ -13685,7 +13685,7 @@ export const IscAccountsNERMApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Updates a profile only through ISC schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
+         * Updates a profile only through SailPoint Identity Security schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
          * @summary Update Profile
          * @param {string} id ID of the object to retrieve, update, or delete
          * @param {UpdateProfileRequestNERM} [updateProfileRequestNERM] 
@@ -13729,7 +13729,7 @@ export const IscAccountsNERMApiFactory = function (configuration?: Configuration
             return localVarFp.getSingleSchemaMappedProfile(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Updates a profile only through ISC schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
+         * Updates a profile only through SailPoint Identity Security schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
          * @summary Update Profile
          * @param {IscAccountsNERMApiUpdateProfileRequest} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -13857,7 +13857,7 @@ export class IscAccountsNERMApi extends BaseAPI {
     }
 
     /**
-     * Updates a profile only through ISC schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
+     * Updates a profile only through SailPoint Identity Security schema-mapped attributes, performs a reverse mapping to match the NERM attributes to update.
      * @summary Update Profile
      * @param {IscAccountsNERMApiUpdateProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
