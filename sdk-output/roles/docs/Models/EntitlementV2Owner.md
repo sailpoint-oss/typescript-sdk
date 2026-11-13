@@ -1,15 +1,15 @@
 ---
-id: v1-entitlement-owner
-title: EntitlementOwner
-pagination_label: EntitlementOwner
-sidebar_label: EntitlementOwner
+id: v1-entitlement-v2-owner
+title: EntitlementV2Owner
+pagination_label: EntitlementV2Owner
+sidebar_label: EntitlementV2Owner
 sidebar_class_name: typescriptsdk
-keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementOwner', 'v1EntitlementOwner']
-slug: /tools/sdk/typescript/roles/models/entitlement-owner
-tags: ['SDK', 'Software Development Kit', 'EntitlementOwner', 'v1EntitlementOwner']
+keywords: ['typescript', 'TypeScript', 'sdk', 'EntitlementV2Owner', 'v1EntitlementV2Owner']
+slug: /tools/sdk/typescript/roles/models/entitlement-v2-owner
+tags: ['SDK', 'Software Development Kit', 'EntitlementV2Owner', 'v1EntitlementV2Owner']
 ---
 
-# EntitlementOwner
+# EntitlementV2Owner
 
 ## Properties
 

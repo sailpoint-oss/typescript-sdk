@@ -43,5 +43,5 @@ Name | Type | Description | Notes
 **reassignmentHistory** | **(optional)** `Array<ApprovalReassignmentHistory>` | History of whom the approval request was assigned to | [default to undefined]
 **staticAttributes** | **(optional)**  | Field that can include any static additional info that may be needed by the service that the approval request originated from | [default to undefined]
 **modifiedDate** | **(optional)** `string` | Date/time that the approval request was last updated | [default to undefined]
-**requestedTarget** | **(optional)** `Array<ApprovalRequestedTarget>` | RequestedTarget used to specify the actual object or target the approval request is for | [default to undefined]
+**requestedTarget** | **(optional)** `ApprovalRequestedTarget` |  | [default to undefined]
 

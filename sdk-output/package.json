@@ -1,6 +1,6 @@
 {
   "name": "@sailpoint/api-client",
-  "version": "2.2.51",
+  "version": "2.2.52",
   "description": "Official library for using the SailPoint API",
   "author": "SailPoint DevOps",
   "repository": {

@@ -198,11 +198,11 @@ export interface Approval2 {
      */
     'modifiedDate'?: string;
     /**
-     * RequestedTarget used to specify the actual object or target the approval request is for
-     * @type {Array<ApprovalRequestedTarget>}
+     * 
+     * @type {ApprovalRequestedTarget}
      * @memberof Approval2
      */
-    'requestedTarget'?: Array<ApprovalRequestedTarget>;
+    'requestedTarget'?: ApprovalRequestedTarget;
 }
 
 export const Approval2MediumEnum = {
@@ -486,7 +486,7 @@ export interface ApprovalConfig {
      */
     'circumventApprovalProcess'?: boolean;
     /**
-     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT when the requester != requestee this will cause steps assigned directly to the requester to be auto-approved. INDIRECT when the requester != requestee this will cause steps assigned to the requester or a group containing the requester to be auto-approved. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
+     * OFF will prevent the approval request from being assigned to the requester or requestee by assigning it to their manager instead. DIRECT when the requester != requestee this will cause steps assigned directly to the requester to be auto-approved. INDIRECT when the requester != requestee this will cause steps assigned to the requester or a group containing the requester to be auto-approved. SELF_REQUEST will cause steps assigned to the requester or a group containing the requester to be auto-approved whether or not the requester is the same as the requestee. This field will only be effective if requestedTarget.reauthRequired is set to false, otherwise the approval will have to be manually approved.
      * @type {string}
      * @memberof ApprovalConfig
      */
@@ -515,7 +515,8 @@ export type ApprovalConfigMachineIdentityManagerAssignmentEnum = typeof Approval
 export const ApprovalConfigAutoApproveEnum = {
     Off: 'OFF',
     Direct: 'DIRECT',
-    Indirect: 'INDIRECT'
+    Indirect: 'INDIRECT',
+    SelfRequest: 'SELF_REQUEST'
 } as const;
 
 export type ApprovalConfigAutoApproveEnum = typeof ApprovalConfigAutoApproveEnum[keyof typeof ApprovalConfigAutoApproveEnum];
@@ -1232,11 +1233,77 @@ export interface ApprovalRejectRequest {
     'overrideApproverID'?: string;
 }
 /**
- * Represents a requested target in an approval process, including details such as ID, name, reauthentication requirements, and removal date.
+ * Specifies the actual object or target the approval request is for.
  * @export
  * @interface ApprovalRequestedTarget
  */
 export interface ApprovalRequestedTarget {
+    /**
+     * Target ID (for example a role ID or access profile ID).
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'id'?: string;
+    /**
+     * Target IDs when the approval request applies to multiple targets.
+     * @type {Array<string>}
+     * @memberof ApprovalRequestedTarget
+     */
+    'ids'?: Array<string>;
+    /**
+     * Target name (for example a role name or access profile name).
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'name'?: string;
+    /**
+     * Target names when the approval request applies to multiple targets.
+     * @type {Array<string>}
+     * @memberof ApprovalRequestedTarget
+     */
+    'names'?: Array<string>;
+    /**
+     * Target type (for example Role or Access Profile).
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'targetType'?: string;
+    /**
+     * Target types when the approval request applies to multiple targets.
+     * @type {Array<string>}
+     * @memberof ApprovalRequestedTarget
+     */
+    'targetTypes'?: Array<string>;
+    /**
+     * Optional description for the requested target.
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'description'?: string;
+    /**
+     * Effective privilege (EP) level at approval creation.
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'epLevelAtCreation'?: ApprovalRequestedTargetEpLevelAtCreationEnum;
+    /**
+     * Current effective privilege (EP) level for the requested target.
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'currentEPLevel'?: ApprovalRequestedTargetCurrentEPLevelEnum;
+    /**
+     * Date and time when the current effective privilege level was last modified.
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'currentEPModifiedDate'?: string;
+    /**
+     * Access request type (for example GRANT_ACCESS or REVOKE_ACCESS).
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'requestType'?: string;
     /**
      * Signature required for forced authentication.
      * @type {string}
@@ -1244,42 +1311,54 @@ export interface ApprovalRequestedTarget {
      */
     'forcedAuthSignature'?: string;
     /**
-     * ID of the requested target.
-     * @type {string}
-     * @memberof ApprovalRequestedTarget
-     */
-    'id'?: string;
-    /**
-     * Name of the requested target.
-     * @type {string}
-     * @memberof ApprovalRequestedTarget
-     */
-    'name'?: string;
-    /**
-     * Indicates if reauthentication is required.
+     * Indicates whether forced reauthentication is required upon approval.
      * @type {boolean}
      * @memberof ApprovalRequestedTarget
      */
     'reauthRequired'?: boolean;
     /**
-     * Date when the target will be removed.
+     * When temporary access will be granted, if applicable.
+     * @type {string}
+     * @memberof ApprovalRequestedTarget
+     */
+    'startDate'?: string;
+    /**
+     * When temporary access will be removed, if applicable.
      * @type {string}
      * @memberof ApprovalRequestedTarget
      */
     'removalDate'?: string;
     /**
-     * Type of the request.
+     * Updated start date when startDate is edited during the approval request.
      * @type {string}
      * @memberof ApprovalRequestedTarget
      */
-    'requestType'?: string;
+    'modifiedStartDate'?: string;
     /**
-     * Type of the target.
+     * Updated removal date when removalDate is edited during the approval request.
      * @type {string}
      * @memberof ApprovalRequestedTarget
      */
-    'targetType'?: string;
+    'modifiedRemovalDate'?: string;
 }
+
+export const ApprovalRequestedTargetEpLevelAtCreationEnum = {
+    High: 'HIGH',
+    Medium: 'MEDIUM',
+    Low: 'LOW',
+    None: 'NONE'
+} as const;
+
+export type ApprovalRequestedTargetEpLevelAtCreationEnum = typeof ApprovalRequestedTargetEpLevelAtCreationEnum[keyof typeof ApprovalRequestedTargetEpLevelAtCreationEnum];
+export const ApprovalRequestedTargetCurrentEPLevelEnum = {
+    High: 'HIGH',
+    Medium: 'MEDIUM',
+    Low: 'LOW',
+    None: 'NONE'
+} as const;
+
+export type ApprovalRequestedTargetCurrentEPLevelEnum = typeof ApprovalRequestedTargetCurrentEPLevelEnum[keyof typeof ApprovalRequestedTargetCurrentEPLevelEnum];
+
 /**
  * BulkApproveRequestDTO is the input struct that represents the request body required to facilitate a bulk approval action for a set of generic approval requests.
  * @export
@@ -1630,8 +1709,8 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
          * @summary Delete Approval Configuration
-         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
-         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1666,7 +1745,7 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
+         * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals/v1?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
          * @summary Get an approval
          * @param {string} id ID of the approval that is to be returned
          * @param {*} [axiosOptions] Override http request option.
@@ -1702,7 +1781,7 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Retrieves a singular approval configuration that matches the given ID
          * @summary Get Approval Config
-         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -1734,19 +1813,19 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
+         * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals/v1?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
          * @summary Get approvals
          * @param {boolean} [mine] Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of \&#39;approverId&#x3D;[your_identity_id]\&#39;).
          * @param {string} [requesterId] Returns the list of approvals for a given requester ID. Must match the calling user\&#39;s identity ID unless they are an admin.
          * @param {string} [requesteeId] Returns the list of approvals for a given requesteeId ID. Must match the calling user\&#39;s identity ID unless they are an admin.
          * @param {string} [approverId] Returns the list of approvals for a given approverId ID. Must match the calling user\&#39;s identity ID unless they are an admin.
-         * @param {boolean} [count] Adds X-Total-Count to the header to give the amount of total approvals returned from the query.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {boolean} [countOnly] Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects.
          * @param {boolean} [includeComments] If set to true in the query, the approval requests returned will include comments.
          * @param {boolean} [includeApprovers] If set to true in the query, the approval requests returned will include approvers.
          * @param {boolean} [includeReassignmentHistory] If set to true in the query, the approval requests returned will include reassignment history.
          * @param {boolean} [includeBatchInfo] If set to true in the query, the approval requests returned will include batch information.
-         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **currentEPLevel**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*
          * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
@@ -1867,8 +1946,8 @@ export const ApprovalsApiAxiosParamCreator = function (configuration?: Configura
         /**
          * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
          * @summary Put Approval Config
-         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
-         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {ApprovalConfig} approvalConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2169,8 +2248,8 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
         /**
          * Deletes an approval configuration. Configurations at the APPROVAL_REQUEST scope cannot be deleted.
          * @summary Delete Approval Configuration
-         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
-         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {DeleteApprovalConfigRequestV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2181,7 +2260,7 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
+         * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals/v1?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
          * @summary Get an approval
          * @param {string} id ID of the approval that is to be returned
          * @param {*} [axiosOptions] Override http request option.
@@ -2196,7 +2275,7 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
         /**
          * Retrieves a singular approval configuration that matches the given ID
          * @summary Get Approval Config
-         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -2207,19 +2286,19 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
+         * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals/v1?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
          * @summary Get approvals
          * @param {boolean} [mine] Determines whether to return the list of approvals assigned to the current caller or all approvals in the org. Defaults to false if admin, true otherwise (which is the equivalent of \&#39;approverId&#x3D;[your_identity_id]\&#39;).
          * @param {string} [requesterId] Returns the list of approvals for a given requester ID. Must match the calling user\&#39;s identity ID unless they are an admin.
          * @param {string} [requesteeId] Returns the list of approvals for a given requesteeId ID. Must match the calling user\&#39;s identity ID unless they are an admin.
          * @param {string} [approverId] Returns the list of approvals for a given approverId ID. Must match the calling user\&#39;s identity ID unless they are an admin.
-         * @param {boolean} [count] Adds X-Total-Count to the header to give the amount of total approvals returned from the query.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {boolean} [countOnly] Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects.
          * @param {boolean} [includeComments] If set to true in the query, the approval requests returned will include comments.
          * @param {boolean} [includeApprovers] If set to true in the query, the approval requests returned will include approvers.
          * @param {boolean} [includeReassignmentHistory] If set to true in the query, the approval requests returned will include reassignment history.
          * @param {boolean} [includeBatchInfo] If set to true in the query, the approval requests returned will include batch information.
-         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **currentEPLevel**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*
          * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
@@ -2247,8 +2326,8 @@ export const ApprovalsApiFp = function(configuration?: Configuration) {
         /**
          * Upserts a singular approval configuration that matches the given configID and configScope.  For example to update the approval configurations for all Access Request Approvals please use: \'/generic-approvals/config/ACCESS_REQUEST_APPROVAL/APPROVAL_TYPE\'
          * @summary Put Approval Config
-         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
-         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {string} id The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+         * @param {PutApprovalsConfigV1ScopeEnum} scope The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
          * @param {ApprovalConfig} approvalConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -2389,7 +2468,7 @@ export const ApprovalsApiFactory = function (configuration?: Configuration, base
             return localVarFp.deleteApprovalConfigRequestV1(requestParameters.id, requestParameters.scope, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
+         * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals/v1?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
          * @summary Get an approval
          * @param {ApprovalsApiGetApprovalV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2409,7 +2488,7 @@ export const ApprovalsApiFactory = function (configuration?: Configuration, base
             return localVarFp.getApprovalsConfigV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
+         * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals/v1?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
          * @summary Get approvals
          * @param {ApprovalsApiGetApprovalsV1Request} requestParameters Request parameters.
          * @param {*} [axiosOptions] Override http request option.
@@ -2568,14 +2647,14 @@ export interface ApprovalsApiCancelApprovalV1Request {
  */
 export interface ApprovalsApiDeleteApprovalConfigRequestV1Request {
     /**
-     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {string}
      * @memberof ApprovalsApiDeleteApprovalConfigRequestV1
      */
     readonly id: string
 
     /**
-     * The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+     * The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {'DOMAIN_OBJECT' | 'ACCOUNT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
      * @memberof ApprovalsApiDeleteApprovalConfigRequestV1
      */
@@ -2603,7 +2682,7 @@ export interface ApprovalsApiGetApprovalV1Request {
  */
 export interface ApprovalsApiGetApprovalsConfigV1Request {
     /**
-     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {string}
      * @memberof ApprovalsApiGetApprovalsConfigV1
      */
@@ -2645,7 +2724,7 @@ export interface ApprovalsApiGetApprovalsV1Request {
     readonly approverId?: string
 
     /**
-     * Adds X-Total-Count to the header to give the amount of total approvals returned from the query.
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
      * @type {boolean}
      * @memberof ApprovalsApiGetApprovalsV1
      */
@@ -2687,7 +2766,7 @@ export interface ApprovalsApiGetApprovalsV1Request {
     readonly includeBatchInfo?: boolean
 
     /**
-     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, ne, in, co, sw*  **name**: *eq, ne, in, co, sw*  **priority**: *eq, ne, in, co, sw*  **type**: *eq, ne, in, co, sw*  **medium**: *eq, ne, in, co, sw*  **description**: *eq, ne, in, co, sw*  **batchId**: *eq, ne, in, co, sw*  **createdDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **dueDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **completedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **search**: *eq, ne, in, co, sw*  **referenceId**: *eq, ne, in, co, sw*  **referenceType**: *eq, ne, in, co, sw*  **referenceName**: *eq, ne, in, co, sw*  **requestedTargetId**: *eq, ne, in, co, sw*  **requestedTargetType**: *eq, ne, in, co, sw*  **currentEPLevel**: *eq, ne, in, co, sw*  **requestedTargetName**: *eq, ne, in, co, sw*  **requestedTargetRequestType**: *eq, ne, in, co, sw*  **modifiedDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **decisionDate**: *eq, ne, in, co, sw, gt, ge, lt, le*  **approvalId**: *eq, ne, in, co, sw*  **requesterId**: *eq, ne, in, co, sw*  **requesteeId**: *eq, ne, in, co, sw*  **approverId**: *eq, ne, in, co, sw*
      * @type {string}
      * @memberof ApprovalsApiGetApprovalsV1
      */
@@ -2729,14 +2808,14 @@ export interface ApprovalsApiMoveApprovalV1Request {
  */
 export interface ApprovalsApiPutApprovalsConfigV1Request {
     /**
-     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+     * The ID defined by the scope field, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {string}
      * @memberof ApprovalsApiPutApprovalsConfigV1
      */
     readonly id: string
 
     /**
-     * The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
+     * The scope that defines the type of id, where id/scope is the following:  * &#x60;{accountID}&#x60;/&#x60;ACCOUNT&#x60; * &#x60;{roleID}&#x60;/&#x60;ROLE&#x60; * &#x60;{entitlementID}&#x60;/&#x60;ENTITLEMENT&#x60; * &#x60;{accessProfileID}&#x60;/&#x60;ACCESS_PROFILE&#x60; * &#x60;{domainObjectID}&#x60;/&#x60;DOMAIN_OBJECT&#x60; * &#x60;ENTITLEMENT_DESCRIPTIONS&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;CUSTOM_ACCESS_REQUEST_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_CREATE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;MACHINE_ACCOUNT_DELETE_APPROVAL_REQUEST&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_ACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;AGENT_DEACTIVATE_APPROVAL&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;PRIVILEGED_ENTITLEMENT_RECOMMENDATION&#x60;/&#x60;APPROVAL_TYPE&#x60; * &#x60;{tenantID}&#x60;/&#x60;TENANT&#x60;  Replace placeholders such as &#x60;{roleID}&#x60; with the actual resource ID. 
      * @type {'DOMAIN_OBJECT' | 'ACCOUNT' | 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT' | 'APPROVAL_TYPE' | 'TENANT'}
      * @memberof ApprovalsApiPutApprovalsConfigV1
      */
@@ -2916,7 +2995,7 @@ export class ApprovalsApi extends BaseAPI {
     }
 
     /**
-     * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
+     * Fetches an approval request by it\'s approval ID. For lookups by access request ID please use the following: /generic-approvals/v1?filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"
      * @summary Get an approval
      * @param {ApprovalsApiGetApprovalV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -2940,7 +3019,7 @@ export class ApprovalsApi extends BaseAPI {
     }
 
     /**
-     * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
+     * Gets a list of approvals.  One of the following query parameters should be present: \'mine\', \'approverId\', \'requesterId\', \'requesteeId\'.  The absence of all query parameters for non admins will default to mine=true (which is the equivalent of \'approverId=[your_identity_id]\')  while admins will default to mine=false (which will show all approvals in the org).  For lookups by access request ID please use the following:  \'/generic-approvals/v1?mine=false&filters=referenceType+eq+\"accessRequestId\"+and+referenceId+eq+\"12345678901234567890123456789012\"\'
      * @summary Get approvals
      * @param {ApprovalsApiGetApprovalsV1Request} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

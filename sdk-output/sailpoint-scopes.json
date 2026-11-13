@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sdk": "typescript",
-  "sdkVersion": "2.2.51",
+  "sdkVersion": "2.2.52",
   "operations": {
     "addAccessRequestRecommendationsIgnoredItemV1": {
       "resource": "iai-access-request-recommendations",
@@ -1456,6 +1456,20 @@
         "ORG_ADMIN"
       ]
     },
+    "createReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "createReminderEscalationTenantConfigV1",
+      "httpMethod": "POST",
+      "path": "/reminder-escalations/v1/config/tenants",
+      "userAuth": [
+        "idn:reminder-escalation-config:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
     "createReportV1": {
       "resource": "gov-certification",
       "tag": "Next Generation Certification Campaigns",
@@ -1911,6 +1925,54 @@
       ],
       "applicationAuth": [
         "idn:transform:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "createUiPluginAssetBundleV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "createUiPluginAssetBundleV1",
+      "httpMethod": "POST",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/asset-bundles",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "createUiPluginLinkV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "createUiPluginLinkV1",
+      "httpMethod": "POST",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/link",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "createUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "createUiPluginV1",
+      "httpMethod": "POST",
+      "path": "/ui-plugins/v1",
+      "userAuth": [
+        "idn:plugins-ui:create"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:create"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -3245,6 +3307,20 @@
       ],
       "applicationAuth": null
     },
+    "deleteReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "deleteReminderEscalationTenantConfigV1",
+      "httpMethod": "DELETE",
+      "path": "/reminder-escalations/v1/config/tenants/{domainObjectType}",
+      "userAuth": [
+        "idn:reminder-escalation-config:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
     "deleteRoleV1": {
       "resource": "roles",
       "tag": "Roles",
@@ -3667,6 +3743,38 @@
       ],
       "applicationAuth": [
         "idn:transform:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "deleteUiPluginLinkV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "deleteUiPluginLinkV1",
+      "httpMethod": "DELETE",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/link",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "deleteUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "deleteUiPluginV1",
+      "httpMethod": "DELETE",
+      "path": "/ui-plugins/v1/{pluginInstanceId}",
+      "userAuth": [
+        "idn:plugins-ui:delete"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:delete"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -8012,6 +8120,20 @@
         "Any"
       ]
     },
+    "getReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "getReminderEscalationTenantConfigV1",
+      "httpMethod": "GET",
+      "path": "/reminder-escalations/v1/config/tenants/{domainObjectType}",
+      "userAuth": [
+        "idn:reminder-escalation-config:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
     "getReportResultV1": {
       "resource": "reports-data-extraction",
       "tag": "Reports Data Extraction",
@@ -8121,6 +8243,25 @@
         "idn:role-checked:manage",
         "idn:role-checked:read"
       ],
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
+    },
+    "getRoleEntitlementsV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "getRoleEntitlementsV2",
+      "httpMethod": "GET",
+      "path": "/roles/v2/{id}/entitlements",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
       "userLevels": [
         "ORG_ADMIN",
         "ROLE_ADMIN",
@@ -8316,6 +8457,25 @@
       "sdkName": "getRoleV1",
       "httpMethod": "GET",
       "path": "/roles/v1/{id}",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
+    },
+    "getRoleV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "getRoleV2",
+      "httpMethod": "GET",
+      "path": "/roles/v2/{id}",
       "userAuth": [
         "idn:role-unchecked:read",
         "idn:role-unchecked:manage",
@@ -9424,6 +9584,38 @@
       "applicationAuth": [
         "idn:transform:read",
         "idn:transform:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "getUiPluginByAliasV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "getUiPluginByAliasV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/resolve-alias",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "getUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "getUiPluginV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/{pluginInstanceId}",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -11541,6 +11733,25 @@
         "ROLE_SUBADMIN"
       ]
     },
+    "listRolesV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "listRolesV2",
+      "httpMethod": "GET",
+      "path": "/roles/v2",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
+    },
     "listSavedSearchesV1": {
       "resource": "saved-search",
       "tag": "Saved Search",
@@ -11858,6 +12069,54 @@
       ],
       "applicationAuth": [
         "sp:trigger-service-subscriptions:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "listUiPluginAssetBundlesV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "listUiPluginAssetBundlesV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/{pluginInstanceId}/asset-bundles",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "listUiPluginSlotsV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "listUiPluginSlotsV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugin-slots/v1",
+      "userAuth": [
+        "idn:plugins-ui-slots:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui-slots:read"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "listUiPluginsV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "listUiPluginsV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -13351,6 +13610,20 @@
       ],
       "applicationAuth": null
     },
+    "putReminderEscalationTenantConfigV1": {
+      "resource": "reminder-escalations",
+      "tag": "Reminder Escalations",
+      "sdkName": "putReminderEscalationTenantConfigV1",
+      "httpMethod": "PUT",
+      "path": "/reminder-escalations/v1/config/tenants/{domainObjectType}",
+      "userAuth": [
+        "idn:reminder-escalation-config:manage"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
     "putSIMIntegrationV1": {
       "resource": "sim-integrations",
       "tag": "SIM Integrations",
@@ -14002,6 +14275,25 @@
         "idn:role-unchecked:manage"
       ],
       "applicationAuth": null
+    },
+    "searchRolesByFilterV2": {
+      "resource": "roles",
+      "tag": "Roles",
+      "sdkName": "searchRolesByFilterV2",
+      "httpMethod": "POST",
+      "path": "/roles/v2/filter",
+      "userAuth": [
+        "idn:role-unchecked:read",
+        "idn:role-unchecked:manage",
+        "idn:role-checked:manage",
+        "idn:role-checked:read"
+      ],
+      "applicationAuth": null,
+      "userLevels": [
+        "ORG_ADMIN",
+        "ROLE_ADMIN",
+        "ROLE_SUBADMIN"
+      ]
     },
     "searchSubjectSummariesV1": {
       "resource": "gov-certification",
@@ -15235,6 +15527,22 @@
       ],
       "applicationAuth": [
         "sp:trigger-service-subscriptions:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "testUiPluginAliasV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "testUiPluginAliasV1",
+      "httpMethod": "GET",
+      "path": "/ui-plugins/v1/validate-alias",
+      "userAuth": [
+        "idn:plugins-ui:read"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:read"
       ],
       "userLevels": [
         "ORG_ADMIN"
@@ -16484,6 +16792,22 @@
       ],
       "applicationAuth": [
         "idn:transform:manage"
+      ],
+      "userLevels": [
+        "ORG_ADMIN"
+      ]
+    },
+    "updateUiPluginV1": {
+      "resource": "ui-plugins",
+      "tag": "UI Plugins",
+      "sdkName": "updateUiPluginV1",
+      "httpMethod": "PATCH",
+      "path": "/ui-plugins/v1/{pluginInstanceId}",
+      "userAuth": [
+        "idn:plugins-ui:update"
+      ],
+      "applicationAuth": [
+        "idn:plugins-ui:update"
       ],
       "userLevels": [
         "ORG_ADMIN"

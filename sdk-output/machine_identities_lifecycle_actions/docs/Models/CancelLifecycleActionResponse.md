@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'CancelLifecycleActionResponse', 'v1Ca
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **requestId** | `string` | Lifecycle request identifier. | [default to undefined]
-**status** | `string` | Updated lifecycle request status after cancel acceptance. | [default to undefined]
+**status** | `string` | Status of the request after the cancel is accepted. Always `CANCELING`. | [default to undefined]
 **action** | `Lifecycleaction` |  | [default to undefined]
-**targetId** | `string` | Internal machine identity UUID for the lifecycle target. | [default to undefined]
-**resourceId** | **(optional)** `string` | Connector resource id for the lifecycle target, when present. | [default to undefined]
+**targetId** | `string` | ID of the machine identity the request applies to. | [default to undefined]
+**resourceId** | **(optional)** `string` | ID of the machine identity in its source system, when available. | [default to undefined]
 

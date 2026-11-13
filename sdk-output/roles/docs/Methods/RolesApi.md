@@ -60,10 +60,14 @@ Method | HTTP request | Description
 [**get-bulk-update-status-v1**](#get-bulk-update-status-v1) | **GET** `/roles/v1/access-model-metadata/bulk-update` | Get bulk-update statuses
 [**get-role-assigned-identities-v1**](#get-role-assigned-identities-v1) | **GET** `/roles/v1/{id}/assigned-identities` | List identities assigned a role
 [**get-role-entitlements-v1**](#get-role-entitlements-v1) | **GET** `/roles/v1/{id}/entitlements` | List role\&#39;s entitlements
+[**get-role-entitlements-v2**](#get-role-entitlements-v2) | **GET** `/roles/v2/{id}/entitlements` | List role\&#39;s entitlements
 [**get-role-v1**](#get-role-v1) | **GET** `/roles/v1/{id}` | Get a role
+[**get-role-v2**](#get-role-v2) | **GET** `/roles/v2/{id}` | Get a role
 [**list-roles-v1**](#list-roles-v1) | **GET** `/roles/v1` | List roles
+[**list-roles-v2**](#list-roles-v2) | **GET** `/roles/v2` | List roles
 [**patch-role-v1**](#patch-role-v1) | **PATCH** `/roles/v1/{id}` | Patch a specified role
 [**search-roles-by-filter-v1**](#search-roles-by-filter-v1) | **POST** `/roles/v1/filter` | Filter roles by metadata
+[**search-roles-by-filter-v2**](#search-roles-by-filter-v2) | **POST** `/roles/v2/filter` | Filter roles by metadata
 [**update-attribute-key-and-value-to-role-v1**](#update-attribute-key-and-value-to-role-v1) | **POST** `/roles/v1/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a metadata to role.
 [**update-roles-metadata-by-filter-v1**](#update-roles-metadata-by-filter-v1) | **POST** `/roles/v1/access-model-metadata/bulk-update/filter` | Bulk-update roles\&#39; metadata by filters
 [**update-roles-metadata-by-ids-v1**](#update-roles-metadata-by-ids-v1) | **POST** `/roles/v1/access-model-metadata/bulk-update/ids` | Bulk-update roles\&#39; metadata by id
@@ -588,6 +592,68 @@ console.log(result);
 
 [[Back to top]](#)
 
+## get-role-entitlements-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List role\'s entitlements
+Get a list of entitlements assigned directly to a specified Role. Each entitlement includes its privilege level in `privilegeLevel`, with the direct, inherited, and effective levels.
+
+Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. You can't use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can't be greater than 10,000.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-entitlements-v-2)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**id** | `string` | Containing role\&#39;s ID. |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+**limit** | `number` | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 50]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to false]
+**cursor** | `string` | Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0. | [optional] [default to &#39;&#39;]
+**filters** | `string` | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **attribute**: *eq, sw, co*  **value**: *eq, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **privilegeLevel.effective**: *eq, in* | [optional] [default to &#39;&#39;]
+**sorters** | `string` | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, attribute, value, created, modified, privilegeLevel.effective**  The default sort is **created**. **id** is always added as the final sort field so that cursor pagination is stable. | [optional] [default to &#39;created&#39;]
+**forSegmentIds** | `string` | If present and not empty, filters entitlements to those assigned to the segment(s) with the specified IDs. Can\&#39;t be used with *segmented-for-identity*. | [optional] [default to &#39;&#39;]
+**segmentedForIdentity** | `string` | If present, filters entitlements to those in the segments visible to the specified identity. The value must be the calling identity\&#39;s ID or the special value **me**. Can\&#39;t be used with *for-segment-ids*. | [optional] [default to &#39;&#39;]
+**includeUnsegmented** | `boolean` | Whether the response list should contain unsegmented entitlements. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. | [optional] [default to true]
+
+### Return type
+
+`Array<EntitlementV2>`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new RolesApi(configuration);
+const id: string = 2c91808a7813090a017814121919ecca; // Containing role\&#39;s ID.
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const limit: number = 50; // Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const cursor: string = eyJzb3J0IjpbImNyZWF0ZWQiLCJpZCJdLCJzZWFyY2hBZnRlciI6WyIxNjAyMTgyMDMyMDI5IiwiMmM5MSJdfQ; // Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0. (optional)
+const filters: string = privilegeLevel.effective eq "HIGH"; // Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **attribute**: *eq, sw, co*  **value**: *eq, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **privilegeLevel.effective**: *eq, in* (optional)
+const sorters: string = -privilegeLevel.effective,name; // Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, attribute, value, created, modified, privilegeLevel.effective**  The default sort is **created**. **id** is always added as the final sort field so that cursor pagination is stable. (optional)
+const forSegmentIds: string = 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d; // If present and not empty, filters entitlements to those assigned to the segment(s) with the specified IDs. Can\&#39;t be used with *segmented-for-identity*. (optional)
+const segmentedForIdentity: string = me; // If present, filters entitlements to those in the segments visible to the specified identity. The value must be the calling identity\&#39;s ID or the special value **me**. Can\&#39;t be used with *for-segment-ids*. (optional)
+const includeUnsegmented: boolean = false; // Whether the response list should contain unsegmented entitlements. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional)
+const result = await apiInstance.getRoleEntitlementsV2({ id: id });
+console.log(result);
+```
+
+[[Back to top]](#)
+
 ## get-role-v1
 Get a role
 This API returns a Role by its ID.
@@ -621,6 +687,50 @@ const configuration = new Configuration();
 const apiInstance = new RolesApi(configuration);
 const id: string = 2c91808a7813090a017814121e121518; // ID of the Role
 const result = await apiInstance.getRoleV1({ id: id });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## get-role-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Get a role
+This API returns a Role by its ID. The response includes the Role's effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role's access profiles.
+
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+
+[API Spec](https://developer.sailpoint.com/docs/api/get-role-v-2)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**id** | `string` | ID of the Role |  [default to undefined]
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+
+### Return type
+
+`RoleV2`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new RolesApi(configuration);
+const id: string = 2c91808a7813090a017814121e121518; // ID of the Role
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const result = await apiInstance.getRoleV2({ id: id });
 console.log(result);
 ```
 
@@ -674,6 +784,68 @@ const sorters: string = name,-modified; // Sort results using the standard synta
 const forSegmentIds: string = 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d; // If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 const includeUnsegmented: boolean = false; // Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional)
 const result = await apiInstance.listRolesV1({  });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## list-roles-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+List roles
+This API returns a list of Roles. Each Role includes its effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role's access profiles.
+
+Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same `sorters`, to get the next page. You can't use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can't be greater than 10,000. Use cursor pagination to page beyond 10,000 results.
+
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/list-roles-v-2)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+**forSubadmin** | `string` | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. | [optional] [default to &#39;&#39;]
+**limit** | `number` | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 50]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to false]
+**cursor** | `string` | Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0. | [optional] [default to &#39;&#39;]
+**filters** | `string` | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **type**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, sw, co*  **accessProfile.id**: *eq, in*  **accessProfile.name**: *eq, sw, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or* | [optional] [default to &#39;&#39;]
+**sorters** | `string` | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable. | [optional] [default to &#39;name&#39;]
+**forSegmentIds** | `string` | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. | [optional] [default to &#39;&#39;]
+**includeUnsegmented** | `boolean` | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. | [optional] [default to true]
+
+### Return type
+
+`Array<RoleV2>`
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+
+const configuration = new Configuration();
+const apiInstance = new RolesApi(configuration);
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const forSubadmin: string = 5168015d32f890ca15812c9180835d2e; // If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
+const limit: number = 50; // Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const cursor: string = eyJzb3J0IjpbIm5hbWUiLCJpZCJdLCJzZWFyY2hBZnRlciI6WyJSb2xlIDI1NjciLCIyYzkxIl19; // Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0. (optional)
+const filters: string = privilegeLevel.effective in ("HIGH","MEDIUM"); // Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **type**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, sw, co*  **accessProfile.id**: *eq, in*  **accessProfile.name**: *eq, sw, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or* (optional)
+const sorters: string = -privilegeLevel.effective,name; // Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable. (optional)
+const forSegmentIds: string = 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d; // If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
+const includeUnsegmented: boolean = false; // Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional)
+const result = await apiInstance.listRolesV2({  });
 console.log(result);
 ```
 
@@ -798,6 +970,75 @@ const roleListFilterDTO: RoleListFilterDTO = {
   "filters" : "dimensional eq false"
 }; //  (optional)
 const result = await apiInstance.searchRolesByFilterV1({  });
+console.log(result);
+```
+
+[[Back to top]](#)
+
+## search-roles-by-filter-v2
+:::warning experimental
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Filter roles by metadata
+This API returns a list of Roles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together. Each Role includes its effective privilege level in `privilegeLevel.effective`.
+
+The `filters` expression in the request body supports the same fields and operators as the `filters` query parameter of [List roles](#operation/listRolesV2), including **privilegeLevel.effective**: *eq, in*.
+
+Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same request body and `sorters`, to get the next page. You can't use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can't be greater than 10,000.
+
+[API Spec](https://developer.sailpoint.com/docs/api/search-roles-by-filter-v-2)
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**rolelistfilterdtov2** | `Rolelistfilterdtov2` |  | 
+**xSailPointExperimental** | `string` | Use this header to enable this experimental API. | [optional] [default to &#39;true&#39;]
+**forSubadmin** | `string` | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. | [optional] [default to &#39;&#39;]
+**limit** | `number` | Max number of results to return See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 50]
+**offset** | `number` | Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to 0]
+**count** | `boolean` | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. | [optional] [default to false]
+**cursor** | `string` | Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same request body and &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0. | [optional] [default to &#39;&#39;]
+**sorters** | `string` | Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable. | [optional] [default to &#39;name&#39;]
+**forSegmentIds** | `string` | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. | [optional] [default to &#39;&#39;]
+**includeUnsegmented** | `boolean` | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. | [optional] [default to true]
+
+### Return type
+
+`Array<RoleV2>`
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```typescript
+import { RolesApi } from '@sailpoint/api-client';
+import { Configuration } from '@sailpoint/api-client';
+import { Rolelistfilterdtov2 } from '@sailpoint/api-client/dist/roles/api';
+
+const configuration = new Configuration();
+const apiInstance = new RolesApi(configuration);
+const rolelistfilterdtov2: Rolelistfilterdtov2 = {
+  "ammKeyValues" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "secret" ]
+  } ],
+  "filters" : "privilegeLevel.effective in (\"HIGH\",\"MEDIUM\")"
+}; // 
+const xSailPointExperimental: string = true; // Use this header to enable this experimental API. (optional)
+const forSubadmin: string = 5168015d32f890ca15812c9180835d2e; // If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
+const limit: number = 50; // Max number of results to return See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const offset: number = 0; // Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const count: boolean = true; // If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional)
+const cursor: string = eyJzb3J0IjpbIm5hbWUiLCJpZCJdLCJzZWFyY2hBZnRlciI6WyJSb2xlIDI1NjciLCIyYzkxIl19; // Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same request body and &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0. (optional)
+const sorters: string = name,-modified; // Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable. (optional)
+const forSegmentIds: string = 0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d; // If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
+const includeUnsegmented: boolean = false; // Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional)
+const result = await apiInstance.searchRolesByFilterV2({ rolelistfilterdtov2: rolelistfilterdtov2 });
 console.log(result);
 ```
 

@@ -110,6 +110,7 @@ import { PrivilegeCriteriaConfigurationApi as _PrivilegeCriteriaConfigurationApi
 import { PublicIdentitiesApi as _PublicIdentitiesApi } from "./public_identities/api";
 import { PublicIdentitiesConfigApi as _PublicIdentitiesConfigApi } from "./public_identities_config/api";
 import { PublicMachineIdentitiesApi as _PublicMachineIdentitiesApi } from "./public_machine_identities/api";
+import { ReminderEscalationsApi as _ReminderEscalationsApi } from "./reminder_escalations/api";
 import { ReportsDataExtractionApi as _ReportsDataExtractionApi } from "./reports_data_extraction/api";
 import { RequestableObjectsApi as _RequestableObjectsApi } from "./requestable_objects/api";
 import { RoleInsightsApi as _RoleInsightsApi } from "./role_insights/api";
@@ -138,6 +139,7 @@ import { TenantContextApi as _TenantContextApi } from "./tenant_context/api";
 import { TransformsApi as _TransformsApi } from "./transforms/api";
 import { TriggersApi as _TriggersApi } from "./triggers/api";
 import { UIMetadataApi as _UIMetadataApi } from "./ui_metadata/api";
+import { UIPluginsApi as _UIPluginsApi } from "./ui_plugins/api";
 import { WorkItemsApi as _WorkItemsApi } from "./work_items/api";
 import { WorkReassignmentApi as _WorkReassignmentApi } from "./work_reassignment/api";
 import { WorkflowsApi as _WorkflowsApi } from "./workflows/api";
@@ -235,6 +237,7 @@ export { _PrivilegeCriteriaConfigurationApi as PrivilegeCriteriaConfigurationApi
 export { _PublicIdentitiesApi as PublicIdentitiesApi };
 export { _PublicIdentitiesConfigApi as PublicIdentitiesConfigApi };
 export { _PublicMachineIdentitiesApi as PublicMachineIdentitiesApi };
+export { _ReminderEscalationsApi as ReminderEscalationsApi };
 export { _ReportsDataExtractionApi as ReportsDataExtractionApi };
 export { _RequestableObjectsApi as RequestableObjectsApi };
 export { _RoleInsightsApi as RoleInsightsApi };
@@ -263,6 +266,7 @@ export { _TenantContextApi as TenantContextApi };
 export { _TransformsApi as TransformsApi };
 export { _TriggersApi as TriggersApi };
 export { _UIMetadataApi as UIMetadataApi };
+export { _UIPluginsApi as UIPluginsApi };
 export { _WorkItemsApi as WorkItemsApi };
 export { _WorkReassignmentApi as WorkReassignmentApi };
 export { _WorkflowsApi as WorkflowsApi };
@@ -384,6 +388,7 @@ export const SailPoint = {
   PublicIdentitiesApi: _PublicIdentitiesApi,
   PublicIdentitiesConfigApi: _PublicIdentitiesConfigApi,
   PublicMachineIdentitiesApi: _PublicMachineIdentitiesApi,
+  ReminderEscalationsApi: _ReminderEscalationsApi,
   ReportsDataExtractionApi: _ReportsDataExtractionApi,
   RequestableObjectsApi: _RequestableObjectsApi,
   RoleInsightsApi: _RoleInsightsApi,
@@ -412,6 +417,7 @@ export const SailPoint = {
   TransformsApi: _TransformsApi,
   TriggersApi: _TriggersApi,
   UIMetadataApi: _UIMetadataApi,
+  UIPluginsApi: _UIPluginsApi,
   WorkItemsApi: _WorkItemsApi,
   WorkReassignmentApi: _WorkReassignmentApi,
   WorkflowsApi: _WorkflowsApi,

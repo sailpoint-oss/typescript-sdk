@@ -522,10 +522,10 @@ export interface Entitlement {
     'requestable'?: boolean;
     /**
      * 
-     * @type {EntitlementOwner}
+     * @type {EntitlementV2Owner}
      * @memberof Entitlement
      */
-    'owner'?: EntitlementOwner | null;
+    'owner'?: EntitlementV2Owner | null;
     /**
      * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
      * @type {Array<AdditionalOwnerRef>}
@@ -540,10 +540,10 @@ export interface Entitlement {
     'manuallyUpdatedFields'?: { [key: string]: any; } | null;
     /**
      * 
-     * @type {EntitlementAccessModelMetadata}
+     * @type {EntitlementV2AccessModelMetadata}
      * @memberof Entitlement
      */
-    'accessModelMetadata'?: EntitlementAccessModelMetadata;
+    'accessModelMetadata'?: EntitlementV2AccessModelMetadata;
     /**
      * Time when the entitlement was created
      * @type {string}
@@ -582,49 +582,75 @@ export interface Entitlement {
     'directPermissions'?: Array<PermissionDTO>;
 }
 /**
- * Additional data to classify the entitlement
+ * 
  * @export
- * @interface EntitlementAccessModelMetadata
+ * @interface EntitlementPrivilegeLevel
  */
-export interface EntitlementAccessModelMetadata {
+export interface EntitlementPrivilegeLevel {
     /**
-     * 
-     * @type {Array<AccessModelMetadata>}
-     * @memberof EntitlementAccessModelMetadata
-     */
-    'attributes'?: Array<AccessModelMetadata>;
-}
-/**
- * The identity that owns the entitlement
- * @export
- * @interface EntitlementOwner
- */
-export interface EntitlementOwner {
-    /**
-     * The identity ID
+     * Direct privilege level assigned to the entitlement
      * @type {string}
-     * @memberof EntitlementOwner
+     * @memberof EntitlementPrivilegeLevel
      */
-    'id'?: string;
+    'direct'?: EntitlementPrivilegeLevelDirectEnum;
     /**
-     * The type of object
+     * User or process that set the privilege level
      * @type {string}
-     * @memberof EntitlementOwner
+     * @memberof EntitlementPrivilegeLevel
      */
-    'type'?: EntitlementOwnerTypeEnum;
+    'setBy'?: string;
     /**
-     * The display name of the identity
+     * Method by which the privilege level was set
      * @type {string}
-     * @memberof EntitlementOwner
+     * @memberof EntitlementPrivilegeLevel
      */
-    'name'?: string;
+    'setByType'?: EntitlementPrivilegeLevelSetByTypeEnum | null;
+    /**
+     * Inherited privilege level on the entitlement, if any
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevel
+     */
+    'inherited'?: EntitlementPrivilegeLevelInheritedEnum | null;
+    /**
+     * Effective privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof EntitlementPrivilegeLevel
+     */
+    'effective'?: EntitlementPrivilegeLevelEffectiveEnum;
 }
 
-export const EntitlementOwnerTypeEnum = {
-    Identity: 'IDENTITY'
+export const EntitlementPrivilegeLevelDirectEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
 } as const;
 
-export type EntitlementOwnerTypeEnum = typeof EntitlementOwnerTypeEnum[keyof typeof EntitlementOwnerTypeEnum];
+export type EntitlementPrivilegeLevelDirectEnum = typeof EntitlementPrivilegeLevelDirectEnum[keyof typeof EntitlementPrivilegeLevelDirectEnum];
+export const EntitlementPrivilegeLevelSetByTypeEnum = {
+    Override: 'OVERRIDE',
+    CustomCriteria: 'CUSTOM_CRITERIA',
+    ConnectorCriteria: 'CONNECTOR_CRITERIA',
+    SingleLevelCriteria: 'SINGLE_LEVEL_CRITERIA'
+} as const;
+
+export type EntitlementPrivilegeLevelSetByTypeEnum = typeof EntitlementPrivilegeLevelSetByTypeEnum[keyof typeof EntitlementPrivilegeLevelSetByTypeEnum];
+export const EntitlementPrivilegeLevelInheritedEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelInheritedEnum = typeof EntitlementPrivilegeLevelInheritedEnum[keyof typeof EntitlementPrivilegeLevelInheritedEnum];
+export const EntitlementPrivilegeLevelEffectiveEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementPrivilegeLevelEffectiveEnum = typeof EntitlementPrivilegeLevelEffectiveEnum[keyof typeof EntitlementPrivilegeLevelEffectiveEnum];
 
 /**
  * Entitlement including a specific set of access.
@@ -680,6 +706,268 @@ export interface EntitlementSource {
      * The source name
      * @type {string}
      * @memberof EntitlementSource
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementV2
+ */
+export interface EntitlementV2 {
+    /**
+     * The entitlement id
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'id'?: string;
+    /**
+     * The entitlement name
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'name'?: string;
+    /**
+     * The entitlement attribute name
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'attribute'?: string;
+    /**
+     * The value of the entitlement
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'value'?: string;
+    /**
+     * The object type of the entitlement from the source schema
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'sourceSchemaObjectType'?: string;
+    /**
+     * The description of the entitlement
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {EntitlementV2PrivilegeLevel}
+     * @memberof EntitlementV2
+     */
+    'privilegeLevel'?: EntitlementV2PrivilegeLevel;
+    /**
+     * List of tags assigned to the entitlement
+     * @type {Array<string>}
+     * @memberof EntitlementV2
+     */
+    'tags'?: Array<string> | null;
+    /**
+     * True if the entitlement is cloud governed
+     * @type {boolean}
+     * @memberof EntitlementV2
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * True if the entitlement is able to be directly requested
+     * @type {boolean}
+     * @memberof EntitlementV2
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {EntitlementV2Owner}
+     * @memberof EntitlementV2
+     */
+    'owner'?: EntitlementV2Owner | null;
+    /**
+     * A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated.
+     * @type {{ [key: string]: any; }}
+     * @memberof EntitlementV2
+     */
+    'manuallyUpdatedFields'?: { [key: string]: any; } | null;
+    /**
+     * 
+     * @type {EntitlementV2AccessModelMetadata}
+     * @memberof EntitlementV2
+     */
+    'accessModelMetadata'?: EntitlementV2AccessModelMetadata;
+    /**
+     * Time when the entitlement was created
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'created'?: string;
+    /**
+     * Time when the entitlement was last modified
+     * @type {string}
+     * @memberof EntitlementV2
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {EntitlementV2Source}
+     * @memberof EntitlementV2
+     */
+    'source'?: EntitlementV2Source;
+    /**
+     * A map of free-form key-value pairs from the source system
+     * @type {{ [key: string]: any; }}
+     * @memberof EntitlementV2
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * List of IDs of segments, if any, to which this Entitlement is assigned.
+     * @type {Array<string>}
+     * @memberof EntitlementV2
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<PermissionDTO>}
+     * @memberof EntitlementV2
+     */
+    'directPermissions'?: Array<PermissionDTO>;
+}
+/**
+ * Additional data to classify the entitlement
+ * @export
+ * @interface EntitlementV2AccessModelMetadata
+ */
+export interface EntitlementV2AccessModelMetadata {
+    /**
+     * 
+     * @type {Array<AccessModelMetadata>}
+     * @memberof EntitlementV2AccessModelMetadata
+     */
+    'attributes'?: Array<AccessModelMetadata>;
+}
+/**
+ * The identity that owns the entitlement
+ * @export
+ * @interface EntitlementV2Owner
+ */
+export interface EntitlementV2Owner {
+    /**
+     * The identity ID
+     * @type {string}
+     * @memberof EntitlementV2Owner
+     */
+    'id'?: string;
+    /**
+     * The type of object
+     * @type {string}
+     * @memberof EntitlementV2Owner
+     */
+    'type'?: EntitlementV2OwnerTypeEnum;
+    /**
+     * The display name of the identity
+     * @type {string}
+     * @memberof EntitlementV2Owner
+     */
+    'name'?: string;
+}
+
+export const EntitlementV2OwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type EntitlementV2OwnerTypeEnum = typeof EntitlementV2OwnerTypeEnum[keyof typeof EntitlementV2OwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementV2PrivilegeLevel
+ */
+export interface EntitlementV2PrivilegeLevel {
+    /**
+     * Direct privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof EntitlementV2PrivilegeLevel
+     */
+    'direct'?: EntitlementV2PrivilegeLevelDirectEnum;
+    /**
+     * User or process that set the privilege level
+     * @type {string}
+     * @memberof EntitlementV2PrivilegeLevel
+     */
+    'setBy'?: string;
+    /**
+     * Method by which the privilege level was set
+     * @type {string}
+     * @memberof EntitlementV2PrivilegeLevel
+     */
+    'setByType'?: EntitlementV2PrivilegeLevelSetByTypeEnum | null;
+    /**
+     * Inherited privilege level on the entitlement, if any
+     * @type {string}
+     * @memberof EntitlementV2PrivilegeLevel
+     */
+    'inherited'?: EntitlementV2PrivilegeLevelInheritedEnum | null;
+    /**
+     * Effective privilege level assigned to the entitlement
+     * @type {string}
+     * @memberof EntitlementV2PrivilegeLevel
+     */
+    'effective'?: EntitlementV2PrivilegeLevelEffectiveEnum;
+}
+
+export const EntitlementV2PrivilegeLevelDirectEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementV2PrivilegeLevelDirectEnum = typeof EntitlementV2PrivilegeLevelDirectEnum[keyof typeof EntitlementV2PrivilegeLevelDirectEnum];
+export const EntitlementV2PrivilegeLevelSetByTypeEnum = {
+    Override: 'OVERRIDE',
+    CustomCriteria: 'CUSTOM_CRITERIA',
+    ConnectorCriteria: 'CONNECTOR_CRITERIA',
+    SingleLevelCriteria: 'SINGLE_LEVEL_CRITERIA'
+} as const;
+
+export type EntitlementV2PrivilegeLevelSetByTypeEnum = typeof EntitlementV2PrivilegeLevelSetByTypeEnum[keyof typeof EntitlementV2PrivilegeLevelSetByTypeEnum];
+export const EntitlementV2PrivilegeLevelInheritedEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementV2PrivilegeLevelInheritedEnum = typeof EntitlementV2PrivilegeLevelInheritedEnum[keyof typeof EntitlementV2PrivilegeLevelInheritedEnum];
+export const EntitlementV2PrivilegeLevelEffectiveEnum = {
+    High: 'HIGH',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    None: 'NONE'
+} as const;
+
+export type EntitlementV2PrivilegeLevelEffectiveEnum = typeof EntitlementV2PrivilegeLevelEffectiveEnum[keyof typeof EntitlementV2PrivilegeLevelEffectiveEnum];
+
+/**
+ * 
+ * @export
+ * @interface EntitlementV2Source
+ */
+export interface EntitlementV2Source {
+    /**
+     * The source ID
+     * @type {string}
+     * @memberof EntitlementV2Source
+     */
+    'id'?: string;
+    /**
+     * The source type, will always be \"SOURCE\"
+     * @type {string}
+     * @memberof EntitlementV2Source
+     */
+    'type'?: string;
+    /**
+     * The source name
+     * @type {string}
+     * @memberof EntitlementV2Source
      */
     'name'?: string;
 }
@@ -788,26 +1076,26 @@ export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | obj
 /**
  * 
  * @export
- * @interface ListRolesV1401Response
+ * @interface ListRolesV2401Response
  */
-export interface ListRolesV1401Response {
+export interface ListRolesV2401Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListRolesV1401Response
+     * @memberof ListRolesV2401Response
      */
     'error'?: any;
 }
 /**
  * 
  * @export
- * @interface ListRolesV1429Response
+ * @interface ListRolesV2429Response
  */
-export interface ListRolesV1429Response {
+export interface ListRolesV2429Response {
     /**
      * A message describing the error
      * @type {any}
-     * @memberof ListRolesV1429Response
+     * @memberof ListRolesV2429Response
      */
     'message'?: any;
 }
@@ -1702,6 +1990,195 @@ export interface RoleMetadataBulkUpdateByQueryRequestValuesInner {
     'attributeValue'?: Array<string>;
 }
 /**
+ * Privilege level of the role. The effective level is the highest effective privilege level among the entitlements assigned directly to the role and the entitlements included in the role\'s access profiles.
+ * @export
+ * @interface RolePrivilegeLevel
+ */
+export interface RolePrivilegeLevel {
+    /**
+     * Effective privilege level of the role. **UNDETERMINED** means the privilege level could not be calculated for the role\'s entitlements.
+     * @type {string}
+     * @memberof RolePrivilegeLevel
+     */
+    'effective'?: RolePrivilegeLevelEffectiveEnum;
+}
+
+export const RolePrivilegeLevelEffectiveEnum = {
+    None: 'NONE',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    High: 'HIGH',
+    Undetermined: 'UNDETERMINED'
+} as const;
+
+export type RolePrivilegeLevelEffectiveEnum = typeof RolePrivilegeLevelEffectiveEnum[keyof typeof RolePrivilegeLevelEffectiveEnum];
+
+/**
+ * A Role, including its effective privilege level.
+ * @export
+ * @interface RoleV2
+ */
+export interface RoleV2 {
+    /**
+     * The id of the Role. This field must be left null when creating an Role, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof RoleV2
+     */
+    'id'?: string;
+    /**
+     * The human-readable display name of the Role
+     * @type {string}
+     * @memberof RoleV2
+     */
+    'name': string;
+    /**
+     * Date the Role was created
+     * @type {string}
+     * @memberof RoleV2
+     */
+    'created'?: string;
+    /**
+     * Date the Role was last modified.
+     * @type {string}
+     * @memberof RoleV2
+     */
+    'modified'?: string;
+    /**
+     * A human-readable description of the Role
+     * @type {string}
+     * @memberof RoleV2
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {OwnerReference}
+     * @memberof RoleV2
+     */
+    'owner': OwnerReference | null;
+    /**
+     * List of additional owner references beyond the primary owner. Each entry may be an identity (IDENTITY) or a governance group (GOVERNANCE_GROUP).
+     * @type {Array<AdditionalOwnerRef>}
+     * @memberof RoleV2
+     */
+    'additionalOwners'?: Array<AdditionalOwnerRef> | null;
+    /**
+     * 
+     * @type {Array<AccessProfileRef>}
+     * @memberof RoleV2
+     */
+    'accessProfiles'?: Array<AccessProfileRef> | null;
+    /**
+     * 
+     * @type {Array<EntitlementRef>}
+     * @memberof RoleV2
+     */
+    'entitlements'?: Array<EntitlementRef>;
+    /**
+     * 
+     * @type {RoleMembershipSelector}
+     * @memberof RoleV2
+     */
+    'membership'?: RoleMembershipSelector | null;
+    /**
+     * This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration.
+     * @type {{ [key: string]: any; }}
+     * @memberof RoleV2
+     */
+    'legacyMembershipInfo'?: { [key: string]: any; } | null;
+    /**
+     * Whether the Role is enabled or not.
+     * @type {boolean}
+     * @memberof RoleV2
+     */
+    'enabled'?: boolean;
+    /**
+     * Whether the Role can be the target of access requests.
+     * @type {boolean}
+     * @memberof RoleV2
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {RequestabilityForRole}
+     * @memberof RoleV2
+     */
+    'accessRequestConfig'?: RequestabilityForRole;
+    /**
+     * 
+     * @type {RevocabilityForRole}
+     * @memberof RoleV2
+     */
+    'revocationRequestConfig'?: RevocabilityForRole;
+    /**
+     * List of IDs of segments, if any, to which this Role is assigned.
+     * @type {Array<string>}
+     * @memberof RoleV2
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * Whether the Role is dimensional.
+     * @type {boolean}
+     * @memberof RoleV2
+     */
+    'dimensional'?: boolean | null;
+    /**
+     * List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
+     * @type {Array<DimensionRef>}
+     * @memberof RoleV2
+     */
+    'dimensionRefs'?: Array<DimensionRef> | null;
+    /**
+     * 
+     * @type {AttributeDTOList}
+     * @memberof RoleV2
+     */
+    'accessModelMetadata'?: AttributeDTOList;
+    /**
+     * 
+     * @type {RolePrivilegeLevel}
+     * @memberof RoleV2
+     */
+    'privilegeLevel'?: RolePrivilegeLevel | null;
+}
+/**
+ * Request body for filtering roles by metadata and filter expression, including privilegeLevel.effective.
+ * @export
+ * @interface Rolelistfilterdtov2
+ */
+export interface Rolelistfilterdtov2 {
+    /**
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **type**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, sw, co*  **accessProfile.id**: *eq, in*  **accessProfile.name**: *eq, sw, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof Rolelistfilterdtov2
+     */
+    'filters'?: string;
+    /**
+     * 
+     * @type {Array<Rolelistfilterdtov2AmmKeyValuesInner>}
+     * @memberof Rolelistfilterdtov2
+     */
+    'ammKeyValues'?: Array<Rolelistfilterdtov2AmmKeyValuesInner>;
+}
+/**
+ * 
+ * @export
+ * @interface Rolelistfilterdtov2AmmKeyValuesInner
+ */
+export interface Rolelistfilterdtov2AmmKeyValuesInner {
+    /**
+     * attribute key of a metadata. A blank value is rejected with a 400 error.
+     * @type {string}
+     * @memberof Rolelistfilterdtov2AmmKeyValuesInner
+     */
+    'attribute': string;
+    /**
+     * A list of attribute key names to filter roles. If the values is empty, will only filter by attribute key.
+     * @type {Array<string>}
+     * @memberof Rolelistfilterdtov2AmmKeyValuesInner
+     */
+    'values'?: Array<string>;
+}
+/**
  * Task result.
  * @export
  * @interface TaskResultDto
@@ -2071,6 +2548,93 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Get a list of entitlements assigned directly to a specified Role. Each entitlement includes its privilege level in `privilegeLevel`, with the direct, inherited, and effective levels.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+         * @summary List role\'s entitlements
+         * @param {string} id Containing role\&#39;s ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [cursor] Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **attribute**: *eq, sw, co*  **value**: *eq, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **privilegeLevel.effective**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, attribute, value, created, modified, privilegeLevel.effective**  The default sort is **created**. **id** is always added as the final sort field so that cursor pagination is stable.
+         * @param {string} [forSegmentIds] If present and not empty, filters entitlements to those assigned to the segment(s) with the specified IDs. Can\&#39;t be used with *segmented-for-identity*.
+         * @param {string} [segmentedForIdentity] If present, filters entitlements to those in the segments visible to the specified identity. The value must be the calling identity\&#39;s ID or the special value **me**. Can\&#39;t be used with *for-segment-ids*.
+         * @param {boolean} [includeUnsegmented] Whether the response list should contain unsegmented entitlements. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRoleEntitlementsV2: async (id: string, xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, cursor?: string, filters?: string, sorters?: string, forSegmentIds?: string, segmentedForIdentity?: string, includeUnsegmented?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getRoleEntitlementsV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/roles/v2/{id}/entitlements`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (segmentedForIdentity !== undefined) {
+                localVarQueryParameter['segmented-for-identity'] = segmentedForIdentity;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a role
          * @param {string} id ID of the Role
@@ -2095,6 +2659,48 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a Role by its ID. The response includes the Role\'s effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Get a role
+         * @param {string} id ID of the Role
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRoleV2: async (id: string, xSailPointExperimental?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getRoleV2', 'id', id)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/roles/v2/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2165,6 +2771,89 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of Roles. Each Role includes its effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000. Use cursor pagination to page beyond 10,000 results.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+         * @summary List roles
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [cursor] Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **type**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, sw, co*  **accessProfile.id**: *eq, in*  **accessProfile.name**: *eq, sw, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRolesV2: async (xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, cursor?: string, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/roles/v2`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (forSubadmin !== undefined) {
+                localVarQueryParameter['for-subadmin'] = forSubadmin;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+
+    
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
@@ -2277,6 +2966,90 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(roleListFilterDTO, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of Roles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together. Each Role includes its effective privilege level in `privilegeLevel.effective`.  The `filters` expression in the request body supports the same fields and operators as the `filters` query parameter of [List roles](#operation/listRolesV2), including **privilegeLevel.effective**: *eq, in*.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same request body and `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+         * @summary Filter roles by metadata
+         * @param {Rolelistfilterdtov2} rolelistfilterdtov2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Max number of results to return See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [cursor] Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same request body and &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchRolesByFilterV2: async (rolelistfilterdtov2: Rolelistfilterdtov2, xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, cursor?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'rolelistfilterdtov2' is not null or undefined
+            assertParamExists('searchRolesByFilterV2', 'rolelistfilterdtov2', rolelistfilterdtov2)
+            if (xSailPointExperimental === undefined) {
+                xSailPointExperimental = 'true';
+            }
+            
+            const localVarPath = `/roles/v2/filter`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (forSubadmin !== undefined) {
+                localVarQueryParameter['for-subadmin'] = forSubadmin;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (cursor !== undefined) {
+                localVarQueryParameter['cursor'] = cursor;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (xSailPointExperimental != null) {
+                localVarHeaderParameter['X-SailPoint-Experimental'] = String(xSailPointExperimental);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(rolelistfilterdtov2, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2559,6 +3332,29 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Get a list of entitlements assigned directly to a specified Role. Each entitlement includes its privilege level in `privilegeLevel`, with the direct, inherited, and effective levels.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+         * @summary List role\'s entitlements
+         * @param {string} id Containing role\&#39;s ID.
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [cursor] Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **attribute**: *eq, sw, co*  **value**: *eq, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **privilegeLevel.effective**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, attribute, value, created, modified, privilegeLevel.effective**  The default sort is **created**. **id** is always added as the final sort field so that cursor pagination is stable.
+         * @param {string} [forSegmentIds] If present and not empty, filters entitlements to those assigned to the segment(s) with the specified IDs. Can\&#39;t be used with *segmented-for-identity*.
+         * @param {string} [segmentedForIdentity] If present, filters entitlements to those in the segments visible to the specified identity. The value must be the calling identity\&#39;s ID or the special value **me**. Can\&#39;t be used with *for-segment-ids*.
+         * @param {boolean} [includeUnsegmented] Whether the response list should contain unsegmented entitlements. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRoleEntitlementsV2(id: string, xSailPointExperimental?: string, limit?: number, offset?: number, count?: boolean, cursor?: string, filters?: string, sorters?: string, forSegmentIds?: string, segmentedForIdentity?: string, includeUnsegmented?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleEntitlementsV2(id, xSailPointExperimental, limit, offset, count, cursor, filters, sorters, forSegmentIds, segmentedForIdentity, includeUnsegmented, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RolesApi.getRoleEntitlementsV2']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * This API returns a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a role
          * @param {string} id ID of the Role
@@ -2569,6 +3365,20 @@ export const RolesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleV1(id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.getRoleV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a Role by its ID. The response includes the Role\'s effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Get a role
+         * @param {string} id ID of the Role
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRoleV2(id: string, xSailPointExperimental?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleV2(id, xSailPointExperimental, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RolesApi.getRoleV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2589,6 +3399,28 @@ export const RolesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listRolesV1(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.listRolesV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a list of Roles. Each Role includes its effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000. Use cursor pagination to page beyond 10,000 results.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+         * @summary List roles
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [cursor] Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+         * @param {string} [filters] Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **type**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, sw, co*  **accessProfile.id**: *eq, in*  **accessProfile.name**: *eq, sw, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listRolesV2(xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, cursor?: string, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRolesV2(xSailPointExperimental, forSubadmin, limit, offset, count, cursor, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RolesApi.listRolesV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2623,6 +3455,28 @@ export const RolesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchRolesByFilterV1(forSubadmin, limit, offset, count, sorters, forSegmentIds, includeUnsegmented, roleListFilterDTO, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RolesApi.searchRolesByFilterV1']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * This API returns a list of Roles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together. Each Role includes its effective privilege level in `privilegeLevel.effective`.  The `filters` expression in the request body supports the same fields and operators as the `filters` query parameter of [List roles](#operation/listRolesV2), including **privilegeLevel.effective**: *eq, in*.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same request body and `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+         * @summary Filter roles by metadata
+         * @param {Rolelistfilterdtov2} rolelistfilterdtov2 
+         * @param {string} [xSailPointExperimental] Use this header to enable this experimental API.
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Max number of results to return See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+         * @param {string} [cursor] Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same request body and &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+         * @param {string} [sorters] Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchRolesByFilterV2(rolelistfilterdtov2: Rolelistfilterdtov2, xSailPointExperimental?: string, forSubadmin?: string, limit?: number, offset?: number, count?: boolean, cursor?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchRolesByFilterV2(rolelistfilterdtov2, xSailPointExperimental, forSubadmin, limit, offset, count, cursor, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RolesApi.searchRolesByFilterV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2769,6 +3623,16 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getRoleEntitlementsV1(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get a list of entitlements assigned directly to a specified Role. Each entitlement includes its privilege level in `privilegeLevel`, with the direct, inherited, and effective levels.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+         * @summary List role\'s entitlements
+         * @param {RolesApiGetRoleEntitlementsV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRoleEntitlementsV2(requestParameters: RolesApiGetRoleEntitlementsV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<EntitlementV2>> {
+            return localVarFp.getRoleEntitlementsV2(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.cursor, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.segmentedForIdentity, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a role
          * @param {RolesApiGetRoleV1Request} requestParameters Request parameters.
@@ -2779,6 +3643,16 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getRoleV1(requestParameters.id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API returns a Role by its ID. The response includes the Role\'s effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Get a role
+         * @param {RolesApiGetRoleV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRoleV2(requestParameters: RolesApiGetRoleV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<RoleV2> {
+            return localVarFp.getRoleV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a list of Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
          * @summary List roles
          * @param {RolesApiListRolesV1Request} requestParameters Request parameters.
@@ -2787,6 +3661,16 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         listRolesV1(requestParameters: RolesApiListRolesV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Role>> {
             return localVarFp.listRolesV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of Roles. Each Role includes its effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000. Use cursor pagination to page beyond 10,000 results.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+         * @summary List roles
+         * @param {RolesApiListRolesV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRolesV2(requestParameters: RolesApiListRolesV2Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleV2>> {
+            return localVarFp.listRolesV2(requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.cursor, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:  * name * description * enabled * owner * additionalOwners * accessProfiles * entitlements * membership * requestable * accessRequestConfig * revokeRequestConfig * segments * accessModelMetadata    A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.  When you use this API to modify a role\'s membership identities, you can only modify up to a limit of 500 membership identities at a time.
@@ -2807,6 +3691,16 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          */
         searchRolesByFilterV1(requestParameters: RolesApiSearchRolesByFilterV1Request = {}, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<Role>> {
             return localVarFp.searchRolesByFilterV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.roleListFilterDTO, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of Roles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together. Each Role includes its effective privilege level in `privilegeLevel.effective`.  The `filters` expression in the request body supports the same fields and operators as the `filters` query parameter of [List roles](#operation/listRolesV2), including **privilegeLevel.effective**: *eq, in*.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same request body and `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+         * @summary Filter roles by metadata
+         * @param {RolesApiSearchRolesByFilterV2Request} requestParameters Request parameters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchRolesByFilterV2(requestParameters: RolesApiSearchRolesByFilterV2Request, axiosOptions?: RawAxiosRequestConfig): AxiosPromise<Array<RoleV2>> {
+            return localVarFp.searchRolesByFilterV2(requestParameters.rolelistfilterdtov2, requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.cursor, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
@@ -3034,6 +3928,90 @@ export interface RolesApiGetRoleEntitlementsV1Request {
 }
 
 /**
+ * Request parameters for getRoleEntitlementsV2 operation in RolesApi.
+ * @export
+ * @interface RolesApiGetRoleEntitlementsV2Request
+ */
+export interface RolesApiGetRoleEntitlementsV2Request {
+    /**
+     * Containing role\&#39;s ID.
+     * @type {string}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+     * @type {string}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly cursor?: string
+
+    /**
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **attribute**: *eq, sw, co*  **value**: *eq, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **privilegeLevel.effective**: *eq, in*
+     * @type {string}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, attribute, value, created, modified, privilegeLevel.effective**  The default sort is **created**. **id** is always added as the final sort field so that cursor pagination is stable.
+     * @type {string}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly sorters?: string
+
+    /**
+     * If present and not empty, filters entitlements to those assigned to the segment(s) with the specified IDs. Can\&#39;t be used with *segmented-for-identity*.
+     * @type {string}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * If present, filters entitlements to those in the segments visible to the specified identity. The value must be the calling identity\&#39;s ID or the special value **me**. Can\&#39;t be used with *for-segment-ids*.
+     * @type {string}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly segmentedForIdentity?: string
+
+    /**
+     * Whether the response list should contain unsegmented entitlements. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+     * @type {boolean}
+     * @memberof RolesApiGetRoleEntitlementsV2
+     */
+    readonly includeUnsegmented?: boolean
+}
+
+/**
  * Request parameters for getRoleV1 operation in RolesApi.
  * @export
  * @interface RolesApiGetRoleV1Request
@@ -3045,6 +4023,27 @@ export interface RolesApiGetRoleV1Request {
      * @memberof RolesApiGetRoleV1
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getRoleV2 operation in RolesApi.
+ * @export
+ * @interface RolesApiGetRoleV2Request
+ */
+export interface RolesApiGetRoleV2Request {
+    /**
+     * ID of the Role
+     * @type {string}
+     * @memberof RolesApiGetRoleV2
+     */
+    readonly id: string
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof RolesApiGetRoleV2
+     */
+    readonly xSailPointExperimental?: string
 }
 
 /**
@@ -3106,6 +4105,83 @@ export interface RolesApiListRolesV1Request {
      * Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
      * @type {boolean}
      * @memberof RolesApiListRolesV1
+     */
+    readonly includeUnsegmented?: boolean
+}
+
+/**
+ * Request parameters for listRolesV2 operation in RolesApi.
+ * @export
+ * @interface RolesApiListRolesV2Request
+ */
+export interface RolesApiListRolesV2Request {
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+     * @type {string}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly forSubadmin?: string
+
+    /**
+     * Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+     * @type {string}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly cursor?: string
+
+    /**
+     * Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw, co*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **type**: *eq, in*  **owner.id**: *eq, in*  **additionalOwners.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, sw, co*  **accessProfile.id**: *eq, in*  **accessProfile.name**: *eq, sw, co*  **privilegeLevel.effective**: *eq, in*  Supported composite operators are *and, or*
+     * @type {string}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+     * @type {string}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly sorters?: string
+
+    /**
+     * If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+     * @type {string}
+     * @memberof RolesApiListRolesV2
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+     * @type {boolean}
+     * @memberof RolesApiListRolesV2
      */
     readonly includeUnsegmented?: boolean
 }
@@ -3192,6 +4268,83 @@ export interface RolesApiSearchRolesByFilterV1Request {
      * @memberof RolesApiSearchRolesByFilterV1
      */
     readonly roleListFilterDTO?: RoleListFilterDTO
+}
+
+/**
+ * Request parameters for searchRolesByFilterV2 operation in RolesApi.
+ * @export
+ * @interface RolesApiSearchRolesByFilterV2Request
+ */
+export interface RolesApiSearchRolesByFilterV2Request {
+    /**
+     * 
+     * @type {Rolelistfilterdtov2}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly rolelistfilterdtov2: Rolelistfilterdtov2
+
+    /**
+     * Use this header to enable this experimental API.
+     * @type {string}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly xSailPointExperimental?: string
+
+    /**
+     * If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+     * @type {string}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly forSubadmin?: string
+
+    /**
+     * Max number of results to return See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. Must be 0 or omitted when *cursor* is specified. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly count?: boolean
+
+    /**
+     * Opaque cursor returned in the &#x60;x-next-cursor&#x60; response header of the previous page. Pass it with the same request body and &#x60;sorters&#x60; to get the next page of results. Can\&#39;t be used with an *offset* greater than 0.
+     * @type {string}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly cursor?: string
+
+    /**
+     * Sort results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, privilegeLevel.effective**  The default sort is **name**. **id** is always added as the final sort field so that cursor pagination is stable.
+     * @type {string}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly sorters?: string
+
+    /**
+     * If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+     * @type {string}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+     * @type {boolean}
+     * @memberof RolesApiSearchRolesByFilterV2
+     */
+    readonly includeUnsegmented?: boolean
 }
 
 /**
@@ -3367,6 +4520,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * Get a list of entitlements assigned directly to a specified Role. Each entitlement includes its privilege level in `privilegeLevel`, with the direct, inherited, and effective levels.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+     * @summary List role\'s entitlements
+     * @param {RolesApiGetRoleEntitlementsV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRoleEntitlementsV2(requestParameters: RolesApiGetRoleEntitlementsV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return RolesApiFp(this.configuration).getRoleEntitlementsV2(requestParameters.id, requestParameters.xSailPointExperimental, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.cursor, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.segmentedForIdentity, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API returns a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
      * @summary Get a role
      * @param {RolesApiGetRoleV1Request} requestParameters Request parameters.
@@ -3379,6 +4544,18 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
+     * This API returns a Role by its ID. The response includes the Role\'s effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+     * @summary Get a role
+     * @param {RolesApiGetRoleV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRoleV2(requestParameters: RolesApiGetRoleV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return RolesApiFp(this.configuration).getRoleV2(requestParameters.id, requestParameters.xSailPointExperimental, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API returns a list of Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
      * @summary List roles
      * @param {RolesApiListRolesV1Request} requestParameters Request parameters.
@@ -3388,6 +4565,18 @@ export class RolesApi extends BaseAPI {
      */
     public listRolesV1(requestParameters: RolesApiListRolesV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return RolesApiFp(this.configuration).listRolesV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of Roles. Each Role includes its effective privilege level in `privilegeLevel.effective`, which is the highest effective privilege level among the entitlements assigned directly to the Role and the entitlements included in the Role\'s access profiles.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000. Use cursor pagination to page beyond 10,000 results.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+     * @summary List roles
+     * @param {RolesApiListRolesV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public listRolesV2(requestParameters: RolesApiListRolesV2Request = {}, axiosOptions?: RawAxiosRequestConfig) {
+        return RolesApiFp(this.configuration).listRolesV2(requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.cursor, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3412,6 +4601,18 @@ export class RolesApi extends BaseAPI {
      */
     public searchRolesByFilterV1(requestParameters: RolesApiSearchRolesByFilterV1Request = {}, axiosOptions?: RawAxiosRequestConfig) {
         return RolesApiFp(this.configuration).searchRolesByFilterV1(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.roleListFilterDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of Roles filtered by Access Model Metadata and by filter expression. Filtering is supported by filter expression, by metadata attribute key and values, or by both together. Each Role includes its effective privilege level in `privilegeLevel.effective`.  The `filters` expression in the request body supports the same fields and operators as the `filters` query parameter of [List roles](#operation/listRolesV2), including **privilegeLevel.effective**: *eq, in*.  Use either offset pagination (`offset` and `limit`) or cursor pagination (`cursor` and `limit`). When more results are available, the `x-next-cursor` response header contains the cursor for the next page. Send that value in the `cursor` query parameter, with the same request body and `sorters`, to get the next page. You can\'t use `cursor` together with an `offset` greater than 0, and `offset` plus `limit` can\'t be greater than 10,000.
+     * @summary Filter roles by metadata
+     * @param {RolesApiSearchRolesByFilterV2Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public searchRolesByFilterV2(requestParameters: RolesApiSearchRolesByFilterV2Request, axiosOptions?: RawAxiosRequestConfig) {
+        return RolesApiFp(this.configuration).searchRolesByFilterV2(requestParameters.rolelistfilterdtov2, requestParameters.xSailPointExperimental, requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.cursor, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

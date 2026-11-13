@@ -1,0 +1,279 @@
+- path: /ui-plugins/v1/{pluginInstanceId}/asset-bundles
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#create-ui-plugin-asset-bundle-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const pluginInstanceId: string = '2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c'; // string | UUID of the plugin instance (default to undefined)
+        const file: Array<File> = /path/to/file.txt; // Array<File> | Repeatable form field. Send one part per file; use the part filename for the bundle-relative path (e.g. `assets/app.js`). (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createUiPluginAssetBundleV1({ pluginInstanceId: pluginInstanceId, file: file });
+        console.log(result);
+- path: /ui-plugins/v1/{pluginInstanceId}/link
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#create-ui-plugin-link-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { LinkUIPluginRequest } from '@sailpoint/api-client/dist/ui_plugins/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const pluginInstanceId: string = '2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c'; // string | UUID of the plugin instance (default to undefined)
+        const linkUIPluginRequest: LinkUIPluginRequest = {
+  "port" : 4200
+}; // LinkUIPluginRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createUiPluginLinkV1({ pluginInstanceId: pluginInstanceId, linkUIPluginRequest: linkUIPluginRequest });
+        console.log(result);
+- path: /ui-plugins/v1
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#create-ui-plugin-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { CreateUIPluginRequest } from '@sailpoint/api-client/dist/ui_plugins/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const createUIPluginRequest: CreateUIPluginRequest = {
+  "apiScopes" : [ "idn:account:read" ],
+  "iframeSandbox" : "",
+  "slots" : [ {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  } ],
+  "iframeAllow" : {
+    "default-src" : [ "'self'" ]
+  },
+  "name" : {
+    "en" : "Example text",
+    "fr" : "Texte d'exemple"
+  },
+  "alias" : "my-custom-plugin",
+  "description" : {
+    "en" : "Example text",
+    "fr" : "Texte d'exemple"
+  },
+  "permissionPolicy" : {
+    "default-src" : [ "'self'" ]
+  },
+  "contentSecurityPolicies" : {
+    "default-src" : [ "'self'" ]
+  }
+}; // CreateUIPluginRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createUiPluginV1({ createUIPluginRequest: createUIPluginRequest });
+        console.log(result);
+- path: /ui-plugins/v1/{pluginInstanceId}/link
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#delete-ui-plugin-link-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const pluginInstanceId: string = '2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c'; // string | UUID of the plugin instance (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteUiPluginLinkV1({ pluginInstanceId: pluginInstanceId });
+        console.log(result);
+- path: /ui-plugins/v1/{pluginInstanceId}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#delete-ui-plugin-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const pluginInstanceId: string = '2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c'; // string | UUID of the plugin instance (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteUiPluginV1({ pluginInstanceId: pluginInstanceId });
+        console.log(result);
+- path: /ui-plugins/v1/resolve-alias
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#get-ui-plugin-by-alias-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const alias: string = 'my-custom-plugin'; // string | Alias to resolve within the caller\'s tenant (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getUiPluginByAliasV1({ alias: alias });
+        console.log(result);
+- path: /ui-plugins/v1/{pluginInstanceId}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#get-ui-plugin-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const pluginInstanceId: string = '2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c'; // string | UUID of the plugin instance (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getUiPluginV1({ pluginInstanceId: pluginInstanceId });
+        console.log(result);
+- path: /ui-plugins/v1/{pluginInstanceId}/asset-bundles
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#list-ui-plugin-asset-bundles-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const pluginInstanceId: string = '2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c'; // string | UUID of the plugin instance (default to undefined)
+        const limit: number = 250; // number | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listUiPluginAssetBundlesV1({ pluginInstanceId: pluginInstanceId });
+        console.log(result);
+- path: /ui-plugin-slots/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#list-ui-plugin-slots-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const filters: string = 'state eq "active"'; // string | Filter results using the standard syntax described in [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **state**: *eq* (optional) (default to undefined)
+        const allLangs: boolean = false; // boolean | When `true`, `name` and `description` are returned as full locale maps instead of a single translated string. (optional) (default to false)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listUiPluginSlotsV1({  });
+        console.log(result);
+- path: /ui-plugins/v1
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#list-ui-plugins-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const limit: number = 250; // number | Max number of results to return. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        const offset: number = 0; // number | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        const count: boolean = true; // boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [API Standard Collection Parameters](https://developer.sailpoint.com/docs/api/standard-collection-parameters) for more information. (optional) (default to false)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.listUiPluginsV1({  });
+        console.log(result);
+- path: /ui-plugins/v1/validate-alias
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#test-ui-plugin-alias-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const alias: string = 'my-custom-plugin'; // string | Alias to validate (3-63 chars; letters, numbers, dashes; no leading/trailing/consecutive dashes) (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.testUiPluginAliasV1({ alias: alias });
+        console.log(result);
+- path: /ui-plugins/v1/{pluginInstanceId}
+  method: PATCH
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/ui_plugins/methods/ui-plugins#update-ui-plugin-v1
+      source: |
+        import { UIPluginsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { UpdateUIPluginRequest } from '@sailpoint/api-client/dist/ui_plugins/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new UIPluginsApi(configuration);
+        const pluginInstanceId: string = '2c918086-7b5f-4b3e-8a1c-2d3e4f5a6b7c'; // string | UUID of the plugin instance (default to undefined)
+        const updateUIPluginRequest: UpdateUIPluginRequest = {
+  "apiScopes" : [ "idn:account:read" ],
+  "iframeSandbox" : "",
+  "slots" : [ {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  }, {
+    "slotId" : "full-page",
+    "restrictToUsers" : [ "2c9180867b5f4b3e8a1c2d3e4f5a6b7c" ],
+    "requiredCapabilities" : [ "ORG_ADMIN" ]
+  } ],
+  "iframeAllow" : {
+    "default-src" : [ "'self'" ]
+  },
+  "name" : {
+    "en" : "Example text",
+    "fr" : "Texte d'exemple"
+  },
+  "alias" : "my-custom-plugin",
+  "description" : {
+    "en" : "Example text",
+    "fr" : "Texte d'exemple"
+  },
+  "permissionPolicy" : {
+    "default-src" : [ "'self'" ]
+  },
+  "state" : "ENABLED",
+  "contentSecurityPolicies" : {
+    "default-src" : [ "'self'" ]
+  }
+}; // UpdateUIPluginRequest | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.updateUiPluginV1({ pluginInstanceId: pluginInstanceId, updateUIPluginRequest: updateUIPluginRequest });
+        console.log(result);

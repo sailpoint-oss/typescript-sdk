@@ -1,0 +1,191 @@
+- path: /reminder-escalations/v1/config/tenants
+  method: POST
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/reminder_escalations/methods/reminder-escalations#create-reminder-escalation-tenant-config-v1
+      source: |
+        import { ReminderEscalationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Reminderescalationtenantconfigcreate } from '@sailpoint/api-client/dist/reminder_escalations/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new ReminderEscalationsApi(configuration);
+        const reminderescalationtenantconfigcreate: Reminderescalationtenantconfigcreate = {
+  "domainObjectType" : "CERTIFICATION",
+  "rules" : {
+    "reminders" : [ {
+      "cron" : "0 9 * * *",
+      "template" : "cert-reminder-daily",
+      "maxFirings" : 5,
+      "beforeDeadLine" : "P7D",
+      "activeAfter" : "P14D"
+    }, {
+      "cron" : "0 9 * * *",
+      "template" : "cert-reminder-daily",
+      "maxFirings" : 5,
+      "beforeDeadLine" : "P7D",
+      "activeAfter" : "P14D"
+    } ],
+    "escalations" : [ {
+      "template" : "cert-escalation-mgr",
+      "trigger" : {
+        "cron" : "0 9 * * 1",
+        "delay" : "PT12H",
+        "maxFirings" : 3,
+        "beforeDeadLine" : "P7D",
+        "count" : 3,
+        "triggerType" : "AFTER_REMINDER_COUNT",
+        "activeAfter" : "P14D"
+      },
+      "targets" : [ {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      }, {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      } ]
+    }, {
+      "template" : "cert-escalation-mgr",
+      "trigger" : {
+        "cron" : "0 9 * * 1",
+        "delay" : "PT12H",
+        "maxFirings" : 3,
+        "beforeDeadLine" : "P7D",
+        "count" : 3,
+        "triggerType" : "AFTER_REMINDER_COUNT",
+        "activeAfter" : "P14D"
+      },
+      "targets" : [ {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      }, {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      } ]
+    } ],
+    "fallback" : {
+      "template" : "cert-escalation-fallback-admin",
+      "targets" : [ {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      }, {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      } ]
+    }
+  }
+}; // Reminderescalationtenantconfigcreate | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.createReminderEscalationTenantConfigV1({ reminderescalationtenantconfigcreate: reminderescalationtenantconfigcreate });
+        console.log(result);
+- path: /reminder-escalations/v1/config/tenants/{domainObjectType}
+  method: DELETE
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/reminder_escalations/methods/reminder-escalations#delete-reminder-escalation-tenant-config-v1
+      source: |
+        import { ReminderEscalationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new ReminderEscalationsApi(configuration);
+        const domainObjectType: string = 'CERTIFICATION'; // 'PERSONAL_ACCESS_TOKEN' | 'CERTIFICATION' | Domain object type key. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.deleteReminderEscalationTenantConfigV1({ domainObjectType: domainObjectType });
+        console.log(result);
+- path: /reminder-escalations/v1/config/tenants/{domainObjectType}
+  method: GET
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/reminder_escalations/methods/reminder-escalations#get-reminder-escalation-tenant-config-v1
+      source: |
+        import { ReminderEscalationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+
+        const configuration = new Configuration();
+        const apiInstance = new ReminderEscalationsApi(configuration);
+        const domainObjectType: string = 'CERTIFICATION'; // 'PERSONAL_ACCESS_TOKEN' | 'CERTIFICATION' | Domain object type key. (default to undefined)
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.getReminderEscalationTenantConfigV1({ domainObjectType: domainObjectType });
+        console.log(result);
+- path: /reminder-escalations/v1/config/tenants/{domainObjectType}
+  method: PUT
+  xCodeSample:
+    - lang: TypeScript
+      label: SDK_tools/sdk/typescript/reminder_escalations/methods/reminder-escalations#put-reminder-escalation-tenant-config-v1
+      source: |
+        import { ReminderEscalationsApi } from '@sailpoint/api-client';
+        import { Configuration } from '@sailpoint/api-client';
+        import { Reminderescalationtenantconfigupdate } from '@sailpoint/api-client/dist/reminder_escalations/api';
+
+        const configuration = new Configuration();
+        const apiInstance = new ReminderEscalationsApi(configuration);
+        const domainObjectType: string = 'CERTIFICATION'; // 'PERSONAL_ACCESS_TOKEN' | 'CERTIFICATION' | Domain object type key. (default to undefined)
+        const reminderescalationtenantconfigupdate: Reminderescalationtenantconfigupdate = {
+  "rules" : {
+    "reminders" : [ {
+      "cron" : "0 9 * * *",
+      "template" : "cert-reminder-daily",
+      "maxFirings" : 5,
+      "beforeDeadLine" : "P7D",
+      "activeAfter" : "P14D"
+    }, {
+      "cron" : "0 9 * * *",
+      "template" : "cert-reminder-daily",
+      "maxFirings" : 5,
+      "beforeDeadLine" : "P7D",
+      "activeAfter" : "P14D"
+    } ],
+    "escalations" : [ {
+      "template" : "cert-escalation-mgr",
+      "trigger" : {
+        "cron" : "0 9 * * 1",
+        "delay" : "PT12H",
+        "maxFirings" : 3,
+        "beforeDeadLine" : "P7D",
+        "count" : 3,
+        "triggerType" : "AFTER_REMINDER_COUNT",
+        "activeAfter" : "P14D"
+      },
+      "targets" : [ {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      }, {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      } ]
+    }, {
+      "template" : "cert-escalation-mgr",
+      "trigger" : {
+        "cron" : "0 9 * * 1",
+        "delay" : "PT12H",
+        "maxFirings" : 3,
+        "beforeDeadLine" : "P7D",
+        "count" : 3,
+        "triggerType" : "AFTER_REMINDER_COUNT",
+        "activeAfter" : "P14D"
+      },
+      "targets" : [ {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      }, {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      } ]
+    } ],
+    "fallback" : {
+      "template" : "cert-escalation-fallback-admin",
+      "targets" : [ {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      }, {
+        "identityId" : "id-admin-99",
+        "targetType" : "MANAGER_OF"
+      } ]
+    }
+  },
+  "revision" : 1
+}; // Reminderescalationtenantconfigupdate | 
+        const xSailPointExperimental: string = 'true'; // string | Use this header to enable this experimental API. (optional) (default to 'true')
+        const result = await apiInstance.putReminderEscalationTenantConfigV1({ domainObjectType: domainObjectType, reminderescalationtenantconfigupdate: reminderescalationtenantconfigupdate });
+        console.log(result);
